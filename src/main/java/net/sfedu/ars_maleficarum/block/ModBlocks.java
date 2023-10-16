@@ -3,11 +3,14 @@ package net.sfedu.ars_maleficarum.block;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 import java.util.function.Supplier;
@@ -18,6 +21,10 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS,ArsMaleficarum.MOD_ID);
 
+
+
+    public static final RegistryObject<Block> SAGE_CROP = BLOCKS.register("sage_crop",
+            ()->new SageCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
 
     //Регистрация блока и предмета, привязанного к нему

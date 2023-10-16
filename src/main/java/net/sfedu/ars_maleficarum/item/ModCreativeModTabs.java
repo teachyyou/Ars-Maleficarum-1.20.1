@@ -25,6 +25,7 @@ public class ModCreativeModTabs {
                         //Здесь перечисление всех предметов, находящихся во вкладке
                         pOutput.accept(ModItems.SAGE_FLOWER.get());
                         pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
+                        pOutput.accept(ModItems.SAGE_SEED.get());
                     }))
                     .build());
 

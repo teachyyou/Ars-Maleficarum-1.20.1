@@ -1,11 +1,13 @@
 package net.sfedu.ars_maleficarum.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 
 public class ModItems {
 
@@ -16,6 +18,10 @@ public class ModItems {
     //Регистрация цветка шалфея
     public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",
             ()->new Item(new Item.Properties()));
+
+    //Регистрация семян шалфея
+    public static final RegistryObject<Item> SAGE_SEED = ITEMS.register("sage_seeds",
+            ()->new ItemNameBlockItem(ModBlocks.SAGE_CROP.get(), new Item.Properties()));
 
     //Регистрация цветка календулы
     public static final RegistryObject<Item> MARIGOLD_FLOWER = ITEMS.register("marigold_flower",
