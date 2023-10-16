@@ -17,6 +17,10 @@ public class ModItems {
     public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",
             ()->new Item(new Item.Properties()));
 
+    //Регистрация цветка календулы
+    public static final RegistryObject<Item> MARIGOLD_FLOWER = ITEMS.register("marigold_flower",
+            ()->new Item(new Item.Properties()));
+
     //Регистрация предметов
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

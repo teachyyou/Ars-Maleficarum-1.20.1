@@ -1,4 +1,9 @@
 {
-  "item.ars_maleficarum.sage_flower": "Цветок шалфея",
-  "creativetab.ars_maleficarum_tab": "Ars Maleficarum"
+
+  "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
+
+
+  "item.ars_maleficarum.sage_flower": "Цветок Шалфея",
+  "item.ars_maleficarum.marigold_flower": "Цветок Календулы"
+
 }

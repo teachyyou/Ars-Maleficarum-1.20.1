@@ -17,11 +17,14 @@ public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ArsMaleficarum.MOD_ID);
 
+    //Создание творческой вкладки
     public static final RegistryObject<CreativeModeTab> TUTORIAL_TAB = CREATIVE_MODE_TABS.register("ars_maleficarum_tab",
             ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SAGE_FLOWER.get()))
                     .title(Component.translatable("creativetab.ars_maleficarum_tab"))
                     .displayItems(((pParameters, pOutput) -> {
+                        //Здесь перечисление всех предметов, находящихся во вкладке
                         pOutput.accept(ModItems.SAGE_FLOWER.get());
+                        pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
                     }))
                     .build());
 
