@@ -12,6 +12,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
+import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import org.slf4j.Logger;
@@ -37,6 +39,7 @@ public class ArsMaleficarum
 
         //Регистрация блоков
         ModBlocks.register(modEventBus);
+
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

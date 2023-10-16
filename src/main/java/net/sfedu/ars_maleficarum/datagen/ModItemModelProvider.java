@@ -18,15 +18,15 @@ public class ModItemModelProvider extends ItemModelProvider {
     //Создание моделей для перечисленных предметов по шаблону simpleItem
     @Override
     protected void registerModels() {
-        simpleItem(ModItems.MARIGOLD_FLOWER);
-        simpleItem(ModItems.SAGE_FLOWER);
-        simpleItem(ModItems.SAGE_SEED);
+        //simpleItem(ModItems.MARIGOLD_FLOWER);
+        //simpleItem(ModItems.SAGE_FLOWER);
+        //simpleItem(ModItems.SAGE_SEED);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generaged")).texture("layer0",
+                new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
     }
 }
