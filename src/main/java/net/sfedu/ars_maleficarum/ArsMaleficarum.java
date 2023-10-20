@@ -1,7 +1,6 @@
 package net.sfedu.ars_maleficarum;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -61,17 +60,7 @@ public class ArsMaleficarum
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
-        {
-            event.accept(ModItems.CURSED_GOLD);
-            event.accept(ModItems.CURSED_SILVER);
-            event.accept(ModItems.CURSED_GOLD_NUGGET);
-            event.accept(ModItems.CURSED_SILVER_NUGGET);
-            event.accept(ModBlocks.CURSED_GOLD_BLOCK);
-            event.accept(ModBlocks.CURSED_SILVER_BLOCK);
-            event.accept(ModBlocks.RAW_CURSED_SILVER_BLOCK);
-            event.accept(ModBlocks.RAW_CURSED_GOLD_BLOCK);
-        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
