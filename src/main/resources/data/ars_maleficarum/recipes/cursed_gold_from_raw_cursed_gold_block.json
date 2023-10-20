@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "cursed",
+  "ingredient": {
+    "item": "ars_maleficarum:raw_cursed_gold_block"
+  },
+  "result": "ars_maleficarum:cursed_gold"
+}

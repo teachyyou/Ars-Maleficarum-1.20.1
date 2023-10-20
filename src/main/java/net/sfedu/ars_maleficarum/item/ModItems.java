@@ -14,6 +14,18 @@ public class ModItems {
     //DefferedRegister для предметов
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ArsMaleficarum.MOD_ID);
+    //Регистрация слитка "Проклятое золото"
+    public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
+            () -> new Item(new Item.Properties()));
+    //Регистрация слитка "Проклятое серебро"
+    public static final RegistryObject<Item> CURSED_SILVER = ITEMS.register("cursed_silver",
+            () -> new Item(new Item.Properties()));
+    //Регистрация самородка "Проклятого серебра"
+    public static final RegistryObject<Item> CURSED_SILVER_NUGGET = ITEMS.register("cursed_silver_nugget",
+            () -> new Item(new Item.Properties()));
+    //Регистрация самородка "Проклятого золота"
+    public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
+            () -> new Item(new Item.Properties()));
 
     //Регистрация цветка шалфея
     public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",

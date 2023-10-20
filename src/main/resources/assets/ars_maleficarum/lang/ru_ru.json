@@ -6,6 +6,13 @@
   "item.ars_maleficarum.sage_flower": "Цветок Шалфея",
   "item.ars_maleficarum.marigold_flower": "Цветок Календулы",
   "item.ars_maleficarum.sage_seeds": "Семена Шалфея",
-  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея"
-
+  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея",
+  "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
+  "item.ars_maleficarum.cursed_silver": "Слиток Проклятого Серебра",
+  "item.ars_maleficarum.cursed_silver_nugget": "Самородок Проклятого Серебра",
+  "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
+  "block.ars_maleficarum.cursed_gold_block": "Блок Проклятого Золота",
+  "block.ars_maleficarum.cursed_silver_block": "Блок Проклятого Серебра",
+  "block.ars_maleficarum.raw_cursed_silver_block": "Руда Проклятого Серебра",
+  "block.ars_maleficarum.raw_cursed_gold_block": "Руда Проклятого Золота"
 }

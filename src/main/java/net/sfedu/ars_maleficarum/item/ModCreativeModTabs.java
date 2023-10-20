@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 
 import java.awt.*;
 
@@ -26,6 +27,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SAGE_FLOWER.get());
                         pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
                         pOutput.accept(ModItems.SAGE_SEED.get());
+                        pOutput.accept(ModItems.CURSED_GOLD.get());
+                        pOutput.accept(ModItems.CURSED_SILVER.get());
+                        pOutput.accept(ModItems.CURSED_GOLD_NUGGET.get());
+                        pOutput.accept(ModItems.CURSED_SILVER_NUGGET.get());
+                        pOutput.accept(ModBlocks.CURSED_GOLD_BLOCK.get());
+                        pOutput.accept(ModBlocks.CURSED_SILVER_BLOCK.get());
+                        pOutput.accept(ModBlocks.RAW_CURSED_SILVER_BLOCK.get());
+                        pOutput.accept(ModBlocks.RAW_CURSED_GOLD_BLOCK.get());
                     }))
                     .build());
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:cursed_silver_block"
+    }
+  ],
+  "result": {
+    "item": "ars_maleficarum:cursed_silver",
+    "count": 9
+  }
+}
