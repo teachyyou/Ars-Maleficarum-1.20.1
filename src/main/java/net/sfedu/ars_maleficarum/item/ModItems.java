@@ -35,6 +35,22 @@ public class ModItems {
     public static final RegistryObject<Item> MARIGOLD_SEED = ITEMS.register("marigold_seeds",
             ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
 
+    //Регистрация слитка проклятого золота
+    public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
+            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+
+    //Регистрация слитка проклятого серебра
+    public static final RegistryObject<Item> CURSED_SILVER = ITEMS.register("cursed_silver",
+            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+
+    //Регистрация  самородка проклятого серебра
+    public static final RegistryObject<Item> CURSED_SILVER_NUGGET = ITEMS.register("cursed_silver_nugget",
+            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+
+    //Регистрация  самородка проклятого золота
+    public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
+            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+
     //Регистрация предметов
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

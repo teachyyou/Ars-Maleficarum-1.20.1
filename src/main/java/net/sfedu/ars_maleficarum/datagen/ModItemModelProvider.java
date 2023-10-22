@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -21,9 +22,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SAGE_FLOWER);
         simpleItem(ModItems.SAGE_SEED);
         simpleItem(ModItems.SAGE_LEAF);
-
         simpleItem(ModItems.MARIGOLD_SEED);
         simpleItem(ModItems.MARIGOLD_FLOWER);
+        simpleItem(ModItems.CURSED_GOLD);
+        simpleItem(ModItems.CURSED_SILVER_NUGGET);
+        simpleItem(ModItems.CURSED_SILVER);
+        simpleItem(ModItems.CURSED_GOLD_NUGGET);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
