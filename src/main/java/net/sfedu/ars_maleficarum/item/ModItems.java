@@ -19,6 +19,10 @@ public class ModItems {
     public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",
             ()->new Item(new Item.Properties()));
 
+    //Регистрация листьев шалфея
+    public static final RegistryObject<Item> SAGE_LEAF = ITEMS.register("sage_leaf",
+            ()->new Item(new Item.Properties()));
+
     //Регистрация семян шалфея
     public static final RegistryObject<Item> SAGE_SEED = ITEMS.register("sage_seeds",
             ()->new ItemNameBlockItem(ModBlocks.SAGE_CROP.get(), new Item.Properties()));
@@ -26,6 +30,10 @@ public class ModItems {
     //Регистрация цветка календулы
     public static final RegistryObject<Item> MARIGOLD_FLOWER = ITEMS.register("marigold_flower",
             ()->new Item(new Item.Properties()));
+
+    //Регистрация семян календулы
+    public static final RegistryObject<Item> MARIGOLD_SEED = ITEMS.register("marigold_seeds",
+            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

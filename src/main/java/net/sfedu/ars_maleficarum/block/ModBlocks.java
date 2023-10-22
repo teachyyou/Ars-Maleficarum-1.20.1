@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
@@ -23,8 +24,13 @@ public class ModBlocks {
 
 
 
+    //Регистрация посевов шалфея
     public static final RegistryObject<Block> SAGE_CROP = BLOCKS.register("sage_crop",
             ()->new SageCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+    //Регистрация посевов календулы
+    public static final RegistryObject<Block> MARIGOLD_CROP = BLOCKS.register("marigold_crop",
+            ()->new MarigoldCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
 
 
     //Регистрация блока и предмета, привязанного к нему

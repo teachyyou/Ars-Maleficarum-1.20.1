@@ -23,9 +23,12 @@ public class ModCreativeModTabs {
                     .title(Component.translatable("creativetab.ars_maleficarum_tab"))
                     .displayItems(((pParameters, pOutput) -> {
                         //Здесь перечисление всех предметов, находящихся во вкладке
-                        pOutput.accept(ModItems.SAGE_FLOWER.get());
-                        pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
                         pOutput.accept(ModItems.SAGE_SEED.get());
+                        pOutput.accept(ModItems.SAGE_FLOWER.get());
+                        pOutput.accept(ModItems.SAGE_LEAF.get());
+                        pOutput.accept(ModItems.MARIGOLD_SEED.get());
+                        pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
+
                     }))
                     .build());
 

@@ -18,9 +18,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     //Создание моделей для перечисленных предметов по шаблону simpleItem
     @Override
     protected void registerModels() {
-        simpleItem(ModItems.MARIGOLD_FLOWER);
         simpleItem(ModItems.SAGE_FLOWER);
         simpleItem(ModItems.SAGE_SEED);
+        simpleItem(ModItems.SAGE_LEAF);
+
+        simpleItem(ModItems.MARIGOLD_SEED);
+        simpleItem(ModItems.MARIGOLD_FLOWER);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

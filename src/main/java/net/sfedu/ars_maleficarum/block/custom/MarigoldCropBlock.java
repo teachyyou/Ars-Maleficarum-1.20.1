@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
-public class SageCropBlock extends CropBlock {
+public class MarigoldCropBlock extends CropBlock {
 
     //Максимальная стадия роста (от 0)
     public static final int MAX_AGE = 3;
@@ -18,15 +18,14 @@ public class SageCropBlock extends CropBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
 
     //Конструктор, вызывающий конструктор родителя
-    public SageCropBlock(Properties pProperties) {
+    public MarigoldCropBlock(Properties pProperties) {
         super(pProperties);
     }
 
     //Семена, необходимые для выращивания
     @Override
     protected ItemLike getBaseSeedId() {
-
-        return ModItems.SAGE_SEED.get();
+        return ModItems.MARIGOLD_SEED.get();
     }
 
     //Текущая стадия роста

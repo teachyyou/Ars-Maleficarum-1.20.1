@@ -6,6 +6,9 @@
   "item.ars_maleficarum.sage_flower": "Цветок Шалфея",
   "item.ars_maleficarum.marigold_flower": "Цветок Календулы",
   "item.ars_maleficarum.sage_seeds": "Семена Шалфея",
-  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея"
+  "item.ars_maleficarum.sage_leaf": "Листья Шалфея",
+  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея",
+  "item.ars_maleficarum.marigold_seeds": "Семена Календулы",
+  "blocks.ars_maleficarum.marigold_crop": "Побеги Календулы"
 
 }
