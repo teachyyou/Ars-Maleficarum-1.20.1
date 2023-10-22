@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "cursed_gold_block_from_cursed_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:cursed_gold"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ars_maleficarum:cursed_gold_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "cursed_gold_block_from_cursed_gold",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ars_maleficarum:cursed_gold_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}
