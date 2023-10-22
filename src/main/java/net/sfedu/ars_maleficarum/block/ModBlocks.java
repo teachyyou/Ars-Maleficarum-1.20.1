@@ -32,6 +32,20 @@ public class ModBlocks {
     public static final RegistryObject<Block> MARIGOLD_CROP = BLOCKS.register("marigold_crop",
             ()->new MarigoldCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
 
+    //Регистрация блока проклятого золота
+    public static  final RegistryObject<Block> CURSED_GOLD_BLOCK = registerBlock("cursed_gold_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
+
+    //Регистрация блока проклятого золота
+    public static  final RegistryObject<Block> CURSED_SILVER_BLOCK = registerBlock("cursed_silver_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    //Регистрация блока руды проклятого серебра
+    public static  final RegistryObject<Block> CURSED_SILVER_ORE_BLOCK = registerBlock("cursed_silver_ore_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+    //Регистрация блока руды проклятого золота
+    public static  final RegistryObject<Block> CURSED_GOLD_ORE_BLOCK = registerBlock("cursed_gold_ore_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_GOLD_BLOCK)));
+
 
     //Регистрация блока и предмета, привязанного к нему
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -29,6 +29,11 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         makeSageCrop((CropBlock) ModBlocks.SAGE_CROP.get(),"sage_stage","sage_stage");
         makeMarigoldCrop((CropBlock) ModBlocks.MARIGOLD_CROP.get(),"marigold_stage","marigold_stage");
+        blockWithItem(ModBlocks.CURSED_GOLD_BLOCK);
+        blockWithItem(ModBlocks.CURSED_SILVER_BLOCK);
+        blockWithItem(ModBlocks.CURSED_GOLD_ORE_BLOCK);
+        blockWithItem(ModBlocks.CURSED_SILVER_ORE_BLOCK);
+
     }
 
 
@@ -62,7 +67,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
     }
 
 
-    //Быстрая регистрация даты для блока и предета
+    //Быстрая регистрация даты для блока и предмета
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(),cubeAll(blockRegistryObject.get()));
     }
