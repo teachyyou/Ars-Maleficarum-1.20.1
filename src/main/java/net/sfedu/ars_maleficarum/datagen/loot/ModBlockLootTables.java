@@ -31,7 +31,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         generateSageCropDrop();
         generateMarigoldCropDrop();
-
+        //Блоки, которые при ломании дропают сами себя
+        this.dropSelf(ModBlocks.CURSED_GOLD_BLOCK.get());
+        this.dropSelf(ModBlocks.CURSED_SILVER_BLOCK.get());
+        this.dropSelf(ModBlocks.CURSED_SILVER_ORE_BLOCK.get());
+        this.dropSelf(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
     }
 
     //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
