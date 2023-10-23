@@ -10,8 +10,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 
-import java.awt.*;
-
 public class ModCreativeModTabs {
 
     //DefferedRegister для вкладки в творческом режиме
@@ -30,13 +28,13 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MARIGOLD_SEED.get());
                         pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
                         pOutput.accept(ModBlocks.CURSED_GOLD_BLOCK.get());
-                        pOutput.accept(ModBlocks.CURSED_SILVER_BLOCK.get());
+                        pOutput.accept(ModBlocks.SILVER_BLOCK.get());
                         pOutput.accept(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
-                        pOutput.accept(ModBlocks.CURSED_SILVER_ORE_BLOCK.get());
-                        pOutput.accept(ModItems.CURSED_SILVER_NUGGET.get());
+                        pOutput.accept(ModBlocks.SILVER_ORE_BLOCK.get());
+                        pOutput.accept(ModItems.SILVER_NUGGET.get());
                         pOutput.accept(ModItems.CURSED_GOLD_NUGGET.get());
                         pOutput.accept(ModItems.CURSED_GOLD.get());
-                        pOutput.accept(ModItems.CURSED_SILVER.get());
+                        pOutput.accept(ModItems.SILVER.get());
                     }))
                     .build());
 

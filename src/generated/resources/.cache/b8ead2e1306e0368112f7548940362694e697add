@@ -1,10 +1,10 @@
-// 1.20.1	2023-10-22T18:43:13.7728331	Item Models: ars_maleficarum
+// 1.20.1	2023-10-23T12:22:00.0778379	Item Models: ars_maleficarum
 039525fd3d858dc213dd83964307f04c00fddadd assets/ars_maleficarum/models/item/cursed_gold.json
 6d579477cc5121c00c6864d6a28b36fc5392f9b5 assets/ars_maleficarum/models/item/cursed_gold_nugget.json
-b80af4b5f1e359c1161866039dd26952567ac1d7 assets/ars_maleficarum/models/item/cursed_silver.json
-f08656c138fd93b989cf7979937261a1ef416528 assets/ars_maleficarum/models/item/cursed_silver_nugget.json
 95e1591786ef5efdf3a5d25d2a096b7ed1343763 assets/ars_maleficarum/models/item/marigold_flower.json
 2f4fb5ea5c45eeb6b572c5e70564bf389ff9ec1f assets/ars_maleficarum/models/item/marigold_seeds.json
 be9b3833b6630130c6dfcc155d1eaf4722c2e620 assets/ars_maleficarum/models/item/sage_flower.json
 e0930ac416a3505d66aa833bbc2ed35c2554a7c2 assets/ars_maleficarum/models/item/sage_leaf.json
 51761103405f9395682329e0c7be182ba3d1d64c assets/ars_maleficarum/models/item/sage_seeds.json
+871df66ba320ea6193fa0134e7fb18261df518d8 assets/ars_maleficarum/models/item/silver.json
+1df4c580a73ce2487db11465cc8eec3b8d6e6151 assets/ars_maleficarum/models/item/silver_nugget.json

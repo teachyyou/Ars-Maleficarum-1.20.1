@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "cursed_silver_block_from_cursed_silver": {
+    "has_silver": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ars_maleficarum:cursed_silver"
+              "ars_maleficarum:silver"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:cursed_silver_block"
+        "recipe": "ars_maleficarum:silver_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "cursed_silver_block_from_cursed_silver",
+      "has_silver",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:cursed_silver_block"
+      "ars_maleficarum:silver_block"
     ]
   },
   "sends_telemetry_event": false

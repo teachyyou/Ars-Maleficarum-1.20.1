@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -30,9 +29,9 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         makeSageCrop((CropBlock) ModBlocks.SAGE_CROP.get(),"sage_stage","sage_stage");
         makeMarigoldCrop((CropBlock) ModBlocks.MARIGOLD_CROP.get(),"marigold_stage","marigold_stage");
         blockWithItem(ModBlocks.CURSED_GOLD_BLOCK);
-        blockWithItem(ModBlocks.CURSED_SILVER_BLOCK);
+        blockWithItem(ModBlocks.SILVER_BLOCK);
         blockWithItem(ModBlocks.CURSED_GOLD_ORE_BLOCK);
-        blockWithItem(ModBlocks.CURSED_SILVER_ORE_BLOCK);
+        blockWithItem(ModBlocks.SILVER_ORE_BLOCK);
 
     }
 

@@ -20,14 +20,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         //Для добычи каких предметов нужна кирка
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                ModBlocks.CURSED_SILVER_BLOCK.get(),
+                ModBlocks.SILVER_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
-                ModBlocks.CURSED_SILVER_ORE_BLOCK.get(),
+                ModBlocks.SILVER_ORE_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
         //Категория предметов, для добычи которых нужны как минимум железные инструменты
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_GOLD_BLOCK.get());
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_SILVER_BLOCK.get());
+        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SILVER_BLOCK.get());
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_SILVER_ORE_BLOCK.get());
+        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SILVER_ORE_BLOCK.get());
     }
 }

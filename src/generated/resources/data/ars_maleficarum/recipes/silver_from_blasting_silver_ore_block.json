@@ -3,9 +3,9 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.25,
-  "group": "cursed_silver",
+  "group": "silver",
   "ingredient": {
-    "item": "ars_maleficarum:cursed_silver_ore_block"
+    "item": "ars_maleficarum:silver_ore_block"
   },
-  "result": "ars_maleficarum:cursed_silver"
+  "result": "ars_maleficarum:silver"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ars_maleficarum:item/cursed_silver_nugget"
+    "layer0": "ars_maleficarum:item/silver"
   }
 }

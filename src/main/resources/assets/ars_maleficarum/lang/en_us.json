@@ -11,11 +11,11 @@
   "item.ars_maleficarum.marigold_seeds": "Marigold Seeds",
   "block.ars_maleficarum.marigold_crop": "Marigold Crop",
   "block.ars_maleficarum.cursed_gold_block": "Block of Cursed Gold",
-  "block.ars_maleficarum.cursed_silver_block": "Block of Cursed Silver",
-  "block.ars_maleficarum.cursed_gold_ore_block": "Block of Cursed Gold Ore",
-  "block.ars_maleficarum.cursed_silver_ore_block": "Block of Cursed Silver Ore",
-  "item.ars_maleficarum.cursed_gold": "Cursed Gold",
-  "item.ars_maleficarum.cursed_silver": "Cursed Silver",
+  "block.ars_maleficarum.silver_block": "Block of Silver",
+  "block.ars_maleficarum.cursed_gold_ore_block": "Cursed Gold Ore",
+  "block.ars_maleficarum.silver_ore_block": "Silver Ore",
+  "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
+  "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
-  "item.ars_maleficarum.cursed_silver_nugget": "Cursed Silver Nugget"
+  "item.ars_maleficarum.silver_nugget": "Silver Nugget"
 }

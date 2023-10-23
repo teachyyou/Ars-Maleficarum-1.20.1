@@ -9,13 +9,13 @@
   "item.ars_maleficarum.sage_leaf": "Листья Шалфея",
   "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея",
   "item.ars_maleficarum.marigold_seeds": "Семена Календулы",
-  "blocks.ars_maleficarum.marigold_crop": "Побеги Календулы",
-  "blocks.ars_maleficarum.cursed_gold_block": "Блок Проклятого Золота",
-  "blocks.ars_maleficarum.cursed_silver_block": "Блок Проклятого Серебра",
-  "blocks.ars_maleficarum.cursed_gold_ore_block": "Блок руды Проклятого Золота",
-  "blocks.ars_maleficarum.cursed_silver_ore_block": "Блок руды Проклятого Серебра",
+  "block.ars_maleficarum.marigold_crop": "Побеги Календулы",
+  "block.ars_maleficarum.cursed_gold_block": "Блок Проклятого Золота",
+  "block.ars_maleficarum.silver_block": "Блок Серебра",
+  "block.ars_maleficarum.cursed_gold_ore_block": "Руда Проклятого Золота",
+  "block.ars_maleficarum.silver_ore_block": "Серебряная Руда",
   "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
-  "item.ars_maleficarum.cursed_silver": "Слиток Проклятого Серебра",
+  "item.ars_maleficarum.silver": "Серебряный Слиток",
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.cursed_silver_nugget": "Самородок Проклятого Серебра"
+  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок"
 }

@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "ars_maleficarum:cursed_silver"
+      "item": "ars_maleficarum:silver_block"
     }
   ],
   "result": {
     "count": 9,
-    "item": "ars_maleficarum:cursed_silver_nugget"
+    "item": "ars_maleficarum:silver"
   }
 }

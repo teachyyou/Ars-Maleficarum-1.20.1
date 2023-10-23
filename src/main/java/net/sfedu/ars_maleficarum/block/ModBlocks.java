@@ -37,10 +37,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)));
 
     //Регистрация блока проклятого золота
-    public static  final RegistryObject<Block> CURSED_SILVER_BLOCK = registerBlock("cursed_silver_block",
+    public static  final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     //Регистрация блока руды проклятого серебра
-    public static  final RegistryObject<Block> CURSED_SILVER_ORE_BLOCK = registerBlock("cursed_silver_ore_block",
+    public static  final RegistryObject<Block> SILVER_ORE_BLOCK = registerBlock("silver_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
     //Регистрация блока руды проклятого золота
     public static  final RegistryObject<Block> CURSED_GOLD_ORE_BLOCK = registerBlock("cursed_gold_ore_block",

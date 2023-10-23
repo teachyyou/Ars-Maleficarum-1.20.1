@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ars_maleficarum:cursed_silver_ore_block"
+          "name": "ars_maleficarum:silver_ore_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "ars_maleficarum:blocks/cursed_silver_ore_block"
+  "random_sequence": "ars_maleficarum:blocks/silver_ore_block"
 }

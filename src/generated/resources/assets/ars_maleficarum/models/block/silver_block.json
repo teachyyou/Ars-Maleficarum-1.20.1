@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "ars_maleficarum:block/cursed_silver_ore_block"
+    "all": "ars_maleficarum:block/silver_block"
   }
 }

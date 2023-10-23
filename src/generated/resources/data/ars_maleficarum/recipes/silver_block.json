@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "ars_maleficarum:cursed_silver"
+      "item": "ars_maleficarum:silver"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "ars_maleficarum:cursed_silver_block"
+    "item": "ars_maleficarum:silver_block"
   },
   "show_notification": true
 }
