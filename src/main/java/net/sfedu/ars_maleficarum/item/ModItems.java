@@ -8,6 +8,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.item.custom.CarbonDetectorItem;
+import net.sfedu.ars_maleficarum.item.custom.MetalDetectorItem;
+import net.sfedu.ars_maleficarum.item.custom.ValuableDetectorItem;
 
 public class ModItems {
 
@@ -50,6 +53,13 @@ public class ModItems {
     //Регистрация  самородка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
             ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+    //Регистрация детектора углеродной руды
+    public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
+            ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
+    public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
+            ()->new MetalDetectorItem(new Item.Properties().durability(80)));
+    public static final RegistryObject<Item> VALUABLE_DETECTOR = ITEMS.register("valuable_detector",
+            ()->new ValuableDetectorItem(new Item.Properties().durability(65)));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

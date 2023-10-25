@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.item.custom.CarbonDetectorItem;
 
 public class ModCreativeModTabs {
 
@@ -35,6 +36,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CURSED_GOLD_NUGGET.get());
                         pOutput.accept(ModItems.CURSED_GOLD.get());
                         pOutput.accept(ModItems.SILVER.get());
+                        pOutput.accept(ModItems.CARBON_DETECTOR.get());
+                        pOutput.accept(ModItems.METAL_DETECTOR.get());
+                        pOutput.accept(ModItems.VALUABLE_DETECTOR.get());
                     }))
                     .build());
 

@@ -13,7 +13,7 @@ public class ModTags {
 
     //Тэги для блоков
     public static class Blocks {
-
+        public  static final TagKey<Block> CARBON_DETECTOR_VALUABLES = tag("carbon_detector_valuables");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(ArsMaleficarum.MOD_ID,name));
         }
