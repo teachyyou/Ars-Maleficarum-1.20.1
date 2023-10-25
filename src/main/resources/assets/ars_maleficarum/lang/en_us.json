@@ -17,5 +17,8 @@
   "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
   "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
-  "item.ars_maleficarum.silver_nugget": "Silver Nugget"
+  "item.ars_maleficarum.silver_nugget": "Silver Nugget",
+
+  "item.ars_maleficarum.carbon_detector.carbonOreFound": "The Artifact vibrates - there is something interesting below!",
+  "item.ars_maleficarum.carbon_detector.carbonNotOreFound": "The Artifact remains quiet, nothing was found."
 }

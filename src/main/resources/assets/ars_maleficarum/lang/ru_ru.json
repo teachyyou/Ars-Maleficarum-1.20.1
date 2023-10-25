@@ -17,5 +17,9 @@
   "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
   "item.ars_maleficarum.silver": "Серебряный Слиток",
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок"
+  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок",
+
+
+  "item.ars_maleficarum.carbon_detector.carbonOreFound": "Артефакт вибрирует в ваших руках - что-то скрыто под недрами!",
+  "item.ars_maleficarum.carbon_detector.carbonNotOreFound": "Артефакт не уловил присутствия чего-то стоящего."
 }
