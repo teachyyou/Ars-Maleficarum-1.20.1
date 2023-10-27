@@ -17,14 +17,5 @@
   "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
   "item.ars_maleficarum.silver": "Серебряный Слиток",
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок",
-  "item.ars_maleficarum.metal_detector": "Искатель металлической руды",
-  "item.ars_maleficarum.valuable_detector": "Искатель драгоценной руды",
-  "item.ars_maleficarum.carbon_detector": "Искатель углеродной руды",
-  "item.ars_maleficarum.metal_detector.negative_message": "В радиусе 3-ёх блоков не обнаружено металлической руды",
-  "item.ars_maleficarum.metal_detector.successful_message": "В радиусе 3-ёх блоков обнаружена металличсекая руда",
-  "item.ars_maleficarum.valuable_detector.successful_message": "В радиусе 3-ёх блоков обнаружена драгоценная руда",
-  "item.ars_maleficarum.valuable_detector.negative_message": "В радиусе 3-ёх блоков не обнаружено драгоценной руды",
-  "item.ars_maleficarum.carbon_detector.successful_message": "В радиусе 3-ёх блоков обнаружена углеродная руда руда",
-  "item.ars_maleficarum.carbon_detector.negative_message": "В радиусе 3-ёх блоков не обнаружено углеродной руды"
+  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок"
 }

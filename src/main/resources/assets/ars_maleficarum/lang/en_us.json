@@ -17,14 +17,5 @@
   "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
   "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
-  "item.ars_maleficarum.silver_nugget": "Silver Nugget",
-  "item.ars_maleficarum.metal_detector": "Detector of metal's ores",
-  "item.ars_maleficarum.valuable_detector": "Detector of valuable's ores",
-  "item.ars_maleficarum.carbon_detector": "Detector of carbon's ores",
-  "item.ars_maleficarum.metal_detector.negative_message": "No Metal ore Found at radius of 3 blocks",
-  "item.ars_maleficarum.metal_detector.successful_message": "Found a Metal ore at radius of 3 blocks",
-  "item.ars_maleficarum.valuable_detector.successful_message": "Found a Valuable ore at radius of 3 blocks",
-  "item.ars_maleficarum.valuable_detector.negative_message": "No Valuable ore Found at radius of 3 blocks",
-  "item.ars_maleficarum.carbon_detector.successful_message": "Found a Carbon ore at radius of 3 blocks",
-  "item.ars_maleficarum.carbon_detector.negative_message": "No Carbon ore Found at radius of 3 blocks"
+  "item.ars_maleficarum.silver_nugget": "Silver Nugget"
 }

@@ -1,5 +1,7 @@
 package net.sfedu.ars_maleficarum.item;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,6 +16,7 @@ import net.sfedu.ars_maleficarum.item.custom.ValuableDetectorItem;
 
 public class ModItems {
 
+
     //DefferedRegister для предметов
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ArsMaleficarum.MOD_ID);
@@ -21,7 +24,6 @@ public class ModItems {
     //Регистрация цветка шалфея
     public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",
             ()->new Item(new Item.Properties()));
-
     //Регистрация листьев шалфея
     public static final RegistryObject<Item> SAGE_LEAF = ITEMS.register("sage_leaf",
             ()->new Item(new Item.Properties()));
