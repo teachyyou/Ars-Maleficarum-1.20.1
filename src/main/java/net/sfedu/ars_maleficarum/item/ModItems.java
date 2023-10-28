@@ -42,19 +42,19 @@ public class ModItems {
 
     //Регистрация слитка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
-            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+            ()->new Item(new Item.Properties()));
 
     //Регистрация слитка проклятого серебра
     public static final RegistryObject<Item> SILVER = ITEMS.register("silver",
-            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+            ()->new Item(new Item.Properties()));
 
     //Регистрация  самородка проклятого серебра
     public static final RegistryObject<Item> SILVER_NUGGET = ITEMS.register("silver_nugget",
-            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+            ()->new Item(new Item.Properties()));
 
     //Регистрация  самородка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
-            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+            ()->new Item(new Item.Properties()));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));

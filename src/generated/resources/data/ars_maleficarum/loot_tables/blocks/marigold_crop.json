@@ -27,7 +27,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "ars_maleficarum:marigold_seed"
+              "name": "ars_maleficarum:marigold_seeds"
             }
           ]
         }
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "ars_maleficarum:marigold_seed"
+          "name": "ars_maleficarum:marigold_seeds"
         }
       ],
       "rolls": 1.0
