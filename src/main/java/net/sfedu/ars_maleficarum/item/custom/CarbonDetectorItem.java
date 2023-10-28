@@ -46,7 +46,7 @@ public class CarbonDetectorItem extends Item {
 
             }
             if(!foundblock){
-                player.sendSystemMessage(Component.translatable("item.ars_maleficarum.carbon_detector.negative_message"));
+                player.sendSystemMessage(Component.literal("No Carbon ore Found at radius of 3 blocks"));
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
@@ -55,7 +55,7 @@ public class CarbonDetectorItem extends Item {
     }
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
-        player.sendSystemMessage(Component.translatable("item.ars_maleficarum.carbon_detector.successful_message"));
+        player.sendSystemMessage(Component.literal(message));
     }
 
     private boolean IsCarbonBlock(BlockState state){

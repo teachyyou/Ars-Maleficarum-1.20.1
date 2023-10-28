@@ -2,7 +2,6 @@ package net.sfedu.ars_maleficarum.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class MetalDetectorItem extends Item{
     public MetalDetectorItem(Item.Properties pProperties){
@@ -39,15 +37,13 @@ public class MetalDetectorItem extends Item{
                         IsMetalBlock(state_south_west)){
                     outputValuableCordinaties(positionClicked.below(i),player);
                     foundblock = true;
-                    pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
-                            ModSounds.METAL_DETECTOR_SUCCESSFUL_SOUND.get(), SoundSource.BLOCKS, 3f, 1f, 0);
                     break;
                 }
 
 
             }
             if(!foundblock){
-                player.sendSystemMessage(Component.translatable("item.ars_maleficarum.metal_detector.negative_message"));
+                player.sendSystemMessage(Component.literal("No Metal ore Found at radius of 3 blocks"));
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
@@ -56,7 +52,7 @@ public class MetalDetectorItem extends Item{
     }
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
-        player.sendSystemMessage(Component.translatable("item.ars_maleficarum.metal_detector.successful_message"));
+        player.sendSystemMessage(Component.literal("Found a Metal ore at radius of 3 blocks"));
     }
 
     private boolean IsMetalBlock(BlockState state){
