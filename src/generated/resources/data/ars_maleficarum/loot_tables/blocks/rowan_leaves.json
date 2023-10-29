@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "ars_maleficarum:rowan_leaves"
+              "name": "ars_maleficarum:rowan_sapling"
             }
           ]
         }
@@ -173,7 +173,7 @@
             },
             {
               "chances": [
-                0.005,
+                0.01,
                 0.0055555557,
                 0.00625,
                 0.008333334,

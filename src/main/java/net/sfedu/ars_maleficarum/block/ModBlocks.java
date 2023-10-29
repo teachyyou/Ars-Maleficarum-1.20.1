@@ -61,7 +61,7 @@ public class ModBlocks {
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
 
     public static final RegistryObject<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
-            ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(3f)) {
+            ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -69,17 +69,16 @@ public class ModBlocks {
 
                 @Override
                 public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 5;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 20;
                 }
-            });
 
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
     public static final RegistryObject<Block> ROWAN_LEAVES = registerBlock("rowan_leaves",
-            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).strength(3f)) {
+            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -87,12 +86,12 @@ public class ModBlocks {
 
                 @Override
                 public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 30;
+                    return 60;
                 }
 
                 @Override
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 60;
+                    return 30;
                 }
             });
 

@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -38,14 +39,31 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         logBlock((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
         axisBlock((RotatedPillarBlock) ModBlocks.ROWAN_WOOD.get(),blockTexture(ModBlocks.ROWAN_LOG.get()),blockTexture(ModBlocks.ROWAN_LOG.get()));
 
-        blockWithItem(ModBlocks.ROWAN_LEAVES);
+        blockItem(ModBlocks.ROWAN_LOG);
+        blockItem(ModBlocks.ROWAN_WOOD);
+
+        leavesBlock(ModBlocks.ROWAN_LEAVES);
+
         blockWithItem(ModBlocks.ROWAN_PLANKS);
 
-        simpleBlockItem(ModBlocks.ROWAN_LOG.get(),models().withExistingParent("ars_maleficarum:rowan_log","minecraft:block/cube_column"));
-        simpleBlockItem(ModBlocks.ROWAN_WOOD.get(),models().withExistingParent("ars_maleficarum:rowan_wood","minecraft:block/cube_column"));
+        //simpleBlockItem(ModBlocks.ROWAN_LOG.get(),models().withExistingParent("ars_maleficarum:rowan_log","minecraft:block/cube_column"));
+        //simpleBlockItem(ModBlocks.ROWAN_WOOD.get(),models().withExistingParent("ars_maleficarum:rowan_wood","minecraft:block/cube_column"));
 
         saplingBlock(ModBlocks.ROWAN_SAPLING);
 
+    }
+
+    //Регистрация листвы
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
+                        "all",blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    //Регистрация модели и текстуры для предмета привязанного к блоку
+    private void blockItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockItem(blockRegistryObject.get(),new ModelFile.UncheckedModelFile(ArsMaleficarum.MOD_ID+
+                ":block/"+ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
     }
 
 
@@ -84,6 +102,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         simpleBlockWithItem(blockRegistryObject.get(),cubeAll(blockRegistryObject.get()));
     }
 
+    //Регистрация саженца
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),blockTexture(blockRegistryObject.get())).renderType("cutout"));

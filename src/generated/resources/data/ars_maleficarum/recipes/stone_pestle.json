@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "   ",
+    "  #",
+    " # "
+  ],
+  "result": {
+    "item": "ars_maleficarum:stone_pestle"
+  },
+  "show_notification": true
+}
