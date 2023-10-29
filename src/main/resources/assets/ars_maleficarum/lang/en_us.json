@@ -1,0 +1,21 @@
+{
+
+  "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
+
+
+  "item.ars_maleficarum.sage_flower": "Sage Flower",
+  "item.ars_maleficarum.marigold_flower": "Marigold Flower",
+  "item.ars_maleficarum.sage_seeds": "Sage Seeds",
+  "item.ars_maleficarum.sage_leaf": "Sage Leaf",
+  "blocks.ars_maleficarum.sage_crop": "Sage Crop",
+  "item.ars_maleficarum.marigold_seeds": "Marigold Seeds",
+  "block.ars_maleficarum.marigold_crop": "Marigold Crop",
+  "block.ars_maleficarum.cursed_gold_block": "Block of Cursed Gold",
+  "block.ars_maleficarum.silver_block": "Block of Silver",
+  "block.ars_maleficarum.cursed_gold_ore_block": "Cursed Gold Ore",
+  "block.ars_maleficarum.silver_ore_block": "Silver Ore",
+  "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
+  "item.ars_maleficarum.silver": "Silver Ingot",
+  "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
+  "item.ars_maleficarum.silver_nugget": "Silver Nugget"
+}
