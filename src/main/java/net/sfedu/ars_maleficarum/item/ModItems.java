@@ -62,6 +62,9 @@ public class ModItems {
             ()->new MetalDetectorItem(new Item.Properties().durability(80)));
     public static final RegistryObject<Item> VALUABLE_DETECTOR = ITEMS.register("valuable_detector",
             ()->new ValuableDetectorItem(new Item.Properties().durability(65)));
+    //Регистрация каменного пестика
+    public static final RegistryObject<Item> STONE_PESTLE = ITEMS.register("stone_pestle",
+            ()->new Item(new Item.Properties()));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

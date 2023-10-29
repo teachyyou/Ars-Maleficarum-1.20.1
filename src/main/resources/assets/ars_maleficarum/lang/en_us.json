@@ -23,5 +23,7 @@
   "block.ars_maleficarum.rowan_planks": "Rowan Planks",
   "block.ars_maleficarum.rowan_wood": "Rowan Wood",
   "block.ars_maleficarum.rowan_leaves": "Rowan Leaves",
-  "block.ars_maleficarum.rowan_sapling": "Rowan Sapling"
+  "block.ars_maleficarum.rowan_sapling": "Rowan Sapling",
+
+  "item.ars_maleficarum.stone_pestle": "Stone Pestle"
 }

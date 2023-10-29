@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -82,6 +83,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CURSED_GOLD_NUGGET.get(), 9)
                 .requires(ModItems.CURSED_GOLD.get())
                 .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()),has(ModItems.CURSED_GOLD.get()))
+                .save(pWriter);
+        //Крафт каменного пестика из камня
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_PESTLE.get())
+                .pattern("   ")
+                .pattern("  #")
+                .pattern(" # ")
+                .define('#', Blocks.STONE)
+                .unlockedBy(getHasName(Blocks.STONE),has(Blocks.STONE))
                 .save(pWriter);
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены

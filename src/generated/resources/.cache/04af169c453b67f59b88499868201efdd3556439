@@ -1,3 +1,4 @@
-// 1.20.1	2023-10-23T12:22:00.074842	Tags for minecraft:block mod id ars_maleficarum
+// 1.20.1	2023-10-29T16:55:44.4117907	Tags for minecraft:block mod id ars_maleficarum
+73c156f05695e2012eabc88c87981930ffd0536e data/minecraft/tags/blocks/logs.json
 833da499ec829dedb39545b7fd9837b6ba058932 data/minecraft/tags/blocks/mineable/pickaxe.json
 01e292f8a784272f31590f3dabf55f5933217a62 data/minecraft/tags/blocks/needs_iron_tool.json

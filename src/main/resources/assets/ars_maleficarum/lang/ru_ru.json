@@ -23,5 +23,7 @@
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
   "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
-  "block.ars_maleficarum.rowan_sapling": "Саженец рябины"
+  "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
+
+  "item.ars_maleficarum.stone_pestle": "Каменный пестик"
 }

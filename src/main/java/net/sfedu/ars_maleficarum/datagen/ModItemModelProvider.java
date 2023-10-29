@@ -34,6 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.VALUABLE_DETECTOR);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        simpleItem(ModItems.STONE_PESTLE);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
