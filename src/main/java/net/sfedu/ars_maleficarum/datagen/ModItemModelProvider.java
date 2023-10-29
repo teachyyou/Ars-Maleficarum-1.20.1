@@ -3,11 +3,13 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -30,6 +32,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CARBON_DETECTOR);
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.VALUABLE_DETECTOR);
+
+        saplingItem(ModBlocks.ROWAN_SAPLING);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
@@ -37,5 +41,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> block) {
+        return withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+block.getId().getPath()));
     }
 }

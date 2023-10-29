@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "ars_maleficarum:block/rowan_log_top",
+    "side": "ars_maleficarum:block/rowan_log"
+  }
+}

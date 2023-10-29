@@ -17,5 +17,11 @@
   "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
   "item.ars_maleficarum.silver": "Серебряный Слиток",
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок"
+  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок",
+
+  "block.ars_maleficarum.rowan_log": "Рябиновое бревно",
+  "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
+  "block.ars_maleficarum.rowan_wood": "Рябина",
+  "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
+  "block.ars_maleficarum.rowan_sapling": "Саженец рябины"
 }
