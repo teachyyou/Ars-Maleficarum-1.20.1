@@ -2,17 +2,14 @@ package net.sfedu.ars_maleficarum.item;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.item.custom.CarbonDetectorItem;
-import net.sfedu.ars_maleficarum.item.custom.MetalDetectorItem;
-import net.sfedu.ars_maleficarum.item.custom.ValuableDetectorItem;
+import net.sfedu.ars_maleficarum.item.custom.*;
 
 public class ModItems {
 
@@ -65,6 +62,18 @@ public class ModItems {
     //Регистрация каменного пестика
     public static final RegistryObject<Item> STONE_PESTLE = ITEMS.register("stone_pestle",
             ()->new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ROWAN_BERRIES = ITEMS.register("rowan_berries",
+            ()->new Item(new Item.Properties().food(ModFoods.ROWAN_BERRIES)));
+
+    public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
+            ()->new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
+            ()->new FlintKnife(new Item.Properties().durability(16)));
+
+
+
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

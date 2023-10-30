@@ -33,7 +33,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.VALUABLE_DETECTOR);
 
+        simpleItem(ModItems.FLINT_KNIFE);
+
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        simpleItem(ModItems.ROWAN_BERRIES);
+        simpleItem(ModItems.ROWAN_BARK);
         simpleItem(ModItems.STONE_PESTLE);
     }
 

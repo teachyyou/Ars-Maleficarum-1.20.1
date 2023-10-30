@@ -3,6 +3,7 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -40,7 +41,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#',ModItems.CURSED_GOLD.get())
                 .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()),has(ModItems.CURSED_GOLD.get()))
                 .save(pWriter);
-        //Крафт блока проклятого серебра
+        //Крафт блока серебра
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SILVER_BLOCK.get())
                 .pattern("###")
                 .pattern("###")
@@ -56,7 +57,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#',ModItems.CURSED_GOLD_NUGGET.get())
                 .unlockedBy(getHasName(ModItems.CURSED_GOLD_NUGGET.get()),has(ModItems.CURSED_GOLD_NUGGET.get()))
                 .save(pWriter);
-        //Крафт слитка проклятого серебра из самородков проклятого серебра
+        //Крафт слитка серебра из самородков серебра
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SILVER.get())
                 .pattern("###")
                 .pattern("###")
@@ -64,7 +65,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#',ModItems.SILVER_NUGGET.get())
                 .unlockedBy(getHasName(ModItems.SILVER_NUGGET.get()),has(ModItems.SILVER_NUGGET.get()))
                 .save(pWriter);
-        //Крафт-разбиение блока проклятого серебра на 9 слитков проклятого серебра
+        //Крафт-разбиение блока  серебра на 9 слитков серебра
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SILVER.get(), 9)
                 .requires(ModBlocks.SILVER_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.SILVER_BLOCK.get()),has(ModBlocks.SILVER_BLOCK.get()))
@@ -74,7 +75,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.CURSED_GOLD_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.CURSED_GOLD_BLOCK.get()),has(ModBlocks.CURSED_GOLD_BLOCK.get()))
                 .save(pWriter, new ResourceLocation("cursed_gold_block_from_cursed_gold"));
-        //Крафт-разбиение слитка проклятого серебра на 9 самородков проклятого серебра
+        //Крафт-разбиение слитка  серебра на 9 самородков  серебра
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SILVER_NUGGET.get(), 9)
                 .requires(ModItems.SILVER.get())
                 .unlockedBy(getHasName(ModItems.SILVER.get()),has(ModItems.SILVER.get()))
@@ -91,6 +92,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" # ")
                 .define('#', Blocks.STONE)
                 .unlockedBy(getHasName(Blocks.STONE),has(Blocks.STONE))
+                .save(pWriter);
+        //Крафт рябиновых досок из древесины
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModBlocks.ROWAN_PLANKS.get(),4)
+                .requires(ModBlocks.ROWAN_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()),has(ModBlocks.ROWAN_LOG.get()))
+                .save(pWriter);
+        //Крафт рябины из рябиновых бревен
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROWAN_WOOD.get(),3)
+                .pattern("   ")
+                .pattern(" ##")
+                .pattern(" ##")
+                .define('#', ModBlocks.ROWAN_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()),has(ModBlocks.ROWAN_LOG.get()))
+                .save(pWriter);
+        //Крафт рябиновой коры из рябины
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModItems.ROWAN_BARK.get(),2)
+                .requires(ModBlocks.ROWAN_LOG.get())
+                .requires(ModItems.FLINT_KNIFE.get())
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()),has(ModBlocks.ROWAN_LOG.get()))
+                .save(pWriter,new ResourceLocation("rowan_bark_from_oak"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.ROWAN_BARK.get(),2)
+                .requires(ModBlocks.ROWAN_WOOD.get())
+                .requires(ModItems.FLINT_KNIFE.get())
+                .unlockedBy(getHasName(ModBlocks.ROWAN_WOOD.get()),has(ModBlocks.ROWAN_WOOD.get()))
+                .save(pWriter,new ResourceLocation("rowan_bark_from_wood"));
+        //Крафт примитивного ножика
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.FLINT_KNIFE.get(),1)
+                .pattern("  C")
+                .pattern(" B ")
+                .pattern("A  ")
+                .define('A', Items.STICK)
+                .define('B', Items.STRING)
+                .define('C', Items.FLINT)
+                .unlockedBy(getHasName(Items.FLINT),has(Items.FLINT))
                 .save(pWriter);
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены

@@ -49,7 +49,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ROWAN_SAPLING .get());
 
         this.add(ModBlocks.ROWAN_LEAVES.get(),(block)->
-                createLeavesDropsWithAdditionalItem(block,ModBlocks.ROWAN_SAPLING.get(),ModItems.SAGE_FLOWER.get(),NORMAL_LEAVES_SAPLING_CHANCES));
+                createLeavesDropsWithAdditionalItem(block,ModBlocks.ROWAN_SAPLING.get(),ModItems.ROWAN_BERRIES.get(),NORMAL_LEAVES_SAPLING_CHANCES));
 
     }
 

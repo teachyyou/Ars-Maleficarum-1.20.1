@@ -3,27 +3,32 @@
   "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
 
 
-  "item.ars_maleficarum.sage_flower": "Цветок Шалфея",
-  "item.ars_maleficarum.marigold_flower": "Цветок Календулы",
-  "item.ars_maleficarum.sage_seeds": "Семена Шалфея",
-  "item.ars_maleficarum.sage_leaf": "Листья Шалфея",
-  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея",
-  "item.ars_maleficarum.marigold_seeds": "Семена Календулы",
-  "block.ars_maleficarum.marigold_crop": "Побеги Календулы",
-  "block.ars_maleficarum.cursed_gold_block": "Блок Проклятого Золота",
-  "block.ars_maleficarum.silver_block": "Блок Серебра",
-  "block.ars_maleficarum.cursed_gold_ore_block": "Руда Проклятого Золота",
-  "block.ars_maleficarum.silver_ore_block": "Серебряная Руда",
-  "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
-  "item.ars_maleficarum.silver": "Серебряный Слиток",
-  "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок",
+  "item.ars_maleficarum.sage_flower": "Цветок шалфея",
+  "item.ars_maleficarum.marigold_flower": "Цветок календулы",
+  "item.ars_maleficarum.sage_seeds": "Семена шалфея",
+  "item.ars_maleficarum.sage_leaf": "Листья шалфея",
+  "blocks.ars_maleficarum.sage_crop": "Побеги шалфея",
+  "item.ars_maleficarum.marigold_seeds": "Семена календулы",
+  "block.ars_maleficarum.marigold_crop": "Побеги календулы",
+  "block.ars_maleficarum.cursed_gold_block": "Блок проклятого золота",
+  "block.ars_maleficarum.silver_block": "Блок серебра",
+  "block.ars_maleficarum.cursed_gold_ore_block": "Руда проклятого золота",
+  "block.ars_maleficarum.silver_ore_block": "Серебряная руда",
+  "item.ars_maleficarum.cursed_gold": "Слиток проклятого золота",
+  "item.ars_maleficarum.silver": "Серебряный слиток",
+  "item.ars_maleficarum.cursed_gold_nugget": "Самородок проклятого золота",
+  "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
 
   "block.ars_maleficarum.rowan_log": "Рябиновое бревно",
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
   "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
   "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
+  "item.ars_maleficarum.rowan_bark": "Рябиновая кора",
 
-  "item.ars_maleficarum.stone_pestle": "Каменный пестик"
+  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
+
+  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
+
+  "item.ars_maleficarum.flint_knife": "Примитивный ножик"
 }
