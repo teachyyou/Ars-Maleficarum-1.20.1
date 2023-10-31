@@ -18,7 +18,6 @@ public class CarbonDetectorItem extends Item {
     public CarbonDetectorItem(Properties pProperties){
         super(pProperties);
     }
-    String message = "Found a carbon ore at radius of 3 blocks ";
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()){
@@ -46,7 +45,7 @@ public class CarbonDetectorItem extends Item {
 
             }
             if(!foundblock){
-                player.sendSystemMessage(Component.literal("No Carbon ore Found at radius of 3 blocks"));
+                player.sendSystemMessage(Component.translatable("Carbon_not_found_message"));
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
@@ -55,7 +54,7 @@ public class CarbonDetectorItem extends Item {
     }
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
-        player.sendSystemMessage(Component.literal(message));
+        player.sendSystemMessage(Component.translatable("Carbon_found_message"));
     }
 
     private boolean IsCarbonBlock(BlockState state){

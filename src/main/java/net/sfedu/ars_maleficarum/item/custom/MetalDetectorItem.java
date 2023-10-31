@@ -43,7 +43,7 @@ public class MetalDetectorItem extends Item{
 
             }
             if(!foundblock){
-                player.sendSystemMessage(Component.literal("No Metal ore Found at radius of 3 blocks"));
+                player.sendSystemMessage(Component.translatable("Metal_not_found_message"));
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
@@ -52,7 +52,7 @@ public class MetalDetectorItem extends Item{
     }
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
-        player.sendSystemMessage(Component.literal("Found a Metal ore at radius of 3 blocks"));
+        player.sendSystemMessage(Component.translatable("Metal_found_message"));
     }
 
     private boolean IsMetalBlock(BlockState state){

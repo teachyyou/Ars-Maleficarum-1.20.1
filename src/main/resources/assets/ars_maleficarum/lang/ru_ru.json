@@ -38,5 +38,18 @@
   "item.ars_maleficarum.stone_mortar": "Каменная ступка",
   "item.ars_maleficarum.stone_mortar_and_pestle": "Каменная ступка и пестик",
   "item.ars_maleficarum.stone_pestle": "Каменный пестик",
-  "item.ars_maleficarum.wooden_mortar_and_pestle": "Деревянная ступка и пестик"
+  "item.ars_maleficarum.wooden_mortar_and_pestle": "Деревянная ступка и пестик",
+
+  "item.ars_maleficarum.carbon_detector": "Дар нищего рудокопа",
+  "item.ars_maleficarum.metal_detector": "Дар смуглого металлурга",
+  "item.ars_maleficarum.valuable_detector": "Дар краснощёкого мудреца",
+
+  "Valuable_not_found_message": "Артефакт пребывает в покое. Кажется, ничего интересного снизу не обнаружено.",
+  "Valuable_found_message": "Артефакт вибрирует! Нечто весьма интересное было замечено в недрах!",
+
+  "Metal_not_found_message": "Артефакт совершенно безмолвен. Ни следа присутствия металла снизу.",
+  "Metal_found_message": "Артефакт сияет и жужжит! Что-то металлическое лежит в недрах!",
+
+  "Carbon_not_found_message": "Артефакт демонстрирует полное отсутствие интереса. Ему скучно, поскольку ничего углеродного обнаружить снизу не удалось.",
+  "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!"
 }
