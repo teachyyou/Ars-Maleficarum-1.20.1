@@ -72,6 +72,19 @@ public class ModItems {
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 
+    public static final RegistryObject<Item> EMPTY_SEAL = ITEMS.register("empty_seal",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PERCEPTION_CORE = ITEMS.register("perception_core",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SALT = ITEMS.register("salt",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STONE_MORTAR = ITEMS.register("stone_mortar",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STONE_MORTAR_AND_PESTLE = ITEMS.register("stone_mortar_and_pestle",
+            ()->new StoneMortarAndPestle(new Item.Properties().durability(40)));
+    public static final RegistryObject<Item> WOODEN_MORTAR_AND_PESTLE = ITEMS.register("wooden_mortar_and_pestle",
+            ()->new WoodenMortarAndPestle(new Item.Properties().durability(18)));
+
 
 
 

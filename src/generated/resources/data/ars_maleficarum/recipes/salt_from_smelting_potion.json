@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.1,
+  "group": "salt",
+  "ingredient": {
+    "item": "minecraft:potion"
+  },
+  "result": "ars_maleficarum:salt"
+}

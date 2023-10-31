@@ -39,6 +39,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ROWAN_BERRIES);
         simpleItem(ModItems.ROWAN_BARK);
         simpleItem(ModItems.STONE_PESTLE);
+        simpleItem(ModItems.EMPTY_SEAL);
+        simpleItem(ModItems.PERCEPTION_CORE);
+        simpleItem(ModItems.SALT);
+        simpleItem(ModItems.STONE_MORTAR);
+        simpleItem(ModItems.STONE_MORTAR_AND_PESTLE);
+        simpleItem(ModItems.WOODEN_MORTAR_AND_PESTLE);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

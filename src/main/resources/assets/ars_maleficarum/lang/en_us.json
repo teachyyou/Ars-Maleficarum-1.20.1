@@ -26,9 +26,13 @@
   "block.ars_maleficarum.rowan_sapling": "Rowan Sapling",
   "item.ars_maleficarum.rowan_berries": "Rowan Berries",
   "item.ars_maleficarum.rowan_bark": "Rowan Bark",
+  "item.ars_maleficarum.flint_knife": "Simple Knife",
 
-
+  "item.ars_maleficarum.empty_seal": "Empty Seal",
+  "item.ars_maleficarum.perception_core": "Perception Core",
+  "item.ars_maleficarum.salt": "Salt",
+  "item.ars_maleficarum.stone_mortar": "Stone Mortar",
+  "item.ars_maleficarum.stone_mortar_and_pestle": "Stone Mortar and Pestle",
   "item.ars_maleficarum.stone_pestle": "Stone Pestle",
-
-  "item.ars_maleficarum.flint_knife": "Simple Knife"
+  "item.ars_maleficarum.wooden_mortar_and_pestle": "Wooden Mortar and Pestle"
 }

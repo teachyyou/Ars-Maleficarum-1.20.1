@@ -48,6 +48,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ROWAN_BARK.get());
                         pOutput.accept(ModItems.STONE_PESTLE.get());
                         pOutput.accept(ModItems.FLINT_KNIFE.get());
+                        pOutput.accept(ModItems.EMPTY_SEAL.get());
+                        pOutput.accept(ModItems.PERCEPTION_CORE.get());
+                        pOutput.accept(ModItems.SALT.get());
+                        pOutput.accept(ModItems.STONE_MORTAR.get());
+                        pOutput.accept(ModItems.STONE_MORTAR_AND_PESTLE.get());
+                        pOutput.accept(ModItems.WOODEN_MORTAR_AND_PESTLE.get());
 
                     }))
                     .build());

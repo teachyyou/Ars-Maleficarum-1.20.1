@@ -33,6 +33,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(pWriter, SILVER_ORE_BLOCKS, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 100, "silver");
         oreSmelting(pWriter, CURSED_GOLD_ORE_BLOCKS, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 200, "cursed_gold");
         oreSmelting(pWriter, SILVER_ORE_BLOCKS, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 200, "silver");
+
+        oreSmelting(pWriter, List.of(Items.POTION), RecipeCategory.MISC, ModItems.SALT.get(), 0.1f, 150, "salt");
         //Крафт блока проклятого золота
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CURSED_GOLD_BLOCK.get())
                 .pattern("###")
@@ -127,6 +129,61 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.FLINT)
                 .unlockedBy(getHasName(Items.FLINT),has(Items.FLINT))
                 .save(pWriter);
+        //Крафт пустой печати
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_SEAL.get(),1)
+                .pattern("@#@")
+                .pattern("###")
+                .pattern("@#@")
+                .define('#', Items.IRON_INGOT)
+                .define('@', ModItems.SILVER_NUGGET.get())
+                .unlockedBy(getHasName(Items.IRON_INGOT),has(Items.IRON_INGOT))
+                .save(pWriter);
+        //Крафт ядра восприятия
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PERCEPTION_CORE.get(),1)
+                .pattern("@!@")
+                .pattern("#$%")
+                .pattern("@^@")
+                .define('@', Items.QUARTZ)
+                .define('!', Items.GOLD_INGOT)
+                .define('#', Items.DIAMOND)
+                .define('$', ModItems.EMPTY_SEAL.get())
+                .define('%', Items.COAL)
+                .define('^', Items.LAPIS_LAZULI)
+                .unlockedBy(getHasName(ModItems.EMPTY_SEAL.get()),has(ModItems.EMPTY_SEAL.get()))
+                .save(pWriter);
+        //Крафт деревянной ступки и пестика
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.WOODEN_MORTAR_AND_PESTLE.get(),1)
+                .requires(Items.BOWL)
+                .requires(Items.STICK)
+                .unlockedBy(getHasName(Items.BOWL),has(Items.BOWL))
+                .save(pWriter,new ResourceLocation("wooden_mortar_and_pestle_craft"));
+        //Крафт каменной ступки
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_MORTAR.get(),1)
+                .pattern("   ")
+                .pattern("# #")
+                .pattern("$#$")
+                .define('#', Blocks.STONE)
+                .define('$', Blocks.STONE_SLAB)
+                .unlockedBy(getHasName(Blocks.STONE),has(Blocks.STONE))
+                .save(pWriter);
+        //Крафт каменной ступки и пестика
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.STONE_MORTAR_AND_PESTLE.get(),1)
+                .requires(ModItems.STONE_MORTAR.get())
+                .requires(ModItems.STONE_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.STONE_MORTAR.get()),has(ModItems.STONE_MORTAR.get()))
+                .save(pWriter,new ResourceLocation("stone_mortar_and_pestle_craft"));
+        //Крафт сахара при помощи деревянной ступки и пестика
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,Items.SUGAR,6)
+                .requires(Items.SUGAR_CANE)
+                .requires(ModItems.WOODEN_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.WOODEN_MORTAR_AND_PESTLE.get()),has(ModItems.WOODEN_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("sugar_from_wooden_mortar_and_pestle"));
+        //Крафт сахара при помощи каменной ступки и пестика
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,Items.SUGAR,6)
+                .requires(Items.SUGAR_CANE)
+                .requires(ModItems.STONE_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.STONE_MORTAR_AND_PESTLE.get()),has(ModItems.STONE_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("sugar_from_stone_mortar_and_pestle"));
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

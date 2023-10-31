@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-29T16:55:44.4187935	Block States: ars_maleficarum
+// 1.20.1	2023-10-31T19:34:31.1377634	Block States: ars_maleficarum
 cafbec1abed5d09b39c34a97f4b39370759b586e assets/ars_maleficarum/blockstates/cursed_gold_block.json
 b2b52f0a5bb55dc7436a260d48c9101df721e117 assets/ars_maleficarum/blockstates/cursed_gold_ore_block.json
 ee71e192381011c5fe3ef40c80637a5f002e92b7 assets/ars_maleficarum/blockstates/marigold_crop.json
@@ -16,7 +16,7 @@ dbeab430e7b19ffe1d991c441b6857b8bdc3184c assets/ars_maleficarum/blockstates/sage
 9cfbf27a44986434d2a21d1e8d072c78c5b67640 assets/ars_maleficarum/models/block/marigold_stage1.json
 9e8a8f245015e511ea8d055769a58f3c2d6de352 assets/ars_maleficarum/models/block/marigold_stage2.json
 9d90784b310993bcb3a2a06fa868fb1e3d5afa09 assets/ars_maleficarum/models/block/marigold_stage3.json
-53e15cc92beb32152989b10102ffd45f758c8b87 assets/ars_maleficarum/models/block/rowan_leaves.json
+6ed935eb2496ee8fed5c6bef5bd82ee3ba9ff66a assets/ars_maleficarum/models/block/rowan_leaves.json
 0bf2f7b536dd8aeae4c701bd89c6e2677a759d84 assets/ars_maleficarum/models/block/rowan_log.json
 2a6812ba536fd1d8f40ebc2e70164e165bb62e3f assets/ars_maleficarum/models/block/rowan_log_horizontal.json
 3bd640e7f318b58a577491fdfd247a6ad51a82a6 assets/ars_maleficarum/models/block/rowan_planks.json

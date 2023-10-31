@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    },
+    "$": {
+      "item": "minecraft:stone_slab"
+    }
+  },
+  "pattern": [
+    "   ",
+    "# #",
+    "$#$"
+  ],
+  "result": {
+    "item": "ars_maleficarum:stone_mortar"
+  },
+  "show_notification": true
+}

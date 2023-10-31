@@ -30,5 +30,13 @@
 
   "item.ars_maleficarum.stone_pestle": "Каменный пестик",
 
-  "item.ars_maleficarum.flint_knife": "Примитивный ножик"
+  "item.ars_maleficarum.flint_knife": "Примитивный ножик",
+
+  "item.ars_maleficarum.empty_seal": "Пустая печать",
+  "item.ars_maleficarum.perception_core": "Ядро восприятия",
+  "item.ars_maleficarum.salt": "Соль",
+  "item.ars_maleficarum.stone_mortar": "Каменная ступка",
+  "item.ars_maleficarum.stone_mortar_and_pestle": "Каменная ступка и пестик",
+  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
+  "item.ars_maleficarum.wooden_mortar_and_pestle": "Деревянная ступка и пестик"
 }
