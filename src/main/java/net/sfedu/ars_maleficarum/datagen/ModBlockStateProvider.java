@@ -50,6 +50,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         //simpleBlockItem(ModBlocks.ROWAN_WOOD.get(),models().withExistingParent("ars_maleficarum:rowan_wood","minecraft:block/cube_column"));
 
         saplingBlock(ModBlocks.ROWAN_SAPLING);
+        blockWithItem(ModBlocks.SALT_BLOCK);
 
     }
 

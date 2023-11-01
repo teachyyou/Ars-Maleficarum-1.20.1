@@ -220,6 +220,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.STONE_MORTAR_AND_PESTLE.get())
                 .unlockedBy(getHasName(ModItems.STONE_MORTAR_AND_PESTLE.get()),has(ModItems.STONE_MORTAR_AND_PESTLE.get()))
                 .save(pWriter,new ResourceLocation("sugar_from_stone_mortar_and_pestle"));
+        //Крафт блока соли
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SALT_BLOCK.get())
+                .pattern("   ")
+                .pattern("## ")
+                .pattern("## ")
+                .define('#',ModItems.SALT.get())
+                .unlockedBy(getHasName(ModItems.SALT.get()),has(ModItems.SALT.get()))
+                .save(pWriter);
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

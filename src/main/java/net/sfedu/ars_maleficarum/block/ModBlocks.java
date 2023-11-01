@@ -4,11 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -94,6 +91,8 @@ public class ModBlocks {
                     return 30;
                 }
             });
+    public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
+            ()-> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
 
     public static final RegistryObject<Block> ROWAN_SAPLING = registerBlock("rowan_sapling",
             ()->new SaplingBlock(new RowanTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));

@@ -84,6 +84,8 @@ public class ModItems {
             ()->new StoneMortarAndPestle(new Item.Properties().durability(40)));
     public static final RegistryObject<Item> WOODEN_MORTAR_AND_PESTLE = ITEMS.register("wooden_mortar_and_pestle",
             ()->new WoodenMortarAndPestle(new Item.Properties().durability(18)));
+    public static final RegistryObject<Item> BAT_WING = ITEMS.register("bat_wing",
+            ()->new Item(new Item.Properties()));
 
 
 

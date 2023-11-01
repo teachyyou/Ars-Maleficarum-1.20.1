@@ -54,6 +54,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.STONE_MORTAR.get());
                         pOutput.accept(ModItems.STONE_MORTAR_AND_PESTLE.get());
                         pOutput.accept(ModItems.WOODEN_MORTAR_AND_PESTLE.get());
+                        pOutput.accept(ModItems.BAT_WING.get());
+                        pOutput.accept(ModBlocks.SALT_BLOCK.get());
 
                     }))
                     .build());

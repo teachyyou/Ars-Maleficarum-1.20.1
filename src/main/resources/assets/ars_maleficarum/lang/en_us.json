@@ -47,5 +47,8 @@
   "Metal_found_message": "The artifact shines and buzzes! Something metal lies underneath!",
 
   "Carbon_not_found_message": "The artifact shows no interest. It is bored as nothing carbon containing was sensed.",
-  "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!"
+  "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
+
+  "item.ars_maleficarum.bat_wing": "Bat Wing",
+  "block.ars_maleficarum.salt_block": "Salt Block"
 }

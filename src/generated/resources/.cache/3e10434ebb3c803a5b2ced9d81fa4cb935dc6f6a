@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-31T19:34:31.1377634	Block States: ars_maleficarum
+// 1.20.1	2023-11-01T19:31:02.5938344	Block States: ars_maleficarum
 cafbec1abed5d09b39c34a97f4b39370759b586e assets/ars_maleficarum/blockstates/cursed_gold_block.json
 b2b52f0a5bb55dc7436a260d48c9101df721e117 assets/ars_maleficarum/blockstates/cursed_gold_ore_block.json
 ee71e192381011c5fe3ef40c80637a5f002e92b7 assets/ars_maleficarum/blockstates/marigold_crop.json
@@ -8,6 +8,7 @@ f75ccdd9702b7f4bdd0e2666fb2bef93542cf2a2 assets/ars_maleficarum/blockstates/rowa
 813f666a0b0b955ab7b84d0fa73c5096b25f07c9 assets/ars_maleficarum/blockstates/rowan_sapling.json
 c2b6fcdca4c3db0139b340a1afc5e6f76817c921 assets/ars_maleficarum/blockstates/rowan_wood.json
 dbeab430e7b19ffe1d991c441b6857b8bdc3184c assets/ars_maleficarum/blockstates/sage_crop.json
+bc6ff15f920084cfa3ed950bb866d3129633a8b8 assets/ars_maleficarum/blockstates/salt_block.json
 1251791c723454c37b1672bab7d58e10f4d2822a assets/ars_maleficarum/blockstates/silver_block.json
 081fd8e1b2a9ac0bc1bb004b2937ba6204bdc58a assets/ars_maleficarum/blockstates/silver_ore_block.json
 4fd30a7f052da74d68ba3c874a9fe49a2295c761 assets/ars_maleficarum/models/block/cursed_gold_block.json
@@ -27,6 +28,7 @@ e38415b4266df27c8f9e9e3885aeb8c47eb2d60e assets/ars_maleficarum/models/block/sag
 1f0773a98a5a3ee6a83f10111d72df8373c2e05d assets/ars_maleficarum/models/block/sage_stage1.json
 9b8f53d8cf69bdd801cc110a95d5494740f32bfd assets/ars_maleficarum/models/block/sage_stage2.json
 f89060cffede0416d8e757fe4329b244d128f713 assets/ars_maleficarum/models/block/sage_stage3.json
+cdee6e85c3cd4a4416e0466f3da853fd25123110 assets/ars_maleficarum/models/block/salt_block.json
 ef8407bb07b5b662e3564a55428c25ed3313946b assets/ars_maleficarum/models/block/silver_block.json
 1c9afc88d8613f905bfc6a3d7c421f8339aa0c8d assets/ars_maleficarum/models/block/silver_ore_block.json
 b11db92e5ece65f22683b1f983f61fbd8a38d0a4 assets/ars_maleficarum/models/item/cursed_gold_block.json
@@ -35,5 +37,6 @@ fe0e9676a77169d0ba14817c373b9c491c41eebf assets/ars_maleficarum/models/item/rowa
 6ae261cb849eefbe2233b9ff42c74a3de2ced243 assets/ars_maleficarum/models/item/rowan_log.json
 df24f04d6fe832b212577aa0d73afaa3c21ea30b assets/ars_maleficarum/models/item/rowan_planks.json
 a62644644512ad94cac8a782530bdf1b0c6e7023 assets/ars_maleficarum/models/item/rowan_wood.json
+db84209d36e6ee10bdce90cd83665704558b6677 assets/ars_maleficarum/models/item/salt_block.json
 97783b3351e3aeb7a00a39c1bfc7a391d6d664a6 assets/ars_maleficarum/models/item/silver_block.json
 241b1c543a6db1b6450e7eb67f3dde7df377f494 assets/ars_maleficarum/models/item/silver_ore_block.json
