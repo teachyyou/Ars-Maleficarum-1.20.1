@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "ars_maleficarum:salt"
+    },
+    {
+      "item": "ars_maleficarum:tree_larva"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "ars_maleficarum:fermented_tree_larva"
+  }
+}

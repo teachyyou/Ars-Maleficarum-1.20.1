@@ -52,7 +52,12 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         saplingBlock(ModBlocks.ROWAN_SAPLING);
         blockWithItem(ModBlocks.SALT_BLOCK);
+
         makeSunlight_Flower_Crop(((CropBlock) ModBlocks.SUNLIGHT_FLOWER_CROP.get()), "sunlight_flower_stage_", "sunlight_flower_stage_");
+
+
+        logBlock((RotatedPillarBlock) ModBlocks.DEAD_TREE_LOG.get());
+        blockItem(ModBlocks.DEAD_TREE_LOG);
 
     }
 

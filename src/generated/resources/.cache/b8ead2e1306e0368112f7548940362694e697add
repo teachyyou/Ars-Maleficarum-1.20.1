@@ -1,9 +1,12 @@
-// 1.20.1	2023-11-01T18:57:17.5700245	Item Models: ars_maleficarum
+// 1.20.1	2023-11-03T10:20:20.963344	Item Models: ars_maleficarum
 dfd221a6320733f602efbcd2454e9fcfe6d1efc0 assets/ars_maleficarum/models/item/bat_wing.json
 d2396c542a049e306344fbe71e3130076facf8f2 assets/ars_maleficarum/models/item/carbon_detector.json
 039525fd3d858dc213dd83964307f04c00fddadd assets/ars_maleficarum/models/item/cursed_gold.json
 6d579477cc5121c00c6864d6a28b36fc5392f9b5 assets/ars_maleficarum/models/item/cursed_gold_nugget.json
+7d31665d2fc943fbbfcea0fe084bcd64d0f22931 assets/ars_maleficarum/models/item/dead_tree_bark.json
+8153c6abb434a131e8bcd841116d87abb764e5f0 assets/ars_maleficarum/models/item/dead_tree_larva.json
 21254381f869bc84132f6552775f1627a9df2938 assets/ars_maleficarum/models/item/empty_seal.json
+4d72081eee85bb2ff8ba05e061d41613dcf4ccf9 assets/ars_maleficarum/models/item/fermented_tree_larva.json
 58a9af9cbc0ab39485de296e9865f3a38d0b3fc3 assets/ars_maleficarum/models/item/flint_knife.json
 95e1591786ef5efdf3a5d25d2a096b7ed1343763 assets/ars_maleficarum/models/item/marigold_flower.json
 2f4fb5ea5c45eeb6b572c5e70564bf389ff9ec1f assets/ars_maleficarum/models/item/marigold_seeds.json
@@ -21,5 +24,8 @@ ffc3716a97926a7457519621dba1a097cd602f1d assets/ars_maleficarum/models/item/salt
 35984c75e9d06b475f0b38748c2c17233cfec298 assets/ars_maleficarum/models/item/stone_mortar.json
 ade315cff3bf1594a2431d467f59991cc2e50a55 assets/ars_maleficarum/models/item/stone_mortar_and_pestle.json
 9ef6fbd74282a890e2ffe909c798395cd2619dc2 assets/ars_maleficarum/models/item/stone_pestle.json
+237003e28c84e7b5a4f44562ba8a4b3a60ffdd7a assets/ars_maleficarum/models/item/sunlight_flower.json
+5c1f644f2f5ebad35c77a9b924c4a43864006e0e assets/ars_maleficarum/models/item/sunlight_flower_seeds.json
+164b714ef61e60c28ead6152abc2b3727aa690f0 assets/ars_maleficarum/models/item/tree_larva.json
 a1f7b82d1604b9fd97af55a611b85428df5461b8 assets/ars_maleficarum/models/item/valuable_detector.json
 a64e507d96540d259b820631a4b717451aea38f3 assets/ars_maleficarum/models/item/wooden_mortar_and_pestle.json

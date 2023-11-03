@@ -50,5 +50,11 @@
   "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
 
   "item.ars_maleficarum.bat_wing": "Bat Wing",
-  "block.ars_maleficarum.salt_block": "Salt Block"
+  "block.ars_maleficarum.salt_block": "Salt Block",
+
+  "item.ars_maleficarum.dead_tree_bark": "Dead Tree Bark",
+  "item.ars_maleficarum.dead_tree_larva": "Dead Tree Larva",
+  "item.ars_maleficarum.fermented_tree_larva": "Fermented Tree Larva",
+  "item.ars_maleficarum.tree_larva": "Tree Larva",
+  "block.ars_maleficarum.dead_tree_log": "Dead Tree Log"
 }

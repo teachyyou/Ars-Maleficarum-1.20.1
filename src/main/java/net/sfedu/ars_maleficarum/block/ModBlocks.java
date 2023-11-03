@@ -101,6 +101,23 @@ public class ModBlocks {
     public static final RegistryObject<Block> ROWAN_SAPLING = registerBlock("rowan_sapling",
             ()->new SaplingBlock(new RowanTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
+    public static final RegistryObject<Block> DEAD_TREE_LOG = registerBlock("dead_tree_log",
+            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(0.3f))
+            {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 70;
+                }
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 40;
+                }
+            });
+
 
     //Регистрация блока и предмета, привязанного к нему
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

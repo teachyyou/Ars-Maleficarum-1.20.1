@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.fml.common.Mod;
@@ -56,6 +57,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 createLeavesDropsWithAdditionalItem(block,ModBlocks.ROWAN_SAPLING.get(),ModItems.ROWAN_BERRIES.get(),NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.add(ModBlocks.SALT_BLOCK.get(), block -> createSaltDrops(ModBlocks.SALT_BLOCK.get()));
+        this.add(ModBlocks.DEAD_TREE_LOG.get(), block -> createDeadTreeDrops(ModBlocks.DEAD_TREE_LOG.get()));
 
 
 
@@ -112,5 +114,21 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     //Для выпадения соли из блока соли
     protected LootTable.Builder createSaltDrops(Block pBlock) {
         return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(ModItems.SALT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))));
+    }
+    //Дроп с мертвого дерева
+    protected LootTable.Builder createDeadTreeDrops(Block pBlock) {
+        return this.applyExplosionDecay(pBlock, LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .add(LootItem.lootTableItem(ModBlocks.DEAD_TREE_LOG.get())
+                        .when(HAS_SILK_TOUCH)))
+                .withPool(LootPool.lootPool()
+                        .add(LootItem.lootTableItem(ModItems.DEAD_TREE_BARK.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                        .when(HAS_NO_SILK_TOUCH)))
+                .withPool(LootPool.lootPool()
+                        .when(HAS_NO_SILK_TOUCH)
+                        .add(LootItem.lootTableItem(ModItems.TREE_LARVA.get())
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
+                        .when(LootItemRandomChanceCondition.randomChance(0.12f))
+                        ));
     }
 }

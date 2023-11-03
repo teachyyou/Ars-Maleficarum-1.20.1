@@ -228,6 +228,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#',ModItems.SALT.get())
                 .unlockedBy(getHasName(ModItems.SALT.get()),has(ModItems.SALT.get()))
                 .save(pWriter);
+        //Крафт маринованной личинки
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.FERMENTED_TREE_LARVA.get(),1)
+                .requires(Items.SUGAR)
+                .requires(ModItems.SALT.get())
+                .requires(ModItems.TREE_LARVA.get())
+                .requires(Items.GLASS_BOTTLE)
+                .unlockedBy(getHasName(ModItems.TREE_LARVA.get()),has(ModItems.TREE_LARVA.get()))
+                .save(pWriter,new ResourceLocation("fermented_tree_larva_craft"));
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

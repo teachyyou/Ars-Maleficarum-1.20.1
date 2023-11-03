@@ -54,5 +54,11 @@
   "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!",
 
   "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
-  "block.ars_maleficarum.salt_block": "Блок соли"
+  "block.ars_maleficarum.salt_block": "Блок соли",
+
+  "item.ars_maleficarum.dead_tree_bark": "Кора сухого дерева",
+  "item.ars_maleficarum.dead_tree_larva": "Мёртвая древесная личинка",
+  "item.ars_maleficarum.fermented_tree_larva": "Маринованная древесная личинка",
+  "item.ars_maleficarum.tree_larva": "Древесная личинка",
+  "block.ars_maleficarum.dead_tree_log": "Блок сухого дерева"
 }

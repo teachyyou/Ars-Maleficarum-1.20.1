@@ -20,7 +20,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
-                .add(ModBlocks.ROWAN_WOOD.get().asItem());
+                .add(ModBlocks.ROWAN_WOOD.get().asItem())
+                .add(ModBlocks.DEAD_TREE_LOG.get().asItem());
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get().asItem());
 

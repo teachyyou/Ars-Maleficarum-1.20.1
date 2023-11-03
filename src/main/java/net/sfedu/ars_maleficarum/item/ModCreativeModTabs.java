@@ -58,6 +58,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.SALT_BLOCK.get());
                         pOutput.accept(ModItems.SUNLIGHT_FLOWER_SEED.get());
                         pOutput.accept(ModItems.SUNLIGHT_FLOWER.get());
+                        pOutput.accept(ModBlocks.DEAD_TREE_LOG.get());
+                        pOutput.accept(ModItems.DEAD_TREE_BARK.get());
+                        pOutput.accept(ModItems.DEAD_TREE_LARVA.get());
+                        pOutput.accept(ModItems.FERMENTED_TREE_LARVA.get());
+                        pOutput.accept(ModItems.TREE_LARVA.get());
 
                     }))
                     .build());

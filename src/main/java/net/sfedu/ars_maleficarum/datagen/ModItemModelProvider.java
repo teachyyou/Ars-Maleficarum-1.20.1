@@ -50,6 +50,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BAT_WING);
         simpleItem(ModItems.SUNLIGHT_FLOWER_SEED);
         simpleItem(ModItems.SUNLIGHT_FLOWER);
+
+        simpleItem(ModItems.TREE_LARVA);
+        simpleItem(ModItems.DEAD_TREE_BARK);
+        simpleItem(ModItems.DEAD_TREE_LARVA);
+        simpleItem(ModItems.FERMENTED_TREE_LARVA);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

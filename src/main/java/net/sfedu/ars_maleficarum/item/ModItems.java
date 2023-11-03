@@ -92,6 +92,14 @@ public class ModItems {
             ()->new WoodenMortarAndPestle(new Item.Properties().durability(18)));
     public static final RegistryObject<Item> BAT_WING = ITEMS.register("bat_wing",
             ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DEAD_TREE_BARK = ITEMS.register("dead_tree_bark",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DEAD_TREE_LARVA = ITEMS.register("dead_tree_larva",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FERMENTED_TREE_LARVA = ITEMS.register("fermented_tree_larva",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TREE_LARVA = ITEMS.register("tree_larva",
+            ()->new TreeLarva(new Item.Properties()));
 
 
 
