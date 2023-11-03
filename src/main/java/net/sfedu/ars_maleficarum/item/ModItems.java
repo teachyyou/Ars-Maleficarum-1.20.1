@@ -36,6 +36,12 @@ public class ModItems {
     //Регистрация семян календулы
     public static final RegistryObject<Item> MARIGOLD_SEED = ITEMS.register("marigold_seeds",
             ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+    //Регистрация семян цветка солнечного света
+    public static final RegistryObject<Item> SUNLIGHT_FLOWER_SEED = ITEMS.register("sunlight_flower_seeds",
+            ()->new ItemNameBlockItem(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), new Item.Properties()));
+    //Регистрация цветка солнечного света
+    public static final RegistryObject<Item> SUNLIGHT_FLOWER = ITEMS.register("sunlight_flower",
+            ()->new Item(new Item.Properties()));
 
     //Регистрация слитка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",

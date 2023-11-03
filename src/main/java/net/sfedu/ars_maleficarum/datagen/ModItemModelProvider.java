@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -47,6 +48,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.WOODEN_MORTAR_AND_PESTLE);
 
         simpleItem(ModItems.BAT_WING);
+        simpleItem(ModItems.SUNLIGHT_FLOWER_SEED);
+        simpleItem(ModItems.SUNLIGHT_FLOWER);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
