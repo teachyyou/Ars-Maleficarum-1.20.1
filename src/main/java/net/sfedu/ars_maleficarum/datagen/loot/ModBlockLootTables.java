@@ -22,6 +22,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 import java.util.Set;
@@ -37,7 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     //Генерация кастомного лута с блоков
     protected void generate() {
-
+        generatedSunlight_flower_Drop();
         generateSageCropDrop();
         generateMarigoldCropDrop();
         //Блоки, которые при ломании дропают сами себя
@@ -56,8 +57,19 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.SALT_BLOCK.get(), block -> createSaltDrops(ModBlocks.SALT_BLOCK.get()));
 
-    }
 
+
+
+    }
+    //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
+    protected void generatedSunlight_flower_Drop(){
+        LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(ModBlocks.SUNLIGHT_FLOWER_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SunlightFlower.AGE, 6));
+        //Выпадение предметов при сборе созревшей культуры
+        this.add(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), createCropDrops(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), ModItems.SUNLIGHT_FLOWER.get(),
+                ModItems.SUNLIGHT_FLOWER_SEED.get(), lootitemcondition$builder2));
+    }
     //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
