@@ -56,6 +56,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.WOODEN_MORTAR_AND_PESTLE.get());
                         pOutput.accept(ModItems.BAT_WING.get());
                         pOutput.accept(ModBlocks.SALT_BLOCK.get());
+                        pOutput.accept(ModItems.SUNLIGHT_FLOWER_SEED.get());
+                        pOutput.accept(ModItems.SUNLIGHT_FLOWER.get());
 
                     }))
                     .build());

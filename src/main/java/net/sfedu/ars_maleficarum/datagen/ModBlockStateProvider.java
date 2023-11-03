@@ -16,6 +16,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
 
 import java.util.function.Function;
 
@@ -51,6 +52,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         saplingBlock(ModBlocks.ROWAN_SAPLING);
         blockWithItem(ModBlocks.SALT_BLOCK);
+        makeSunlight_Flower_Crop(((CropBlock) ModBlocks.SUNLIGHT_FLOWER_CROP.get()), "sunlight_flower_stage_", "sunlight_flower_stage_");
 
     }
 
@@ -107,5 +109,18 @@ public class ModBlockStateProvider extends BlockStateProvider  {
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+    public void makeSunlight_Flower_Crop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> Sunlight_Flower_States(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] Sunlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SunlightFlower) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
     }
 }
