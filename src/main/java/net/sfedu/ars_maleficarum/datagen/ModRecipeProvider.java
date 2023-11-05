@@ -236,6 +236,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy(getHasName(ModItems.TREE_LARVA.get()),has(ModItems.TREE_LARVA.get()))
                 .save(pWriter,new ResourceLocation("fermented_tree_larva_craft"));
+        //Крафт серебряного стилета
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.SILVER_DAGGER.get())
+                .pattern(" SS")
+                .pattern(" RS")
+                .pattern("N  ")
+                .define('S',ModItems.SILVER.get())
+                .define('R',Items.STICK)
+                .define('N',ModItems.CURSED_GOLD_NUGGET.get())
+                .unlockedBy(getHasName(ModItems.SILVER.get()),has(ModItems.SILVER.get()))
+                .save(pWriter);
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

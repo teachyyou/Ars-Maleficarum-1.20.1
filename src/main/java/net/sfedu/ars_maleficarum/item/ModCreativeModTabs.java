@@ -63,6 +63,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.DEAD_TREE_LARVA.get());
                         pOutput.accept(ModItems.FERMENTED_TREE_LARVA.get());
                         pOutput.accept(ModItems.TREE_LARVA.get());
+                        pOutput.accept(ModItems.SILVER_DAGGER.get().getDefaultInstance());
 
                     }))
                     .build());

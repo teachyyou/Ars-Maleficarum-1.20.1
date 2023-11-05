@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "N": {
+      "item": "ars_maleficarum:cursed_gold_nugget"
+    },
+    "R": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "ars_maleficarum:silver"
+    }
+  },
+  "pattern": [
+    " SS",
+    " RS",
+    "N  "
+  ],
+  "result": {
+    "item": "ars_maleficarum:silver_dagger"
+  },
+  "show_notification": true
+}

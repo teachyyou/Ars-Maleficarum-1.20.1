@@ -56,5 +56,7 @@
   "item.ars_maleficarum.dead_tree_larva": "Dead Tree Larva",
   "item.ars_maleficarum.fermented_tree_larva": "Fermented Tree Larva",
   "item.ars_maleficarum.tree_larva": "Tree Larva",
-  "block.ars_maleficarum.dead_tree_log": "Dead Tree Log"
+  "block.ars_maleficarum.dead_tree_log": "Dead Tree Log",
+
+  "item.ars_maleficarum.silver_dagger": "Silver Dagger"
 }

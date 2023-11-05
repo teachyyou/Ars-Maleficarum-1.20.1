@@ -60,5 +60,7 @@
   "item.ars_maleficarum.dead_tree_larva": "Мёртвая древесная личинка",
   "item.ars_maleficarum.fermented_tree_larva": "Маринованная древесная личинка",
   "item.ars_maleficarum.tree_larva": "Древесная личинка",
-  "block.ars_maleficarum.dead_tree_log": "Блок сухого дерева"
+  "block.ars_maleficarum.dead_tree_log": "Блок сухого дерева",
+
+  "item.ars_maleficarum.silver_dagger": "Серебряный стилет"
 }

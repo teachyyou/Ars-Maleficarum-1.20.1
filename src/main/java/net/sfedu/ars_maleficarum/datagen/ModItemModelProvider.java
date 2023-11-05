@@ -55,6 +55,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DEAD_TREE_BARK);
         simpleItem(ModItems.DEAD_TREE_LARVA);
         simpleItem(ModItems.FERMENTED_TREE_LARVA);
+
+        handheldItem(ModItems.SILVER_DAGGER);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
@@ -68,5 +70,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+block.getId().getPath()));
+    }
+
+    //Чтобы предмет в руке отображался как 3д
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
     }
 }

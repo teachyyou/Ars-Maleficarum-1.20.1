@@ -78,6 +78,9 @@ public class ModItems {
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 
+    public static final RegistryObject<Item> SILVER_DAGGER = ITEMS.register("silver_dagger",
+            ()->new SilverDagger(Tiers.GOLD,5,-1F,new Item.Properties().durability(96)));
+
     public static final RegistryObject<Item> EMPTY_SEAL = ITEMS.register("empty_seal",
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item> PERCEPTION_CORE = ITEMS.register("perception_core",
