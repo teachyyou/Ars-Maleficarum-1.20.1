@@ -1,7 +1,9 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.WorldData;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -35,7 +37,6 @@ public class SunlightFlower extends CropBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(AGE);
     }
-
     @Override
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(Blocks.GRASS_BLOCK) || pState.is(Blocks.DIRT);
@@ -48,25 +49,24 @@ public class SunlightFlower extends CropBlock {
         if(nextAge>maxAge) {
             nextAge=maxAge;
         }
-        if(pLevel.getBrightness(LightLayer.SKY,pPos)<8)
-            return;
         for(int i=2;i<150;i++){
             if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR)){
                 return;
             }
         }
-        if (this.getAge(pState)==FIRST_STAGE_MAX_AGE && (pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR))){
+        if (this.getAge(pState)==FIRST_STAGE_MAX_AGE && (pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR) && pLevel.isDay())){
             pLevel.setBlock(pPos.above(1),this.getStateForAge(4),2);
         }
 
-        else if ((nextAge==FIRST_STAGE_MAX_AGE+1) && (this.getAge(pLevel.getBlockState(pPos.above(1)))==4)) {
+        else if ((nextAge==FIRST_STAGE_MAX_AGE+1) && (this.getAge(pLevel.getBlockState(pPos.above(1)))==4)&& pLevel.isDay()) {
             pLevel.setBlock(pPos.above(1),this.getStateForAge(nextAge+1),2);
         }
-        else if ((nextAge>FIRST_STAGE_MAX_AGE) && (this.getAge(pLevel.getBlockState(pPos.above(1)))>=5)) {
+        else if ((nextAge>FIRST_STAGE_MAX_AGE) && (this.getAge(pLevel.getBlockState(pPos.above(1)))>=5)&& pLevel.isDay()) {
             pLevel.setBlock(pPos.above(1),this.getStateForAge(nextAge+2),2);
                     //System.out.println(this.getAge(pLevel.getBlockState(pPos.above(1))));
         }
         else {
+            if(pLevel.isDay())
                 pLevel.setBlock(pPos,this.getStateForAge(nextAge),2);
         }
 
@@ -89,6 +89,7 @@ public class SunlightFlower extends CropBlock {
         return true;
     }
 
+
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return super.mayPlaceOn(state,world,pos);
@@ -110,6 +111,7 @@ public class SunlightFlower extends CropBlock {
     }
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pLevel.isAreaLoaded(pPos, 1)) return;
+        canSurvive(pState,pLevel,pPos);
         if(pLevel.getRawBrightness(pPos,1)<8)
             return;
         if (pLevel.getRawBrightness(pPos, 0) >= 9) {
@@ -119,22 +121,29 @@ public class SunlightFlower extends CropBlock {
             if(nextAge>maxAge) {
                 nextAge=maxAge;
             }
-
+            if(!canSurvive(pState,pLevel,pPos))
+            {
+                pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
+                return;
+            }
             if (currentAge < this.getMaxAge()) {
                 float growthSpeed = getGrowthSpeed(this, pLevel, pPos);
 
                 if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt((int)(25.0F / growthSpeed) + 1) == 0)) {
-                    if(currentAge == FIRST_STAGE_MAX_AGE) {
+                    if(currentAge == FIRST_STAGE_MAX_AGE && pLevel.isDay()) {
                         if(pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR)) {
                             pLevel.setBlock(pPos.above(1), this.getStateForAge(currentAge + 1), 2);
                        }
                    }
                     else {
-                        pLevel.setBlock(pPos, this.getStateForAge(currentAge + 1), 2);
+                        if(pLevel.isDay())
+                            pLevel.setBlock(pPos, this.getStateForAge(currentAge + 1), 2);
                     }
-
                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
                 }
+            }
+            else {
+                boolean flag=this.canSurvive(pState,pLevel,pPos);
             }
         }
     }
