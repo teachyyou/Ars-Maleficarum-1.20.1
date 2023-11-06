@@ -69,8 +69,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 .hasBlockStateProperties(ModBlocks.SUNLIGHT_FLOWER_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SunlightFlower.AGE, 6));
         //Выпадение предметов при сборе созревшей культуры
-        this.add(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), createCropDrops(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), ModItems.SUNLIGHT_FLOWER.get(),
-                ModItems.SUNLIGHT_FLOWER_SEED.get(), lootitemcondition$builder2));
+        this.add(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), createCropDropsWith2Items_SecondItemRare(ModBlocks.SUNLIGHT_FLOWER_CROP.get(),ModItems.SUNLIGHT_FLOWER.get(),Items.GLOWSTONE_DUST,
+                ModItems.SUNLIGHT_FLOWER_SEED.get(),lootitemcondition$builder2));
     }
     //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
     protected Iterable<Block> getKnownBlocks() {
@@ -105,6 +105,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     //Дополнительная функция дропа, которой можно пользоваться, если нужно, чтобы с созревшей культуры падало 2 предмета, помимо семян.
     protected LootTable.Builder createCropDropsWith2Items(Block pCropBlock, Item pGrownCropItem1,Item pGrownCropItem2, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition).otherwise(LootItem.lootTableItem(pSeedsItem)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem2).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().when(pDropGrownCropCondition).add(LootItem.lootTableItem(pSeedsItem).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3)))));
+    }
+    //Дополнительная функция дропа, которой можно пользоваться, если нужно, чтобы какой-то предмет дропаляс редко
+    //Первый предмет - обычный, второй предмет - редкий, третий - семена
+    protected LootTable.Builder createCropDropsWith2Items_SecondItemRare(Block pCropBlock, Item pGrownCropItem1,Item pGrownCropItem2, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
+        return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition).otherwise(LootItem.lootTableItem(pSeedsItem)))).withPool(LootPool.lootPool().when(pDropGrownCropCondition).add(LootItem.lootTableItem(pGrownCropItem2).apply(SetItemCountFunction.setCount(UniformGenerator.between(0F, 0F))).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.1234F, 1)))).withPool(LootPool.lootPool().when(pDropGrownCropCondition).add(LootItem.lootTableItem(pSeedsItem).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5261F, 3)))));
     }
 
     //Дополнительная функция выпадения с листвы при ломании ещё одного предмета
