@@ -59,8 +59,8 @@ public class ModBlocks {
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
-            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
-
+            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {
+                return 10;}).noOcclusion().noCollission()));
     public static final RegistryObject<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override
@@ -130,7 +130,6 @@ public class ModBlocks {
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name,()->new BlockItem(block.get(),new Item.Properties()));
     }
-
     //Регистрация блоков
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
