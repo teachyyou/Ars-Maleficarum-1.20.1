@@ -17,6 +17,7 @@ import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
+import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -43,6 +44,8 @@ public class ArsMaleficarum
 
         //Регистрация расширения стандартного дропа
         ModLootModifiers.register(modEventBus);
+
+        ModTrunkPlacerTypes.register(modEventBus);
 
 
         // Register the commonSetup method for modloading

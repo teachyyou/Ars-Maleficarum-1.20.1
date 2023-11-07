@@ -26,6 +26,7 @@ import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
+
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {

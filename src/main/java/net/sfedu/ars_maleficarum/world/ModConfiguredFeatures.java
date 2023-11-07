@@ -5,6 +5,8 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.AirBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -18,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.world.tree.custom.RowanTrunkPlacer;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> ROWAN_KEY = registerKey("rowan");
@@ -25,10 +28,11 @@ public class ModConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?,?>> context) {
         register(context,ROWAN_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.ROWAN_LOG.get()),
-                new StraightTrunkPlacer(4,5,4),
+                new RowanTrunkPlacer(4,2,3),
                 BlockStateProvider.simple(ModBlocks.ROWAN_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(3),ConstantInt.of(0),4),
-                new TwoLayersFeatureSize(2,1,4)).build());
+                //BlockStateProvider.simple(Blocks.AIR),
+                new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                new TwoLayersFeatureSize(2,1,2)).build());
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name) {
