@@ -50,6 +50,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BAT_WING);
         simpleItem(ModItems.SUNLIGHT_FLOWER_SEED);
         simpleItem(ModItems.SUNLIGHT_FLOWER);
+        simpleItem(ModItems.MOONLIGHT_FLOWER);
+        simpleItem(ModItems.MOONLIGHT_FLOWER_SEED);
 
         simpleItem(ModItems.TREE_LARVA);
         simpleItem(ModItems.DEAD_TREE_BARK);
