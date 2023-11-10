@@ -1,8 +1,10 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
+import com.mojang.authlib.minecraft.TelemetrySession;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.LightBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.WorldData;
@@ -22,6 +24,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.common.IPlantable;
+import org.jetbrains.annotations.NotNull;
 
 
 public class SunlightFlower extends CropBlock {
@@ -71,13 +74,13 @@ public class SunlightFlower extends CropBlock {
         }
 
     }
-
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         if(!Is_Blocks_Above(pLevel,pPos,pState))
+        {
             return false;
-        else
-            return super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) && pLevel.getBlockState(pPos.below(1)).getValue(AGE)==3);
+        }
+        return super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) && pLevel.getBlockState(pPos.below(1)).getValue(AGE)==3);
     }
     public boolean Is_Blocks_Above(LevelReader pLevel, BlockPos pPos, BlockState pState)
     {
@@ -92,7 +95,7 @@ public class SunlightFlower extends CropBlock {
 
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-        return super.mayPlaceOn(state,world,pos);
+        return this.mayPlaceOn(state,world,pos);
     }
 
     @Override
@@ -109,7 +112,7 @@ public class SunlightFlower extends CropBlock {
     public IntegerProperty getAgeProperty() {
         return AGE;
     }
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+    public void randomTick(BlockState pState, @NotNull ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pLevel.isAreaLoaded(pPos, 1)) return;
         canSurvive(pState,pLevel,pPos);
         if(pLevel.getRawBrightness(pPos,1)<8)
