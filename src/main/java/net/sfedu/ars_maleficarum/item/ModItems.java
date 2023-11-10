@@ -42,7 +42,12 @@ public class ModItems {
     //Регистрация цветка солнечного света
     public static final RegistryObject<Item> SUNLIGHT_FLOWER = ITEMS.register("sunlight_flower",
             ()->new Item(new Item.Properties()));
-
+    //Регистрация семян цветка лунного света
+    public static final RegistryObject<Item> MOONLIGHT_FLOWER_SEED = ITEMS.register("moonlight_flower_seeds",
+            ()->new ItemNameBlockItem(ModBlocks.MOONLIGHT_FLOWER_CROP.get(), new Item.Properties()));
+    //Регистрация цветка лунного света
+    public static final RegistryObject<Item> MOONLIGHT_FLOWER = ITEMS.register("moonlight_flower",
+            ()->new Item(new Item.Properties()));
     //Регистрация слитка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
             ()->new Item(new Item.Properties()));
