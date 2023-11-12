@@ -61,6 +61,8 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         logBlock((RotatedPillarBlock) ModBlocks.DEAD_TREE_LOG.get());
         blockItem(ModBlocks.DEAD_TREE_LOG);
 
+        saplingBlock(ModBlocks.DEAD_TREE_SAPLING);
+
     }
 
     //Регистрация листвы

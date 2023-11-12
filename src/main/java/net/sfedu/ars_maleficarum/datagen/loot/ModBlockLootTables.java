@@ -62,7 +62,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SALT_BLOCK.get(), block -> createSaltDrops(ModBlocks.SALT_BLOCK.get()));
         this.add(ModBlocks.DEAD_TREE_LOG.get(), block -> createDeadTreeDrops(ModBlocks.DEAD_TREE_LOG.get()));
 
-
+        this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет

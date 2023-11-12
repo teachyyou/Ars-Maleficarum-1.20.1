@@ -62,5 +62,7 @@
   "item.ars_maleficarum.tree_larva": "Древесная личинка",
   "block.ars_maleficarum.dead_tree_log": "Блок сухого дерева",
 
-  "item.ars_maleficarum.silver_dagger": "Серебряный стилет"
+  "item.ars_maleficarum.silver_dagger": "Серебряный стилет",
+
+  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева"
 }

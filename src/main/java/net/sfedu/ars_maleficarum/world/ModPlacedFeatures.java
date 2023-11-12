@@ -20,12 +20,18 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> ROWAN_PLACED_KEY  = registerKey("rowan_placed");
 
+    public static final ResourceKey<PlacedFeature> DEAD_TREE_PLACED_KEY  = registerKey("dead_tree_placed");
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?,?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context,ROWAN_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.ROWAN_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,0),
                         ModBlocks.ROWAN_SAPLING.get()));
+
+        register(context,DEAD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.DEAD_TREE_KEY),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,0),
+                        ModBlocks.DEAD_TREE_SAPLING.get()));
     }
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
