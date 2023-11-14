@@ -17,6 +17,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_ROWAN_TREE = registerKey("add_rowan_tree");
+    public static final ResourceKey<BiomeModifier> ADD_DEAD_TREE = registerKey("add_dead_tree");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -25,6 +26,12 @@ public class ModBiomeModifiers {
         context.register(ADD_ROWAN_TREE,new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.FOREST)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ROWAN_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
+        ));
+
+        context.register(ADD_DEAD_TREE,new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP)),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.DEAD_TREE_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION
         ));
     }

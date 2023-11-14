@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-03T10:20:20.9623443	Recipes
+// 1.20.1	2023-11-12T16:31:26.0294782	Recipes
 67e99245e52e66e450754b9b6731eb6bda685081 data/ars_maleficarum/advancements/recipes/building_blocks/flint_knife.json
 4ee116c7e3ad74336c64f2d0945c36c33bbe8c78 data/ars_maleficarum/advancements/recipes/building_blocks/rowan_planks.json
 e4197192fa969e2d7b55965add3c4775332d2b58 data/ars_maleficarum/advancements/recipes/building_blocks/rowan_wood.json
@@ -21,6 +21,7 @@ d31e2e5425776912ff0eaf092bef7a213450128d data/ars_maleficarum/advancements/recip
 7637b6d57be70ea191a7bf4084cca36e504e9695 data/ars_maleficarum/advancements/recipes/misc/stone_mortar.json
 b38491e915a86dcf2c78b272222dc74202bd0892 data/ars_maleficarum/advancements/recipes/misc/stone_pestle.json
 0a07c129cd2a8ed8ecd761a9f8e60873ada6549c data/ars_maleficarum/advancements/recipes/misc/valuable_detector.json
+fababc76b158fac6a323339b6b4774d9e451eb57 data/ars_maleficarum/advancements/recipes/tools/silver_dagger.json
 92db1ccfde87d68bb53394b4dcf1248d0ae2c727 data/ars_maleficarum/recipes/carbon_detector.json
 0e4819188f11d35c869f39526ec3be403899fc63 data/ars_maleficarum/recipes/cursed_gold.json
 76821a04da0e2586df890df991ed382fac5f801b data/ars_maleficarum/recipes/cursed_gold_block.json
@@ -37,6 +38,7 @@ d252fa8d3600e8badd962eb25beb408fec6e6665 data/ars_maleficarum/recipes/salt_block
 b8b7c678dafb0bba8fc54b4f38d13d8d7cd97880 data/ars_maleficarum/recipes/salt_from_smelting_potion.json
 a1fa16100d6b651b32e26d1c50c61f85308626a3 data/ars_maleficarum/recipes/silver.json
 e294f58b933e2f6359b87051c8b5189d9ab1cabc data/ars_maleficarum/recipes/silver_block.json
+50535bc229e6308a120ae8633e557fbde6cdba4f data/ars_maleficarum/recipes/silver_dagger.json
 5f9e43212e997d84aed54bc1da75f14d72f49662 data/ars_maleficarum/recipes/silver_from_blasting_silver_ore_block.json
 6ed3a84d27e721e025a8ab884c57ae427fb62727 data/ars_maleficarum/recipes/silver_from_smelting_silver_ore_block.json
 b454bf91f4af3a910e199d63974ae75f5c71c456 data/ars_maleficarum/recipes/silver_nugget.json
