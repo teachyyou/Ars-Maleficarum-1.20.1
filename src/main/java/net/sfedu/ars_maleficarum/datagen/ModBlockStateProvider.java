@@ -63,6 +63,9 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         saplingBlock(ModBlocks.DEAD_TREE_SAPLING);
 
+        horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
+
     }
 
     //Регистрация листвы

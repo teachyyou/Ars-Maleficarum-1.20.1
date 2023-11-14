@@ -8,6 +8,7 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -61,9 +62,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SILVER_DAGGER);
 
         saplingItem(ModBlocks.DEAD_TREE_SAPLING);
+
+        complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
+
+    private ItemModelBuilder complexBlock(Block block) {
+        return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/"+ForgeRegistries.BLOCKS.getKey(block).getPath()));
+    }
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",

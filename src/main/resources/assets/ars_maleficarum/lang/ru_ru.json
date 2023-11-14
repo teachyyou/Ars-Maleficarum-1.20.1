@@ -53,6 +53,9 @@
   "Carbon_not_found_message": "Артефакт демонстрирует полное отсутствие интереса. Ему скучно, поскольку ничего углеродного обнаружить снизу не удалось.",
   "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!",
 
+  "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
+  "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",
+
   "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
   "block.ars_maleficarum.salt_block": "Блок соли",
 
