@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 import java.util.List;
@@ -246,6 +247,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('N',ModItems.CURSED_GOLD_NUGGET.get())
                 .unlockedBy(getHasName(ModItems.SILVER.get()),has(ModItems.SILVER.get()))
                 .save(pWriter);
+
+        //Генерация крафтов в новой печке
+        new OdourExtractorRecipeBuilder(ModItems.SAGE_LEAF.get(),Items.GHAST_TEAR,Items.DIAMOND,true,0.5F,1)
+                .unlockedBy("has_sage_leaf",has(Items.DIAMOND)).save(pWriter);
+        new OdourExtractorRecipeBuilder(ModItems.SAGE_FLOWER.get(),Items.DIAMOND,Items.STICK,false,1,1)
+                .unlockedBy("has_sage_flower",has(Items.DIAMOND)).save(pWriter);
+
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

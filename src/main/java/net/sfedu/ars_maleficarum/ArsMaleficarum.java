@@ -19,6 +19,7 @@ import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
+import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
@@ -52,9 +53,14 @@ public class ArsMaleficarum
         //Регистрация расширения кастомной генерации деревьев
         ModTrunkPlacerTypes.register(modEventBus);
 
+        //Регистрация блоков с интерфейсом
         ModBlockEntities.register(modEventBus);
 
+        //Регистрация менюшек
         ModMenuTypes.register(modEventBus);
+
+        //Регистрация новых типов рецептов
+        ModRecipes.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

@@ -24,14 +24,19 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+import java.util.Random;
+
 public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -40,25 +45,35 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch(slot) {
-                case 0 -> stack.getItem() == ModItems.SAGE_LEAF.get();
-                case 1 -> false;
-                case 2 -> false;
-                case 3 -> true;
+                case 0 -> stack.getItem() != Items.CHARCOAL && stack.getItem() != MAGIC_FUEL && stack.getItem() != Items.GLASS_BOTTLE;
+                case 1 -> stack.getItem() == Items.CHARCOAL || stack.getItem() == MAGIC_FUEL;
+                case 2 -> stack.getItem() == Items.GLASS_BOTTLE;
+                case 3,4 -> false;
                 default -> super.isItemValid(slot, stack);
             };
         }
     };
 
+    //Топливо ускоряющее перегонку в 2 раза. TODO: Поменять на древесный уголь из безымянного дерева
+    private static final Item MAGIC_FUEL = ModItems.ROWAN_BARK.get();
+
     private static final int INPUT_SLOT = 0;
     private static final int FUEL = 1;
-    private static final int ADDITIONAL = 2;
+    private static final int JARS = 2;
     private static final int OUTPUT = 3;
+    private static final int ADDITIONAL = 4;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress=160;
+    private int litLevel = 0;
+
+    //private int maxLitLevel = 1280;
+    private int maxLitLevel = 480;
+
+    boolean useMagicFuel = false;
 
 
     public OdourExtractingFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -69,6 +84,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
                 return switch(pIndex) {
                     case 0 -> OdourExtractingFurnaceBlockEntity.this.progress;
                     case 1 -> OdourExtractingFurnaceBlockEntity.this.maxProgress;
+                    case 2 -> OdourExtractingFurnaceBlockEntity.this.litLevel;
+                    case 3 -> OdourExtractingFurnaceBlockEntity.this.maxLitLevel;
                     default ->  0;
                 };
             }
@@ -78,12 +95,14 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
                 switch(pIndex) {
                     case 0 -> OdourExtractingFurnaceBlockEntity.this.progress = pValue;
                     case 1 -> OdourExtractingFurnaceBlockEntity.this.maxProgress = pValue;
+                    case 2 -> OdourExtractingFurnaceBlockEntity.this.litLevel = pValue;
+                    case 3 -> OdourExtractingFurnaceBlockEntity.this.maxLitLevel = pValue;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 4;
             }
         };
     }
@@ -141,18 +160,22 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
-
-        if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
+        if (isOutputSlotEmptyOrReceivable() && hasRecipe() && hasFuelOrLit()) {
+            if (hasFuel() && litLevel == 0) {
+                consumeFuel();
+            }
             increaseCraftingProcess();
-            setChanged(level,pPos,pState);
 
+            setChanged(level,pPos,pState);
             if (hasProgressFinished()) {
                 craftItem();
                 resetProgress();
             }
+            decreaseLitLevel();
         }
         else {
             resetProgress();
+            if (litLevel>0) decreaseLitLevel();
         }
     }
 
@@ -161,29 +184,83 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     }
 
     private void craftItem() {
+        Random random = new Random();
+
+        Optional<OdourExtractingRecipe> recipe = getCurrentRecipe();
+        ItemStack resultItem = recipe.get().getResultItem(null);
+        float chance = recipe.get().getChance(null);
+
+        if (random.nextFloat()>(1-chance)) {
+            this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
+        }
+
+        if (!recipe.get().getIsBottleRequired(null)) {
+            this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
+                    this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
+        }
+
+        else if (this.itemHandler.getStackInSlot(JARS).getItem() == Items.GLASS_BOTTLE && recipe.get().getIsBottleRequired(null)) {
+            this.itemHandler.extractItem(JARS,1,false);
+            this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
+                    this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
+
+        }
+
         this.itemHandler.extractItem(INPUT_SLOT,1,false);
 
-        this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(Items.GHAST_TEAR,this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
+    }
+
+    private void consumeFuel() {
+        useMagicFuel = this.itemHandler.getStackInSlot(FUEL).getItem() == MAGIC_FUEL;
+        this.itemHandler.extractItem(FUEL,1,false);
+        System.out.println("Fuel consumed!");
+        litLevel = maxLitLevel;
     }
 
     private boolean hasProgressFinished() {
         return this.progress >= this.maxProgress;
     }
 
+    private boolean hasFuelOrLit() {
+        return  this.itemHandler.getStackInSlot(FUEL).getItem()== Items.CHARCOAL ||
+                this.itemHandler.getStackInSlot(FUEL).getItem()== MAGIC_FUEL ||
+                litLevel > 0;
+    }
+    private boolean hasFuel() {
+        return  this.itemHandler.getStackInSlot(FUEL).getItem()== Items.CHARCOAL ||
+                this.itemHandler.getStackInSlot(FUEL).getItem()== MAGIC_FUEL;
+    }
+
     private void increaseCraftingProcess() {
         this.progress++;
+        if (useMagicFuel) this.progress++;
+    }
 
+    private void decreaseLitLevel() {
+        this.litLevel--;
     }
 
 
     private boolean hasRecipe() {
-        return canInsertAmountIntoOutputSlot(1) && canInsertItemIntoOutputSlot(Items.GHAST_TEAR)
-                && hasRecipeItemInInputSlot();
+        Optional<OdourExtractingRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack resultItem = recipe.get().getResultItem(null);
+
+        return canInsertAmountIntoOutputSlot(resultItem.getCount())
+                && canInsertItemIntoOutputSlot(resultItem.getItem());
     }
 
-    private boolean hasRecipeItemInInputSlot() {
-        return this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == ModItems.SAGE_LEAF.get();
+    private Optional<OdourExtractingRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for (int i = 0; i < this.itemHandler.getSlots(); i++) {
+            inventory.setItem(i,this.itemHandler.getStackInSlot(i));
+        }
+        return this.level.getRecipeManager().getRecipeFor(OdourExtractingRecipe.Type.INSTANCE,inventory,level);
     }
+
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
         return this.itemHandler.getStackInSlot(OUTPUT).is(item) || itemHandler.getStackInSlot(OUTPUT).isEmpty();

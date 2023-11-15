@@ -41,15 +41,21 @@ public class OdourExtractorFurnaceScreen extends AbstractContainerScreen<OdourEx
     }
 
     private void RenderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
+        int k = menu.getScaledProgress();
+        int i = menu.getLitScaledProgress();
+        //pGuiGraphics.blit(this.texture, i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
+        guiGraphics.blit(TEXTURE,x+56,y+36+12-i,176,12-i,14,i+1);
+        guiGraphics.blit(TEXTURE,x+79,y+20,176,14,k,17);
+    }
+
+    /*private void RenderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         //int k = this.menu.getScaledProgress();
         int i = menu.getScaledProgress();
         //pGuiGraphics.blit(this.texture, i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
         if (menu.isCrafting()) {
             guiGraphics.blit(TEXTURE,x+56,y+36+12-i,176,12-i,14,i+1);
         }
-    }
-
-
+    }*/
     @Override
     public void render(GuiGraphics GuiGraphics, int MouseX, int MouseY, float delta) {
         renderBackground(GuiGraphics);

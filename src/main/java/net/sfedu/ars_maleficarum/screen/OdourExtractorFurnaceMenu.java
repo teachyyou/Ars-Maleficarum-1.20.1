@@ -20,11 +20,11 @@ public class OdourExtractorFurnaceMenu extends AbstractContainerMenu {
     private final Level level;
     private final ContainerData data;
     public OdourExtractorFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()),new SimpleContainerData(2));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()),new SimpleContainerData(5));
     }
     public OdourExtractorFurnaceMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(),pContainerId);
-        checkContainerSize(inv,4);
+        checkContainerSize(inv,5);
         blockEntity = ((OdourExtractingFurnaceBlockEntity)entity);
         this.level = inv.player.level();
         this.data = data;
@@ -37,6 +37,7 @@ public class OdourExtractorFurnaceMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(iItemHandler,1,56,53));
             this.addSlot(new SlotItemHandler(iItemHandler,2,83,53));
             this.addSlot(new SlotItemHandler(iItemHandler,3,118,21));
+            this.addSlot(new SlotItemHandler(iItemHandler,4,118,53));
         });
 
         addDataSlots(data);
@@ -49,9 +50,17 @@ public class OdourExtractorFurnaceMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
-        int progressArrowSize = 14;
+        int progressArrowSize = 24;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize/ maxProgress: 0;
+    }
+
+    public int getLitScaledProgress() {
+        int litLevel = this.data.get(2);
+        int maxLitLevel = this.data.get(3);
+        int progressArrowSize = 14;
+
+        return maxLitLevel != 0 && litLevel != 0 ? (litLevel) * progressArrowSize/ maxLitLevel: -1;
     }
 
 
@@ -71,7 +80,7 @@ public class OdourExtractorFurnaceMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
