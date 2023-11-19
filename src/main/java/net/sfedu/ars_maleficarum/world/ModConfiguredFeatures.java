@@ -17,10 +17,12 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlac
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.world.tree.custom.RowanFoliagePlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.RowanTrunkPlacer;
 
 public class ModConfiguredFeatures {
@@ -33,7 +35,7 @@ public class ModConfiguredFeatures {
                 new RowanTrunkPlacer(4,2,3),
                 BlockStateProvider.simple(ModBlocks.ROWAN_LEAVES.get()),
                 //BlockStateProvider.simple(Blocks.AIR),
-                new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                new RowanFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)) .build());
 
         register(context,DEAD_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(

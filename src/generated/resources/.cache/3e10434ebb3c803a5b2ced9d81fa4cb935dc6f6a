@@ -1,10 +1,11 @@
-// 1.20.1	2023-11-12T17:02:23.6772198	Block States: ars_maleficarum
+// 1.20.1	2023-11-14T19:36:47.3055329	Block States: ars_maleficarum
 cafbec1abed5d09b39c34a97f4b39370759b586e assets/ars_maleficarum/blockstates/cursed_gold_block.json
 b2b52f0a5bb55dc7436a260d48c9101df721e117 assets/ars_maleficarum/blockstates/cursed_gold_ore_block.json
 ab4d48488ec40d3455f4544bda990752c67b7de0 assets/ars_maleficarum/blockstates/dead_tree_log.json
 d6baff70a99b4544c66d00533e461060f1b41517 assets/ars_maleficarum/blockstates/dead_tree_sapling.json
 ee71e192381011c5fe3ef40c80637a5f002e92b7 assets/ars_maleficarum/blockstates/marigold_crop.json
 67c1ba8cf76026468b67376f7fd552a3da608b8f assets/ars_maleficarum/blockstates/moonlight_flower_crop.json
+f6bff76951be5f3bcd5969d4ffd5c6f2acb31409 assets/ars_maleficarum/blockstates/odour_extracting_furnace.json
 f8b22ef313528722fc402e7ea9a407c259c18152 assets/ars_maleficarum/blockstates/rowan_leaves.json
 ce3bbe47899d5b4e6e7427abac17da6d164322a3 assets/ars_maleficarum/blockstates/rowan_log.json
 f75ccdd9702b7f4bdd0e2666fb2bef93542cf2a2 assets/ars_maleficarum/blockstates/rowan_planks.json

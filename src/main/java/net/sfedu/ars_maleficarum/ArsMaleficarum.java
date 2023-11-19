@@ -22,6 +22,7 @@ import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
 import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
+import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 
@@ -52,6 +53,7 @@ public class ArsMaleficarum
 
         //Регистрация расширения кастомной генерации деревьев
         ModTrunkPlacerTypes.register(modEventBus);
+        ModFoliagePlacerTypes.register(modEventBus);
 
         //Регистрация блоков с интерфейсом
         ModBlockEntities.register(modEventBus);
