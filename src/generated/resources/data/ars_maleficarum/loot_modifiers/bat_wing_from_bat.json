@@ -10,5 +10,5 @@
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "ars_maleficarum:bat_wing"
+  "name": "ars_maleficarum:bat_wing"
 }
