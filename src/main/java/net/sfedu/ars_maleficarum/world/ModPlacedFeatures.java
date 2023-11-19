@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 
@@ -26,12 +27,10 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?,?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context,ROWAN_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.ROWAN_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,0),
-                        ModBlocks.ROWAN_SAPLING.get()));
+                VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(16), ModBlocks.ROWAN_SAPLING.get()));
 
         register(context,DEAD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.DEAD_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1,0.1f,0),
-                        ModBlocks.DEAD_TREE_SAPLING.get()));
+                VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(6), ModBlocks.DEAD_TREE_SAPLING.get()));
     }
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {

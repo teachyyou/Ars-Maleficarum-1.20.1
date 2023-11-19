@@ -8,7 +8,18 @@
     {
       "chance": 0.35,
       "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "items": [
+            "minecraft:shears"
+          ]
+        }
+      }
     }
   ],
-  "item": "ars_maleficarum:marigold_seeds"
+  "name": "ars_maleficarum:marigold_seeds"
 }
