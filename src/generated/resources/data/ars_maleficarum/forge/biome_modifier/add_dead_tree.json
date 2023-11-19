@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:swamp",
+  "features": "ars_maleficarum:dead_tree_placed",
+  "step": "vegetal_decoration"
+}

@@ -4,15 +4,20 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.MoonlightFlower;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
 
 import java.util.function.Function;
 
@@ -33,6 +38,50 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         blockWithItem(ModBlocks.CURSED_GOLD_ORE_BLOCK);
         blockWithItem(ModBlocks.SILVER_ORE_BLOCK);
 
+        logBlock((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
+        axisBlock((RotatedPillarBlock) ModBlocks.ROWAN_WOOD.get(),blockTexture(ModBlocks.ROWAN_LOG.get()),blockTexture(ModBlocks.ROWAN_LOG.get()));
+
+        blockItem(ModBlocks.ROWAN_LOG);
+        blockItem(ModBlocks.ROWAN_WOOD);
+        leavesBlock(ModBlocks.ROWAN_LEAVES);
+        blockWithItem(ModBlocks.ROWAN_PLANKS);
+        saplingBlock(ModBlocks.ROWAN_SAPLING);
+
+
+        logBlock((RotatedPillarBlock) ModBlocks.NAMELESS_TREE_LOG.get());
+        axisBlock((RotatedPillarBlock) ModBlocks.NAMELESS_TREE_WOOD.get(),blockTexture(ModBlocks.NAMELESS_TREE_LOG.get()),blockTexture(ModBlocks.NAMELESS_TREE_LOG.get()));
+
+        blockItem(ModBlocks.NAMELESS_TREE_LOG);
+        blockItem(ModBlocks.NAMELESS_TREE_WOOD);
+        leavesBlock(ModBlocks.NAMELESS_TREE_LEAVES);
+        blockWithItem(ModBlocks.NAMELESS_TREE_PLANKS);
+        saplingBlock(ModBlocks.NAMELESS_TREE_SAPLING);
+
+        makeSunlight_Flower_Crop(((CropBlock) ModBlocks.SUNLIGHT_FLOWER_CROP.get()), "sunlight_flower_stage_", "sunlight_flower_stage_");
+        makeMoonlight_Flower_Crop(((CropBlock) ModBlocks.MOONLIGHT_FLOWER_CROP.get()), "moonlight_flower_stage_", "moonlight_flower_stage_");
+
+        blockWithItem(ModBlocks.SALT_BLOCK);
+
+        logBlock((RotatedPillarBlock) ModBlocks.DEAD_TREE_LOG.get());
+        blockItem(ModBlocks.DEAD_TREE_LOG);
+        saplingBlock(ModBlocks.DEAD_TREE_SAPLING);
+
+        horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
+
+    }
+
+    //Регистрация листвы
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
+                        "all",blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    //Регистрация модели и текстуры для предмета привязанного к блоку
+    private void blockItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockItem(blockRegistryObject.get(),new ModelFile.UncheckedModelFile(ArsMaleficarum.MOD_ID+
+                ":block/"+ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
     }
 
 
@@ -69,5 +118,37 @@ public class ModBlockStateProvider extends BlockStateProvider  {
     //Быстрая регистрация даты для блока и предмета
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(),cubeAll(blockRegistryObject.get()));
+    }
+
+    //Регистрация саженца
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+    public void makeSunlight_Flower_Crop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> Sunlight_Flower_States(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] Sunlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SunlightFlower) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
+    }
+    public void makeMoonlight_Flower_Crop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> Moonlight_Flower_States(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] Moonlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((MoonlightFlower) block).getAgeProperty()),
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((MoonlightFlower) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
     }
 }

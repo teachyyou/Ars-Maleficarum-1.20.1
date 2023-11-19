@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:quartz"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "minecraft:emerald"
+    },
+    "D": {
+      "item": "ars_maleficarum:perception_core"
+    },
+    "E": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "F": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDE",
+    "AFA"
+  ],
+  "result": {
+    "item": "ars_maleficarum:valuable_detector"
+  },
+  "show_notification": true
+}

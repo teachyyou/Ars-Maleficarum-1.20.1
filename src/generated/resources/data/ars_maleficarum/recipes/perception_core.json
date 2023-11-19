@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "!": {
+      "item": "minecraft:gold_ingot"
+    },
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "$": {
+      "item": "ars_maleficarum:empty_seal"
+    },
+    "%": {
+      "item": "minecraft:coal"
+    },
+    "@": {
+      "item": "minecraft:quartz"
+    },
+    "^": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "@!@",
+    "#$%",
+    "@^@"
+  ],
+  "result": {
+    "item": "ars_maleficarum:perception_core"
+  },
+  "show_notification": true
+}

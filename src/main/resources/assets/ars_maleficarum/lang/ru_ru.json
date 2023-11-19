@@ -3,19 +3,69 @@
   "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
 
 
-  "item.ars_maleficarum.sage_flower": "Цветок Шалфея",
-  "item.ars_maleficarum.marigold_flower": "Цветок Календулы",
-  "item.ars_maleficarum.sage_seeds": "Семена Шалфея",
-  "item.ars_maleficarum.sage_leaf": "Листья Шалфея",
-  "blocks.ars_maleficarum.sage_crop": "Побеги Шалфея",
-  "item.ars_maleficarum.marigold_seeds": "Семена Календулы",
-  "block.ars_maleficarum.marigold_crop": "Побеги Календулы",
-  "block.ars_maleficarum.cursed_gold_block": "Блок Проклятого Золота",
-  "block.ars_maleficarum.silver_block": "Блок Серебра",
-  "block.ars_maleficarum.cursed_gold_ore_block": "Руда Проклятого Золота",
-  "block.ars_maleficarum.silver_ore_block": "Серебряная Руда",
-  "item.ars_maleficarum.cursed_gold": "Слиток Проклятого Золота",
-  "item.ars_maleficarum.silver": "Серебряный Слиток",
-  "item.ars_maleficarum.cursed_gold_nugget": "Самородок Проклятого Золота",
-  "item.ars_maleficarum.silver_nugget": "Серебряный Самородок"
+  "item.ars_maleficarum.sage_flower": "Цветок шалфея",
+  "item.ars_maleficarum.marigold_flower": "Цветок календулы",
+  "item.ars_maleficarum.sage_seeds": "Семена шалфея",
+  "item.ars_maleficarum.sage_leaf": "Листья шалфея",
+  "blocks.ars_maleficarum.sage_crop": "Побеги шалфея",
+  "item.ars_maleficarum.marigold_seeds": "Семена календулы",
+  "block.ars_maleficarum.marigold_crop": "Побеги календулы",
+  "block.ars_maleficarum.cursed_gold_block": "Блок проклятого золота",
+  "block.ars_maleficarum.silver_block": "Блок серебра",
+  "block.ars_maleficarum.cursed_gold_ore_block": "Руда проклятого золота",
+  "block.ars_maleficarum.silver_ore_block": "Серебряная руда",
+  "item.ars_maleficarum.cursed_gold": "Слиток проклятого золота",
+  "item.ars_maleficarum.silver": "Серебряный слиток",
+  "item.ars_maleficarum.cursed_gold_nugget": "Самородок проклятого золота",
+  "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
+
+  "block.ars_maleficarum.rowan_log": "Рябиновое бревно",
+  "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
+  "block.ars_maleficarum.rowan_wood": "Рябина",
+  "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
+  "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
+  "item.ars_maleficarum.rowan_bark": "Рябиновая кора",
+
+  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
+
+  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
+
+  "item.ars_maleficarum.flint_knife": "Примитивный ножик",
+
+  "item.ars_maleficarum.empty_seal": "Пустая печать",
+  "item.ars_maleficarum.perception_core": "Ядро восприятия",
+  "item.ars_maleficarum.salt": "Соль",
+  "item.ars_maleficarum.stone_mortar": "Каменная ступка",
+  "item.ars_maleficarum.stone_mortar_and_pestle": "Каменная ступка и пестик",
+  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
+  "item.ars_maleficarum.wooden_mortar_and_pestle": "Деревянная ступка и пестик",
+
+  "item.ars_maleficarum.carbon_detector": "Дар нищего рудокопа",
+  "item.ars_maleficarum.metal_detector": "Дар смуглого металлурга",
+  "item.ars_maleficarum.valuable_detector": "Дар краснощёкого мудреца",
+
+  "Valuable_not_found_message": "Артефакт пребывает в покое. Кажется, ничего интересного снизу не обнаружено.",
+  "Valuable_found_message": "Артефакт вибрирует! Нечто весьма интересное было замечено в недрах!",
+
+  "Metal_not_found_message": "Артефакт совершенно безмолвен. Ни следа присутствия металла снизу.",
+  "Metal_found_message": "Артефакт сияет и жужжит! Что-то металлическое лежит в недрах!",
+
+  "Carbon_not_found_message": "Артефакт демонстрирует полное отсутствие интереса. Ему скучно, поскольку ничего углеродного обнаружить снизу не удалось.",
+  "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!",
+
+  "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
+  "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",
+
+  "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
+  "block.ars_maleficarum.salt_block": "Блок соли",
+
+  "item.ars_maleficarum.dead_tree_bark": "Кора сухого дерева",
+  "item.ars_maleficarum.dead_tree_larva": "Мёртвая древесная личинка",
+  "item.ars_maleficarum.fermented_tree_larva": "Маринованная древесная личинка",
+  "item.ars_maleficarum.tree_larva": "Древесная личинка",
+  "block.ars_maleficarum.dead_tree_log": "Блок сухого дерева",
+
+  "item.ars_maleficarum.silver_dagger": "Серебряный стилет",
+
+  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева"
 }

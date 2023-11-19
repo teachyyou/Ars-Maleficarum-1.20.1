@@ -39,6 +39,42 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CARBON_DETECTOR.get());
                         pOutput.accept(ModItems.METAL_DETECTOR.get());
                         pOutput.accept(ModItems.VALUABLE_DETECTOR.get());
+                        pOutput.accept(ModBlocks.ROWAN_LOG.get());
+                        pOutput.accept(ModBlocks.ROWAN_WOOD.get());
+                        pOutput.accept(ModBlocks.ROWAN_LEAVES.get());
+                        pOutput.accept(ModBlocks.ROWAN_PLANKS.get());
+                        pOutput.accept(ModBlocks.ROWAN_SAPLING.get());
+                        pOutput.accept(ModItems.ROWAN_BERRIES.get());
+                        pOutput.accept(ModItems.ROWAN_BARK.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_LOG.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_WOOD.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_LEAVES.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_PLANKS.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_SAPLING.get());
+                        pOutput.accept(ModItems.STONE_PESTLE.get());
+                        pOutput.accept(ModItems.FLINT_KNIFE.get());
+                        pOutput.accept(ModItems.EMPTY_SEAL.get());
+                        pOutput.accept(ModItems.PERCEPTION_CORE.get());
+                        pOutput.accept(ModItems.SALT.get());
+                        pOutput.accept(ModItems.STONE_MORTAR.get());
+                        pOutput.accept(ModItems.STONE_MORTAR_AND_PESTLE.get());
+                        pOutput.accept(ModItems.WOODEN_MORTAR_AND_PESTLE.get());
+                        pOutput.accept(ModItems.BAT_WING.get());
+                        pOutput.accept(ModBlocks.SALT_BLOCK.get());
+                        pOutput.accept(ModItems.SUNLIGHT_FLOWER_SEED.get());
+                        pOutput.accept(ModItems.SUNLIGHT_FLOWER.get());
+                        pOutput.accept(ModItems.MOONLIGHT_FLOWER_SEED.get());
+                        pOutput.accept(ModItems.MOONLIGHT_FLOWER.get());
+                        pOutput.accept(ModBlocks.DEAD_TREE_LOG.get());
+                        pOutput.accept(ModItems.DEAD_TREE_BARK.get());
+                        pOutput.accept(ModItems.DEAD_TREE_LARVA.get());
+                        pOutput.accept(ModItems.FERMENTED_TREE_LARVA.get());
+                        pOutput.accept(ModItems.TREE_LARVA.get());
+                        pOutput.accept(ModItems.SILVER_DAGGER.get().getDefaultInstance());
+                        pOutput.accept(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
+
+
+
                     }))
                     .build());
 

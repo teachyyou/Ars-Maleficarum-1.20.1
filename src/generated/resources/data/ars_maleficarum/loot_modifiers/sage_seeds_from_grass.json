@@ -2,13 +2,24 @@
   "type": "ars_maleficarum:add_item",
   "conditions": [
     {
-      "block": "minecraft:grass",
+      "block": "minecraft:tall_grass",
       "condition": "minecraft:block_state_property"
     },
     {
-      "chance": 0.35,
+      "chance": 0.2,
       "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "items": [
+            "minecraft:shears"
+          ]
+        }
+      }
     }
   ],
-  "item": "ars_maleficarum:sage_seeds"
+  "name": "ars_maleficarum:sage_seeds"
 }

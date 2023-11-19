@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "minecraft:stick"
+  },
+  "chance": 1.0,
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:sage_flower"
+    }
+  ],
+  "isBottleRequired": false,
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}

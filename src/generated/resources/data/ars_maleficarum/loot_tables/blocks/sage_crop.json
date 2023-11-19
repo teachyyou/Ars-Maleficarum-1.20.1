@@ -48,6 +48,17 @@
               }
             }
           ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "ars_maleficarum:sage_leaf"
         }
       ],
@@ -74,7 +85,7 @@
               "function": "minecraft:apply_bonus",
               "parameters": {
                 "extra": 3,
-                "probability": 0.5714286
+                "probability": 0.53247
               }
             }
           ],

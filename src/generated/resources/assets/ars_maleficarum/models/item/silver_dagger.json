@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ars_maleficarum:item/silver_dagger"
+  }
+}

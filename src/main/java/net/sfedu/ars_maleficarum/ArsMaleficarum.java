@@ -1,6 +1,7 @@
 package net.sfedu.ars_maleficarum;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -12,11 +13,17 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
 import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
+import net.sfedu.ars_maleficarum.recipe.ModRecipes;
+import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
+import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
+import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
+import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -44,6 +51,18 @@ public class ArsMaleficarum
         //Регистрация расширения стандартного дропа
         ModLootModifiers.register(modEventBus);
 
+        //Регистрация расширения кастомной генерации деревьев
+        ModTrunkPlacerTypes.register(modEventBus);
+        ModFoliagePlacerTypes.register(modEventBus);
+
+        //Регистрация блоков с интерфейсом
+        ModBlockEntities.register(modEventBus);
+
+        //Регистрация менюшек
+        ModMenuTypes.register(modEventBus);
+
+        //Регистрация новых типов рецептов
+        ModRecipes.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -81,7 +100,10 @@ public class ArsMaleficarum
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            event.enqueueWork(() -> {
 
+                MenuScreens.register(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(), OdourExtractorFurnaceScreen::new);
+            });
         }
     }
 }

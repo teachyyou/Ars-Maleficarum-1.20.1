@@ -42,7 +42,7 @@ public class ValuableDetectorItem extends Item {
 
             }
             if(!foundblock){
-                player.sendSystemMessage(Component.literal("No Valuable ore Found at radius of 3 blocks"));
+                player.sendSystemMessage(Component.translatable("Valuable_not_found_message"));
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
@@ -51,7 +51,7 @@ public class ValuableDetectorItem extends Item {
     }
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
-        player.sendSystemMessage(Component.literal("Found a Valuable ore at radius of 3 blocks"));
+        player.sendSystemMessage(Component.translatable("Valuable_found_message"));
     }
 
     private boolean IsValuableBlock(BlockState state){

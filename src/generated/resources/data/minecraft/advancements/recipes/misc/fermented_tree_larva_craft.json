@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:fermented_tree_larva_craft"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tree_larva": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:tree_larva"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tree_larva",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:fermented_tree_larva_craft"
+    ]
+  },
+  "sends_telemetry_event": false
+}

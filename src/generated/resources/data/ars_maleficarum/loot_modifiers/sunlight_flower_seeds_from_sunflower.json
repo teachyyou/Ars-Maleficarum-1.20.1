@@ -1,0 +1,14 @@
+{
+  "type": "ars_maleficarum:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:sunflower",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 0.35,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "name": "ars_maleficarum:sunlight_flower_seeds"
+}

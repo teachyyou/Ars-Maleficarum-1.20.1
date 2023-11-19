@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:forest",
+  "features": "ars_maleficarum:rowan_placed",
+  "step": "vegetal_decoration"
+}

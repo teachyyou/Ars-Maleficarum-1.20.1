@@ -3,11 +3,15 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -30,12 +34,62 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CARBON_DETECTOR);
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.VALUABLE_DETECTOR);
+
+        simpleItem(ModItems.FLINT_KNIFE);
+
+        saplingItem(ModBlocks.ROWAN_SAPLING);
+        saplingItem(ModBlocks.NAMELESS_TREE_SAPLING);
+
+        simpleItem(ModItems.ROWAN_BERRIES);
+        simpleItem(ModItems.ROWAN_BARK);
+        simpleItem(ModItems.STONE_PESTLE);
+        simpleItem(ModItems.EMPTY_SEAL);
+        simpleItem(ModItems.PERCEPTION_CORE);
+        simpleItem(ModItems.SALT);
+        simpleItem(ModItems.STONE_MORTAR);
+        simpleItem(ModItems.STONE_MORTAR_AND_PESTLE);
+        simpleItem(ModItems.WOODEN_MORTAR_AND_PESTLE);
+
+        simpleItem(ModItems.BAT_WING);
+        simpleItem(ModItems.SUNLIGHT_FLOWER_SEED);
+        simpleItem(ModItems.SUNLIGHT_FLOWER);
+        simpleItem(ModItems.MOONLIGHT_FLOWER);
+        simpleItem(ModItems.MOONLIGHT_FLOWER_SEED);
+
+        simpleItem(ModItems.TREE_LARVA);
+        simpleItem(ModItems.DEAD_TREE_BARK);
+        simpleItem(ModItems.DEAD_TREE_LARVA);
+        simpleItem(ModItems.FERMENTED_TREE_LARVA);
+
+        handheldItem(ModItems.SILVER_DAGGER);
+
+        saplingItem(ModBlocks.DEAD_TREE_SAPLING);
+
+        complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
+
+    private ItemModelBuilder complexBlock(Block block) {
+        return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/"+ForgeRegistries.BLOCKS.getKey(block).getPath()));
+    }
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> block) {
+        return withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+block.getId().getPath()));
+    }
+
+    //Чтобы предмет в руке отображался как 3д
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
     }
 }

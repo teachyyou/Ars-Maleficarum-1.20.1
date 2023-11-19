@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ars_maleficarum:odour_extracting_furnace"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ars_maleficarum:blocks/odour_extracting_furnace"
+}
