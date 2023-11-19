@@ -27,3 +27,4 @@ forge*changelog.txt
 /src/generated/resources/.cache/
 .log
 .gz
+/run-data/

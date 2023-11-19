@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rowan_log": {
+    "has_nameless_tree_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ars_maleficarum:rowan_log"
+              "ars_maleficarum:nameless_tree_wood"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:rowan_planks"
+        "recipe": "minecraft:nameless_tree_planks_from_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_rowan_log",
+      "has_nameless_tree_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:rowan_planks"
+      "minecraft:nameless_tree_planks_from_wood"
     ]
   },
   "sends_telemetry_event": false

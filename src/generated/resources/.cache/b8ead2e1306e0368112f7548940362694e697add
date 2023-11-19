@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-14T19:36:47.304031	Item Models: ars_maleficarum
+// 1.20.1	2023-11-19T23:21:51.8931219	Item Models: ars_maleficarum
 dfd221a6320733f602efbcd2454e9fcfe6d1efc0 assets/ars_maleficarum/models/item/bat_wing.json
 d2396c542a049e306344fbe71e3130076facf8f2 assets/ars_maleficarum/models/item/carbon_detector.json
 039525fd3d858dc213dd83964307f04c00fddadd assets/ars_maleficarum/models/item/cursed_gold.json
@@ -14,6 +14,7 @@ d2396c542a049e306344fbe71e3130076facf8f2 assets/ars_maleficarum/models/item/carb
 773134f21981d18efe1b6bf40e9af16b1d4adc78 assets/ars_maleficarum/models/item/metal_detector.json
 13d841d29ccf6c0dbf82963bd69ddb5028982575 assets/ars_maleficarum/models/item/moonlight_flower.json
 5cc55686080a4ccc4278a335037a52d0056e0d62 assets/ars_maleficarum/models/item/moonlight_flower_seeds.json
+96c613b70d2dde21f7a15ca15065a69f4b3ec36c assets/ars_maleficarum/models/item/nameless_tree_sapling.json
 2fde1abedad54aa5edb3e88129386350aeb78db7 assets/ars_maleficarum/models/item/odour_extracting_furnace.json
 94c5306f1d6e3f904b2a0d7820b833db5031f9c0 assets/ars_maleficarum/models/item/perception_core.json
 68b46255b2af56c4718b76944500e752e3af56dc assets/ars_maleficarum/models/item/rowan_bark.json

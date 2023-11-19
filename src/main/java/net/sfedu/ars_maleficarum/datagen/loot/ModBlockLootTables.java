@@ -59,6 +59,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.ROWAN_LEAVES.get(),(block)->
                 createLeavesDropsWithAdditionalItem(block,ModBlocks.ROWAN_SAPLING.get(),ModItems.ROWAN_BERRIES.get(),NORMAL_LEAVES_SAPLING_CHANCES));
 
+        this.dropSelf(ModBlocks.NAMELESS_TREE_LOG.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_WOOD.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_PLANKS.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_SAPLING .get());
+
+        this.add(ModBlocks.NAMELESS_TREE_LEAVES.get(),(block)->
+                createLeavesDrops(block,ModBlocks.NAMELESS_TREE_SAPLING.get(),NORMAL_LEAVES_SAPLING_CHANCES));
+
         this.add(ModBlocks.SALT_BLOCK.get(), block -> createSaltDrops(ModBlocks.SALT_BLOCK.get()));
         this.add(ModBlocks.DEAD_TREE_LOG.get(), block -> createDeadTreeDrops(ModBlocks.DEAD_TREE_LOG.get()));
 

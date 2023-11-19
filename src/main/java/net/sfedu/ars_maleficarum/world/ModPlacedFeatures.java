@@ -23,11 +23,16 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> DEAD_TREE_PLACED_KEY  = registerKey("dead_tree_placed");
 
+    public static final ResourceKey<PlacedFeature> NAMELESS_TREE_PLACED_KEY = registerKey("nameless_tree_placed");
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?,?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context,ROWAN_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.ROWAN_KEY),
                 VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(16), ModBlocks.ROWAN_SAPLING.get()));
+
+        register(context,NAMELESS_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.NAMELESS_TREE_KEY),
+                VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(16), ModBlocks.NAMELESS_TREE_SAPLING.get()));
 
         register(context,DEAD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.DEAD_TREE_KEY),
                 VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(6), ModBlocks.DEAD_TREE_SAPLING.get()));

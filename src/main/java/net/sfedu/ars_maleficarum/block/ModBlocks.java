@@ -17,6 +17,7 @@ import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
+import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
 
 import java.util.function.Supplier;
@@ -51,17 +52,18 @@ public class ModBlocks {
     public static  final RegistryObject<Block> CURSED_GOLD_ORE_BLOCK = registerBlock("cursed_gold_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_GOLD_BLOCK)));
 
-    public static final RegistryObject<Block> ROWAN_LOG = registerBlock("rowan_log",
-            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
 
-    public static final RegistryObject<Block> ROWAN_WOOD = registerBlock("rowan_wood",
-            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
             ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
     //Регистрация цветка лунного света
     public static final RegistryObject<Block> MOONLIGHT_FLOWER_CROP = BLOCKS.register("moonlight_flower_crop",
             ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
+
+    public static final RegistryObject<Block> ROWAN_LOG = registerBlock("rowan_log",
+            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
+    public static final RegistryObject<Block> ROWAN_WOOD = registerBlock("rowan_wood",
+            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
     public static final RegistryObject<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override
@@ -96,11 +98,54 @@ public class ModBlocks {
                     return 30;
                 }
             });
+
+    public static final RegistryObject<Block> NAMELESS_TREE_LOG = registerBlock("nameless_tree_log",
+            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
+    public static final RegistryObject<Block> NAMELESS_TREE_WOOD = registerBlock("nameless_tree_wood",
+            ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
+    public static final RegistryObject<Block> NAMELESS_TREE_PLANKS = registerBlock("nameless_tree_planks",
+            ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+    public static final RegistryObject<Block> NAMELESS_TREE_LEAVES = registerBlock("nameless_tree_leaves",
+            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
             ()-> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
 
+    //Саженец рябины
     public static final RegistryObject<Block> ROWAN_SAPLING = registerBlock("rowan_sapling",
             ()->new SaplingBlock(new RowanTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+    //Саженец безымянного древа
+    public static final RegistryObject<Block> NAMELESS_TREE_SAPLING = registerBlock("nameless_tree_sapling",
+            ()->new SaplingBlock(new NamelessTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block> DEAD_TREE_SAPLING = registerBlock("dead_tree_sapling",
             ()->new SaplingBlock(new DeadTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));

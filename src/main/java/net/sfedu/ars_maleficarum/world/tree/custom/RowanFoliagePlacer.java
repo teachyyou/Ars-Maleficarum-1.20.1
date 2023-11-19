@@ -31,6 +31,7 @@ public class RowanFoliagePlacer extends FoliagePlacer {
                                  FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos());
         tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos().below(2));
+
         if (pRandom.nextFloat() > 0.25F) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos().above(1));
         for (Direction d : dir) {
             for (int i = -2; i <= 0; i++){
