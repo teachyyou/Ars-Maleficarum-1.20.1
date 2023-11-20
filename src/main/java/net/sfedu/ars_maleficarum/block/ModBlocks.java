@@ -55,10 +55,10 @@ public class ModBlocks {
 
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
-            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
+            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(SunlightFlower.AGE)>3? 10:0).noOcclusion().noCollission()));
     //Регистрация цветка лунного света
     public static final RegistryObject<Block> MOONLIGHT_FLOWER_CROP = BLOCKS.register("moonlight_flower_crop",
-            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
+            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(MoonlightFlower.AGE)>3 ? 10:0).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> ROWAN_LOG = registerBlock("rowan_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
