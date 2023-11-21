@@ -13,6 +13,7 @@ public class ModFoliagePlacerTypes {
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS =
             DeferredRegister.create(Registries.FOLIAGE_PLACER_TYPE, ArsMaleficarum.MOD_ID);
 
+
     public static final RegistryObject<FoliagePlacerType<RowanFoliagePlacer>> ROWAN_FOLIAGE_PLACER =
             FOLIAGE_PLACERS.register("rowan_foliage_placer",()->new FoliagePlacerType<>(RowanFoliagePlacer.CODEC));
     public static void register(IEventBus eventbus) {

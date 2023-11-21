@@ -133,7 +133,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
     private ConfiguredModel[] Sunlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
+        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SunlightFlower) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
@@ -146,7 +146,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
     private ConfiguredModel[] Moonlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((MoonlightFlower) block).getAgeProperty()),
+        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((MoonlightFlower) block).getAgeProperty()),
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((MoonlightFlower) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
