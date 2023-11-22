@@ -26,12 +26,14 @@ public class RowanFoliagePlacer extends FoliagePlacer {
 
     @Override
     protected FoliagePlacerType<?> type() {
+
         return ModFoliagePlacerTypes.ROWAN_FOLIAGE_PLACER.get();
     }
-    Direction[] dir = {Direction.NORTH,Direction.EAST,Direction.WEST,Direction.SOUTH};
+
     @Override
     protected void createFoliage(LevelSimulatedReader pLevel, FoliageSetter foliageSetter, RandomSource pRandom, TreeConfiguration pConfig, int pMaxFreeTreeHeight,
                                  FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+        Direction[] dir = {Direction.NORTH,Direction.EAST,Direction.WEST,Direction.SOUTH};
         tryPlaceRowanLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos());
         tryPlaceRowanLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos().below(2));
 

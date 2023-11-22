@@ -27,6 +27,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.world.tree.custom.NamelessFoliagePlacer;
+import net.sfedu.ars_maleficarum.world.tree.custom.NamelessTrunkPlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.RowanFoliagePlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.RowanTrunkPlacer;
 
@@ -65,9 +67,11 @@ public class ModConfiguredFeatures {
 
         register(context,NAMELESS_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.NAMELESS_TREE_LOG.get()),
-                new StraightTrunkPlacer(4,2,3),
+                new NamelessTrunkPlacer(4,2,3),
                 BlockStateProvider.simple(ModBlocks.NAMELESS_TREE_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                //BlockStateProvider.simple(Blocks.AIR),
+                //new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                new NamelessFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)) .build());
 
         register(context,DEAD_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
