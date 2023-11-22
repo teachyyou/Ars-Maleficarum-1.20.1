@@ -7,6 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -14,6 +15,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -22,6 +24,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     //Списки "Проклятых" блоков, которые могут переплавляться
     private static final List<ItemLike> CURSED_GOLD_ORE_BLOCKS = List.of(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
     private static final List<ItemLike> SILVER_ORE_BLOCKS = List.of(ModBlocks.SILVER_ORE_BLOCK.get());
+
+    private static final List<ItemLike> NAMELESS_TREE_BLOCKS = List.of(ModBlocks.NAMELESS_TREE_LOG.get(),ModBlocks.NAMELESS_TREE_WOOD.get());
     public ModRecipeProvider(PackOutput pOutput) {
         super(pOutput);
     }
@@ -36,6 +40,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreSmelting(pWriter, SILVER_ORE_BLOCKS, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 200, "silver");
 
         oreSmelting(pWriter, List.of(Items.POTION), RecipeCategory.MISC, ModItems.SALT.get(), 0.1f, 150, "salt");
+
+        simpleCooking(pWriter,NAMELESS_TREE_BLOCKS,RecipeCategory.MISC,ModItems.NAMELESS_CHARCOAL.get(),0,400,"nameless_charcoal");
+
+
         //Крафт блока проклятого золота
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CURSED_GOLD_BLOCK.get())
                 .pattern("###")
@@ -285,15 +293,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
+
     }
 
-    protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-        for(ItemLike itemlike : pIngredients) {
+    protected static void simpleCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
+                                        ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        simpleCookingRecipeBuilder(pFinishedRecipeConsumer,RecipeSerializer.SMELTING_RECIPE,pIngredients,pCategory,pResult,pExperience,pCookingTime,pGroup,"_from_smelting");
+    }
+
+    protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,
+                                     RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for (ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult,
-                    pExperience, pCookingTime, pCookingSerializer)
+                            pExperience, pCookingTime, pCookingSerializer)
                     .group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(pFinishedRecipeConsumer, ArsMaleficarum.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
 
     }
+
+    protected static void simpleCookingRecipeBuilder(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,
+                                        RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for (ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike),pCategory,pResult,
+                    pExperience,pCookingTime,pCookingSerializer)
+                    .group(pGroup).unlockedBy(getHasName(itemlike),has(itemlike))
+                    .save(pFinishedRecipeConsumer,ArsMaleficarum.MOD_ID+":"+getItemName(pResult)+pRecipeName+"_"+getItemName(itemlike));
+        }
+    }
+
+
 }

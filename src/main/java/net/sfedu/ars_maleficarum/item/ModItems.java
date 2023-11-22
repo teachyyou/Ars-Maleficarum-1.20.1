@@ -80,6 +80,9 @@ public class ModItems {
     public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
             ()->new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
+            ()->new FuelItem(new Item.Properties(),400));
+
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 

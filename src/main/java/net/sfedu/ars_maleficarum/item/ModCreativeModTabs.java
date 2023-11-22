@@ -52,6 +52,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.NAMELESS_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_SAPLING.get());
+                        pOutput.accept(ModItems.NAMELESS_CHARCOAL.get());
                         pOutput.accept(ModItems.STONE_PESTLE.get());
                         pOutput.accept(ModItems.FLINT_KNIFE.get());
                         pOutput.accept(ModItems.EMPTY_SEAL.get());
