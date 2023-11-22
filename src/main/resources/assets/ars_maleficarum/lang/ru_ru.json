@@ -19,12 +19,19 @@
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок проклятого золота",
   "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
 
-  "block.ars_maleficarum.rowan_log": "Рябиновое бревно",
+  "block.ars_maleficarum.rowan_log": "Рябиновая древесина",
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
   "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
+  "block.ars_maleficarum.rowan_berries_leaves": "Рябиновые листья",
   "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
   "item.ars_maleficarum.rowan_bark": "Рябиновая кора",
+
+  "block.ars_maleficarum.nameless_tree_log": "Древесина Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_planks": "Доски из Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_wood": "Безымянное древо",
+  "block.ars_maleficarum.nameless_tree_leaves": "Листья Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_sapling": "Саженец Безымянного древа",
 
   "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
 
@@ -67,5 +74,14 @@
 
   "item.ars_maleficarum.silver_dagger": "Серебряный стилет",
 
-  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева"
+  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева",
+
+  "block.ars_maleficarum.sunlight_flower_crop": "Цветок Солнечного Света",
+  "block.ars_maleficarum.moonlight_flower_crop": "Цветок Лунного Света",
+
+  "item.ars_maleficarum.sunlight_flower_seeds": "Семена Солнечного Света",
+  "item.ars_maleficarum.moonlight_flower_seeds": "Семена Лунного Света",
+
+  "item.ars_maleficarum.sunlight_flower": "Цветок Солнечного Света",
+  "item.ars_maleficarum.moonlight_flower": "Цветок Лунного Света"
 }

@@ -43,6 +43,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.NAMELESS_TREE_PLANKS.get());
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.NAMELESS_TREE_LEAVES.get())
+                .add(ModBlocks.ROWAN_BERRIES_LEAVES.get())
                 .add(ModBlocks.ROWAN_LEAVES.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(

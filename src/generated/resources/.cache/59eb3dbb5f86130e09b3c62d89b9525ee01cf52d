@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-19T23:31:08.4432347	Loot Tables
+// 1.20.1	2023-11-22T19:57:38.3989212	Loot Tables
 e735f9f782820c4beb1f99561fc148b9dc441d65 data/ars_maleficarum/loot_tables/blocks/cursed_gold_block.json
 e78acff665b4360a42c0bed03f67db6241f1eb73 data/ars_maleficarum/loot_tables/blocks/cursed_gold_ore_block.json
 c5e293b7f412af9a3e8b85d198ae02292c517cc7 data/ars_maleficarum/loot_tables/blocks/dead_tree_log.json
@@ -11,7 +11,8 @@ b0a0559eb0ec268536c93c5ff3b369049b48dde2 data/ars_maleficarum/loot_tables/blocks
 131cafd93261fc68b0575ffa10a640c3a1a5e940 data/ars_maleficarum/loot_tables/blocks/nameless_tree_sapling.json
 e4e85cef26d5f047731d037c6b0108da08a697e6 data/ars_maleficarum/loot_tables/blocks/nameless_tree_wood.json
 d5c03ecad3fc997564c8156cb3e20d41580edbaa data/ars_maleficarum/loot_tables/blocks/odour_extracting_furnace.json
-ff40fcc21fbd4ff5d6e09425665520804995430e data/ars_maleficarum/loot_tables/blocks/rowan_leaves.json
+3a987fe98539c6606d5ba515eaa05c6ceede2ab1 data/ars_maleficarum/loot_tables/blocks/rowan_berries_leaves.json
+723dad137b7106d9b24c1c3980e5ba9b09197f6d data/ars_maleficarum/loot_tables/blocks/rowan_leaves.json
 c18ad84341317c266e0226740e4e6118a68b84ed data/ars_maleficarum/loot_tables/blocks/rowan_log.json
 1f72cf8d520fe019ac437b763e7be70514571bd9 data/ars_maleficarum/loot_tables/blocks/rowan_planks.json
 8a1ea0fecca01204d48d37c350b10a520d7a4c0f data/ars_maleficarum/loot_tables/blocks/rowan_sapling.json

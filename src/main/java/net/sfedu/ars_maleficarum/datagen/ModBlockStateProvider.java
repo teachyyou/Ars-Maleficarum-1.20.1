@@ -44,6 +44,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         blockItem(ModBlocks.ROWAN_LOG);
         blockItem(ModBlocks.ROWAN_WOOD);
         leavesBlock(ModBlocks.ROWAN_LEAVES);
+        leavesBlock(ModBlocks.ROWAN_BERRIES_LEAVES);
         blockWithItem(ModBlocks.ROWAN_PLANKS);
         saplingBlock(ModBlocks.ROWAN_SAPLING);
 

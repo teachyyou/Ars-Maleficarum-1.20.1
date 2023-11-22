@@ -8,6 +8,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -47,6 +48,7 @@ public class ModPlacedFeatures {
 
         register(context,DEAD_TREE_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.DEAD_TREE_KEY),
                 VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(6), ModBlocks.DEAD_TREE_SAPLING.get()));
+
     }
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
