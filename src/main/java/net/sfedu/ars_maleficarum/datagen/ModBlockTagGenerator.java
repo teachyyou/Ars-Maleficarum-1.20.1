@@ -32,11 +32,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SILVER_ORE_BLOCK.get());
 
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.ROWAN_LOG.get());
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.ROWAN_WOOD.get());
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.NAMELESS_TREE_WOOD.get());
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.NAMELESS_TREE_LOG.get());
-        this.tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.DEAD_TREE_LOG.get());
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.ROWAN_LOG.get())
+                .add(ModBlocks.ROWAN_WOOD.get())
+                .add(ModBlocks.DEAD_TREE_LOG.get())
+                .add(ModBlocks.NAMELESS_TREE_LOG.get())
+                .add(ModBlocks.NAMELESS_TREE_WOOD.get());
 
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get())

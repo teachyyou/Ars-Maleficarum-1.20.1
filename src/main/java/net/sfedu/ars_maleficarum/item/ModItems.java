@@ -83,6 +83,12 @@ public class ModItems {
     public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
             ()->new FuelItem(new Item.Properties(),400));
 
+    public static final RegistryObject<Item> WOODEN_FIGURE = ITEMS.register("wooden_figure",
+            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
+            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
+
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 

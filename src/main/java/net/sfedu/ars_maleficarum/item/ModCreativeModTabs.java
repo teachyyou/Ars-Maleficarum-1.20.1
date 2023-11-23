@@ -74,8 +74,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.TREE_LARVA.get());
                         pOutput.accept(ModItems.SILVER_DAGGER.get().getDefaultInstance());
                         pOutput.accept(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
-
-
+                        pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
+                        pOutput.accept(ModItems.WOODEN_FIGURE.get());
+                        pOutput.accept(ModItems.POPPET.get());
 
                     }))
                     .build());

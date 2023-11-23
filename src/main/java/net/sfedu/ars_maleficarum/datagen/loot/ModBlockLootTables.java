@@ -75,6 +75,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
+        this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
 
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет

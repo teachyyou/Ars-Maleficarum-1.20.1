@@ -1,8 +1,9 @@
-// 1.20.1	2023-11-22T19:57:38.3989212	Loot Tables
+// 1.20.1	2023-11-23T13:51:54.4086488	Loot Tables
 e735f9f782820c4beb1f99561fc148b9dc441d65 data/ars_maleficarum/loot_tables/blocks/cursed_gold_block.json
 e78acff665b4360a42c0bed03f67db6241f1eb73 data/ars_maleficarum/loot_tables/blocks/cursed_gold_ore_block.json
 c5e293b7f412af9a3e8b85d198ae02292c517cc7 data/ars_maleficarum/loot_tables/blocks/dead_tree_log.json
 2e6546b8460abf30fc0e86a8bb9e590c0d4c377d data/ars_maleficarum/loot_tables/blocks/dead_tree_sapling.json
+170a6655cbdcd9a060c3c83701d15f3e51b5906c data/ars_maleficarum/loot_tables/blocks/infusing_altar.json
 9ff42080fe012b3c18554206a649a0c1e9d3ed61 data/ars_maleficarum/loot_tables/blocks/marigold_crop.json
 5279665944ba7ee690fb2f73e65a86d6fde1c81c data/ars_maleficarum/loot_tables/blocks/moonlight_flower_crop.json
 b0a0559eb0ec268536c93c5ff3b369049b48dde2 data/ars_maleficarum/loot_tables/blocks/nameless_tree_leaves.json

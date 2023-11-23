@@ -1,8 +1,9 @@
-// 1.20.1	2023-11-22T19:57:38.4009211	Block States: ars_maleficarum
+// 1.20.1	2023-11-23T14:46:15.2780366	Block States: ars_maleficarum
 cafbec1abed5d09b39c34a97f4b39370759b586e assets/ars_maleficarum/blockstates/cursed_gold_block.json
 b2b52f0a5bb55dc7436a260d48c9101df721e117 assets/ars_maleficarum/blockstates/cursed_gold_ore_block.json
 ab4d48488ec40d3455f4544bda990752c67b7de0 assets/ars_maleficarum/blockstates/dead_tree_log.json
 d6baff70a99b4544c66d00533e461060f1b41517 assets/ars_maleficarum/blockstates/dead_tree_sapling.json
+01388380229d2ff8f37b5fa2174283594335f2a3 assets/ars_maleficarum/blockstates/infusing_altar.json
 ee71e192381011c5fe3ef40c80637a5f002e92b7 assets/ars_maleficarum/blockstates/marigold_crop.json
 67c1ba8cf76026468b67376f7fd552a3da608b8f assets/ars_maleficarum/blockstates/moonlight_flower_crop.json
 11d13d57ffcb14b2712d45dedf95052640fb6d3e assets/ars_maleficarum/blockstates/nameless_tree_leaves.json

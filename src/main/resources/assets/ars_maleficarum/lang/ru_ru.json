@@ -35,8 +35,6 @@
 
   "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
 
-  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
-
   "item.ars_maleficarum.flint_knife": "Примитивный ножик",
 
   "item.ars_maleficarum.empty_seal": "Пустая печать",
@@ -62,6 +60,12 @@
 
   "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
   "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",
+
+  "Infusing_Altar_DisplayName": "Алтарь наполнения",
+  "block.ars_maleficarum.infusing_altar": "Алтарь наполнения",
+
+  "item.ars_maleficarum.wooden_figure": "Деревянная фигурка",
+  "item.ars_maleficarum.poppet": "Кукла",
 
   "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
   "block.ars_maleficarum.salt_block": "Блок соли",

@@ -69,6 +69,8 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
+        horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
 
     }
 

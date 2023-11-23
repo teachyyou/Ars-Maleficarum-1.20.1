@@ -61,11 +61,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DEAD_TREE_LARVA);
         simpleItem(ModItems.FERMENTED_TREE_LARVA);
 
+        simpleItem(ModItems.WOODEN_FIGURE);
+        simpleItem(ModItems.POPPET);
+
         handheldItem(ModItems.SILVER_DAGGER);
 
         saplingItem(ModBlocks.DEAD_TREE_SAPLING);
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
+        complexBlock(ModBlocks.INFUSING_ALTAR.get());
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

@@ -1,0 +1,27 @@
+{
+  "type": "ars_maleficarum:altar_infusing",
+  "dimension": "overworld",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "ars_maleficarum:wooden_figure"
+    }
+  ],
+  "output": {
+    "item": "minecraft:nether_star"
+  }
+}

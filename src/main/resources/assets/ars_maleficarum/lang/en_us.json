@@ -60,6 +60,12 @@
   "Odour_Extracting_Furnace_DisplayName": "Odour Extracting Furnace",
   "block.ars_maleficarum.odour_extracting_furnace": "Odour Extracting Furnace",
 
+  "Infusing_Altar_DisplayName": "Infusing Altar",
+  "block.ars_maleficarum.infusing_altar": "Infusing Altar",
+
+  "item.ars_maleficarum.wooden_figure": "Wooden Figure",
+  "item.ars_maleficarum.poppet": "Poppet",
+
   "item.ars_maleficarum.bat_wing": "Bat Wing",
   "block.ars_maleficarum.salt_block": "Salt Block",
 

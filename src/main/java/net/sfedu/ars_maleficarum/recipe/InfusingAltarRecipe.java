@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.recipe;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
@@ -9,39 +8,45 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import org.jetbrains.annotations.Nullable;
 
-public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
+import java.util.Set;
+
+public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
 
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
-    private ItemStack additional = ItemStack.EMPTY;
-
-    private boolean isBottleRequired;
-    private float chance;
+    private final String dimension;
     private final ResourceLocation id;
 
-    public OdourExtractingRecipe(ResourceLocation id, ItemStack output, ItemStack additional, boolean isBottleRequired, float chance, NonNullList<Ingredient> inputItems) {
-        this.inputItems = inputItems;
-        this.output = output;
-        this.additional = additional;
-        this.isBottleRequired = isBottleRequired;
-        this.chance=chance;
-        this.id = id;
+    InfusingAltarRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputItems, String dimension) {
+        this.id=id;
+        this.inputItems=inputItems;
+        this.output=output;
+        this.dimension=dimension;
     }
 
+
+
+    //Очень костыльно(
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        if (pLevel.isClientSide) {
+
+        if (pLevel.isClientSide()) {
             return false;
         }
-
-        return inputItems.get(0).test(pContainer.getItem(0));
+        for (int i = 0; i<6; i++) {
+            if (!(inputItems.get(i).test(pContainer.getItem(i)))) return false;
+        }
+        return true;
     }
+
 
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
@@ -50,7 +55,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return false;
+        return true;
     }
 
     @Override
@@ -58,25 +63,17 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
         return output.copy();
     }
 
-    public boolean getIsBottleRequired(RegistryAccess pRegistryAccess) {
-        return isBottleRequired;
-    }
-
-    public float getChance(RegistryAccess pRegistryAccess) {
-        return chance;
-    }
-
     @Override
     public NonNullList<Ingredient> getIngredients() {
         return this.inputItems;
     }
 
-    public ItemStack getAdditionalItem(RegistryAccess pRegistryAccess) {
-        return additional.copy();
-    }
     @Override
     public ResourceLocation getId() {
         return id;
+    }
+    public String getDimension(RegistryAccess pRegistryAccess) {
+        return dimension;
     }
 
     @Override
@@ -89,59 +86,51 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements  RecipeType<OdourExtractingRecipe> {
-        private Type() {}
+    public static class Type implements RecipeType<InfusingAltarRecipe> {
+        private  Type() {}
         public static final Type INSTANCE = new Type();
-        public static final String ID = "odour_extracting";
+        public static final String ID = "altar_infusing";
     }
 
-    public static class Serializer implements RecipeSerializer<OdourExtractingRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
+    public static class Serializer implements RecipeSerializer<InfusingAltarRecipe> {
+        public static final InfusingAltarRecipe.Serializer INSTANCE = new InfusingAltarRecipe.Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(ArsMaleficarum.MOD_ID,"odour_extracting");
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"altar_infusing");
 
         @Override
-        public OdourExtractingRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public InfusingAltarRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json,"output"));
-            ItemStack additional = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json,"additional"));
 
-            boolean isBottleRequired = GsonHelper.getAsBoolean(json,"isBottleRequired");
-            float chance = GsonHelper.getAsFloat(json, "chance");
+            String dimension = GsonHelper.getAsString(json,"dimension");
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json,"ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(6, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i,Ingredient.fromJson(ingredients.get(i)));
             }
-            return new OdourExtractingRecipe(id,output,additional,isBottleRequired,chance,inputs);
+            return new InfusingAltarRecipe(id,output,inputs,dimension);
         }
 
         @Override
-        public @Nullable OdourExtractingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public @Nullable InfusingAltarRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(),Ingredient.EMPTY);
-
             for (int i = 0; i < inputs.size();i++) {
                 inputs.set(i,Ingredient.fromNetwork(buf));
             }
             ItemStack output = buf.readItem();
-            ItemStack additional = buf.readItem();
-            boolean isBottleRequired = buf.readBoolean();
-            float chance = buf.readFloat();
-            return new OdourExtractingRecipe(id,output,additional,isBottleRequired,chance,inputs);
+            String dimension = buf.readUtf();
+            return new InfusingAltarRecipe(id,output,inputs,dimension);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, OdourExtractingRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, InfusingAltarRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
-
             for (Ingredient ing: recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
             buf.writeItemStack(recipe.getResultItem(null),false);
-            buf.writeItemStack(recipe.getAdditionalItem(null),false);
-            buf.writeBoolean(recipe.getIsBottleRequired(null));
-            buf.writeFloat(recipe.getChance(null));
+            buf.writeUtf(recipe.getDimension(null));
         }
     }
 }

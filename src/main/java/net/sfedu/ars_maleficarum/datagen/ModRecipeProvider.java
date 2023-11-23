@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.datagen.custom.InfusingAltarRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.ModRecipes;
@@ -284,6 +285,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_sage_leaf",has(Items.DIAMOND)).save(pWriter);
         new OdourExtractorRecipeBuilder(ModItems.SAGE_FLOWER.get(),Items.DIAMOND,Items.STICK,false,1,1)
                 .unlockedBy("has_sage_flower",has(Items.DIAMOND)).save(pWriter);
+
+        //Генерация крафтов на новом алтаре
+        new InfusingAltarRecipeBuilder(List.of(Items.STICK,Items.STICK,Items.STICK,Items.STICK,Items.STICK,ModItems.WOODEN_FIGURE.get()),Items.NETHER_STAR,"overworld")
+                .unlockedBy("has_something",has(Items.STICK)).save(pWriter);
+        new InfusingAltarRecipeBuilder(List.of(Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,ModItems.POPPET.get()),Items.DRAGON_EGG,"overworld")
+                .unlockedBy("has_something",has(Items.WHITE_WOOL)).save(pWriter);
+
+
 
     }
     //Генерация .json файлов для блоков, которые могут быть переплавлены
