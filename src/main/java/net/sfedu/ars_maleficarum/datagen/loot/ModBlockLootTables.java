@@ -56,8 +56,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ROWAN_PLANKS.get());
         this.dropSelf(ModBlocks.ROWAN_SAPLING .get());
 
-        this.add(ModBlocks.ROWAN_LEAVES.get(),(block)->
+        this.add(ModBlocks.ROWAN_BERRIES_LEAVES.get(),(block)->
                 createLeavesDropsWithAdditionalItem(block,ModBlocks.ROWAN_SAPLING.get(),ModItems.ROWAN_BERRIES.get(),NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(ModBlocks.ROWAN_LEAVES.get(),(block)->
+                createLeavesDrops(block,ModBlocks.ROWAN_SAPLING.get(),NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(ModBlocks.NAMELESS_TREE_LOG.get());
         this.dropSelf(ModBlocks.NAMELESS_TREE_WOOD.get());
@@ -73,6 +75,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
+        this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
 
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
@@ -135,7 +138,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     //Дополнительная функция выпадения с листвы при ломании ещё одного предмета
     protected LootTable.Builder createLeavesDropsWithAdditionalItem(Block pLeavesBlock, Block pSaplingBlock, Item item, float... pChances) {
-        return this.createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(item)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.01F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+        //return this.createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(item)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.01F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
+        return this.createLeavesDrops(pLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(this.applyExplosionCondition(pLeavesBlock, LootItem.lootTableItem(item)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.5F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));
     }
     //Для выпадения соли из блока соли
     protected LootTable.Builder createSaltDrops(Block pBlock) {

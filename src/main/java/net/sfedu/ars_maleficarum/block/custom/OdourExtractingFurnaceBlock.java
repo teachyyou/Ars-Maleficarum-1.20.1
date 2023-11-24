@@ -1,4 +1,4 @@
-package net.sfedu.ars_maleficarum.block.custom.entity;
+package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -21,6 +21,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
+import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
+import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
@@ -90,7 +92,7 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
         if (pLevel.isClientSide()) {
             return null;
         }
-        return createTickerHelper(pBlockEntityType,ModBlockEntities.ODOUR_EXTRACTING_FURNACE_BE.get(),(pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1,pPos,pState1));
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.ODOUR_EXTRACTING_FURNACE_BE.get(),(pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1,pPos,pState1));
     }
 
     @Nullable

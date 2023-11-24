@@ -61,11 +61,34 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DEAD_TREE_LARVA);
         simpleItem(ModItems.FERMENTED_TREE_LARVA);
 
+        simpleItem(ModItems.ABSOLUTE_ORDER);
+        simpleItem(ModItems.PETRICHOR);
+        simpleItem(ModItems.SMELL_OF_HOME);
+        simpleItem(ModItems.DESERT_SPIRIT);
+        simpleItem(ModItems.SWEET_DREAM);
+        simpleItem(ModItems.SOARING_LIGHTNESS);
+        simpleItem(ModItems.RING_OF_MORNING_DEW);
+        simpleItem(ModItems.WASTELAND_WIND);
+        simpleItem(ModItems.CONIFEROUS_OIL);
+        simpleItem(ModItems.STINK_OF_SWAMP);
+        simpleItem(ModItems.ABSOLUTE_ORDER);
+        simpleItem(ModItems.TROPICAL_MONSOON);
+        simpleItem(ModItems.WHIFF_OF_TIME);
+        simpleItem(ModItems.CHERRY_ETUDE);
+        simpleItem(ModItems.TUNE_OF_HARMONY);
+        simpleItem(ModItems.SCENT_OF_UNCERTAINTY);
+        simpleItem(ModItems.SCENT_OF_UNCERTAINTY);
+        simpleItem(ModItems.EMPTY_VIAL);
+
+        simpleItem(ModItems.WOODEN_FIGURE);
+        simpleItem(ModItems.POPPET);
+
         handheldItem(ModItems.SILVER_DAGGER);
 
         saplingItem(ModBlocks.DEAD_TREE_SAPLING);
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
+        complexBlock(ModBlocks.INFUSING_ALTAR.get());
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

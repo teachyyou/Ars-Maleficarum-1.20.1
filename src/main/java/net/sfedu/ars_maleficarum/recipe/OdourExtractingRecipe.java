@@ -139,7 +139,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
             buf.writeItemStack(recipe.getResultItem(null),false);
-            buf.writeItemStack(recipe.getResultItem(null),false);
+            buf.writeItemStack(recipe.getAdditionalItem(null),false);
             buf.writeBoolean(recipe.getIsBottleRequired(null));
             buf.writeFloat(recipe.getChance(null));
         }

@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
+      "type": "ars_maleficarum:nameless_foliage_placer",
       "height": 2,
       "offset": 0,
       "radius": 2
@@ -34,7 +34,7 @@
       "upper_size": 2
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
+      "type": "ars_maleficarum:nameless_trunk_placer",
       "base_height": 4,
       "height_rand_a": 2,
       "height_rand_b": 3
