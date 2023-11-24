@@ -5,7 +5,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -20,10 +19,6 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ROWAN_TREE = registerKey("add_rowan_tree");
     public static final ResourceKey<BiomeModifier> ADD_NAMELESS_TREE = registerKey("add_nameless_tree");
     public static final ResourceKey<BiomeModifier> ADD_DEAD_TREE = registerKey("add_dead_tree");
-
-    public static final ResourceKey<BiomeModifier> ADD_SILVER_ORES = registerKey("add_silver_ores");
-
-    public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_ORES = registerKey("add_cursed_gold_ores");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -46,15 +41,6 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.DEAD_TREE_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION
         ));
-
-        context.register(ADD_CURSED_GOLD_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_CURSED_GOLD_ORE_PLACED_KEY)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
-        context.register(ADD_SILVER_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_SILVER_ORE_PLACED_KEY)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

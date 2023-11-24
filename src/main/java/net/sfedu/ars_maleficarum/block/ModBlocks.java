@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
-import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
+import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
@@ -55,10 +55,10 @@ public class ModBlocks {
 
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
-            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(SunlightFlower.AGE)>3? 10:0).noOcclusion().noCollission()));
+            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
     //Регистрация цветка лунного света
     public static final RegistryObject<Block> MOONLIGHT_FLOWER_CROP = BLOCKS.register("moonlight_flower_crop",
-            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(MoonlightFlower.AGE)>3 ? 10:0).noOcclusion().noCollission()));
+            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> ROWAN_LOG = registerBlock("rowan_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
@@ -82,23 +82,6 @@ public class ModBlocks {
                 }
             });
     public static final RegistryObject<Block> ROWAN_LEAVES = registerBlock("rowan_leaves",
-            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return true;
-                }
-
-                @Override
-                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 60;
-                }
-
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-                    return 30;
-                }
-            });
-    public static final RegistryObject<Block> ROWAN_BERRIES_LEAVES = registerBlock("rowan_berries_leaves",
             ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -169,9 +152,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
             () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-
-    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
-            ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> DEAD_TREE_LOG = registerBlock("dead_tree_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(0.3f))

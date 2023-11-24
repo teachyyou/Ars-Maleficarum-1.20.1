@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "minecraft:block/crop",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "ars_maleficarum:block/moonlight_flower_stage_2"
+    "crop": "ars_maleficarum:block/moonlight_flower_stage_2"
   }
 }

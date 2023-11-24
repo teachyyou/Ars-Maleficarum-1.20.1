@@ -20,7 +20,6 @@ import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
 import net.sfedu.ars_maleficarum.recipe.ModRecipes;
-import net.sfedu.ars_maleficarum.screen.InfusingAltarScreen;
 import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
 import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
@@ -104,7 +103,6 @@ public class ArsMaleficarum
             event.enqueueWork(() -> {
 
                 MenuScreens.register(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(), OdourExtractorFurnaceScreen::new);
-                MenuScreens.register(ModMenuTypes.INFUSING_ALTAR_MENU.get(), InfusingAltarScreen::new);
             });
         }
     }

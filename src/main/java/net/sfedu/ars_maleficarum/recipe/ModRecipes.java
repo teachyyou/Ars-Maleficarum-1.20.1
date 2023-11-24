@@ -14,9 +14,6 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<OdourExtractingRecipe>> ODOUR_EXTRACTING_SERIALIZER =
             SERIALIZERS.register("odour_extracting",()->OdourExtractingRecipe.Serializer.INSTANCE);
 
-    public static final RegistryObject<RecipeSerializer<InfusingAltarRecipe>> ALTAR_INFUSING_SERIALIZER =
-            SERIALIZERS.register("altar_infusing",()->InfusingAltarRecipe.Serializer.INSTANCE);
-
     public static void register(IEventBus eventbus) {
         SERIALIZERS.register(eventbus);
     }

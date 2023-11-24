@@ -80,15 +80,6 @@ public class ModItems {
     public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
             ()->new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
-            ()->new FuelItem(new Item.Properties(),400));
-
-    public static final RegistryObject<Item> WOODEN_FIGURE = ITEMS.register("wooden_figure",
-            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
-
-    public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
-            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
-
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 
@@ -118,49 +109,12 @@ public class ModItems {
     public static final RegistryObject<Item> TREE_LARVA = ITEMS.register("tree_larva",
             ()->new TreeLarva(new Item.Properties()));
 
-    public static final RegistryObject<Item> EMPTY_VIAL = ITEMS.register("empty_vial",
-            ()->new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> SMELL_OF_HOME = ITEMS.register("smell_of_home",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> RING_OF_MORNING_DEW = ITEMS.register("ring_of_morning_dew",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> CONIFEROUS_OIL = ITEMS.register("coniferous_oil",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> TROPICAL_MONSOON = ITEMS.register("tropical_monsoon",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> PETRICHOR = ITEMS.register("petrichor",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> WASTELAND_WIND = ITEMS.register("wasteland_wind",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> ABSOLUTE_ORDER = ITEMS.register("absolute_order",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SCENT_OF_UNCERTAINTY = ITEMS.register("scent_of_uncertainty",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> WHIFF_OF_TIME = ITEMS.register("whiff_of_time",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> CHERRY_ETUDE = ITEMS.register("cherry_etude",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SOARING_LIGHTNESS = ITEMS.register("soaring_lightness",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> STINK_OF_SWAMP = ITEMS.register("stink_of_swamp",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> DESERT_SPIRIT = ITEMS.register("desert_spirit",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SWEET_DREAM = ITEMS.register("sweet_dream",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> TUNE_OF_HARMONY = ITEMS.register("tune_of_harmony",
-            ()->new IngredientItem(new Item.Properties()));
-
-
 
 
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {
-
         ITEMS.register(eventBus);
     }
-
 
 }
