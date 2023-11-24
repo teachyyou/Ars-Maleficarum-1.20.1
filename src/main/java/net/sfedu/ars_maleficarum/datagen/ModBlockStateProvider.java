@@ -44,7 +44,6 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         blockItem(ModBlocks.ROWAN_LOG);
         blockItem(ModBlocks.ROWAN_WOOD);
         leavesBlock(ModBlocks.ROWAN_LEAVES);
-        leavesBlock(ModBlocks.ROWAN_BERRIES_LEAVES);
         blockWithItem(ModBlocks.ROWAN_PLANKS);
         saplingBlock(ModBlocks.ROWAN_SAPLING);
 
@@ -69,8 +68,6 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
-        horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
 
     }
 
@@ -136,7 +133,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
     private ConfiguredModel[] Sunlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((SunlightFlower) block).getAgeProperty()),
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SunlightFlower) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
@@ -149,7 +146,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
     private ConfiguredModel[] Moonlight_Flower_States(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((MoonlightFlower) block).getAgeProperty()),
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((MoonlightFlower) block).getAgeProperty()),
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((MoonlightFlower) block).getAgeProperty()))).renderType("cutout"));
 
         return models;

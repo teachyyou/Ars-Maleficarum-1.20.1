@@ -18,12 +18,11 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     }
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ItemTags.LOGS)
-                .add(ModBlocks.NAMELESS_TREE_LOG.get().asItem())
-                .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem());
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
                 .add(ModBlocks.ROWAN_WOOD.get().asItem())
+                .add(ModBlocks.NAMELESS_TREE_LOG.get().asItem())
+                .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem())
                 .add(ModBlocks.DEAD_TREE_LOG.get().asItem());
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get().asItem())
