@@ -80,6 +80,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SCENT_OF_UNCERTAINTY);
         simpleItem(ModItems.EMPTY_VIAL);
 
+        simpleItem(ModItems.NAMELESS_CHARCOAL);
         simpleItem(ModItems.WOODEN_FIGURE);
         simpleItem(ModItems.POPPET);
 
