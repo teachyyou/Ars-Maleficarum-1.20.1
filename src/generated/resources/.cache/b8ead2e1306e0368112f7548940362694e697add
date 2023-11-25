@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-24T01:42:03.5573887	Item Models: ars_maleficarum
+// 1.20.1	2023-11-25T14:19:04.6131801	Item Models: ars_maleficarum
 503b7dfa7b7718d3f5a607b9d4eaea9b630ab83c assets/ars_maleficarum/models/item/absolute_order.json
 dfd221a6320733f602efbcd2454e9fcfe6d1efc0 assets/ars_maleficarum/models/item/bat_wing.json
 d2396c542a049e306344fbe71e3130076facf8f2 assets/ars_maleficarum/models/item/carbon_detector.json
@@ -15,6 +15,8 @@ d2396c542a049e306344fbe71e3130076facf8f2 assets/ars_maleficarum/models/item/carb
 4d72081eee85bb2ff8ba05e061d41613dcf4ccf9 assets/ars_maleficarum/models/item/fermented_tree_larva.json
 58a9af9cbc0ab39485de296e9865f3a38d0b3fc3 assets/ars_maleficarum/models/item/flint_knife.json
 061e5c9e82929460d3a332350af68ed57c5ecb03 assets/ars_maleficarum/models/item/infusing_altar.json
+34e84ead7a9d537bbc49c8aeab599fed31b9c56c assets/ars_maleficarum/models/item/mandrake_root.json
+3f7f53a281da51410f5d1136e8f542e12fab9320 assets/ars_maleficarum/models/item/mandrake_seed.json
 95e1591786ef5efdf3a5d25d2a096b7ed1343763 assets/ars_maleficarum/models/item/marigold_flower.json
 2f4fb5ea5c45eeb6b572c5e70564bf389ff9ec1f assets/ars_maleficarum/models/item/marigold_seeds.json
 773134f21981d18efe1b6bf40e9af16b1d4adc78 assets/ars_maleficarum/models/item/metal_detector.json

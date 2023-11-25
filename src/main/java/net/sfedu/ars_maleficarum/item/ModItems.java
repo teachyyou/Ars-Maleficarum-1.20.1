@@ -152,9 +152,11 @@ public class ModItems {
     public static final RegistryObject<Item> TUNE_OF_HARMONY = ITEMS.register("tune_of_harmony",
             ()->new IngredientItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> MANDRAKE_SEED = ITEMS.register("mandrake_seed",
+            ()->new ItemNameBlockItem(ModBlocks.MANDRAKE_CROP.get(), new Item.Properties()));
 
-
-
+    public static final RegistryObject<Item> MANDRAKE_ROOT = ITEMS.register("mandrake_root",
+            ()->new IngredientItem(new Item.Properties()));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

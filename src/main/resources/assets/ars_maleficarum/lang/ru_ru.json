@@ -106,5 +106,9 @@
   "item.ars_maleficarum.stink_of_swamp": "Болотный смрад",
   "item.ars_maleficarum.desert_spirit": "Пустынный дух",
   "item.ars_maleficarum.sweet_dream": "Сладостный сон",
-  "item.ars_maleficarum.tune_of_harmony": "Мелодия согласия"
+  "item.ars_maleficarum.tune_of_harmony": "Мелодия согласия",
+
+  "item.ars_maleficarum.mandrake_root": "Корень мандрагоры",
+  "item.ars_maleficarum.mandrake_seed": "Семя мандрагоры",
+  "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры"
 }

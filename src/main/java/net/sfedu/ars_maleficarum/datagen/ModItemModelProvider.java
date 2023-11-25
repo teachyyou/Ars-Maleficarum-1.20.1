@@ -89,6 +89,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         complexBlock(ModBlocks.INFUSING_ALTAR.get());
+
+        simpleItem(ModItems.MANDRAKE_ROOT);
+        simpleItem(ModItems.MANDRAKE_SEED);
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

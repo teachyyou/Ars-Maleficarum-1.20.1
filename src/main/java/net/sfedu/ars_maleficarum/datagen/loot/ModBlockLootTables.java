@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.MandrakeCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
@@ -45,6 +46,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         generatedMoonlight_flower_Drop();
         generateSageCropDrop();
         generateMarigoldCropDrop();
+        generateMandrakeCropDrop();
         //Блоки, которые при ломании дропают сами себя
         this.dropSelf(ModBlocks.CURSED_GOLD_BLOCK.get());
         this.dropSelf(ModBlocks.SILVER_BLOCK.get());
@@ -124,6 +126,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Выпадение предметов при сборе созревшей культуры
         this.add(ModBlocks.MARIGOLD_CROP.get(),createCropDrops(ModBlocks.MARIGOLD_CROP.get(),ModItems.MARIGOLD_FLOWER.get(),
                 ModItems.MARIGOLD_SEED.get(),lootitemcondition$builder));
+    }
+
+    protected void generateMandrakeCropDrop() {
+        LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(ModBlocks.MANDRAKE_CROP.get())
+                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MandrakeCropBlock.AGE,3)));
+
+        this.add(ModBlocks.MANDRAKE_CROP.get(),createCropDrops(ModBlocks.MANDRAKE_CROP.get(),ModItems.MANDRAKE_ROOT.get(),
+                ModItems.MANDRAKE_SEED.get(),lootitemcondition$builder));
     }
 
     //Дополнительная функция дропа, которой можно пользоваться, если нужно, чтобы с созревшей культуры падало 2 предмета, помимо семян.
