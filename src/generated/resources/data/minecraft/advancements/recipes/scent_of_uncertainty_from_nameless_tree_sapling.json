@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nameless_tree_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:nameless_tree_sapling"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:scent_of_uncertainty_from_nameless_tree_sapling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nameless_tree_sapling",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:scent_of_uncertainty_from_nameless_tree_sapling"
+    ]
+  },
+  "sends_telemetry_event": true
+}

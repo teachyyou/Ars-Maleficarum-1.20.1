@@ -38,6 +38,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SCENT_OF_UNCERTAINTY.get());
                         pOutput.accept(ModItems.SCENT_OF_UNCERTAINTY.get());
                         pOutput.accept(ModItems.EMPTY_VIAL.get());
+                        pOutput.accept(ModItems.GROUND_MARIGOLD_FLOWERS.get());
+                        pOutput.accept(ModItems.GROUND_SAGE_FLOWERS.get());
+
                     }))
                     .build());
 

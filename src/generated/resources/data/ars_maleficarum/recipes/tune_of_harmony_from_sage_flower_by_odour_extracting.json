@@ -1,16 +1,16 @@
 {
   "type": "ars_maleficarum:odour_extracting",
   "additional": {
-    "item": "minecraft:stick"
+    "item": "ars_maleficarum:tune_of_harmony"
   },
-  "chance": 1.0,
+  "chance": 0.2,
   "ingredients": [
     {
       "item": "ars_maleficarum:sage_flower"
     }
   ],
-  "isBottleRequired": false,
+  "isBottleRequired": true,
   "output": {
-    "item": "minecraft:diamond"
+    "item": "ars_maleficarum:ash"
   }
 }

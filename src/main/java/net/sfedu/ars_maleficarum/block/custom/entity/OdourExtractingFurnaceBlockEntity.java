@@ -187,8 +187,12 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         }
     }
 
-    private void resetProgress() {
+    public void resetProgress() {
         this.progress=0;
+    }
+
+    public void resetLitLevel() {
+        this.litLevel=0;
     }
 
     private void craftItem() {
@@ -201,7 +205,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
 
-        if (!recipe.get().getIsBottleRequired(null) && random.nextFloat()>(1-chance)) {
+        if (!recipe.get().getIsBottleRequired(null)
+                && random.nextFloat()>(1-chance)) {
            this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),
                    this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
 
@@ -258,9 +263,12 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
             return false;
         }
         ItemStack resultItem = recipe.get().getResultItem(null);
+        ItemStack additionalItem = recipe.get().getAdditionalItem(null);
 
         return canInsertAmountIntoOutputSlot(resultItem.getCount())
-                && canInsertItemIntoOutputSlot(resultItem.getItem());
+                && canInsertItemIntoOutputSlot(resultItem.getItem())
+                && canInsertAmountIntoAdditionalSlot()
+                && canInsertItemIntoAdditionalSlot(additionalItem.getItem());
     }
 
     private Optional<OdourExtractingRecipe> getCurrentRecipe() {
@@ -277,8 +285,17 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.itemHandler.getStackInSlot(OUTPUT).getMaxStackSize() >
+        return this.itemHandler.getStackInSlot(OUTPUT).getMaxStackSize() >=
                 this.itemHandler.getStackInSlot(OUTPUT).getCount()+count;
+    }
+
+    private boolean canInsertItemIntoAdditionalSlot(Item item) {
+        return this.itemHandler.getStackInSlot(ADDITIONAL).is(item) || itemHandler.getStackInSlot(ADDITIONAL).isEmpty();
+    }
+
+    private boolean canInsertAmountIntoAdditionalSlot() {
+        return this.itemHandler.getStackInSlot(ADDITIONAL).getMaxStackSize() >=
+                this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1;
     }
 
     private boolean isOutputSlotEmptyOrReceivable() {

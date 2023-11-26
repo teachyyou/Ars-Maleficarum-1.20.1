@@ -69,6 +69,7 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof OdourExtractingFurnaceBlockEntity) {
                 ((OdourExtractingFurnaceBlockEntity) blockEntity).drops();
+                ((OdourExtractingFurnaceBlockEntity) blockEntity).resetLitLevel();
             }
         }
     }

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ground_sage_flowers_with_wooden_mortar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_mortar_and_pestle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:wooden_mortar_and_pestle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_mortar_and_pestle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ground_sage_flowers_with_wooden_mortar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:petrichor"
+  },
+  "chance": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:cursed_gold"
+  }
+}

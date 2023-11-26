@@ -253,6 +253,35 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.STONE_MORTAR_AND_PESTLE.get())
                 .unlockedBy(getHasName(ModItems.STONE_MORTAR_AND_PESTLE.get()),has(ModItems.STONE_MORTAR_AND_PESTLE.get()))
                 .save(pWriter,new ResourceLocation("sugar_from_stone_mortar_and_pestle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.GROUND_MARIGOLD_FLOWERS.get(),1)
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.STONE_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.STONE_MORTAR_AND_PESTLE.get()),has(ModItems.STONE_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("ground_marigold_flowers_with_stone_mortar"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.GROUND_MARIGOLD_FLOWERS.get(),1)
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.MARIGOLD_FLOWER.get())
+                .requires(ModItems.WOODEN_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.WOODEN_MORTAR_AND_PESTLE.get()),has(ModItems.WOODEN_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("ground_marigold_flowers_with_wooden_mortar"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.GROUND_SAGE_FLOWERS.get(),1)
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.STONE_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.STONE_MORTAR_AND_PESTLE.get()),has(ModItems.STONE_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("ground_sage_flowers_with_stone_mortar"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.GROUND_SAGE_FLOWERS.get(),1)
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.SAGE_FLOWER.get())
+                .requires(ModItems.WOODEN_MORTAR_AND_PESTLE.get())
+                .unlockedBy(getHasName(ModItems.WOODEN_MORTAR_AND_PESTLE.get()),has(ModItems.WOODEN_MORTAR_AND_PESTLE.get()))
+                .save(pWriter,new ResourceLocation("ground_sage_flowers_with_wooden_mortar"));
+
         //Крафт блока соли
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SALT_BLOCK.get())
                 .pattern("   ")
@@ -280,11 +309,41 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.SILVER.get()),has(ModItems.SILVER.get()))
                 .save(pWriter);
 
+
         //Генерация крафтов в новой печке
-        new OdourExtractorRecipeBuilder(ModItems.SAGE_LEAF.get(),Items.GHAST_TEAR,Items.DIAMOND,true,0.5F,1)
-                .unlockedBy("has_sage_leaf",has(Items.DIAMOND)).save(pWriter);
-        new OdourExtractorRecipeBuilder(ModItems.SAGE_FLOWER.get(),Items.DIAMOND,Items.STICK,false,1,1)
-                .unlockedBy("has_sage_flower",has(Items.DIAMOND)).save(pWriter);
+        new OdourExtractorRecipeBuilder(Blocks.DARK_OAK_SAPLING,ModItems.ASH.get(),ModItems.PETRICHOR.get(),true,0.2F,1)
+                .unlockedBy("has_dark_oak_sapling",has(Blocks.DARK_OAK_SAPLING)).save(pWriter,"petrichor_from_dark_oak_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.OAK_SAPLING,ModItems.ASH.get(),ModItems.SMELL_OF_HOME.get(),true,0.2F,1)
+                .unlockedBy("has_oak_sapling",has(Blocks.OAK_SAPLING)).save(pWriter,"smell_of_home_from_oak_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.CACTUS,ModItems.ASH.get(),ModItems.DESERT_SPIRIT.get(),true,0.2F,1)
+                .unlockedBy("has_cactus",has(Blocks.CACTUS)).save(pWriter,"desert_spirit_from_cactus");
+        new OdourExtractorRecipeBuilder(Blocks.SUGAR_CANE,ModItems.ASH.get(),ModItems.SWEET_DREAM.get(),true,0.1F,1)
+                .unlockedBy("has_sugar_cane",has(Blocks.SUGAR_CANE)).save(pWriter,"sweet_dream_from_sugar_cane");
+        new OdourExtractorRecipeBuilder(Blocks.AZALEA,ModItems.ASH.get(),ModItems.SOARING_LIGHTNESS.get(),true,0.2F,1)
+                .unlockedBy("has_azalea",has(Blocks.AZALEA)).save(pWriter,"soaring_lightness_from_azalea");
+        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA,ModItems.ASH.get(),ModItems.SOARING_LIGHTNESS.get(),true,0.2F,1)
+                .unlockedBy("has_flowering_azalea",has(Blocks.FLOWERING_AZALEA)).save(pWriter,"soaring_lightness_from_flowering_azalea");
+        new OdourExtractorRecipeBuilder(Blocks.BIRCH_SAPLING,ModItems.ASH.get(),ModItems.RING_OF_MORNING_DEW.get(),true,0.2F,1)
+                .unlockedBy("has_birch_sapling",has(Blocks.BIRCH_SAPLING)).save(pWriter,"ring_of_morning_dew_birch_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.ACACIA_SAPLING,ModItems.ASH.get(),ModItems.WASTELAND_WIND.get(),true,0.2F,1)
+                .unlockedBy("has_acacia_sapling",has(Blocks.ACACIA_SAPLING)).save(pWriter,"wasteland_wind_from_acacia_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.SPRUCE_SAPLING,ModItems.ASH.get(),ModItems.CONIFEROUS_OIL.get(),true,0.2F,1)
+                .unlockedBy("has_spruce_sapling",has(Blocks.SPRUCE_SAPLING)).save(pWriter,"coniferous_oil_from_spruce_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.MANGROVE_PROPAGULE,ModItems.ASH.get(),ModItems.STINK_OF_SWAMP.get(),true,0.2F,1)
+                .unlockedBy("has_mangrove_propagule",has(Blocks.MANGROVE_PROPAGULE)).save(pWriter,"stink_of_swamp_from_mangrove_propagule");
+        new OdourExtractorRecipeBuilder(ModBlocks.ROWAN_SAPLING.get(),ModItems.ASH.get(),ModItems.ABSOLUTE_ORDER.get(),true,0.2F,1)
+                .unlockedBy("has_rowan_sapling",has(ModBlocks.ROWAN_SAPLING.get())).save(pWriter,"absolute_order_from_rowan_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.JUNGLE_SAPLING,ModItems.ASH.get(),ModItems.TROPICAL_MONSOON.get(),true,0.2F,1)
+                .unlockedBy("has_jungle_sapling",has(Blocks.JUNGLE_SAPLING)).save(pWriter,"tropical_monsoon_from_jungle_sapling");
+        new OdourExtractorRecipeBuilder(Blocks.CHERRY_SAPLING,ModItems.ASH.get(),ModItems.CHERRY_ETUDE.get(),true,0.2F,1)
+                .unlockedBy("has_cherry_sapling",has(Blocks.CHERRY_SAPLING)).save(pWriter,"cherry_etude_from_cherry_sapling");
+        new OdourExtractorRecipeBuilder(ModItems.SAGE_FLOWER.get(),ModItems.ASH.get(),ModItems.TUNE_OF_HARMONY.get(),true,0.2F,1)
+                .unlockedBy("has_sage_flower",has(ModItems.SAGE_FLOWER.get())).save(pWriter,"tune_of_harmony_from_sage_flower");
+        new OdourExtractorRecipeBuilder(ModItems.GROUND_SAGE_FLOWERS.get(),ModItems.ASH.get(),ModItems.TUNE_OF_HARMONY.get(),true,0.75F,1)
+                .unlockedBy("has_ground_sage_flowers",has(ModItems.GROUND_SAGE_FLOWERS.get())).save(pWriter,"tune_of_harmony_from_ground_sage_flowers");
+        new OdourExtractorRecipeBuilder(ModBlocks.NAMELESS_TREE_SAPLING.get(),ModItems.ASH.get(),ModItems.SCENT_OF_UNCERTAINTY.get(),true,0.2F,1)
+                .unlockedBy("has_nameless_tree_sapling",has(ModBlocks.NAMELESS_TREE_SAPLING.get())).save(pWriter,"scent_of_uncertainty_from_nameless_tree_sapling");
+
 
         //Генерация крафтов на новом алтаре
         new InfusingAltarRecipeBuilder(List.of(Items.STICK,Items.STICK,Items.STICK,Items.STICK,Items.STICK,ModItems.WOODEN_FIGURE.get()),Items.NETHER_STAR,"overworld")

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sage_leaf": {
+    "has_dark_oak_sapling": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:diamond"
+              "minecraft:dark_oak_sapling"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ghast_tear"
+        "recipe": "minecraft:petrichor_from_dark_oak_sapling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_sage_leaf",
+      "has_dark_oak_sapling",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ghast_tear"
+      "minecraft:petrichor_from_dark_oak_sapling"
     ]
   },
   "sends_telemetry_event": true

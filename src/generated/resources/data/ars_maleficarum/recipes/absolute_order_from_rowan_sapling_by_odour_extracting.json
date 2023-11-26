@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:absolute_order"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:rowan_sapling"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

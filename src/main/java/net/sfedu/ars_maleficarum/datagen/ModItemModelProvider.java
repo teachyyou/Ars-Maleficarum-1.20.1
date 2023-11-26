@@ -27,6 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SAGE_LEAF);
         simpleItem(ModItems.MARIGOLD_SEED);
         simpleItem(ModItems.MARIGOLD_FLOWER);
+        simpleItem(ModItems.GROUND_MARIGOLD_FLOWERS);
+        simpleItem(ModItems.GROUND_SAGE_FLOWERS);
+
         simpleItem(ModItems.CURSED_GOLD);
         simpleItem(ModItems.SILVER_NUGGET);
         simpleItem(ModItems.SILVER);
@@ -80,9 +83,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SCENT_OF_UNCERTAINTY);
         simpleItem(ModItems.EMPTY_VIAL);
 
+        simpleItem(ModItems.ASH);
+
         simpleItem(ModItems.NAMELESS_CHARCOAL);
         simpleItem(ModItems.WOODEN_FIGURE);
         simpleItem(ModItems.POPPET);
+
 
         handheldItem(ModItems.SILVER_DAGGER);
 

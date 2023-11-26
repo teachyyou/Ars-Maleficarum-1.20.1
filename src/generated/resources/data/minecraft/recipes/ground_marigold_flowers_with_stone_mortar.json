@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:marigold_flower"
+    },
+    {
+      "item": "ars_maleficarum:marigold_flower"
+    },
+    {
+      "item": "ars_maleficarum:marigold_flower"
+    },
+    {
+      "item": "ars_maleficarum:stone_mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "ars_maleficarum:ground_marigold_flowers"
+  }
+}

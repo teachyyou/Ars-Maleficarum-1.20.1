@@ -158,6 +158,13 @@ public class ModItems {
     public static final RegistryObject<Item> MANDRAKE_ROOT = ITEMS.register("mandrake_root",
             ()->new IngredientItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> GROUND_SAGE_FLOWERS = ITEMS.register("ground_sage_flowers",
+            ()->new IngredientItem(new Item.Properties()));
+    public static final RegistryObject<Item> GROUND_MARIGOLD_FLOWERS = ITEMS.register("ground_marigold_flowers",
+            ()->new IngredientItem(new Item.Properties()));
+    public static final RegistryObject<Item> ASH = ITEMS.register("ash",
+            ()->new IngredientItem(new Item.Properties()));
+
     //Регистрация предметов
     public static void register(IEventBus eventBus) {
 

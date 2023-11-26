@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:tune_of_harmony"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:ground_sage_flowers"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}
