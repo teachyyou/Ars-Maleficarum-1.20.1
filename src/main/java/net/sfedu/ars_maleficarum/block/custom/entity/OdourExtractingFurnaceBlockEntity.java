@@ -17,6 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -35,7 +36,6 @@ import java.util.Optional;
 import java.util.Random;
 
 public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements MenuProvider {
-
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -45,9 +45,9 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch(slot) {
-                case 0 -> stack.getItem() != Items.CHARCOAL && stack.getItem() != MAGIC_FUEL && stack.getItem() != Items.GLASS_BOTTLE;
+                case 0 -> stack.getItem() != Items.CHARCOAL && stack.getItem() != MAGIC_FUEL && stack.getItem() != BOTTLE;
                 case 1 -> stack.getItem() == Items.CHARCOAL || stack.getItem() == MAGIC_FUEL;
-                case 2 -> stack.getItem() == Items.GLASS_BOTTLE;
+                case 2 -> stack.getItem() == BOTTLE;
                 case 3,4 -> false;
                 default -> super.isItemValid(slot, stack);
             };
@@ -56,6 +56,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
 
     //Топливо ускоряющее перегонку в 2 раза.
     private static final Item MAGIC_FUEL = ModItems.NAMELESS_CHARCOAL.get();
+
+    private static final Item BOTTLE = ModItems.EMPTY_VIAL.get();
 
     private static final int INPUT_SLOT = 0;
     private static final int FUEL = 1;
@@ -150,6 +152,9 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory",itemHandler.serializeNBT());
+        pTag.putInt("progress",this.progress);
+        pTag.putBoolean("useMagicFuel",this.useMagicFuel);
+        pTag.putInt("litLevel",this.litLevel);
         super.saveAdditional(pTag);
     }
 
@@ -157,6 +162,9 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+        this.progress = pTag.getInt("progress");
+        this.useMagicFuel=pTag.getBoolean("useMagicFuel");
+        this.litLevel = pTag.getInt("litLevel");
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
@@ -190,19 +198,21 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         ItemStack resultItem = recipe.get().getResultItem(null);
         float chance = recipe.get().getChance(null);
 
-        if (random.nextFloat()>(1-chance)) {
-            this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
+        this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
+                this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
+
+        if (!recipe.get().getIsBottleRequired(null) && random.nextFloat()>(1-chance)) {
+           this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),
+                   this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
+
         }
 
-        if (!recipe.get().getIsBottleRequired(null)) {
-            this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
-                    this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
-        }
-
-        else if (this.itemHandler.getStackInSlot(JARS).getItem() == Items.GLASS_BOTTLE && recipe.get().getIsBottleRequired(null)) {
-            this.itemHandler.extractItem(JARS,1,false);
-            this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
-                    this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
+        else if (this.itemHandler.getStackInSlot(JARS).getItem() == BOTTLE
+                && recipe.get().getIsBottleRequired(null)
+                && random.nextFloat()>(1-chance)) {
+                    this.itemHandler.extractItem(JARS,1,false);
+                    this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),
+                            this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
 
         }
 

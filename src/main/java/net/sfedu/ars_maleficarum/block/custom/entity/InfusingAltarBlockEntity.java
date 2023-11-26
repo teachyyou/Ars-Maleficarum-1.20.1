@@ -136,6 +136,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     @Override
     public void onLoad() {
         super.onLoad();
+
         lazyItemHandler = LazyOptional.of(()->itemHandler);
     }
 
@@ -148,11 +149,13 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory",itemHandler.serializeNBT());
+        pTag.putInt("progress",this.progress);
         super.saveAdditional(pTag);
     }
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+        this.progress = pTag.getInt("progress");
     }
 
 
