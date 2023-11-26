@@ -1,0 +1,25 @@
+{
+  "type": "ars_maleficarum:add_item",
+  "conditions": [
+    {
+      "block": "minecraft:dead_bush",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 0.2,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "items": [
+            "minecraft:shears"
+          ]
+        }
+      }
+    }
+  ],
+  "name": "ars_maleficarum:sunlight_flower_seeds"
+}

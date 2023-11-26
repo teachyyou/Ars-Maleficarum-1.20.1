@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dark_oak_sapling": {
+    "has_flowering_azalea": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:dark_oak_sapling"
+              "minecraft:flowering_azalea"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:test"
+        "recipe": "minecraft:soaring_lightness_from_flowering_azalea"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dark_oak_sapling",
+      "has_flowering_azalea",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:test"
+      "minecraft:soaring_lightness_from_flowering_azalea"
     ]
   },
   "sends_telemetry_event": true

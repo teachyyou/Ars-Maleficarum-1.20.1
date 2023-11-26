@@ -3,7 +3,7 @@
   "additional": {
     "item": "ars_maleficarum:tune_of_harmony"
   },
-  "chance": 0.2,
+  "chance": 0.75,
   "ingredients": [
     {
       "item": "ars_maleficarum:ground_sage_flowers"

@@ -60,5 +60,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/bat")).build(),
                 LootItemRandomChanceCondition.randomChance(0.4f).build()}, ModItems.BAT_WING.get()));
 
+        //Выпадение семян солнечного цветка
+        add("sunlight_flower_seeds_from_dead_bush",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.DEAD_BUSH).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.SUNLIGHT_FLOWER_SEED.get()));
     }
 }

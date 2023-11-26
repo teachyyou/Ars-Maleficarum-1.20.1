@@ -3,7 +3,7 @@
   "additional": {
     "item": "ars_maleficarum:sweet_dream"
   },
-  "chance": 0.2,
+  "chance": 0.1,
   "ingredients": [
     {
       "item": "minecraft:sugar_cane"
