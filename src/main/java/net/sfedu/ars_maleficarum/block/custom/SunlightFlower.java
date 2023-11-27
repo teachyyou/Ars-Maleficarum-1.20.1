@@ -135,6 +135,13 @@ public class SunlightFlower extends CropBlock {
                             pLevel.setBlock(pPos.above(1), this.getStateForAge(currentAge + 1), 2);
                        }
                    }
+                    else if(currentAge<FIRST_STAGE_MAX_AGE && pLevel.isDay()){
+                        if(!pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR))
+                        {
+                            pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
+                            return;
+                        }
+                    }
                     else {
                         if(pLevel.isDay())
                             pLevel.setBlock(pPos, this.getStateForAge(currentAge + 1), 2);

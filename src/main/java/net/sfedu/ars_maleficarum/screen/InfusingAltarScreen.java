@@ -43,8 +43,10 @@ public class InfusingAltarScreen extends AbstractContainerScreen<InfusingAltarMe
 
     private void RenderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if (menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE,x+86,y+31,176,0,8,menu.getScaledProgress());
+            //guiGraphics.blit(TEXTURE,x+86,y+31,176,0,8,menu.getScaledProgress());
         }
+        int k = menu.getScaledProgress();
+        guiGraphics.blit(TEXTURE,x+45,y+21,0,183,100,k);
     }
 
     @Override

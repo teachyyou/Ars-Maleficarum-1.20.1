@@ -30,11 +30,12 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
     public void render(InfusingAltarBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer,
                        int pPackedLight, int pPackedOverlay) {
 
+
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        List<ItemStack> items = List.of(ItemStack.EMPTY,ItemStack.EMPTY,ItemStack.EMPTY,ItemStack.EMPTY, ItemStack.EMPTY,ItemStack.EMPTY);
-        //List<ItemStack> items = pBlockEntity.getRenderStack();
+        //List<ItemStack> items = List.of(ItemStack.EMPTY,ItemStack.EMPTY,ItemStack.EMPTY,ItemStack.EMPTY, ItemStack.EMPTY,ItemStack.EMPTY);
+        List<ItemStack> items = pBlockEntity.getRenderStack();
         pPoseStack.pushPose();
-        pPoseStack.translate(0.75f,0.575f,0.25f);
+        pPoseStack.translate(0.25f,0.575f,0.25f);
         pPoseStack.scale(0.3f,0.3f,0.3f);
         pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
@@ -44,7 +45,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
         pPoseStack.popPose();
 
         pPoseStack.pushPose();
-        pPoseStack.translate(0.75f,0.575f,0.75f);
+        pPoseStack.translate(0.75f,0.575f,0.25f);
         pPoseStack.scale(0.3f,0.3f,0.3f);
         pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
@@ -54,7 +55,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
         pPoseStack.popPose();
 
         pPoseStack.pushPose();
-        pPoseStack.translate(0.275f,0.575f,0.8f);
+        pPoseStack.translate(0.775f,0.575f,0.65f);
         pPoseStack.scale(0.3f,0.3f,0.3f);
         pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
@@ -64,7 +65,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
         pPoseStack.popPose();
 
         pPoseStack.pushPose();
-        pPoseStack.translate(0.12f,0.575f,0.5f);
+        pPoseStack.translate(0.5f,0.575f,0.825f);
         pPoseStack.scale(0.3f,0.3f,0.3f);
         pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
@@ -74,7 +75,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
         pPoseStack.popPose();
 
         pPoseStack.pushPose();
-        pPoseStack.translate(0.275f,0.575f,0.2f);
+        pPoseStack.translate(0.225f,0.575f,0.65f);
         pPoseStack.scale(0.3f,0.3f,0.3f);
         pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
         pPoseStack.mulPose(Axis.XP.rotationDegrees(270));

@@ -3,7 +3,11 @@ package net.sfedu.ars_maleficarum.block.custom.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -77,7 +81,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
     protected final ContainerData data;
     private int progress;
-    private int maxProgress = 100;
+    private int maxProgress = 400;
 
 
 
@@ -209,7 +213,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
     private void craftItem(BlockPos pPos) {
         Optional<InfusingAltarRecipe> recipe = getCurrentRecipe();
-        ItemStack resultItem = recipe.get().getResultItem(null);
+        ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
 
         for (int i = 0; i<5; i++) {
             this.itemHandler.extractItem(i,1,false);
@@ -253,5 +257,19 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
                 this.itemHandler.getStackInSlot(5));
     }
 
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
 
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net,pkt);
+    }
 }
