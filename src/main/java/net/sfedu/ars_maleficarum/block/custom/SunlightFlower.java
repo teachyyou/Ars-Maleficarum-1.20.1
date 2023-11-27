@@ -69,10 +69,9 @@ public class SunlightFlower extends CropBlock {
                     //System.out.println(this.getAge(pLevel.getBlockState(pPos.above(1))));
         }
         else {
-            if(pLevel.isDay())
+            if(pLevel.isDay() && pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR))
                 pLevel.setBlock(pPos,this.getStateForAge(nextAge),2);
         }
-
     }
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
@@ -86,13 +85,11 @@ public class SunlightFlower extends CropBlock {
     {
         if(this.getAge(pState)==0)
             return true;
-        for(int i=2;i<=150;i++)
-            if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR))
+        for(int i=1;i<=150;i++)
+            if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR) && !pLevel.getBlockState(pPos.above(1)).is(this))
                 return false;
         return true;
     }
-
-
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return this.mayPlaceOn(state,world,pos);
@@ -122,13 +119,13 @@ public class SunlightFlower extends CropBlock {
             int nextAge = currentAge + 1;
             int maxAge=this.getMaxAge();
             if(nextAge>maxAge) {
-                nextAge=maxAge;
+                nextAge = maxAge;
             }
-            if(!canSurvive(pState,pLevel,pPos))
-            {
-                pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
-                return;
-            }
+                if(!canSurvive(pState,pLevel,pPos))
+                {
+                    pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
+                    return;
+                }
             if (currentAge < this.getMaxAge()) {
                 float growthSpeed = getGrowthSpeed(this, pLevel, pPos);
 
@@ -138,6 +135,13 @@ public class SunlightFlower extends CropBlock {
                             pLevel.setBlock(pPos.above(1), this.getStateForAge(currentAge + 1), 2);
                        }
                    }
+                    else if(currentAge<FIRST_STAGE_MAX_AGE && pLevel.isDay()){
+                        if(!pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR))
+                        {
+                            pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
+                            return;
+                        }
+                    }
                     else {
                         if(pLevel.isDay())
                             pLevel.setBlock(pPos, this.getStateForAge(currentAge + 1), 2);
