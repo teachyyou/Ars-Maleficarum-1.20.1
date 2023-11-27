@@ -38,7 +38,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
-    public static final VoxelShape SHAPE = Block.box(0,0,0,16,12,16);
+    public static final VoxelShape SHAPE = Block.box(0,0,0,16,11,16);
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {

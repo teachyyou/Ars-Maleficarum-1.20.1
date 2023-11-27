@@ -38,6 +38,7 @@ import net.sfedu.ars_maleficarum.screen.InfusingAltarMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -47,6 +48,10 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            if (!level.isClientSide()) {
+                level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
+
+            }
         }
 
         @Override
@@ -77,6 +82,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+
 
 
     public InfusingAltarBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -152,6 +158,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         pTag.putInt("progress",this.progress);
         super.saveAdditional(pTag);
     }
+    @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
@@ -160,12 +167,14 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
+        getRenderStack();
         if (hasRecipe() && hasCorrectStructureAround(level, pPos)) {
+
             increaseCraftingProcess();
             setChanged(level,pPos,pState);
-
             if (hasProgressFinished()) {
                 craftItem(pPos);
+                level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
                 resetProgress();
             }
         }
@@ -199,7 +208,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private void craftItem(BlockPos pPos) {
-        Random random = new Random();
         Optional<InfusingAltarRecipe> recipe = getCurrentRecipe();
         ItemStack resultItem = recipe.get().getResultItem(null);
 
@@ -233,6 +241,16 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         }
 
         return flag;
+    }
+
+    public List<ItemStack> getRenderStack() {
+        //System.out.println(this.itemHandler.getStackInSlot(5).getDisplayName());
+        return List.of(this.itemHandler.getStackInSlot(0),
+                this.itemHandler.getStackInSlot(1),
+                this.itemHandler.getStackInSlot(2),
+                this.itemHandler.getStackInSlot(3),
+                this.itemHandler.getStackInSlot(4),
+                this.itemHandler.getStackInSlot(5));
     }
 
 

@@ -16,6 +16,7 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
 import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
+import net.sfedu.ars_maleficarum.event.ModEvents;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.loot.ModLootModifiers;
@@ -70,6 +71,7 @@ public class ArsMaleficarum
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
