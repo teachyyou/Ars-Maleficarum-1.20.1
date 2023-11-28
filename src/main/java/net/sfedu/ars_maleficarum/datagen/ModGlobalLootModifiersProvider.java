@@ -37,7 +37,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
                 }, ModItems.SAGE_SEED.get()));
         //Выпадение семян шалфея из высокой травы
-        add("sage_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+        add("sage_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
                 LootItemRandomChanceCondition.randomChance(0.2f).build(),
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
@@ -49,7 +49,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
         }, ModItems.MARIGOLD_SEED.get()));
         //Выпадение семян календулы из высокой травы
-        add("marigold_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+        add("marigold_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
                 LootItemRandomChanceCondition.randomChance(0.2f).build(),
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()

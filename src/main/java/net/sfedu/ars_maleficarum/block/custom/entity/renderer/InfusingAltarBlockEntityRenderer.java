@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.Blocks;
 import net.sfedu.ars_maleficarum.block.custom.InfusingAltarBlock;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 

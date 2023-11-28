@@ -1,7 +1,15 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
+import net.minecraft.client.ParticleStatus;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.ParticleUtils;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -101,5 +109,39 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         }
         return createTickerHelper(pBlockEntityType,ModBlockEntities.INFUSING_ALTAR_BE.get(),
                 (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1,pPos,pState1));
+    }
+
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(HorizontalDirectionalBlock.FACING) == Direction.EAST) {
+            double d0 = (double)pPos.getX() + 0.8D;
+            double d1 = (double)pPos.getY() + 1D;
+            double d2 = (double)pPos.getZ() + 0.85D;
+            pLevel.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            pLevel.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+        }
+        else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.WEST){
+            double d0 = (double)pPos.getX() + 0.2D;
+            double d1 = (double)pPos.getY() + 1D;
+            double d2 = (double)pPos.getZ() + 0.15D;
+            pLevel.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            pLevel.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+
+        }
+        else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.NORTH){
+            double d0 = (double)pPos.getX() + 0.85D;
+            double d1 = (double)pPos.getY() + 1D;
+            double d2 = (double)pPos.getZ() + 0.15D;
+            pLevel.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            pLevel.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+        }
+        else {
+
+            double d0= (double)pPos.getX() + 0.2D;
+            double d1 = (double)pPos.getY() + 1D;
+            double d2 = (double)pPos.getZ() + 0.85D;
+            pLevel.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            pLevel.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+        }
     }
 }

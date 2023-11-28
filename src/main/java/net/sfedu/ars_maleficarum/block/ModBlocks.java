@@ -169,9 +169,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
             () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-
     public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
-            ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+            ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
 
     public static final RegistryObject<Block> DEAD_TREE_LOG = registerBlock("dead_tree_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(0.3f))
