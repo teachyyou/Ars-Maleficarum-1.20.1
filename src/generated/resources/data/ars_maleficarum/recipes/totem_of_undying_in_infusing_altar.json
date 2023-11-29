@@ -1,0 +1,27 @@
+{
+  "type": "ars_maleficarum:altar_infusing",
+  "dimension": "overworld",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    {
+      "item": "ars_maleficarum:poppet"
+    }
+  ],
+  "output": {
+    "item": "minecraft:totem_of_undying"
+  }
+}

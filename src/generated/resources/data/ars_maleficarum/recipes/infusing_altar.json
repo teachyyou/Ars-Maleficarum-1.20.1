@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "C": {
+      "item": "minecraft:candle"
+    },
+    "G": {
+      "item": "ars_maleficarum:cursed_gold_block"
+    },
+    "R": {
+      "item": "minecraft:red_carpet"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "pattern": [
+    "CRW",
+    "SGS",
+    "BBB"
+  ],
+  "result": {
+    "item": "ars_maleficarum:infusing_altar"
+  },
+  "show_notification": true
+}

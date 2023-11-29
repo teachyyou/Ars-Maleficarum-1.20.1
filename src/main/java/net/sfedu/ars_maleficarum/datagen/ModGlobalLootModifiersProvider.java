@@ -55,6 +55,17 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
         }, ModItems.MARIGOLD_SEED.get()));
 
+        add("mandrake_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.MANDRAKE_SEED.get()));
+        add("mandrake_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.MANDRAKE_SEED.get()));
+
         //Выпадение крыла из летучей мыши
         add("bat_wing_from_bat",new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/bat")).build(),

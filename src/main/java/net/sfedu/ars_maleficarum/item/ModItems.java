@@ -89,6 +89,9 @@ public class ModItems {
     public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> CAT_FIGURE= ITEMS.register("cat_figure",
+            ()->new Item(new Item.Properties().stacksTo(1)));
+
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
 

@@ -88,6 +88,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.NAMELESS_CHARCOAL);
         simpleItem(ModItems.WOODEN_FIGURE);
         simpleItem(ModItems.POPPET);
+        simpleItem(ModItems.CAT_FIGURE);
 
 
         handheldItem(ModItems.SILVER_DAGGER);

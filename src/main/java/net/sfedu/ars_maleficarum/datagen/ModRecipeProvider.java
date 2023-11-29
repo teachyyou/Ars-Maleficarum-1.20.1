@@ -3,6 +3,7 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -295,7 +296,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.SUGAR)
                 .requires(ModItems.SALT.get())
                 .requires(ModItems.TREE_LARVA.get())
-                .requires(Items.GLASS_BOTTLE)
+                .requires(ModItems.EMPTY_VIAL.get())
                 .unlockedBy(getHasName(ModItems.TREE_LARVA.get()),has(ModItems.TREE_LARVA.get()))
                 .save(pWriter,new ResourceLocation("fermented_tree_larva_craft"));
         //Крафт серебряного стилета
@@ -307,6 +308,63 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R',Items.STICK)
                 .define('N',ModItems.CURSED_GOLD_NUGGET.get())
                 .unlockedBy(getHasName(ModItems.SILVER.get()),has(ModItems.SILVER.get()))
+                .save(pWriter);
+        //Крафт стеклянных флаконов
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_VIAL.get(),8)
+                .pattern(" W ")
+                .pattern("G G")
+                .pattern("PGP")
+                .define('W', ModBlocks.ROWAN_PLANKS.get())
+                .define('G', Blocks.GLASS)
+                .define('P', Blocks.GLASS_PANE)
+                .unlockedBy(getHasName(Blocks.GLASS),has(Blocks.GLASS))
+                .save(pWriter);
+        //Крафт алтаря наполнения
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.INFUSING_ALTAR.get(),1)
+                .pattern("CRW")
+                .pattern("SGS")
+                .pattern("BBB")
+                .define('G', ModBlocks.CURSED_GOLD_BLOCK.get())
+                .define('R', Blocks.RED_CARPET)
+                .define('C', Blocks.CANDLE)
+                .define('W', Items.WHITE_DYE)
+                .define('B', Blocks.STONE_BRICKS)
+                .define('S', Blocks.STONE)
+                .unlockedBy(getHasName(ModBlocks.CURSED_GOLD_BLOCK.get()),has(ModBlocks.CURSED_GOLD_BLOCK.get()))
+                .save(pWriter);
+        //Крафт печи выпаривания ароматов
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),1)
+                .pattern("BIB")
+                .pattern("IRI")
+                .pattern("IFI")
+                .define('B', ModItems.EMPTY_VIAL.get())
+                .define('I', Items.IRON_INGOT)
+                .define('R', Blocks.IRON_BARS)
+                .define('F', Blocks.FURNACE)
+                .unlockedBy(getHasName(ModItems.EMPTY_VIAL.get()),has(ModItems.EMPTY_VIAL.get()))
+                .save(pWriter);
+
+        //Крафт куклы
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.POPPET.get(),1)
+                .pattern("SWS")
+                .pattern("SWS")
+                .pattern("WTW")
+                .define('T', ModItems.SAGE_LEAF.get())
+                .define('W', Blocks.WHITE_WOOL)
+                .define('S', Items.STRING)
+                .unlockedBy(getHasName(ModItems.SAGE_LEAF.get()),has(ModItems.SAGE_LEAF.get()))
+                .save(pWriter);
+
+        //Крафт деревянной фигурки
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_FIGURE.get(),1)
+                .pattern(" B ")
+                .pattern("BMB")
+                .pattern("DRD")
+                .define('B', ModItems.ROWAN_BARK.get())
+                .define('M', ModItems.MANDRAKE_ROOT.get())
+                .define('D', ModItems.DEAD_TREE_BARK.get())
+                .define('R', ModBlocks.ROWAN_LOG.get())
+                .unlockedBy(getHasName(ModItems.DEAD_TREE_BARK.get()),has(ModItems.DEAD_TREE_BARK.get()))
                 .save(pWriter);
 
 
@@ -346,10 +404,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         //Генерация крафтов на новом алтаре
-        new InfusingAltarRecipeBuilder(List.of(Items.STICK,Items.STICK,Items.STICK,Items.STICK,Items.STICK,ModItems.WOODEN_FIGURE.get()),Items.NETHER_STAR,"overworld")
+        new InfusingAltarRecipeBuilder(List.of(Items.ENDER_EYE,Items.ENDER_EYE,Items.NETHER_STAR,Items.NETHERITE_INGOT,ModItems.MANDRAKE_ROOT.get(),ModItems.POPPET.get()),Items.TOTEM_OF_UNDYING,"overworld")
                 .unlockedBy("has_something",has(Items.STICK)).save(pWriter);
-        new InfusingAltarRecipeBuilder(List.of(Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,Items.WHITE_WOOL,ModItems.POPPET.get()),Items.DRAGON_EGG,"overworld")
-                .unlockedBy("has_something",has(Items.WHITE_WOOL)).save(pWriter);
+        new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(),ModItems.TROPICAL_MONSOON.get(),Items.TROPICAL_FISH,ModItems.ROWAN_BERRIES.get(),Items.GUNPOWDER,ModItems.WOODEN_FIGURE.get()),ModItems.CAT_FIGURE.get(),"overworld")
+                .unlockedBy("has_something",has(Items.STICK)).save(pWriter);
 
 
 

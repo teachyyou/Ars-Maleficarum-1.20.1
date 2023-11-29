@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_something": {
+    "has_cursed_gold_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:white_wool"
+              "ars_maleficarum:cursed_gold_block"
             ]
           }
         ]
@@ -15,21 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dragon_egg"
+        "recipe": "ars_maleficarum:infusing_altar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_something",
+      "has_cursed_gold_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dragon_egg"
+      "ars_maleficarum:infusing_altar"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }
