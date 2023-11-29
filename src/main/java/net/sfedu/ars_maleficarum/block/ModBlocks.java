@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -169,7 +170,7 @@ public class ModBlocks {
             ()->new SaplingBlock(new DeadTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
-            () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+            () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(x -> x.getValue(BlockStateProperties.LIT) ? 14 : 0)));
     public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
             ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
 

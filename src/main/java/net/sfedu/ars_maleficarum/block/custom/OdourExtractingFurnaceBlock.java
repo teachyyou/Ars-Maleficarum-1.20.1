@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -113,11 +115,15 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(LIT)) {
+
             if (pState.getValue(HorizontalDirectionalBlock.FACING) == Direction.EAST) {
                 double d0 = (double)pPos.getX() + 0.4D;
                 double d1 = (double)pPos.getY() + 1D;
                 double d2 = (double)pPos.getZ() + 0.5D;
                 pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+                if (pRandom.nextDouble() < 0.1D) {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                }
             }
             else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.WEST){
 
@@ -125,6 +131,9 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
                 double d1 = (double)pPos.getY() + 1D;
                 double d2 = (double)pPos.getZ() + 0.5D;
                 pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+                if (pRandom.nextDouble() < 0.1D) {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                }
 
             }
             else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.NORTH){
@@ -132,12 +141,18 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
                 double d1 = (double)pPos.getY() + 1D;
                 double d2 = (double)pPos.getZ() + 0.6D;
                 pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+                if (pRandom.nextDouble() < 0.1D) {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                }
             }
             else {
                 double d0 = (double)pPos.getX() + 0.6D;
                 double d1 = (double)pPos.getY() + 1D;
                 double d2 = (double)pPos.getZ() + 0.4D;
                 pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+                if (pRandom.nextDouble() < 0.1D) {
+                    pLevel.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                }
             }
         }
     }
