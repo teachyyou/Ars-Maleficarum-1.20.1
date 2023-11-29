@@ -19,6 +19,7 @@ import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.function.Supplier;
 
@@ -190,6 +191,20 @@ public class ModBlocks {
                     return 40;
                 }
             });
+
+    public static final RegistryObject<Block> ROWAN_STAIRS = registerBlock("rowan_stairs",
+            ()-> new StairBlock(() -> ROWAN_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+    public static final RegistryObject<Block> ROWAN_SLAB = registerBlock("rowan_slab",
+            ()-> new SlabBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+    public static final RegistryObject<Block> ROWAN_FENCE = registerBlock("rowan_fence",
+            ()-> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+
+    public static final RegistryObject<Block> ROWAN_FENCE_GATE = registerBlock("rowan_fence_gate",
+            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), WoodType.OAK));
+
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
