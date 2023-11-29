@@ -79,6 +79,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
 
+        this.dropSelf(ModBlocks.ROWAN_STAIRS.get());
+        this.dropSelf(ModBlocks.ROWAN_SLAB.get());
+        this.dropSelf(ModBlocks.ROWAN_FENCE.get());
+        this.dropSelf(ModBlocks.ROWAN_FENCE_GATE.get());
+
+        this.dropSelf(ModBlocks.NAMELESS_TREE_STAIRS.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_SLAB.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_FENCE.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
+
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
     protected void generatedSunlight_flower_Drop(){
