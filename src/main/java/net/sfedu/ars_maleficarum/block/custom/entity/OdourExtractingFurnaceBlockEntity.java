@@ -26,6 +26,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceMenu;
@@ -70,7 +71,7 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress=160;
-    private int litLevel = 0;
+    public int litLevel = 0;
 
     //private int maxLitLevel = 1280;
     private int maxLitLevel = 480;
@@ -173,7 +174,6 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
                 consumeFuel();
             }
             increaseCraftingProcess();
-
             setChanged(level,pPos,pState);
             if (hasProgressFinished()) {
                 craftItem();
@@ -185,6 +185,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
             resetProgress();
             if (litLevel>0) decreaseLitLevel();
         }
+        pState=pState.setValue(OdourExtractingFurnaceBlock.LIT,litLevel>0);
+        level.setBlock(pPos, pState, 3);
     }
 
     public void resetProgress() {
@@ -194,6 +196,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     public void resetLitLevel() {
         this.litLevel=0;
     }
+
+
 
     private void craftItem() {
         Random random = new Random();

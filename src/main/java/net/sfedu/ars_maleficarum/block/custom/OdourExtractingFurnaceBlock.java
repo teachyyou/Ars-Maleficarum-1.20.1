@@ -1,7 +1,10 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -16,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -29,8 +33,11 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
 
     public OdourExtractingFurnaceBlock(Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT,false));
     }
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
@@ -48,12 +55,13 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING,pContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING,pContext.getHorizontalDirection().getCounterClockWise());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
+        pBuilder.add(LIT);
     }
 
     /*Ниже все что относится к Entity*/
@@ -100,5 +108,37 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new OdourExtractingFurnaceBlockEntity(pPos,pState);
+    }
+
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(LIT)) {
+            if (pState.getValue(HorizontalDirectionalBlock.FACING) == Direction.EAST) {
+                double d0 = (double)pPos.getX() + 0.4D;
+                double d1 = (double)pPos.getY() + 1D;
+                double d2 = (double)pPos.getZ() + 0.5D;
+                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+            }
+            else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.WEST){
+
+                double d0 = (double)pPos.getX() + 0.7D;
+                double d1 = (double)pPos.getY() + 1D;
+                double d2 = (double)pPos.getZ() + 0.5D;
+                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+
+            }
+            else if (pState.getValue(HorizontalDirectionalBlock.FACING)==Direction.NORTH){
+                double d0 = (double)pPos.getX() + 0.6D;
+                double d1 = (double)pPos.getY() + 1D;
+                double d2 = (double)pPos.getZ() + 0.6D;
+                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+            }
+            else {
+                double d0 = (double)pPos.getX() + 0.6D;
+                double d1 = (double)pPos.getY() + 1D;
+                double d2 = (double)pPos.getZ() + 0.4D;
+                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+            }
+        }
     }
 }
