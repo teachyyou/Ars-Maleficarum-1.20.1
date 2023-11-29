@@ -117,5 +117,13 @@
 
   "item.ars_maleficarum.mandrake_root": "Корень мандрагоры",
   "item.ars_maleficarum.mandrake_seed": "Семя мандрагоры",
-  "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры"
+  "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры",
+  "block.modid.rowan_stairs": "Ступеньки из рябины",
+  "block.modid.rowan_slab": "Полублок из рябины",
+  "block.modid.rowan_fence": "Забор из рябины",
+  "block.modid.rowan_fence_gate": "Ворота из рябины",
+  "block.modid.nameless_tree_stairs": "Ступеньки из безымянного дерева",
+  "block.modid.nameless_tree_slab": "Полублок из безымянного дерева",
+  "block.modid.nameless_tree_fence": "Забор из безымянного дерева",
+  "block.modid.nameless_tree_fence_gate": "Ворота из безымянного дерева"
 }
