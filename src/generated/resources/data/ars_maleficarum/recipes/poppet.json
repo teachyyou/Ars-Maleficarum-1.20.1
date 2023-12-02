@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "ars_maleficarum:sage_leaf"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "SWS",
+    "SWS",
+    "WTW"
+  ],
+  "result": {
+    "item": "ars_maleficarum:poppet"
+  },
+  "show_notification": true
+}
