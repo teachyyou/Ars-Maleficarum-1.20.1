@@ -48,7 +48,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
                 pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
                 pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
-                itemRenderer.renderStatic(items.get(0), ItemDisplayContext.FIXED,getLightLevel(pBlockEntity.getLevel(),
+                itemRenderer.renderStatic(items.get(i), ItemDisplayContext.FIXED,getLightLevel(pBlockEntity.getLevel(),
                         pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY,pPoseStack,pBuffer,pBlockEntity.getLevel(),1);
                 pPoseStack.popPose();
             }
@@ -63,7 +63,7 @@ public class InfusingAltarBlockEntityRenderer implements BlockEntityRenderer<Inf
                 pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockEntity.getBlockState().getValue(InfusingAltarBlock.FACING).toYRot()));
                 pPoseStack.mulPose(Axis.XP.rotationDegrees(270));
 
-                itemRenderer.renderStatic(items.get(0), ItemDisplayContext.FIXED,getLightLevel(pBlockEntity.getLevel(),
+                itemRenderer.renderStatic(items.get(i), ItemDisplayContext.FIXED,getLightLevel(pBlockEntity.getLevel(),
                         pBlockEntity.getBlockPos()), OverlayTexture.NO_OVERLAY,pPoseStack,pBuffer,pBlockEntity.getLevel(),1);
                 pPoseStack.popPose();
             }
