@@ -18,6 +18,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(OdourExtractingFurnaceBlockEntity::new,
                             ModBlocks.ODOUR_EXTRACTING_FURNACE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<InfusingAltarBlockEntity>> INFUSING_ALTAR_BE =
+            BLOCK_ENTITIES.register("infusing_altar_block_entity", () ->
+                    BlockEntityType.Builder.of(InfusingAltarBlockEntity::new,
+                            ModBlocks.INFUSING_ALTAR.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

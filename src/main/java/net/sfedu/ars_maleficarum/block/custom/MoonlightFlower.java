@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.common.IPlantable;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -38,31 +39,7 @@ public class MoonlightFlower extends CropBlock {
 
     @Override
     public void growCrops(Level pLevel, BlockPos pPos, BlockState pState) {
-        int nextAge = this.getAge(pState) + 1;
-        int maxAge=this.getMaxAge();
-        if(nextAge>maxAge) {
-            nextAge=maxAge;
-        }
-        for(int i=2;i<150;i++){
-            if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR)){
-                return;
-            }
-        }
-        if (this.getAge(pState)==FIRST_STAGE_MAX_AGE && (pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR) && pLevel.isNight())){
-            pLevel.setBlock(pPos.above(1),this.getStateForAge(4),2);
-        }
-
-        else if ((nextAge==FIRST_STAGE_MAX_AGE+1) && (this.getAge(pLevel.getBlockState(pPos.above(1)))==4)&& pLevel.isNight()) {
-            pLevel.setBlock(pPos.above(1),this.getStateForAge(nextAge+1),2);
-        }
-        else if ((nextAge>FIRST_STAGE_MAX_AGE) && (this.getAge(pLevel.getBlockState(pPos.above(1)))>=5)&& pLevel.isNight()) {
-            pLevel.setBlock(pPos.above(1),this.getStateForAge(nextAge+2),2);
-            //System.out.println(this.getAge(pLevel.getBlockState(pPos.above(1))));
-        }
-        else {
-            if(pLevel.isNight())
-                pLevel.setBlock(pPos,this.getStateForAge(nextAge),2);
-        }
+        return;
 
     }
     @Override
