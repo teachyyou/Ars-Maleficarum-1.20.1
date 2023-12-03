@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sage_flower": {
+    "has_mangrove_propagule": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:diamond"
+              "minecraft:mangrove_propagule"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond"
+        "recipe": "minecraft:stink_of_swamp_from_mangrove_propagule"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_sage_flower",
+      "has_mangrove_propagule",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond"
+      "minecraft:stink_of_swamp_from_mangrove_propagule"
     ]
   },
   "sends_telemetry_event": true

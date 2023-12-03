@@ -1,8 +1,12 @@
 {
   "entries": [
+    "ars_maleficarum:sage_seeds_from_tall_grass",
     "ars_maleficarum:sage_seeds_from_grass",
+    "ars_maleficarum:mandrake_seeds_from_grass",
+    "ars_maleficarum:sunlight_flower_seeds_from_dead_bush",
     "ars_maleficarum:marigold_seeds_from_grass",
-    "ars_maleficarum:sunlight_flower_seeds_from_sunflower",
+    "ars_maleficarum:marigold_seeds_from_tall_grass",
+    "ars_maleficarum:mandrake_seeds_from_tall_grass",
     "ars_maleficarum:bat_wing_from_bat"
   ],
   "replace": false

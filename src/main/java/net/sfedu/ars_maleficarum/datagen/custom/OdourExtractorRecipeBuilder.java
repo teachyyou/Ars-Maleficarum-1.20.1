@@ -121,8 +121,7 @@ public class OdourExtractorRecipeBuilder implements RecipeBuilder {
 
         @Override
         public ResourceLocation getId() {
-            return new ResourceLocation(ArsMaleficarum.MOD_ID,
-                    ForgeRegistries.ITEMS.getKey(this.result).getPath() + "_from_odour_extracting");
+            return new ResourceLocation(ArsMaleficarum.MOD_ID, this.id.getPath() + "_by_odour_extracting");
         }
 
         @Override

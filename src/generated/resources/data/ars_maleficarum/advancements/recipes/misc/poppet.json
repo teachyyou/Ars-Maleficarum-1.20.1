@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sage_leaf": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:sage_leaf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ars_maleficarum:poppet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sage_leaf",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ars_maleficarum:poppet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

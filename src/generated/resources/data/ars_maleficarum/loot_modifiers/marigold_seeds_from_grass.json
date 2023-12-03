@@ -2,7 +2,7 @@
   "type": "ars_maleficarum:add_item",
   "conditions": [
     {
-      "block": "minecraft:tall_grass",
+      "block": "minecraft:grass",
       "condition": "minecraft:block_state_property"
     },
     {

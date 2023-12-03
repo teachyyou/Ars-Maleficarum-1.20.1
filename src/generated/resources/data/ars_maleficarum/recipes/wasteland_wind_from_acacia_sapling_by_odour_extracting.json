@@ -1,16 +1,16 @@
 {
   "type": "ars_maleficarum:odour_extracting",
   "additional": {
-    "item": "minecraft:diamond"
+    "item": "ars_maleficarum:wasteland_wind"
   },
-  "chance": 0.5,
+  "chance": 0.2,
   "ingredients": [
     {
-      "item": "ars_maleficarum:sage_leaf"
+      "item": "minecraft:acacia_sapling"
     }
   ],
   "isBottleRequired": true,
   "output": {
-    "item": "minecraft:ghast_tear"
+    "item": "ars_maleficarum:ash"
   }
 }

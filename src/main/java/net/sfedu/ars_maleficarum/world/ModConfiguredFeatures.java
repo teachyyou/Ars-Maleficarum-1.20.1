@@ -49,9 +49,9 @@ public class ModConfiguredFeatures {
 
         register(context,DEAD_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.DEAD_TREE_LOG.get()),
-                new RowanTrunkPlacer(3,2,2),
+                new NamelessTrunkPlacer(3,2,2),
                 BlockStateProvider.simple(Blocks.AIR),
-                new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                new NamelessFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)).build());
     }
 

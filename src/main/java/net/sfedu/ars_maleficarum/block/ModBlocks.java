@@ -8,17 +8,19 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
-import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlock;
+import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.function.Supplier;
 
@@ -55,10 +57,10 @@ public class ModBlocks {
 
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
-            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
+            ()->new SunlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(SunlightFlower.AGE)>3? 10:0).noOcclusion().noCollission()));
     //Регистрация цветка лунного света
     public static final RegistryObject<Block> MOONLIGHT_FLOWER_CROP = BLOCKS.register("moonlight_flower_crop",
-            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel((p_50874_) -> {return 15;}).noOcclusion().noCollission()));
+            ()->new MoonlightFlower(BlockBehaviour.Properties.copy(Blocks.WHEAT).lightLevel(state -> state.getValue(MoonlightFlower.AGE)>3 ? 10:0).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> ROWAN_LOG = registerBlock("rowan_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
@@ -82,6 +84,23 @@ public class ModBlocks {
                 }
             });
     public static final RegistryObject<Block> ROWAN_LEAVES = registerBlock("rowan_leaves",
+            ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+    public static final RegistryObject<Block> ROWAN_BERRIES_LEAVES = registerBlock("rowan_berries_leaves",
             ()-> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -151,7 +170,11 @@ public class ModBlocks {
             ()->new SaplingBlock(new DeadTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
-            () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+            () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(x -> x.getValue(BlockStateProperties.LIT) ? 14 : 0)));
+    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
+            ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
+
+
 
     public static final RegistryObject<Block> DEAD_TREE_LOG = registerBlock("dead_tree_log",
             ()-> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(0.3f))
@@ -169,6 +192,34 @@ public class ModBlocks {
                     return 40;
                 }
             });
+
+    public static final RegistryObject<Block> ROWAN_STAIRS = registerBlock("rowan_stairs",
+            ()-> new StairBlock(() -> ROWAN_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+    public static final RegistryObject<Block> ROWAN_SLAB = registerBlock("rowan_slab",
+            ()-> new SlabBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+    public static final RegistryObject<Block> ROWAN_FENCE = registerBlock("rowan_fence",
+            ()-> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+
+    public static final RegistryObject<Block> ROWAN_FENCE_GATE = registerBlock("rowan_fence_gate",
+            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), WoodType.OAK));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_FENCE_GATE = registerBlock("nameless_tree_fence_gate",
+            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get()), WoodType.OAK));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_STAIRS = registerBlock("nameless_tree_stairs",
+            ()-> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_SLAB = registerBlock("nameless_tree_slab",
+            ()-> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_FENCE = registerBlock("nameless_tree_fence",
+            ()-> new FenceBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+
+    public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
+            ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
 
 
     //Регистрация блока и предмета, привязанного к нему

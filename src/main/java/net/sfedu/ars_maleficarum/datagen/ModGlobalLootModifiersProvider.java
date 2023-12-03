@@ -37,7 +37,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
                 }, ModItems.SAGE_SEED.get()));
         //Выпадение семян шалфея из высокой травы
-        add("sage_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+        add("sage_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
                 LootItemRandomChanceCondition.randomChance(0.2f).build(),
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
@@ -49,11 +49,22 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
         }, ModItems.MARIGOLD_SEED.get()));
         //Выпадение семян календулы из высокой травы
-        add("marigold_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+        add("marigold_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
                 LootItemRandomChanceCondition.randomChance(0.2f).build(),
                 MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
         }, ModItems.MARIGOLD_SEED.get()));
+
+        add("mandrake_seeds_from_grass",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.MANDRAKE_SEED.get()));
+        add("mandrake_seeds_from_tall_grass",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.MANDRAKE_SEED.get()));
 
         //Выпадение крыла из летучей мыши
         add("bat_wing_from_bat",new AddItemModifier(new LootItemCondition[]{
@@ -64,5 +75,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SUNFLOWER).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.SUNLIGHT_FLOWER_SEED.get()));
 
+        //Выпадение семян солнечного цветка
+        add("sunlight_flower_seeds_from_dead_bush",new AddItemModifier(new LootItemCondition[]{
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.DEAD_BUSH).build(),
+                LootItemRandomChanceCondition.randomChance(0.2f).build(),
+                MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert().build()
+        }, ModItems.SUNLIGHT_FLOWER_SEED.get()));
     }
 }

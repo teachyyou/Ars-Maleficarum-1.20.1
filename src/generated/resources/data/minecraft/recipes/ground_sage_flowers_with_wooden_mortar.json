@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:sage_flower"
+    },
+    {
+      "item": "ars_maleficarum:sage_flower"
+    },
+    {
+      "item": "ars_maleficarum:sage_flower"
+    },
+    {
+      "item": "ars_maleficarum:wooden_mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "ars_maleficarum:ground_sage_flowers"
+  }
+}

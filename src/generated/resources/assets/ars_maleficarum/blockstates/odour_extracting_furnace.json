@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,lit=false": {
       "model": "ars_maleficarum:block/odour_extracting_furnace",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,lit=true": {
+      "model": "ars_maleficarum:block/odour_extracting_furnace",
+      "y": 90
+    },
+    "facing=north,lit=false": {
       "model": "ars_maleficarum:block/odour_extracting_furnace"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "ars_maleficarum:block/odour_extracting_furnace"
+    },
+    "facing=south,lit=false": {
       "model": "ars_maleficarum:block/odour_extracting_furnace",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "ars_maleficarum:block/odour_extracting_furnace",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "ars_maleficarum:block/odour_extracting_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true": {
       "model": "ars_maleficarum:block/odour_extracting_furnace",
       "y": 270
     }

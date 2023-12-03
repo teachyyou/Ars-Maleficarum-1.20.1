@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azalea": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:azalea"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:soaring_lightness_from_azalea"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_azalea",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:soaring_lightness_from_azalea"
+    ]
+  },
+  "sends_telemetry_event": true
+}

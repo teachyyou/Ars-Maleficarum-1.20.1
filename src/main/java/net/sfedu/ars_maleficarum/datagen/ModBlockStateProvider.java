@@ -14,10 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.MoonlightFlower;
-import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
+import net.sfedu.ars_maleficarum.block.custom.*;
 
 import java.util.function.Function;
 
@@ -33,6 +30,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         makeSageCrop((CropBlock) ModBlocks.SAGE_CROP.get(),"sage_stage","sage_stage");
         makeMarigoldCrop((CropBlock) ModBlocks.MARIGOLD_CROP.get(),"marigold_stage","marigold_stage");
+        makeMandrakeCrop((CropBlock) ModBlocks.MANDRAKE_CROP.get(), "mandrake_stage", "mandrake_stage");
         blockWithItem(ModBlocks.CURSED_GOLD_BLOCK);
         blockWithItem(ModBlocks.SILVER_BLOCK);
         blockWithItem(ModBlocks.CURSED_GOLD_ORE_BLOCK);
@@ -106,6 +104,18 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         getVariantBuilder(block).forAllStates(function);
     }
 
+    public void makeMandrakeCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState,ConfiguredModel[]> function = state->mandrakeStates(state,block,modelName,textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] mandrakeStates(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().cross(modelName+state.getValue(((MandrakeCropBlock) block).getAgeProperty()),
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+textureName+state.getValue(((MandrakeCropBlock) block).getAgeProperty()))).renderType("cutout"));
+        return models;
+    }
     //Массив всех стадий роста календулы
     private ConfiguredModel[] marigoldStates(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];

@@ -1,13 +1,14 @@
 {
 
-  "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
+  "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
+  "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
 
   "item.ars_maleficarum.sage_flower": "Sage Flower",
   "item.ars_maleficarum.marigold_flower": "Marigold Flower",
   "item.ars_maleficarum.sage_seeds": "Sage Seeds",
   "item.ars_maleficarum.sage_leaf": "Sage Leaf",
-  "blocks.ars_maleficarum.sage_crop": "Sage Crop",
+  "block.ars_maleficarum.sage_crop": "Sage Crop",
   "item.ars_maleficarum.marigold_seeds": "Marigold Seeds",
   "block.ars_maleficarum.marigold_crop": "Marigold Crop",
   "block.ars_maleficarum.cursed_gold_block": "Block of Cursed Gold",
@@ -23,9 +24,17 @@
   "block.ars_maleficarum.rowan_planks": "Rowan Planks",
   "block.ars_maleficarum.rowan_wood": "Rowan Wood",
   "block.ars_maleficarum.rowan_leaves": "Rowan Leaves",
+  "block.ars_maleficarum.rowan_berries_leaves": "Rowan Leaves",
   "block.ars_maleficarum.rowan_sapling": "Rowan Sapling",
   "item.ars_maleficarum.rowan_berries": "Rowan Berries",
   "item.ars_maleficarum.rowan_bark": "Rowan Bark",
+
+  "block.ars_maleficarum.nameless_tree_log": "Nameless Tree Log",
+  "block.ars_maleficarum.nameless_tree_planks": "Nameless Tree Planks",
+  "block.ars_maleficarum.nameless_tree_wood": "Nameless Tree Wood",
+  "block.ars_maleficarum.nameless_tree_leaves": "Nameless Tree Leaves",
+  "block.ars_maleficarum.nameless_tree_sapling": "Nameless Tree Sapling",
+
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
   "item.ars_maleficarum.empty_seal": "Empty Seal",
@@ -52,6 +61,13 @@
   "Odour_Extracting_Furnace_DisplayName": "Odour Extracting Furnace",
   "block.ars_maleficarum.odour_extracting_furnace": "Odour Extracting Furnace",
 
+  "Infusing_Altar_DisplayName": "Infusing Altar",
+  "block.ars_maleficarum.infusing_altar": "Infusing Altar",
+
+  "item.ars_maleficarum.wooden_figure": "Wooden Figure",
+  "item.ars_maleficarum.poppet": "Poppet",
+  "item.ars_maleficarum.cat_figure": "Wooden Cat Figure",
+
   "item.ars_maleficarum.bat_wing": "Bat Wing",
   "block.ars_maleficarum.salt_block": "Salt Block",
 
@@ -63,5 +79,54 @@
 
   "item.ars_maleficarum.silver_dagger": "Silver Dagger",
 
-  "block.ars_maleficarum.dead_tree_sapling": "Dead Tree Sapling"
+  "block.ars_maleficarum.dead_tree_sapling": "Dead Tree Sapling",
+
+  "block.ars_maleficarum.sunlight_flower_crop": "Sunlight Flower",
+  "block.ars_maleficarum.moonlight_flower_crop": "Moonlight Flower",
+
+  "item.ars_maleficarum.sunlight_flower_seeds": "Sunlight Flower Seeds",
+  "item.ars_maleficarum.moonlight_flower_seeds": "Moonlight Flower Seeds",
+
+  "item.ars_maleficarum.sunlight_flower": "Sunlight Flower",
+  "item.ars_maleficarum.moonlight_flower": "Moonlight Flowers",
+
+  "item.ars_maleficarum.nameless_charcoal": "Nameless Charcoal",
+
+  "item.ars_maleficarum.empty_vial": "Empty Vial",
+
+  "item.ars_maleficarum.smell_of_home": "Smell of Home",
+  "item.ars_maleficarum.ring_of_morning_dew": "Ring of Morning Dew",
+  "item.ars_maleficarum.coniferous_oil": "Coniferous Oil",
+  "item.ars_maleficarum.tropical_monsoon": "Tropical Monsoon",
+  "item.ars_maleficarum.petrichor": "Petrichor",
+  "item.ars_maleficarum.wasteland_wind": "Wasteland Wind",
+  "item.ars_maleficarum.absolute_order": "Absolute Order",
+  "item.ars_maleficarum.scent_of_uncertainty": "Scent of Uncertainty",
+  "item.ars_maleficarum.whiff_of_time": "Whiff of Time",
+  "item.ars_maleficarum.cherry_etude": "Cherry Etude",
+  "item.ars_maleficarum.soaring_lightness": "Soaring Lightness",
+  "item.ars_maleficarum.stink_of_swamp": "Stink of Swamp",
+  "item.ars_maleficarum.desert_spirit": "Desert Spirit",
+  "item.ars_maleficarum.sweet_dream": "Sweet Dream",
+  "item.ars_maleficarum.tune_of_harmony": "Tune of Harmony",
+
+  "item.ars_maleficarum.ground_sage_flowers": "Ground Sage Flowers",
+  "item.ars_maleficarum.ground_marigold_flowers": "Ground Marigold Flowers",
+
+  "item.ars_maleficarum.ash": "Ash",
+
+
+
+  "item.ars_maleficarum.mandrake_root": "Mandrake Root",
+  "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
+  "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
+
+  "block.modid.rowan_stairs": "Rowan Stairs",
+  "block.modid.rowan_slab": "Rowan Slab",
+  "block.modid.rowan_fence": "Rowan Fence",
+  "block.modid.rowan_fence_gate": "Rowan Fence Gate",
+  "block.modid.nameless_tree_stairs": "Nameless Tree Stairs",
+  "block.modid.nameless_tree_slab": "Nameless Tree Slab",
+  "block.modid.nameless_tree_fence": "Nameless Tree Fence",
+  "block.modid.nameless_tree_fence_gate": "Nameless Tree Fence Gate"
 }

@@ -1,6 +1,7 @@
 {
 
-  "creativetab.ars_maleficarum_tab": "Ars Maleficarum",
+  "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
+  "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
 
   "item.ars_maleficarum.sage_flower": "Цветок шалфея",
@@ -19,16 +20,21 @@
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок проклятого золота",
   "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
 
-  "block.ars_maleficarum.rowan_log": "Рябиновое бревно",
+  "block.ars_maleficarum.rowan_log": "Рябиновая древесина",
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
   "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
+  "block.ars_maleficarum.rowan_berries_leaves": "Рябиновые листья",
   "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
   "item.ars_maleficarum.rowan_bark": "Рябиновая кора",
 
-  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
+  "block.ars_maleficarum.nameless_tree_log": "Древесина Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_planks": "Доски из Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_wood": "Безымянное древо",
+  "block.ars_maleficarum.nameless_tree_leaves": "Листья Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_sapling": "Саженец Безымянного древа",
 
-  "item.ars_maleficarum.stone_pestle": "Каменный пестик",
+  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
 
   "item.ars_maleficarum.flint_knife": "Примитивный ножик",
 
@@ -56,6 +62,14 @@
   "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
   "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",
 
+  "Infusing_Altar_DisplayName": "Алтарь наполнения",
+  "block.ars_maleficarum.infusing_altar": "Алтарь наполнения",
+
+  "item.ars_maleficarum.wooden_figure": "Деревянная фигурка",
+  "item.ars_maleficarum.poppet": "Кукла",
+
+  "item.ars_maleficarum.cat_figure": "Деревянная фигурка кошки",
+
   "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
   "block.ars_maleficarum.salt_block": "Блок соли",
 
@@ -67,5 +81,51 @@
 
   "item.ars_maleficarum.silver_dagger": "Серебряный стилет",
 
-  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева"
+  "block.ars_maleficarum.dead_tree_sapling": "Саженец сухого дерева",
+
+  "block.ars_maleficarum.sunlight_flower_crop": "Цветок Солнечного Света",
+  "block.ars_maleficarum.moonlight_flower_crop": "Цветок Лунного Света",
+
+  "item.ars_maleficarum.sunlight_flower_seeds": "Семена Солнечного Света",
+  "item.ars_maleficarum.moonlight_flower_seeds": "Семена Лунного Света",
+
+  "item.ars_maleficarum.sunlight_flower": "Цветок Солнечного Света",
+  "item.ars_maleficarum.moonlight_flower": "Цветы Лунного Света",
+
+  "item.ars_maleficarum.empty_vial": "Пустой флакон",
+
+  "item.ars_maleficarum.smell_of_home": "Запах дома",
+  "item.ars_maleficarum.ring_of_morning_dew": "Звон утренней росы",
+  "item.ars_maleficarum.coniferous_oil": "Хвойное масло",
+  "item.ars_maleficarum.tropical_monsoon": "Тропический муссон",
+  "item.ars_maleficarum.petrichor": "Петрикор",
+  "item.ars_maleficarum.wasteland_wind": "Ветер пустоши",
+  "item.ars_maleficarum.absolute_order": "Абсолютный порядок",
+  "item.ars_maleficarum.scent_of_uncertainty": "Аромат неоднозначности",
+  "item.ars_maleficarum.whiff_of_time": "Дуновение времени",
+  "item.ars_maleficarum.cherry_etude": "Вишнёвый этюд",
+  "item.ars_maleficarum.soaring_lightness": "Парящая лёгкость",
+  "item.ars_maleficarum.stink_of_swamp": "Болотный смрад",
+  "item.ars_maleficarum.desert_spirit": "Пустынный дух",
+  "item.ars_maleficarum.sweet_dream": "Сладостный сон",
+  "item.ars_maleficarum.tune_of_harmony": "Мелодия согласия",
+
+  "item.ars_maleficarum.ground_sage_flowers": "Измельченные цветы шалфея",
+  "item.ars_maleficarum.ground_marigold_flowers": "Измельченные цветы календулы",
+
+  "item.ars_maleficarum.nameless_charcoal": "Безымянный древесный уголь",
+
+  "item.ars_maleficarum.ash": "Пепел",
+
+  "item.ars_maleficarum.mandrake_root": "Корень мандрагоры",
+  "item.ars_maleficarum.mandrake_seed": "Семя мандрагоры",
+  "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры",
+  "block.modid.rowan_stairs": "Ступеньки из рябины",
+  "block.modid.rowan_slab": "Полублок из рябины",
+  "block.modid.rowan_fence": "Забор из рябины",
+  "block.modid.rowan_fence_gate": "Ворота из рябины",
+  "block.modid.nameless_tree_stairs": "Ступеньки из безымянного дерева",
+  "block.modid.nameless_tree_slab": "Полублок из безымянного дерева",
+  "block.modid.nameless_tree_fence": "Забор из безымянного дерева",
+  "block.modid.nameless_tree_fence_gate": "Ворота из безымянного дерева"
 }

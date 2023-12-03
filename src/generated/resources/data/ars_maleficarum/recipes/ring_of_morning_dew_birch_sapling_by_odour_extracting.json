@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:ring_of_morning_dew"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:birch_sapling"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

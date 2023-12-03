@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "ars_maleficarum:rowan_bark"
+    },
+    "D": {
+      "item": "ars_maleficarum:dead_tree_bark"
+    },
+    "M": {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    "R": {
+      "item": "ars_maleficarum:rowan_log"
+    }
+  },
+  "pattern": [
+    " B ",
+    "BMB",
+    "DRD"
+  ],
+  "result": {
+    "item": "ars_maleficarum:wooden_figure"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "P": {
+      "item": "minecraft:glass_pane"
+    },
+    "W": {
+      "item": "ars_maleficarum:rowan_planks"
+    }
+  },
+  "pattern": [
+    " W ",
+    "G G",
+    "PGP"
+  ],
+  "result": {
+    "count": 8,
+    "item": "ars_maleficarum:empty_vial"
+  },
+  "show_notification": true
+}

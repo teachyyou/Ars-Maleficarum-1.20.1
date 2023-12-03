@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:scent_of_uncertainty"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:nameless_tree_sapling"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

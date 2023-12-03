@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:stink_of_swamp"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:mangrove_propagule"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

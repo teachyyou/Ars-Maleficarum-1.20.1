@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ars_maleficarum:empty_vial"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_glass",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ars_maleficarum:empty_vial"
+    ]
+  },
+  "sends_telemetry_event": false
+}

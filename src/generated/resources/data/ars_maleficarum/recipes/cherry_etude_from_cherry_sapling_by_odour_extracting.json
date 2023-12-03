@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:cherry_etude"
+  },
+  "chance": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:cherry_sapling"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

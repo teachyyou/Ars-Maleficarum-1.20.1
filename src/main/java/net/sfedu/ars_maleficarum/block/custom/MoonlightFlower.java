@@ -77,8 +77,8 @@ public class MoonlightFlower extends CropBlock {
     {
         if(this.getAge(pState)==0)
             return true;
-        for(int i=2;i<=150;i++)
-            if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR))
+        for(int i=1;i<=150;i++)
+            if(!pLevel.getBlockState(pPos.above(i)).is(Blocks.AIR) && !pLevel.getBlockState(pPos.above(1)).is(this))
                 return false;
         return true;
     }

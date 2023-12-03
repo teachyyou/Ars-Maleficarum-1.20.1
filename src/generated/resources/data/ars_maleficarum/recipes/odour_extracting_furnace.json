@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "ars_maleficarum:empty_vial"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "pattern": [
+    "BIB",
+    "IRI",
+    "IFI"
+  ],
+  "result": {
+    "item": "ars_maleficarum:odour_extracting_furnace"
+  },
+  "show_notification": true
+}
