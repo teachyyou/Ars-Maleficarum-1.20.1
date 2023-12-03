@@ -17,6 +17,9 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<OdourExtractorFurnaceMenu>> ODOUR_EXTRACTING_MENU =
             registerMenuType(OdourExtractorFurnaceMenu::new, "odour_extracting_menu");
 
+    public static final RegistryObject<MenuType<InfusingAltarMenu>> INFUSING_ALTAR_MENU =
+            registerMenuType(InfusingAltarMenu::new, "infusing_altar_menu");
+
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }

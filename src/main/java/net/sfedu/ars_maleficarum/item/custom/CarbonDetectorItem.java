@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarbonDetectorItem extends Item {
+public class    CarbonDetectorItem extends Item {
     public CarbonDetectorItem(Properties pProperties){
         super(pProperties);
     }

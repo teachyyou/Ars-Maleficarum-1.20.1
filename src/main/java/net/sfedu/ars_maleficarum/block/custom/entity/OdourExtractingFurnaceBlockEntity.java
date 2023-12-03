@@ -55,8 +55,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         }
     };
 
-    //Топливо ускоряющее перегонку в 2 раза. TODO: Поменять на древесный уголь из безымянного дерева
-    private static final Item MAGIC_FUEL = ModItems.ROWAN_BARK.get();
+    //Топливо ускоряющее перегонку в 2 раза.
+    private static final Item MAGIC_FUEL = ModItems.NAMELESS_CHARCOAL.get();
 
     private static final Item BOTTLE = ModItems.EMPTY_VIAL.get();
 
