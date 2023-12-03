@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "cursed_gold_block_from_cursed_gold": {
+    "has_cursed_gold": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "cursed_gold_block_from_cursed_gold",
+      "has_cursed_gold",
       "has_the_recipe"
     ]
   ],
