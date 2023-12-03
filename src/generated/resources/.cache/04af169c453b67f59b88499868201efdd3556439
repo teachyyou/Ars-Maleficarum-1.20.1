@@ -1,7 +1,0 @@
-// 1.20.1	2023-12-04T01:49:18.1078123	Tags for minecraft:block mod id ars_maleficarum
-4500f764f979bca771af56bb6003c7c1c421a504 data/minecraft/tags/blocks/leaves.json
-e045bf229bfac9b52d48863e97e9e9f03265a54d data/minecraft/tags/blocks/logs_that_burn.json
-833da499ec829dedb39545b7fd9837b6ba058932 data/minecraft/tags/blocks/mineable/pickaxe.json
-b3da32973e616c4808b7b040eeb93508c5109173 data/minecraft/tags/blocks/mineable/shovel.json
-01e292f8a784272f31590f3dabf55f5933217a62 data/minecraft/tags/blocks/needs_iron_tool.json
-799225ccc9b5936c986e2efa80c447ed2dab40ce data/minecraft/tags/blocks/planks.json
