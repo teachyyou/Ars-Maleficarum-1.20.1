@@ -63,7 +63,7 @@ public class RowanTrunkPlacer extends TrunkPlacer {
         setDirtAt(pLevel,pBlockSetter,pRandom,pPos.below(),pConfig);
 
         int height = pFreeTreeHeight + pRandom.nextInt(3);
-        height=Math.min(height,9);
+        height=Math.min(height,7);
         List<FoliagePlacer.FoliageAttachment> foliage = new ArrayList<>();
         foliage.add(new FoliagePlacer.FoliageAttachment(pPos.above(height),0,false));
 

@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -16,6 +17,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.*;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider  {
@@ -67,10 +69,50 @@ public class ModBlockStateProvider extends BlockStateProvider  {
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
-        horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
+        //horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
+                //new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
+        horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
+
+        coloredInfusingAltar();
+        coloredInfusingAltarCarpetBlock();
+        coloredInfusingAltarPentaBlock();
 
     }
+
+    private void coloredInfusingAltar() {
+        List<String> colors = List.of("white","orange","magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan","purple","blue","brown","green","red","black");
+        getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar"+"_"+colors.get(state.getValue(InfusingAltarBlock.COLOR)))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build()
+                );
+
+    }
+    private void coloredInfusingAltarCarpetBlock() {
+        List<String> colors = List.of("white","orange","magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan","purple","blue","brown","green","red","black");
+        getVariantBuilder(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_carpet_block"+"_"+colors.get(state.getValue(InfusingAltarCarpetBlock.COLOR)))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build()
+                );
+
+    }
+
+    private void coloredInfusingAltarPentaBlock() {
+        List<String> colors = List.of("white","orange","magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan","purple","blue","brown","green","red","black");
+        getVariantBuilder(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_penta_block"+"_"+colors.get(state.getValue(InfusingAltarPentaBlock.COLOR)))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build()
+                );
+
+    }
+
+
 
     //Регистрация листвы
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

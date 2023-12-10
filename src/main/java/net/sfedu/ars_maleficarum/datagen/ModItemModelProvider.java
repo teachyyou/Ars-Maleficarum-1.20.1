@@ -96,7 +96,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         saplingItem(ModBlocks.DEAD_TREE_SAPLING);
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
-        complexBlock(ModBlocks.INFUSING_ALTAR.get());
+        complexAltarInfusingBlock();
+        complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
@@ -108,6 +109,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
                 "block/"+ForgeRegistries.BLOCKS.getKey(block).getPath()));
     }
+
+    private ItemModelBuilder complexAltarInfusingBlock() {
+        return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/"+ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath()+"_red"));
+    }
+
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",

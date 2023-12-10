@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ars_maleficarum:infusing_altar"
+          "name": "ars_maleficarum:infusing_altar_stone_block"
         }
       ],
       "rolls": 1.0

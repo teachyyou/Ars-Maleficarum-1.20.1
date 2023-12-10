@@ -77,7 +77,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
-        this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
+        this.dropSelf(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
 
         this.dropSelf(ModBlocks.ROWAN_STAIRS.get());
         this.dropSelf(ModBlocks.ROWAN_SLAB.get());
@@ -88,6 +88,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.NAMELESS_TREE_SLAB.get());
         this.dropSelf(ModBlocks.NAMELESS_TREE_FENCE.get());
         this.dropSelf(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
+
+        this.dropOther(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
+        this.dropOther(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(),ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
+        this.dropOther(ModBlocks.INFUSING_ALTAR.get(),ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
 
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
@@ -182,4 +186,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .when(LootItemRandomChanceCondition.randomChance(0.12f))
                         ));
     }
+
+
 }
