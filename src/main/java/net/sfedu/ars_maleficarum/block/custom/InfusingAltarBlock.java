@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -39,6 +40,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         super(pProperties);
     }
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final IntegerProperty COLOR = IntegerProperty.create("color",0,15);
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
@@ -53,15 +55,17 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         return SHAPE;
     }
 
+
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING,pContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING,pContext.getHorizontalDirection().getOpposite()).setValue(COLOR,14);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
+        pBuilder.add(COLOR);
     }
 
     /*Ниже все что относится к Entity*/

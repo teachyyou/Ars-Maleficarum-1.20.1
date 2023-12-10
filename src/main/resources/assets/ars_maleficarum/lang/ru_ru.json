@@ -64,6 +64,9 @@
 
   "Infusing_Altar_DisplayName": "Алтарь наполнения",
   "block.ars_maleficarum.infusing_altar": "Алтарь наполнения",
+  "block.ars_maleficarum.infusing_altar_stone_block": "Основа для алтаря",
+  "block.ars_maleficarum.infusing_altar_carpet_block": "Накрытая основа для алтаря",
+  "block.ars_maleficarum.infusing_altar_penta_block": "Очерченная основа для алтаря",
 
   "item.ars_maleficarum.wooden_figure": "Деревянная фигурка",
   "item.ars_maleficarum.poppet": "Кукла",

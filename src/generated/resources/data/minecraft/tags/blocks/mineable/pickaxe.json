@@ -3,6 +3,11 @@
     "ars_maleficarum:silver_block",
     "ars_maleficarum:cursed_gold_block",
     "ars_maleficarum:silver_ore_block",
-    "ars_maleficarum:cursed_gold_ore_block"
+    "ars_maleficarum:cursed_gold_ore_block",
+    "ars_maleficarum:odour_extracting_furnace",
+    "ars_maleficarum:infusing_altar_stone_block",
+    "ars_maleficarum:infusing_altar_carpet_block",
+    "ars_maleficarum:infusing_altar_penta_block",
+    "ars_maleficarum:infusing_altar"
   ]
 }

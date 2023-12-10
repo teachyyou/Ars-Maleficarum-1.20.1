@@ -1,0 +1,64 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"1": "ars_maleficarum:block/infusing_altar_stone_block_texture",
+		"particle": "ars_maleficarum:block/infusing_altar_stone_block_texture"
+	},
+	"elements": [
+		{
+			"name": "MainPart",
+			"from": [1, 0, 1],
+			"to": [15, 8.9, 15],
+			"faces": {
+				"north": {"uv": [4, 7, 7.5, 9.25], "texture": "#1"},
+				"east": {"uv": [7.5, 0, 11, 2.25], "texture": "#1"},
+				"south": {"uv": [7.5, 2.25, 11, 4.5], "texture": "#1"},
+				"west": {"uv": [7.5, 4.5, 11, 6.75], "texture": "#1"},
+				"up": {"uv": [7.5, 3.5, 4, 0], "texture": "#1"},
+				"down": {"uv": [7.5, 3.5, 4, 7], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Base",
+			"from": [0, 0, 0],
+			"to": [16, 1.9, 16],
+			"faces": {
+				"north": {"uv": [7.5, 6.75, 11.5, 7.25], "texture": "#1"},
+				"east": {"uv": [7.5, 7.25, 11.5, 7.75], "texture": "#1"},
+				"south": {"uv": [7.5, 7.75, 11.5, 8.25], "texture": "#1"},
+				"west": {"uv": [0, 8, 4, 8.5], "texture": "#1"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#1"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [58, 0, -1],
+			"translation": [0, 1.25, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [58, 0, -1],
+			"translation": [0, 1.25, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [28, 180, 0],
+			"translation": [0, 2.25, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "Altar",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

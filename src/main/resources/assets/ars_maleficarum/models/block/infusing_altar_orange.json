@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"2": "ars_maleficarum:block/infusing_altar_texture",
-		"particle": "ars_maleficarum:block/infusing_altar_texture"
+		"2": "ars_maleficarum:block/infusing_altar_texture_orange",
+		"particle": "ars_maleficarum:block/infusing_altar_texture_orange"
 	},
 	"elements": [
 		{
