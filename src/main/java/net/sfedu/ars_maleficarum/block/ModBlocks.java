@@ -173,6 +173,12 @@ public class ModBlocks {
             () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(x -> x.getValue(BlockStateProperties.LIT) ? 14 : 0)));
     public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
             ()->new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
+    public static final RegistryObject<Block> INFUSING_ALTAR_STONE_BLOCK = registerBlock("infusing_altar_stone_block",
+            ()->new InfusingAltarStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> INFUSING_ALTAR_CARPET_BLOCK = registerBlock("infusing_altar_carpet_block",
+            ()->new InfusingAltarCarpetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> INFUSING_ALTAR_PENTA_BLOCK = registerBlock("infusing_altar_penta_block",
+            ()->new InfusingAltarPentaBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
 
 
@@ -220,6 +226,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
+
+
 
 
     //Регистрация блока и предмета, привязанного к нему

@@ -320,14 +320,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.GLASS),has(Blocks.GLASS))
                 .save(pWriter);
         //Крафт алтаря наполнения
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.INFUSING_ALTAR.get(),1)
-                .pattern("CRW")
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),1)
+                .pattern("SSS")
                 .pattern("SGS")
                 .pattern("BBB")
                 .define('G', ModBlocks.CURSED_GOLD_BLOCK.get())
-                .define('R', Blocks.RED_CARPET)
-                .define('C', Blocks.CANDLE)
-                .define('W', Items.WHITE_DYE)
                 .define('B', Blocks.STONE_BRICKS)
                 .define('S', Blocks.STONE)
                 .unlockedBy(getHasName(ModBlocks.CURSED_GOLD_BLOCK.get()),has(ModBlocks.CURSED_GOLD_BLOCK.get()))

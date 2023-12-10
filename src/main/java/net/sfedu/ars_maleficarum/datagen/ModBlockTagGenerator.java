@@ -24,12 +24,22 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SILVER_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
                 ModBlocks.SILVER_ORE_BLOCK.get(),
-                ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
+                ModBlocks.CURSED_GOLD_ORE_BLOCK.get(),
+                ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
+                ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
+                ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),
+                ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(),
+                ModBlocks.INFUSING_ALTAR.get());
+
         //Категория предметов, для добычи которых нужны как минимум железные инструменты
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_GOLD_BLOCK.get());
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SILVER_BLOCK.get());
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
-        this.tag(BlockTags.NEEDS_IRON_TOOL).add(ModBlocks.SILVER_ORE_BLOCK.get());
+        this.tag(BlockTags.NEEDS_IRON_TOOL).add(
+                ModBlocks.CURSED_GOLD_BLOCK.get(),
+                ModBlocks.SILVER_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_BLOCK.get(),
+                ModBlocks.SILVER_ORE_BLOCK.get());
+
+
+
 
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))
         this.tag(BlockTags.LOGS_THAT_BURN)
