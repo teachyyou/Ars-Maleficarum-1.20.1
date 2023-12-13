@@ -43,7 +43,7 @@ public class ModCreativeModTabs {
 
                     }))
                     .build());
-
+    // Маленькое изменение
     //Создание творческой вкладки
     public static final RegistryObject<CreativeModeTab> ARS_MALEFICARUM_MAIN_TAB = CREATIVE_MODE_TABS.register("ars_maleficarum_main_tab",
             ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SAGE_FLOWER.get()))
