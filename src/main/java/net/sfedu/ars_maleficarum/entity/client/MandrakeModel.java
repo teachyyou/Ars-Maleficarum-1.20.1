@@ -9,13 +9,15 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.animal.Cow;
 import net.sfedu.ars_maleficarum.entity.animations.ModAnimationDefenitions;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
+
+import java.awt.datatransfer.ClipboardOwner;
 
 public class MandrakeModel<T extends MandrakeEntity> extends HierarchicalModel<T> {
 	private final ModelPart mandrake;
 	private final ModelPart head;
-
 	public MandrakeModel(ModelPart root) {
 		this.mandrake = root.getChild("mandrake");
 		this.head = mandrake.getChild("body").getChild("torso").getChild("head");

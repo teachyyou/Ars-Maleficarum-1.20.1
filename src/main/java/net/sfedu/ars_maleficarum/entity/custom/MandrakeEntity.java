@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.entity.custom;
 
+import net.minecraft.client.renderer.entity.OcelotRenderer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
@@ -8,8 +9,11 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Ocelot;
 import net.minecraft.world.entity.monster.Silverfish;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
@@ -24,13 +28,14 @@ public class MandrakeEntity extends Animal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1,new WaterAvoidingRandomStrollGoal(this,1.0D));
-        this.goalSelector.addGoal(2,new PanicGoal(this,0.40D));
+        this.goalSelector.addGoal(1,new NearestAttackableTargetGoal<>(this, Player.class,true));
+        this.goalSelector.addGoal(3,new WaterAvoidingRandomStrollGoal(this,1.0D));
+        this.goalSelector.addGoal(1,new PanicGoal(this,1D));
+        //this.goalSelector.addGoal(3, new Goal);
     }
-
     public static AttributeSupplier.Builder createAttributes(){
-        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,20D).add(Attributes.MOVEMENT_SPEED,0.20D)
-     .add(Attributes.FOLLOW_RANGE, 24D);
+        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,20D).add(Attributes.MOVEMENT_SPEED,0.75D)
+     .add(Attributes.FOLLOW_RANGE, 40D);
     }
 
     private void setupAnimationStates() {
@@ -50,7 +55,7 @@ public class MandrakeEntity extends Animal {
             f = 0.0F;
         }
 
-        this.walkAnimation.update(f, 0.2F);
+        this.walkAnimation.update(f, 0.6F);
     }
     @Override
     public void tick() {
