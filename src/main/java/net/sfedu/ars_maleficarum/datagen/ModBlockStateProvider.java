@@ -39,10 +39,14 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         blockWithItem(ModBlocks.SILVER_ORE_BLOCK);
 
         logBlock((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
+        logBlock((RotatedPillarBlock) ModBlocks.STRIPPED_ROWAN_LOG.get());
         axisBlock((RotatedPillarBlock) ModBlocks.ROWAN_WOOD.get(),blockTexture(ModBlocks.ROWAN_LOG.get()),blockTexture(ModBlocks.ROWAN_LOG.get()));
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_ROWAN_WOOD.get(),blockTexture(ModBlocks.STRIPPED_ROWAN_LOG.get()),blockTexture(ModBlocks.STRIPPED_ROWAN_LOG.get()));
 
         blockItem(ModBlocks.ROWAN_LOG);
         blockItem(ModBlocks.ROWAN_WOOD);
+        blockItem(ModBlocks.STRIPPED_ROWAN_LOG);
+        blockItem(ModBlocks.STRIPPED_ROWAN_WOOD);
         leavesBlock(ModBlocks.ROWAN_LEAVES);
         leavesBlock(ModBlocks.ROWAN_BERRIES_LEAVES);
         blockWithItem(ModBlocks.ROWAN_PLANKS);

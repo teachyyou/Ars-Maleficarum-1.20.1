@@ -68,6 +68,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.VALUABLE_DETECTOR.get());
                         pOutput.accept(ModBlocks.ROWAN_LOG.get());
                         pOutput.accept(ModBlocks.ROWAN_WOOD.get());
+                        pOutput.accept(ModBlocks.STRIPPED_ROWAN_LOG.get());
+                        pOutput.accept(ModBlocks.STRIPPED_ROWAN_WOOD.get());
                         pOutput.accept(ModBlocks.ROWAN_LEAVES.get());
                         pOutput.accept(ModBlocks.ROWAN_BERRIES_LEAVES.get());
                         pOutput.accept(ModBlocks.ROWAN_PLANKS.get());
