@@ -60,13 +60,11 @@ public class InfusingAltarPentaBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        System.out.println("gogogogogo!!");
         if (!pLevel.isClientSide()) {
             if (pPlayer.getItemInHand(pHand).getItem() == Blocks.CANDLE.asItem()) {
-                System.out.println("wowowowowo!!");
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarPentaBlock.COLOR)), 2);
                 if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                return InteractionResult.sidedSuccess(pLevel.isClientSide);
+                return InteractionResult.sidedSuccess(!pLevel.isClientSide);
             }
 
         }

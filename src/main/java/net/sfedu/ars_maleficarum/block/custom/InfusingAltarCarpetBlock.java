@@ -65,12 +65,12 @@ public class InfusingAltarCarpetBlock extends Block {
             if (pPlayer.getItemInHand(pHand).getItem()== Items.BLACK_DYE && (pState.getValue(InfusingAltarCarpetBlock.COLOR)==0 || pState.getValue(InfusingAltarCarpetBlock.COLOR)==8)) {
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarCarpetBlock.COLOR)), 2);
                 if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                return InteractionResult.sidedSuccess(pLevel.isClientSide);
+                return InteractionResult.sidedSuccess(!pLevel.isClientSide);
             }
             else if (pPlayer.getItemInHand(pHand).getItem()== Items.WHITE_DYE && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=0 && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=8) {
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarCarpetBlock.COLOR)), 2);
                 if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                return InteractionResult.sidedSuccess(pLevel.isClientSide);
+                return InteractionResult.sidedSuccess(!pLevel.isClientSide);
             }
 
         }
