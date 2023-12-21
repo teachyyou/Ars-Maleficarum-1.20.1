@@ -60,7 +60,7 @@ public class ModConfiguredFeatures {
 
         register(context,ROWAN_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.ROWAN_LOG.get()),
-                new RowanTrunkPlacer(4,2,3),
+                new RowanTrunkPlacer(3,0,0),
                 BlockStateProvider.simple(ModBlocks.ROWAN_LEAVES.get()),
                 new RowanFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)) .build());
@@ -69,8 +69,6 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(ModBlocks.NAMELESS_TREE_LOG.get()),
                 new NamelessTrunkPlacer(4,2,3),
                 BlockStateProvider.simple(ModBlocks.NAMELESS_TREE_LEAVES.get()),
-                //BlockStateProvider.simple(Blocks.AIR),
-                //new BlobFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new NamelessFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)) .build());
 

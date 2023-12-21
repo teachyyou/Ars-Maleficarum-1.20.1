@@ -55,6 +55,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.ROWAN_LOG.get());
         this.dropSelf(ModBlocks.ROWAN_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_ROWAN_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_ROWAN_WOOD.get());
         this.dropSelf(ModBlocks.ROWAN_PLANKS.get());
         this.dropSelf(ModBlocks.ROWAN_SAPLING .get());
 

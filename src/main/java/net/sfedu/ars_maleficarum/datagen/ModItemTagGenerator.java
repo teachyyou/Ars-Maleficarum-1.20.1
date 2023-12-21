@@ -23,6 +23,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem());
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get().asItem())
                 .add(ModBlocks.ROWAN_WOOD.get().asItem())
                 .add(ModBlocks.DEAD_TREE_LOG.get().asItem());
         this.tag(ItemTags.PLANKS)

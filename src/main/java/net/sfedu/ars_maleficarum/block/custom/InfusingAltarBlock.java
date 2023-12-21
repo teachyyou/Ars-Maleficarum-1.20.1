@@ -7,12 +7,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -25,6 +28,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -33,6 +37,8 @@ import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlockEntity;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class InfusingAltarBlock extends BaseEntityBlock {
 
@@ -82,8 +88,15 @@ public class InfusingAltarBlock extends BaseEntityBlock {
             if (blockEntity instanceof InfusingAltarBlockEntity) {
                 ((InfusingAltarBlockEntity) blockEntity).drops();
             }
+
         }
+        
         super.onRemove(pState,pLevel,pPos,pNewState,pIsMoving);
+    }
+
+    @Override
+    public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
+        return super.getDrops(pState, pParams);
     }
 
     @Override
