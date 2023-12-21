@@ -44,7 +44,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get())
                 .add(ModBlocks.ROWAN_WOOD.get())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get())
                 .add(ModBlocks.DEAD_TREE_LOG.get())
                 .add(ModBlocks.NAMELESS_TREE_LOG.get())
                 .add(ModBlocks.NAMELESS_TREE_WOOD.get());

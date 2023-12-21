@@ -1,6 +1,8 @@
 {
   "values": [
     "ars_maleficarum:rowan_log",
+    "ars_maleficarum:stripped_rowan_log",
+    "ars_maleficarum:stripped_rowan_wood",
     "ars_maleficarum:rowan_wood",
     "ars_maleficarum:dead_tree_log"
   ]

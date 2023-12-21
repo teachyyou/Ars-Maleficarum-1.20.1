@@ -111,6 +111,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.ROWAN_LOG.get())
                 .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()),has(ModBlocks.ROWAN_LOG.get()))
                 .save(pWriter, new ResourceLocation("rowan_planks_from_log"));
+        //Крафт рябиновых досок из обтесаннных бревен
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModBlocks.ROWAN_PLANKS.get(),4)
+                .requires(ModBlocks.STRIPPED_ROWAN_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.STRIPPED_ROWAN_LOG.get()),has(ModBlocks.STRIPPED_ROWAN_LOG.get()))
+                .save(pWriter, new ResourceLocation("rowan_planks_from_stripped_log"));
+        //Крафт рябиновых досок из обтесаннной древесины
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModBlocks.ROWAN_PLANKS.get(),4)
+                .requires(ModBlocks.STRIPPED_ROWAN_WOOD.get())
+                .unlockedBy(getHasName(ModBlocks.STRIPPED_ROWAN_WOOD.get()),has(ModBlocks.STRIPPED_ROWAN_WOOD.get()))
+                .save(pWriter, new ResourceLocation("rowan_planks_from_stripped_wood"));
         //Крафт рябиновых досок из древесины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModBlocks.ROWAN_PLANKS.get(),4)
                 .requires(ModBlocks.ROWAN_WOOD.get())
@@ -123,6 +133,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" ##")
                 .define('#', ModBlocks.ROWAN_LOG.get())
                 .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()),has(ModBlocks.ROWAN_LOG.get()))
+                .save(pWriter);
+        //Крафт обтесаннной рябины из обтесаннных рябиновых бревен
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_ROWAN_WOOD.get(),3)
+                .pattern("   ")
+                .pattern(" ##")
+                .pattern(" ##")
+                .define('#', ModBlocks.STRIPPED_ROWAN_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.STRIPPED_ROWAN_LOG.get()),has(ModBlocks.STRIPPED_ROWAN_LOG.get()))
                 .save(pWriter);
         //Крафт рябиновой коры из рябины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,ModItems.ROWAN_BARK.get(),2)
