@@ -1,13 +1,23 @@
 package net.sfedu.ars_maleficarum.datagen.loot;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.BlockPos;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.monster.Silverfish;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -26,6 +36,8 @@ import net.sfedu.ars_maleficarum.block.custom.MandrakeCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
+import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 
@@ -46,7 +58,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         generatedMoonlight_flower_Drop();
         generateSageCropDrop();
         generateMarigoldCropDrop();
-        generateMandrakeCropDrop();
+        //generateMandrakeCropDrop();
         //Блоки, которые при ломании дропают сами себя
         this.dropSelf(ModBlocks.CURSED_GOLD_BLOCK.get());
         this.dropSelf(ModBlocks.SILVER_BLOCK.get());
@@ -146,13 +158,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModItems.MARIGOLD_SEED.get(),lootitemcondition$builder));
     }
 
-    protected void generateMandrakeCropDrop() {
-        LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(ModBlocks.MANDRAKE_CROP.get())
-                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MandrakeCropBlock.AGE,3)));
+    //protected void generateMandrakeCropDrop() {
+            //LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
+                    //.hasBlockStateProperties(ModBlocks.MANDRAKE_CROP.get())
+                    //.setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MandrakeCropBlock.AGE,3).hasProperty(MandrakeCropBlock.IS_SPAWNED,true)));
 
-        this.add(ModBlocks.MANDRAKE_CROP.get(),createCropDrops(ModBlocks.MANDRAKE_CROP.get(),ModItems.MANDRAKE_ROOT.get(),
-                ModItems.MANDRAKE_SEED.get(),lootitemcondition$builder));
+            //this.add(ModBlocks.MANDRAKE_CROP.get(), createSimpleCropDrop(ModBlocks.MANDRAKE_CROP.get(),ModItems.MANDRAKE_ROOT.get(),
+                    //ModItems.MANDRAKE_SEED.get(), lootitemcondition$builder));
+   // }
+    protected LootTable.Builder createSimpleCropDrop(Block pCropBlock, Item pGrownCropItem1, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition)
+    {
+        return this.applyExplosionDecay(pCropBlock,LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedsItem).when(pDropGrownCropCondition))));
     }
 
     //Дополнительная функция дропа, которой можно пользоваться, если нужно, чтобы с созревшей культуры падало 2 предмета, помимо семян.

@@ -3,12 +3,14 @@ package net.sfedu.ars_maleficarum.item;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
 
 public class ModItems {
@@ -164,6 +166,8 @@ public class ModItems {
             ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> ASH = ITEMS.register("ash",
             ()->new IngredientItem(new Item.Properties()));
+    public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x7e9680,0xc5d1c5,new Item.Properties()));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {
