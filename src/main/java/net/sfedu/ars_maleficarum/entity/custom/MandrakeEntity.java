@@ -9,10 +9,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -34,6 +31,7 @@ import java.util.List;
 
 public class MandrakeEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
+    public boolean is_spawned = false;
     private int getAnimationTimeOut = 0;
     public MandrakeEntity(EntityType<? extends  Animal> pEntityType, Level pLevel){
         super(pEntityType,pLevel);
@@ -46,28 +44,28 @@ public class MandrakeEntity extends Animal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1,new NearestAttackableTargetGoal<>(this, Player.class,true));
         this.goalSelector.addGoal(3,new WaterAvoidingRandomStrollGoal(this,0.3D));
-        this.goalSelector.addGoal(1,new MandrakePanicGoal(this,0.6D));
+        this.goalSelector.addGoal(1,new MandrakePanicGoal(this,1D));
         //this.goalSelector.addGoal(3, new Goal);
     }
     public static AttributeSupplier.Builder createAttributes(){
-        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,20D).add(Attributes.MOVEMENT_SPEED,0.5D)
+        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,20D).add(Attributes.MOVEMENT_SPEED,0.3D)
      .add(Attributes.FOLLOW_RANGE, 40D);
     }
     protected void customServerAiStep() {
         super.customServerAiStep();
-        if ((this.tickCount + this.getId()) % 300 == 0) {
+        if ((this.tickCount + this.getId()) % 280 == 0) {
             MobEffectInstance mobeffectinstance = new MobEffectInstance(MobEffects.CONFUSION, 400, 2);
-            List<ServerPlayer> list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)this.level(), this, this.position(), 50.0D, mobeffectinstance, 1200);
+            //is_spawned = true;
+            List<ServerPlayer> list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)this.level(), this, this.position(), 20.0D, mobeffectinstance, 1200);
             list.forEach((p_289459_) -> {
                 p_289459_.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.PUFFER_FISH_STING, this.isSilent() ? 0.0F : 1.0F));
             });
         }
     }
-
     private void setupAnimationStates() {
 
         if (this.getAnimationTimeOut <= 0) {
-            this.getAnimationTimeOut = this.random.nextInt(40) + 200;
+            this.getAnimationTimeOut = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
             --this.getAnimationTimeOut;
