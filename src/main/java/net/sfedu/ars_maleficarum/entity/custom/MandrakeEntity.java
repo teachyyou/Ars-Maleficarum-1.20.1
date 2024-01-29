@@ -53,7 +53,7 @@ public class MandrakeEntity extends Animal {
     }
     protected void customServerAiStep() {
         super.customServerAiStep();
-        if ((this.tickCount + this.getId()) % 280 == 0) {
+        if ((this.tickCount + this.getId()) % 300 == 0) {
             MobEffectInstance mobeffectinstance = new MobEffectInstance(MobEffects.CONFUSION, 400, 2);
             //is_spawned = true;
             List<ServerPlayer> list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)this.level(), this, this.position(), 20.0D, mobeffectinstance, 1200);
