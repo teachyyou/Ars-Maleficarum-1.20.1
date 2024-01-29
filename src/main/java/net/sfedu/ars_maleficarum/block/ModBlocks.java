@@ -233,7 +233,7 @@ public class ModBlocks {
             ()-> new FenceBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
-            ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
+            ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
 
 
 
