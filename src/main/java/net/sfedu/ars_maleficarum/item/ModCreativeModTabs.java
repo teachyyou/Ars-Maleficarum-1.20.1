@@ -105,7 +105,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
                         pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
                         pOutput.accept(ModItems.WOODEN_FIGURE.get());
-                        pOutput.accept(ModItems.CAT_FIGURE.get());
+                        pOutput.accept(ModBlocks.WOODEN_CAT_FIGURE.get());
                         pOutput.accept(ModItems.POPPET.get());
                         pOutput.accept(ModItems.MANDRAKE_SEED.get());
                         pOutput.accept(ModItems.MANDRAKE_ROOT.get());

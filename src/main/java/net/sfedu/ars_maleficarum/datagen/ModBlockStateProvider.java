@@ -77,6 +77,8 @@ public class ModBlockStateProvider extends BlockStateProvider  {
                 //new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
         horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
+        horizontalBlock(ModBlocks.WOODEN_CAT_FIGURE.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/wooden_cat_figure")));
 
         coloredInfusingAltar();
         coloredInfusingAltarCarpetBlock();
