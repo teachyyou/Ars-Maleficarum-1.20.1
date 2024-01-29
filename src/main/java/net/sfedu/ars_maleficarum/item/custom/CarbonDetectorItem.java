@@ -4,9 +4,14 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,6 +28,7 @@ public class    CarbonDetectorItem extends Item {
         if(!pContext.getLevel().isClientSide()){
             BlockPos positionClicked = pContext.getClickedPos();
             Player player = pContext.getPlayer();
+            player.getCooldowns().addCooldown(this,200);
             boolean foundblock = false;
             for(int i=0;i<=positionClicked.getY()+64;i++){
                 BlockState state_centre = pContext.getLevel().getBlockState(positionClicked.below(i));
@@ -52,6 +58,7 @@ public class    CarbonDetectorItem extends Item {
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()));
         return InteractionResult.SUCCESS;
     }
+
 
     private void outputValuableCordinaties(BlockPos blockPos, Player player) {
         player.sendSystemMessage(Component.translatable("Carbon_found_message"));
