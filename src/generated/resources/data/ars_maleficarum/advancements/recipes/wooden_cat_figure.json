@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:cat_figure"
+        "recipe": "ars_maleficarum:wooden_cat_figure"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:cat_figure"
+      "ars_maleficarum:wooden_cat_figure"
     ]
   },
   "sends_telemetry_event": true

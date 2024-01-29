@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.block;
 
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
@@ -183,6 +184,9 @@ public class ModBlocks {
             ()->new InfusingAltarCarpetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> INFUSING_ALTAR_PENTA_BLOCK = registerBlock("infusing_altar_penta_block",
             ()->new InfusingAltarPentaBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
+    public static final RegistryObject<Block> WOODEN_CAT_FIGURE = registerBlock("wooden_cat_figure",
+            ()->new WoodenCatFigure(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
 
 
 

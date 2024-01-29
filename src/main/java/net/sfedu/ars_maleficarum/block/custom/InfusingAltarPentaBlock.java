@@ -1,6 +1,8 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 public class InfusingAltarPentaBlock extends Block {
@@ -61,7 +64,7 @@ public class InfusingAltarPentaBlock extends Block {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
-            if (pPlayer.getItemInHand(pHand).getItem() == Blocks.CANDLE.asItem()) {
+            if (pPlayer.getItemInHand(pHand).is(ItemTags.CANDLES)) {
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarPentaBlock.COLOR)), 2);
                 if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
                 return InteractionResult.sidedSuccess(!pLevel.isClientSide);

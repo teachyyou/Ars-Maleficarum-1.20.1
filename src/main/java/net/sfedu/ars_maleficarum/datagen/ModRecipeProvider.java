@@ -421,7 +421,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //Генерация крафтов на новом алтаре
         new InfusingAltarRecipeBuilder(List.of(Items.ENDER_EYE,Items.ENDER_EYE,Items.NETHER_STAR,Items.NETHERITE_INGOT,ModItems.MANDRAKE_ROOT.get(),ModItems.POPPET.get()),Items.TOTEM_OF_UNDYING,"overworld")
                 .unlockedBy("has_something",has(Items.STICK)).save(pWriter);
-        new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(),ModItems.TROPICAL_MONSOON.get(),Items.TROPICAL_FISH,ModItems.ROWAN_BERRIES.get(),Items.GUNPOWDER,ModItems.WOODEN_FIGURE.get()),ModItems.CAT_FIGURE.get(),"overworld")
+        new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(),ModItems.TROPICAL_MONSOON.get(),Items.TROPICAL_FISH,ModItems.ROWAN_BERRIES.get(),Items.GUNPOWDER,ModItems.WOODEN_FIGURE.get()),ModBlocks.WOODEN_CAT_FIGURE.get(),"overworld")
                 .unlockedBy("has_something",has(Items.STICK)).save(pWriter);
 
 

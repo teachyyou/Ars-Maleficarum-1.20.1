@@ -88,7 +88,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.NAMELESS_CHARCOAL);
         simpleItem(ModItems.WOODEN_FIGURE);
         simpleItem(ModItems.POPPET);
-        simpleItem(ModItems.CAT_FIGURE);
 
 
         handheldItem(ModItems.SILVER_DAGGER);
@@ -98,12 +97,19 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         complexAltarInfusingBlock();
         complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+        customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
     }
 
-    //Генерация .json для простого предмета (как, например, цветок шалфея)
+    //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная
+    private ItemModelBuilder customComplexBlock(RegistryObject<Block> block) {
+        return withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+block.getId().getPath()));
+    }
+
 
     private ItemModelBuilder complexBlock(Block block) {
         return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
@@ -114,6 +120,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
                 "block/"+ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath()+"_red"));
     }
+
+    //Генерация .json для простого предмета (как, например, цветок шалфея)
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),

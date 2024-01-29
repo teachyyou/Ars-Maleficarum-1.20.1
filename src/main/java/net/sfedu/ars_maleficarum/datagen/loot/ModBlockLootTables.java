@@ -95,6 +95,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropOther(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(),ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
         this.dropOther(ModBlocks.INFUSING_ALTAR.get(),ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
 
+        this.dropOther(ModBlocks.WOODEN_CAT_FIGURE.get(),ModItems.WOODEN_FIGURE.get().asItem());
+
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
     protected void generatedSunlight_flower_Drop(){
