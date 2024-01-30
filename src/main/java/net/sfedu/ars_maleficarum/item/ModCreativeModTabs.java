@@ -40,6 +40,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.EMPTY_VIAL.get());
                         pOutput.accept(ModItems.GROUND_MARIGOLD_FLOWERS.get());
                         pOutput.accept(ModItems.GROUND_SAGE_FLOWERS.get());
+                        pOutput.accept(ModItems.ASH.get());
 
                     }))
                     .build());

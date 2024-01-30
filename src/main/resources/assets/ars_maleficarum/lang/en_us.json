@@ -59,6 +59,8 @@
 
   "Carbon_not_found_message": "The artifact shows no interest. It is bored as nothing carbon containing was sensed.",
   "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
+  "odour_extracting_furnace_crafts": "Odour Extracting Furnace",
+  "infusing_altar_crafts": "Infusing Altar",
 
   "Odour_Extracting_Furnace_DisplayName": "Odour Extracting Furnace",
   "block.ars_maleficarum.odour_extracting_furnace": "Odour Extracting Furnace",
