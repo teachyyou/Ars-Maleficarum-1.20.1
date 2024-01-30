@@ -60,6 +60,8 @@
 
   "Carbon_not_found_message": "Артефакт демонстрирует полное отсутствие интереса. Ему скучно, поскольку ничего углеродного обнаружить снизу не удалось.",
   "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!",
+  "odour_extracting_furnace_crafts": "Печь выпаривания ароматов",
+  "infusing_altar_crafts": "Алтарь наполнения",
 
   "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
   "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",

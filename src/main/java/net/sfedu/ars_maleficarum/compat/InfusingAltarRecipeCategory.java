@@ -34,7 +34,7 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
 
     @Override
     public Component getTitle() {
-        return Component.literal("Infusing Altar");
+        return Component.translatable("infusing_altar_crafts");
     }
 
     @Override
