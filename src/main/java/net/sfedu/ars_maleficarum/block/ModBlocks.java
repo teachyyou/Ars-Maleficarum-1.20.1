@@ -186,7 +186,22 @@ public class ModBlocks {
             ()->new InfusingAltarPentaBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     public static final RegistryObject<Block> WOODEN_CAT_FIGURE = registerBlock("wooden_cat_figure",
-            ()->new WoodenCatFigure(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
+            ()->new WoodenCatFigure(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
 
 
 
