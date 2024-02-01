@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "texture swamp rotfiend_1",
-		"particle": "texture swamp rotfiend_1"
+		"0": "ars_maleficarum:block/texture_swamp_rotfiend_0",
+		"particle": "ars_maleficarum:block/texture_swamp_rotfiend_0"
 	},
 	"elements": [
 		{

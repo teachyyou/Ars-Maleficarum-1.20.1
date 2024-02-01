@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,facing=east": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_0"
+    },
+    "age=0,facing=north": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_0"
+    },
+    "age=0,facing=south": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_0"
+    },
+    "age=0,facing=west": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_0"
+    },
+    "age=1,facing=east": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_1"
+    },
+    "age=1,facing=north": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_1"
+    },
+    "age=1,facing=south": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_1"
+    },
+    "age=1,facing=west": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_1"
+    },
+    "age=2,facing=east": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_2"
+    },
+    "age=2,facing=north": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_2"
+    },
+    "age=2,facing=south": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_2"
+    },
+    "age=2,facing=west": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_2"
+    },
+    "age=3,facing=east": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_3"
+    },
+    "age=3,facing=north": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_3"
+    },
+    "age=3,facing=south": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_3"
+    },
+    "age=3,facing=west": {
+      "model": "ars_maleficarum:block/swamp_rotfiend_3"
+    }
+  }
+}

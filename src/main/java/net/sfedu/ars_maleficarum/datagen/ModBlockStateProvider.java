@@ -72,7 +72,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         logBlock((RotatedPillarBlock) ModBlocks.DEAD_TREE_LOG.get());
         blockItem(ModBlocks.DEAD_TREE_LOG);
         saplingBlock(ModBlocks.DEAD_TREE_SAPLING);
-        SwampRotfiendMushroom((HorizontalDirectionalBlock) ModBlocks.SWAMP_ROTFIEND.get());
+        SwampRotfiendMushroom();
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
@@ -99,8 +99,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
                 );
 
     }
-    private void SwampRotfiendMushroom(HorizontalDirectionalBlock block){
-        //String age = ((SwampRotfiendMushroom)block).getAgeProperty().toString();
+    private void SwampRotfiendMushroom(){
         getVariantBuilder(ModBlocks.SWAMP_ROTFIEND.get())
                 .forAllStates(state->ConfiguredModel.builder()
                         .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/swamp_rotfiend_"+state.getValue(SwampRotfiendMushroom.AGE)))
