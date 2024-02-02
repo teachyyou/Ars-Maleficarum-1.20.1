@@ -103,7 +103,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         getVariantBuilder(ModBlocks.SWAMP_ROTFIEND.get())
                 .forAllStates(state->ConfiguredModel.builder()
                         .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/swamp_rotfiend_"+state.getValue(SwampRotfiendMushroom.AGE)))
-                        ).build());
+                        ).rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build());
     }
     private void coloredInfusingAltarCarpetBlock() {
         List<String> colors = List.of("white","orange","magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan","purple","blue","brown","green","red","black");

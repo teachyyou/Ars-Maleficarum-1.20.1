@@ -6,6 +6,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -21,28 +27,20 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.item.ModItems;
+
+import java.io.PrintStream;
 
 public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements BonemealableBlock {
-    public static final int MAX_AGE = 3;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
-    protected static final int AGE_0_WIDTH = 3;
-    protected static final int AGE_0_HEIGHT = 4;
-    protected static final int AGE_0_HALFWIDTH = 1;
-    protected static final int AGE_1_WIDTH = 5;
-    protected static final int AGE_1_HEIGHT = 5;
-    protected static final int AGE_1_HALFWIDTH = 2;
-    protected static final int AGE_2_WIDTH = 7;
-    protected static final int AGE_2_HEIGHT = 9;
-    protected static final int AGE_2_HALFWIDTH = 3;
-    protected static final int AGE_3_WIDTH = 7;
-    protected static final int AGE_3_HEIGHT = 11;
-    protected static final int AGE_3_HALFWIDTH = 3;
-    protected static final VoxelShape[] EAST_AABB = new VoxelShape[]{Block.box(11.0D, 7.0D, 6.0D, 15.0D, 12.0D, 10.0D), Block.box(9.0D, 5.0D, 5.0D, 15.0D, 12.0D, 11.0D), Block.box(7.0D, 3.0D, 4.0D, 15.0D, 12.0D, 12.0D),Block.box(7.0D, 3.0D, 4.0D, 15.0D, 12.0D, 12.0D)};
-    protected static final VoxelShape[] WEST_AABB = new VoxelShape[]{Block.box(1.0D, 7.0D, 6.0D, 5.0D, 12.0D, 10.0D), Block.box(1.0D, 5.0D, 5.0D, 7.0D, 12.0D, 11.0D), Block.box(1.0D, 3.0D, 4.0D, 9.0D, 12.0D, 12.0D),Block.box(1.0D, 3.0D, 4.0D, 9.0D, 12.0D, 12.0D)};
-    protected static final VoxelShape[] NORTH_AABB = new VoxelShape[]{Block.box(6.0D, 7.0D, 1.0D, 10.0D, 12.0D, 5.0D), Block.box(5.0D, 5.0D, 1.0D, 11.0D, 12.0D, 7.0D), Block.box(4.0D, 3.0D, 1.0D, 12.0D, 12.0D, 9.0D),Block.box(4.0D, 3.0D, 1.0D, 12.0D, 12.0D, 9.0D)};
-    protected static final VoxelShape[] SOUTH_AABB = new VoxelShape[]{Block.box(6.0D, 7.0D, 11.0D, 10.0D, 12.0D, 15.0D), Block.box(5.0D, 5.0D, 9.0D, 11.0D, 12.0D, 15.0D), Block.box(4.0D, 3.0D, 7.0D, 12.0D, 12.0D, 15.0D),Block.box(4.0D, 3.0D, 7.0D, 12.0D, 12.0D, 15.0D)};
+    protected static final VoxelShape[] EAST_AABB = new VoxelShape[]{Block.box(13.0D, 0.0D, 8.0D, 16.0D, 5.0D, 9.0D), Block.box(11.0D, 0.0D, 6.0D, 16.0D, 8.0D, 11.0D), Block.box(11.0D, 0.0D, 6.0D, 16.0D, 8.0D, 11.0D),Block.box(9.0D, 0.0D, 5.0D, 16.0D, 12.0D, 12.0D)};
+    protected static final VoxelShape[] WEST_AABB = new VoxelShape[]{Block.box(0.0D, 0.0D, 7.0D, 3.0D, 5.0D, 8.0D), Block.box(0.0D, 0.0D, 5.0D, 5.0D, 8.0D, 10.0D), Block.box(0.0D, 0.0D, 5.0D, 5.0D, 8.0D, 10.0D),Block.box(0.0D, 0.0D, 4.0D, 7.0D, 12.0D, 11.0D)};
+    protected static final VoxelShape[] NORTH_AABB = new VoxelShape[]{Block.box(8.0D, 0.0D, 0.0D, 9.0D, 5.0D, 3.0D), Block.box(6.0D, 0.0D, 0.0D, 11.0D, 8.0D, 5.0D), Block.box(6.0D, 0.0D, 0.0D, 11.0D, 8.0D, 5.0D),Block.box(5.0D, 0.0D, 0.0D, 12.0D, 12.0D, 7.0D)};
+    protected static final VoxelShape[] SOUTH_AABB = new VoxelShape[]{Block.box(7.0D, 0.0D, 13.0D, 8.0D, 5.0D, 16.0D), Block.box(5.0D, 0.0D, 11.0D, 10.0D, 8.0D, 16.0D), Block.box(5.0D, 0.0D, 11.0D, 10.0D, 8.0D, 16.0D),Block.box(4.0D, 0.0D, 9.0D, 11.0D, 12.0D, 16.0D)};
 
     public SwampRotfiendMushroom(BlockBehaviour.Properties properties)
     {
@@ -66,8 +64,21 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
     }
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockState blockstate = pLevel.getBlockState(pPos.relative(pState.getValue(FACING)));
-        return blockstate.is(BlockTags.JUNGLE_LOGS);
+        return blockstate.is(ModBlocks.DEAD_TREE_LOG.get());
     }
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        System.out.println(pLevel.isClientSide());
+        if(!pLevel.isClientSide()  && pHand == InteractionHand.MAIN_HAND && pState.getValue(AGE) == 3 && pPlayer.getItemInHand(pHand).is(ModItems.FLINT_KNIFE.get()))
+        {
+            pLevel.setBlock(pPos,pState.setValue(AGE,0),2);
+            pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
+                    ModItems.SWAMP_ROTFIEND.get())));
+        }
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
+    }
+
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         int i = pState.getValue(AGE);
         switch ((Direction)pState.getValue(FACING)) {
@@ -110,7 +121,7 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
     }
 
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        pLevel.setBlock(pPos, pState.setValue(AGE, Integer.valueOf(pState.getValue(AGE) + 1)), 2);
+        return;
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {

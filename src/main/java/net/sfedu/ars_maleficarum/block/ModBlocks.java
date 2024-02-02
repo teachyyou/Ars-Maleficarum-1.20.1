@@ -238,7 +238,7 @@ public class ModBlocks {
             ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), WoodType.OAK));
     public static final RegistryObject<Block> SWAMP_ROTFIEND = registerBlock("swamp_rotfiend",
             () -> new SwampRotfiendMushroom(
-                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.2F, 3.0F).sound(SoundType.WOOD).noLootTable().noOcclusion().pushReaction(PushReaction.DESTROY)));
+                    BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.2F, 3.0F).sound(SoundType.WOOD).noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     public static final RegistryObject<Block> NAMELESS_TREE_FENCE_GATE = registerBlock("nameless_tree_fence_gate",
             ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get()), WoodType.OAK));

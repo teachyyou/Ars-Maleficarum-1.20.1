@@ -62,6 +62,5 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ModBlocks.SALT_BLOCK.get());
 
-        this.tag(BlockTags.JUNGLE_LOGS).add(ModBlocks.DEAD_TREE_LOG.get());
     }
 }
