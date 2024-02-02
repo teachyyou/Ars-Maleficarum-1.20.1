@@ -11,6 +11,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
@@ -84,6 +85,8 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
+        horizontalBlock(ModBlocks.BREWING_CAULDRON.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/brewing_cauldron")));
     }
 
     private void coloredInfusingAltar() {

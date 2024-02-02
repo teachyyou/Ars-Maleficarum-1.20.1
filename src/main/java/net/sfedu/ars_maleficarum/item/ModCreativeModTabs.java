@@ -112,6 +112,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MANDRAKE_ROOT.get());
                         pOutput.accept(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
+                        pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
 
                     }))
                     .build());

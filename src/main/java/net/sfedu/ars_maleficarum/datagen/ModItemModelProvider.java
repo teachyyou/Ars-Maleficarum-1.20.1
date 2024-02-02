@@ -102,6 +102,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
+        complexBlock(ModBlocks.BREWING_CAULDRON.get());
     }
 
     //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная

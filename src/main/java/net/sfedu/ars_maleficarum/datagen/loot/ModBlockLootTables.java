@@ -109,6 +109,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropOther(ModBlocks.WOODEN_CAT_FIGURE.get(),ModItems.WOODEN_FIGURE.get().asItem());
 
+        this.dropSelf(ModBlocks.BREWING_CAULDRON.get());
+
     }
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет
     protected void generatedSunlight_flower_Drop(){
