@@ -568,5 +568,19 @@
 				"down": {"uv": [0, 0, 10, 1], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+	"gui": {
+		"rotation": [20, -28, 0],
+		"translation": [0, 1, 0],
+		"scale": [0.87, 0.87, 0.87]
+	},
+	"firstperson_lefthand": {
+		"translation": [0, 2.5, 0],
+		"scale": [0.7, 0.7, 0.7]
+	},
+	"ground": {
+			"scale": [0.5, 0.5, 0.5]
+	}
+}
 }

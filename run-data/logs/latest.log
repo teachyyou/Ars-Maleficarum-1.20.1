@@ -1,45 +1,45 @@
-[03февр.2024 14:15:59.124] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\KanroL\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config=ars_maleficarum.json, --mod, ars_maleficarum, --all, --output, B:\Ars-Maleficarum-1.20.1\src\generated\resources, --existing, B:\Ars-Maleficarum-1.20.1\src\main\resources, --mixin.config, ars_maleficarum.json]
-[03февр.2024 14:15:59.131] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.5 by Amazon.com Inc.; OS Windows 10 arch amd64 version 10.0
-[03февр.2024 14:15:59.462] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[03февр.2024 14:15:59.586] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/KanroL/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[03февр.2024 14:16:01.553] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.0\7f9181f85acc66547685a72020713fc8cbde98\javafmllanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[03февр.2024 14:16:01.563] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.0\7872f5205685fdd26fae39b1be79b0e60ca5b7bd\lowcodelanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[03февр.2024 14:16:01.574] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.0\d501d161cabed08b3c139a2c6217b02a39f3c3e9\mclanguage-1.20.1-47.2.0.jar is missing mods.toml file
-[03февр.2024 14:16:01.587] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.0\ffd3c6debac0a388c9e33ac43c9f5eafb91cb466\fmlcore-1.20.1-47.2.0.jar is missing mods.toml file
-[03февр.2024 14:16:01.801] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[03февр.2024 14:16:05.614] [main/INFO] [mixin/]: Compatibility level JAVA_8 specified by ars_maleficarum.json is lower than the default level supported by the current mixin service (JAVA_16).
-[03февр.2024 14:16:05.618] [main/ERROR] [mixin/]: Mixin config ars_maleficarum.json does not specify "minVersion" property
-[03февр.2024 14:16:05.758] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\KanroL\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ars_maleficarum, --all, --output, B:\Ars-Maleficarum-1.20.1\src\generated\resources, --existing, B:\Ars-Maleficarum-1.20.1\src\main\resources]
-[03февр.2024 14:16:06.006] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
-[03февр.2024 14:16:06.008] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
-[03февр.2024 14:16:06.044] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
-[03февр.2024 14:16:06.045] [main/INFO] [mixin/]: Selecting config ars_maleficarum.json
-[03февр.2024 14:16:06.054] [main/WARN] [mixin/]: Reference map 'mixins.ars_maleficarum.refmap.json' for ars_maleficarum.json could not be read. If this is a development environment you can ignore this message
-[03февр.2024 14:16:06.056] [main/INFO] [mixin/]: Preparing ars_maleficarum.json (1)
-[03февр.2024 14:16:07.022] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ars_maleficarum]
-[03февр.2024 14:16:15.992] [main/INFO] [mixin/]: Mixing MixinWidget from ars_maleficarum.json into net.minecraft.world.entity.monster.Creeper
-[03февр.2024 14:16:16.036] [main/WARN] [mixin/]: ars_maleficarum.json:MixinWidget: Class version 61 required is higher than the class version supported by the current version of Mixin (JAVA_8 supports class version 52)
-[03февр.2024 14:16:20.490] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.0, for MC 1.20.1 with MCP 20230612.114412
-[03февр.2024 14:16:20.491] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.0 Initialized
-[03февр.2024 14:16:21.707] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[03февр.2024 14:16:21.837] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 29.67 ms
-[03февр.2024 14:16:23.590] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/KanroL/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[03февр.2024 14:16:23.591] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/KanroL/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[03февр.2024 14:16:23.923] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[03февр.2024 14:16:24.076] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 152 ms
-[03февр.2024 14:16:24.076] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[03февр.2024 14:16:24.478] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 400 ms
-[03февр.2024 14:16:24.478] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ars_maleficarum
-[03февр.2024 14:16:24.936] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ars_maleficarum finished after 459 ms
-[03февр.2024 14:16:24.937] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: ars_maleficarum
-[03февр.2024 14:16:25.041] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: ars_maleficarum finished after 103 ms
-[03февр.2024 14:16:25.041] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ars_maleficarum
-[03февр.2024 14:16:25.061] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ars_maleficarum finished after 19 ms
-[03февр.2024 14:16:25.061] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id ars_maleficarum
-[03февр.2024 14:16:25.063] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id ars_maleficarum finished after 1 ms
-[03февр.2024 14:16:25.064] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : ars_maleficarum
-[03февр.2024 14:16:25.077] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : ars_maleficarum finished after 12 ms
-[03февр.2024 14:16:25.077] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[03февр.2024 14:16:25.110] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 32 ms
-[03февр.2024 14:16:25.110] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 1187 ms
-[03февр.2024 14:16:25.156] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 375, old count: 375, new count: 376, removed stale: 0, written: 0
+[03февр.2024 20:01:40.418] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\KanroL\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config=ars_maleficarum.json, --mod, ars_maleficarum, --all, --output, B:\Ars-Maleficarum-1.20.1\src\generated\resources, --existing, B:\Ars-Maleficarum-1.20.1\src\main\resources, --mixin.config, ars_maleficarum.json]
+[03февр.2024 20:01:40.426] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.5 by Amazon.com Inc.; OS Windows 10 arch amd64 version 10.0
+[03февр.2024 20:01:40.638] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[03февр.2024 20:01:40.723] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/KanroL/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[03февр.2024 20:01:41.376] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.0\7f9181f85acc66547685a72020713fc8cbde98\javafmllanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[03февр.2024 20:01:41.384] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.0\7872f5205685fdd26fae39b1be79b0e60ca5b7bd\lowcodelanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[03февр.2024 20:01:41.391] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.0\d501d161cabed08b3c139a2c6217b02a39f3c3e9\mclanguage-1.20.1-47.2.0.jar is missing mods.toml file
+[03февр.2024 20:01:41.396] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\KanroL\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.0\ffd3c6debac0a388c9e33ac43c9f5eafb91cb466\fmlcore-1.20.1-47.2.0.jar is missing mods.toml file
+[03февр.2024 20:01:41.568] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[03февр.2024 20:01:44.064] [main/INFO] [mixin/]: Compatibility level JAVA_8 specified by ars_maleficarum.json is lower than the default level supported by the current mixin service (JAVA_16).
+[03февр.2024 20:01:44.067] [main/ERROR] [mixin/]: Mixin config ars_maleficarum.json does not specify "minVersion" property
+[03февр.2024 20:01:44.075] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\KanroL\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, ars_maleficarum, --all, --output, B:\Ars-Maleficarum-1.20.1\src\generated\resources, --existing, B:\Ars-Maleficarum-1.20.1\src\main\resources]
+[03февр.2024 20:01:44.263] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[03февр.2024 20:01:44.264] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[03февр.2024 20:01:44.290] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[03февр.2024 20:01:44.291] [main/INFO] [mixin/]: Selecting config ars_maleficarum.json
+[03февр.2024 20:01:44.295] [main/WARN] [mixin/]: Reference map 'mixins.ars_maleficarum.refmap.json' for ars_maleficarum.json could not be read. If this is a development environment you can ignore this message
+[03февр.2024 20:01:44.296] [main/INFO] [mixin/]: Preparing ars_maleficarum.json (1)
+[03февр.2024 20:01:45.025] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [ars_maleficarum]
+[03февр.2024 20:01:50.340] [main/INFO] [mixin/]: Mixing MixinWidget from ars_maleficarum.json into net.minecraft.world.entity.monster.Creeper
+[03февр.2024 20:01:50.387] [main/WARN] [mixin/]: ars_maleficarum.json:MixinWidget: Class version 61 required is higher than the class version supported by the current version of Mixin (JAVA_8 supports class version 52)
+[03февр.2024 20:01:53.475] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.0, for MC 1.20.1 with MCP 20230612.114412
+[03февр.2024 20:01:53.476] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.0 Initialized
+[03февр.2024 20:01:54.246] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[03февр.2024 20:01:54.257] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 7.670 ms
+[03февр.2024 20:01:55.024] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/KanroL/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[03февр.2024 20:01:55.024] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/KanroL/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[03февр.2024 20:01:55.468] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[03февр.2024 20:01:55.611] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 142 ms
+[03февр.2024 20:01:55.611] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[03февр.2024 20:01:55.763] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 152 ms
+[03февр.2024 20:01:55.766] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: ars_maleficarum
+[03февр.2024 20:01:56.109] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: ars_maleficarum finished after 342 ms
+[03февр.2024 20:01:56.109] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: ars_maleficarum
+[03февр.2024 20:01:56.227] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: ars_maleficarum finished after 117 ms
+[03февр.2024 20:01:56.227] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id ars_maleficarum
+[03февр.2024 20:01:56.246] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id ars_maleficarum finished after 18 ms
+[03февр.2024 20:01:56.246] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id ars_maleficarum
+[03февр.2024 20:01:56.252] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id ars_maleficarum finished after 5 ms
+[03февр.2024 20:01:56.252] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : ars_maleficarum
+[03февр.2024 20:01:56.262] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : ars_maleficarum finished after 9 ms
+[03февр.2024 20:01:56.262] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[03февр.2024 20:01:56.294] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 32 ms
+[03февр.2024 20:01:56.295] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 826 ms
+[03февр.2024 20:01:56.319] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 375, old count: 375, new count: 376, removed stale: 0, written: 0
