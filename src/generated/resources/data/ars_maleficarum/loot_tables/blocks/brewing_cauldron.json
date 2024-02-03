@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "ars_maleficarum:brewing_cauldron"
         }
       ],
       "rolls": 1.0
