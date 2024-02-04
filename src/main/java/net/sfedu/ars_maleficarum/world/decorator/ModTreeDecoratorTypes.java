@@ -2,35 +2,53 @@ package net.sfedu.ars_maleficarum.world.decorator;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.DeferredRegister;
+import net.minecraft.resources.ResourceKey;
+import net.minecraftforge.registries.*;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.world.decorator.custom.ModMushroomDecorator;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraftforge.eventbus.api.IEventBus;
 
-public class ModTreeDecoratorTypes<P extends TreeDecorator> extends TreeDecoratorType<P>{
+import java.util.function.Supplier;
 
-    public static final TreeDecoratorType<ModMushroomDecorator> SWAMP_ROTFIEND = register("swamp_rotfiend",ModMushroomDecorator.CODEC);
-    private final Codec<P> codec;
+public class ModTreeDecoratorTypes<P extends TreeDecorator> {
 
-    @Deprecated
-    private static <P extends TreeDecorator> TreeDecoratorType<P> register(String pKey, Codec<P> pCodec) {
-        return Registry.register(ModBuiltInRegistries.MUSHROOM_DECORATOR_TYPE, pKey, new TreeDecoratorType<>(pCodec));
+    public static final DeferredRegister<TreeDecoratorType<?>> TREE_DECORATOR =
+            DeferredRegister.create(ForgeRegistries.TREE_DECORATOR_TYPES, ArsMaleficarum.MOD_ID);
+    public static final RegistryObject<? extends TreeDecoratorType<? extends TreeDecorator>> SWAMP_ROTFIEND = register("swamp_rotfiend",
+            ModMushroomDecorator.CODEC);
+
+
+    private static RegistryObject<? extends TreeDecoratorType<? extends TreeDecorator>> register(String name, Codec<? extends TreeDecorator> codec) {
+        return register(name, () -> new TreeDecoratorType<>(codec));
     }
-    public ModTreeDecoratorTypes(Codec<P> pCodec) {
-        super(pCodec);
-        this.codec = pCodec;
+
+    public static RegistryObject<? extends TreeDecoratorType<? extends TreeDecorator>> register(final String name, final Supplier<? extends TreeDecoratorType<? extends TreeDecorator>> sup) {
+        return TREE_DECORATOR.register(name, sup);
     }
-    public Codec<P> codec() {
-        return this.codec;
+
+    public static void register(IEventBus eventBus) {
+        TREE_DECORATOR.register(eventBus);
+    }
+    private static class RegistryHolder<V> implements Supplier<IForgeRegistry<V>>
+    {
+        private final ResourceKey<? extends Registry<V>> registryKey;
+        private IForgeRegistry<V> registry = null;
+
+        private RegistryHolder(ResourceKey<? extends Registry<V>> registryKey)
+        {
+            this.registryKey = registryKey;
+        }
+
+        @Override
+        public IForgeRegistry<V> get()
+        {
+            // Keep looking up the registry until it's not null
+            if (this.registry == null)
+                this.registry = RegistryManager.ACTIVE.getRegistry(this.registryKey);
+
+            return this.registry;
+        }
     }
 }

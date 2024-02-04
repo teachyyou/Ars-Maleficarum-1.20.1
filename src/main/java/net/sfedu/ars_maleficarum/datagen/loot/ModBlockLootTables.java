@@ -133,7 +133,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SwampRotfiendMushroom.AGE, 3));
         this.add(ModBlocks.SWAMP_ROTFIEND.get(),this.applyExplosionDecay(ModBlocks.SWAMP_ROTFIEND.get(),
                 LootTable.lootTable().withPool(LootPool.lootPool().when(lootitemcondition$builder2)
-                        .add(LootItem.lootTableItem(ModItems.SWAMP_ROTFIEND.get())))));
+                        .add(LootItem.lootTableItem(ModItems.SWAMP_ROTFIEND_INGREDIENT.get())))));
     }
     //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
     protected Iterable<Block> getKnownBlocks() {

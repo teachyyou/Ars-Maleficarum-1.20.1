@@ -81,9 +81,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
             ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SWAMP_ROTFIEND = ITEMS.register("swamp_rotfiend_item",
-            ()->new ItemNameBlockItem(ModBlocks.SWAMP_ROTFIEND.get(), new Item.Properties()));
+    //public static final RegistryObject<Item> SWAMP_ROTFIEND = ITEMS.register("swamp_rotfiend_item",
+            //()->new ItemNameBlockItem(ModBlocks.SWAMP_ROTFIEND.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> SWAMP_ROTFIEND_INGREDIENT = ITEMS.register("swamp_rotfiend_ingredient_item",
+            ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
             ()->new FuelItem(new Item.Properties(),400));
 

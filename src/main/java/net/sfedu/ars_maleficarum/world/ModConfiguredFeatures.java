@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.world;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlac
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
@@ -27,6 +29,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.world.decorator.custom.ModMushroomDecorator;
 import net.sfedu.ars_maleficarum.world.tree.custom.NamelessFoliagePlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.NamelessTrunkPlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.RowanFoliagePlacer;
@@ -77,7 +80,7 @@ public class ModConfiguredFeatures {
                 new NamelessTrunkPlacer(3,2,2),
                 BlockStateProvider.simple(Blocks.AIR),
                 new NamelessFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
-                new TwoLayersFeatureSize(2,1,2)).build());
+                new TwoLayersFeatureSize(2,1,2)).decorators(ImmutableList.of(ModMushroomDecorator.INSTANCE)).build());
     }
 
     public static ResourceKey<ConfiguredFeature<?,?>> registerKey(String name) {

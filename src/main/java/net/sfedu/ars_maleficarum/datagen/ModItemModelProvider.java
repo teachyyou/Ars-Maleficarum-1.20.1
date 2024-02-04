@@ -101,7 +101,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
-        simpleItem(ModItems.SWAMP_ROTFIEND);
+        simpleItem(ModItems.SWAMP_ROTFIEND_INGREDIENT);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 

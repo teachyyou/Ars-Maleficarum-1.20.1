@@ -6,10 +6,18 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.minecraftforge.registries.DeferredRegister;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
 import net.sfedu.ars_maleficarum.world.decorator.ModTreeDecoratorTypes;
-import net.minecraft.world.level.levelgen.feature.treedecorators.*;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 import java.util.List;
 
@@ -22,9 +30,12 @@ public class ModMushroomDecorator extends TreeDecorator {
     public ModMushroomDecorator(float p_69976_) {
         this.probability = p_69976_;
     }
+
+    @Override
     protected TreeDecoratorType<?> type() {
-        return ModTreeDecoratorTypes.SWAMP_ROTFIEND;
-   }
+        return ModTreeDecoratorTypes.SWAMP_ROTFIEND.get();
+    }
+
     public void place(TreeDecorator.Context pContext) {
         RandomSource randomsource = pContext.random();
         if (!(randomsource.nextFloat() >= this.probability)) {
