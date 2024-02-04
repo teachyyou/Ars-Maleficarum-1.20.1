@@ -26,7 +26,7 @@ public class ModMushroomDecorator extends TreeDecorator {
         return p_69989_.probability;
     }).codec();
     private final float probability;
-    public static final ModMushroomDecorator INSTANCE = new ModMushroomDecorator(1);
+    public static final ModMushroomDecorator INSTANCE = new ModMushroomDecorator(0.2F);
     public ModMushroomDecorator(float p_69976_) {
         this.probability = p_69976_;
     }
