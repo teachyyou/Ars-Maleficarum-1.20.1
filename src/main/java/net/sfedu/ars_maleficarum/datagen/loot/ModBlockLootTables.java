@@ -32,10 +32,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.MandrakeCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
+import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -56,6 +53,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         generatedSunlight_flower_Drop();
         generatedMoonlight_flower_Drop();
+        generatedSwampRotfiend_Drop();
         generateSageCropDrop();
         generateMarigoldCropDrop();
         //generateMandrakeCropDrop();
@@ -128,6 +126,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.MOONLIGHT_FLOWER_CROP.get(), createCropDropsWith2Items(ModBlocks.MOONLIGHT_FLOWER_CROP.get(),ModItems.MOONLIGHT_FLOWER.get(),ModItems.MOONLIGHT_FLOWER_SEED.get(),
                 ModItems.MOONLIGHT_FLOWER_SEED.get(),lootitemcondition$builder2,0.08F,1));
     }
+    protected void generatedSwampRotfiend_Drop()
+    {
+        LootItemCondition.Builder lootitemcondition$builder2 = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(ModBlocks.SWAMP_ROTFIEND.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SwampRotfiendMushroom.AGE, 3));
+        this.add(ModBlocks.SWAMP_ROTFIEND.get(),this.applyExplosionDecay(ModBlocks.SWAMP_ROTFIEND.get(),
+                LootTable.lootTable().withPool(LootPool.lootPool().when(lootitemcondition$builder2)
+                        .add(LootItem.lootTableItem(ModItems.SWAMP_ROTFIEND_INGREDIENT.get())))));
+    }
     //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
@@ -169,6 +176,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected LootTable.Builder createSimpleCropDrop(Block pCropBlock, Item pGrownCropItem1, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition)
     {
         return this.applyExplosionDecay(pCropBlock,LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedsItem).when(pDropGrownCropCondition))));
+    }
+    protected LootTable.Builder createSimpleDrop(Block pCropBlock, Item pGrownCropItem1, LootItemCondition.Builder pDropGrownCropCondition)
+    {
+        return this.applyExplosionDecay(pCropBlock,LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1))));
     }
 
     //Дополнительная функция дропа, которой можно пользоваться, если нужно, чтобы с созревшей культуры падало 2 предмета, помимо семян.

@@ -60,7 +60,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.ROWAN_LEAVES.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-                ModBlocks.SALT_BLOCK.get()
-        );
+                ModBlocks.SALT_BLOCK.get());
+
     }
 }

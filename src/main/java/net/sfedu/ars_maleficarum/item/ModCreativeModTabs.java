@@ -41,6 +41,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GROUND_MARIGOLD_FLOWERS.get());
                         pOutput.accept(ModItems.GROUND_SAGE_FLOWERS.get());
                         pOutput.accept(ModItems.ASH.get());
+                        pOutput.accept(ModItems.SWAMP_ROTFIEND_INGREDIENT.get());
 
                     }))
                     .build());

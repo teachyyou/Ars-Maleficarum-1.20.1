@@ -76,7 +76,7 @@ public class FlintKnife extends Item {
         ItemStack itemstack = pContext.getItemInHand();
         Optional<BlockState> optional3 = Optional.empty();
 
-        level.playSound(player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+
         optional3 = optional;
 
         if (optional3.isPresent()) {
@@ -86,6 +86,7 @@ public class FlintKnife extends Item {
 
             level.setBlock(blockpos, optional3.get(), 11);
             level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(player, optional3.get()));
+            level.playSound(player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (player != null) {
                 itemstack.hurtAndBreak(1, player, (p_150686_) -> {
                     p_150686_.broadcastBreakEvent(pContext.getHand());

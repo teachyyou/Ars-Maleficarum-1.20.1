@@ -27,6 +27,7 @@ import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 import net.sfedu.ars_maleficarum.screen.InfusingAltarScreen;
 import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
+import net.sfedu.ars_maleficarum.world.decorator.ModTreeDecoratorTypes;
 import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
@@ -65,6 +66,9 @@ public class ArsMaleficarum
 
         //Регистрация менюшек
         ModMenuTypes.register(modEventBus);
+
+        //Регистрация декоратора деревьев
+        ModTreeDecoratorTypes.register(modEventBus);
 
         //Регистрация новых типов рецептов
         ModRecipes.register(modEventBus);

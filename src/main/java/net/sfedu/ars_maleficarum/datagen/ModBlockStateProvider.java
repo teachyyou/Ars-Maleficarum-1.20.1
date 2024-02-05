@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -11,6 +12,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
@@ -70,6 +72,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         logBlock((RotatedPillarBlock) ModBlocks.DEAD_TREE_LOG.get());
         blockItem(ModBlocks.DEAD_TREE_LOG);
         saplingBlock(ModBlocks.DEAD_TREE_SAPLING);
+        SwampRotfiendMushroom();
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
@@ -95,6 +98,12 @@ public class ModBlockStateProvider extends BlockStateProvider  {
                         .build()
                 );
 
+    }
+    private void SwampRotfiendMushroom(){
+        getVariantBuilder(ModBlocks.SWAMP_ROTFIEND.get())
+                .forAllStates(state->ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/swamp_rotfiend_"+state.getValue(SwampRotfiendMushroom.AGE)))
+                        ).rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build());
     }
     private void coloredInfusingAltarCarpetBlock() {
         List<String> colors = List.of("white","orange","magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan","purple","blue","brown","green","red","black");
@@ -148,6 +157,7 @@ public class ModBlockStateProvider extends BlockStateProvider  {
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+textureName+state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
         return models;
     }
+
 
     public void makeMarigoldCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState,ConfiguredModel[]> function = state->marigoldStates(state,block,modelName,textureName);
