@@ -26,7 +26,7 @@ public class ModMushroomDecorator extends TreeDecorator {
         return p_69989_.probability;
     }).codec();
     private final float probability;
-    public static final ModMushroomDecorator INSTANCE = new ModMushroomDecorator(0.2F);
+    public static final ModMushroomDecorator INSTANCE = new ModMushroomDecorator(0.75F);
     public ModMushroomDecorator(float p_69976_) {
         this.probability = p_69976_;
     }
@@ -45,7 +45,7 @@ public class ModMushroomDecorator extends TreeDecorator {
                 return p_69980_.getY() - i <= 2;
             }).forEach((p_226026_) -> {
                 for(Direction direction : Direction.Plane.HORIZONTAL) {
-                    if (randomsource.nextFloat() <= 0.25F) {
+                    if (randomsource.nextFloat() <= 0.2F) {
                         Direction direction1 = direction.getOpposite();
                         BlockPos blockpos = p_226026_.offset(direction1.getStepX(), 0, direction1.getStepZ());
                         if (pContext.isAir(blockpos)) {
