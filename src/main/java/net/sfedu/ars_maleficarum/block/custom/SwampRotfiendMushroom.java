@@ -75,6 +75,9 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
             pLevel.setBlock(pPos,pState.setValue(AGE,0),2);
             pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                     ModItems.SWAMP_ROTFIEND_INGREDIENT.get())));
+            pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,(p_150686_) -> {
+                p_150686_.broadcastBreakEvent(pHand);
+            });
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
