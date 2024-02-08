@@ -12,7 +12,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 public class MandrakeRender extends MobRenderer<MandrakeEntity,MandrakeModel<MandrakeEntity>> {
     private static final ResourceLocation MANDRAKE_LOCATION = new ResourceLocation(ArsMaleficarum.MOD_ID,"textures/entity/mandrake.png");
     public MandrakeRender(EntityRendererProvider.Context pContext) {
-        super(pContext, new MandrakeModel<>(pContext.bakeLayer(ModModelLayers.MANDRAKE_LAYER)), 2f);
+        super(pContext, new MandrakeModel<>(pContext.bakeLayer(ModModelLayers.MANDRAKE_LAYER)), 0.2f);
     }
     @Override
     public ResourceLocation getTextureLocation(MandrakeEntity pEntity) {
