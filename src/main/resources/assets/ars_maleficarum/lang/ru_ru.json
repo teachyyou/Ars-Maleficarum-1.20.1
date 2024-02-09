@@ -40,6 +40,8 @@
   "block.ars_maleficarum.nameless_tree_wood": "Безымянное древо",
   "block.ars_maleficarum.nameless_tree_leaves": "Листья Безымянного древа",
   "block.ars_maleficarum.nameless_tree_sapling": "Саженец Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_stairs": "Ступеньки из безымянного дерева",
+  "block.ars_maleficarum.nameless_tree_slab": "Полублок из безымянного дерева",
   "item.ars_maleficarum.swamp_rotfiend_ingredient_item": "Болотный Гнилец",
 
   "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
@@ -134,8 +136,6 @@
   "item.ars_maleficarum.mandrake_root": "Корень мандрагоры",
   "item.ars_maleficarum.mandrake_seed": "Семя мандрагоры",
   "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры",
-  "block.modid.nameless_tree_stairs": "Ступеньки из безымянного дерева",
-  "block.modid.nameless_tree_slab": "Полублок из безымянного дерева",
   "block.modid.nameless_tree_fence": "Забор из безымянного дерева",
   "block.modid.nameless_tree_fence_gate": "Ворота из безымянного дерева"
 }
