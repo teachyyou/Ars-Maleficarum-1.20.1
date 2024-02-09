@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "ars_maleficarum:swamp_rotfiend",
-        "probability": 0.2
+        "probability": 0.75
       }
     ],
     "dirt_provider": {

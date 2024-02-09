@@ -76,6 +76,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.ROWAN_BERRIES_LEAVES.get());
                         pOutput.accept(ModBlocks.ROWAN_PLANKS.get());
                         pOutput.accept(ModBlocks.ROWAN_SAPLING.get());
+                        pOutput.accept(ModBlocks.ROWAN_STAIRS.get());
+                        pOutput.accept(ModBlocks.ROWAN_SLAB.get());
+                        pOutput.accept(ModBlocks.ROWAN_FENCE.get());
+                        pOutput.accept(ModBlocks.ROWAN_FENCE_GATE.get());
                         pOutput.accept(ModItems.ROWAN_BERRIES.get());
                         pOutput.accept(ModItems.ROWAN_BARK.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_LOG.get());
@@ -83,6 +87,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.NAMELESS_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_SAPLING.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_STAIRS.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_SLAB.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_FENCE.get());
+                        pOutput.accept(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
                         pOutput.accept(ModItems.NAMELESS_CHARCOAL.get());
                         pOutput.accept(ModItems.STONE_PESTLE.get());
                         pOutput.accept(ModItems.FLINT_KNIFE.get());

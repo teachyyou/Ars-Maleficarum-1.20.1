@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "ars_maleficarum:block/rowan_planks"
+  }
+}
