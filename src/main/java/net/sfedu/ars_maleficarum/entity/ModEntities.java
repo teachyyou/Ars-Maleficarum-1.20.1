@@ -16,7 +16,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<MandrakeEntity>> MANDRAKE =
             ENTITY_TYPES.register("mandrake", () -> EntityType.Builder.of(MandrakeEntity::new, MobCategory.CREATURE)
-                    .sized(1f, 0.7f).build("mandrake"));
+                    .sized(0.3f, 0.7f).build("mandrake"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
