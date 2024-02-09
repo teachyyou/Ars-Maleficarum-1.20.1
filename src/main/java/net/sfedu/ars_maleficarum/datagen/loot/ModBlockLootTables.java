@@ -80,6 +80,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.NAMELESS_TREE_WOOD.get());
         this.dropSelf(ModBlocks.NAMELESS_TREE_PLANKS.get());
         this.dropSelf(ModBlocks.NAMELESS_TREE_SAPLING.get());
+        this.dropSelf(ModBlocks.NAMELESS_TREE_STAIRS.get());
+        this.add(ModBlocks.NAMELESS_TREE_SLAB.get(), block -> createSlabItemTable(ModBlocks.NAMELESS_TREE_SLAB.get()));
 
         this.add(ModBlocks.NAMELESS_TREE_LEAVES.get(), (block) ->
                 createLeavesDrops(block, ModBlocks.NAMELESS_TREE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ars_maleficarum:block/rowan_slab"
+    },
+    "type=double": {
+      "model": "ars_maleficarum:block/rowan_planks"
+    },
+    "type=top": {
+      "model": "ars_maleficarum:block/rowan_slab_top"
+    }
+  }
+}

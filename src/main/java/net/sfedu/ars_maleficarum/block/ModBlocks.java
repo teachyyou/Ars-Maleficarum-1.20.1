@@ -241,11 +241,11 @@ public class ModBlocks {
 //    public static final RegistryObject<Block> NAMELESS_TREE_FENCE_GATE = registerBlock("nameless_tree_fence_gate",
 //            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get()), WoodType.OAK));
 //
-//    public static final RegistryObject<Block> NAMELESS_TREE_STAIRS = registerBlock("nameless_tree_stairs",
-//            ()-> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
-//
-//    public static final RegistryObject<Block> NAMELESS_TREE_SLAB = registerBlock("nameless_tree_slab",
-//            ()-> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+    public static final RegistryObject<Block> NAMELESS_TREE_STAIRS = registerBlock("nameless_tree_stairs",
+            ()-> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_SLAB = registerBlock("nameless_tree_slab",
+            ()-> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
 //
 //    public static final RegistryObject<Block> NAMELESS_TREE_FENCE = registerBlock("nameless_tree_fence",
 //            ()-> new FenceBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
