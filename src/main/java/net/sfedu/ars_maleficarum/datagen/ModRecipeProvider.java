@@ -408,6 +408,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_rowan_planks", has(ModBlocks.ROWAN_PLANKS.get()))
                 .save(pWriter);
 
+        // Крафт полублока из безымянного дерева
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NAMELESS_TREE_SLAB.get(), 6)
+                .pattern("PPP")
+                .define('P', ModBlocks.NAMELESS_TREE_PLANKS.get())
+                .unlockedBy("has_nameless_tree_planks", has(ModBlocks.NAMELESS_TREE_PLANKS.get()))
+                .save(pWriter);
+
 
         //Генерация крафтов в новой печке
         new OdourExtractorRecipeBuilder(Blocks.DARK_OAK_SAPLING, ModItems.ASH.get(), ModItems.PETRICHOR.get(), true, 0.2F, 1)
