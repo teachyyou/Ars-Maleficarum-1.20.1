@@ -240,17 +240,18 @@ public class ModBlocks {
             () -> new SwampRotfiendMushroom(
                     BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.2F, 3.0F).sound(SoundType.WOOD).noOcclusion().pushReaction(PushReaction.DESTROY)));
 
-//    public static final RegistryObject<Block> NAMELESS_TREE_FENCE_GATE = registerBlock("nameless_tree_fence_gate",
-//            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get()), WoodType.OAK));
-//
+
     public static final RegistryObject<Block> NAMELESS_TREE_STAIRS = registerBlock("nameless_tree_stairs",
-            ()-> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+            () -> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
 
     public static final RegistryObject<Block> NAMELESS_TREE_SLAB = registerBlock("nameless_tree_slab",
-            ()-> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
-//
-//    public static final RegistryObject<Block> NAMELESS_TREE_FENCE = registerBlock("nameless_tree_fence",
-//            ()-> new FenceBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+
+    public static final RegistryObject<Block> NAMELESS_TREE_FENCE = registerBlock("nameless_tree_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+    public static final RegistryObject<Block> NAMELESS_TREE_FENCE_GATE = registerBlock("nameless_tree_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get()), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
+
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));

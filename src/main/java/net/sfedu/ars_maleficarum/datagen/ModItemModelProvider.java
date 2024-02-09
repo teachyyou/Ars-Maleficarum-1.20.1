@@ -90,6 +90,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.POPPET);
 
         fenceItem(ModBlocks.ROWAN_FENCE, ModBlocks.ROWAN_PLANKS);
+        fenceItem(ModBlocks.NAMELESS_TREE_FENCE, ModBlocks.NAMELESS_TREE_PLANKS);
 
         handheldItem(ModItems.SILVER_DAGGER);
 

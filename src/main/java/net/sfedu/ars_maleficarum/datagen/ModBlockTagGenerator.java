@@ -61,9 +61,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SALT_BLOCK.get());
 
         this.tag(BlockTags.FENCES)
-                .add(ModBlocks.ROWAN_FENCE.get());
+                .add(ModBlocks.ROWAN_FENCE.get())
+                .add(ModBlocks.NAMELESS_TREE_FENCE.get());
         this.tag(BlockTags.FENCE_GATES)
-                .add(ModBlocks.ROWAN_FENCE_GATE.get());
+                .add(ModBlocks.ROWAN_FENCE_GATE.get())
+                .add(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
 
     }
 }

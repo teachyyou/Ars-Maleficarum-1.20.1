@@ -43,6 +43,8 @@
   "block.ars_maleficarum.nameless_tree_sapling": "Nameless Tree Sapling",
   "block.ars_maleficarum.nameless_tree_stairs": "Nameless Tree Stairs",
   "block.ars_maleficarum.nameless_tree_slab": "Nameless Tree Slab",
+  "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
+  "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate",
 
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
@@ -132,14 +134,7 @@
 
   "item.ars_maleficarum.ash": "Ash",
 
-
-
   "item.ars_maleficarum.mandrake_root": "Mandrake Root",
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
-  "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
-
-
-
-  "block.modid.nameless_tree_fence": "Nameless Tree Fence",
-  "block.modid.nameless_tree_fence_gate": "Nameless Tree Fence Gate"
+  "block.ars_maleficarum.mandrake_crop": "Mandrake Crop"
 }

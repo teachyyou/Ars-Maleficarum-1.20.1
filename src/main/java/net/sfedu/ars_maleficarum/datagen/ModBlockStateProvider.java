@@ -69,8 +69,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(ModBlocks.NAMELESS_TREE_SAPLING);
         stairsBlock((StairBlock) ModBlocks.NAMELESS_TREE_STAIRS.get(), blockTexture(ModBlocks.NAMELESS_TREE_PLANKS.get()));
         slabBlock((SlabBlock) ModBlocks.NAMELESS_TREE_SLAB.get(), blockTexture(ModBlocks.NAMELESS_TREE_PLANKS.get()), blockTexture(ModBlocks.NAMELESS_TREE_PLANKS.get()));
+        fenceBlock((FenceBlock) ModBlocks.NAMELESS_TREE_FENCE.get(), blockTexture(ModBlocks.NAMELESS_TREE_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) ModBlocks.NAMELESS_TREE_FENCE_GATE.get(), blockTexture(ModBlocks.NAMELESS_TREE_PLANKS.get()));
         blockItem(ModBlocks.NAMELESS_TREE_STAIRS);
         blockItem(ModBlocks.NAMELESS_TREE_SLAB);
+        blockItem(ModBlocks.NAMELESS_TREE_FENCE_GATE);
 
 
         makeSunlight_Flower_Crop(((CropBlock) ModBlocks.SUNLIGHT_FLOWER_CROP.get()), "sunlight_flower_stage_", "sunlight_flower_stage_");
