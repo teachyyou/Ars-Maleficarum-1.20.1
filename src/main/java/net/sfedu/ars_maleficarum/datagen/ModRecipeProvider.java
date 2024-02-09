@@ -442,6 +442,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_rowan_planks", has(ModBlocks.ROWAN_PLANKS.get()))
                 .save(pWriter);
 
+        // Крафт ворот из безымянного дерева
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.NAMELESS_TREE_FENCE_GATE.get())
+                .pattern("SPS")
+                .pattern("SPS")
+                .define('P', ModBlocks.NAMELESS_TREE_PLANKS.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_nameless_tree_planks", has(ModBlocks.NAMELESS_TREE_PLANKS.get()))
+                .save(pWriter);
 
 
         //Генерация крафтов в новой печке
