@@ -96,6 +96,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.ROWAN_STAIRS.get());
         this.add(ModBlocks.ROWAN_SLAB.get(), block -> createSlabItemTable(ModBlocks.ROWAN_SLAB.get()));
+        this.dropSelf(ModBlocks.ROWAN_FENCE.get());
+        this.dropSelf(ModBlocks.ROWAN_FENCE_GATE.get());
 
         this.dropOther(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
         this.dropOther(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());

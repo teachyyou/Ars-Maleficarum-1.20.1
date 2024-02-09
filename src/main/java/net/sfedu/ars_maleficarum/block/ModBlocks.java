@@ -3,6 +3,8 @@ package net.sfedu.ars_maleficarum.block;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -229,11 +231,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> ROWAN_SLAB = registerBlock("rowan_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
 
-    //    public static final RegistryObject<Block> ROWAN_FENCE = registerBlock("rowan_fence",
-//            ()-> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_WOOD.get())));
-//
-//    public static final RegistryObject<Block> ROWAN_FENCE_GATE = registerBlock("rowan_fence_gate",
-//            ()-> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_WOOD.get())));
+    public static final RegistryObject<Block> ROWAN_FENCE = registerBlock("rowan_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+
+    public static final RegistryObject<Block> ROWAN_FENCE_GATE = registerBlock("rowan_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
     public static final RegistryObject<Block> SWAMP_ROTFIEND = registerBlock("swamp_rotfiend",
             () -> new SwampRotfiendMushroom(
                     BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.2F, 3.0F).sound(SoundType.WOOD).noOcclusion().pushReaction(PushReaction.DESTROY)));

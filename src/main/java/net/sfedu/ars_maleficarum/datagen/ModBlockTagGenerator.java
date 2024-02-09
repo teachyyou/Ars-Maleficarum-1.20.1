@@ -39,8 +39,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SILVER_ORE_BLOCK.get());
 
 
-
-
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get())
@@ -61,6 +59,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ModBlocks.SALT_BLOCK.get());
+
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.ROWAN_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.ROWAN_FENCE_GATE.get());
 
     }
 }

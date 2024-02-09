@@ -52,8 +52,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         saplingBlock(ModBlocks.ROWAN_SAPLING);
         stairsBlock((StairBlock) ModBlocks.ROWAN_STAIRS.get(), blockTexture(ModBlocks.ROWAN_PLANKS.get()));
         slabBlock((SlabBlock) ModBlocks.ROWAN_SLAB.get(), blockTexture(ModBlocks.ROWAN_PLANKS.get()), blockTexture(ModBlocks.ROWAN_PLANKS.get()));
+        fenceBlock((FenceBlock) ModBlocks.ROWAN_FENCE.get(), blockTexture(ModBlocks.ROWAN_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) ModBlocks.ROWAN_FENCE_GATE.get(), blockTexture(ModBlocks.ROWAN_PLANKS.get()));
         blockItem(ModBlocks.ROWAN_STAIRS);
         blockItem(ModBlocks.ROWAN_SLAB);
+        blockItem(ModBlocks.ROWAN_FENCE_GATE);
 
 
         logBlock((RotatedPillarBlock) ModBlocks.NAMELESS_TREE_LOG.get());
