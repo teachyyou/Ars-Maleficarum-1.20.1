@@ -5,7 +5,7 @@ import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 public class ModAnimationDefenitions {
 
-    public static final AnimationDefinition MANDRAKE_RUN = AnimationDefinition.Builder.withLength(1f)
+    public static final AnimationDefinition MANDRAKE_RUN = AnimationDefinition.Builder.withLength(1f).looping()
             .addAnimation("nogalev",
                                   new AnimationChannel(AnimationChannel.Targets.POSITION,
 		new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),

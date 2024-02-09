@@ -222,8 +222,8 @@ public class MandrakeModel<T extends MandrakeEntity> extends HierarchicalModel<T
 	@Override
 	public void setupAnim(MandrakeEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animateWalk(ModAnimationDefenitions.MANDRAKE_RUN, limbSwing, limbSwingAmount, 2f, 4f);
-		this.animate(entity.idleAnimationState, ModAnimationDefenitions.MANDRAKE_RUN, ageInTicks, 1f);
+		this.animateWalk(ModAnimationDefenitions.MANDRAKE_RUN, limbSwing, limbSwingAmount, 2.0f, 2.5f);
+		this.animate(entity.idleAnimationState, ModAnimationDefenitions.MANDRAKE_IDLE, ageInTicks, 1f);
 	}
 
 	@Override
