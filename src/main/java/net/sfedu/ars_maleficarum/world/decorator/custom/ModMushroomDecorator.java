@@ -42,7 +42,7 @@ public class ModMushroomDecorator extends TreeDecorator {
             List<BlockPos> list = pContext.logs();
             int i = list.get(0).getY();
             list.stream().filter((p_69980_) -> {
-                return p_69980_.getY() - i <= 2;
+                return p_69980_.getY() - i <= 2 && p_69980_.getY() - i > 0;
             }).forEach((p_226026_) -> {
                 for(Direction direction : Direction.Plane.HORIZONTAL) {
                     if (randomsource.nextFloat() <= 0.2F) {
