@@ -76,6 +76,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.ROWAN_BERRIES_LEAVES.get());
                         pOutput.accept(ModBlocks.ROWAN_PLANKS.get());
                         pOutput.accept(ModBlocks.ROWAN_SAPLING.get());
+                        pOutput.accept(ModBlocks.ROWAN_STAIRS.get());
+                        pOutput.accept(ModBlocks.ROWAN_SLAB.get());
                         pOutput.accept(ModItems.ROWAN_BERRIES.get());
                         pOutput.accept(ModItems.ROWAN_BARK.get());
                         pOutput.accept(ModBlocks.NAMELESS_TREE_LOG.get());

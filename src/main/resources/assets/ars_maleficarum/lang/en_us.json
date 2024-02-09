@@ -31,6 +31,10 @@
   "block.ars_maleficarum.rowan_sapling": "Rowan Sapling",
   "item.ars_maleficarum.rowan_berries": "Rowan Berries",
   "item.ars_maleficarum.rowan_bark": "Rowan Bark",
+  "block.ars_maleficarum.rowan_stairs": "Rowan Stairs",
+  "block.ars_maleficarum.rowan_slab": "Rowan Slab",
+  "block.ars_maleficarum.rowan_fence": "Rowan Fence",
+  "block.ars_maleficarum.rowan_fence_gate": "Rowan Fence Gate",
 
   "block.ars_maleficarum.nameless_tree_log": "Nameless Tree Log",
   "block.ars_maleficarum.nameless_tree_planks": "Nameless Tree Planks",
@@ -132,10 +136,7 @@
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
   "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
 
-  "block.modid.rowan_stairs": "Rowan Stairs",
-  "block.modid.rowan_slab": "Rowan Slab",
-  "block.modid.rowan_fence": "Rowan Fence",
-  "block.modid.rowan_fence_gate": "Rowan Fence Gate",
+
   "block.modid.nameless_tree_stairs": "Nameless Tree Stairs",
   "block.modid.nameless_tree_slab": "Nameless Tree Slab",
   "block.modid.nameless_tree_fence": "Nameless Tree Fence",
