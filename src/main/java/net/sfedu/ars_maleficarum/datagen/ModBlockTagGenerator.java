@@ -67,5 +67,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.ROWAN_FENCE_GATE.get())
                 .add(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
 
+        this.tag(BlockTags.WOODEN_STAIRS)
+                .add(ModBlocks.ROWAN_STAIRS.get())
+                .add(ModBlocks.NAMELESS_TREE_STAIRS.get());
+
     }
 }
