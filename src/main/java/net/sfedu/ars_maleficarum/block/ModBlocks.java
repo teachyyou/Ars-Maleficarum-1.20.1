@@ -262,10 +262,40 @@ public class ModBlocks {
             });
 
     public static final RegistryObject<Block> ROWAN_FENCE = registerBlock("rowan_fence",
-            () -> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())));
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get())) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
 
     public static final RegistryObject<Block> ROWAN_FENCE_GATE = registerBlock("rowan_fence_gate",
-            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ROWAN_PLANKS.get()), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
     public static final RegistryObject<Block> SWAMP_ROTFIEND = registerBlock("swamp_rotfiend",
             () -> new SwampRotfiendMushroom(
                     BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(0.2F, 3.0F).sound(SoundType.WOOD).noOcclusion().pushReaction(PushReaction.DESTROY)));
