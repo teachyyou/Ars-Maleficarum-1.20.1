@@ -302,7 +302,22 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> NAMELESS_TREE_STAIRS = registerBlock("nameless_tree_stairs",
-            () -> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
+            () -> new StairBlock(() -> NAMELESS_TREE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
 
     public static final RegistryObject<Block> NAMELESS_TREE_SLAB = registerBlock("nameless_tree_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(NAMELESS_TREE_PLANKS.get())));
