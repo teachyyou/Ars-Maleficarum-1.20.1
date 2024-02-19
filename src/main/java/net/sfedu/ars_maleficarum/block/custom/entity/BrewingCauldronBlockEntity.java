@@ -24,6 +24,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
+import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -117,6 +118,16 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 }
             }
         }
+
+        if (pState.getValue(BrewingCauldronBlock.LIT))
+        {
+            pState.setValue(BrewingCauldronBlock.TEMPERATURE, pState.getValue(BrewingCauldronBlock.TEMPERATURE)+60);
+        }
+        else
+        {
+            pState.setValue(BrewingCauldronBlock.TEMPERATURE, pState.getValue(BrewingCauldronBlock.TEMPERATURE)-60);
+        }
+        System.out.println(pState.getValue(BrewingCauldronBlock.TEMPERATURE));
     }
 
     // Если есть пустой слот, добавляет туда предмет и возвращает true

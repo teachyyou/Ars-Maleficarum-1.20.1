@@ -1,22 +1,31 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.levelgen.material.MaterialRuleList;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
@@ -26,11 +35,11 @@ import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class BrewingCauldronBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
@@ -39,8 +48,16 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
+
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
+    public static final IntegerProperty TEMPERATURE = IntegerProperty.create("temperature", 2000, 10000);
+    public static final IntegerProperty FUEL = IntegerProperty.create("fuel", 0, 1500);
     public BrewingCauldronBlock(Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(LIT, false)
+                .setValue(TEMPERATURE, 2000)
+                .setValue(FUEL, 0));
     }
 
     @Nullable
@@ -68,6 +85,9 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
+        pBuilder.add(LIT);
+        pBuilder.add(TEMPERATURE);
+        pBuilder.add(FUEL);
     }
 
 
@@ -93,7 +113,15 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     }
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+        if (!pLevel.isClientSide) {
+            ItemStack itemstack = pPlayer.getItemInHand(pHand);
+            if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
+                pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
+            }
+        }
+
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable
