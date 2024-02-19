@@ -1,0 +1,148 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"0": "ars_maleficarum:block/circle_core_texture",
+		"particle": "ars_maleficarum:block/circle_core_texture"
+	},
+	"elements": [
+		{
+			"name": "core",
+			"from": [-8, 0, -8],
+			"to": [24, 0.125, 24],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 0.5], "texture": "#0"},
+				"east": {"uv": [8, 0.5, 16, 1], "texture": "#0"},
+				"south": {"uv": [8, 1, 16, 1.5], "texture": "#0"},
+				"west": {"uv": [8, 1.5, 16, 2], "texture": "#0"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#0"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0.6, 0, 0.6],
+			"to": [1.8, 3, 1.8],
+			"faces": {
+				"north": {"uv": [8, 2, 8.5, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 3.5, 8.5, 5], "texture": "#0"},
+				"south": {"uv": [8, 5, 8.5, 6.5], "texture": "#0"},
+				"west": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"up": {"uv": [8.5, 8.5, 8, 8], "texture": "#0"},
+				"down": {"uv": [9, 2, 8.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [1.15, 3, 1.15],
+			"to": [1.25, 4, 1.25],
+			"faces": {
+				"north": {"uv": [8.5, 2.5, 9, 3], "texture": "#0"},
+				"east": {"uv": [8.5, 3, 9, 3.5], "texture": "#0"},
+				"south": {"uv": [8.5, 3.5, 9, 4], "texture": "#0"},
+				"west": {"uv": [8.5, 4, 9, 4.5], "texture": "#0"},
+				"up": {"uv": [9, 5, 8.5, 4.5], "texture": "#0"},
+				"down": {"uv": [9, 5, 8.5, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14.4, 0, 0.4],
+			"to": [15.6, 3, 1.6],
+			"faces": {
+				"north": {"uv": [8, 2, 8.5, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 3.5, 8.5, 5], "texture": "#0"},
+				"south": {"uv": [8, 5, 8.5, 6.5], "texture": "#0"},
+				"west": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"up": {"uv": [8.5, 8.5, 8, 8], "texture": "#0"},
+				"down": {"uv": [9, 2, 8.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14.95, 3, 0.95],
+			"to": [15.05, 4, 1.05],
+			"faces": {
+				"north": {"uv": [8.5, 2.5, 9, 3], "texture": "#0"},
+				"east": {"uv": [8.5, 3, 9, 3.5], "texture": "#0"},
+				"south": {"uv": [8.5, 3.5, 9, 4], "texture": "#0"},
+				"west": {"uv": [8.5, 4, 9, 4.5], "texture": "#0"},
+				"up": {"uv": [9, 5, 8.5, 4.5], "texture": "#0"},
+				"down": {"uv": [9, 5, 8.5, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14.4, 0, 14.4],
+			"to": [15.6, 3, 15.6],
+			"faces": {
+				"north": {"uv": [8, 2, 8.5, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 3.5, 8.5, 5], "texture": "#0"},
+				"south": {"uv": [8, 5, 8.5, 6.5], "texture": "#0"},
+				"west": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"up": {"uv": [8.5, 8.5, 8, 8], "texture": "#0"},
+				"down": {"uv": [9, 2, 8.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14.95, 3, 14.95],
+			"to": [15.05, 4, 15.05],
+			"faces": {
+				"north": {"uv": [8.5, 2.5, 9, 3], "texture": "#0"},
+				"east": {"uv": [8.5, 3, 9, 3.5], "texture": "#0"},
+				"south": {"uv": [8.5, 3.5, 9, 4], "texture": "#0"},
+				"west": {"uv": [8.5, 4, 9, 4.5], "texture": "#0"},
+				"up": {"uv": [9, 5, 8.5, 4.5], "texture": "#0"},
+				"down": {"uv": [9, 5, 8.5, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0.4, 0, 14.4],
+			"to": [1.6, 3, 15.6],
+			"faces": {
+				"north": {"uv": [8, 2, 8.5, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 3.5, 8.5, 5], "texture": "#0"},
+				"south": {"uv": [8, 5, 8.5, 6.5], "texture": "#0"},
+				"west": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"up": {"uv": [8.5, 8.5, 8, 8], "texture": "#0"},
+				"down": {"uv": [9, 2, 8.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0.95, 3, 14.95],
+			"to": [1.05, 4, 15.05],
+			"faces": {
+				"north": {"uv": [8.5, 2.5, 9, 3], "texture": "#0"},
+				"east": {"uv": [8.5, 3, 9, 3.5], "texture": "#0"},
+				"south": {"uv": [8.5, 3.5, 9, 4], "texture": "#0"},
+				"west": {"uv": [8.5, 4, 9, 4.5], "texture": "#0"},
+				"up": {"uv": [9, 5, 8.5, 4.5], "texture": "#0"},
+				"down": {"uv": [9, 5, 8.5, 5.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {},
+	"groups": [
+		0,
+		{
+			"name": "candle1",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [1, 2]
+		},
+		{
+			"name": "candle2",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [3, 4]
+		},
+		{
+			"name": "candle3",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [5, 6]
+		},
+		{
+			"name": "candle4",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [7, 8]
+		}
+	]
+}

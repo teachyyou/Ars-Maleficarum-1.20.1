@@ -21,6 +21,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
@@ -375,6 +377,13 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
+
+    public static final RegistryObject<Block> WHITE_CHALK_SYMBOL = BLOCKS.register("white_chalk_symbol",
+            ()->new WhiteChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noCollission().noLootTable()));
+
+    public static final RegistryObject<Block> RITUAL_CIRCLE_CORE = BLOCKS.register("ritual_circle_core",
+            ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noLootTable()));
+
 
 
     //Регистрация блока и предмета, привязанного к нему

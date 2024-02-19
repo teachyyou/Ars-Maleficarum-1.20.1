@@ -136,5 +136,16 @@
 
   "item.ars_maleficarum.mandrake_root": "Mandrake Root",
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
-  "block.ars_maleficarum.mandrake_crop": "Mandrake Crop"
+  "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
+
+  "block.ars_maleficarum.white_chalk_symbol": "White Glyph",
+  "block.ars_maleficarum.chalk_symbol": "Glyph",
+  "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
+
+  "item.ars_maleficarum.white_chalk": "White Chalk",
+  "item.ars_maleficarum.golden_chalk": "Golden Chalk",
+  "item.ars_maleficarum.chalk_brush": "Chalk Brush",
+  "item.ars_maleficarum.circle_core_drawing_kit": "Circle Core Drawing Kit"
+
+
 }
