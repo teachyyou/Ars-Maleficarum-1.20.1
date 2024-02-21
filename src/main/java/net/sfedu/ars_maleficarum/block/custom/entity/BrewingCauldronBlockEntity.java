@@ -56,6 +56,11 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     // Количество слотов - максимальное количество предметов в котле. 1 слот - 1 предмет.
     public final int slotsCount = 10;
 
+    private int fuelLevel = 0;
+    private int temperature = 0;
+    private final int maxTemperature = 1500;
+    private final int maxFuel = 1300;
+
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -104,8 +109,26 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
     }
 
+    public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
+    {
+        if (fuelLevel < maxFuel)
+        {
+            fuelLevel += 250;
+            if (fuelLevel > maxFuel) fuelLevel = maxFuel;
+            return true;
+        }
+        return false;
+    }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
+        suckItems(level, pPos, pState);
+        temperatureTick(level, pPos, pState);
+        blockStatesChange(level, pPos, pState);
+    }
+
+    // Пытается забрать предметы в определённой зоне
+    private void suckItems(Level level, BlockPos pPos, BlockState pState)
+    {
         List<ItemEntity> itemEntitiesAbove = getItemsAtAndAbove(level, this);
         if (!itemEntitiesAbove.isEmpty()) {
             for (ItemEntity itemEntity : itemEntitiesAbove)
@@ -113,21 +136,58 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 ItemStack itemStack = itemEntity.getItem();
                 if (addItem(this.itemHandler, itemStack.getItem()))
                 {
-
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                 }
             }
         }
+    }
 
-        if (pState.getValue(BrewingCauldronBlock.LIT))
+    // Отвечает за нагревание и остывание котла
+    private void temperatureTick(Level level, BlockPos pPos, BlockState pState)
+    {
+        if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < maxTemperature)
         {
-            pState.setValue(BrewingCauldronBlock.TEMPERATURE, pState.getValue(BrewingCauldronBlock.TEMPERATURE)+60);
+            temperature++;
+            fuelLevel--;
+        }
+        else if (!pState.getValue(BrewingCauldronBlock.LIT) && (temperature > 0))
+        {
+            temperature--;
+        }
+    }
+
+    private void blockStatesChange(Level level, BlockPos pPos, BlockState pState)
+    {
+        if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel <= 0)
+        {
+            level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.LIT, false), 3);
+        }
+        if (temperature >= 1000)
+        {
+            if (!pState.getValue(BrewingCauldronBlock.BOILING)) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.BOILING, true), 3);
         }
         else
         {
-            pState.setValue(BrewingCauldronBlock.TEMPERATURE, pState.getValue(BrewingCauldronBlock.TEMPERATURE)-60);
+            if (pState.getValue(BrewingCauldronBlock.BOILING)) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.BOILING, false), 3);
         }
-        System.out.println(pState.getValue(BrewingCauldronBlock.TEMPERATURE));
+
+        if (fuelLevel == 0)
+        {
+            if (pState.getValue(BrewingCauldronBlock.FUEL) != 0) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 0), 3);
+        }
+        else if (fuelLevel < 300)
+        {
+            if (pState.getValue(BrewingCauldronBlock.FUEL) != 1) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 1), 3);
+        }
+        else if (fuelLevel < 1000)
+        {
+            if (pState.getValue(BrewingCauldronBlock.FUEL) != 2) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 2), 3);
+        }
+        else
+        {
+            if (pState.getValue(BrewingCauldronBlock.FUEL) != 3) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 3), 3);
+        }
+
     }
 
     // Если есть пустой слот, добавляет туда предмет и возвращает true

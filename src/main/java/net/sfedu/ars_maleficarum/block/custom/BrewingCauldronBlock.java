@@ -1,7 +1,9 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -50,13 +52,13 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     }
 
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
-    public static final IntegerProperty TEMPERATURE = IntegerProperty.create("temperature", 2000, 10000);
-    public static final IntegerProperty FUEL = IntegerProperty.create("fuel", 0, 1500);
+    public static final BooleanProperty BOILING = BooleanProperty.create("boiling");
+    public static final IntegerProperty FUEL = IntegerProperty.create("fuel", 0, 3);
     public BrewingCauldronBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(LIT, false)
-                .setValue(TEMPERATURE, 2000)
+                .setValue(BOILING, false)
                 .setValue(FUEL, 0));
     }
 
@@ -86,7 +88,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
         pBuilder.add(LIT);
-        pBuilder.add(TEMPERATURE);
+        pBuilder.add(BOILING);
         pBuilder.add(FUEL);
     }
 
@@ -113,12 +115,24 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     }
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+        BrewingCauldronBlockEntity blockentity = (BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos);
         if (!pLevel.isClientSide) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
                 pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
             }
+            else if (itemstack.isEmpty())
+            {
+                pLevel.setBlock(pPos, pState.setValue(LIT, false), 3);
+            }
+            else if (itemstack.is(ItemTags.LOGS_THAT_BURN))
+            {
+                if (blockentity != null)
+                {
+                    if (blockentity.addFuel(pState, pLevel, pPos)) itemstack.setCount(itemstack.getCount()-1);
+                }
+            }
+
         }
 
         return InteractionResult.SUCCESS;
