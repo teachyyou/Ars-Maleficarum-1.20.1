@@ -39,7 +39,7 @@ public class RitualCircleCoreDrawingKit extends Item {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
                 BlockPos pos = pContext.getClickedPos().relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR)) {
+                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR) || !pContext.getLevel().getBlockState(pos.above()).is(Blocks.AIR)) {
                     return false;
                 }
             }
