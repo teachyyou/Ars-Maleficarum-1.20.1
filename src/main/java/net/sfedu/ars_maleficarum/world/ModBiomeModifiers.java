@@ -22,8 +22,11 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_DEAD_TREE = registerKey("add_dead_tree");
 
     public static final ResourceKey<BiomeModifier> ADD_SILVER_ORES = registerKey("add_silver_ores");
+    public static final ResourceKey<BiomeModifier> ADD_SILVER_DEEPSLATE_ORES = registerKey("add_silver_deepslate_ores");
 
     public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_ORES = registerKey("add_cursed_gold_ores");
+    public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_DEEPSLATE_ORES = registerKey("add_cursed_gold_deepslate_ores");
+    public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_NETHER_ORES = registerKey("add_cursed_gold_nether_ores");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -51,10 +54,28 @@ public class ModBiomeModifiers {
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_CURSED_GOLD_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_CURSED_GOLD_DEEPSLATE_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_CURSED_GOLD_DEEPSLATE_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_CURSED_GOLD_NETHER_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_NETHER),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NETHER_CURSED_GOLD_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
         context.register(ADD_SILVER_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_SILVER_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_SILVER_DEEPSLATE_ORES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_SILVER_DEEPSLATE_ORE_PLACED_KEY)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

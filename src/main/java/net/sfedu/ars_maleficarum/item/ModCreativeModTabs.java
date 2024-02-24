@@ -61,8 +61,13 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.SILVER_BLOCK.get());
                         pOutput.accept(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
                         pOutput.accept(ModBlocks.SILVER_ORE_BLOCK.get());
+                        pOutput.accept(ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get());
+                        pOutput.accept(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get());
+                        pOutput.accept(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get());
                         pOutput.accept(ModItems.SILVER_NUGGET.get());
                         pOutput.accept(ModItems.CURSED_GOLD_NUGGET.get());
+                        pOutput.accept(ModItems.CURSED_GOLD_CHUNK.get());
+                        pOutput.accept(ModItems.SILVER_CHUNK.get());
                         pOutput.accept(ModItems.CURSED_GOLD.get());
                         pOutput.accept(ModItems.SILVER.get());
                         pOutput.accept(ModItems.CARBON_DETECTOR.get());

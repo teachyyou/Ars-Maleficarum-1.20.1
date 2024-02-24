@@ -24,8 +24,8 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     //Списки "Проклятых" блоков, которые могут переплавляться
-    private static final List<ItemLike> CURSED_GOLD_ORE_BLOCKS = List.of(ModBlocks.CURSED_GOLD_ORE_BLOCK.get());
-    private static final List<ItemLike> SILVER_ORE_BLOCKS = List.of(ModBlocks.SILVER_ORE_BLOCK.get());
+    private static final List<ItemLike> CURSED_GOLD_ORE = List.of(ModItems.CURSED_GOLD_CHUNK.get());
+    private static final List<ItemLike> SILVER_ORE = List.of(ModItems.SILVER_CHUNK.get());
 
     private static final List<ItemLike> NAMELESS_TREE_BLOCKS = List.of(ModBlocks.NAMELESS_TREE_LOG.get(), ModBlocks.NAMELESS_TREE_WOOD.get());
 
@@ -37,10 +37,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         //Переплавка руд
-        oreBlasting(pWriter, CURSED_GOLD_ORE_BLOCKS, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 100, "cursed_gold");
-        oreBlasting(pWriter, SILVER_ORE_BLOCKS, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 100, "silver");
-        oreSmelting(pWriter, CURSED_GOLD_ORE_BLOCKS, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 200, "cursed_gold");
-        oreSmelting(pWriter, SILVER_ORE_BLOCKS, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 200, "silver");
+        oreBlasting(pWriter, CURSED_GOLD_ORE, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 100, "cursed_gold");
+        oreBlasting(pWriter, SILVER_ORE, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 100, "silver");
+        oreSmelting(pWriter, CURSED_GOLD_ORE, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 200, "cursed_gold");
+        oreSmelting(pWriter, SILVER_ORE, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 200, "silver");
 
         oreSmelting(pWriter, List.of(Items.POTION), RecipeCategory.MISC, ModItems.SALT.get(), 0.1f, 150, "salt");
 

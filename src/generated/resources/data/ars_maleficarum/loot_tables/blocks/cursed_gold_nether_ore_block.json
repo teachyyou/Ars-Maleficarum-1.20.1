@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ars_maleficarum:silver_chunk"
+          "name": "ars_maleficarum:cursed_gold_chunk"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "ars_maleficarum:blocks/silver_ore_block"
+  "random_sequence": "ars_maleficarum:blocks/cursed_gold_nether_ore_block"
 }

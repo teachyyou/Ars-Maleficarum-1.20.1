@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:blasting",
+  "type": "minecraft:smelting",
   "category": "misc",
-  "cookingtime": 100,
+  "cookingtime": 200,
   "experience": 0.25,
   "group": "silver",
   "ingredient": {
-    "item": "ars_maleficarum:silver_ore_block"
+    "item": "ars_maleficarum:silver_chunk"
   },
   "result": "ars_maleficarum:silver"
 }

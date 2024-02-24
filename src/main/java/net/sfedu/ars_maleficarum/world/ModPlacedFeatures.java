@@ -28,6 +28,9 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> OVERWORLD_CURSED_GOLD_ORE_PLACED_KEY = registerKey("overworld_cursed_gold_ores_placed");
 
     public static final ResourceKey<PlacedFeature> OVERWORLD_SILVER_ORE_PLACED_KEY = registerKey("overworld_silver_ores_placed");
+    public static final ResourceKey<PlacedFeature> OVERWORLD_SILVER_DEEPSLATE_ORE_PLACED_KEY = registerKey("overworld_silver_deepslate_ores_placed");
+    public static final ResourceKey<PlacedFeature> OVERWORLD_CURSED_GOLD_DEEPSLATE_ORE_PLACED_KEY = registerKey("overworld_cursed_gold_deepslate_ores_placed");
+    public static final ResourceKey<PlacedFeature> NETHER_CURSED_GOLD_ORE_PLACED_KEY = registerKey("nether_cursed_gold_ores_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?,?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -39,6 +42,18 @@ public class ModPlacedFeatures {
         register(context, OVERWORLD_CURSED_GOLD_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CURSED_GOLD_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(4,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(32))));
+
+        register(context, OVERWORLD_SILVER_DEEPSLATE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SILVER_DEEPSLATE_ORE_KEY),
+                ModOrePlacement.commonOrePlacement(4,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(16))));
+
+        register(context, OVERWORLD_CURSED_GOLD_DEEPSLATE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CURSED_GOLD_DEEPSLATE_ORE_KEY),
+                ModOrePlacement.commonOrePlacement(4,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(16))));
+
+        register(context, NETHER_CURSED_GOLD_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CURSED_GOLD_NETHER_ORE_KEY),
+                ModOrePlacement.commonOrePlacement(4,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64),VerticalAnchor.absolute(80))));
 
         register(context,ROWAN_PLACED_KEY,configuredFeatures.getOrThrow(ModConfiguredFeatures.ROWAN_KEY),
                 VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(16), ModBlocks.ROWAN_SAPLING.get()));

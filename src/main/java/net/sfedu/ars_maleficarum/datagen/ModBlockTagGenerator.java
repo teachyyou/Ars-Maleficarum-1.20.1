@@ -25,6 +25,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
                 ModBlocks.SILVER_ORE_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
+                ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
                 ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),
@@ -36,7 +39,10 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
                 ModBlocks.SILVER_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
-                ModBlocks.SILVER_ORE_BLOCK.get());
+                ModBlocks.SILVER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
+                ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get());
 
 
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))

@@ -34,6 +34,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SILVER_NUGGET);
         simpleItem(ModItems.SILVER);
         simpleItem(ModItems.CURSED_GOLD_NUGGET);
+        simpleItem(ModItems.SILVER_CHUNK);
+        simpleItem(ModItems.CURSED_GOLD_CHUNK);
         simpleItem(ModItems.CARBON_DETECTOR);
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.VALUABLE_DETECTOR);

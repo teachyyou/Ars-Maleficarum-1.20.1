@@ -24,6 +24,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.fml.common.Mod;
@@ -46,20 +47,32 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?,?>> CURSED_GOLD_ORE_KEY = registerKey("cursed_gold_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>> SILVER_ORE_KEY = registerKey("silver_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>> SILVER_DEEPSLATE_ORE_KEY = registerKey("silver_deepslate_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>> CURSED_GOLD_DEEPSLATE_ORE_KEY = registerKey("cursed_gold_deepslate_ore");
+    public static final ResourceKey<ConfiguredFeature<?,?>> CURSED_GOLD_NETHER_ORE_KEY = registerKey("cursed_gold_nether_ore");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?,?>> context) {
         RuleTest stone_replace = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslate_replace = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest nether_replace = new BlockMatchTest(Blocks.NETHERRACK);
         List<OreConfiguration.TargetBlockState> overworld_Cursed_Ores = List.of(OreConfiguration.target(stone_replace,
-                ModBlocks.CURSED_GOLD_ORE_BLOCK.get().defaultBlockState()), OreConfiguration.target(deepslate_replace,
                 ModBlocks.CURSED_GOLD_ORE_BLOCK.get().defaultBlockState()));
 
+        List<OreConfiguration.TargetBlockState> overworld_cursed_gold_deepslate_ore = List.of(OreConfiguration.target(deepslate_replace,
+                ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get().defaultBlockState()));
+
         List<OreConfiguration.TargetBlockState> overworld_Ores = List.of(OreConfiguration.target(stone_replace,
-                ModBlocks.SILVER_ORE_BLOCK.get().defaultBlockState()),OreConfiguration.target(deepslate_replace,
                 ModBlocks.SILVER_ORE_BLOCK.get().defaultBlockState()));
+
+        List<OreConfiguration.TargetBlockState> overworld_silver_deepslate_ore = List.of(OreConfiguration.target(deepslate_replace,
+                ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get().defaultBlockState()));
 
         register(context, CURSED_GOLD_ORE_KEY,Feature.ORE, new OreConfiguration(overworld_Cursed_Ores,9));
         register(context, SILVER_ORE_KEY,Feature.ORE, new OreConfiguration(overworld_Ores,9));
+        register(context, CURSED_GOLD_DEEPSLATE_ORE_KEY, Feature.ORE, new OreConfiguration(overworld_cursed_gold_deepslate_ore,9));
+        register(context, SILVER_DEEPSLATE_ORE_KEY, Feature.ORE, new OreConfiguration(overworld_silver_deepslate_ore,9));
+        register(context, CURSED_GOLD_NETHER_ORE_KEY, Feature.ORE, new OreConfiguration(nether_replace,
+                ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get().defaultBlockState(),9));
 
         register(context,ROWAN_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.ROWAN_LOG.get()),

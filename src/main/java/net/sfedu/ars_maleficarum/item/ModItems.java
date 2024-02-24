@@ -61,9 +61,13 @@ public class ModItems {
     //Регистрация  самородка проклятого серебра
     public static final RegistryObject<Item> SILVER_NUGGET = ITEMS.register("silver_nugget",
             ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_CHUNK = ITEMS.register("silver_chunk",
+            ()->new Item(new Item.Properties()));
 
     //Регистрация  самородка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
+            ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
             ()->new Item(new Item.Properties()));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",

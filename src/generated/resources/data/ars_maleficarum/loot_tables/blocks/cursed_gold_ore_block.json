@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ars_maleficarum:cursed_gold_ore_block"
+          "name": "ars_maleficarum:cursed_gold_chunk"
         }
       ],
       "rolls": 1.0

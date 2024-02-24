@@ -54,10 +54,18 @@ public class ModBlocks {
     //Регистрация блока руды серебра
     public static final RegistryObject<Block> SILVER_ORE_BLOCK = registerBlock("silver_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+
+    public static final RegistryObject<Block> SILVER_DEEPSLATE_ORE_BLOCK = registerBlock("silver_deepslate_ore_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
     //Регистрация блока руды проклятого золота
     public static final RegistryObject<Block> CURSED_GOLD_ORE_BLOCK = registerBlock("cursed_gold_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_GOLD_BLOCK)));
 
+    public static final RegistryObject<Block> CURSED_GOLD_DEEPSLATE_ORE_BLOCK = registerBlock("cursed_gold_deepslate_ore_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_GOLD_ORE)));
+
+    public static final RegistryObject<Block> CURSED_GOLD_NETHER_ORE_BLOCK = registerBlock("cursed_gold_nether_ore_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE)));
 
     //Регистрация цветка солнечного света
     public static final RegistryObject<Block> SUNLIGHT_FLOWER_CROP = BLOCKS.register("sunlight_flower_crop",
