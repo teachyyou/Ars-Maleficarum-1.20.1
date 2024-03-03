@@ -104,7 +104,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropOther(ModBlocks.INFUSING_ALTAR.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
         this.dropOther(ModBlocks.CURSED_GOLD_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
         this.dropOther(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
-        this.dropOther(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
+        this.dropOther(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(), ModItems.CURSED_GOLD_NUGGET.get());
         this.dropOther(ModBlocks.SILVER_ORE_BLOCK.get(), ModItems.SILVER_CHUNK.get());
         this.dropOther(ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(), ModItems.SILVER_CHUNK.get());
         this.dropOther(ModBlocks.WOODEN_CAT_FIGURE.get(), ModItems.WOODEN_FIGURE.get().asItem());
