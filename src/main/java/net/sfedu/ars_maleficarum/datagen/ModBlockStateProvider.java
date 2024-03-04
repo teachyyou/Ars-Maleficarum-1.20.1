@@ -85,8 +85,20 @@ public class ModBlockStateProvider extends BlockStateProvider  {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
-        horizontalBlock(ModBlocks.BREWING_CAULDRON.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/brewing_cauldron")));
+
+        cauldronFuelVariants();
+
+    }
+
+    private void cauldronFuelVariants() {
+
+        getVariantBuilder(ModBlocks.BREWING_CAULDRON.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                    .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/brewing_cauldron_" + state.getValue(BrewingCauldronBlock.FUEL))))
+                    .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                    .build()
+                );
+
     }
 
     private void coloredInfusingAltar() {

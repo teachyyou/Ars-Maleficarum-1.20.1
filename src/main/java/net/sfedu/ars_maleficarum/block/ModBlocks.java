@@ -250,7 +250,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             ()->new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
 
-    public static final RegistryObject<Block> BREWING_CAULDRON = registerBlock("brewing_cauldron",
+    public static final RegistryObject<Block> BREWING_CAULDRON = registerBlock("brewing_cauldron_0",
             ()->new BrewingCauldronBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(state -> state.getValue(BrewingCauldronBlock.LIT) ? 8 : 0)));
 
 

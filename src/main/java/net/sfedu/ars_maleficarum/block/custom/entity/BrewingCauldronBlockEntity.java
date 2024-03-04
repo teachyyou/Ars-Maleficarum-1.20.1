@@ -3,16 +3,20 @@ package net.sfedu.ars_maleficarum.block.custom.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.Hopper;
@@ -58,6 +62,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private int fuelLevel = 0;
     private int temperature = 0;
+    private int soundTimer = 60;
     private final int maxTemperature = 1500;
     private final int maxFuel = 1300;
 
@@ -94,8 +99,18 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory",itemHandler.serializeNBT());
+        pTag.putInt("fuelLevel",this.fuelLevel);
+        pTag.putInt("temperature",this.temperature);
         super.saveAdditional(pTag);
     }
+    @Override
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+        this.fuelLevel = pTag.getInt("fuelLevel");
+        this.temperature = pTag.getInt("temperature");
+    }
+
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots();i++) {
@@ -103,17 +118,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }
         Containers.dropContents(this.level,this.worldPosition,inventory);
     }
-    @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-    }
 
     public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
     {
         if (fuelLevel < maxFuel)
         {
-            fuelLevel += 250;
+            fuelLevel += 180;
+            pLevel.playSound(null, pPos, SoundType.SCAFFOLDING.getPlaceSound(), SoundSource.BLOCKS);
             if (fuelLevel > maxFuel) fuelLevel = maxFuel;
             return true;
         }
@@ -124,6 +135,15 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
+        soundTimer--;
+        if (pState.getValue(BrewingCauldronBlock.LIT))
+        {
+            if (soundTimer <= 0)
+            {
+                soundTimer = 60;
+                level.playSound(null, pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS);
+            }
+        }
     }
 
     // Пытается забрать предметы в определённой зоне
@@ -160,6 +180,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     {
         if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel <= 0)
         {
+            level.playSound(null, pPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS);
             level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.LIT, false), 3);
         }
         if (temperature >= 1000)

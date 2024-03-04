@@ -2,6 +2,8 @@ package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
@@ -119,10 +121,12 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
+                pLevel.playSound(null, pPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS);
                 pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
             }
-            else if (itemstack.isEmpty())
+            else if (itemstack.isEmpty() && pPlayer.isShiftKeyDown())
             {
+                pLevel.playSound(null, pPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS);
                 pLevel.setBlock(pPos, pState.setValue(LIT, false), 3);
             }
             else if (itemstack.is(ItemTags.LOGS_THAT_BURN))
