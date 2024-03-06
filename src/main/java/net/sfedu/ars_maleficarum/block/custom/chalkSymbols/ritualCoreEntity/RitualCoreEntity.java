@@ -270,6 +270,7 @@ public class RitualCoreEntity extends BlockEntity {
             level.removeBlock(pPos,false);
         }
 
+
     }
 
 }

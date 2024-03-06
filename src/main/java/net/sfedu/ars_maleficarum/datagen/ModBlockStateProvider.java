@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.*;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 
 import java.util.List;
 import java.util.function.Function;
@@ -100,6 +101,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
+        chalkSymbol();
+
     }
 
     private void coloredInfusingAltar() {
@@ -111,6 +114,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         .build()
                 );
 
+    }
+
+    public void chalkSymbol() {
+        getVariantBuilder(ModBlocks.WHITE_CHALK_SYMBOL.get())
+                .forAllStates(state->ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/white_chalk_symbol"+state.getValue(ChalkSymbol.VARIANT))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()+180)%360)
+                        .build()
+                );
     }
 
     private void SwampRotfiendMushroom() {

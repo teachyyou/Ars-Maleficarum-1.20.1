@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
-	"texture_size": [ 32, 32 ],
 	"render_type": "minecraft:cutout",
+	"texture_size": [32, 32],
 	"textures": {
 		"1": "ars_maleficarum:block/circle_core_texture",
 		"particle": "ars_maleficarum:block/circle_core_texture"
@@ -9,31 +9,28 @@
 	"elements": [
 		{
 			"name": "core",
-			"from": [ -16, 0, -16 ],
-			"to": [ 32, 0.125, 32 ],
+			"from": [-16, 0, -16],
+			"to": [32, 0.125, 32],
 			"faces": {
-				"up": {
-					"uv": [ 0, 0, 16, 16 ],
-					"texture": "#1"
-				}
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"}
 			}
 		}
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [ 16, 0, 0 ],
-			"translation": [ 0.25, 0, 0 ],
-			"scale": [ 0.16, 0.16, 0.16 ]
+			"rotation": [16, 0, 0],
+			"translation": [0.25, 0, 0],
+			"scale": [0.16, 0.16, 0.16]
 		},
 		"gui": {
-			"rotation": [ 91, 0, 0 ],
-			"translation": [ 0, 0, -2.75 ],
-			"scale": [ 0.45, 0.45, 0.45 ]
+			"rotation": [91, 0, 0],
+			"translation": [0, 0, -2.75],
+			"scale": [0.45, 0.45, 0.45]
 		},
 		"fixed": {
-			"rotation": [ -90, 0, 0 ],
-			"translation": [ 0, 0, -2.75 ],
-			"scale": [ 0.45, 0.45, 0.45 ]
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -2.75],
+			"scale": [0.45, 0.45, 0.45]
 		}
 	}
 }
