@@ -62,7 +62,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private int fuelLevel = 0;
     private int temperature = 0;
-    private int soundTimer = 60;
+
     private final int maxTemperature = 1500;
     private final int maxFuel = 1300;
 
@@ -121,7 +121,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
     {
-        if (fuelLevel < maxFuel)
+        if (fuelLevel < maxFuel-180)
         {
             fuelLevel += 180;
             pLevel.playSound(null, pPos, SoundType.SCAFFOLDING.getPlaceSound(), SoundSource.BLOCKS);
@@ -135,15 +135,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
-        soundTimer--;
-        if (pState.getValue(BrewingCauldronBlock.LIT))
-        {
-            if (soundTimer <= 0)
-            {
-                soundTimer = 60;
-                level.playSound(null, pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS);
-            }
-        }
     }
 
     // Пытается забрать предметы в определённой зоне

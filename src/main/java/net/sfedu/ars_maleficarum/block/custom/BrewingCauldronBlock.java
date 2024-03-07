@@ -1,11 +1,13 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -157,6 +159,27 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new BrewingCauldronBlockEntity(pPos, pState);
+    }
+
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(LIT)) {
+            double dx = pPos.getX();
+            double dy = pPos.getY();
+            double dz = pPos.getZ();
+            pLevel.addParticle(ParticleTypes.FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
+            pLevel.addParticle(ParticleTypes.FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
+            pLevel.addParticle(ParticleTypes.SMALL_FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
+            if (pRandom.nextDouble() < 0.1F) {
+                pLevel.playLocalSound(pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            }
+        }
+        if (pState.getValue(BOILING))
+        {
+            if (pRandom.nextDouble() < 0.1F) {
+                pLevel.playLocalSound(pPos, SoundEvents.BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+            }
+        }
     }
 
     //endregion BlockEntity
