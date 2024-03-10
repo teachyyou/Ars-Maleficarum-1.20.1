@@ -122,6 +122,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
+                        pOutput.accept(ModItems.GREEN_CHALK.get());
                         pOutput.accept(ModItems.CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
 

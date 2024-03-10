@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -32,6 +33,8 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
 
     public static final IntegerProperty VARIANT = IntegerProperty.create("variant",0,10);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
+    public static final RitualCoreEntity.CircleType type = RitualCoreEntity.CircleType.ANY;
     public ChalkSymbol(Properties pProperties) {
         super(pProperties.destroyTime(5));
     }

@@ -56,6 +56,13 @@ public class RitualCircleCore extends BaseEntityBlock {
     }
 
     @Override
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        RitualCoreEntity riteCore = (RitualCoreEntity) pLevel.getBlockEntity(pPos);
+        riteCore.checkForCircles(pLevel,pPos);
+        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+    }
+
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
@@ -81,12 +88,13 @@ public class RitualCircleCore extends BaseEntityBlock {
                     p_150686_.broadcastBreakEvent(pHand);
                 });
             } else {
-                //test
-                SimpleContainer container = new SimpleContainer(Items.SUNFLOWER.getDefaultInstance(), ModItems.SUNLIGHT_FLOWER.get().getDefaultInstance(), ModItems.RING_OF_MORNING_DEW.get().getDefaultInstance());
-                RisingSunRitual ritual = new RisingSunRitual();
-                if (ritual.doesMatch(container)) {
-                    ritual.executeRitual(pState,pLevel,pPos,pPlayer);
+                RitualCoreEntity riteCore = (RitualCoreEntity) pLevel.getBlockEntity(pPos);
+                if (riteCore.isExecutingRitual()) {
+                    riteCore.stopRitual();
+                } else {
+                    riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
                 }
+
             }
         }
         return InteractionResult.SUCCESS;

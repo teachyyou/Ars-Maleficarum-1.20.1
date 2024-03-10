@@ -10,6 +10,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.GreenChalk;
 import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.RitualCircleCoreDrawingKit;
 import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.WhiteChalk;
 
@@ -175,6 +176,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> WHITE_CHALK = ITEMS.register("white_chalk",
             ()->new WhiteChalk(new Item.Properties().durability(44)));
+
+    public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
+            ()->new GreenChalk(new Item.Properties().durability(44)));
 
     public static final RegistryObject<Item> CIRCLE_CORE_DRAWING_KIT = ITEMS.register("circle_core_drawing_kit",
             ()->new RitualCircleCoreDrawingKit(new Item.Properties().durability(1)));

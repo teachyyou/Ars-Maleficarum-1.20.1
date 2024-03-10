@@ -101,7 +101,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
-        chalkSymbol();
+        chalkSymbol(ModBlocks.WHITE_CHALK_SYMBOL.get(), "white");
+        chalkSymbol(ModBlocks.GREEN_CHALK_SYMBOL.get(),"green");
 
     }
 
@@ -116,10 +117,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-    public void chalkSymbol() {
-        getVariantBuilder(ModBlocks.WHITE_CHALK_SYMBOL.get())
+    public void chalkSymbol(Block symbol, String chalk_color) {
+        getVariantBuilder(symbol)
                 .forAllStates(state->ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/white_chalk_symbol"+state.getValue(ChalkSymbol.VARIANT))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/" + chalk_color + "_chalk_symbol"+state.getValue(ChalkSymbol.VARIANT))))
                         .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()+180)%360)
                         .build()
                 );
