@@ -10,7 +10,10 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
@@ -21,6 +24,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -35,10 +39,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.List;
 
 public class RitualCoreEntity extends BlockEntity {
 
-    public enum CircleType {WHITE,NETHER,ENDER,NATURAL, ANY};
+    public enum CircleType {WHITE,NETHER,ENDER,NATURAL,ANY};
 
 
     public boolean hasProperSmallCircle;
@@ -265,16 +270,33 @@ public class RitualCoreEntity extends BlockEntity {
     public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
 
         //TODO: каким-то магическим образом засунуть в ritual желаемый ритуал и сунуть в container все предметы, что лежат в кругу
-        SimpleContainer container = new SimpleContainer(Items.SUNFLOWER.getDefaultInstance(), ModItems.SUNLIGHT_FLOWER.get().getDefaultInstance(), ModItems.RING_OF_MORNING_DEW.get().getDefaultInstance());
+        //SimpleContainer container = new SimpleContainer(Items.SUNFLOWER.getDefaultInstance(), ModItems.SUNLIGHT_FLOWER.get().getDefaultInstance(), ModItems.RING_OF_MORNING_DEW.get().getDefaultInstance());
+
+
+
+        List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
+        SimpleContainer container = new SimpleContainer(items.size());
+        for (ItemEntity item : items) {
+            container.addItem(item.getItem());
+            //item.remove(Entity.RemovalReason.DISCARDED);
+        }
         ritual = new RisingSunRitual();
+
 
         currentSmallType=ritual.getSmallCircleType();
         currentMediumType=ritual.getMediumCircleType();
         currentLargeType=ritual.getLargeCircleType();
-        if (checkForCircles(pLevel, pPos)) {
+        if (checkForCircles(pLevel, pPos) && ritual.doesMatch(container)) {
+            for (ItemEntity item : items) {
+                int amount = ritual.requiredInAmount(item.getItem().getItem());
+                if (amount>=1 && item.getItem().getCount() >= amount) {
+                    item.getItem().shrink(amount);
+                }
+            }
             executingRitual = true;
             player = pPlayer;
         }
+
 
     }
     public void stopRitual(){
@@ -287,7 +309,7 @@ public class RitualCoreEntity extends BlockEntity {
             level.removeBlock(pPos,false);
         }
         if (hasAllProperCircles && executingRitual && ritual!=null) {
-            System.out.println("TICK IF BRANCH ENTER");
+            //System.out.println("TICK IF BRANCH ENTER");
             ritual.executeRitual(pState, level, pPos, player, this);
         }
     }

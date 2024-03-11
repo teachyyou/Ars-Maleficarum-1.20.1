@@ -71,7 +71,6 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         notifyNearestCircleCenter(pLevel,pPos);
-        System.out.println(pState.getValue(BlockStateProperties.HORIZONTAL_FACING));
     }
 
     @Override
