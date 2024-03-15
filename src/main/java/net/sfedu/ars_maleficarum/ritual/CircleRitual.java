@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -17,7 +18,10 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 
 import javax.naming.Context;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class CircleRitual {
 
@@ -28,19 +32,30 @@ public abstract class CircleRitual {
     protected RitualCoreEntity.CircleType mediumCircleType;
     protected RitualCoreEntity.CircleType largeCircleType;
     protected Entity sacrificeEntity;
-    protected List<Item> components = List.of();
+    protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
+
+    protected List<ItemEntity> items = new LinkedList<ItemEntity>();
     protected Dimension dimension;
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
-    abstract public boolean doesMatch(SimpleContainer container);
+    public boolean doesMatch(SimpleContainer container) {
+        //TODO: добавить проверку и на количество
 
-    public int requiredInAmount(Item item) {
-        int count = 0;
-        for (Item component: this.components) {
-            if (component == item) count++;
+        for (Item item : components.keySet()) {
+            boolean flag = false;
+            foundItem: for (int j = 0; j < container.getContainerSize(); j++) {
+                if (container.getItem(j).is(item) && container.getItem(j).getCount()>=(components.get(item))) {
+                    flag = true;
+                    break foundItem;
+                }
+            }
+            if (!flag) {
+                return false;
+            }
         }
-        return count;
+        return true;
     }
+
 
     public RitualCoreEntity.CircleType getSmallCircleType() {
         return smallCircleType;
@@ -50,6 +65,10 @@ public abstract class CircleRitual {
     }
     public RitualCoreEntity.CircleType getLargeCircleType() {
         return largeCircleType;
+    }
+
+    public void addItemEntities(List<ItemEntity> input) {
+        items.addAll(input);
     }
 
 }

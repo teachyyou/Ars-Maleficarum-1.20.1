@@ -2,11 +2,13 @@ package net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -39,6 +41,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.LinkedList;
 import java.util.List;
 
 public class RitualCoreEntity extends BlockEntity {
@@ -273,26 +276,19 @@ public class RitualCoreEntity extends BlockEntity {
         //SimpleContainer container = new SimpleContainer(Items.SUNFLOWER.getDefaultInstance(), ModItems.SUNLIGHT_FLOWER.get().getDefaultInstance(), ModItems.RING_OF_MORNING_DEW.get().getDefaultInstance());
 
 
-
         List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
         SimpleContainer container = new SimpleContainer(items.size());
         for (ItemEntity item : items) {
             container.addItem(item.getItem());
-            //item.remove(Entity.RemovalReason.DISCARDED);
         }
         ritual = new RisingSunRitual();
+        ritual.addItemEntities(items);
 
 
         currentSmallType=ritual.getSmallCircleType();
         currentMediumType=ritual.getMediumCircleType();
         currentLargeType=ritual.getLargeCircleType();
         if (checkForCircles(pLevel, pPos) && ritual.doesMatch(container)) {
-            for (ItemEntity item : items) {
-                int amount = ritual.requiredInAmount(item.getItem().getItem());
-                if (amount>=1 && item.getItem().getCount() >= amount) {
-                    item.getItem().shrink(amount);
-                }
-            }
             executingRitual = true;
             player = pPlayer;
         }
@@ -309,9 +305,9 @@ public class RitualCoreEntity extends BlockEntity {
             level.removeBlock(pPos,false);
         }
         if (hasAllProperCircles && executingRitual && ritual!=null) {
-            //System.out.println("TICK IF BRANCH ENTER");
             ritual.executeRitual(pState, level, pPos, player, this);
         }
+
     }
 
 
