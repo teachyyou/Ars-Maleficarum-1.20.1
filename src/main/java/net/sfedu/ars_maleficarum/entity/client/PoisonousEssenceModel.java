@@ -5,13 +5,15 @@ package net.sfedu.ars_maleficarum.entity.client;// Made with Blockbench 4.9.4
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.world.entity.Entity;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 
-public class PoisonousEssenceModel<T extends PoisonousEssenceEntity> extends HierarchicalModel<T> {
+public class PoisonousEssenceModel<T extends Entity> extends EntityModel<T> {
 
 	private final ModelPart body;
 
@@ -38,8 +40,4 @@ public class PoisonousEssenceModel<T extends PoisonousEssenceEntity> extends Hie
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
-	@Override
-	public ModelPart root() {
-		return body;
-	}
 }

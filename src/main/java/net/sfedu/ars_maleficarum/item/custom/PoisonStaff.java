@@ -27,14 +27,17 @@ public class PoisonStaff extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         player.playSound(SoundEvents.BLAZE_SHOOT, 1.0F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2F + 1.0F);
-        PoisonousEssenceEntity essenceEntity = ModEntities.POISONOUS_ESSENCE.get().create(level);
+        player.getCooldowns().addCooldown(this, 40);
         if (!level.isClientSide()) {
-            //PoisonousEssenceEntity essenceEntity = new PoisonousEssenceEntity(level, player.getX(),player.getY()+1.6F,player.getZ());
-            essenceEntity.moveTo(player.getX(),player.getY()+1.6F,player.getZ());
+            PoisonousEssenceEntity essenceEntity = new PoisonousEssenceEntity(level, player);
+            essenceEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 0.25F);
             level.addFreshEntity(essenceEntity);
-            essenceEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 3.0F, 0.0F);
-            stack.hurt(1, level.getRandom(), null);
         }
-            return InteractionResultHolder.success(player.getItemInHand(hand));
+        player.awardStat(Stats.ITEM_USED.get(this));
+        if (!player.getAbilities().instabuild) {
+            stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
+        }
+
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
 }

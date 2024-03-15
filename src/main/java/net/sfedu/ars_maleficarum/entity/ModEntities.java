@@ -21,7 +21,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<PoisonousEssenceEntity>> POISONOUS_ESSENCE =
             ENTITY_TYPES.register("poisonous_essence", () -> EntityType.Builder.<PoisonousEssenceEntity>of(PoisonousEssenceEntity::new, MobCategory.MISC)
-                    .sized(1.0f, 1.0f).build("poisonous_essence"));
+                    .sized(0.5f, 0.5f).clientTrackingRange(4).updateInterval(20).build("poisonous_essence"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

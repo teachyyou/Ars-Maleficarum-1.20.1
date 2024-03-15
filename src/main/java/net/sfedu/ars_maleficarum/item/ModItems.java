@@ -68,7 +68,7 @@ public class ModItems {
     public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
-            ()->new Item(new Item.Properties()));
+            ()->new Item(new Item.Properties().durability(1024)));
 
     public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
             ()->new PoisonStaff(new Item.Properties()));
