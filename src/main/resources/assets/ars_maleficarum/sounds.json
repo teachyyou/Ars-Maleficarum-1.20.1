@@ -1,0 +1,8 @@
+{
+  "mushroom_cut": {
+    "subtitle": "sounds.ars_maleficarum.mushroom_cut",
+    "sounds": [
+        "ars_maleficarum:mushroom_cut1"
+    ]
+  }
+}

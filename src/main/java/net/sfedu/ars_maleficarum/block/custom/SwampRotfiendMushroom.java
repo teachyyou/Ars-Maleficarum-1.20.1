@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -32,6 +33,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 import java.io.PrintStream;
 
@@ -72,6 +74,8 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
         System.out.println(pLevel.isClientSide());
         if(!pLevel.isClientSide()  && pHand == InteractionHand.MAIN_HAND && pState.getValue(AGE) == 3 && pPlayer.getItemInHand(pHand).is(ModItems.FLINT_KNIFE.get()))
         {
+            pLevel.playSeededSound(null, pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.MUSHROOM_CUT.get(),
+                    SoundSource.BLOCKS,1f,1f,0);
             pLevel.setBlock(pPos,pState.setValue(AGE,0),2);
             pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                     ModItems.SWAMP_ROTFIEND_INGREDIENT.get())));

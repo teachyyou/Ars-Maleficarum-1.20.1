@@ -69,6 +69,9 @@ public class ModItems {
             ()->new Item(new Item.Properties()));
     public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
             ()->new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
+            ()->new PoisonStaff(new Item.Properties()));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
