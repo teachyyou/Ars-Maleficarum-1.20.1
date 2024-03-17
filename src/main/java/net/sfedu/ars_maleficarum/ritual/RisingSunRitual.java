@@ -26,6 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.ticks.ScheduledTick;
 import net.minecraft.world.ticks.TickPriority;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
@@ -37,30 +38,26 @@ import java.util.List;
 public class RisingSunRitual extends CircleRitual{
 
     public RisingSunRitual() {
-        components.put(Items.DIAMOND, 1);
-        components.put(Items.GOLD_INGOT, 1);
+        ticks=0;
+        ritualName="Rite of Rising Sun";
+        smallCircleType= RitualCoreEntity.CircleType.NATURAL;
+        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
+        largeCircleType= RitualCoreEntity.CircleType.NATURAL;
+        coreType= RitualCoreEntity.CircleType.NATURAL;
+        components.put(Items.DIAMOND, 2);
+        components.put(Items.GOLD_INGOT, 2);
         components.put(Items.NETHER_STAR, 1);
     }
 
-    private int ticks = 0;
-
-    private final String ritualName = "Rite of Rising Sun";
-
-    protected RitualCoreEntity.CircleType smallCircleType = RitualCoreEntity.CircleType.ANY;
-    protected RitualCoreEntity.CircleType mediumCircleType = RitualCoreEntity.CircleType.ANY;
-    protected RitualCoreEntity.CircleType largeCircleType = RitualCoreEntity.CircleType.WHITE;
-
-
-
     @Override
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
-        //TODO: реализовать адекватный цикл по удалению предметов, пока все нужные итемы не скушаются ритуалом, 20*components это фигня вообще
 
-        if (ticks < 20*components.size() && (ticks%20==0)) {
-            ItemEntity item = items.get(ticks/20);
 
+        if (!items.isEmpty() && (ticks%20==0)) {
+            ticks=0;
+            ItemEntity item = items.get(0);
+            items.remove(item);
             int amount = components.get(item.getItem().getItem());
-
             if (amount>=1) {
                 double d0 = item.position().x;
                 double d1 = item.position().y;
@@ -70,14 +67,14 @@ public class RisingSunRitual extends CircleRitual{
                 components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
                 item.getItem().shrink(toTake);
 
-            }
-            if ((items.size()-1)==(ticks/20)) items.clear();
+            } else return;
+
         }
         ticks++;
-        if (ticks >= 20*components.size() && ticks%20.0==0 && pPos!=null) {
+        if (items.isEmpty() && ticks%20.0==0 && pPos!=null) {
             EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pLevel, (ItemStack) null,null, pPos.relative(Direction.Axis.Z, 5-pLevel.random.nextInt(10)).relative(Direction.Axis.X, 5-pLevel.random.nextInt(10)), MobSpawnType.TRIGGERED,true,true);
         }
-        if (ticks/20.0 == 10.0) {
+        if (items.isEmpty() && (ticks/20.0 == 5)) {
             pLevel.getServer().getLevel(Level.OVERWORLD).setDayTime(13000);
             pPlayer.sendSystemMessage(Component.translatable("Voila!!"));
             ticks=0;

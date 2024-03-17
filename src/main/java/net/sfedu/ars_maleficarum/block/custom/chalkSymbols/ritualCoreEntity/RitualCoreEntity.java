@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -32,11 +33,13 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.CircleRitual;
 import net.sfedu.ars_maleficarum.ritual.RisingSunRitual;
+import org.apache.logging.log4j.core.Core;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +51,33 @@ public class RitualCoreEntity extends BlockEntity {
 
     public enum CircleType {WHITE,NETHER,ENDER,NATURAL,ANY};
 
+    public enum CircleColor implements StringRepresentable {WHITE,GREEN, /*RED, PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
+
+        @Override
+        public @NotNull String getSerializedName() {
+            switch (this) {
+                case WHITE -> {
+                    return "white";
+                }
+                case GREEN -> {
+                    return "green";
+                }
+                /* TODO: добавить остальные по мере реализации
+                case RED -> {
+                    return "red";
+                }
+                case PURPLE -> {
+                    return "purple";
+                }
+                case BLACK -> {
+                    return "black";
+                }
+                */
+            }
+            return "";
+        }
+    };
+
 
     public boolean hasProperSmallCircle;
     public CircleType smallCircle;
@@ -55,6 +85,9 @@ public class RitualCoreEntity extends BlockEntity {
     public CircleType mediumCircle;
     public boolean hasProperLargeCircle;
     public CircleType largeCircle;
+
+    public boolean hasProperCore;
+    public CircleType core;
 
     private CircleRitual ritual;
     private Player player;
@@ -67,6 +100,7 @@ public class RitualCoreEntity extends BlockEntity {
     private CircleType currentSmallType = CircleType.WHITE;
     private CircleType currentMediumType = CircleType.WHITE;
     private CircleType currentLargeType = CircleType.WHITE;
+    private CircleType currentCoreType = CircleType.WHITE;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
@@ -216,6 +250,7 @@ public class RitualCoreEntity extends BlockEntity {
         return CircleType.ANY;
     }
 
+    //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
     private boolean checkForGlyphType(Level pLevel, BlockPos pPos, CircleType type) {
         Block toCheck = Blocks.AIR;
         if (type != CircleType.ANY) {
@@ -246,12 +281,40 @@ public class RitualCoreEntity extends BlockEntity {
         }
         return false;
     }
+
+    public boolean checkForCore(Level pLevel, BlockPos pPos, CircleType type) {
+        CircleColor CoreColor = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
+        switch (type) {
+            case WHITE -> {
+                if (CoreColor==CircleColor.WHITE) {
+                    hasProperCore = true;
+                    core = CircleType.WHITE;
+                    return true;
+                }
+            }
+            case NATURAL -> {
+                if (CoreColor==CircleColor.GREEN) {
+                    hasProperCore = true;
+                    core = CircleType.NATURAL;
+                    return true;
+                }
+            }
+            case ANY -> {
+                hasProperCore = true;
+                return true;
+            }
+        }
+        hasProperCore = false;
+        return false;
+    }
     public boolean checkForCircles(Level pLevel, BlockPos pPos) {
         checkForSmallCircle(pLevel, pPos, currentSmallType);
         checkForMediumCircle(pLevel, pPos, currentMediumType);
         checkForLargeCircle(pLevel, pPos, currentLargeType);
         checkForJoints(pLevel, pPos);
-        hasAllProperCircles = hasProperSmallCircle && hasProperMediumCircle && hasProperLargeCircle && hasAllProperJoints;
+        checkForCore(pLevel, pPos, currentCoreType);
+        hasAllProperCircles = hasProperSmallCircle && hasProperMediumCircle && hasProperLargeCircle && hasAllProperJoints && hasProperCore;
+        if (!hasAllProperCircles && executingRitual) executingRitual = false;
         return hasAllProperCircles;
     }
     private boolean canSurvive(Level pLevel, BlockPos pPos) {
@@ -270,6 +333,7 @@ public class RitualCoreEntity extends BlockEntity {
         return executingRitual;
     }
 
+
     public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
 
         //TODO: каким-то магическим образом засунуть в ritual желаемый ритуал и сунуть в container все предметы, что лежат в кругу
@@ -277,6 +341,7 @@ public class RitualCoreEntity extends BlockEntity {
 
 
         List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
+        //items.get(0).
         SimpleContainer container = new SimpleContainer(items.size());
         for (ItemEntity item : items) {
             container.addItem(item.getItem());
@@ -288,6 +353,7 @@ public class RitualCoreEntity extends BlockEntity {
         currentSmallType=ritual.getSmallCircleType();
         currentMediumType=ritual.getMediumCircleType();
         currentLargeType=ritual.getLargeCircleType();
+        currentCoreType=ritual.getCoreType();
         if (checkForCircles(pLevel, pPos) && ritual.doesMatch(container)) {
             executingRitual = true;
             player = pPlayer;

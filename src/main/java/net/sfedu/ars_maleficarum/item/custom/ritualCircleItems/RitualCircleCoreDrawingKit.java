@@ -7,9 +7,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 
 public class RitualCircleCoreDrawingKit extends Item {
 
@@ -17,12 +20,14 @@ public class RitualCircleCoreDrawingKit extends Item {
         super(pProperties);
     }
 
+    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.CircleColor.WHITE);
+
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if (!pContext.getLevel().isClientSide()) {
             System.out.println(canDraw(pContext));
             if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos()) && canDraw(pContext)) {
-                pContext.getLevel().setBlock(pContext.getClickedPos().above(), ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState(),3);
+                pContext.getLevel().setBlock(pContext.getClickedPos().above(), coreToDraw,3);
             }
             else {
                 return InteractionResult.FAIL;

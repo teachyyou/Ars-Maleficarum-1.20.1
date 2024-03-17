@@ -106,7 +106,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SWAMP_ROTFIEND_INGREDIENT);
 
         simpleItem(ModItems.CHALK_BRUSH);
-        simpleItem(ModItems.CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT);
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));

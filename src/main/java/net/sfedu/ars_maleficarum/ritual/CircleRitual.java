@@ -31,6 +31,9 @@ public abstract class CircleRitual {
     protected RitualCoreEntity.CircleType smallCircleType;
     protected RitualCoreEntity.CircleType mediumCircleType;
     protected RitualCoreEntity.CircleType largeCircleType;
+    protected RitualCoreEntity.CircleType coreType;
+
+    protected int ticks;
     protected Entity sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
@@ -65,6 +68,9 @@ public abstract class CircleRitual {
     }
     public RitualCoreEntity.CircleType getLargeCircleType() {
         return largeCircleType;
+    }
+    public RitualCoreEntity.CircleType getCoreType() {
+        return coreType;
     }
 
     public void addItemEntities(List<ItemEntity> input) {

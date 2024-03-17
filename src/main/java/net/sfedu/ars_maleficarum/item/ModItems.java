@@ -10,9 +10,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
-import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.GreenChalk;
-import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.RitualCircleCoreDrawingKit;
-import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.WhiteChalk;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
 
 public class ModItems {
 
@@ -180,8 +178,11 @@ public class ModItems {
     public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
             ()->new GreenChalk(new Item.Properties().durability(44)));
 
-    public static final RegistryObject<Item> CIRCLE_CORE_DRAWING_KIT = ITEMS.register("circle_core_drawing_kit",
-            ()->new RitualCircleCoreDrawingKit(new Item.Properties().durability(1)));
+    public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
+            ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
+            ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
 
     public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
             ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
