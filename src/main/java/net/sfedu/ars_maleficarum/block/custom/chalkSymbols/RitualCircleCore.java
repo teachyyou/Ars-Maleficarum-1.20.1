@@ -77,6 +77,8 @@ public class RitualCircleCore extends BaseEntityBlock {
         return SHAPE;
     }
 
+
+
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         return !this.canSurvive(pState, pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : pState;
     }
@@ -101,8 +103,10 @@ public class RitualCircleCore extends BaseEntityBlock {
                 RitualCoreEntity riteCore = (RitualCoreEntity) pLevel.getBlockEntity(pPos);
                 if (riteCore.isExecutingRitual()) {
                     riteCore.stopRitual();
-                } else {
+                } else try {
                     riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
+                } catch (Exception e) {
+                    System.out.println("something went wrong...");
                 }
 
             }

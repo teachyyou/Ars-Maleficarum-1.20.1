@@ -144,5 +144,7 @@
   "item.ars_maleficarum.golden_chalk": "Золотистый мел",
   "item.ars_maleficarum.chalk_brush": "Щётка",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "Набор для рисования: БЕЛЫЙ",
-  "item.ars_maleficarum.green_circle_core_drawing_kit": "Набор для рисования: ЗЕЛЕНЫЙ"
+  "item.ars_maleficarum.green_circle_core_drawing_kit": "Набор для рисования: ЗЕЛЕНЫЙ",
+
+  "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!"
 }

@@ -1,30 +1,29 @@
 package net.sfedu.ars_maleficarum.ritual;
 
-import it.unimi.dsi.fastutil.ints.IntLists;
+import com.mojang.blaze3d.shaders.Effect;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.Container;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 
-import javax.naming.Context;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class CircleRitual {
 
+
+    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class, RiteOfGrassBlockCreation.class);
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
 
@@ -33,12 +32,19 @@ public abstract class CircleRitual {
     protected RitualCoreEntity.CircleType largeCircleType;
     protected RitualCoreEntity.CircleType coreType;
 
-    protected int ticks;
+    protected boolean doesRequireSmallCircle;
+    protected boolean doesRequireMediumCircle;
+    protected boolean doesRequireLargeCircle;
+
+    protected boolean allComponentsConsumed = false;
+
+    protected SimpleParticleType particleType = ParticleTypes.WITCH;
+
+    protected int ticks = 0;
     protected Entity sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
 
-    protected List<ItemEntity> items = new LinkedList<ItemEntity>();
     protected Dimension dimension;
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {
@@ -59,6 +65,43 @@ public abstract class CircleRitual {
         return true;
     }
 
+    public void tryToContinue(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
+        try {
+            riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
+        } catch (Exception e) {
+            System.out.println("something went wrong...");
+        }
+    }
+
+    public void consumeComponents(Level pLevel, BlockPos pPos, RitualCoreEntity riteCore, Player pPlayer) {
+        if (ticks%20==0 && !allComponentsConsumed) {
+            for (Map.Entry<Item, Integer> requiredItem : components.entrySet()) {
+
+                int amount = requiredItem.getValue();
+                if (amount>=1) {
+                    try {
+                        ticks=0;
+                        ItemEntity item = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)))
+                                .stream().filter(x->x.getItem().is(requiredItem.getKey())).findAny().get();
+                        double d0 = item.position().x;
+                        double d1 = item.position().y;
+                        double d2 = item.position().z;
+                        //TODO: добавить ещё и звук
+                        ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,0.2);
+                        int toTake = Math.min(amount,item.getItem().getCount());
+                        components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
+                        item.getItem().shrink(toTake);
+                        break;
+                    } catch (NoSuchElementException e) {
+                        pPlayer.sendSystemMessage(Component.translatable("ritual.rite_interrupt_by_components"));
+                        riteCore.stopRitual();
+                    }
+                }
+            }
+            allComponentsConsumed=components.values().stream().allMatch(x->x==0);
+        }
+    }
+
 
     public RitualCoreEntity.CircleType getSmallCircleType() {
         return smallCircleType;
@@ -73,8 +116,14 @@ public abstract class CircleRitual {
         return coreType;
     }
 
-    public void addItemEntities(List<ItemEntity> input) {
-        items.addAll(input);
+    public boolean doesRequireSmallCircle() {
+        return doesRequireSmallCircle;
+    }
+    public boolean doesRequireMediumCircle() {
+        return doesRequireMediumCircle;
+    }
+    public boolean doesRequireLargeCircle() {
+        return doesRequireLargeCircle;
     }
 
 }
