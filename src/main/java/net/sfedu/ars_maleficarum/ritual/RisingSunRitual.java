@@ -75,11 +75,5 @@ public class RisingSunRitual extends CircleRitual{
 
 
 
-    @Override
-    public String toString() {
-        return "Rising Sun Ritual";
-    }
-
-
 
 }

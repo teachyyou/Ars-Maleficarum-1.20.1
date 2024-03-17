@@ -23,7 +23,7 @@ import java.util.*;
 public abstract class CircleRitual {
 
 
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class, RiteOfGrassBlockCreation.class);
+    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class, RiteOfGrassBlockCreation.class, RiteOfMoonlight.class);
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
 
@@ -100,6 +100,11 @@ public abstract class CircleRitual {
             }
             allComponentsConsumed=components.values().stream().allMatch(x->x==0);
         }
+    }
+
+    @Override
+    public String toString() {
+        return ritualName;
     }
 
 
