@@ -15,6 +15,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.*;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 
 import java.util.List;
 import java.util.function.Function;
@@ -91,8 +93,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
+        //simpleBlock(ModBlocks.RITUAL_CIRCLE_CORE.get(),new ModelFile.UncheckedModelFile(modLoc("block/ritual_circle_core")));
         //horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
         //new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
+        RitualCircleCore();
         horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
         horizontalBlock(ModBlocks.WOODEN_CAT_FIGURE.get(),
@@ -102,7 +106,45 @@ public class ModBlockStateProvider extends BlockStateProvider {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
+        chalkSymbol(ModBlocks.WHITE_CHALK_SYMBOL.get(), "white");
+        chalkSymbol(ModBlocks.GREEN_CHALK_SYMBOL.get(),"green");
+
     }
+
+//    private void RitualCircleCore() {
+//        getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get())
+//                .forAllStates(state->ConfiguredModel.builder()
+//                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/ritual_circle_core")))
+//                        .build());
+//    }
+
+    public void RitualCircleCore() {
+        Function<BlockState, ConfiguredModel[]> function = this::circleCoreTypes;
+        getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get()).forAllStates(function);
+    }
+
+    private ConfiguredModel[] circleCoreTypes(BlockState state) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        String type = state.getValue(RitualCircleCore.CIRCLETYPE).getSerializedName();
+        models[0]=new ConfiguredModel(models().withExistingParent(type+"_ritual_circle_core",ArsMaleficarum.MOD_ID+":block/ritual_circle_core")
+                .texture("1","block/"+type+"_circle_core_texture")
+                .texture("particle","block/"+type+"_circle_core_texture"));
+        return models;
+    }
+    /*
+    public void makeSageCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> sageStates(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    //Массив всех стадий роста шалфея
+    private ConfiguredModel[] sageStates(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((SageCropBlock) block).getAgeProperty()),
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
+        return models;
+    }*/
 
     private void coloredInfusingAltar() {
         List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
@@ -112,7 +154,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
                         .build()
                 );
+    }
 
+    public void chalkSymbol(Block symbol, String chalk_color) {
+        getVariantBuilder(symbol)
+                .forAllStates(state->ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/" + chalk_color + "_chalk_symbol"+state.getValue(ChalkSymbol.VARIANT))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()+180)%360)
+                        .build()
+                );
     }
 
     private void SwampRotfiendMushroom() {

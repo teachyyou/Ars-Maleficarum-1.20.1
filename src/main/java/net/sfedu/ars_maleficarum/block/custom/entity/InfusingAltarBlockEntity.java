@@ -146,7 +146,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     @Override
     public void onLoad() {
         super.onLoad();
-
         lazyItemHandler = LazyOptional.of(()->itemHandler);
     }
 
