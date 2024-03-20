@@ -1,242 +1,962 @@
 {
   "variants": {
-    "boiling=false,facing=east,fuel=0,lit=false": {
+    "boiling=false,facing=east,fuel=0,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=0,lit=true": {
+    "boiling=false,facing=east,fuel=0,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=1,lit=false": {
+    "boiling=false,facing=east,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=1,lit=true": {
+    "boiling=false,facing=east,fuel=1,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=2,lit=false": {
+    "boiling=false,facing=east,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=2,lit=true": {
+    "boiling=false,facing=east,fuel=2,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=3,lit=false": {
+    "boiling=false,facing=east,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 90
     },
-    "boiling=false,facing=east,fuel=3,lit=true": {
+    "boiling=false,facing=east,fuel=3,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 90
     },
-    "boiling=false,facing=north,fuel=0,lit=false": {
+    "boiling=false,facing=east,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=east,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=false,facing=north,fuel=0,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_0"
     },
-    "boiling=false,facing=north,fuel=0,lit=true": {
+    "boiling=false,facing=north,fuel=0,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_0"
     },
-    "boiling=false,facing=north,fuel=1,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1"
-    },
-    "boiling=false,facing=north,fuel=1,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1"
-    },
-    "boiling=false,facing=north,fuel=2,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2"
-    },
-    "boiling=false,facing=north,fuel=2,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2"
-    },
-    "boiling=false,facing=north,fuel=3,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3"
-    },
-    "boiling=false,facing=north,fuel=3,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3"
-    },
-    "boiling=false,facing=south,fuel=0,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=0,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=1,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=1,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=2,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=2,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=3,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 180
-    },
-    "boiling=false,facing=south,fuel=3,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 180
-    },
-    "boiling=false,facing=west,fuel=0,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=0,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=1,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=1,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=2,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=2,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=3,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 270
-    },
-    "boiling=false,facing=west,fuel=3,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 270
-    },
-    "boiling=true,facing=east,fuel=0,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=0,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_0",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=1,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=1,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_1",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=2,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=2,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_2",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=3,lit=false": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 90
-    },
-    "boiling=true,facing=east,fuel=3,lit=true": {
-      "model": "ars_maleficarum:block/brewing_cauldron_3",
-      "y": 90
-    },
-    "boiling=true,facing=north,fuel=0,lit=false": {
+    "boiling=false,facing=north,fuel=0,lit=false,water=2": {
       "model": "ars_maleficarum:block/brewing_cauldron_0"
     },
-    "boiling=true,facing=north,fuel=0,lit=true": {
+    "boiling=false,facing=north,fuel=0,lit=false,water=3": {
       "model": "ars_maleficarum:block/brewing_cauldron_0"
     },
-    "boiling=true,facing=north,fuel=1,lit=false": {
+    "boiling=false,facing=north,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=false,facing=north,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=false,facing=north,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=false,facing=north,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=false,facing=north,fuel=1,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_1"
     },
-    "boiling=true,facing=north,fuel=1,lit=true": {
+    "boiling=false,facing=north,fuel=1,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_1"
     },
-    "boiling=true,facing=north,fuel=2,lit=false": {
+    "boiling=false,facing=north,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=false,facing=north,fuel=2,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_2"
     },
-    "boiling=true,facing=north,fuel=2,lit=true": {
+    "boiling=false,facing=north,fuel=2,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_2"
     },
-    "boiling=true,facing=north,fuel=3,lit=false": {
+    "boiling=false,facing=north,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=false,facing=north,fuel=3,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_3"
     },
-    "boiling=true,facing=north,fuel=3,lit=true": {
+    "boiling=false,facing=north,fuel=3,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_3"
     },
-    "boiling=true,facing=south,fuel=0,lit=false": {
+    "boiling=false,facing=north,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=north,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=north,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=north,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=north,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=north,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=false,facing=south,fuel=0,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=0,lit=true": {
+    "boiling=false,facing=south,fuel=0,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=1,lit=false": {
+    "boiling=false,facing=south,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=1,lit=true": {
+    "boiling=false,facing=south,fuel=1,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=2,lit=false": {
+    "boiling=false,facing=south,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=2,lit=true": {
+    "boiling=false,facing=south,fuel=2,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=3,lit=false": {
+    "boiling=false,facing=south,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 180
     },
-    "boiling=true,facing=south,fuel=3,lit=true": {
+    "boiling=false,facing=south,fuel=3,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 180
     },
-    "boiling=true,facing=west,fuel=0,lit=false": {
+    "boiling=false,facing=south,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=south,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=false,facing=west,fuel=0,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=0,lit=true": {
+    "boiling=false,facing=west,fuel=0,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_0",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=1,lit=false": {
+    "boiling=false,facing=west,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=1,lit=true": {
+    "boiling=false,facing=west,fuel=1,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_1",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=2,lit=false": {
+    "boiling=false,facing=west,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=2,lit=true": {
+    "boiling=false,facing=west,fuel=2,lit=false,water=1": {
       "model": "ars_maleficarum:block/brewing_cauldron_2",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=3,lit=false": {
+    "boiling=false,facing=west,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=false,water=0": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 270
     },
-    "boiling=true,facing=west,fuel=3,lit=true": {
+    "boiling=false,facing=west,fuel=3,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=false,facing=west,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=east,fuel=0,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=east,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 90
+    },
+    "boiling=true,facing=north,fuel=0,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0"
+    },
+    "boiling=true,facing=north,fuel=1,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1"
+    },
+    "boiling=true,facing=north,fuel=2,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2"
+    },
+    "boiling=true,facing=north,fuel=3,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=north,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3"
+    },
+    "boiling=true,facing=south,fuel=0,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=south,fuel=3,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 180
+    },
+    "boiling=true,facing=west,fuel=0,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=0,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_0",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=1,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_1",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=2,lit=true,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_2",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=false,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=false,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=false,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=false,water=3": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=true,water=0": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=true,water=1": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=true,water=2": {
+      "model": "ars_maleficarum:block/brewing_cauldron_3",
+      "y": 270
+    },
+    "boiling=true,facing=west,fuel=3,lit=true,water=3": {
       "model": "ars_maleficarum:block/brewing_cauldron_3",
       "y": 270
     }

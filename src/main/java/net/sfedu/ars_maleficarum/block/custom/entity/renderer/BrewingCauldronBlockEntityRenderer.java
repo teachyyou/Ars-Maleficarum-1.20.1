@@ -2,27 +2,23 @@ package net.sfedu.ars_maleficarum.block.custom.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
-import net.sfedu.ars_maleficarum.block.custom.InfusingAltarBlock;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
+
+import static net.sfedu.ars_maleficarum.block.custom.entity.renderer.rendertypes.CustomRenderTypes.CAULDRON_WATER;
 
 public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<BrewingCauldronBlockEntity> {
 
@@ -43,7 +39,7 @@ public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<B
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(stillTexture);
         int tintColor = fluidTypeExtensions.getTintColor(state, level, pos);
 
-        VertexConsumer builder = pBuffer.getBuffer(ItemBlockRenderTypes.getRenderLayer(state));
+        VertexConsumer builder = pBuffer.getBuffer(CAULDRON_WATER);
 
         float height = 0.188f+0.125f*pBlockEntity.getBlockState().getValue(BrewingCauldronBlock.WATER);
         drawQuad(builder, pPoseStack, 0.125f, height, 0.125f, 0.875f, height, 0.875f, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), pPackedLight, tintColor);
@@ -64,4 +60,6 @@ public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<B
         drawVertex(builder, poseStack, x1, y1, z1, u1, v1, packedLight, color);
         drawVertex(builder, poseStack, x1, y0, z0, u1, v0, packedLight, color);
     }
+
+
 }

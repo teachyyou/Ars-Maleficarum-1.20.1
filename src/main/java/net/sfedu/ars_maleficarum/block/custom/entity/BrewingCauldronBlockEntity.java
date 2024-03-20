@@ -137,6 +137,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
+
     }
 
     // Пытается забрать предметы в определённой зоне
