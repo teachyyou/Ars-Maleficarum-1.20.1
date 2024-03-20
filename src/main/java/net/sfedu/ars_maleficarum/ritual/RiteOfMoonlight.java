@@ -45,13 +45,13 @@ public class RiteOfMoonlight extends CircleRitual{
         }
         consumeComponents(pLevel,pPos,riteCore, pPlayer);
         ticks++;
-        if (allComponentsConsumed && ticks%5.0==0 && pPos!=null) {
+        if (allComponentsConsumed && pPos!=null) {
             ParticleOptions particle = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(Items.SEA_LANTERN));
             double d0 = pPos.getCenter().x;
             double d1 = pPos.getCenter().y+20-(ticks/5);
             double d2 = pPos.getCenter().z;
             //TODO: добавить ещё и звук
-            ((ServerLevel)pLevel).sendParticles(particle, d0, d1, d2, 100, 0,0.5D,0,0.1);
+            ((ServerLevel)pLevel).sendParticles(ParticleTypes.WAX_OFF, d0, d1, d2, 50, 0,0.5D,0,0.5);
 
         }
         if (allComponentsConsumed && ticks/20.0 == 5) {
@@ -59,7 +59,7 @@ public class RiteOfMoonlight extends CircleRitual{
             double d0 = pPos.getCenter().x;
             double d1 = pPos.getCenter().y;
             double d2 = pPos.getCenter().z;
-            ((ServerLevel)pLevel).sendParticles(particle, d0, d1, d2, 100, 0,0.5D,0,0.1);
+            ((ServerLevel)pLevel).sendParticles(ParticleTypes.WAX_OFF, d0, d1, d2, 50, 0,0.5D,0,0.5);
             pLevel.addFreshEntity(new ItemEntity(pLevel, d0, d1, d2, new ItemStack(ModItems.MOONLIGHT_FLOWER_SEED.get(),1)));
             pPlayer.sendSystemMessage(Component.translatable(ritualName));
             ticks=0;
