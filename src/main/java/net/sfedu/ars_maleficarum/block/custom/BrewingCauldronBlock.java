@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -11,13 +12,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.FlintAndSteelItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -58,12 +59,14 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
     public static final BooleanProperty BOILING = BooleanProperty.create("boiling");
     public static final IntegerProperty FUEL = IntegerProperty.create("fuel", 0, 3);
+    public static final IntegerProperty WATER = IntegerProperty.create("water", 0, 3);
     public BrewingCauldronBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(LIT, false)
                 .setValue(BOILING, false)
-                .setValue(FUEL, 0));
+                .setValue(FUEL, 0)
+                .setValue(WATER, 0));
     }
 
     @Nullable
@@ -94,6 +97,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
         pBuilder.add(LIT);
         pBuilder.add(BOILING);
         pBuilder.add(FUEL);
+        pBuilder.add(WATER);
     }
 
 
@@ -138,7 +142,42 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                     if (blockentity.addFuel(pState, pLevel, pPos)) itemstack.setCount(itemstack.getCount()-1);
                 }
             }
-
+            else if (itemstack.getItem() == Items.BUCKET)
+            {
+                if (blockentity != null)
+                {
+                    if (pState.getValue(WATER) == 3)
+                    {
+                        pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
+                        pLevel.setBlock(pPos, pState.setValue(WATER, 0), 3);
+                        pPlayer.setItemInHand(pHand, new ItemStack(Items.WATER_BUCKET));
+                    }
+                }
+            }
+            else if (itemstack.getItem() == Items.WATER_BUCKET)
+            {
+                if (blockentity != null)
+                {
+                    if (pState.getValue(WATER) == 0)
+                    {
+                        pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
+                        pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
+                        pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
+                    }
+                }
+            }
+            else if (itemstack.getItem() == Items.GLASS_BOTTLE)
+            {
+                if (blockentity != null)
+                {
+                    if (pState.getValue(WATER) > 0)
+                    {
+                        pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+                        pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
+                        pPlayer.setItemInHand(pHand, new ItemStack(Items.POTION));
+                    }
+                }
+            }
         }
 
         return InteractionResult.SUCCESS;
@@ -163,10 +202,10 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        double dx = pPos.getX();
+        double dy = pPos.getY();
+        double dz = pPos.getZ();
         if (pState.getValue(LIT)) {
-            double dx = pPos.getX();
-            double dy = pPos.getY();
-            double dz = pPos.getZ();
             pLevel.addParticle(ParticleTypes.FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
             pLevel.addParticle(ParticleTypes.FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
             pLevel.addParticle(ParticleTypes.SMALL_FLAME, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D), dy + (pRandom.nextDouble()-0.5D)/10D+0.11D,dz+0.5D+(pRandom.nextDouble()/3D-0.166D), (pRandom.nextDouble()-0.5D)/35D, 0D, (pRandom.nextDouble()-0.5D)/35D);
@@ -176,6 +215,13 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
         }
         if (pState.getValue(BOILING))
         {
+            float height = (float) (0.188f+0.125f*pState.getValue(BrewingCauldronBlock.WATER)+dy);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
+            pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, height,dz+0.5D+(pRandom.nextDouble()/3D-0.166D)*1.2f, 0, 0.04f, 0);
             if (pRandom.nextDouble() < 0.1F) {
                 pLevel.playLocalSound(pPos, SoundEvents.BUBBLE_COLUMN_UPWARDS_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }

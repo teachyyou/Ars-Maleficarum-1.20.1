@@ -66,6 +66,8 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private final int maxTemperature = 1500;
     private final int maxFuel = 1300;
 
+
+
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -158,13 +160,14 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     {
         if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < maxTemperature)
         {
-            temperature++;
+            temperature+=2;
             fuelLevel--;
         }
         else if (!pState.getValue(BrewingCauldronBlock.LIT) && (temperature > 0))
         {
             temperature--;
         }
+        if (pState.getValue(BrewingCauldronBlock.WATER)==0) temperature = 0;
     }
 
     private void blockStatesChange(Level level, BlockPos pPos, BlockState pState)
