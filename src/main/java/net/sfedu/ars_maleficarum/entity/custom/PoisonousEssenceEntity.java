@@ -205,7 +205,6 @@ public class PoisonousEssenceEntity extends Projectile {
             }
             return true;
         }
-
         return false;
     }
 }
