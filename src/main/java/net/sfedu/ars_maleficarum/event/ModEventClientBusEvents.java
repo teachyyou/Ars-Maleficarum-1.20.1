@@ -7,6 +7,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.block.custom.entity.renderer.InfusingAltarBlockEntityRenderer;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
+import net.sfedu.ars_maleficarum.entity.client.PoisonousEssenceRender;
 
 @Mod.EventBusSubscriber(modid = ArsMaleficarum.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD,value= Dist.CLIENT)
 public class ModEventClientBusEvents {
