@@ -1,42 +1,21 @@
 package net.sfedu.ars_maleficarum.ritual;
 
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.Position;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.ai.util.DefaultRandomPos;
-import net.minecraft.world.entity.ai.util.RandomPos;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.ticks.ScheduledTick;
-import net.minecraft.world.ticks.TickPriority;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
-import javax.naming.Context;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-
-public class RisingSunRitual extends CircleRitual{
+public class RisingSunRitual extends CircleRitual {
 
     public RisingSunRitual() {
         ritualName="Rite of Rising Sun";

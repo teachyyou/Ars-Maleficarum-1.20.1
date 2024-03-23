@@ -1,29 +1,43 @@
-package net.sfedu.ars_maleficarum.ritual;
+package net.sfedu.ars_maleficarum.ritual.ritualTemplates;
 
-import com.mojang.blaze3d.shaders.Effect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
+import net.sfedu.ars_maleficarum.ritual.*;
+import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering;
+import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
+import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
 
 import java.util.*;
 
 public abstract class CircleRitual {
 
 
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class, RiteOfGrassBlockCreation.class, RiteOfMoonlight.class);
+    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class,
+            RiteOfGrassBlockCreation.class,
+            RiteOfMoonlight.class,
+            GreatRiteOfEmpowering.class,
+            GreatRiteOfSwiftness.class,
+            WeakRiteOfEmpowering.class,
+            WeakRiteOfSwiftness.class,
+            SettingSunRitual.class
+    );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
 
@@ -65,6 +79,20 @@ public abstract class CircleRitual {
         return true;
     }
 
+    public boolean hasNoBlocksAbove3x3(Level pLevel, BlockPos pPos) {
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j<=1; j++) {
+                for (int h = 1; h <320; h++) {
+                    if (!pLevel.getBlockState(pPos.relative(Direction.Axis.X,i).relative(Direction.Axis.Z,j).above(h)).is(Blocks.AIR)) {
+                        System.out.println(pPos.relative(Direction.Axis.X,i).relative(Direction.Axis.Z,j).above(h));
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     public void tryToContinue(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
         try {
             riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
@@ -91,6 +119,7 @@ public abstract class CircleRitual {
                         int toTake = Math.min(amount,item.getItem().getCount());
                         components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
                         item.getItem().shrink(toTake);
+                        pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS,1F,1F);
                         break;
                     } catch (NoSuchElementException e) {
                         pPlayer.sendSystemMessage(Component.translatable("ritual.rite_interrupt_by_components"));

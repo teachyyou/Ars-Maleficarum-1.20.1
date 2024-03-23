@@ -1,15 +1,11 @@
 package net.sfedu.ars_maleficarum.ritual;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +15,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
-public class RiteOfGrassBlockCreation extends CircleRitual{
+public class RiteOfGrassBlockCreation extends CircleRitual {
 
     public RiteOfGrassBlockCreation() {
         ritualName="Rite of Nature's Awakening";
@@ -36,8 +33,6 @@ public class RiteOfGrassBlockCreation extends CircleRitual{
         doesRequireLargeCircle=false;
         doesRequireMediumCircle=true;
         doesRequireSmallCircle=true;
-
-        ;
     }
 
     @Override
@@ -66,10 +61,5 @@ public class RiteOfGrassBlockCreation extends CircleRitual{
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
         }
     }
-
-
-
-
-
 
 }
