@@ -23,6 +23,8 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 
 import java.util.*;
 
@@ -36,7 +38,9 @@ public abstract class CircleRitual {
             GreatRiteOfSwiftness.class,
             WeakRiteOfEmpowering.class,
             WeakRiteOfSwiftness.class,
-            SettingSunRitual.class
+            SettingSunRitual.class,
+            RiteOfPoisonStaffRepairWithAliveLarva.class,
+            RiteOfPoisonStaffRepair.class
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
