@@ -1,7 +1,5 @@
 package net.sfedu.ars_maleficarum.item;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,6 +10,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
 
 public class ModItems {
 
@@ -179,6 +178,21 @@ public class ModItems {
             ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x7e9680,0xc5d1c5,new Item.Properties()));
+
+    public static final RegistryObject<Item> WHITE_CHALK = ITEMS.register("white_chalk",
+            ()->new WhiteChalk(new Item.Properties().durability(44)));
+
+    public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
+            ()->new GreenChalk(new Item.Properties().durability(44)));
+
+    public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
+            ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
+            ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
+            ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

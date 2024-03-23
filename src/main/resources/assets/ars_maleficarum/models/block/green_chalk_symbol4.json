@@ -1,0 +1,6 @@
+{
+  "parent": "ars_maleficarum:block/chalk_symbol",
+  "textures": {
+    "particle": "ars_maleficarum:block/green_chalk_symbol_4"
+  }
+}
