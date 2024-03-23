@@ -4,5 +4,11 @@
     "sounds": [
         "ars_maleficarum:mushroom_cut1"
     ]
+  },
+  "mandrake_scream": {
+    "subtitle": "sounds.ars_maleficarum.mandrake_scream",
+    "sounds": [
+      "ars_maleficarum:mandrake_scream1"
+    ]
   }
 }
