@@ -53,6 +53,12 @@
   "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
   "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate",
 
+  "block.ars_maleficarum.kramer_sapling": "Kramer's Tree Sapling",
+  "block.ars_maleficarum.kramer_tree_log": "Kramer's Tree Log",
+  "block.ars_maleficarum.kramer_tree_wood": "Kramer's Tree Wood",
+  "block.ars_maleficarum.kramer_tree_planks": "Kramer's Tree Planks",
+  "block.ars_maleficarum.kramer_tree_leaves": "Kramer's Tree Leaves",
+
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
   "item.ars_maleficarum.empty_seal": "Empty Seal",

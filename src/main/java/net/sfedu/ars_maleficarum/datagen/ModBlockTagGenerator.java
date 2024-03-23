@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.util.ModTags;
@@ -55,13 +56,19 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.NAMELESS_TREE_LOG.get())
                 .add(ModBlocks.NAMELESS_TREE_WOOD.get());
 
+        this.tag(BlockTags.LOGS)
+                .add(ModBlocks.KRAMER_TREE_LOG.get())
+                .add(ModBlocks.KRAMER_TREE_WOOD.get());
+
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get())
-                .add(ModBlocks.NAMELESS_TREE_PLANKS.get());
+                .add(ModBlocks.NAMELESS_TREE_PLANKS.get())
+                .add(ModBlocks.KRAMER_TREE_PLANKS.get());
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.NAMELESS_TREE_LEAVES.get())
                 .add(ModBlocks.ROWAN_BERRIES_LEAVES.get())
-                .add(ModBlocks.ROWAN_LEAVES.get());
+                .add(ModBlocks.ROWAN_LEAVES.get())
+                .add(ModBlocks.KRAMER_TREE_LEAVES.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ModBlocks.SALT_BLOCK.get());

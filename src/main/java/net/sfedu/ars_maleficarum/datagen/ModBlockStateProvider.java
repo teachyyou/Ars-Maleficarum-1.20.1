@@ -80,6 +80,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.NAMELESS_TREE_SLAB);
         blockItem(ModBlocks.NAMELESS_TREE_FENCE_GATE);
 
+        logBlock((RotatedPillarBlock) ModBlocks.KRAMER_TREE_LOG.get());
+        axisBlock((RotatedPillarBlock) ModBlocks.KRAMER_TREE_WOOD.get(), blockTexture(ModBlocks.KRAMER_TREE_LOG.get()), blockTexture(ModBlocks.KRAMER_TREE_LOG.get()));
+
+        blockItem(ModBlocks.KRAMER_TREE_LOG);
+        blockItem(ModBlocks.KRAMER_TREE_WOOD);
+        leavesBlock(ModBlocks.KRAMER_TREE_LEAVES);
+        blockWithItem(ModBlocks.KRAMER_TREE_PLANKS);
+        saplingBlock(ModBlocks.KRAMER_SAPLING);
+
 
         makeSunlight_Flower_Crop(((CropBlock) ModBlocks.SUNLIGHT_FLOWER_CROP.get()), "sunlight_flower_stage_", "sunlight_flower_stage_");
         makeMoonlight_Flower_Crop(((CropBlock) ModBlocks.MOONLIGHT_FLOWER_CROP.get()), "moonlight_flower_stage_", "moonlight_flower_stage_");
@@ -93,9 +102,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
-        //simpleBlock(ModBlocks.RITUAL_CIRCLE_CORE.get(),new ModelFile.UncheckedModelFile(modLoc("block/ritual_circle_core")));
-        //horizontalBlock(ModBlocks.INFUSING_ALTAR.get(),
-        //new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar")));
         RitualCircleCore();
         horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
@@ -111,13 +117,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-//    private void RitualCircleCore() {
-//        getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get())
-//                .forAllStates(state->ConfiguredModel.builder()
-//                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/ritual_circle_core")))
-//                        .build());
-//    }
-
     public void RitualCircleCore() {
         Function<BlockState, ConfiguredModel[]> function = this::circleCoreTypes;
         getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get()).forAllStates(function);
@@ -131,20 +130,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .texture("particle","block/"+type+"_circle_core_texture"));
         return models;
     }
-    /*
-    public void makeSageCrop(CropBlock block, String modelName, String textureName) {
-        Function<BlockState, ConfiguredModel[]> function = state -> sageStates(state, block, modelName, textureName);
-
-        getVariantBuilder(block).forAllStates(function);
-    }
-
-    //Массив всех стадий роста шалфея
-    private ConfiguredModel[] sageStates(BlockState state, CropBlock block, String modelName, String textureName) {
-        ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((SageCropBlock) block).getAgeProperty()),
-                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
-        return models;
-    }*/
 
     private void coloredInfusingAltar() {
         List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");

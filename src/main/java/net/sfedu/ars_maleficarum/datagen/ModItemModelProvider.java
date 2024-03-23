@@ -43,6 +43,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLINT_KNIFE);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        saplingItem(ModBlocks.KRAMER_SAPLING);
         saplingItem(ModBlocks.NAMELESS_TREE_SAPLING);
 
         simpleItem(ModItems.ROWAN_BERRIES);

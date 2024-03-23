@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "ars_maleficarum:block/kramer_tree_log",
+    "side": "ars_maleficarum:block/kramer_tree_log"
+  }
+}

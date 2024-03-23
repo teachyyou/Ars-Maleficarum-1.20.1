@@ -118,7 +118,6 @@ public abstract class CircleRitual {
                         double d0 = item.position().x;
                         double d1 = item.position().y;
                         double d2 = item.position().z;
-                        //TODO: добавить ещё и звук
                         ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,0.2);
                         int toTake = Math.min(amount,item.getItem().getCount());
                         components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);

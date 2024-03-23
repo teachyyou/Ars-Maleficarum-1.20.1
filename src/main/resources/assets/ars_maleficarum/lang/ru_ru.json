@@ -42,6 +42,12 @@
   "block.ars_maleficarum.rowan_fence": "Забор из рябины",
   "block.ars_maleficarum.rowan_fence_gate": "Ворота из рябины",
 
+  "block.ars_maleficarum.kramer_sapling": "Саженец древа Крамера",
+  "block.ars_maleficarum.kramer_tree_log": "Древесина древа Крамера",
+  "block.ars_maleficarum.kramer_tree_wood": "Древо Крамера",
+  "block.ars_maleficarum.kramer_tree_planks": "Доски из древа Крамера",
+  "block.ars_maleficarum.kramer_tree_leaves": "Листья древа Крамера",
+
   "block.ars_maleficarum.nameless_tree_log": "Древесина Безымянного древа",
   "block.ars_maleficarum.nameless_tree_planks": "Доски из Безымянного древа",
   "block.ars_maleficarum.nameless_tree_wood": "Безымянное древо",
@@ -52,6 +58,8 @@
   "block.ars_maleficarum.nameless_tree_fence": "Забор из безымянного дерева",
   "block.ars_maleficarum.nameless_tree_fence_gate": "Ворота из безымянного дерева",
   "item.ars_maleficarum.swamp_rotfiend_ingredient_item": "Болотный Гнилец",
+
+
 
   "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
 

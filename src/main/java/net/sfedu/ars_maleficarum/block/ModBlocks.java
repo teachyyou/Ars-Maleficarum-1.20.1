@@ -175,6 +175,30 @@ public class ModBlocks {
                     return 30;
                 }
             });
+
+    public static final RegistryObject<Block> KRAMER_TREE_LOG= registerBlock("kramer_tree_log",
+            () -> new ModRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
+    public static final RegistryObject<Block> KRAMER_TREE_WOOD = registerBlock("kramer_tree_wood",
+            () -> new ModRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
+    public static final RegistryObject<Block> KRAMER_TREE_PLANKS = registerBlock("kramer_tree_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return false;
+                }
+
+            });
+    public static final RegistryObject<Block> KRAMER_TREE_LEAVES = registerBlock("kramer_tree_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return false;
+                }
+            });
+
+    //TODO: НЕ ЗАБЫТЬ ПОМЕНЯТЬ GROWER
+    public static final RegistryObject<Block> KRAMER_SAPLING = registerBlock("kramer_sapling",
+            () -> new SaplingBlock(new RowanTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
             () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
 

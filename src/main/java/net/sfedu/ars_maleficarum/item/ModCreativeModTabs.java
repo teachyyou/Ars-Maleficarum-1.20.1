@@ -134,6 +134,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
 
+                        pOutput.accept(ModBlocks.KRAMER_TREE_LOG.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_WOOD.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
+                        pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
+
 
                     }))
                     .build());
