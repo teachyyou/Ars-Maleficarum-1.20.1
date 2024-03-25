@@ -3,6 +3,7 @@ package net.sfedu.ars_maleficarum.block.custom;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -43,6 +44,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class BrewingCauldronBlock extends BaseEntityBlock {
@@ -188,7 +190,8 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         if (pLevel.isClientSide())
         {
-            return null;
+            return createTickerHelper(pBlockEntityType, ModBlockEntities.BREWING_CAULDRON_BE.get(),
+                    (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.clientTick(pLevel1, pPos, pState1));
         }
         return createTickerHelper(pBlockEntityType, ModBlockEntities.BREWING_CAULDRON_BE.get(),
                 (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
@@ -213,20 +216,20 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                 pLevel.playLocalSound(pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }
         }
-        if (pState.getValue(BOILING))
+        /*if (pState.getValue(BOILING))
         {
             float height = (float) (0.188f+0.125f*pState.getValue(BrewingCauldronBlock.WATER)+dy);
             for (int i = 0; i < 10; i++) {
                 double rx = pRandom.nextDouble();
                 double rz = pRandom.nextDouble();
-                //pLevel.addParticle(ParticleTypes.BUBBLE, true, dx+0.5D+(rx/3D-0.166D)*1.2f, height,dz+0.5D+(rz/3D-0.166D)*1.2f, 0, -0.5f, 0);
-                pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(rx/3D-0.166D)*1.2f, height,dz+0.5D+(rz/3D-0.166D)*1.2f, 0, 0, 0);
+                //pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(rx/3D-0.166D)*1.2f, height,dz+0.5D+(rz/3D-0.166D)*1.2f, 0, 0, 0);
             }
 //
             if (pRandom.nextDouble() < 0.2F) {
                 pLevel.playLocalSound(pPos, SoundEvents.BUBBLE_COLUMN_WHIRLPOOL_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }
-        }
+        }*/
+
     }
 
     //endregion BlockEntity

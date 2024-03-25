@@ -2,9 +2,11 @@ package net.sfedu.ars_maleficarum.block.custom.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
@@ -33,6 +35,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 
@@ -62,6 +65,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private int fuelLevel = 0;
     private int temperature = 0;
+    private int boilTick = 0;
 
     private final int maxTemperature = 1500;
     private final int maxFuel = 1300;
@@ -134,12 +138,41 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
+
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
 
     }
+    public void clientTick(Level level, BlockPos pPos, BlockState pState) {
+        boilingAnimation(level, pPos, pState);
+    }
 
+    private void boilingAnimation(Level level, BlockPos pPos, BlockState pState)
+    {
+        double dx = pPos.getX();
+        double dy = pPos.getY();
+        double dz = pPos.getZ();
+        RandomSource pRandom = level.getRandom();
+        System.out.println(temperature);
+        if (pState.getValue(BrewingCauldronBlock.BOILING))
+        {
+            boilTick++;
+            if (boilTick >= 2)
+            {
+                boilTick = 0;
+                float height = (float) (0.188f+0.125f*pState.getValue(BrewingCauldronBlock.WATER)+dy);
+                for (int i = 0; i < 2; i++) {
+                    double rx = pRandom.nextDouble();
+                    double rz = pRandom.nextDouble();
+                    level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(rx/3D-0.166D)*1.4f, height,dz+0.5D+(rz/3D-0.166D)*1.4f, 0, 0, 0);
+                }
+                if (pRandom.nextDouble() < 0.2F) {
+                    level.playLocalSound(pPos, SoundEvents.BUBBLE_COLUMN_WHIRLPOOL_AMBIENT, SoundSource.BLOCKS, 1, 0, true);
+                }
+            }
+        }
+    }
     // Пытается забрать предметы в определённой зоне
     private void suckItems(Level level, BlockPos pPos, BlockState pState)
     {
