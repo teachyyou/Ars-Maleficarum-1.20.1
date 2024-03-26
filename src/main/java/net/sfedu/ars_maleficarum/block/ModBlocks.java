@@ -27,6 +27,7 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
+import net.sfedu.ars_maleficarum.world.tree.KramerTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -199,7 +200,7 @@ public class ModBlocks {
 
     //TODO: НЕ ЗАБЫТЬ ПОМЕНЯТЬ GROWER
     public static final RegistryObject<Block> KRAMER_SAPLING = registerBlock("kramer_sapling",
-            () -> new SaplingBlock(new RowanTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(new KramerTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
             () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
 

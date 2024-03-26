@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.world.tree.custom.KramerFoliagePlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.NamelessFoliagePlacer;
 import net.sfedu.ars_maleficarum.world.tree.custom.RowanFoliagePlacer;
 
@@ -20,6 +21,9 @@ public class ModFoliagePlacerTypes {
 
     public static final RegistryObject<FoliagePlacerType<NamelessFoliagePlacer>> NAMELESS_FOLIAGE_PLACER =
             FOLIAGE_PLACERS.register("nameless_foliage_placer",()->new FoliagePlacerType<>(NamelessFoliagePlacer.CODEC));
+
+    public static final RegistryObject<FoliagePlacerType<KramerFoliagePlacer>> KRAMER_FOLIAGE_PLACER =
+            FOLIAGE_PLACERS.register("kramer_foliage_placer",()->new FoliagePlacerType<>(KramerFoliagePlacer.CODEC));
     public static void register(IEventBus eventbus) {
         FOLIAGE_PLACERS.register(eventbus);
     }
