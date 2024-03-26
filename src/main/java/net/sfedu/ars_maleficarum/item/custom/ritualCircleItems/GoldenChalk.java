@@ -11,16 +11,4 @@ public class GoldenChalk extends Item {
         super(pProperties);
     }
 
-    @Override
-    public InteractionResult useOn(UseOnContext pContext) {
-        if (!pContext.getLevel().isClientSide()) {
-            if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos())) {
-                pContext.getLevel().setBlock(pContext.getClickedPos().above(), ModBlocks.WHITE_CHALK_SYMBOL.get().defaultBlockState(),3);
-            }
-            return InteractionResult.FAIL;
-        }
-        pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                player -> player.broadcastBreakEvent(player.getUsedItemHand()));
-        return InteractionResult.SUCCESS;
-    }
 }

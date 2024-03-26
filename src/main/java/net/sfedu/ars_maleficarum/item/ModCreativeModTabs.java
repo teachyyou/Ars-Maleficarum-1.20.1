@@ -129,9 +129,12 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.POISON_STAFF.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
+                        pOutput.accept(ModItems.GOLDEN_CHALK.get());
+                        pOutput.accept(ModItems.CRIMSON_CHALK.get());
                         pOutput.accept(ModItems.GREEN_CHALK.get());
                         pOutput.accept(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
+                        pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
 
                         pOutput.accept(ModBlocks.KRAMER_TREE_LOG.get());

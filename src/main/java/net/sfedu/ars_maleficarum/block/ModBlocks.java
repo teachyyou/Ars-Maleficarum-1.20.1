@@ -21,6 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
@@ -417,6 +418,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GREEN_CHALK_SYMBOL = BLOCKS.register("green_chalk_symbol",
             ()->new GreenChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+
+    public static final RegistryObject<Block> CRIMSON_CHALK_SYMBOL = BLOCKS.register("crimson_chalk_symbol",
+            ()->new CrimsonChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+
 
     public static final RegistryObject<Block> RITUAL_CIRCLE_CORE = BLOCKS.register("ritual_circle_core",
             ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion().noLootTable().explosionResistance(1200.0F)));

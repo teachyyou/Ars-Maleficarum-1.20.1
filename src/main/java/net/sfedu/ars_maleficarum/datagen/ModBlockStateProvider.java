@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -112,8 +113,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
 
-        chalkSymbol(ModBlocks.WHITE_CHALK_SYMBOL.get(), "white");
-        chalkSymbol(ModBlocks.GREEN_CHALK_SYMBOL.get(),"green");
+        buildChalkSymbols(ModBlocks.WHITE_CHALK_SYMBOL.get());
+        buildChalkSymbols(ModBlocks.GREEN_CHALK_SYMBOL.get());
+        buildChalkSymbols(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
 
     }
 
@@ -131,21 +133,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models;
     }
 
+
+    public void buildChalkSymbols(Block chalkSymbol) {
+        Function<BlockState, ConfiguredModel[]> function = this::chalkSymbols;
+
+        getVariantBuilder(chalkSymbol).forAllStates(function);
+
+    }
+    private ConfiguredModel[] chalkSymbols(BlockState state) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        int variant = state.getValue(ChalkSymbol.VARIANT);
+        models[0]=new ConfiguredModel(models().withExistingParent(ForgeRegistries.BLOCKS.getKey(state.getBlock()).getPath()+variant,ArsMaleficarum.MOD_ID+":block/chalk_symbol")
+                .texture("particle","block/"+ForgeRegistries.BLOCKS.getKey(state.getBlock()).getPath()+"_"+variant),0,
+                ((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360,false);
+
+        return models;
+    }
+
     private void coloredInfusingAltar() {
         List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
         getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
                         .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar" + "_" + colors.get(state.getValue(InfusingAltarBlock.COLOR)))))
                         .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                        .build()
-                );
-    }
-
-    public void chalkSymbol(Block symbol, String chalk_color) {
-        getVariantBuilder(symbol)
-                .forAllStates(state->ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/" + chalk_color + "_chalk_symbol"+state.getValue(ChalkSymbol.VARIANT))))
-                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()+180)%360)
                         .build()
                 );
     }

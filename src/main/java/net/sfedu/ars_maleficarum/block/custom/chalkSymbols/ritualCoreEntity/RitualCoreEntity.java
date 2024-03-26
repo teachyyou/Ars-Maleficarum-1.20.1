@@ -34,7 +34,7 @@ public class RitualCoreEntity extends BlockEntity {
 
     public enum CircleType {WHITE,NETHER,ENDER,NATURAL,ANY};
 
-    public enum CircleColor implements StringRepresentable {WHITE,GREEN, /*RED, PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
+    public enum CircleColor implements StringRepresentable {WHITE,GREEN, CRIMSON, /*PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
 
         @Override
         public @NotNull String getSerializedName() {
@@ -45,10 +45,11 @@ public class RitualCoreEntity extends BlockEntity {
                 case GREEN -> {
                     return "green";
                 }
-                /* TODO: добавить остальные по мере реализации
-                case RED -> {
-                    return "red";
+                case CRIMSON -> {
+                    return "crimson";
                 }
+                /* TODO: добавить остальные по мере реализации
+
                 case PURPLE -> {
                     return "purple";
                 }
@@ -237,7 +238,7 @@ public class RitualCoreEntity extends BlockEntity {
     private CircleType getTypeFromBlock(Level pLevel, BlockPos pPos) {
         if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return CircleType.WHITE;
         else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return CircleType.NATURAL;
-        else if (pLevel.getBlockState(pPos).is(Blocks.REDSTONE_WIRE)) return CircleType.NETHER;
+        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return CircleType.NETHER;
         return CircleType.ANY;
     }
 
@@ -250,8 +251,7 @@ public class RitualCoreEntity extends BlockEntity {
                     toCheck = ModBlocks.GREEN_CHALK_SYMBOL.get();
                 }
                 case NETHER ->  {
-                    //toCheck = ModBlocks.WHITE_CHALK_SYMBOL.get();
-                    toCheck = Blocks.REDSTONE_WIRE;
+                    toCheck = ModBlocks.CRIMSON_CHALK_SYMBOL.get();
                 }
                 case WHITE -> {
                     toCheck = ModBlocks.WHITE_CHALK_SYMBOL.get();
@@ -263,7 +263,7 @@ public class RitualCoreEntity extends BlockEntity {
             return pLevel.getBlockState(pPos).is(toCheck);
         } else {
             //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
-            Block[] allSymbols = {ModBlocks.GREEN_CHALK_SYMBOL.get(), ModBlocks.WHITE_CHALK_SYMBOL.get(), Blocks.REDSTONE_WIRE};
+            Block[] allSymbols = {ModBlocks.GREEN_CHALK_SYMBOL.get(), ModBlocks.WHITE_CHALK_SYMBOL.get(), ModBlocks.CRIMSON_CHALK_SYMBOL.get()};
             for (Block symbol : allSymbols) {
                 if (pLevel.getBlockState(pPos).is(symbol)) {
                     switch (id) {
@@ -365,13 +365,6 @@ public class RitualCoreEntity extends BlockEntity {
             }
 
         }
-
-
-        //TODO: каким-то магическим образом засунуть в ritual желаемый ритуал и сунуть в container все предметы, что лежат в кругу
-
-
-
-
 
     }
     public void stopRitual(){
