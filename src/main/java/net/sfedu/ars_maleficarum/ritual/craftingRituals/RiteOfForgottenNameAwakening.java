@@ -86,9 +86,9 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
             double d2 = sapling.position().z;
 
 
-            ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 100, 0,0.5D,0,0.1);
-            ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 100, 0,0.5D,0,0.1);
-            ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 100, 0,0.5D,0,0.1);
+            ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
+            ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
+            ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
             //TODO: ADD WHISPER SOUND EFFECT
             pLevel.playSound(null, pPos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS,1F,1F);
             sapling.setItem(new ItemStack(ModBlocks.KRAMER_SAPLING.get()));
