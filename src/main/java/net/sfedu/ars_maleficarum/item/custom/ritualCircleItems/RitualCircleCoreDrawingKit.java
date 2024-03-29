@@ -2,6 +2,7 @@ package net.sfedu.ars_maleficarum.item.custom.ritualCircleItems;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class RitualCircleCoreDrawingKit extends Item {
 
@@ -35,6 +37,7 @@ public class RitualCircleCoreDrawingKit extends Item {
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()));
+        pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
 

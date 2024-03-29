@@ -10,6 +10,8 @@
     "subtitle": "sounds.ars_maleficarum.mandrake_scream",
     "sounds": [
       "ars_maleficarum:mandrake_scream1"
+    ]
+  },
 
   "mandrake_death": {
     "subtitle": "sounds.ars_maleficarum.mandrake_death",
