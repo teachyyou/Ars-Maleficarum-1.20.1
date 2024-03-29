@@ -302,6 +302,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.WOODEN_MORTAR_AND_PESTLE.get()), has(ModItems.WOODEN_MORTAR_AND_PESTLE.get()))
                 .save(pWriter, new ResourceLocation("ground_sage_flowers_with_wooden_mortar"));
 
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_PLANKS.get(), 4)
+                .requires(ModBlocks.KRAMER_TREE_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_LOG.get()), has(ModBlocks.KRAMER_TREE_LOG.get()))
+                .save(pWriter, new ResourceLocation("kramer_planks_from_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_PLANKS.get(), 4)
+                .requires(ModBlocks.KRAMER_TREE_WOOD.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_WOOD.get()), has(ModBlocks.KRAMER_TREE_WOOD.get()))
+                .save(pWriter, new ResourceLocation("kramer_planks_from_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_WOOD.get(), 3)
+                .pattern("   ")
+                .pattern(" ##")
+                .pattern(" ##")
+                .define('#', ModBlocks.KRAMER_TREE_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_LOG.get()), has(ModBlocks.KRAMER_TREE_LOG.get()))
+                .save(pWriter);
+
+
         //Крафт блока соли
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SALT_BLOCK.get())
                 .pattern("   ")

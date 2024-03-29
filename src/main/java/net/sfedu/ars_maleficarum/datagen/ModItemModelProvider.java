@@ -43,6 +43,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLINT_KNIFE);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        saplingItem(ModBlocks.KRAMER_SAPLING);
         saplingItem(ModBlocks.NAMELESS_TREE_SAPLING);
 
         simpleItem(ModItems.ROWAN_BERRIES);
@@ -110,6 +111,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHALK_BRUSH);
         simpleItem(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT);
         simpleItem(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.GOLDEN_CHALK);
+        simpleItem(ModItems.CRIMSON_CHALK);
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));

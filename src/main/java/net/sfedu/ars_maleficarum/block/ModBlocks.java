@@ -21,11 +21,13 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
+import net.sfedu.ars_maleficarum.world.tree.KramerTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -175,6 +177,30 @@ public class ModBlocks {
                     return 30;
                 }
             });
+
+    public static final RegistryObject<Block> KRAMER_TREE_LOG= registerBlock("kramer_tree_log",
+            () -> new ModRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
+    public static final RegistryObject<Block> KRAMER_TREE_WOOD = registerBlock("kramer_tree_wood",
+            () -> new ModRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3f)));
+    public static final RegistryObject<Block> KRAMER_TREE_PLANKS = registerBlock("kramer_tree_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return false;
+                }
+
+            });
+    public static final RegistryObject<Block> KRAMER_TREE_LEAVES = registerBlock("kramer_tree_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return false;
+                }
+            });
+
+    //TODO: НЕ ЗАБЫТЬ ПОМЕНЯТЬ GROWER
+    public static final RegistryObject<Block> KRAMER_SAPLING = registerBlock("kramer_sapling",
+            () -> new SaplingBlock(new KramerTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
             () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
 
@@ -393,6 +419,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GREEN_CHALK_SYMBOL = BLOCKS.register("green_chalk_symbol",
             ()->new GreenChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+
+    public static final RegistryObject<Block> CRIMSON_CHALK_SYMBOL = BLOCKS.register("crimson_chalk_symbol",
+            ()->new CrimsonChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+
 
     public static final RegistryObject<Block> RITUAL_CIRCLE_CORE = BLOCKS.register("ritual_circle_core",
             ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion().noLootTable().explosionResistance(1200.0F)));

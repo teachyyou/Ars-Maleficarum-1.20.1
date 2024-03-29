@@ -22,6 +22,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePla
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
@@ -31,10 +32,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.world.decorator.custom.ModMushroomDecorator;
-import net.sfedu.ars_maleficarum.world.tree.custom.NamelessFoliagePlacer;
-import net.sfedu.ars_maleficarum.world.tree.custom.NamelessTrunkPlacer;
-import net.sfedu.ars_maleficarum.world.tree.custom.RowanFoliagePlacer;
-import net.sfedu.ars_maleficarum.world.tree.custom.RowanTrunkPlacer;
+import net.sfedu.ars_maleficarum.world.tree.custom.*;
 
 import java.lang.module.Configuration;
 import java.util.List;
@@ -44,6 +42,8 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?,?>> NAMELESS_TREE_KEY = registerKey("nameless_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> DEAD_TREE_KEY = registerKey("dead_tree");
+
+    public static final  ResourceKey<ConfiguredFeature<?,?>> KRAMER_TREE_KEY = registerKey("kramer_tree");
 
     public static final ResourceKey<ConfiguredFeature<?,?>> CURSED_GOLD_ORE_KEY = registerKey("cursed_gold_ore");
     public static final ResourceKey<ConfiguredFeature<?,?>> SILVER_ORE_KEY = registerKey("silver_ore");
@@ -86,6 +86,13 @@ public class ModConfiguredFeatures {
                 new NamelessTrunkPlacer(4,2,3),
                 BlockStateProvider.simple(ModBlocks.NAMELESS_TREE_LEAVES.get()),
                 new NamelessFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
+                new TwoLayersFeatureSize(2,1,2)) .build());
+
+        register(context,KRAMER_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(ModBlocks.KRAMER_TREE_LOG.get()),
+                new KramerTrunkPlacer(3,0,0),
+                BlockStateProvider.simple(ModBlocks.KRAMER_TREE_LEAVES.get()),
+                new KramerFoliagePlacer(ConstantInt.of(2),ConstantInt.of(0),2),
                 new TwoLayersFeatureSize(2,1,2)) .build());
 
         register(context,DEAD_TREE_KEY,Feature.TREE,new TreeConfiguration.TreeConfigurationBuilder(

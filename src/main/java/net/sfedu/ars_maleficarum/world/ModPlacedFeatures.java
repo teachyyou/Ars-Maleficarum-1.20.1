@@ -24,6 +24,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DEAD_TREE_PLACED_KEY  = registerKey("dead_tree_placed");
 
     public static final ResourceKey<PlacedFeature> NAMELESS_TREE_PLACED_KEY = registerKey("nameless_tree_placed");
+    public static final ResourceKey<PlacedFeature> KRAMER_TREE_PLACED_KEY = registerKey("kramer_tree_placed");
 
     public static final ResourceKey<PlacedFeature> OVERWORLD_CURSED_GOLD_ORE_PLACED_KEY = registerKey("overworld_cursed_gold_ores_placed");
 
