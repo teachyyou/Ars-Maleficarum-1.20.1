@@ -20,6 +20,7 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 import java.util.Optional;
 
@@ -84,8 +85,7 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, d0, d1, d2, 100, 0,0.5D,0,0.1);
-            //TODO: ADD WHISPER SOUND EFFECT
-            pLevel.playSound(null, pPos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS,1F,1F);
+            pLevel.playSound(null, pPos, ModSounds.MYSTIC_WHISPERING.get(), SoundSource.PLAYERS,1F,1F);
             sapling.setItem(new ItemStack(ModBlocks.KRAMER_SAPLING.get()));
 
 
