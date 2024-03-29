@@ -6,16 +6,19 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 public class KramerTrunkPlacer extends TrunkPlacer {
 
@@ -35,40 +38,55 @@ public class KramerTrunkPlacer extends TrunkPlacer {
         setDirtAt(pLevel,pBlockSetter,pRandom,pPos.below(),pConfig);
 
         int height = pFreeTreeHeight + pRandom.nextInt(3);
+        System.out.print(height+" ");
         height=Math.min(height,5);
+        System.out.println(height);
         List<FoliagePlacer.FoliageAttachment> foliage = new ArrayList<>();
 
-
         Direction[] dir = {Direction.NORTH,Direction.WEST,Direction.SOUTH,Direction.EAST};
-        boolean[] branches = {true,true,true,true};
-
-        for (int i = 0; i < height; i++) {
+        int possibleCurveLevel = 2;
+        for (Direction d : dir) {
+            pBlockSetter.accept(pPos.relative(d).below(), (BlockState) Function.identity().apply(pConfig.trunkProvider.getState(pRandom, pPos.relative(d).below()).setValue(RotatedPillarBlock.AXIS, (d == Direction.SOUTH || d == Direction.NORTH) ? Direction.Axis.Z : Direction.Axis.X)));
+            if (pRandom.nextFloat()<=0.75F) {
+                placeLog(pLevel, pBlockSetter, pRandom, pPos.relative(d), pConfig);
+                if (pRandom.nextFloat() <= 0.15F) {
+                    placeLog(pLevel, pBlockSetter, pRandom, pPos.relative(d).above(), pConfig);
+                    height++;
+                    possibleCurveLevel++;
+                }
+            }
+        }
+        for (int i = 0; i < height; i++) {;
+            if (i==possibleCurveLevel && pRandom.nextFloat() >= 0.25) pPos=pPos.relative(dir[pRandom.nextInt(4)]);
             placeLog(pLevel,pBlockSetter,pRandom,pPos.above(i),pConfig);
         }
-        int dirId = pRandom.nextInt(4);
-        Direction d = dir[dirId];
-        if (pRandom.nextBoolean()) {
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height).relative(d), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height + 1).relative(d), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height + 2).relative(d, 2), pConfig);
-            foliage.add(new FoliagePlacer.FoliageAttachment(pPos.above(height + 3).relative(d, 2),0,false));
-        } else{
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height).relative(d), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height+1).relative(d,2), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height+2).relative(d,2), pConfig);
-            foliage.add(new FoliagePlacer.FoliageAttachment(pPos.above(height + 3).relative(d, 2),0,false));
+        pPos=pPos.above(height-1);
+        foliage.add(new FoliagePlacer.FoliageAttachment(pPos.above(4),3,false));
+
+
+        boolean hasMissingBranch = false;
+
+        for (int i = 0; i < 4; i++) {
+            if (pRandom.nextFloat()>0.9 && !hasMissingBranch) {
+                hasMissingBranch = true;
+                continue;
+            }
+            Direction d = dir[i];
+            BlockPos tempPos = pPos;
+            if (pRandom.nextFloat()<=0.4F) tempPos=tempPos.relative(dir[(i+1)%4]);
+            for (int j = 0; j < (height > 4 ? 4 : 3); j++) {
+                if (j!=0 && pRandom.nextFloat()<=0.4F) tempPos=tempPos.relative(dir[(i+1)%4]);
+                if (j != ((height) > 4 ? 3 : 2)) {
+                    placeLog(pLevel, pBlockSetter, pRandom, tempPos.relative(d, j + 1).above(j + 1), pConfig);
+                    foliage.add(new FoliagePlacer.FoliageAttachment(tempPos.relative(d, j + 1).above(j + 2),0,false));
+                }
+                else if (pRandom.nextFloat()<=0.35F) {
+                    placeLog(pLevel,pBlockSetter,pRandom,tempPos.relative(d,j+1).above(j+1),pConfig);
+                    foliage.add(new FoliagePlacer.FoliageAttachment(tempPos.relative(d, j + 1).above(j + 2),0,false));
+                }
+
+            }
         }
-
-        if (pRandom.nextBoolean()) {
-            dirId=(dirId+1)%4;
-            d=dir[dirId];
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height-1).relative(d).relative(dir[(dirId+1)%4]), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height).relative(d).relative(dir[(dirId+1)%4]), pConfig);
-            placeLog(pLevel, pBlockSetter, pRandom, pPos.above(height+1).relative(d,2).relative(dir[(dirId+1)%4],2), pConfig);
-            foliage.add(new FoliagePlacer.FoliageAttachment(pPos.above(height + 2).relative(d, 2).relative(dir[(dirId+1)%4],2),0,false));
-        }
-
-
         return foliage;
     }
 }

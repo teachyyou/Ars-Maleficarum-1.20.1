@@ -33,23 +33,23 @@ public class KramerFoliagePlacer extends FoliagePlacer {
         tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos());
         BlockPos p = attachment.pos().below();
 
-        for (int i = -2; i<=2; i++) {
+        for (int i = -1; i<=1; i++) {
             tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above(i));
             for (int j = 0; j<4; j++) {
-                if (i==2 || i==-2) {
+                if (i==1 || i==-1) {
                     if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above(i).relative(dir[j]));
                 } else {
                     tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above(i).relative(dir[j]));
                 }
-                if (!(i==2 || i==-2)) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above(i).relative(dir[j]).relative(dir[(j+1)%4]));
+                if (!(i==1 || i==-1)) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above(i).relative(dir[j]).relative(dir[(j+1)%4]));
             }
         }
         for (int i = 0; i<4; i++) {
-            tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],2));
-            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],2).relative(dir[(i+1+4)%4]));
-            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],2).relative(dir[(i-1+4)%4]));
-            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above().relative(dir[i],2));
-            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.below().relative(dir[i],2));
+            tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],1));
+            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],1).relative(dir[(i+1+4)%4]));
+            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.relative(dir[i],1).relative(dir[(i-1+4)%4]));
+            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.above().relative(dir[i],1));
+            if (pRandom.nextBoolean()) tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,p.below().relative(dir[i],1));
         }
 
     }
