@@ -14,6 +14,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -27,6 +29,9 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
 public class Сhandelier extends HorizontalDirectionalBlock {
+
+    protected static final VoxelShape EAST_WEST = Block.box(3,0,5,13,16,11);
+    protected static final VoxelShape NORTH_SOUTH = Block.box(5,0,3,11,16,13);
     public Сhandelier(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT,false));
@@ -42,10 +47,22 @@ public class Сhandelier extends HorizontalDirectionalBlock {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
-    public static final VoxelShape SHAPE = Block.box(2,0,2,14,14,14);
-    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+        return switch (pState.getValue(FACING)) {
+            case NORTH, SOUTH -> NORTH_SOUTH;
+            case EAST, WEST -> EAST_WEST;
+            default -> null;
+        };
+    }
+
+    @Override
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockState blockstate = pLevel.getBlockState(pPos.below());
+        return !blockstate.is(Blocks.AIR);
+    }
+
+    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+        return canSurvive(pState,pLevel,pCurrentPos) ? pState : Blocks.AIR.defaultBlockState();
     }
 
     @Nullable
