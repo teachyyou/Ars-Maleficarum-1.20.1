@@ -116,6 +116,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.KRAMER_TREE_LEAVES.get(), (block) ->
                 createLeavesDrops(block, ModBlocks.KRAMER_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
+        this.dropSelf(ModBlocks.CHANDELIER.get());
+
     }
 
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет

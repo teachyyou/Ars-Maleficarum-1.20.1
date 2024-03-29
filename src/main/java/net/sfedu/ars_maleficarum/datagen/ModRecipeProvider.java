@@ -469,6 +469,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_nameless_tree_planks", has(ModBlocks.NAMELESS_TREE_PLANKS.get()))
                 .save(pWriter);
 
+        //Крафт канделябра
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHANDELIER.get())
+                .pattern("TTT")
+                .pattern("GGG")
+                .pattern(" G ")
+                .define('G', ModItems.CURSED_GOLD.get())
+                .define('T', Items.TORCH)
+                .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
+                .save(pWriter);
+
 
         //Генерация крафтов в новой печке
         new OdourExtractorRecipeBuilder(Blocks.DARK_OAK_SAPLING, ModItems.ASH.get(), ModItems.PETRICHOR.get(), true, 0.2F, 1)

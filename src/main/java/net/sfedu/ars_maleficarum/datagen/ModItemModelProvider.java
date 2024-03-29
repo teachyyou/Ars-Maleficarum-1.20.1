@@ -103,6 +103,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexAltarInfusingBlock();
         complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
         customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
+        complexBlock(ModBlocks.CHANDELIER.get());
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
