@@ -127,6 +127,7 @@ public class ArsMaleficarum
                 MenuScreens.register(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(), OdourExtractorFurnaceScreen::new);
                 MenuScreens.register(ModMenuTypes.INFUSING_ALTAR_MENU.get(), InfusingAltarScreen::new);
                 EntityRenderers.register(ModEntities.MANDRAKE.get(), MandrakeRender::new);
+                //EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), MandrakeRender::new);
                 EntityRenderers.register(ModEntities.POISONOUS_ESSENCE.get(), PoisonousEssenceRender::new);
             });
         }

@@ -4,5 +4,55 @@
     "sounds": [
         "ars_maleficarum:mushroom_cut1"
     ]
+  },
+  "mandrake_death": {
+    "subtitle": "sounds.ars_maleficarum.mandrake_death",
+    "sounds": [
+      "ars_maleficarum:mandrake_death_sound"
+    ]
+  },
+  "cauldron_add_logs": {
+    "subtitle": "sounds.ars_maleficarum.cauldron_add_logs",
+    "sounds": [
+      "ars_maleficarum:cauldron_add_logs"
+    ]
+  },
+  "chalk_use": {
+    "subtitle": "sounds.ars_maleficarum.chalk_use",
+    "sounds": [
+      "ars_maleficarum:chalk1",
+      "ars_maleficarum:chalk2",
+      "ars_maleficarum:chalk3"
+    ]
+  },
+  "cauldron_boil": {
+    "subtitle": "sounds.ars_maleficarum.cauldron_boil",
+    "sounds": [
+      "ars_maleficarum:cauldron_boil1",
+      "ars_maleficarum:cauldron_boil2",
+      "ars_maleficarum:cauldron_boil3"
+    ]
+  },
+  "mystic_whispering": {
+    "subtitle": "sounds.ars_maleficarum.mystic_whispering",
+    "sounds": [
+      "ars_maleficarum:whispering2",
+      "ars_maleficarum:whispering3"
+    ]
+  },
+  "brush_use": {
+    "subtitle": "sounds.ars_maleficarum.brush_use",
+    "sounds": [
+      "ars_maleficarum:brush1",
+      "ars_maleficarum:brush2",
+      "ars_maleficarum:brush3",
+      "ars_maleficarum:brush4"
+    ]
+  },
+  "mandrake_spawn": {
+    "subtitle": "sounds.ars_maleficarum.mandrake_spawn",
+    "sounds": [
+      "ars_maleficarum:mandrake_spawn"
+    ]
   }
 }
