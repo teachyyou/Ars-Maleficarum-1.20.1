@@ -38,9 +38,7 @@ public class KramerTrunkPlacer extends TrunkPlacer {
         setDirtAt(pLevel,pBlockSetter,pRandom,pPos.below(),pConfig);
 
         int height = pFreeTreeHeight + pRandom.nextInt(3);
-        System.out.print(height+" ");
         height=Math.min(height,5);
-        System.out.println(height);
         List<FoliagePlacer.FoliageAttachment> foliage = new ArrayList<>();
 
         Direction[] dir = {Direction.NORTH,Direction.WEST,Direction.SOUTH,Direction.EAST};
