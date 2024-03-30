@@ -117,6 +117,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 createLeavesDrops(block, ModBlocks.KRAMER_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(ModBlocks.CHANDELIER.get());
+        this.dropSelf(ModBlocks.SKULL_ON_STICK.get());
 
     }
 

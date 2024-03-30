@@ -112,6 +112,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.CHANDELIER.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/chandelier")));
 
+        horizontalBlock(ModBlocks.SKULL_ON_STICK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/skull_on_a_stick")));
+
         coloredInfusingAltar();
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();

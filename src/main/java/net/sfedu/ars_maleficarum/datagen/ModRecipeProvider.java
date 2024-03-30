@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -18,6 +19,7 @@ import net.sfedu.ars_maleficarum.datagen.custom.InfusingAltarRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.ModRecipes;
+import net.sfedu.ars_maleficarum.util.ModTags;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -476,6 +478,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" G ")
                 .define('G', ModItems.CURSED_GOLD.get())
                 .define('T', Items.TORCH)
+                .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
+                .save(pWriter);
+
+        //Крафт черепа на палочке
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SKULL_ON_STICK.get())
+                .pattern("   ")
+                .pattern(" S ")
+                .pattern(" T ")
+                .define('T', Items.STICK)
+                .define('S', ModTags.Items.SKULLS)
                 .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
                 .save(pWriter);
 
