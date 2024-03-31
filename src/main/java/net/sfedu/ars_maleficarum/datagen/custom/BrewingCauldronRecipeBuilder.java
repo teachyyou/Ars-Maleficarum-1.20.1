@@ -16,6 +16,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,6 +33,7 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
         for (ItemLike ingr : ingredient) {
             components.add(Ingredient.of(ingr));
         }
+        while (components.size() < 10) components.add(Ingredient.EMPTY);
         this.result = result.asItem();
 
     }
@@ -104,7 +106,7 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return InfusingAltarRecipe.Serializer.INSTANCE;
+            return BrewingCauldronRecipe.Serializer.INSTANCE;
         }
 
         @javax.annotation.Nullable

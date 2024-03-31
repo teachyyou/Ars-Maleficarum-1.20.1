@@ -329,6 +329,5 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
         popResource(level, pPos, new ItemStack(resultItem.getItem(),1));
 
-        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
     }
 }

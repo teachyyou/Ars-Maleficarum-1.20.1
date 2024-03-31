@@ -12,7 +12,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import org.apache.http.client.utils.CloneUtils;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
 
@@ -27,17 +31,28 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
     }
 
 
-
+    // Инвалидная коляска
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
 
         if (pLevel.isClientSide()) {
             return false;
         }
+
+        for (int i = 0; i<10; i++) {
+            if (!containerContains(inputItems.get(i), pContainer)) return false;
+        }
         return true;
     }
 
-
+    private boolean containerContains(Ingredient input, SimpleContainer cont)
+    {
+        for ( int i = 0; i < 10; i++)
+        {
+            if (input.test(cont.getItem(i))) return true;
+        }
+        return false;
+    }
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();

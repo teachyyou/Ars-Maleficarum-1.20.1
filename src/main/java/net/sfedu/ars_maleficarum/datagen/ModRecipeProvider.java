@@ -428,7 +428,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         //Генерация крафтов в варочном котле
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT, Items.DIRT), Items.DIAMOND_BLOCK)
+        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)
                 .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
 
 
