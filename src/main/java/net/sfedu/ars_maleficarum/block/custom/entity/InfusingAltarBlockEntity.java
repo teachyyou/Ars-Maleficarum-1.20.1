@@ -222,9 +222,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         this.itemHandler.setStackInSlot(OUTPUT_SLOT,new ItemStack(resultItem.getItem(),1));
 
         EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
-
-
-
     }
 
     private void resetProgress() {
@@ -248,7 +245,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     public List<ItemStack> getRenderStack() {
-        //System.out.println(this.itemHandler.getStackInSlot(5).getDisplayName());
         return List.of(this.itemHandler.getStackInSlot(0),
                 this.itemHandler.getStackInSlot(1),
                 this.itemHandler.getStackInSlot(2),

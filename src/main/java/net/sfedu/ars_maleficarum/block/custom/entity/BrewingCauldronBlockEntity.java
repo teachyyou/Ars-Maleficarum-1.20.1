@@ -1,23 +1,35 @@
 package net.sfedu.ars_maleficarum.block.custom.entity;
 
+import com.mojang.datafixers.util.Either;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderOwner;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -31,12 +43,19 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
+import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
+import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static net.minecraft.world.level.block.Block.popResource;
 
 
 public class BrewingCauldronBlockEntity extends BlockEntity {
@@ -69,7 +88,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private final int maxTemperature = 1500;
     private final int maxFuel = 1300;
-
 
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
@@ -143,6 +161,12 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
 
+        if (hasRecipe())
+        {
+            System.out.println("Есть рецепт");
+            craftItem(level, pPos);
+            level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
+        }
     }
     public void clientTick(Level level, BlockPos pPos, BlockState pState) {
         boilingAnimation(level, pPos, pState);
@@ -154,7 +178,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         double dy = pPos.getY();
         double dz = pPos.getZ();
         RandomSource pRandom = level.getRandom();
-        System.out.println(temperature);
         if (pState.getValue(BrewingCauldronBlock.BOILING))
         {
             boilTick++;
@@ -186,6 +209,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 {
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                 }
+            }
+        }
+        if (pState.getValue(BrewingCauldronBlock.LIT)){
+            List<LivingEntity> livingEntities = getLivingEntitiesAbove(level, this);
+            for (LivingEntity livingEntity : livingEntities)
+            {
+                livingEntity.hurt(livingEntity.damageSources().inFire(), 1);
             }
         }
     }
@@ -255,12 +285,50 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         return false;
     }
 
-    // Возвращает все ItemEntity в зоне SUCK - внутри варочного котла.
+    // Возвращает все ItemEntity внутри определенной зоны
     public static List<ItemEntity> getItemsAtAndAbove(Level pLevel, BrewingCauldronBlockEntity BCEntity) {
         return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) -> {
             return pLevel.getEntitiesOfClass(ItemEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream();
         }).collect(Collectors.toList());
     }
 
+    // Возвращает все LivingEntity внутри определенной зоны
+    public static List<LivingEntity> getLivingEntitiesAbove(Level pLevel, BrewingCauldronBlockEntity BCEntity) {
+        return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) -> {
+            return pLevel.getEntitiesOfClass(LivingEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream();
+        }).collect(Collectors.toList());
+    }
 
+
+
+    private Optional<BrewingCauldronRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for (int i = 0; i < this.itemHandler.getSlots(); i++) {
+            inventory.setItem(i,this.itemHandler.getStackInSlot(i));
+        }
+        return this.level.getRecipeManager().getRecipeFor(BrewingCauldronRecipe.Type.INSTANCE,inventory,level);
+
+    }
+
+    private boolean hasRecipe() {
+        Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
+        return (!recipe.isEmpty());
+
+    }
+
+    private void craftItem(Level level, BlockPos pPos) {
+        System.out.println("Крафчу до клиента");
+        if (level.isClientSide) return;
+        System.out.println("Крафчу после клиента");
+        Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
+        ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
+
+        for (int i = 0; i<10; i++) {
+            this.itemHandler.extractItem(i,1,false);
+        }
+
+        popResource(level, pPos, new ItemStack(resultItem.getItem(),1));
+
+        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
+    }
 }
