@@ -490,6 +490,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModTags.Items.SKULLS)
                 .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
                 .save(pWriter);
+        //Крафт хрустального шара
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRYSTAL_BALL.get())
+                .pattern(" G ")
+                .pattern("GTG")
+                .pattern("NIN")
+                .define('G', Items.GLASS)
+                .define('T', ModItems.SCENT_OF_UNCERTAINTY.get())
+                .define('N', ModItems.CURSED_GOLD_NUGGET.get())
+                .define('I', ModItems.CURSED_GOLD.get())
+                .unlockedBy(getHasName(ModItems.TUNE_OF_HARMONY.get()), has(ModItems.TUNE_OF_HARMONY.get()))
+                .save(pWriter);
 
 
         //Генерация крафтов в новой печке

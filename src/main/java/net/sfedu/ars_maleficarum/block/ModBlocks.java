@@ -23,6 +23,7 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
 import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
 import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -433,6 +434,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SKULL_ON_STICK = registerBlock("skull_on_a_stick",
             ()->new SkullOnAStick(BlockBehaviour.Properties.copy(Blocks.TORCH).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
+
+    public static final RegistryObject<Block> CRYSTAL_BALL = registerBlock("crystal_ball",
+            ()->new CrystalBall(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel(x->6).noLootTable()));
 
 
 

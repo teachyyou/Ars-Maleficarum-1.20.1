@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ars_maleficarum:crystal_ball"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tune_of_harmony": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:tune_of_harmony"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tune_of_harmony",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ars_maleficarum:crystal_ball"
+    ]
+  },
+  "sends_telemetry_event": false
+}
