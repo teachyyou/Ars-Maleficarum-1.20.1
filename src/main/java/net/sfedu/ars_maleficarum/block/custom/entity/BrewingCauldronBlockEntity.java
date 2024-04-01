@@ -136,11 +136,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots();i++) {
-            inventory.setItem(i,itemHandler.getStackInSlot(i));
-        }
-        Containers.dropContents(this.level,this.worldPosition,inventory);
+        // Ничего не выбрасывает
     }
 
     public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
@@ -163,8 +159,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
         if (hasRecipe())
         {
-            System.out.println("Есть рецепт");
-            craftItem(level, pPos);
+            craftItem(level, pPos, pState);
             level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
         }
     }
@@ -200,6 +195,17 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     // Пытается забрать предметы в определённой зоне
     private void suckItems(Level level, BlockPos pPos, BlockState pState)
     {
+        if (level.isClientSide()) return;
+        if (pState.getValue(BrewingCauldronBlock.LIT)){
+            List<LivingEntity> livingEntities = getLivingEntitiesAbove(level, this);
+            for (LivingEntity livingEntity : livingEntities)
+            {
+                livingEntity.hurt(livingEntity.damageSources().inFire(), 1);
+            }
+        }
+
+        if (pState.getValue(BrewingCauldronBlock.WATER) == 0) return; // Предметы не закидываются, если нет воды.
+
         List<ItemEntity> itemEntitiesAbove = getItemsAtAndAbove(level, this);
         if (!itemEntitiesAbove.isEmpty()) {
             for (ItemEntity itemEntity : itemEntitiesAbove)
@@ -208,16 +214,12 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 if (addItem(this.itemHandler, itemStack.getItem()))
                 {
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
+                    level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
                 }
+
             }
         }
-        if (pState.getValue(BrewingCauldronBlock.LIT)){
-            List<LivingEntity> livingEntities = getLivingEntitiesAbove(level, this);
-            for (LivingEntity livingEntity : livingEntities)
-            {
-                livingEntity.hurt(livingEntity.damageSources().inFire(), 1);
-            }
-        }
+
     }
 
     // Отвечает за нагревание и остывание котла
@@ -316,18 +318,17 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     }
 
-    private void craftItem(Level level, BlockPos pPos) {
-        System.out.println("Крафчу до клиента");
+    private void craftItem(Level level, BlockPos pPos, BlockState pState) {
         if (level.isClientSide) return;
-        System.out.println("Крафчу после клиента");
         Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
         ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
 
         for (int i = 0; i<10; i++) {
             this.itemHandler.extractItem(i,1,false);
         }
-
+        level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.WATER, 0), 3);
         popResource(level, pPos, new ItemStack(resultItem.getItem(),1));
+        level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
 
     }
 }
