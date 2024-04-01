@@ -126,6 +126,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         buildChalkSymbols(ModBlocks.GREEN_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
 
+        cauldronFuelVariants();
 
     }
 
@@ -159,7 +160,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         return models;
 
-        cauldronFuelVariants();
 
     }
 
