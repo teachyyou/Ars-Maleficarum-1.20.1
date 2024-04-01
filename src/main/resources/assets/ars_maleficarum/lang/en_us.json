@@ -94,11 +94,11 @@
   "block.ars_maleficarum.infusing_altar_carpet_block": "Covered Altar Base",
   "block.ars_maleficarum.infusing_altar_penta_block": "Painted Altar Base",
 
-  "block.ars_maleficarum.wooden_cat_figure": "Wooden Cat Figure",
-
   "item.ars_maleficarum.wooden_figure": "Wooden Figure",
   "item.ars_maleficarum.poppet": "Poppet",
+
   "item.ars_maleficarum.cat_figure": "Wooden Cat Figure",
+  "block.ars_maleficarum.wooden_cat_figure": "Wooden Cat Figure",
 
   "item.ars_maleficarum.bat_wing": "Bat Wing",
   "block.ars_maleficarum.salt_block": "Salt Block",
@@ -147,9 +147,6 @@
 
   "item.ars_maleficarum.ash": "Ash",
 
-  "tag.ars_maleficarum.skulls": "Skulls",
-
-
   "item.ars_maleficarum.mandrake_root": "Mandrake Root",
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
   "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
@@ -175,17 +172,8 @@
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Green Drawing Kit",
   "item.ars_maleficarum.crimson_circle_core_drawing_kit": "Crimson Drawing Kit",
 
-  "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!"
+  "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron",
-
-  "block.ars_maleficarum.rowan_stairs": "Rowan Stairs",
-  "block.ars_maleficarum.rowan_slab": "Rowan Slab",
-  "block.ars_maleficarum.rowan_fence": "Rowan Fence",
-  "block.ars_maleficarum.rowan_fence_gate": "Rowan Fence Gate",
-  "block.ars_maleficarum.nameless_tree_stairs": "Nameless Tree Stairs",
-  "block.ars_maleficarum.nameless_tree_slab": "Nameless Tree Slab",
-  "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
-  "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate"
 }
