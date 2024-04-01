@@ -1,9 +1,7 @@
 package net.sfedu.ars_maleficarum.block;
 
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.BlockGetter;
@@ -25,14 +23,18 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
+import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
+import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.KramerTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.NamelessTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
-import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.function.Supplier;
+
+import static net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier.LIT;
 
 public class ModBlocks {
 
@@ -198,7 +200,7 @@ public class ModBlocks {
                 }
             });
 
-    //TODO: НЕ ЗАБЫТЬ ПОМЕНЯТЬ GROWER
+
     public static final RegistryObject<Block> KRAMER_SAPLING = registerBlock("kramer_sapling",
             () -> new SaplingBlock(new KramerTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
@@ -426,6 +428,16 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RITUAL_CIRCLE_CORE = BLOCKS.register("ritual_circle_core",
             ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion().noLootTable().explosionResistance(1200.0F)));
+
+    public static final RegistryObject<Block> CHANDELIER = registerBlock("chandelier",
+            ()->new Сhandelier(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
+
+    public static final RegistryObject<Block> SKULL_ON_STICK = registerBlock("skull_on_a_stick",
+            ()->new SkullOnAStick(BlockBehaviour.Properties.copy(Blocks.TORCH).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
+
+    public static final RegistryObject<Block> CRYSTAL_BALL = registerBlock("crystal_ball",
+            ()->new CrystalBall(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel(x->6).noLootTable()));
+
 
 
 

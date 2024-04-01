@@ -109,6 +109,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.WOODEN_CAT_FIGURE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/wooden_cat_figure")));
 
+        horizontalBlock(ModBlocks.CHANDELIER.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/chandelier")));
+
+        horizontalBlock(ModBlocks.SKULL_ON_STICK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/skull_on_a_stick")));
+
+        horizontalBlock(ModBlocks.CRYSTAL_BALL.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/crystal_ball")));
+
         coloredInfusingAltar();
         coloredInfusingAltarCarpetBlock();
         coloredInfusingAltarPentaBlock();
@@ -116,6 +125,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         buildChalkSymbols(ModBlocks.WHITE_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.GREEN_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
+
 
     }
 

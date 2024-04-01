@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "ars_maleficarum:cursed_gold"
+    },
+    "N": {
+      "item": "ars_maleficarum:cursed_gold_nugget"
+    },
+    "T": {
+      "item": "ars_maleficarum:scent_of_uncertainty"
+    }
+  },
+  "pattern": [
+    " G ",
+    "GTG",
+    "NIN"
+  ],
+  "result": {
+    "item": "ars_maleficarum:crystal_ball"
+  },
+  "show_notification": true
+}
