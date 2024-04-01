@@ -119,6 +119,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CHANDELIER.get());
         this.dropSelf(ModBlocks.SKULL_ON_STICK.get());
 
+        this.dropSelf(ModBlocks.BREWING_CAULDRON.get());
+
     }
 
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет

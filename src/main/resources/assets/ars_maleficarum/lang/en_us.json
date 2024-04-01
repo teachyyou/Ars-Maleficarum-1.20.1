@@ -178,4 +178,14 @@
   "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!"
 
 
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron",
+
+  "block.ars_maleficarum.rowan_stairs": "Rowan Stairs",
+  "block.ars_maleficarum.rowan_slab": "Rowan Slab",
+  "block.ars_maleficarum.rowan_fence": "Rowan Fence",
+  "block.ars_maleficarum.rowan_fence_gate": "Rowan Fence Gate",
+  "block.ars_maleficarum.nameless_tree_stairs": "Nameless Tree Stairs",
+  "block.ars_maleficarum.nameless_tree_slab": "Nameless Tree Slab",
+  "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
+  "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate"
 }

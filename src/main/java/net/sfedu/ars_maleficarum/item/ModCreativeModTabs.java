@@ -130,6 +130,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CRYSTAL_BALL.get());
 
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
+                        pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
 
                         pOutput.accept(ModItems.POISON_STAFF.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
