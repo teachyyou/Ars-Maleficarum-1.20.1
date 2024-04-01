@@ -216,19 +216,6 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                 pLevel.playLocalSound(pPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }
         }
-        /*if (pState.getValue(BOILING))
-        {
-            float height = (float) (0.188f+0.125f*pState.getValue(BrewingCauldronBlock.WATER)+dy);
-            for (int i = 0; i < 10; i++) {
-                double rx = pRandom.nextDouble();
-                double rz = pRandom.nextDouble();
-                //pLevel.addParticle(ParticleTypes.BUBBLE_POP, true, dx+0.5D+(rx/3D-0.166D)*1.2f, height,dz+0.5D+(rz/3D-0.166D)*1.2f, 0, 0, 0);
-            }
-//
-            if (pRandom.nextDouble() < 0.2F) {
-                pLevel.playLocalSound(pPos, SoundEvents.BUBBLE_COLUMN_WHIRLPOOL_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-            }
-        }*/
 
     }
 
