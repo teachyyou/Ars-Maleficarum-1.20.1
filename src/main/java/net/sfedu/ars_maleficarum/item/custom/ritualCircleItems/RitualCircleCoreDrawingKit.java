@@ -35,8 +35,7 @@ public class RitualCircleCoreDrawingKit extends Item {
                 return InteractionResult.FAIL;
             }
         }
-        pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                player -> player.broadcastBreakEvent(player.getUsedItemHand()));
+        pContext.getItemInHand().shrink(1);
         pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }

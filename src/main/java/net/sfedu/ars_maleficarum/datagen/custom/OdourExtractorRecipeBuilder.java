@@ -81,6 +81,7 @@ public class OdourExtractorRecipeBuilder implements RecipeBuilder {
         private final float chance;
 
         private final Advancement.Builder advancement;
+        //доброе утро, кисоньки
         private final ResourceLocation advancementId;
 
         public Result(ResourceLocation pId, Item pResult, int pCount, Ingredient ingredient, Item additional, boolean isBottleRequired, float chance, Advancement.Builder pAdvancement,
