@@ -161,6 +161,8 @@
   "block.ars_maleficarum.chalk_symbol": "Начертание",
   "block.ars_maleficarum.ritual_circle_core": "Центр ритуального круга",
 
+  "item.ars_maleficarum.dry_wood": "Сухая древесина",
+  "item.ars_maleficarum.infused_dry_wood": "Зачарованная сухая древесина",
   "item.ars_maleficarum.poison_staff": "Трость Флемет",
 
   "item.ars_maleficarum.white_chalk": "Белый мел",

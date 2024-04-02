@@ -570,6 +570,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
 
+        //Крафт посоха
+        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
+                .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRY_WOOD.get())
+                .pattern("BWB")
+                .pattern("SRS")
+                .pattern(" D ")
+                .define('B', ModItems.ROWAN_BARK.get())
+                .define('S', ModItems.SALT.get())
+                .define('R', ModBlocks.ROWAN_LOG.get())
+                .define('W', ModItems.WASTELAND_WIND.get())
+                .define('D', ModItems.DEAD_TREE_BARK.get())
+                .unlockedBy(getHasName(ModItems.DEAD_TREE_BARK.get()), has(ModItems.DEAD_TREE_BARK.get()))
+                .save(pWriter);
+
 
         //Генерация крафтов в варочном котле
         new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)

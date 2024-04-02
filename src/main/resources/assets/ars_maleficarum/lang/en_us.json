@@ -161,6 +161,8 @@
   "block.ars_maleficarum.chalk_symbol": "Glyph",
   "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
 
+  "item.ars_maleficarum.dry_wood": "Dry Wood",
+  "item.ars_maleficarum.infused_dry_wood": "Infused Dry Wood",
   "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
