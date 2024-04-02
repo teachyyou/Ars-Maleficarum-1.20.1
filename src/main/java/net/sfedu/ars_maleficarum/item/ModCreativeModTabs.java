@@ -134,7 +134,10 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
 
+
                         pOutput.accept(ModItems.POISON_STAFF.get());
+                        pOutput.accept(ModItems.DRY_WOOD.get());
+                        pOutput.accept(ModItems.INFUSED_DRY_WOOD.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
                         pOutput.accept(ModItems.GOLDEN_CHALK.get());
                         pOutput.accept(ModItems.CRIMSON_CHALK.get());

@@ -49,7 +49,7 @@ public class GreenChalk extends Item {
 
     @Override
     public int getMaxStackSize(ItemStack stack) {
-        return 8;
+        return 1;
     }
 
     @Override

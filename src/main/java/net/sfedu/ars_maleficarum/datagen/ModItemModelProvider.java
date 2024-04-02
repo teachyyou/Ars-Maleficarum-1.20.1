@@ -107,6 +107,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.SKULL_ON_STICK.get());
         complexBlock(ModBlocks.CRYSTAL_BALL.get());
 
+        simpleItem(ModItems.DRY_WOOD);
+        simpleItem(ModItems.INFUSED_DRY_WOOD);
+
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
         simpleItem(ModItems.SWAMP_ROTFIEND_INGREDIENT);

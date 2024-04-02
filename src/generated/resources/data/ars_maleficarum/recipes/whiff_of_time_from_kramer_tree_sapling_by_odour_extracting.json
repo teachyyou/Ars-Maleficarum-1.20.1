@@ -1,0 +1,16 @@
+{
+  "type": "ars_maleficarum:odour_extracting",
+  "additional": {
+    "item": "ars_maleficarum:whiff_of_time"
+  },
+  "chance": 0.75,
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:kramer_sapling"
+    }
+  ],
+  "isBottleRequired": true,
+  "output": {
+    "item": "ars_maleficarum:ash"
+  }
+}

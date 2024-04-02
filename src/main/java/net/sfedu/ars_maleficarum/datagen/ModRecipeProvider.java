@@ -503,6 +503,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.TUNE_OF_HARMONY.get()), has(ModItems.TUNE_OF_HARMONY.get()))
                 .save(pWriter);
 
+        //Крафт щётки
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHALK_BRUSH.get())
+                .pattern(" RS")
+                .pattern(" SW")
+                .pattern("SW ")
+                .define('S', Items.STICK)
+                .define('W', ItemTags.WOOL)
+                .define('R', Items.STRING)
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .save(pWriter);
+
+        //Крафт котла
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BREWING_CAULDRON.get())
+                .pattern("   ")
+                .pattern("ICI")
+                .pattern("NIN")
+                .define('C', Blocks.CAULDRON)
+                .define('I', Items.IRON_INGOT)
+                .define('N', ModItems.SILVER_NUGGET.get())
+                .unlockedBy(getHasName(ModItems.SILVER_CHUNK.get()), has(ModItems.SILVER_CHUNK.get()))
+                .save(pWriter);
+
 
         //Генерация крафтов в новой печке
         new OdourExtractorRecipeBuilder(Blocks.DARK_OAK_SAPLING, ModItems.ASH.get(), ModItems.PETRICHOR.get(), true, 0.2F, 1)
@@ -537,6 +559,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ground_sage_flowers", has(ModItems.GROUND_SAGE_FLOWERS.get())).save(pWriter, "tune_of_harmony_from_ground_sage_flowers");
         new OdourExtractorRecipeBuilder(ModBlocks.NAMELESS_TREE_SAPLING.get(), ModItems.ASH.get(), ModItems.SCENT_OF_UNCERTAINTY.get(), true, 0.2F, 1)
                 .unlockedBy("has_nameless_tree_sapling", has(ModBlocks.NAMELESS_TREE_SAPLING.get())).save(pWriter, "scent_of_uncertainty_from_nameless_tree_sapling");
+        new OdourExtractorRecipeBuilder(ModBlocks.KRAMER_SAPLING.get(), ModItems.ASH.get(), ModItems.WHIFF_OF_TIME.get(), true, 0.75F, 1)
+                .unlockedBy("has_kramer_sapling", has(ModBlocks.KRAMER_SAPLING.get())).save(pWriter, "whiff_of_time_from_kramer_tree_sapling");
 
 
         //Генерация крафтов на новом алтаре
@@ -546,9 +570,60 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
 
+        //Крафт посоха
+        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
+                .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRY_WOOD.get())
+                .pattern("BWB")
+                .pattern("SRS")
+                .pattern(" D ")
+                .define('B', ModItems.ROWAN_BARK.get())
+                .define('S', ModItems.SALT.get())
+                .define('R', ModBlocks.ROWAN_LOG.get())
+                .define('W', ModItems.WASTELAND_WIND.get())
+                .define('D', ModItems.DEAD_TREE_BARK.get())
+                .unlockedBy(getHasName(ModItems.DEAD_TREE_BARK.get()), has(ModItems.DEAD_TREE_BARK.get()))
+                .save(pWriter);
+
+
         //Генерация крафтов в варочном котле
         new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)
                 .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
+
+
+        //Крафты мела и относящегося
+        new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get())
+                .unlockedBy("has_something",has(ModItems.ASH.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(), ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),ModItems.PETRICHOR.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GREEN_CHALK.get())
+                .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.CURSED_GOLD_CHUNK.get(), Items.GOLD_NUGGET, ModItems.RING_OF_MORNING_DEW.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GOLDEN_CHALK.get())
+                .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get())
+                .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get(), 1)
+                .requires(ModItems.WHITE_CHALK.get())
+                .requires(ModItems.GOLDEN_CHALK.get())
+                .requires(ItemTags.CANDLES)
+                .requires(ItemTags.CANDLES)
+                .unlockedBy(getHasName(ModItems.GOLDEN_CHALK.get()), has(ModItems.GOLDEN_CHALK.get()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get(), 1)
+                .requires(ModItems.GREEN_CHALK.get())
+                .requires(ModItems.GOLDEN_CHALK.get())
+                .requires(ItemTags.CANDLES)
+                .requires(ItemTags.CANDLES)
+                .unlockedBy(getHasName(ModItems.GOLDEN_CHALK.get()), has(ModItems.GOLDEN_CHALK.get()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get(), 1)
+                .requires(ModItems.CRIMSON_CHALK.get())
+                .requires(ModItems.GOLDEN_CHALK.get())
+                .requires(ItemTags.CANDLES)
+                .requires(ItemTags.CANDLES)
+                .unlockedBy(getHasName(ModItems.GOLDEN_CHALK.get()), has(ModItems.GOLDEN_CHALK.get()))
+                .save(pWriter);
 
 
     }

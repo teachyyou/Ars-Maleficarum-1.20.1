@@ -69,6 +69,10 @@ public class ModItems {
     public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
             ()->new Item(new Item.Properties().durability(1024)));
 
+    public static final RegistryObject<Item> INFUSED_WOOD = ITEMS.register("infused_wood",
+            ()->new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
             ()->new PoisonStaff(new Item.Properties().durability(1024)));
     //Регистрация детектора углеродной руды
@@ -97,6 +101,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> WOODEN_FIGURE = ITEMS.register("wooden_figure",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> DRY_WOOD = ITEMS.register("dry_wood",
+            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> INFUSED_DRY_WOOD = ITEMS.register("infused_dry_wood",
+            ()->new CommonInfusedItem(new Item.Properties().stacksTo(1)));
+
 
     public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));

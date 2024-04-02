@@ -24,7 +24,9 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.RitesOfSummoning.RiteOfAbyssalFeast;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 
@@ -43,7 +45,9 @@ public abstract class CircleRitual {
             SettingSunRitual.class,
             RiteOfPoisonStaffRepairWithAliveLarva.class,
             RiteOfPoisonStaffRepair.class,
-            RiteOfForgottenNameAwakening.class
+            RiteOfForgottenNameAwakening.class,
+            RiteOfPoisonStaffCreation.class,
+            RiteOfAbyssalFeast.class
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
