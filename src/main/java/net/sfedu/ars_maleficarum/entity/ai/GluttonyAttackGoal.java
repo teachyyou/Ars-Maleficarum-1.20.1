@@ -66,8 +66,15 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
 
     protected void performAttack(LivingEntity pEnemy) {
         this.resetAttackCooldown();
+        pEnemy.knockback(10D,5D,5D);
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
+        float cur_health = entity.getHealth();
+        float add_health = 10F;
+        if(cur_health+add_health<=entity.getMaxHealth())
+            entity.setHealth(cur_health+add_health);
+        else
+            entity.setHealth(entity.getMaxHealth());
     }
 
     @Override

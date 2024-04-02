@@ -15,6 +15,9 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> MANDRAKE_SCREAM = registerSoundEvents("mandrake_scream");
     public static final RegistryObject<SoundEvent> MUSHROOM_CUT = registerSoundEvents("mushroom_cut");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_DIED = registerSoundEvents("gluttony_demon_died");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_SPAWN = registerSoundEvents("gluttony_demon_spawn");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_HURT = registerSoundEvents("gluttony_demon_hurt");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         ResourceLocation id = new ResourceLocation(ArsMaleficarum.MOD_ID, name);
