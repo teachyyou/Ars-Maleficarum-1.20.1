@@ -23,6 +23,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PoisonousEssenceEntity>> POISONOUS_ESSENCE =
             ENTITY_TYPES.register("poisonous_essence", () -> EntityType.Builder.<PoisonousEssenceEntity>of(PoisonousEssenceEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f).clientTrackingRange(4).updateInterval(20).build("poisonous_essence"));
+    public static final RegistryObject<EntityType<GluttonyDemonEntity>> GLUTTONY_DEMON =
+            ENTITY_TYPES.register("gluttony_demon", () -> EntityType.Builder.of(GluttonyDemonEntity::new, MobCategory.CREATURE)
+                    .sized(1.5f, 2f).build("gluttony_demon"));
 
     public static final RegistryObject<EntityType<GluttonyDemonEntity>> GLUTTONY_DEMON =
             ENTITY_TYPES.register("gluttony_demon", () -> EntityType.Builder.of(GluttonyDemonEntity::new, MobCategory.CREATURE)

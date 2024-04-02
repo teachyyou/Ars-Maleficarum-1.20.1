@@ -80,8 +80,7 @@ public class MandrakeCropBlock extends CropBlock {
             if(pLevel.isDay()){
                 if(chance_of_spawn!=9 && chance_of_spawn!=10){
                     pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
-                    pLevel.playSeededSound(null, pPos.getX(),pPos.getY(),pPos.getZ(), ModSounds.MANDRAKE_SPAWN.get(),
-                            SoundSource.BLOCKS,7f,1f,0);
+
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
@@ -96,8 +95,7 @@ public class MandrakeCropBlock extends CropBlock {
             else{
                 if(chance_of_spawn==1 || chance_of_spawn == 2) {
                     pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
-                    pLevel.playSeededSound(null, pPos.getX(),pPos.getY(),pPos.getZ(), ModSounds.MANDRAKE_SPAWN.get(),
-                            SoundSource.BLOCKS,7f,1f,0);
+
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{

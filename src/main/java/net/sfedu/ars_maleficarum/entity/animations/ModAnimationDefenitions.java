@@ -729,4 +729,5 @@ public class ModAnimationDefenitions {
     AnimationChannel.Interpolations.LINEAR),
             new Keyframe(3f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
     AnimationChannel.Interpolations.LINEAR))).build();
-}
+
+	}

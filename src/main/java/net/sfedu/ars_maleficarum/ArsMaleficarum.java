@@ -23,6 +23,7 @@ import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
 import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
+import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonRender;
 import net.sfedu.ars_maleficarum.entity.client.MandrakeRender;
 import net.sfedu.ars_maleficarum.entity.client.PoisonousEssenceRender;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
@@ -129,7 +130,8 @@ public class ArsMaleficarum
                 MenuScreens.register(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(), OdourExtractorFurnaceScreen::new);
                 MenuScreens.register(ModMenuTypes.INFUSING_ALTAR_MENU.get(), InfusingAltarScreen::new);
                 EntityRenderers.register(ModEntities.MANDRAKE.get(), MandrakeRender::new);
-                //EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), MandrakeRender::new);
+
+                EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), GluttonyDemonRender::new);
                 EntityRenderers.register(ModEntities.POISONOUS_ESSENCE.get(), PoisonousEssenceRender::new);
             });
         }
