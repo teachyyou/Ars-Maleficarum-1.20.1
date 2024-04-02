@@ -347,6 +347,11 @@ public class RitualCoreEntity extends BlockEntity {
                 if (hasProperCore) core = CircleType.NATURAL;
 
             }
+            case NETHER -> {
+                hasProperCore = CoreColor==CircleColor.CRIMSON;
+                if (hasProperCore) core = CircleType.NETHER;
+
+            }
             case ANY -> {
                 hasProperCore = true;
             }
@@ -432,7 +437,6 @@ public class RitualCoreEntity extends BlockEntity {
             currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : CircleType.ANY;
             currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : CircleType.ANY;
             currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : CircleType.ANY;
-
             currentCoreType = ritual.getCoreType();
 
             isLargeRequired = ritual.doesRequireLargeCircle();

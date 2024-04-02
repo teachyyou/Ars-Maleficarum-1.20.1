@@ -30,7 +30,8 @@ public class RiteOfPoisonStaffCreation extends CircleRitual {
         mediumCircleType= RitualCoreEntity.CircleType.WHITE;
         largeCircleType= RitualCoreEntity.CircleType.NATURAL;
         coreType= RitualCoreEntity.CircleType.WHITE;
-        components.put(PotionItem.byId(8228), 1);
+        components.put(Items.SPIDER_EYE,1);
+        components.put(Items.GLOWSTONE,1);
         components.put(Items.EMERALD, 1);
         components.put(ModItems.STINK_OF_SWAMP.get(), 1);
         components.put(Items.BONE, 1);
