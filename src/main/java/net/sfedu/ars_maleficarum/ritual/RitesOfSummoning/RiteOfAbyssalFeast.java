@@ -36,7 +36,13 @@ public class RiteOfAbyssalFeast extends CircleRitual {
         mediumCircleType= RitualCoreEntity.CircleType.NETHER;
         largeCircleType= RitualCoreEntity.CircleType.NETHER;
         coreType= RitualCoreEntity.CircleType.NETHER;
-        components.put(Items.DIAMOND,1);
+        components.put(ModItems.ROWAN_BERRIES.get(), 1);
+        components.put(Items.GOLDEN_APPLE,1);
+        components.put(Items.CAKE,1);
+        components.put(Items.COOKED_PORKCHOP,1);
+        components.put(Items.COOKED_BEEF,1);
+        components.put(Items.BLAZE_POWDER,1);
+        components.put(ModItems.WHIFF_OF_TIME.get(), 1);
         doesRequireLargeCircle=true;
         doesRequireMediumCircle=true;
         doesRequireSmallCircle=false;
