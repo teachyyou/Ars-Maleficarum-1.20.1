@@ -27,9 +27,6 @@ public class ModEntities {
             ENTITY_TYPES.register("gluttony_demon", () -> EntityType.Builder.of(GluttonyDemonEntity::new, MobCategory.CREATURE)
                     .sized(1.5f, 2f).build("gluttony_demon"));
 
-    public static final RegistryObject<EntityType<GluttonyDemonEntity>> GLUTTONY_DEMON =
-            ENTITY_TYPES.register("gluttony_demon", () -> EntityType.Builder.of(GluttonyDemonEntity::new, MobCategory.CREATURE)
-                    .sized(1f, 1f).build("gluttony_demon"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
