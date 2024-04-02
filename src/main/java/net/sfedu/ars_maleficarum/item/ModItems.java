@@ -188,11 +188,22 @@ public class ModItems {
     public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
             ()->new GreenChalk(new Item.Properties().durability(44)));
 
+    public static final RegistryObject<Item> GOLDEN_CHALK = ITEMS.register("golden_chalk",
+            ()->new GoldenChalk(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
+            ()->new CrimsonChalk(new Item.Properties().durability(44)));
+
+
+
     public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
             ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
 
     public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
             ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CRIMSON_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("crimson_circle_core_drawing_kit",
+            ()->new NetherCoreDrawingKit(new Item.Properties().durability(1)));
 
     public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
             ()->new Item(new Item.Properties().stacksTo(1).durability(128)));

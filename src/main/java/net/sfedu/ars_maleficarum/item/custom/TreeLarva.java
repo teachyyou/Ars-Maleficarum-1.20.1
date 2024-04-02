@@ -21,8 +21,6 @@ public class TreeLarva extends Item {
         return 1;
     }
 
-    @Override
-    public boolean canFitInsideContainerItems() { return false; }
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
@@ -44,7 +42,7 @@ public class TreeLarva extends Item {
         if (!tag.contains("liveTime")) {tag.putInt("liveTime", 0);}
         int liveTime = tag.getInt("liveTime");
         tag.putInt("liveTime", liveTime+1);
-        if (liveTime >= 12000)
+        if (liveTime >= 400)
         {
             entity.setItem(new ItemStack(ModItems.DEAD_TREE_LARVA.get(), entity.getItem().getCount()));
         }

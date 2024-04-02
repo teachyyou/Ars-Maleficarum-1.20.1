@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -14,10 +15,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.datagen.custom.BrewingCauldronRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.InfusingAltarRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.ModRecipes;
+import net.sfedu.ars_maleficarum.util.ModTags;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -302,6 +305,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.WOODEN_MORTAR_AND_PESTLE.get()), has(ModItems.WOODEN_MORTAR_AND_PESTLE.get()))
                 .save(pWriter, new ResourceLocation("ground_sage_flowers_with_wooden_mortar"));
 
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_PLANKS.get(), 4)
+                .requires(ModBlocks.KRAMER_TREE_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_LOG.get()), has(ModBlocks.KRAMER_TREE_LOG.get()))
+                .save(pWriter, new ResourceLocation("kramer_planks_from_log"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_PLANKS.get(), 4)
+                .requires(ModBlocks.KRAMER_TREE_WOOD.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_WOOD.get()), has(ModBlocks.KRAMER_TREE_WOOD.get()))
+                .save(pWriter, new ResourceLocation("kramer_planks_from_wood"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.KRAMER_TREE_WOOD.get(), 3)
+                .pattern("   ")
+                .pattern(" ##")
+                .pattern(" ##")
+                .define('#', ModBlocks.KRAMER_TREE_LOG.get())
+                .unlockedBy(getHasName(ModBlocks.KRAMER_TREE_LOG.get()), has(ModBlocks.KRAMER_TREE_LOG.get()))
+                .save(pWriter);
+
+
         //Крафт блока соли
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SALT_BLOCK.get())
                 .pattern("   ")
@@ -451,6 +472,37 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_nameless_tree_planks", has(ModBlocks.NAMELESS_TREE_PLANKS.get()))
                 .save(pWriter);
 
+        //Крафт канделябра
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CHANDELIER.get())
+                .pattern("TTT")
+                .pattern("GGG")
+                .pattern(" G ")
+                .define('G', ModItems.CURSED_GOLD.get())
+                .define('T', Items.TORCH)
+                .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
+                .save(pWriter);
+
+        //Крафт черепа на палочке
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SKULL_ON_STICK.get())
+                .pattern("   ")
+                .pattern(" S ")
+                .pattern(" T ")
+                .define('T', Items.STICK)
+                .define('S', ModTags.Items.SKULLS)
+                .unlockedBy(getHasName(ModItems.CURSED_GOLD.get()), has(ModItems.CURSED_GOLD.get()))
+                .save(pWriter);
+        //Крафт хрустального шара
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRYSTAL_BALL.get())
+                .pattern(" G ")
+                .pattern("GTG")
+                .pattern("NIN")
+                .define('G', Items.GLASS)
+                .define('T', ModItems.SCENT_OF_UNCERTAINTY.get())
+                .define('N', ModItems.CURSED_GOLD_NUGGET.get())
+                .define('I', ModItems.CURSED_GOLD.get())
+                .unlockedBy(getHasName(ModItems.TUNE_OF_HARMONY.get()), has(ModItems.TUNE_OF_HARMONY.get()))
+                .save(pWriter);
+
 
         //Генерация крафтов в новой печке
         new OdourExtractorRecipeBuilder(Blocks.DARK_OAK_SAPLING, ModItems.ASH.get(), ModItems.PETRICHOR.get(), true, 0.2F, 1)
@@ -492,6 +544,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
         new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(), ModItems.TROPICAL_MONSOON.get(), Items.TROPICAL_FISH, ModItems.ROWAN_BERRIES.get(), Items.GUNPOWDER, ModItems.WOODEN_FIGURE.get()), ModBlocks.WOODEN_CAT_FIGURE.get(), "overworld")
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
+
+
+        //Генерация крафтов в варочном котле
+        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)
+                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
 
 
     }

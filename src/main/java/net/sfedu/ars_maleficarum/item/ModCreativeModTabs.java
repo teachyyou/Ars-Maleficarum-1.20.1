@@ -125,14 +125,30 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MANDRAKE_SEED.get());
                         pOutput.accept(ModItems.MANDRAKE_ROOT.get());
                         pOutput.accept(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+                        pOutput.accept(ModBlocks.CHANDELIER.get());
+                        pOutput.accept(ModBlocks.SKULL_ON_STICK.get());
+                        pOutput.accept(ModBlocks.CRYSTAL_BALL.get());
+
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
+
+                        pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
+
                         pOutput.accept(ModItems.POISON_STAFF.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
+                        pOutput.accept(ModItems.GOLDEN_CHALK.get());
+                        pOutput.accept(ModItems.CRIMSON_CHALK.get());
                         pOutput.accept(ModItems.GREEN_CHALK.get());
                         pOutput.accept(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
+                        pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
+
+                        pOutput.accept(ModBlocks.KRAMER_TREE_LOG.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_WOOD.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
+                        pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
+                        pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
 
 
                     }))

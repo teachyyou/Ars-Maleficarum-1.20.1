@@ -2,6 +2,7 @@ package net.sfedu.ars_maleficarum.block.custom.chalkSymbols;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -25,6 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -97,6 +99,7 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
                 return InteractionResult.FAIL;
             }
         }
+        pLevel.playSound(null,pPos, ModSounds.BRUSH_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
 }

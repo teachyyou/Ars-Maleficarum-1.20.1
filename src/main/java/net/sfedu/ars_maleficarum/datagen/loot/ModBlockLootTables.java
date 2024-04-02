@@ -109,6 +109,18 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropOther(ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(), ModItems.SILVER_CHUNK.get());
         this.dropOther(ModBlocks.WOODEN_CAT_FIGURE.get(), ModItems.WOODEN_FIGURE.get().asItem());
 
+        this.dropSelf(ModBlocks.KRAMER_TREE_LOG.get());
+        this.dropSelf(ModBlocks.KRAMER_TREE_WOOD.get());
+        this.dropSelf(ModBlocks.KRAMER_TREE_PLANKS.get());
+        this.dropSelf(ModBlocks.KRAMER_SAPLING.get());
+        this.add(ModBlocks.KRAMER_TREE_LEAVES.get(), (block) ->
+                createLeavesDrops(block, ModBlocks.KRAMER_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        this.dropSelf(ModBlocks.CHANDELIER.get());
+        this.dropSelf(ModBlocks.SKULL_ON_STICK.get());
+
+        this.dropSelf(ModBlocks.BREWING_CAULDRON.get());
+
     }
 
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры солнечный свет

@@ -43,6 +43,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLINT_KNIFE);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        saplingItem(ModBlocks.KRAMER_SAPLING);
         saplingItem(ModBlocks.NAMELESS_TREE_SAPLING);
 
         simpleItem(ModItems.ROWAN_BERRIES);
@@ -102,6 +103,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexAltarInfusingBlock();
         complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
         customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
+        complexBlock(ModBlocks.CHANDELIER.get());
+        complexBlock(ModBlocks.SKULL_ON_STICK.get());
+        complexBlock(ModBlocks.CRYSTAL_BALL.get());
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
@@ -110,10 +114,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHALK_BRUSH);
         simpleItem(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT);
         simpleItem(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.GOLDEN_CHALK);
+        simpleItem(ModItems.CRIMSON_CHALK);
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
         withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        complexBlock(ModBlocks.BREWING_CAULDRON.get());
+
     }
 
     //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная

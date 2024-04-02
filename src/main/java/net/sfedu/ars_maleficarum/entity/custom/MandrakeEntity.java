@@ -3,6 +3,7 @@ package net.sfedu.ars_maleficarum.entity.custom;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.effect.MobEffects;
@@ -15,10 +16,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.ai.RunFromPlayerGoal;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Predicate;
+
+import static net.sfedu.ars_maleficarum.sound.ModSounds.MANDRAKE_SCREAM;
 
 public class MandrakeEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
@@ -51,18 +55,28 @@ public class MandrakeEntity extends Animal {
             mobeffectinstance = new MobEffectInstance(MobEffects.CONFUSION, 400, 2);
             is_spawned = true;
             List<ServerPlayer> list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)this.level(), this, this.position(), 20.0D, mobeffectinstance, 1200);
-            list.forEach((p_289459_) -> {
-                p_289459_.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.PUFFER_FISH_STING, this.isSilent() ? 0.0F : 1.0F));
-            });
+            playSound(MANDRAKE_SCREAM.get());
+//            list.forEach((p_289459_) -> {
+//                p_289459_.connection.send(new ClientboundGameEventPacket(MANDRAKE_SCREAM.get(), this.isSilent() ? 0.0F : 1.0F));
+//            });
         }
         else if ((this.tickCount + this.getId()) % 300 == 0) {
             mobeffectinstance = new MobEffectInstance(MobEffects.CONFUSION, 400, 2);
             List<ServerPlayer> list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)this.level(), this, this.position(), 20.0D, mobeffectinstance, 1200);
-            list.forEach((p_289459_) -> {
-                p_289459_.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.PUFFER_FISH_STING, this.isSilent() ? 0.0F : 1.0F));
-            });
+            playSound(MANDRAKE_SCREAM.get());
+//            list.forEach((p_289459_) -> {
+//                p_289459_.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.PUFFER_FISH_STING, this.isSilent() ? 0.0F : 1.0F));
+//            });
         }
+
     }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.MANDRAKE_DEATH.get();
+    }
+
     private void setupAnimationStates() {
 
         if (this.getAnimationTimeOut <= 0) {
@@ -97,4 +111,7 @@ public class MandrakeEntity extends Animal {
         return ModEntities.MANDRAKE.get().create(pLevel);
     }
 
+    public void setAttacking(boolean b) {
+
+    }
 }

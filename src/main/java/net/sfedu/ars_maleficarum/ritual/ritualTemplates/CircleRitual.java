@@ -6,6 +6,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
@@ -23,6 +24,9 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 
 import java.util.*;
 
@@ -36,7 +40,10 @@ public abstract class CircleRitual {
             GreatRiteOfSwiftness.class,
             WeakRiteOfEmpowering.class,
             WeakRiteOfSwiftness.class,
-            SettingSunRitual.class
+            SettingSunRitual.class,
+            RiteOfPoisonStaffRepairWithAliveLarva.class,
+            RiteOfPoisonStaffRepair.class,
+            RiteOfForgottenNameAwakening.class
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
@@ -53,6 +60,8 @@ public abstract class CircleRitual {
     protected boolean allComponentsConsumed = false;
 
     protected SimpleParticleType particleType = ParticleTypes.WITCH;
+    protected SoundEvent itemConsumeSound = SoundEvents.ITEM_PICKUP;
+    protected float itemConsumeParticleSpeed = 0.2f;
 
     protected int ticks = 0;
     protected Entity sacrificeEntity;
@@ -114,12 +123,11 @@ public abstract class CircleRitual {
                         double d0 = item.position().x;
                         double d1 = item.position().y;
                         double d2 = item.position().z;
-                        //TODO: добавить ещё и звук
-                        ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,0.2);
+                        ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,itemConsumeParticleSpeed);
                         int toTake = Math.min(amount,item.getItem().getCount());
                         components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
                         item.getItem().shrink(toTake);
-                        pLevel.playSound(null, pPos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS,1F,1F);
+                        pLevel.playSound(null, pPos, itemConsumeSound, SoundSource.PLAYERS,1F,1F);
                         break;
                     } catch (NoSuchElementException e) {
                         pPlayer.sendSystemMessage(Component.translatable("ritual.rite_interrupt_by_components"));

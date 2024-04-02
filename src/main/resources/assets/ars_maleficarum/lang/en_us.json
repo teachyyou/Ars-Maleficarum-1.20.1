@@ -21,6 +21,7 @@
   "item.ars_maleficarum.silver_chunk": "Silver Chunk",
   "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
   "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
+  "sounds.ars_maleficarum.mandrake_scream": "Mandrake Scream",
   "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
   "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
@@ -51,6 +52,12 @@
   "block.ars_maleficarum.nameless_tree_slab": "Nameless Tree Slab",
   "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
   "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate",
+
+  "block.ars_maleficarum.kramer_sapling": "Kramer's Tree Sapling",
+  "block.ars_maleficarum.kramer_tree_log": "Kramer's Tree Log",
+  "block.ars_maleficarum.kramer_tree_wood": "Kramer's Tree Wood",
+  "block.ars_maleficarum.kramer_tree_planks": "Kramer's Tree Planks",
+  "block.ars_maleficarum.kramer_tree_leaves": "Kramer's Tree Leaves",
 
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
@@ -88,11 +95,11 @@
   "block.ars_maleficarum.infusing_altar_carpet_block": "Covered Altar Base",
   "block.ars_maleficarum.infusing_altar_penta_block": "Painted Altar Base",
 
-  "block.ars_maleficarum.wooden_cat_figure": "Wooden Cat Figure",
-
   "item.ars_maleficarum.wooden_figure": "Wooden Figure",
   "item.ars_maleficarum.poppet": "Poppet",
+
   "item.ars_maleficarum.cat_figure": "Wooden Cat Figure",
+  "block.ars_maleficarum.wooden_cat_figure": "Wooden Cat Figure",
 
   "item.ars_maleficarum.bat_wing": "Bat Wing",
   "block.ars_maleficarum.salt_block": "Salt Block",
@@ -145,18 +152,29 @@
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
   "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
 
+  "block.ars_maleficarum.chandelier": "Chandelier",
+  "block.ars_maleficarum.skull_on_a_stick": "Skull On A Stick",
+  "block.ars_maleficarum.crystal_ball": "Crystal Ball",
+
   "block.ars_maleficarum.white_chalk_symbol": "White Glyph",
+  "block.ars_maleficarum.green_chalk_symbol": "Green Glyph",
+  "block.ars_maleficarum.crimson_chalk_symbol": "Crimson Glyph",
   "block.ars_maleficarum.chalk_symbol": "Glyph",
   "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
+
+  "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
   "item.ars_maleficarum.green_chalk": "Green Chalk",
   "item.ars_maleficarum.golden_chalk": "Golden Chalk",
+  "item.ars_maleficarum.crimson_chalk": "Crimson Chalk",
   "item.ars_maleficarum.chalk_brush": "Chalk Brush",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "White Drawing Kit",
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Green Drawing Kit",
+  "item.ars_maleficarum.crimson_circle_core_drawing_kit": "Crimson Drawing Kit",
 
-  "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!"
+  "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
 
 }
