@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.sfedu.ars_maleficarum.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinWidget"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "mixins.ars_maleficarum.refmap.json"
+}

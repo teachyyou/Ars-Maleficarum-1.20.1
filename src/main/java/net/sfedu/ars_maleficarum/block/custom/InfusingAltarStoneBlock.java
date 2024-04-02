@@ -67,7 +67,7 @@ public class InfusingAltarStoneBlock extends Block {
                 if (pPlayer.getItemInHand(pHand).getItem()== colorCarpets.get(i)) {
                     pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,i), 2);
                     if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                    return InteractionResult.sidedSuccess(pLevel.isClientSide);
+                    return InteractionResult.sidedSuccess(!pLevel.isClientSide);
                 }
             }
 

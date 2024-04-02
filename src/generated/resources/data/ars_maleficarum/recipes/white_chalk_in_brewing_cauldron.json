@@ -1,0 +1,26 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "ingredients": [
+    {
+      "item": "minecraft:calcite"
+    },
+    {
+      "item": "ars_maleficarum:ash"
+    },
+    {
+      "item": "ars_maleficarum:salt"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:white_chalk"
+  }
+}

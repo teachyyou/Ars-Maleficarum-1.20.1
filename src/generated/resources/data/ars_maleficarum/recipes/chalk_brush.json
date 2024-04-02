@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "minecraft:string"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    " RS",
+    " SW",
+    "SW "
+  ],
+  "result": {
+    "item": "ars_maleficarum:chalk_brush"
+  },
+  "show_notification": true
+}

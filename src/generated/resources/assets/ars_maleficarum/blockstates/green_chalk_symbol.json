@@ -1,0 +1,169 @@
+{
+  "variants": {
+    "facing=east,variant=0": {
+      "model": "ars_maleficarum:block/green_chalk_symbol0",
+      "y": 90
+    },
+    "facing=east,variant=1": {
+      "model": "ars_maleficarum:block/green_chalk_symbol1",
+      "y": 90
+    },
+    "facing=east,variant=10": {
+      "model": "ars_maleficarum:block/green_chalk_symbol10",
+      "y": 90
+    },
+    "facing=east,variant=2": {
+      "model": "ars_maleficarum:block/green_chalk_symbol2",
+      "y": 90
+    },
+    "facing=east,variant=3": {
+      "model": "ars_maleficarum:block/green_chalk_symbol3",
+      "y": 90
+    },
+    "facing=east,variant=4": {
+      "model": "ars_maleficarum:block/green_chalk_symbol4",
+      "y": 90
+    },
+    "facing=east,variant=5": {
+      "model": "ars_maleficarum:block/green_chalk_symbol5",
+      "y": 90
+    },
+    "facing=east,variant=6": {
+      "model": "ars_maleficarum:block/green_chalk_symbol6",
+      "y": 90
+    },
+    "facing=east,variant=7": {
+      "model": "ars_maleficarum:block/green_chalk_symbol7",
+      "y": 90
+    },
+    "facing=east,variant=8": {
+      "model": "ars_maleficarum:block/green_chalk_symbol8",
+      "y": 90
+    },
+    "facing=east,variant=9": {
+      "model": "ars_maleficarum:block/green_chalk_symbol9",
+      "y": 90
+    },
+    "facing=north,variant=0": {
+      "model": "ars_maleficarum:block/green_chalk_symbol0"
+    },
+    "facing=north,variant=1": {
+      "model": "ars_maleficarum:block/green_chalk_symbol1"
+    },
+    "facing=north,variant=10": {
+      "model": "ars_maleficarum:block/green_chalk_symbol10"
+    },
+    "facing=north,variant=2": {
+      "model": "ars_maleficarum:block/green_chalk_symbol2"
+    },
+    "facing=north,variant=3": {
+      "model": "ars_maleficarum:block/green_chalk_symbol3"
+    },
+    "facing=north,variant=4": {
+      "model": "ars_maleficarum:block/green_chalk_symbol4"
+    },
+    "facing=north,variant=5": {
+      "model": "ars_maleficarum:block/green_chalk_symbol5"
+    },
+    "facing=north,variant=6": {
+      "model": "ars_maleficarum:block/green_chalk_symbol6"
+    },
+    "facing=north,variant=7": {
+      "model": "ars_maleficarum:block/green_chalk_symbol7"
+    },
+    "facing=north,variant=8": {
+      "model": "ars_maleficarum:block/green_chalk_symbol8"
+    },
+    "facing=north,variant=9": {
+      "model": "ars_maleficarum:block/green_chalk_symbol9"
+    },
+    "facing=south,variant=0": {
+      "model": "ars_maleficarum:block/green_chalk_symbol0",
+      "y": 180
+    },
+    "facing=south,variant=1": {
+      "model": "ars_maleficarum:block/green_chalk_symbol1",
+      "y": 180
+    },
+    "facing=south,variant=10": {
+      "model": "ars_maleficarum:block/green_chalk_symbol10",
+      "y": 180
+    },
+    "facing=south,variant=2": {
+      "model": "ars_maleficarum:block/green_chalk_symbol2",
+      "y": 180
+    },
+    "facing=south,variant=3": {
+      "model": "ars_maleficarum:block/green_chalk_symbol3",
+      "y": 180
+    },
+    "facing=south,variant=4": {
+      "model": "ars_maleficarum:block/green_chalk_symbol4",
+      "y": 180
+    },
+    "facing=south,variant=5": {
+      "model": "ars_maleficarum:block/green_chalk_symbol5",
+      "y": 180
+    },
+    "facing=south,variant=6": {
+      "model": "ars_maleficarum:block/green_chalk_symbol6",
+      "y": 180
+    },
+    "facing=south,variant=7": {
+      "model": "ars_maleficarum:block/green_chalk_symbol7",
+      "y": 180
+    },
+    "facing=south,variant=8": {
+      "model": "ars_maleficarum:block/green_chalk_symbol8",
+      "y": 180
+    },
+    "facing=south,variant=9": {
+      "model": "ars_maleficarum:block/green_chalk_symbol9",
+      "y": 180
+    },
+    "facing=west,variant=0": {
+      "model": "ars_maleficarum:block/green_chalk_symbol0",
+      "y": 270
+    },
+    "facing=west,variant=1": {
+      "model": "ars_maleficarum:block/green_chalk_symbol1",
+      "y": 270
+    },
+    "facing=west,variant=10": {
+      "model": "ars_maleficarum:block/green_chalk_symbol10",
+      "y": 270
+    },
+    "facing=west,variant=2": {
+      "model": "ars_maleficarum:block/green_chalk_symbol2",
+      "y": 270
+    },
+    "facing=west,variant=3": {
+      "model": "ars_maleficarum:block/green_chalk_symbol3",
+      "y": 270
+    },
+    "facing=west,variant=4": {
+      "model": "ars_maleficarum:block/green_chalk_symbol4",
+      "y": 270
+    },
+    "facing=west,variant=5": {
+      "model": "ars_maleficarum:block/green_chalk_symbol5",
+      "y": 270
+    },
+    "facing=west,variant=6": {
+      "model": "ars_maleficarum:block/green_chalk_symbol6",
+      "y": 270
+    },
+    "facing=west,variant=7": {
+      "model": "ars_maleficarum:block/green_chalk_symbol7",
+      "y": 270
+    },
+    "facing=west,variant=8": {
+      "model": "ars_maleficarum:block/green_chalk_symbol8",
+      "y": 270
+    },
+    "facing=west,variant=9": {
+      "model": "ars_maleficarum:block/green_chalk_symbol9",
+      "y": 270
+    }
+  }
+}

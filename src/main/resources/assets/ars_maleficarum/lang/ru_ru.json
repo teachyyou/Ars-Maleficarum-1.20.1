@@ -8,33 +8,57 @@
   "item.ars_maleficarum.marigold_flower": "Цветок календулы",
   "item.ars_maleficarum.sage_seeds": "Семена шалфея",
   "item.ars_maleficarum.sage_leaf": "Листья шалфея",
-  "blocks.ars_maleficarum.sage_crop": "Побеги шалфея",
+  "block.ars_maleficarum.sage_crop": "Побеги шалфея",
   "item.ars_maleficarum.marigold_seeds": "Семена календулы",
   "block.ars_maleficarum.marigold_crop": "Побеги календулы",
   "block.ars_maleficarum.cursed_gold_block": "Блок проклятого золота",
   "block.ars_maleficarum.silver_block": "Блок серебра",
   "block.ars_maleficarum.cursed_gold_ore_block": "Руда проклятого золота",
   "block.ars_maleficarum.silver_ore_block": "Серебряная руда",
+  "block.ars_maleficarum.silver_deepslate_ore_block": "Глубинный сланец с серебром",
+  "block.ars_maleficarum.cursed_gold_deepslate_ore_block": "Глубинный сланец с проклятым золотом",
+  "block.ars_maleficarum.cursed_gold_nether_ore_block": "Адская руда проклятого золота",
+  "item.ars_maleficarum.silver_chunk": "Рудное серебро",
+  "item.ars_maleficarum.cursed_gold_chunk": "Рудное проклятое золото",
   "item.ars_maleficarum.cursed_gold": "Слиток проклятого золота",
   "item.ars_maleficarum.silver": "Серебряный слиток",
   "item.ars_maleficarum.cursed_gold_nugget": "Самородок проклятого золота",
   "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
+  "item.ars_maleficarum.mandrake_spawn_egg": "Яйцо призыва мандрагоры",
+  "sounds.ars_maleficarum.mushroom_cut": "Срезание гриба",
+  "sounds.ars_maleficarum.mandrake_scream": "Крик мандрагоры",
 
   "block.ars_maleficarum.rowan_log": "Рябиновая древесина",
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
+  "block.ars_maleficarum.stripped_rowan_log": "Обтёсанная рябиновая древесина",
+  "block.ars_maleficarum.stripped_rowan_wood": "Обтёсанная рябина",
   "block.ars_maleficarum.rowan_leaves": "Рябиновые листья",
   "block.ars_maleficarum.rowan_berries_leaves": "Рябиновые листья",
   "block.ars_maleficarum.rowan_sapling": "Саженец рябины",
+  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
   "item.ars_maleficarum.rowan_bark": "Рябиновая кора",
+  "block.ars_maleficarum.rowan_stairs": "Ступеньки из рябины",
+  "block.ars_maleficarum.rowan_slab": "Полублок из рябины",
+  "block.ars_maleficarum.rowan_fence": "Забор из рябины",
+  "block.ars_maleficarum.rowan_fence_gate": "Ворота из рябины",
+  "Gluttony_Demon_Bar": "Демон Чревоугодия",
 
   "block.ars_maleficarum.nameless_tree_log": "Древесина Безымянного древа",
   "block.ars_maleficarum.nameless_tree_planks": "Доски из Безымянного древа",
   "block.ars_maleficarum.nameless_tree_wood": "Безымянное древо",
   "block.ars_maleficarum.nameless_tree_leaves": "Листья Безымянного древа",
   "block.ars_maleficarum.nameless_tree_sapling": "Саженец Безымянного древа",
+  "block.ars_maleficarum.nameless_tree_stairs": "Ступеньки из безымянного дерева",
+  "block.ars_maleficarum.nameless_tree_slab": "Полублок из безымянного дерева",
+  "block.ars_maleficarum.nameless_tree_fence": "Забор из безымянного дерева",
+  "block.ars_maleficarum.nameless_tree_fence_gate": "Ворота из безымянного дерева",
 
-  "item.ars_maleficarum.rowan_berries": "Ягоды рябины",
+  "block.ars_maleficarum.kramer_sapling": "Саженец древа Крамера",
+  "block.ars_maleficarum.kramer_tree_log": "Древесина древа Крамера",
+  "block.ars_maleficarum.kramer_tree_wood": "Древо Крамера",
+  "block.ars_maleficarum.kramer_tree_planks": "Доски из древа Крамера",
+  "block.ars_maleficarum.kramer_tree_leaves": "Листья древа Крамера",
 
   "item.ars_maleficarum.flint_knife": "Примитивный ножик",
 
@@ -45,6 +69,7 @@
   "item.ars_maleficarum.stone_mortar_and_pestle": "Каменная ступка и пестик",
   "item.ars_maleficarum.stone_pestle": "Каменный пестик",
   "item.ars_maleficarum.wooden_mortar_and_pestle": "Деревянная ступка и пестик",
+  "item.ars_maleficarum.swamp_rotfiend_ingredient_item": "Болотный Гнилец",
 
   "item.ars_maleficarum.carbon_detector": "Дар нищего рудокопа",
   "item.ars_maleficarum.metal_detector": "Дар смуглого металлурга",
@@ -58,6 +83,8 @@
 
   "Carbon_not_found_message": "Артефакт демонстрирует полное отсутствие интереса. Ему скучно, поскольку ничего углеродного обнаружить снизу не удалось.",
   "Carbon_found_message": "Артефакт пульсирует и пищит! Здесь стоило бы покопаться в поисках улгеродных соединений!",
+  "odour_extracting_furnace_crafts": "Печь выпаривания ароматов",
+  "infusing_altar_crafts": "Алтарь наполнения",
 
   "Odour_Extracting_Furnace_DisplayName": "Печь выпаривания ароматов",
   "block.ars_maleficarum.odour_extracting_furnace": "Печь выпаривания ароматов",
@@ -72,6 +99,7 @@
   "item.ars_maleficarum.poppet": "Кукла",
 
   "item.ars_maleficarum.cat_figure": "Деревянная фигурка кошки",
+  "block.ars_maleficarum.wooden_cat_figure": "Деревянная фигурка кошки",
 
   "item.ars_maleficarum.bat_wing": "Крыло летучей мыши",
   "block.ars_maleficarum.salt_block": "Блок соли",
@@ -95,6 +123,8 @@
   "item.ars_maleficarum.sunlight_flower": "Цветок Солнечного Света",
   "item.ars_maleficarum.moonlight_flower": "Цветы Лунного Света",
 
+  "item.ars_maleficarum.nameless_charcoal": "Безымянный древесный уголь",
+
   "item.ars_maleficarum.empty_vial": "Пустой флакон",
 
   "item.ars_maleficarum.smell_of_home": "Запах дома",
@@ -116,19 +146,37 @@
   "item.ars_maleficarum.ground_sage_flowers": "Измельченные цветы шалфея",
   "item.ars_maleficarum.ground_marigold_flowers": "Измельченные цветы календулы",
 
-  "item.ars_maleficarum.nameless_charcoal": "Безымянный древесный уголь",
-
   "item.ars_maleficarum.ash": "Пепел",
 
   "item.ars_maleficarum.mandrake_root": "Корень мандрагоры",
   "item.ars_maleficarum.mandrake_seed": "Семя мандрагоры",
   "block.ars_maleficarum.mandrake_crop": "Побеги мандрагоры",
-  "block.modid.rowan_stairs": "Ступеньки из рябины",
-  "block.modid.rowan_slab": "Полублок из рябины",
-  "block.modid.rowan_fence": "Забор из рябины",
-  "block.modid.rowan_fence_gate": "Ворота из рябины",
-  "block.modid.nameless_tree_stairs": "Ступеньки из безымянного дерева",
-  "block.modid.nameless_tree_slab": "Полублок из безымянного дерева",
-  "block.modid.nameless_tree_fence": "Забор из безымянного дерева",
-  "block.modid.nameless_tree_fence_gate": "Ворота из безымянного дерева"
+
+  "block.ars_maleficarum.chandelier": "Канделябр",
+  "block.ars_maleficarum.skull_on_a_stick": "Насаженный на ветку череп",
+  "block.ars_maleficarum.crystal_ball": "Хрустальный шар",
+
+  "block.ars_maleficarum.white_chalk_symbol": "Белое начертание",
+  "block.ars_maleficarum.green_chalk_symbol": "Зелёное начертание",
+  "block.ars_maleficarum.crimson_chalk_symbol": "Адское начертание",
+  "block.ars_maleficarum.chalk_symbol": "Начертание",
+  "block.ars_maleficarum.ritual_circle_core": "Центр ритуального круга",
+
+  "item.ars_maleficarum.dry_wood": "Сухая древесина",
+  "item.ars_maleficarum.infused_dry_wood": "Зачарованная сухая древесина",
+  "item.ars_maleficarum.poison_staff": "Трость Флемет",
+
+  "item.ars_maleficarum.white_chalk": "Белый мел",
+  "item.ars_maleficarum.green_chalk": "Зелёный мел",
+  "item.ars_maleficarum.golden_chalk": "Золотистый мел",
+  "item.ars_maleficarum.crimson_chalk": "Красный мел",
+  "item.ars_maleficarum.chalk_brush": "Щётка",
+  "item.ars_maleficarum.white_circle_core_drawing_kit": "Набор для рисования: БЕЛЫЙ",
+  "item.ars_maleficarum.green_circle_core_drawing_kit": "Набор для рисования: ЗЕЛЕНЫЙ",
+  "item.ars_maleficarum.crimson_circle_core_drawing_kit": "Набор для рисования: КРАСНЫЙ",
+
+  "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
+
+  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл"
+
 }

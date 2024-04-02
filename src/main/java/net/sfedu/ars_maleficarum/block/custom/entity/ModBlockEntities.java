@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -22,6 +23,16 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("infusing_altar_block_entity", () ->
                     BlockEntityType.Builder.of(InfusingAltarBlockEntity::new,
                             ModBlocks.INFUSING_ALTAR.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<RitualCoreEntity>> RITUAL_CORE_ENTITY =
+            BLOCK_ENTITIES.register("ritual_core_entity", () ->
+                    BlockEntityType.Builder.of(RitualCoreEntity::new,
+                            ModBlocks.RITUAL_CIRCLE_CORE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BrewingCauldronBlockEntity>> BREWING_CAULDRON_BE =
+            BLOCK_ENTITIES.register("brewing_cauldron_block_entity", () ->
+                    BlockEntityType.Builder.of(BrewingCauldronBlockEntity::new,
+                            ModBlocks.BREWING_CAULDRON.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

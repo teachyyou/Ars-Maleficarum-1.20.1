@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ars_maleficarum:block/nameless_tree_slab"
+    },
+    "type=double": {
+      "model": "ars_maleficarum:block/nameless_tree_planks"
+    },
+    "type=top": {
+      "model": "ars_maleficarum:block/nameless_tree_slab_top"
+    }
+  }
+}

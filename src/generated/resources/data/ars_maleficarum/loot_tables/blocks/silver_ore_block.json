@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ars_maleficarum:silver_ore_block"
+          "name": "ars_maleficarum:silver_chunk"
         }
       ],
       "rolls": 1.0

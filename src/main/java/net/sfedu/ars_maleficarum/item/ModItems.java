@@ -1,15 +1,16 @@
 package net.sfedu.ars_maleficarum.item;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
 
 public class ModItems {
 
@@ -59,10 +60,21 @@ public class ModItems {
     //Регистрация  самородка проклятого серебра
     public static final RegistryObject<Item> SILVER_NUGGET = ITEMS.register("silver_nugget",
             ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_CHUNK = ITEMS.register("silver_chunk",
+            ()->new Item(new Item.Properties()));
 
     //Регистрация  самородка проклятого золота
     public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
             ()->new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
+            ()->new Item(new Item.Properties().durability(1024)));
+
+    public static final RegistryObject<Item> INFUSED_WOOD = ITEMS.register("infused_wood",
+            ()->new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
+            ()->new PoisonStaff(new Item.Properties().durability(1024)));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
@@ -79,18 +91,26 @@ public class ModItems {
 
     public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
             ()->new Item(new Item.Properties()));
+    //public static final RegistryObject<Item> SWAMP_ROTFIEND = ITEMS.register("swamp_rotfiend_item",
+            //()->new ItemNameBlockItem(ModBlocks.SWAMP_ROTFIEND.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> SWAMP_ROTFIEND_INGREDIENT = ITEMS.register("swamp_rotfiend_ingredient_item",
+            ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
             ()->new FuelItem(new Item.Properties(),400));
 
     public static final RegistryObject<Item> WOODEN_FIGURE = ITEMS.register("wooden_figure",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
+    public static final RegistryObject<Item> DRY_WOOD = ITEMS.register("dry_wood",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> CAT_FIGURE= ITEMS.register("cat_figure",
-            ()->new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> INFUSED_DRY_WOOD = ITEMS.register("infused_dry_wood",
+            ()->new CommonInfusedItem(new Item.Properties().stacksTo(1)));
+
+
+    public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
+            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
             ()->new FlintKnife(new Item.Properties().durability(16)));
@@ -167,6 +187,37 @@ public class ModItems {
             ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> ASH = ITEMS.register("ash",
             ()->new IngredientItem(new Item.Properties()));
+    public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x7e9680,0xc5d1c5,new Item.Properties()));
+
+    public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON,0x2e9980,0xc6d1c5,new Item.Properties()));
+
+    public static final RegistryObject<Item> WHITE_CHALK = ITEMS.register("white_chalk",
+            ()->new WhiteChalk(new Item.Properties().durability(44)));
+
+    public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
+            ()->new GreenChalk(new Item.Properties().durability(44)));
+
+    public static final RegistryObject<Item> GOLDEN_CHALK = ITEMS.register("golden_chalk",
+            ()->new GoldenChalk(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
+            ()->new CrimsonChalk(new Item.Properties().durability(44)));
+
+
+
+    public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
+            ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
+            ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CRIMSON_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("crimson_circle_core_drawing_kit",
+            ()->new NetherCoreDrawingKit(new Item.Properties().durability(1)));
+
+    public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
+            ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

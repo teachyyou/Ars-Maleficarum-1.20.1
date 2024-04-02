@@ -12,15 +12,6 @@
           "predicate_type": "minecraft:tag_match",
           "tag": "minecraft:stone_ore_replaceables"
         }
-      },
-      {
-        "state": {
-          "Name": "ars_maleficarum:cursed_gold_ore_block"
-        },
-        "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:deepslate_ore_replaceables"
-        }
       }
     ]
   }

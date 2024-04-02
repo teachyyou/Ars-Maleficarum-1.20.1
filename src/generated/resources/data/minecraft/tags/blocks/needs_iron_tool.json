@@ -3,6 +3,9 @@
     "ars_maleficarum:cursed_gold_block",
     "ars_maleficarum:silver_block",
     "ars_maleficarum:cursed_gold_block",
-    "ars_maleficarum:silver_ore_block"
+    "ars_maleficarum:silver_ore_block",
+    "ars_maleficarum:cursed_gold_nether_ore_block",
+    "ars_maleficarum:cursed_gold_deepslate_ore_block",
+    "ars_maleficarum:silver_deepslate_ore_block"
   ]
 }

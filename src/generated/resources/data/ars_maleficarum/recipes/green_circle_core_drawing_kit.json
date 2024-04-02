@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:green_chalk"
+    },
+    {
+      "item": "ars_maleficarum:golden_chalk"
+    },
+    {
+      "tag": "minecraft:candles"
+    },
+    {
+      "tag": "minecraft:candles"
+    }
+  ],
+  "result": {
+    "item": "ars_maleficarum:green_circle_core_drawing_kit"
+  }
+}

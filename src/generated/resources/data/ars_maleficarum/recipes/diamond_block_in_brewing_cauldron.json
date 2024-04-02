@@ -1,0 +1,24 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "minecraft:diamond_block"
+  }
+}

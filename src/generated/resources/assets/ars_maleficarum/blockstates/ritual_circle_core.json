@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "circletype=crimson": {
+      "model": "ars_maleficarum:block/crimson_ritual_circle_core"
+    },
+    "circletype=green": {
+      "model": "ars_maleficarum:block/green_ritual_circle_core"
+    },
+    "circletype=white": {
+      "model": "ars_maleficarum:block/white_ritual_circle_core"
+    }
+  }
+}

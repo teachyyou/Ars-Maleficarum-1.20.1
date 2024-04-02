@@ -20,11 +20,11 @@ public class InfusingAltarScreen extends AbstractContainerScreen<InfusingAltarMe
 
     @Override
     protected void init() {
+        this.imageHeight=182;
+        this.height+=16;
         super.init();
         this.inventoryLabelX = 100000;
         this.titleLabelX=100000;
-        this.imageHeight+=16;
-        this.height+=16;
 
     }
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "tag": "ars_maleficarum:skulls"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "   ",
+    " S ",
+    " T "
+  ],
+  "result": {
+    "item": "ars_maleficarum:skull_on_a_stick"
+  },
+  "show_notification": true
+}

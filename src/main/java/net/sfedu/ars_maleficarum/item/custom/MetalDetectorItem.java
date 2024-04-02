@@ -21,6 +21,7 @@ public class MetalDetectorItem extends Item{
         if(!pContext.getLevel().isClientSide()){
             BlockPos positionClicked = pContext.getClickedPos();
             Player player = pContext.getPlayer();
+            player.getCooldowns().addCooldown(this,200);
             boolean foundblock = false;
             for(int i=0;i<=positionClicked.getY()+64;i++){
                 BlockState state_centre = pContext.getLevel().getBlockState(positionClicked.below(i));
