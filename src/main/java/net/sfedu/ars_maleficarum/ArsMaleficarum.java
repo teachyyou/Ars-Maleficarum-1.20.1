@@ -2,6 +2,12 @@ package net.sfedu.ars_maleficarum;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -16,6 +22,11 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
 import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
+import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonRender;
+import net.sfedu.ars_maleficarum.entity.client.MandrakeRender;
+import net.sfedu.ars_maleficarum.entity.client.PoisonousEssenceRender;
+import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.event.ModEvents;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -24,6 +35,8 @@ import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 import net.sfedu.ars_maleficarum.screen.InfusingAltarScreen;
 import net.sfedu.ars_maleficarum.screen.ModMenuTypes;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
+import net.sfedu.ars_maleficarum.world.decorator.ModTreeDecoratorTypes;
 import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
@@ -50,6 +63,9 @@ public class ArsMaleficarum
         //Регистрация блоков
         ModBlocks.register(modEventBus);
 
+        //Регистрация кастомных звуков
+        ModSounds.register(modEventBus);
+
         //Регистрация расширения стандартного дропа
         ModLootModifiers.register(modEventBus);
 
@@ -63,6 +79,9 @@ public class ArsMaleficarum
         //Регистрация менюшек
         ModMenuTypes.register(modEventBus);
 
+        //Регистрация декоратора деревьев
+        ModTreeDecoratorTypes.register(modEventBus);
+
         //Регистрация новых типов рецептов
         ModRecipes.register(modEventBus);
 
@@ -75,6 +94,9 @@ public class ArsMaleficarum
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        //Register для мобов
+        ModEntities.register(modEventBus);
 
     }
 
@@ -107,6 +129,10 @@ public class ArsMaleficarum
 
                 MenuScreens.register(ModMenuTypes.ODOUR_EXTRACTING_MENU.get(), OdourExtractorFurnaceScreen::new);
                 MenuScreens.register(ModMenuTypes.INFUSING_ALTAR_MENU.get(), InfusingAltarScreen::new);
+                EntityRenderers.register(ModEntities.MANDRAKE.get(), MandrakeRender::new);
+
+                EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), GluttonyDemonRender::new);
+                EntityRenderers.register(ModEntities.POISONOUS_ESSENCE.get(), PoisonousEssenceRender::new);
             });
         }
     }

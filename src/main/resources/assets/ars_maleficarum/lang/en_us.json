@@ -15,25 +15,49 @@
   "block.ars_maleficarum.silver_block": "Block of Silver",
   "block.ars_maleficarum.cursed_gold_ore_block": "Cursed Gold Ore",
   "block.ars_maleficarum.silver_ore_block": "Silver Ore",
+  "block.ars_maleficarum.silver_deepslate_ore_block": "Silver Deepslate Ore",
+  "block.ars_maleficarum.cursed_gold_deepslate_ore_block": "Cursed Gold Deepslate Ore",
+  "block.ars_maleficarum.cursed_gold_nether_ore_block": "Cursed Gold Nether Ore",
+  "item.ars_maleficarum.silver_chunk": "Silver Chunk",
+  "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
+  "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
+  "sounds.ars_maleficarum.mandrake_scream": "Mandrake Scream",
   "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
   "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
   "item.ars_maleficarum.silver_nugget": "Silver Nugget",
+  "item.ars_maleficarum.mandrake_spawn_egg": "Mandrake Spawn Egg",
 
   "block.ars_maleficarum.rowan_log": "Rowan Log",
   "block.ars_maleficarum.rowan_planks": "Rowan Planks",
   "block.ars_maleficarum.rowan_wood": "Rowan Wood",
+  "block.ars_maleficarum.stripped_rowan_log": "Stripped Rowan Log",
+  "block.ars_maleficarum.stripped_rowan_wood": "Stripped Rowan Wood",
   "block.ars_maleficarum.rowan_leaves": "Rowan Leaves",
   "block.ars_maleficarum.rowan_berries_leaves": "Rowan Leaves",
   "block.ars_maleficarum.rowan_sapling": "Rowan Sapling",
   "item.ars_maleficarum.rowan_berries": "Rowan Berries",
   "item.ars_maleficarum.rowan_bark": "Rowan Bark",
+  "block.ars_maleficarum.rowan_stairs": "Rowan Stairs",
+  "block.ars_maleficarum.rowan_slab": "Rowan Slab",
+  "block.ars_maleficarum.rowan_fence": "Rowan Fence",
+  "block.ars_maleficarum.rowan_fence_gate": "Rowan Fence Gate",
 
   "block.ars_maleficarum.nameless_tree_log": "Nameless Tree Log",
   "block.ars_maleficarum.nameless_tree_planks": "Nameless Tree Planks",
   "block.ars_maleficarum.nameless_tree_wood": "Nameless Tree Wood",
   "block.ars_maleficarum.nameless_tree_leaves": "Nameless Tree Leaves",
   "block.ars_maleficarum.nameless_tree_sapling": "Nameless Tree Sapling",
+  "block.ars_maleficarum.nameless_tree_stairs": "Nameless Tree Stairs",
+  "block.ars_maleficarum.nameless_tree_slab": "Nameless Tree Slab",
+  "block.ars_maleficarum.nameless_tree_fence": "Nameless Tree Fence",
+  "block.ars_maleficarum.nameless_tree_fence_gate": "Nameless Tree Fence Gate",
+
+  "block.ars_maleficarum.kramer_sapling": "Kramer's Tree Sapling",
+  "block.ars_maleficarum.kramer_tree_log": "Kramer's Tree Log",
+  "block.ars_maleficarum.kramer_tree_wood": "Kramer's Tree Wood",
+  "block.ars_maleficarum.kramer_tree_planks": "Kramer's Tree Planks",
+  "block.ars_maleficarum.kramer_tree_leaves": "Kramer's Tree Leaves",
 
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
@@ -44,6 +68,7 @@
   "item.ars_maleficarum.stone_mortar_and_pestle": "Stone Mortar and Pestle",
   "item.ars_maleficarum.stone_pestle": "Stone Pestle",
   "item.ars_maleficarum.wooden_mortar_and_pestle": "Wooden Mortar and Pestle",
+  "item.ars_maleficarum.swamp_rotfiend_ingredient_item": "Swamp Rotfiend",
 
   "item.ars_maleficarum.carbon_detector": "A Poor Miner's Gift",
   "item.ars_maleficarum.metal_detector": "A Swarthy Metallurgist's Gift",
@@ -57,6 +82,9 @@
 
   "Carbon_not_found_message": "The artifact shows no interest. It is bored as nothing carbon containing was sensed.",
   "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
+  "Gluttony_Demon_Bar": "Gluttony Demon",
+  "odour_extracting_furnace_crafts": "Odour Extracting Furnace",
+  "infusing_altar_crafts": "Infusing Altar",
 
   "Odour_Extracting_Furnace_DisplayName": "Odour Extracting Furnace",
   "block.ars_maleficarum.odour_extracting_furnace": "Odour Extracting Furnace",
@@ -69,7 +97,9 @@
 
   "item.ars_maleficarum.wooden_figure": "Wooden Figure",
   "item.ars_maleficarum.poppet": "Poppet",
+
   "item.ars_maleficarum.cat_figure": "Wooden Cat Figure",
+  "block.ars_maleficarum.wooden_cat_figure": "Wooden Cat Figure",
 
   "item.ars_maleficarum.bat_wing": "Bat Wing",
   "block.ars_maleficarum.salt_block": "Salt Block",
@@ -118,18 +148,35 @@
 
   "item.ars_maleficarum.ash": "Ash",
 
-
-
   "item.ars_maleficarum.mandrake_root": "Mandrake Root",
   "item.ars_maleficarum.mandrake_seed": "Mandrake Seed",
   "block.ars_maleficarum.mandrake_crop": "Mandrake Crop",
 
-  "block.modid.rowan_stairs": "Rowan Stairs",
-  "block.modid.rowan_slab": "Rowan Slab",
-  "block.modid.rowan_fence": "Rowan Fence",
-  "block.modid.rowan_fence_gate": "Rowan Fence Gate",
-  "block.modid.nameless_tree_stairs": "Nameless Tree Stairs",
-  "block.modid.nameless_tree_slab": "Nameless Tree Slab",
-  "block.modid.nameless_tree_fence": "Nameless Tree Fence",
-  "block.modid.nameless_tree_fence_gate": "Nameless Tree Fence Gate"
+  "block.ars_maleficarum.chandelier": "Chandelier",
+  "block.ars_maleficarum.skull_on_a_stick": "Skull On A Stick",
+  "block.ars_maleficarum.crystal_ball": "Crystal Ball",
+
+  "block.ars_maleficarum.white_chalk_symbol": "White Glyph",
+  "block.ars_maleficarum.green_chalk_symbol": "Green Glyph",
+  "block.ars_maleficarum.crimson_chalk_symbol": "Crimson Glyph",
+  "block.ars_maleficarum.chalk_symbol": "Glyph",
+  "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
+
+  "item.ars_maleficarum.dry_wood": "Dry Wood",
+  "item.ars_maleficarum.infused_dry_wood": "Infused Dry Wood",
+  "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
+
+  "item.ars_maleficarum.white_chalk": "White Chalk",
+  "item.ars_maleficarum.green_chalk": "Green Chalk",
+  "item.ars_maleficarum.golden_chalk": "Golden Chalk",
+  "item.ars_maleficarum.crimson_chalk": "Crimson Chalk",
+  "item.ars_maleficarum.chalk_brush": "Chalk Brush",
+  "item.ars_maleficarum.white_circle_core_drawing_kit": "White Drawing Kit",
+  "item.ars_maleficarum.green_circle_core_drawing_kit": "Green Drawing Kit",
+  "item.ars_maleficarum.crimson_circle_core_drawing_kit": "Crimson Drawing Kit",
+
+  "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
+
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
+
 }

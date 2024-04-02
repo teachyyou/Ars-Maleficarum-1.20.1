@@ -22,8 +22,8 @@ public class OdourExtractorFurnaceScreen extends AbstractContainerScreen<OdourEx
     protected void init() {
         super.init();
         this.inventoryLabelX = 100000;
-        this.titleLabelX+=10;
-        this.titleLabelY-=1;
+        this.titleLabelX=18;
+        this.titleLabelY=5;
 
     }
 

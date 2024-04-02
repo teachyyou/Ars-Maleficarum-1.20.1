@@ -5,9 +5,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -20,14 +22,21 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ItemTags.LOGS)
                 .add(ModBlocks.NAMELESS_TREE_LOG.get().asItem())
-                .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem());
+                .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem())
+                .add(ModBlocks.KRAMER_TREE_LOG.get().asItem())
+                .add(ModBlocks.KRAMER_TREE_WOOD.get().asItem());
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get().asItem())
                 .add(ModBlocks.ROWAN_WOOD.get().asItem())
                 .add(ModBlocks.DEAD_TREE_LOG.get().asItem());
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get().asItem())
-                .add(ModBlocks.NAMELESS_TREE_PLANKS.get().asItem());
-
+                .add(ModBlocks.NAMELESS_TREE_PLANKS.get().asItem())
+                .add(ModBlocks.KRAMER_TREE_PLANKS.get().asItem());
+        this.tag(ModTags.Items.SKULLS)
+                .add(Blocks.SKELETON_SKULL.asItem())
+                .add(Blocks.WITHER_SKELETON_SKULL.asItem());
     }
 }

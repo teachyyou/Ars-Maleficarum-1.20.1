@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.util.ModTags;
@@ -25,6 +26,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
                 ModBlocks.SILVER_ORE_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
+                ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
                 ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),
@@ -36,29 +40,49 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
                 ModBlocks.SILVER_BLOCK.get(),
                 ModBlocks.CURSED_GOLD_BLOCK.get(),
-                ModBlocks.SILVER_ORE_BLOCK.get());
-
-
+                ModBlocks.SILVER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(),
+                ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
+                ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get());
 
 
         //Категория того, что считается горючим деревом (рядом с этим не исчезает листва))
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get())
                 .add(ModBlocks.ROWAN_WOOD.get())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get())
                 .add(ModBlocks.DEAD_TREE_LOG.get())
                 .add(ModBlocks.NAMELESS_TREE_LOG.get())
                 .add(ModBlocks.NAMELESS_TREE_WOOD.get());
 
+        this.tag(BlockTags.LOGS)
+                .add(ModBlocks.KRAMER_TREE_LOG.get())
+                .add(ModBlocks.KRAMER_TREE_WOOD.get());
+
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get())
-                .add(ModBlocks.NAMELESS_TREE_PLANKS.get());
+                .add(ModBlocks.NAMELESS_TREE_PLANKS.get())
+                .add(ModBlocks.KRAMER_TREE_PLANKS.get());
         this.tag(BlockTags.LEAVES)
                 .add(ModBlocks.NAMELESS_TREE_LEAVES.get())
                 .add(ModBlocks.ROWAN_BERRIES_LEAVES.get())
-                .add(ModBlocks.ROWAN_LEAVES.get());
+                .add(ModBlocks.ROWAN_LEAVES.get())
+                .add(ModBlocks.KRAMER_TREE_LEAVES.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-                ModBlocks.SALT_BLOCK.get()
-        );
+                ModBlocks.SALT_BLOCK.get());
+
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.ROWAN_FENCE.get())
+                .add(ModBlocks.NAMELESS_TREE_FENCE.get());
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.ROWAN_FENCE_GATE.get())
+                .add(ModBlocks.NAMELESS_TREE_FENCE_GATE.get());
+
+        this.tag(BlockTags.WOODEN_STAIRS)
+                .add(ModBlocks.ROWAN_STAIRS.get())
+                .add(ModBlocks.NAMELESS_TREE_STAIRS.get());
+
     }
 }

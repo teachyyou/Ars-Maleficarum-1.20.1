@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "G": {
+      "item": "ars_maleficarum:cursed_gold_block"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SGS",
+    "BBB"
+  ],
+  "result": {
+    "item": "ars_maleficarum:infusing_altar_stone_block"
+  },
+  "show_notification": true
+}

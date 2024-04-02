@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "cursed_gold",
+  "ingredient": {
+    "item": "ars_maleficarum:cursed_gold_chunk"
+  },
+  "result": "ars_maleficarum:cursed_gold"
+}

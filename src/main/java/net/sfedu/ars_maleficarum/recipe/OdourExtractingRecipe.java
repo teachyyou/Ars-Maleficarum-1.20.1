@@ -81,7 +81,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
     }
 
     public static class Serializer implements RecipeSerializer<OdourExtractingRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
+        public static final OdourExtractingRecipe.Serializer INSTANCE = new OdourExtractingRecipe.Serializer();
         public static final ResourceLocation ID =
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"odour_extracting");
 

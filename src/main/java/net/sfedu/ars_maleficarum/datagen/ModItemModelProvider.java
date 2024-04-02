@@ -34,6 +34,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SILVER_NUGGET);
         simpleItem(ModItems.SILVER);
         simpleItem(ModItems.CURSED_GOLD_NUGGET);
+        simpleItem(ModItems.SILVER_CHUNK);
+        simpleItem(ModItems.CURSED_GOLD_CHUNK);
         simpleItem(ModItems.CARBON_DETECTOR);
         simpleItem(ModItems.METAL_DETECTOR);
         simpleItem(ModItems.VALUABLE_DETECTOR);
@@ -41,6 +43,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLINT_KNIFE);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+        saplingItem(ModBlocks.KRAMER_SAPLING);
         saplingItem(ModBlocks.NAMELESS_TREE_SAPLING);
 
         simpleItem(ModItems.ROWAN_BERRIES);
@@ -88,8 +91,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.NAMELESS_CHARCOAL);
         simpleItem(ModItems.WOODEN_FIGURE);
         simpleItem(ModItems.POPPET);
-        simpleItem(ModItems.CAT_FIGURE);
 
+        fenceItem(ModBlocks.ROWAN_FENCE, ModBlocks.ROWAN_PLANKS);
+        fenceItem(ModBlocks.NAMELESS_TREE_FENCE, ModBlocks.NAMELESS_TREE_PLANKS);
 
         handheldItem(ModItems.SILVER_DAGGER);
 
@@ -98,39 +102,74 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         complexAltarInfusingBlock();
         complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+        customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
+        complexBlock(ModBlocks.CHANDELIER.get());
+        complexBlock(ModBlocks.SKULL_ON_STICK.get());
+        complexBlock(ModBlocks.CRYSTAL_BALL.get());
+
+        simpleItem(ModItems.DRY_WOOD);
+        simpleItem(ModItems.INFUSED_DRY_WOOD);
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
+        simpleItem(ModItems.SWAMP_ROTFIEND_INGREDIENT);
+
+        simpleItem(ModItems.CHALK_BRUSH);
+        simpleItem(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT);
+        simpleItem(ModItems.GOLDEN_CHALK);
+        simpleItem(ModItems.CRIMSON_CHALK);
+        simpleItem(ModItems.WHITE_CHALK);
+        simpleItem(ModItems.GREEN_CHALK);
+        withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
+        withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        complexBlock(ModBlocks.BREWING_CAULDRON.get());
+
+    }
+
+    //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная
+    private ItemModelBuilder customComplexBlock(RegistryObject<Block> block) {
+        return withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + block.getId().getPath()));
+    }
+
+
+    private ItemModelBuilder complexBlock(Block block) {
+        return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/" + ForgeRegistries.BLOCKS.getKey(block).getPath()));
+    }
+
+    private ItemModelBuilder complexAltarInfusingBlock() {
+        return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/" + ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath() + "_red"));
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
 
-    private ItemModelBuilder complexBlock(Block block) {
-        return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
-                "block/"+ForgeRegistries.BLOCKS.getKey(block).getPath()));
-    }
-
-    private ItemModelBuilder complexAltarInfusingBlock() {
-        return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(),new ResourceLocation(ArsMaleficarum.MOD_ID,
-                "block/"+ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath()+"_red"));
-    }
-
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> block) {
         return withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(ArsMaleficarum.MOD_ID,"block/"+block.getId().getPath()));
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + block.getId().getPath()));
     }
 
     //Чтобы предмет в руке отображался как 3д
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(ArsMaleficarum.MOD_ID,"item/"+item.getId().getPath()));
+                new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 }

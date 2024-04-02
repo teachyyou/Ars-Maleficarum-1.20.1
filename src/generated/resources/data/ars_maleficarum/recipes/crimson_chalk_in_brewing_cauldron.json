@@ -1,0 +1,30 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:fermented_tree_larva"
+    },
+    {
+      "item": "minecraft:crimson_fungus"
+    },
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "ars_maleficarum:sunlight_flower"
+    },
+    {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    {
+      "item": "ars_maleficarum:white_chalk"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:crimson_chalk"
+  }
+}

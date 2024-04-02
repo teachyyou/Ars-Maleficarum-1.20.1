@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "ars_maleficarum:block/rowan_planks",
+    "side": "ars_maleficarum:block/rowan_planks",
+    "top": "ars_maleficarum:block/rowan_planks"
+  }
+}

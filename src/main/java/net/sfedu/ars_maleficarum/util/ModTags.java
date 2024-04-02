@@ -21,6 +21,8 @@ public class ModTags {
 
     //Тэги для предметов
     public static class Items {
+
+        public static final TagKey<Item> SKULLS = tag("skulls");
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(ArsMaleficarum.MOD_ID,name));
         }

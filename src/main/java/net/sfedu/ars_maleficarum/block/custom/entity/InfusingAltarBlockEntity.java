@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -39,6 +40,7 @@ import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import net.sfedu.ars_maleficarum.screen.InfusingAltarMenu;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -146,7 +148,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     @Override
     public void onLoad() {
         super.onLoad();
-
         lazyItemHandler = LazyOptional.of(()->itemHandler);
     }
 
@@ -177,7 +178,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
             increaseCraftingProcess();
             setChanged(level,pPos,pState);
             if (hasProgressFinished()) {
-                craftItem(pPos);
+                craftItem(level, pPos);
                 level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
                 resetProgress();
             }
@@ -211,7 +212,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         return this.progress >= this.maxProgress;
     }
 
-    private void craftItem(BlockPos pPos) {
+    private void craftItem(Level pLevel, BlockPos pPos) {
         Optional<InfusingAltarRecipe> recipe = getCurrentRecipe();
         ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
 
@@ -222,6 +223,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         this.itemHandler.setStackInSlot(OUTPUT_SLOT,new ItemStack(resultItem.getItem(),1));
 
         EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
+        pLevel.playSound(null,pPos, ModSounds.MYSTIC_WHISPERING.get(), SoundSource.VOICE);
 
 
 

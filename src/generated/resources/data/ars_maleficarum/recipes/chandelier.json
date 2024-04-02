@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "ars_maleficarum:cursed_gold"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "GGG",
+    " G "
+  ],
+  "result": {
+    "item": "ars_maleficarum:chandelier"
+  },
+  "show_notification": true
+}

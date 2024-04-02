@@ -1,0 +1,25 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "ars_maleficarum:block/white_chalk_symbol_0"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        13,
+        0.125,
+        13
+      ],
+      "faces": {
+        "up": {
+          "texture": "#particle"
+        }
+      }
+    }
+  ]
+}
