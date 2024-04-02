@@ -113,6 +113,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная

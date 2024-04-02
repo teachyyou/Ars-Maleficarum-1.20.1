@@ -2,6 +2,7 @@ package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -21,6 +22,7 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class MandrakeCropBlock extends CropBlock {
 
@@ -78,6 +80,8 @@ public class MandrakeCropBlock extends CropBlock {
             if(pLevel.isDay()){
                 if(chance_of_spawn!=9 && chance_of_spawn!=10){
                     pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
+                    //pLevel.playSeededSound(null, pPos.getX(),pPos.getY(),pPos.getZ(), ModSounds.MANDRAKE_SPAWN.get(),
+                            //SoundSource.BLOCKS,7f,1f,0);
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
@@ -92,6 +96,8 @@ public class MandrakeCropBlock extends CropBlock {
             else{
                 if(chance_of_spawn==1 || chance_of_spawn == 2) {
                     pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
+                    //pLevel.playSeededSound(null, pPos.getX(),pPos.getY(),pPos.getZ(), ModSounds.MANDRAKE_SPAWN.get(),
+                            //SoundSource.BLOCKS,7f,1f,0);
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
