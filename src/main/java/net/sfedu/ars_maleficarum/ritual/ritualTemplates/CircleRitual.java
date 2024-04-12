@@ -124,6 +124,7 @@ public abstract class CircleRitual {
                         ticks=0;
                         ItemEntity item = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)))
                                 .stream().filter(x->x.getItem().is(requiredItem.getKey())).findAny().get();
+                        
                         double d0 = item.position().x;
                         double d1 = item.position().y;
                         double d2 = item.position().z;
