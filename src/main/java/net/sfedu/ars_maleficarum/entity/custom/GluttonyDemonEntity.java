@@ -48,20 +48,21 @@ public class GluttonyDemonEntity extends Monster {
 
     public GluttonyDemonEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 60), this);
     }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(3,new WaterAvoidingRandomStrollGoal(this,0.3D));
-        this.goalSelector.addGoal(1,new GluttonyAttackGoal(this,0.8D,true));
-        this.goalSelector.addGoal(2,new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(1,new GluttonyAttackGoal(this,0.5D,true));
+        this.goalSelector.addGoal(1,new HurtByTargetGoal(this));
+        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     public static AttributeSupplier.Builder createAttributes(){
-        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,100D).add(Attributes.MOVEMENT_SPEED,0.8D)
+        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,100D).add(Attributes.MOVEMENT_SPEED,0.7D)
                 .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK, 1f)
-                .add(Attributes.ATTACK_DAMAGE, 14f);
+                .add(Attributes.ATTACK_DAMAGE, 14f).add(Attributes.ARMOR,50D);
     }
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
@@ -102,6 +103,8 @@ public class GluttonyDemonEntity extends Monster {
     public boolean hurt(DamageSource pSource, float pAmount) {
         if (pSource.is(DamageTypeTags.IS_FIRE))
             return false;
+        if(pSource.is(DamageTypeTags.IS_PROJECTILE))
+            pAmount = pAmount/2;
         return super.hurt(pSource, pAmount);
     }
 

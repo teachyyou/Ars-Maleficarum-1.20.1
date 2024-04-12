@@ -9,7 +9,7 @@ import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 public class GluttonyAttackGoal extends MeleeAttackGoal {
     private final GluttonyDemonEntity entity;
     private int attackDelay = 20;
-    private int ticksUntilNextAttack = 20;
+    private int ticksUntilNextAttack = 45;
     private boolean shouldCountTillNextAttack = false;
     public GluttonyAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
@@ -19,7 +19,7 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
     public void start() {
         super.start();
         attackDelay = 20;
-        ticksUntilNextAttack = 20;
+        ticksUntilNextAttack = 45;
     }
 
     @Override
@@ -44,11 +44,11 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+        return pDistToEnemySqr-10 <= this.getAttackReachSqr(pEnemy);
     }
 
     protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
+        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay);
     }
 
     protected boolean isTimeToAttack() {
