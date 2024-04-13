@@ -43,6 +43,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ASH.get());
                         pOutput.accept(ModItems.SWAMP_ROTFIEND_INGREDIENT.get());
 
+
                     }))
                     .build());
 
@@ -152,6 +153,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
+                        pOutput.accept(ModItems.FIRE_STAFF.get());
 
 
                     }))

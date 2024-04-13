@@ -33,6 +33,7 @@ import net.sfedu.ars_maleficarum.entity.ai.GluttonyAttackGoal;
 import net.sfedu.ars_maleficarum.entity.ai.RunFromPlayerGoal;
 import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonModel;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -92,6 +93,17 @@ public class GluttonyDemonEntity extends Monster {
         }
 
         this.walkAnimation.update(f, 0.2F);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.GLUTTONY_DEMON_LAUGH.get();
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 100;
     }
 
     @Override

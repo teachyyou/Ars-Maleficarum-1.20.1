@@ -75,6 +75,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
             ()->new PoisonStaff(new Item.Properties().durability(1024)));
+
+    public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff",
+            ()->new FireStaff(new Item.Properties().durability(1024)));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
