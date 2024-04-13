@@ -177,6 +177,8 @@
 
   "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron",
+
+  "item.ars_maleficarum.simple_witch_hat": "Simple Hat"
 
 }

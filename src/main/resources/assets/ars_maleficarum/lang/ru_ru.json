@@ -177,6 +177,9 @@
 
   "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл"
+  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл",
+
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+
 
 }
