@@ -36,7 +36,7 @@ public class GreenChalk extends Item {
             }
         }
         pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                player -> player.broadcastBreakEvent(player.getUsedItemHand()));
+                p->{});
         pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
