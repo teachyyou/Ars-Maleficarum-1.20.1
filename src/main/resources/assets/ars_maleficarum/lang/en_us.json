@@ -3,7 +3,8 @@
   "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
   "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
-
+  "entity.ars_maleficarum.gluttony_demon": "Gluttony Demon",
+  "item.ars_maleficarum.gluttony_demon_spawn_egg": "Gluttony Demon Spawn Egg",
   "item.ars_maleficarum.sage_flower": "Sage Flower",
   "item.ars_maleficarum.marigold_flower": "Marigold Flower",
   "item.ars_maleficarum.sage_seeds": "Sage Seeds",

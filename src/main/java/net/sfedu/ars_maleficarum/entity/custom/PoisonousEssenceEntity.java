@@ -57,7 +57,7 @@ public class PoisonousEssenceEntity extends Projectile {
         double d0 = (double)pPose.getX() + 0.5D;
         double d1 = (double)pPose.getY() + 1.75D;
         double d2 = (double)pPose.getZ() + 0.5D;
-        this.moveTo(d0, d1, d2, this.getYRot(), this.getXRot());
+        this.moveTo(d0, d1, d2, this.getYRot(), this.getXRot()+90.0F);
     }
 
     @Override
@@ -177,7 +177,7 @@ public class PoisonousEssenceEntity extends Projectile {
         Entity entity = pResult.getEntity();
         Entity entity1 = this.getOwner();
         LivingEntity livingentity = entity1 instanceof LivingEntity ? (LivingEntity)entity1 : null;
-        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 1.0F);
+        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 8.0F);
         if (flag) {
             this.doEnchantDamageEffects(livingentity, entity);
             if (entity instanceof LivingEntity) {
