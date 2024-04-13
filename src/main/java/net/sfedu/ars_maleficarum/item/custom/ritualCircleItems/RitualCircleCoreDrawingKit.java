@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -42,14 +43,12 @@ public class RitualCircleCoreDrawingKit extends Item {
             System.out.println(canDraw(pContext));
             if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos()) && canDraw(pContext)) {
                 pContext.getLevel().setBlock(pContext.getClickedPos().above(), coreToDraw,3);
-            }
-            else {
-                return InteractionResult.FAIL;
+                pContext.getItemInHand().shrink(1);
+                pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
+                return InteractionResult.SUCCESS;
             }
         }
-        pContext.getItemInHand().shrink(1);
-        pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
-        return InteractionResult.SUCCESS;
+        return InteractionResult.FAIL;
     }
 
 
@@ -58,7 +57,7 @@ public class RitualCircleCoreDrawingKit extends Item {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
                 BlockPos pos = pContext.getClickedPos().relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR) || !pContext.getLevel().getBlockState(pos.above()).is(Blocks.AIR)) {
+                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR) || !(pContext.getLevel().getBlockState(pos.above()).is(Blocks.AIR) || pContext.getLevel().getBlockState(pos.above()).is(BlockTags.CANDLES))) {
                     return false;
                 }
             }
