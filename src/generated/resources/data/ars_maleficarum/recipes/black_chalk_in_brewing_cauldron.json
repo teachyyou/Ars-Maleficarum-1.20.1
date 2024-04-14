@@ -1,0 +1,30 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:dead_tree_bark"
+    },
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "item": "minecraft:blackstone"
+    },
+    {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    {
+      "item": "ars_maleficarum:white_chalk"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:black_chalk"
+  }
+}

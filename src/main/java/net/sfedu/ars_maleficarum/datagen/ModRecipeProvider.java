@@ -600,6 +600,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
         new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get())
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.DEAD_TREE_BARK.get(), Items.CHARCOAL, Items.BLACK_DYE,Items.BLACKSTONE,ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.BLACK_CHALK.get())
+                .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get(), 1)
                 .requires(ModItems.WHITE_CHALK.get())

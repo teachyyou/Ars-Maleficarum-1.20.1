@@ -122,6 +122,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CRIMSON_CHALK);
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
+        simpleItem(ModItems.BLACK_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));

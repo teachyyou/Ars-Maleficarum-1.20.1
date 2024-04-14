@@ -205,6 +205,9 @@ public class ModItems {
     public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
             ()->new CrimsonChalk(new Item.Properties().durability(44)));
 
+    public static final RegistryObject<Item> BLACK_CHALK = ITEMS.register("black_chalk",
+            ()->new BlackChalk(new Item.Properties().durability(44)));
+
 
 
     public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",

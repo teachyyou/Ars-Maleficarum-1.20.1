@@ -84,5 +84,10 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.ROWAN_STAIRS.get())
                 .add(ModBlocks.NAMELESS_TREE_STAIRS.get());
 
+        //todo не забыть добавить новыые
+        this.tag(ModTags.Blocks.CHALK_SYMBOLS)
+                .add(ModBlocks.WHITE_CHALK_SYMBOL.get())
+                .add(ModBlocks.GREEN_CHALK_SYMBOL.get())
+                .add(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
     }
 }
