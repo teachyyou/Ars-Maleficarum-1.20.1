@@ -49,7 +49,6 @@ public class ChalkItem extends Item {
             int dif = pContext.getItemInHand().getCount()-1;
             ItemStack remaining = pContext.getItemInHand().copy();
             remaining.setCount(dif);
-            System.out.println(dif);
             pContext.getItemInHand().setCount(1);
             pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
                     p->{});
