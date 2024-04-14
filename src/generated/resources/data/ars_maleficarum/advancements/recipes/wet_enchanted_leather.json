@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:dirt"
+              "ars_maleficarum:coniferous_oil"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_block"
+        "recipe": "ars_maleficarum:wet_enchanted_leather"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_block"
+      "ars_maleficarum:wet_enchanted_leather"
     ]
   },
   "sends_telemetry_event": true

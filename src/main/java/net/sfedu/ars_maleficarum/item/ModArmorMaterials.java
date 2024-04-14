@@ -16,17 +16,18 @@ import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ENCHANTED_LEATHER("enchanted_leather", 5, (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266652_) -> {
+    ENCHANTED_LEATHER("enchanted_leather", 5, Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266652_) -> {
         p_266652_.put(ArmorItem.Type.BOOTS, 1);
         p_266652_.put(ArmorItem.Type.LEGGINGS, 2);
         p_266652_.put(ArmorItem.Type.CHESTPLATE, 3);
         p_266652_.put(ArmorItem.Type.HELMET, 1);
     }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
-        return Ingredient.of(new ItemLike[]{Items.LEATHER});
+        return Ingredient.of(Items.LEATHER);
     });
 
+
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
-    private static final EnumMap HEALTH_FUNCTION_FOR_TYPE = (EnumMap) Util.make(new EnumMap(ArmorItem.Type.class), (p_266653_) -> {
+    private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266653_) -> {
         p_266653_.put(ArmorItem.Type.BOOTS, 13);
         p_266653_.put(ArmorItem.Type.LEGGINGS, 15);
         p_266653_.put(ArmorItem.Type.CHESTPLATE, 16);
