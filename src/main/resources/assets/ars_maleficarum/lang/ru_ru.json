@@ -179,6 +179,11 @@
 
   "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл"
+  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл",
+
+  "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",
+  "item.ars_maleficarum.dried_enchanted_leather": "Высушенная зачарованная кожа",
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+
 
 }

@@ -10,6 +10,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
+import net.sfedu.ars_maleficarum.item.custom.clothes.SimpleWitchHat;
 import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
 
 public class ModItems {
@@ -221,6 +222,17 @@ public class ModItems {
 
     public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
             ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
+
+    public static final RegistryObject<Item> SIMPLE_WITCH_HAT = ITEMS.register("simple_witch_hat",
+            ()->new SimpleWitchHat(ModArmorMaterials.ENCHANTED_LEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> WET_ENCHANTED_LEATHER = ITEMS.register("wet_enchanted_leather",
+            ()->new IngredientItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather",
+            ()->new IngredientItem(new Item.Properties()));
+
+
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

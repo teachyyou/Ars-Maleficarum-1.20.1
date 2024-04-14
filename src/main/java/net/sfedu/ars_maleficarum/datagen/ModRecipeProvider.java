@@ -2,17 +2,22 @@ package net.sfedu.ars_maleficarum.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.PartialNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.datagen.custom.BrewingCauldronRecipeBuilder;
@@ -586,10 +591,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
 
-        //Генерация крафтов в варочном котле
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-
 
         //Крафты мела и относящегося
         new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get())
@@ -628,6 +629,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
 
+
+
+        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get())
+                .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
+
+
+        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), ModItems.SALT.get(), false, 1F, 1)
+                .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
+                .pattern(" L ")
+                .pattern("WLW")
+                .pattern("LCL")
+                .define('L', ModItems.DRIED_ENCHANTED_LEATHER.get())
+                .define('C', ModItems.CURSED_GOLD.get())
+                .define('W', ModItems.BAT_WING.get())
+                .unlockedBy(getHasName(ModItems.DRIED_ENCHANTED_LEATHER.get()), has(ModItems.DRIED_ENCHANTED_LEATHER.get()))
+                .save(pWriter);
+
+
+
+    }
+
+    protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
+        pPlayer.awardStat(Stats.ITEM_USED.get(bottleItem));
+        return ItemUtils.createFilledResult(pBottleStack, pPlayer, pFilledBottleStack);
     }
 
     //Генерация .json файлов для блоков, которые могут быть переплавлены
@@ -643,6 +671,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void simpleCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
                                         ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
+    }
+
+    protected static void simpleSmoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
+                                        ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smoking");
     }
 
     protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,

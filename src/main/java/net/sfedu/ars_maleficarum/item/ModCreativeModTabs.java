@@ -155,6 +155,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
 
 
+                        pOutput.accept(ModItems.WET_ENCHANTED_LEATHER.get());
+                        pOutput.accept(ModItems.DRIED_ENCHANTED_LEATHER.get());
+
+                        pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
+
+
                     }))
                     .build());
 
