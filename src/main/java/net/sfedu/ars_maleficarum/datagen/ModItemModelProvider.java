@@ -127,6 +127,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         complexBlock(ModBlocks.BREWING_CAULDRON.get());
 
+
+        simpleItem(ModItems.WET_ENCHANTED_LEATHER);
+        simpleItem(ModItems.DRIED_ENCHANTED_LEATHER);
         simpleItem(ModItems.SIMPLE_WITCH_HAT);
 
     }

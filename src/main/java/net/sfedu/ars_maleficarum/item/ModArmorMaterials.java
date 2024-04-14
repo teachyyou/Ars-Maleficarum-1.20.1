@@ -26,7 +26,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
-    private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = (EnumMap) Util.make(new EnumMap(ArmorItem.Type.class), (p_266653_) -> {
+    private static final EnumMap HEALTH_FUNCTION_FOR_TYPE = (EnumMap) Util.make(new EnumMap(ArmorItem.Type.class), (p_266653_) -> {
         p_266653_.put(ArmorItem.Type.BOOTS, 13);
         p_266653_.put(ArmorItem.Type.LEGGINGS, 15);
         p_266653_.put(ArmorItem.Type.CHESTPLATE, 16);
