@@ -85,9 +85,12 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private int fuelLevel = 0;
     private int temperature = 0;
     private int boilTick = 0;
+    private int craftingProgress = 0;
+
+    public ItemStack crafted;
 
     private final int maxTemperature = 1500;
-    private final int maxFuel = 1300;
+    private final int maxFuel = 2000;
 
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
@@ -139,11 +142,18 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         // Ничего не выбрасывает
     }
 
+    public void clearInventory()
+    {
+        for (int i = 0; i<10; i++) {
+            this.itemHandler.extractItem(i,1,false);
+        }
+    }
+
     public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
     {
-        if (fuelLevel < maxFuel-180)
+        if (fuelLevel < maxFuel-300)
         {
-            fuelLevel += 180;
+            fuelLevel += 300;
             pLevel.playSound(null, pPos, SoundType.SCAFFOLDING.getPlaceSound(), SoundSource.BLOCKS);
             if (fuelLevel > maxFuel) fuelLevel = maxFuel;
             return true;
@@ -157,10 +167,23 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
 
-        if (hasRecipe())
+        if (hasRecipe() && pState.getValue(BrewingCauldronBlock.BOILING))
         {
-            craftItem(level, pPos, pState);
-            level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
+            if (craftingProgress < 100)
+            {
+                // тут добавлять партиклы крафта
+                craftingProgress++;
+            }
+            else
+            {
+                craftItem(level, pPos, pState);
+                level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
+            }
+        }
+        else
+        {
+            craftingProgress = 0;
+            crafted = null;
         }
     }
     public void clientTick(Level level, BlockPos pPos, BlockState pState) {
@@ -257,11 +280,11 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         {
             if (pState.getValue(BrewingCauldronBlock.FUEL) != 0) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 0), 3);
         }
-        else if (fuelLevel < 300)
+        else if (fuelLevel < 600)
         {
             if (pState.getValue(BrewingCauldronBlock.FUEL) != 1) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 1), 3);
         }
-        else if (fuelLevel < 1000)
+        else if (fuelLevel < 1500)
         {
             if (pState.getValue(BrewingCauldronBlock.FUEL) != 2) level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.FUEL, 2), 3);
         }
@@ -320,15 +343,22 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private void craftItem(Level level, BlockPos pPos, BlockState pState) {
         if (level.isClientSide) return;
+        if (!pState.getValue(BrewingCauldronBlock.BOILING)) return;
         Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
         ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
-
-        for (int i = 0; i<10; i++) {
-            this.itemHandler.extractItem(i,1,false);
+        if (recipe.get().autoCraft)
+        {
+            for (int i = 0; i<10; i++) {
+                this.itemHandler.extractItem(i,1,false);
+            }
+            level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.WATER, 0), 3);
+            popResource(level, pPos, new ItemStack(resultItem.getItem(),1));
+            level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
         }
-        level.setBlock(pPos, pState.setValue(BrewingCauldronBlock.WATER, 0), 3);
-        popResource(level, pPos, new ItemStack(resultItem.getItem(),1));
-        level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
-
+        else if (crafted == null)
+        {
+            level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
+            crafted = resultItem.copy();
+        }
     }
 }
