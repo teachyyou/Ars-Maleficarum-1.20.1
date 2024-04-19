@@ -1,0 +1,28 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "autoCraft": {
+    "craft": false
+  },
+  "inOrder": {
+    "order": false
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:glass"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "minecraft:potion"
+  }
+}

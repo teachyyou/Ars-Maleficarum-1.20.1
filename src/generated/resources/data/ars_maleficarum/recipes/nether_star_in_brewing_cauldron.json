@@ -4,21 +4,19 @@
     "craft": true
   },
   "inOrder": {
-    "order": false
+    "order": true
   },
   "ingredients": [
     {
-      "item": "minecraft:calcite"
+      "item": "minecraft:diamond"
     },
     {
-      "item": "ars_maleficarum:ash"
+      "item": "minecraft:gold_ingot"
     },
     {
-      "item": "ars_maleficarum:salt"
+      "item": "minecraft:iron_ingot"
     },
-    {
-      "item": "minecraft:quartz"
-    },
+    [],
     [],
     [],
     [],
@@ -27,6 +25,6 @@
     []
   ],
   "output": {
-    "item": "ars_maleficarum:white_chalk"
+    "item": "minecraft:nether_star"
   }
 }

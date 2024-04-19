@@ -1,5 +1,11 @@
 {
   "type": "ars_maleficarum:cauldron_brewing",
+  "autoCraft": {
+    "craft": true
+  },
+  "inOrder": {
+    "order": true
+  },
   "ingredients": [
     {
       "item": "ars_maleficarum:dead_tree_bark"
