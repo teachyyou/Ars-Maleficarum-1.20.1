@@ -12,50 +12,11 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 import java.util.Random;
 
-public class GreenChalk extends Item {
+public class GreenChalk extends ChalkItem {
 
     public GreenChalk(Properties pProperties) {
         super(pProperties);
+        chalkSymbol = ModBlocks.GREEN_CHALK_SYMBOL.get();
     }
-
-    @Override
-    public InteractionResult useOn(UseOnContext pContext) {
-        if (!pContext.getLevel().isClientSide()) {
-            Direction[] dirs = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
-            Direction glyphDirection = dirs[new Random().nextInt(4)];
-            if (pContext.getLevel().getBlockState(pContext.getClickedPos()).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) {
-                int variant = pContext.getLevel().getBlockState(pContext.getClickedPos()).getValue(ChalkSymbol.VARIANT);
-                pContext.getLevel().setBlock(pContext.getClickedPos(), ModBlocks.GREEN_CHALK_SYMBOL.get().defaultBlockState().setValue(ChalkSymbol.VARIANT,(variant+1)%11).setValue(ChalkSymbol.FACING, glyphDirection),3);
-            }
-            else if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos())) {
-                Random random = new Random();
-                pContext.getLevel().setBlock(pContext.getClickedPos().above(), ModBlocks.GREEN_CHALK_SYMBOL.get().defaultBlockState().setValue(ChalkSymbol.VARIANT,random.nextInt(11 )).setValue(ChalkSymbol.FACING, glyphDirection),3);
-            }
-            else {
-                return InteractionResult.FAIL;
-            }
-        }
-        pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                player -> player.broadcastBreakEvent(player.getUsedItemHand()));
-        pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
-        return InteractionResult.SUCCESS;
-    }
-
-
-    @Override
-    public int getMaxDamage(ItemStack stack) {
-        return 44;
-    }
-
-    @Override
-    public int getMaxStackSize(ItemStack stack) {
-        return 8;
-    }
-
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return true;
-    }
-
 
 }

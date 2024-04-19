@@ -15,6 +15,11 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> MANDRAKE_SCREAM = registerSoundEvents("mandrake_scream");
     public static final RegistryObject<SoundEvent> MUSHROOM_CUT = registerSoundEvents("mushroom_cut");
+
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_DIED = registerSoundEvents("gluttony_demon_died");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_SPAWN = registerSoundEvents("gluttony_demon_spawn");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_HURT = registerSoundEvents("gluttony_demon_hurt");
+
     public static final RegistryObject<SoundEvent> MANDRAKE_DEATH = registerSoundEvents("mandrake_death");
     public static final RegistryObject<SoundEvent> CAULDRON_ADD_LOGS = registerSoundEvents("cauldron_add_logs");
     public static final RegistryObject<SoundEvent> CHALK_USE = registerSoundEvents("chalk_use");
@@ -22,6 +27,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> MYSTIC_WHISPERING = registerSoundEvents("mystic_whispering");
     public static final RegistryObject<SoundEvent> BRUSH_USE = registerSoundEvents("brush_use");
     public static final RegistryObject<SoundEvent> MANDRAKE_SPAWN = registerSoundEvents("mandrake_spawn");
+
 
 
 

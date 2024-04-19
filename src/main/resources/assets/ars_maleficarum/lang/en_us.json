@@ -3,7 +3,8 @@
   "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
   "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
-
+  "entity.ars_maleficarum.gluttony_demon": "Gluttony Demon",
+  "item.ars_maleficarum.gluttony_demon_spawn_egg": "Gluttony Demon Spawn Egg",
   "item.ars_maleficarum.sage_flower": "Sage Flower",
   "item.ars_maleficarum.marigold_flower": "Marigold Flower",
   "item.ars_maleficarum.sage_seeds": "Sage Seeds",
@@ -82,6 +83,7 @@
 
   "Carbon_not_found_message": "The artifact shows no interest. It is bored as nothing carbon containing was sensed.",
   "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
+  "Gluttony_Demon_Bar": "Gluttony Demon",
   "odour_extracting_furnace_crafts": "Odour Extracting Furnace",
   "infusing_altar_crafts": "Infusing Altar",
 
@@ -161,12 +163,15 @@
   "block.ars_maleficarum.chalk_symbol": "Glyph",
   "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
 
+  "item.ars_maleficarum.dry_wood": "Dry Wood",
+  "item.ars_maleficarum.infused_dry_wood": "Infused Dry Wood",
   "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
   "item.ars_maleficarum.green_chalk": "Green Chalk",
   "item.ars_maleficarum.golden_chalk": "Golden Chalk",
   "item.ars_maleficarum.crimson_chalk": "Crimson Chalk",
+  "item.ars_maleficarum.black_chalk": "Black Chalk",
   "item.ars_maleficarum.chalk_brush": "Chalk Brush",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "White Drawing Kit",
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Green Drawing Kit",
@@ -174,6 +179,11 @@
 
   "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
+  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron",
+
+
+  "item.ars_maleficarum.wet_enchanted_leather": "Wet Enchanted Leather",
+  "item.ars_maleficarum.dried_enchanted_leather": "Dried Enchanted Leather",
+  "item.ars_maleficarum.simple_witch_hat": "Simple Hat"
 
 }

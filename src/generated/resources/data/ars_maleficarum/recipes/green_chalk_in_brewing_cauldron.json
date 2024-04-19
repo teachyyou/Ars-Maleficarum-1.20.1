@@ -1,0 +1,30 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:sage_flower"
+    },
+    {
+      "item": "ars_maleficarum:sage_leaf"
+    },
+    {
+      "item": "ars_maleficarum:swamp_rotfiend_ingredient_item"
+    },
+    {
+      "item": "ars_maleficarum:petrichor"
+    },
+    {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    {
+      "item": "ars_maleficarum:white_chalk"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:green_chalk"
+  }
+}

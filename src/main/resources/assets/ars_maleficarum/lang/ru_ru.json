@@ -3,7 +3,8 @@
   "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
   "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
-
+  "entity.ars_maleficarum.gluttony_demon": "Демон Чревоугодия",
+  "item.ars_maleficarum.gluttony_demon_spawn_egg": "Яйцо призыва Демона Чревоугодия",
   "item.ars_maleficarum.sage_flower": "Цветок шалфея",
   "item.ars_maleficarum.marigold_flower": "Цветок календулы",
   "item.ars_maleficarum.sage_seeds": "Семена шалфея",
@@ -42,6 +43,7 @@
   "block.ars_maleficarum.rowan_slab": "Полублок из рябины",
   "block.ars_maleficarum.rowan_fence": "Забор из рябины",
   "block.ars_maleficarum.rowan_fence_gate": "Ворота из рябины",
+  "Gluttony_Demon_Bar": "Демон Чревоугодия",
 
   "block.ars_maleficarum.nameless_tree_log": "Древесина Безымянного древа",
   "block.ars_maleficarum.nameless_tree_planks": "Доски из Безымянного древа",
@@ -161,12 +163,15 @@
   "block.ars_maleficarum.chalk_symbol": "Начертание",
   "block.ars_maleficarum.ritual_circle_core": "Центр ритуального круга",
 
+  "item.ars_maleficarum.dry_wood": "Сухая древесина",
+  "item.ars_maleficarum.infused_dry_wood": "Зачарованная сухая древесина",
   "item.ars_maleficarum.poison_staff": "Трость Флемет",
 
   "item.ars_maleficarum.white_chalk": "Белый мел",
   "item.ars_maleficarum.green_chalk": "Зелёный мел",
   "item.ars_maleficarum.golden_chalk": "Золотистый мел",
   "item.ars_maleficarum.crimson_chalk": "Красный мел",
+  "item.ars_maleficarum.black_chalk": "Чёрный мел",
   "item.ars_maleficarum.chalk_brush": "Щётка",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "Набор для рисования: БЕЛЫЙ",
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Набор для рисования: ЗЕЛЕНЫЙ",
@@ -174,6 +179,11 @@
 
   "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл"
+  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл",
+
+  "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",
+  "item.ars_maleficarum.dried_enchanted_leather": "Высушенная зачарованная кожа",
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+
 
 }

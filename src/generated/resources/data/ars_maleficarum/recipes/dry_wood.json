@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "ars_maleficarum:rowan_bark"
+    },
+    "D": {
+      "item": "ars_maleficarum:dead_tree_bark"
+    },
+    "R": {
+      "item": "ars_maleficarum:rowan_log"
+    },
+    "S": {
+      "item": "ars_maleficarum:salt"
+    },
+    "W": {
+      "item": "ars_maleficarum:wasteland_wind"
+    }
+  },
+  "pattern": [
+    "BWB",
+    "SRS",
+    " D "
+  ],
+  "result": {
+    "item": "ars_maleficarum:dry_wood"
+  },
+  "show_notification": true
+}

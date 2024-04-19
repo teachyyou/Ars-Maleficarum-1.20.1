@@ -5,6 +5,24 @@
         "ars_maleficarum:mushroom_cut1"
     ]
   },
+  "gluttony_demon_spawn": {
+    "subtitle": "sounds.ars_maleficarum.gluttony_demon_spawn",
+    "sounds": [
+      "ars_maleficarum:gluttony_demon_spawn"
+    ]
+  },
+  "gluttony_demon_died": {
+    "subtitle": "sounds.ars_maleficarum.gluttony_demon_died",
+    "sounds": [
+      "ars_maleficarum:gluttony_demon_died"
+    ]
+  },
+  "gluttony_demon_hurt": {
+    "subtitle": "sounds.ars_maleficarum.gluttony_demon_hurt",
+    "sounds": [
+      "ars_maleficarum:gluttony_demon_hurt"
+    ]
+  },
 
   "mandrake_scream": {
     "subtitle": "sounds.ars_maleficarum.mandrake_scream",
@@ -61,6 +79,7 @@
     "subtitle": "sounds.ars_maleficarum.mandrake_spawn",
     "sounds": [
       "ars_maleficarum:mandrake_spawn"
+
     ]
   }
 }

@@ -24,7 +24,9 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.RitesOfSummoning.RiteOfAbyssalFeast;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 
@@ -43,7 +45,9 @@ public abstract class CircleRitual {
             SettingSunRitual.class,
             RiteOfPoisonStaffRepairWithAliveLarva.class,
             RiteOfPoisonStaffRepair.class,
-            RiteOfForgottenNameAwakening.class
+            RiteOfForgottenNameAwakening.class,
+            RiteOfPoisonStaffCreation.class,
+            RiteOfAbyssalFeast.class
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
@@ -120,6 +124,7 @@ public abstract class CircleRitual {
                         ticks=0;
                         ItemEntity item = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)))
                                 .stream().filter(x->x.getItem().is(requiredItem.getKey())).findAny().get();
+                        
                         double d0 = item.position().x;
                         double d1 = item.position().y;
                         double d2 = item.position().z;

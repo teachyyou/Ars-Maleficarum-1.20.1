@@ -7,6 +7,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -347,6 +348,11 @@ public class RitualCoreEntity extends BlockEntity {
                 if (hasProperCore) core = CircleType.NATURAL;
 
             }
+            case NETHER -> {
+                hasProperCore = CoreColor==CircleColor.CRIMSON;
+                if (hasProperCore) core = CircleType.NETHER;
+
+            }
             case ANY -> {
                 hasProperCore = true;
             }
@@ -375,7 +381,7 @@ public class RitualCoreEntity extends BlockEntity {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
                 BlockPos pos = pPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if ((pLevel.getBlockState(pos.below()).is(Blocks.AIR) || !(pLevel.getBlockState(pos).is(Blocks.AIR) || pLevel.getBlockState(pos).is(Blocks.FIRE))) && (pos!=pPos)) {
+                if ((pLevel.getBlockState(pos.below()).is(Blocks.AIR) || !(pLevel.getBlockState(pos).is(Blocks.AIR) || pLevel.getBlockState(pos).is(Blocks.FIRE)  || pLevel.getBlockState(pos).is(BlockTags.CANDLES)) && (pos!=pPos))) {
                     return false;
                 }
             }
@@ -432,7 +438,6 @@ public class RitualCoreEntity extends BlockEntity {
             currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : CircleType.ANY;
             currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : CircleType.ANY;
             currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : CircleType.ANY;
-
             currentCoreType = ritual.getCoreType();
 
             isLargeRequired = ritual.doesRequireLargeCircle();

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "ars_maleficarum:cursed_gold"
+    },
+    "L": {
+      "item": "ars_maleficarum:dried_enchanted_leather"
+    },
+    "W": {
+      "item": "ars_maleficarum:bat_wing"
+    }
+  },
+  "pattern": [
+    " L ",
+    "WLW",
+    "LCL"
+  ],
+  "result": {
+    "item": "ars_maleficarum:simple_witch_hat"
+  },
+  "show_notification": true
+}

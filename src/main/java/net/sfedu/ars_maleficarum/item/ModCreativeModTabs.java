@@ -130,13 +130,19 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.CRYSTAL_BALL.get());
 
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
+
                         pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
 
+
                         pOutput.accept(ModItems.POISON_STAFF.get());
+                        pOutput.accept(ModItems.DRY_WOOD.get());
+                        pOutput.accept(ModItems.INFUSED_DRY_WOOD.get());
                         pOutput.accept(ModItems.WHITE_CHALK.get());
                         pOutput.accept(ModItems.GOLDEN_CHALK.get());
                         pOutput.accept(ModItems.CRIMSON_CHALK.get());
                         pOutput.accept(ModItems.GREEN_CHALK.get());
+                        pOutput.accept(ModItems.BLACK_CHALK.get());
                         pOutput.accept(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
@@ -147,6 +153,12 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
+
+
+                        pOutput.accept(ModItems.WET_ENCHANTED_LEATHER.get());
+                        pOutput.accept(ModItems.DRIED_ENCHANTED_LEATHER.get());
+
+                        pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
 
 
                     }))
