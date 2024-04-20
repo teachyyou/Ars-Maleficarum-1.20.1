@@ -58,7 +58,6 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
     private final Map<BlockState, VoxelShape> shapesCache;
     private final Object2IntMap<Block> igniteOdds = new Object2IntOpenHashMap<>();
     private final Object2IntMap<Block> burnOdds = new Object2IntOpenHashMap<>();
-    public CustomFireEntity fire_entity;
     public CustomFireBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties, 6.0F);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)));
@@ -70,17 +69,20 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
         System.out.println("Placer");
-        if(pPlacer == null)
-            fire_entity = new CustomFireEntity(pPos, pState);
-        else
-            fire_entity = new CustomFireEntity(pPos,pState,pPlacer);
+        if (!pLevel.isClientSide) {
+            CustomFireEntity fire_entity = (CustomFireEntity) pLevel.getBlockEntity(pPos);
+            if (pPlacer!=null && fire_entity!=null) fire_entity.setOwner(pPlacer);
+        }
     }
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if(fire_entity.getOwner() instanceof Player && pEntity.getUUID() == fire_entity.getOwnerUUID())
-            return;
-        else
-            super.entityInside(pState, pLevel, pPos, pEntity);
+
+        if (!pLevel.isClientSide) {
+            CustomFireEntity fire_entity = (CustomFireEntity) pLevel.getBlockEntity(pPos);
+            if(fire_entity!=null && fire_entity.getOwner() instanceof Player && pEntity.getUUID() == fire_entity.getOwnerUUID())
+                return;
+        }
+        super.entityInside(pState,pLevel,pPos,pEntity);
     }
 
     private static VoxelShape calculateShape(BlockState p_53491_) {
@@ -310,9 +312,7 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        System.out.println("Entity");
-        fire_entity = new CustomFireEntity(pPos,pState);
-        return fire_entity;
+        return new CustomFireEntity(pPos,pState);
     }
 
     @Nullable
