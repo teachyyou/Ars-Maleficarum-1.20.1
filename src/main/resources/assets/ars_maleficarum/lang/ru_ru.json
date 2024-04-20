@@ -172,6 +172,7 @@
   "item.ars_maleficarum.green_chalk": "Зелёный мел",
   "item.ars_maleficarum.golden_chalk": "Золотистый мел",
   "item.ars_maleficarum.crimson_chalk": "Красный мел",
+  "item.ars_maleficarum.black_chalk": "Чёрный мел",
   "item.ars_maleficarum.chalk_brush": "Щётка",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "Набор для рисования: БЕЛЫЙ",
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Набор для рисования: ЗЕЛЕНЫЙ",
@@ -179,6 +180,11 @@
 
   "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл"
+  "block.ars_maleficarum.brewing_cauldron_0": "Варочный котёл",
+
+  "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",
+  "item.ars_maleficarum.dried_enchanted_leather": "Высушенная зачарованная кожа",
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+
 
 }

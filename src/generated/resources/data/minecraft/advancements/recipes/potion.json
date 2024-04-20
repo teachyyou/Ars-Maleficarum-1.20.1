@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:dirt"
+              "minecraft:glass"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_block"
+        "recipe": "minecraft:potion"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_block"
+      "minecraft:potion"
     ]
   },
   "sends_telemetry_event": true

@@ -143,6 +143,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GOLDEN_CHALK.get());
                         pOutput.accept(ModItems.CRIMSON_CHALK.get());
                         pOutput.accept(ModItems.GREEN_CHALK.get());
+                        pOutput.accept(ModItems.BLACK_CHALK.get());
                         pOutput.accept(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
@@ -153,7 +154,16 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
+                        
+
+                        pOutput.accept(ModItems.WET_ENCHANTED_LEATHER.get());
+                        pOutput.accept(ModItems.DRIED_ENCHANTED_LEATHER.get());
+
+                        pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
+
                         pOutput.accept(ModItems.FIRE_STAFF.get());
+                        pOutput.accept(ModBlocks.CUSTOM_FIRE.get());
+
 
 
                     }))

@@ -23,26 +23,58 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final ResourceLocation id;
+    private final boolean inOrder;
+    public final boolean autoCraft;
 
-    BrewingCauldronRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputItems) {
+    BrewingCauldronRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputItems, boolean inOrder, boolean autoCraft) {
         this.id=id;
         this.inputItems=inputItems;
         this.output=output;
+        this.inOrder = inOrder;
+        this.autoCraft = autoCraft;
     }
 
 
-    // Инвалидная коляска
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
 
         if (pLevel.isClientSide()) {
             return false;
         }
-
-        for (int i = 0; i<10; i++) {
-            if (!containerContains(inputItems.get(i), pContainer)) return false;
+        if (inOrder)
+        {
+            for (int i = 0; i<10; i++) {
+                if (!(inputItems.get(i).test(pContainer.getItem(i)))) return false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i<10; i++) {
+                if (containerCount(pContainer) - inputCount() > 2) return false;
+                if (!containerContains(inputItems.get(i), pContainer)) return false;
+            }
         }
         return true;
+    }
+
+    private int containerCount(SimpleContainer cont)
+    {
+        int res = 0;
+        for ( int i = 0; i < 10; i++)
+        {
+            if (!cont.getItem(i).isEmpty()) res++;
+        }
+        return res;
+    }
+
+    private int inputCount()
+    {
+        int res = 0;
+        for ( int i = 0; i < 10; i++)
+        {
+            if (!inputItems.get(i).isEmpty()) res++;
+        }
+        return res;
     }
 
     private boolean containerContains(Ingredient input, SimpleContainer cont)
@@ -104,12 +136,14 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json,"output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json,"ingredients");
+            boolean inOrder = GsonHelper.getAsBoolean(GsonHelper.getAsJsonObject(json, "inOrder"), "order");
+            boolean autoCraft = GsonHelper.getAsBoolean(GsonHelper.getAsJsonObject(json, "autoCraft"), "craft");
             NonNullList<Ingredient> inputs = NonNullList.withSize(10, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i,Ingredient.fromJson(ingredients.get(i)));
             }
-            return new BrewingCauldronRecipe(id,output,inputs);
+            return new BrewingCauldronRecipe(id,output,inputs, inOrder, autoCraft);
         }
 
         @Override
@@ -119,7 +153,9 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i,Ingredient.fromNetwork(buf));
             }
             ItemStack output = buf.readItem();
-            return new BrewingCauldronRecipe(id,output,inputs);
+            boolean inOrder = buf.readBoolean();
+            boolean autoCraft = buf.readBoolean();
+            return new BrewingCauldronRecipe(id,output,inputs, inOrder, autoCraft);
         }
 
         @Override
@@ -129,6 +165,8 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
             buf.writeItemStack(recipe.getResultItem(null),false);
+            buf.writeBoolean(recipe.inOrder);
+            buf.writeBoolean(recipe.autoCraft);
         }
     }
 }

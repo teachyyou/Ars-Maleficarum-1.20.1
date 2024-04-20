@@ -1,0 +1,30 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "autoCraft": {
+    "craft": true
+  },
+  "inOrder": {
+    "order": true
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "minecraft:nether_star"
+  }
+}

@@ -1,14 +1,20 @@
 {
   "type": "ars_maleficarum:cauldron_brewing",
+  "autoCraft": {
+    "craft": true
+  },
+  "inOrder": {
+    "order": false
+  },
   "ingredients": [
     {
       "item": "minecraft:dirt"
     },
     {
-      "item": "minecraft:stick"
+      "item": "minecraft:sand"
     },
     {
-      "item": "minecraft:stone"
+      "item": "minecraft:cobblestone"
     },
     [],
     [],
@@ -19,6 +25,6 @@
     []
   ],
   "output": {
-    "item": "minecraft:diamond_block"
+    "item": "minecraft:wooden_axe"
   }
 }

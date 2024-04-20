@@ -23,7 +23,7 @@ import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 
 public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAltarRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(ArsMaleficarum.MOD_ID,"altar_infusing");
-    public static final ResourceLocation TEXTURE = new ResourceLocation(ArsMaleficarum.MOD_ID,"textures/gui/infusing_altar_gui.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(ArsMaleficarum.MOD_ID,"textures/gui/infusing_altar_gui_jei.png");
     public static final RecipeType<InfusingAltarRecipe> INFUSING_ALTAR_TYPE = new RecipeType<>(UID, InfusingAltarRecipe.class);
     private final IDrawable background;
     private final IDrawable icon;
@@ -36,7 +36,7 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
                 .maximumSize(300)
                 .build(new CacheLoader<>() {
                     @Override
-                    public IDrawableAnimated load(Integer burnTime) {
+                    public IDrawableAnimated load(Integer burnTime) { //тут менял на -20 пробовал
                         return helper.drawableBuilder(TEXTURE, 183, 182, 210, 70)
                                 .buildAnimated(burnTime, IDrawableAnimated.StartDirection.TOP, false);
                     }
@@ -65,12 +65,13 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, InfusingAltarRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT,44,8).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT,116,8).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.INPUT,121,53).addIngredients(recipe.getIngredients().get(2));
-        builder.addSlot(RecipeIngredientRole.INPUT,80,77).addIngredients(recipe.getIngredients().get(3));
-        builder.addSlot(RecipeIngredientRole.INPUT,39,53).addIngredients(recipe.getIngredients().get(4));
-        builder.addSlot(RecipeIngredientRole.OUTPUT,80,40).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.INPUT,24,8).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT,96,8).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT,101,53).addIngredients(recipe.getIngredients().get(2));
+        builder.addSlot(RecipeIngredientRole.INPUT,60,77).addIngredients(recipe.getIngredients().get(3));
+        builder.addSlot(RecipeIngredientRole.INPUT,19,53).addIngredients(recipe.getIngredients().get(4));
+        builder.addSlot(RecipeIngredientRole.INPUT,60,40).addIngredients(recipe.getIngredients().get(5));
+        builder.addSlot(RecipeIngredientRole.OUTPUT,140,40).addItemStack(recipe.getResultItem(null));
     }
 
     @Override
@@ -78,6 +79,6 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
         IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
         int AltarProgressTime = 160;
         IDrawableAnimated AltarProgress = cachedPentagramProgress.getUnchecked(AltarProgressTime);
-        AltarProgress.draw(guiGraphics,-28,20);
+        AltarProgress.draw(guiGraphics,-48,20);
     }
 }

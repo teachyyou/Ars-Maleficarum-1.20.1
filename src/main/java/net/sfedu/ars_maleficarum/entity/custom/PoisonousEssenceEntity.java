@@ -38,6 +38,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
@@ -113,7 +114,7 @@ public class PoisonousEssenceEntity extends Projectile {
         if(!this.level().isClientSide()){
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.ITEM_SLIME, this.getX(), this.getY(), this.getZ(), 6, 0.2D, 0.2D, 0.2D, 0.2D);
             this.level().broadcastEntityEvent(this,((byte) 3));
-            //this.level().setBlock(blockPosition(), Blocks.GOLD_BLOCK.defaultBlockState(),3);
+            this.level().setBlock(blockPosition(), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
             this.discard();
         }
     }
