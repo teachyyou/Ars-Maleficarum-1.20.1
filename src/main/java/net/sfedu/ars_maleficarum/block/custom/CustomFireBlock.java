@@ -66,13 +66,6 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
             return p_53497_.getValue(AGE) == 0;
         }).collect(Collectors.toMap(Function.identity(), CustomFireBlock::calculateShape)));
     }
-    public CustomFireBlock(BlockBehaviour.Properties pProperties,Level pLevel, BlockPos pPose, BlockState pState, ItemStack pStack) {
-        super(pProperties, 6.0F);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)));
-        this.shapesCache = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().filter((p_53497_) -> {
-            return p_53497_.getValue(AGE) == 0;
-        }).collect(Collectors.toMap(Function.identity(), CustomFireBlock::calculateShape)));
-    }
 
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
@@ -297,9 +290,6 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
         pLevel.scheduleTick(pPos, this, getFireTickDelay(pLevel.random));
     }
 
-    /**
-     * Gets the delay before this block ticks again (without counting random ticks)
-     */
     private static int getFireTickDelay(RandomSource pRandom) {
         return 30 + pRandom.nextInt(10);
     }
@@ -314,12 +304,13 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
         this.burnOdds.put(pBlock, pFlammability);
     }
     public boolean canCatchFire(BlockGetter world, BlockPos pos, Direction face) {
-        return true;
+        return world.getBlockState(pos).isFlammable(world, pos, face);
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        System.out.println("Entity");
         fire_entity = new CustomFireEntity(pPos,pState);
         return fire_entity;
     }

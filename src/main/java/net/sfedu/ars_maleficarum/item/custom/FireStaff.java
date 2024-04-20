@@ -15,6 +15,10 @@ import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.fml.common.Mod;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.CustomFireBlock;
 import net.sfedu.ars_maleficarum.entity.custom.FireEssenceEntity;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
@@ -32,20 +36,41 @@ public class FireStaff extends Item implements Vanishable {
             BlockPos pPose = player.getOnPos().above(1);
             for(int i=0;i<2;++i)
             {
-                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,-4), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,-3), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,-2), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,-1), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,0), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,1), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,2), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,3), Blocks.FIRE.defaultBlockState(),3);
-                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,4), Blocks.FIRE.defaultBlockState(),3);
+                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,-4), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,-4),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,-3), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,-3),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,-2), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,-2),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,-1), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,-1),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,0), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,0),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,1), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,1),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,2), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,2),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,3), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,3),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,4), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+                ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,4),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
             }
-            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,4), Blocks.FIRE.defaultBlockState(),3);
-            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,-4), Blocks.FIRE.defaultBlockState(),3);
+            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,4), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+            ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,4),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
+            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,-4), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+            ModBlocks.CUSTOM_FIRE.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,-4),ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),player,stack);
+
             player.getCooldowns().addCooldown(this, 200);
-            player.addEffect(new MobEffectInstance(MobEffects.JUMP,60));
             player.playSound(ModSounds.FIRE_STAFF_RADIUS_ATTACK.get(), 1.0F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2F + 1.0F);
         }
         else {

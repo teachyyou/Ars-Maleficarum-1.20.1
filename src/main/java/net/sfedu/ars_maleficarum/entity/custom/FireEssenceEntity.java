@@ -27,6 +27,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 
 public class FireEssenceEntity extends Projectile {
@@ -134,7 +135,7 @@ public class FireEssenceEntity extends Projectile {
         if(!this.level().isClientSide()){
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 15, 0.2D, 0.2D, 0.2D, 0.2D);
             this.level().broadcastEntityEvent(this,((byte) 3));
-            this.level().setBlock(blockPosition(), Blocks.FIRE.defaultBlockState(),3);
+            this.level().setBlock(blockPosition(), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
             this.discard();
         }
     }
