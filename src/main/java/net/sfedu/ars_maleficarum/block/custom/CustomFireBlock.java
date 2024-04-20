@@ -17,16 +17,21 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEventListener;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.entity.CustomFireEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -34,15 +39,13 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class CustomFireBlock extends BaseFireBlock {
+public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
     public static final int MAX_AGE = 15;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
     public static final BooleanProperty NORTH = PipeBlock.NORTH;
     public static final BooleanProperty EAST = PipeBlock.EAST;
     public static final BooleanProperty SOUTH = PipeBlock.SOUTH;
     public static final BooleanProperty WEST = PipeBlock.WEST;
-    private UUID ownerUUID;
-    private Entity cachedOwner;
     public static final BooleanProperty UP = PipeBlock.UP;
     private static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((p_53467_) -> {
         return p_53467_.getKey() != Direction.DOWN;
@@ -55,37 +58,33 @@ public class CustomFireBlock extends BaseFireBlock {
     private final Map<BlockState, VoxelShape> shapesCache;
     private final Object2IntMap<Block> igniteOdds = new Object2IntOpenHashMap<>();
     private final Object2IntMap<Block> burnOdds = new Object2IntOpenHashMap<>();
-
-    public CustomFireBlock(BlockBehaviour.Properties p_53425_) {
-        super(p_53425_, 6.0F);
+    public CustomFireEntity fire_entity;
+    public CustomFireBlock(BlockBehaviour.Properties pProperties) {
+        super(pProperties, 6.0F);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)));
         this.shapesCache = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().filter((p_53497_) -> {
             return p_53497_.getValue(AGE) == 0;
         }).collect(Collectors.toMap(Function.identity(), CustomFireBlock::calculateShape)));
     }
-    public void setOwner(Player pPlayer)
-    {
-        if (pPlayer != null) {
-            this.ownerUUID = pPlayer.getUUID();
-            this.cachedOwner = pPlayer;
-        }
+    public CustomFireBlock(BlockBehaviour.Properties pProperties,Level pLevel, BlockPos pPose, BlockState pState, ItemStack pStack) {
+        super(pProperties, 6.0F);
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(NORTH, Boolean.valueOf(false)).setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false)).setValue(WEST, Boolean.valueOf(false)).setValue(UP, Boolean.valueOf(false)));
+        this.shapesCache = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().filter((p_53497_) -> {
+            return p_53497_.getValue(AGE) == 0;
+        }).collect(Collectors.toMap(Function.identity(), CustomFireBlock::calculateShape)));
     }
 
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-        setOwner((Player) pPlacer);
+        System.out.println("Placer");
+        if(pPlacer == null)
+            fire_entity = new CustomFireEntity(pPos, pState);
+        else
+            fire_entity = new CustomFireEntity(pPos,pState,pPlacer);
     }
-
-    public Entity getOwner() {
-        if (this.cachedOwner != null && !this.cachedOwner.isRemoved()) {
-            return this.cachedOwner;
-        }
-        return null;
-    }
-
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if(pEntity == getOwner())
+        if(fire_entity.getOwner() instanceof Player && pEntity.getUUID() == fire_entity.getOwnerUUID())
             return;
         else
             super.entityInside(pState, pLevel, pPos, pEntity);
@@ -116,12 +115,6 @@ public class CustomFireBlock extends BaseFireBlock {
         return voxelshape.isEmpty() ? DOWN_AABB : voxelshape;
     }
 
-    /**
-     * Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
-     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
-     * returns its solidified counterpart.
-     * Note that this method should ideally consider only the specific direction passed in.
-     */
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         return this.canSurvive(pState, pLevel, pCurrentPos) ? this.defaultBlockState() : Blocks.AIR.defaultBlockState();
     }
@@ -322,5 +315,24 @@ public class CustomFireBlock extends BaseFireBlock {
     }
     public boolean canCatchFire(BlockGetter world, BlockPos pos, Direction face) {
         return true;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        fire_entity = new CustomFireEntity(pPos,pState);
+        return fire_entity;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return EntityBlock.super.getTicker(pLevel, pState, pBlockEntityType);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> GameEventListener getListener(ServerLevel pLevel, T pBlockEntity) {
+        return EntityBlock.super.getListener(pLevel, pBlockEntity);
     }
 }
