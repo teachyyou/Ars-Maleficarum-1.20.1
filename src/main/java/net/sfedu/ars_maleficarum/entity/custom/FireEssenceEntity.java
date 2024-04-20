@@ -1,10 +1,7 @@
 package net.sfedu.ars_maleficarum.entity.custom;
 
 import com.google.common.base.MoreObjects;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -18,41 +15,32 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
-import net.sfedu.ars_maleficarum.item.ModItems;
 
-public class PoisonousEssenceEntity extends Projectile {
+public class FireEssenceEntity extends Projectile {
+
     private static final EntityDataAccessor<Boolean> HIT =
-            SynchedEntityData.defineId(PoisonousEssenceEntity.class, EntityDataSerializers.BOOLEAN);
+            SynchedEntityData.defineId(FireEssenceEntity.class, EntityDataSerializers.BOOLEAN);
     private int counter = 0;
-    public PoisonousEssenceEntity(EntityType<? extends Projectile> pEntityType, Level plevel)
+    public FireEssenceEntity(EntityType<? extends Projectile> pEntityType, Level plevel)
     {
         super(pEntityType,plevel);
     }
-    public PoisonousEssenceEntity(Level plevel, Player player)
+    public FireEssenceEntity(Level plevel, Player player)
     {
-        super(ModEntities.POISONOUS_ESSENCE.get(),plevel);
+        super(ModEntities.FIRE_ESSENCE.get(),plevel);
         setOwner(player);
         BlockPos pPose = player.blockPosition();
         double d0 = (double)pPose.getX() + 0.5D;
@@ -65,7 +53,6 @@ public class PoisonousEssenceEntity extends Projectile {
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
-
     @Override
     public void tick() {
         super.tick();
@@ -93,8 +80,16 @@ public class PoisonousEssenceEntity extends Projectile {
         double d6 = vec3.y;
         double d7 = vec3.z;
 
-        for(int i = 1; i < 5; ++i) {
-            this.level().addParticle(ParticleTypes.ITEM_SLIME, d0-(d5*2), d1-(d6*2), d2-(d7*2),
+        for(int i = 1; i < 10; ++i) {
+            this.level().addParticle(ParticleTypes.FLAME, d0-(d5*2), d1-(d6*2), d2-(d7*2),
+                    -d5, -d6 - 0.1D, -d7);
+            this.level().addParticle(ParticleTypes.FLAME, d0-(d5*2), d1-(d6*2)+0.3, d2-(d7*2)+0.3,
+                    -d5, -d6 - 0.1D, -d7);
+            this.level().addParticle(ParticleTypes.FLAME, d0-(d5*2), d1-(d6*2)+0.3, d2-(d7*2)-0.3,
+                    -d5, -d6 - 0.1D, -d7);
+            this.level().addParticle(ParticleTypes.FLAME, d0-(d5*2), d1-(d6*2)-0.3, d2-(d7*2)-0.3,
+                    -d5, -d6 - 0.1D, -d7);
+            this.level().addParticle(ParticleTypes.FLAME, d0-(d5*2), d1-(d6*2)-0.3, d2-(d7*2)+0.3,
                     -d5, -d6 - 0.1D, -d7);
         }
 
@@ -107,36 +102,12 @@ public class PoisonousEssenceEntity extends Projectile {
             this.setPos(d0, d1, d2);
         }
     }
-
-    @Override
-    protected void onHitBlock(BlockHitResult pResult) {
-        super.onHitBlock(pResult);
-        if(!this.level().isClientSide()){
-            ((ServerLevel)this.level()).sendParticles(ParticleTypes.ITEM_SLIME, this.getX(), this.getY(), this.getZ(), 6, 0.2D, 0.2D, 0.2D, 0.2D);
-            this.level().broadcastEntityEvent(this,((byte) 3));
-            this.level().setBlock(blockPosition(), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
-            this.discard();
-        }
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public void handleEntityEvent(byte id) {
-        if (id == 3) {
-            ParticleOptions particle = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(Items.ENDER_PEARL));
-            for (int i = 0; i < 8; i++) {
-                this.level().addParticle(particle, false, this.getX(), this.getY(), this.getZ(), this.random.nextGaussian() * 0.05D, random.nextDouble() * 0.2D, random.nextGaussian() * 0.05D);
-            }
-        } else {
-            super.handleEntityEvent(id);
-        }
-    }
     @Override
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
-        for(int x = 0; x < 18; ++x) {
-            for(int y = 0; y < 18; ++y) {
-                this.level().addParticle(ParticleTypes.ITEM_SLIME, this.getX(), this.getY(), this.getZ(),
+        for(int x = 0; x < 25; ++x) {
+            for(int y = 0; y < 25; ++y) {
+                this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(),
                         Math.cos(x*20) * 0.15d, Math.cos(y*20) * 0.15d, Math.sin(x*20) * 0.15d);
             }
         }
@@ -157,7 +128,16 @@ public class PoisonousEssenceEntity extends Projectile {
             counter = this.tickCount + 5;
         }
     }
-
+    @Override
+    protected void onHitBlock(BlockHitResult pResult) {
+        super.onHitBlock(pResult);
+        if(!this.level().isClientSide()){
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 15, 0.2D, 0.2D, 0.2D, 0.2D);
+            this.level().broadcastEntityEvent(this,((byte) 3));
+            this.level().setBlock(blockPosition(), Blocks.FIRE.defaultBlockState(),3);
+            this.discard();
+        }
+    }
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
@@ -169,29 +149,25 @@ public class PoisonousEssenceEntity extends Projectile {
             this.doEnchantDamageEffects(livingentity, entity);
             if (entity instanceof LivingEntity) {
                 LivingEntity livingentity1 = (LivingEntity)entity;
-                livingentity1.addEffect(new MobEffectInstance(MobEffects.POISON, 200), MoreObjects.firstNonNull(entity1, this));
+                livingentity1.setRemainingFireTicks(200);
             }
         }
     }
-
-    protected void defineSynchedData() {
-        this.entityData.define(HIT, false);
-    }
-
     @Override
     public boolean hurt(DamageSource source, float amount) {
         super.hurt(source, amount);
-
         if (!this.level().isClientSide() && source.getEntity() != null) {
             Vec3 vec3d = source.getEntity().getLookAngle();
-            // reflect faster and more accurately
             this.shoot(vec3d.x(), vec3d.y(), vec3d.z(), 1.5F, 0.1F);
-
             if (source.getDirectEntity() instanceof LivingEntity) {
                 this.setOwner(source.getDirectEntity());
             }
             return true;
         }
         return false;
+    }
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(HIT, false);
     }
 }

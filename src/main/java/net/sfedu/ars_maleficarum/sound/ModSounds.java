@@ -14,7 +14,9 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ArsMaleficarum.MOD_ID);
 
     public static final RegistryObject<SoundEvent> MANDRAKE_SCREAM = registerSoundEvents("mandrake_scream");
+    public static final RegistryObject<SoundEvent> FIRE_STAFF_RADIUS_ATTACK = registerSoundEvents("fire_staff_radius_attack");
     public static final RegistryObject<SoundEvent> MUSHROOM_CUT = registerSoundEvents("mushroom_cut");
+    public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_LAUGH = registerSoundEvents("gluttony_demon_laugh");
 
     public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_DIED = registerSoundEvents("gluttony_demon_died");
     public static final RegistryObject<SoundEvent> GLUTTONY_DEMON_SPAWN = registerSoundEvents("gluttony_demon_spawn");
