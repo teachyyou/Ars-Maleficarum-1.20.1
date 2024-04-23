@@ -24,6 +24,9 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfLargeDemonicImprisonment;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfMediumDemonicImprisonment;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfSmallDemonicImprisonment;
 import net.sfedu.ars_maleficarum.ritual.RitesOfSummoning.RiteOfAbyssalFeast;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
@@ -35,7 +38,11 @@ import java.util.*;
 public abstract class CircleRitual {
 
 
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class,
+    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(
+            RiteOfLargeDemonicImprisonment.class,
+            RiteOfMediumDemonicImprisonment.class,
+            RiteOfSmallDemonicImprisonment.class,
+            RisingSunRitual.class,
             RiteOfGrassBlockCreation.class,
             RiteOfMoonlight.class,
             GreatRiteOfEmpowering.class,
@@ -48,6 +55,7 @@ public abstract class CircleRitual {
             RiteOfForgottenNameAwakening.class,
             RiteOfPoisonStaffCreation.class,
             RiteOfAbyssalFeast.class
+
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};

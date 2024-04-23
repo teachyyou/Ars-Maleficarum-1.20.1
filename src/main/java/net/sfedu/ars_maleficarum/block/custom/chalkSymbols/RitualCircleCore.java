@@ -52,7 +52,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     public static final EnumProperty<RitualCoreEntity.CircleColor> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.CircleColor.class);
 
-    public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,3,24);
+    public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
 
 
     @Override

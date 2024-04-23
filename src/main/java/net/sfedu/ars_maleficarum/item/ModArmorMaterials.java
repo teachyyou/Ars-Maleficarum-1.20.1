@@ -11,12 +11,13 @@ import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ENCHANTED_LEATHER("enchanted_leather", 5, Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266652_) -> {
+    ENCHANTED_LEATHER("enchanted_leather", 5, Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266652_) -> {
         p_266652_.put(ArmorItem.Type.BOOTS, 1);
         p_266652_.put(ArmorItem.Type.LEGGINGS, 2);
         p_266652_.put(ArmorItem.Type.CHESTPLATE, 3);
@@ -25,14 +26,6 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.LEATHER);
     });
 
-
-    public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
-    private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266653_) -> {
-        p_266653_.put(ArmorItem.Type.BOOTS, 13);
-        p_266653_.put(ArmorItem.Type.LEGGINGS, 15);
-        p_266653_.put(ArmorItem.Type.CHESTPLATE, 16);
-        p_266653_.put(ArmorItem.Type.HELMET, 11);
-    });
     private final String name;
     private final int durabilityMultiplier;
     private final EnumMap<ArmorItem.Type, Integer> protectionFunctionForType;
@@ -42,7 +35,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final float knockbackResistance;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private ModArmorMaterials(String pName, int pDurabilityMultiplier, EnumMap pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier pRepairIngredient) {
+
+    public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
+    private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266653_) -> {
+        p_266653_.put(ArmorItem.Type.BOOTS, 13);
+        p_266653_.put(ArmorItem.Type.LEGGINGS, 15);
+        p_266653_.put(ArmorItem.Type.CHESTPLATE, 16);
+        p_266653_.put(ArmorItem.Type.HELMET, 11);
+    });
+
+    ModArmorMaterials(String pName, int pDurabilityMultiplier, EnumMap<ArmorItem.Type, Integer> pProtectionFunctionForType, int pEnchantmentValue, SoundEvent pSound, float pToughness, float pKnockbackResistance, Supplier<Ingredient> pRepairIngredient) {
         this.name = pName;
         this.durabilityMultiplier = pDurabilityMultiplier;
         this.protectionFunctionForType = pProtectionFunctionForType;
@@ -50,14 +52,14 @@ public enum ModArmorMaterials implements ArmorMaterial {
         this.sound = pSound;
         this.toughness = pToughness;
         this.knockbackResistance = pKnockbackResistance;
-        this.repairIngredient = new LazyLoadedValue(pRepairIngredient);
+        this.repairIngredient = new LazyLoadedValue<>(pRepairIngredient);
     }
 
-    public int getDurabilityForType(ArmorItem.Type pType) {
+    public int getDurabilityForType(ArmorItem.@NotNull Type pType) {
         return (Integer)HEALTH_FUNCTION_FOR_TYPE.get(pType) * this.durabilityMultiplier;
     }
 
-    public int getDefenseForType(ArmorItem.Type pType) {
+    public int getDefenseForType(ArmorItem.@NotNull Type pType) {
         return (Integer)this.protectionFunctionForType.get(pType);
     }
 
@@ -65,15 +67,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return this.enchantmentValue;
     }
 
-    public SoundEvent getEquipSound() {
+    public @NotNull SoundEvent getEquipSound() {
         return this.sound;
     }
 
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return (Ingredient)this.repairIngredient.get();
     }
 
-    public String getName() {
+    public @NotNull String getName() {
         return this.name;
     }
 
