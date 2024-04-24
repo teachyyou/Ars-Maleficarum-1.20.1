@@ -79,7 +79,7 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
 
         if (!pLevel.isClientSide) {
             CustomFireEntity fire_entity = (CustomFireEntity) pLevel.getBlockEntity(pPos);
-            if(fire_entity!=null && fire_entity.getOwner() instanceof Player && pEntity.getUUID() == fire_entity.getOwnerUUID())
+            if(fire_entity!=null && pEntity.getUUID().equals(fire_entity.getOwnerUUID()))
                 return;
         }
         super.entityInside(pState,pLevel,pPos,pEntity);
@@ -140,6 +140,7 @@ public class CustomFireBlock extends BaseFireBlock implements EntityBlock{
             return this.defaultBlockState();
         }
     }
+
 
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();
