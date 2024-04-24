@@ -30,8 +30,8 @@ public class RiteOfMediumDemonicImprisonment extends CircleRitual {
         components.put(ModItems.SALT.get(), 2);
         components.put(ModItems.SILVER.get(), 1);
         doesRequireLargeCircle=false;
-        doesRequireMediumCircle=false;
-        doesRequireSmallCircle=true;
+        doesRequireMediumCircle=true;
+        doesRequireSmallCircle=false;
     }
 
 

@@ -29,8 +29,8 @@ public class RiteOfSmallDemonicImprisonment extends CircleRitual {
         components.put(ModItems.SALT.get(), 1);
         components.put(ModItems.SILVER.get(), 1);
         doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=false;
+        doesRequireMediumCircle=false;
+        doesRequireSmallCircle=true;
     }
 
 

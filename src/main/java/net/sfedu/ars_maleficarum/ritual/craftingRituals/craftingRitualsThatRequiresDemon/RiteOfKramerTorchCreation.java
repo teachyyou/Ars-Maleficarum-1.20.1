@@ -105,7 +105,7 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.FLAME, d0, d1, d2, 100, 0,0.5D,0,0.2);
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.FLAME, d0, d1, d2, 100, 0,1D,0,0.2);
             pLevel.playSound(null, pPos, SoundEvents.WITHER_DEATH, SoundSource.PLAYERS,1F,1F);
-            staff.setItem(new ItemStack(ModItems.POISON_STAFF.get())); //TODO Поместить сюда потом огненный посох
+            staff.setItem(new ItemStack(ModItems.FIRE_STAFF.get()));
             pPlayer.sendSystemMessage(Component.translatable(ritualName));
             ticks=0;
             riteCore.stopRitual();
