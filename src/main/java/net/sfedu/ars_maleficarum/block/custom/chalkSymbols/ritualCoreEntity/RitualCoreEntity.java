@@ -447,6 +447,7 @@ public class RitualCoreEntity extends BlockEntity {
                 executingRitual = true;
                 player = pPlayer;
                 break;
+                
             }
 
         }

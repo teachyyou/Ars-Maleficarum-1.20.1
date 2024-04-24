@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -24,18 +25,26 @@ import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
 import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfLargeDemonicImprisonment;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfMediumDemonicImprisonment;
+import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfSmallDemonicImprisonment;
 import net.sfedu.ars_maleficarum.ritual.RitesOfSummoning.RiteOfAbyssalFeast;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequiresDemon.RiteOfKramerTorchCreation;
 
 import java.util.*;
 
 public abstract class CircleRitual {
 
 
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(RisingSunRitual.class,
+    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(
+            RiteOfLargeDemonicImprisonment.class,
+            RiteOfMediumDemonicImprisonment.class,
+            RiteOfSmallDemonicImprisonment.class,
+            RisingSunRitual.class,
             RiteOfGrassBlockCreation.class,
             RiteOfMoonlight.class,
             GreatRiteOfEmpowering.class,
@@ -47,7 +56,9 @@ public abstract class CircleRitual {
             RiteOfPoisonStaffRepair.class,
             RiteOfForgottenNameAwakening.class,
             RiteOfPoisonStaffCreation.class,
-            RiteOfAbyssalFeast.class
+            RiteOfAbyssalFeast.class,
+            RiteOfKramerTorchCreation.class
+
     );
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
@@ -68,7 +79,7 @@ public abstract class CircleRitual {
     protected float itemConsumeParticleSpeed = 0.2f;
 
     protected int ticks = 0;
-    protected Entity sacrificeEntity;
+    protected Class<? extends Entity> sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
 
