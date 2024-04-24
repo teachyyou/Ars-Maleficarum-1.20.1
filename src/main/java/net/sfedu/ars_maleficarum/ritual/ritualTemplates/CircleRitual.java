@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -32,6 +33,7 @@ import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwake
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
+import net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequiresDemon.RiteOfKramerTorchCreation;
 
 import java.util.*;
 
@@ -54,7 +56,8 @@ public abstract class CircleRitual {
             RiteOfPoisonStaffRepair.class,
             RiteOfForgottenNameAwakening.class,
             RiteOfPoisonStaffCreation.class,
-            RiteOfAbyssalFeast.class
+            RiteOfAbyssalFeast.class,
+            RiteOfKramerTorchCreation.class
 
     );
 
@@ -76,7 +79,7 @@ public abstract class CircleRitual {
     protected float itemConsumeParticleSpeed = 0.2f;
 
     protected int ticks = 0;
-    protected Entity sacrificeEntity;
+    protected Class<? extends Entity> sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
 
