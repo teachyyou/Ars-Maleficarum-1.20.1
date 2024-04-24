@@ -42,7 +42,6 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, ArsMaleficarum.MOD_ID);
 
-
     //Регистрация посевов шалфея
     public static final RegistryObject<Block> SAGE_CROP = BLOCKS.register("sage_crop",
             () -> new SageCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
@@ -61,6 +60,8 @@ public class ModBlocks {
     //Регистрация блока руды серебра
     public static final RegistryObject<Block> SILVER_ORE_BLOCK = registerBlock("silver_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+    public static final RegistryObject<Block> CUSTOM_FIRE = registerBlock("custom_fire",
+            () -> new CustomFireBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noLootTable().noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> SILVER_DEEPSLATE_ORE_BLOCK = registerBlock("silver_deepslate_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));

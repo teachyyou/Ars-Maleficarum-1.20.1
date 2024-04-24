@@ -1,0 +1,170 @@
+{
+  "render_type": "minecraft:cutout",
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_floor"
+        }
+      ],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_side"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side0"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt0"
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "north": "true"
+          },
+          {
+            "east": "false",
+            "north": "false",
+            "south": "false",
+            "up": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_side",
+          "y": 90
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side0",
+          "y": 90
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt",
+          "y": 90
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt0",
+          "y": 90
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "east": "true"
+          },
+          {
+            "east": "false",
+            "north": "false",
+            "south": "false",
+            "up": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_side",
+          "y": 180
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side0",
+          "y": 180
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt",
+          "y": 180
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt0",
+          "y": 180
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "south": "true"
+          },
+          {
+            "east": "false",
+            "north": "false",
+            "south": "false",
+            "up": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_side",
+          "y": 270
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side0",
+          "y": 270
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt",
+          "y": 270
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_side_alt0",
+          "y": 270
+        }
+      ],
+      "when": {
+        "OR": [
+          {
+            "west": "true"
+          },
+          {
+            "east": "false",
+            "north": "false",
+            "south": "false",
+            "up": "false",
+            "west": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "ars_maleficarum:block/custom_fire_up"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_up0"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_up_alt"
+        },
+        {
+          "model": "ars_maleficarum:block/custom_fire_up_alt0"
+        }
+      ],
+      "when": {
+        "up": "true"
+      }
+    }
+  ]
+}

@@ -43,6 +43,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ASH.get());
                         pOutput.accept(ModItems.SWAMP_ROTFIEND_INGREDIENT.get());
 
+
                     }))
                     .build());
 
@@ -153,12 +154,16 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.KRAMER_TREE_LEAVES.get());
                         pOutput.accept(ModBlocks.KRAMER_TREE_PLANKS.get());
                         pOutput.accept(ModBlocks.KRAMER_SAPLING.get());
-
+                        
 
                         pOutput.accept(ModItems.WET_ENCHANTED_LEATHER.get());
                         pOutput.accept(ModItems.DRIED_ENCHANTED_LEATHER.get());
 
                         pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
+
+                        pOutput.accept(ModItems.FIRE_STAFF.get());
+                        pOutput.accept(ModBlocks.CUSTOM_FIRE.get());
+
 
 
                     }))

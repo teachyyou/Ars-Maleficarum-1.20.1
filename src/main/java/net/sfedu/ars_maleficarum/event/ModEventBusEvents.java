@@ -6,6 +6,7 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
+import net.sfedu.ars_maleficarum.entity.client.FireEssenceModel;
 import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonModel;
 import net.sfedu.ars_maleficarum.entity.client.MandrakeModel;
 import net.sfedu.ars_maleficarum.entity.client.PoisonousEssenceModel;
@@ -20,6 +21,7 @@ public class ModEventBusEvents {
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.MANDRAKE_LAYER, MandrakeModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.POISONOUS_ESSENCE_LAYER, PoisonousEssenceModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.FIRE_ESSENCE_LAYER, FireEssenceModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.GLUTTONY_DEMON_LAYER, GluttonyDemonModel::createBodyLayer);
     }
     @SubscribeEvent
