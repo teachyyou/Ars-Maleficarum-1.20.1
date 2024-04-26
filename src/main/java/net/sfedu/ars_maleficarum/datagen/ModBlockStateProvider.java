@@ -39,6 +39,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SILVER_BLOCK);
         blockWithItem(ModBlocks.CURSED_GOLD_ORE_BLOCK);
         blockWithItem(ModBlocks.SILVER_ORE_BLOCK);
+        blockWithItem(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK);
         blockWithItem(ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK);
         blockWithItem(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK);
         blockWithItem(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK);

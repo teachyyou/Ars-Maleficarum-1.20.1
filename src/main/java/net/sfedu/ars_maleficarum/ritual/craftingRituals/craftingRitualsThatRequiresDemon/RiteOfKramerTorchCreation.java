@@ -36,7 +36,13 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
         mediumCircleType= RitualCoreEntity.CircleType.NETHER;
         largeCircleType= RitualCoreEntity.CircleType.NETHER;
         coreType= RitualCoreEntity.CircleType.NETHER;
-        components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
+        components.put(ModItems.CHERRY_ETUDE.get(), 1);
+        components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
+        components.put(Items.FIRE_CHARGE, 1);
+        components.put(Items.ENDER_EYE, 1);
+        components.put(Items.DIAMOND, 1);
+        components.put(Items.TORCH, 1);
+        components.put(ModItems.SIMPLE_WITCH_HAT.get(), 1);
         doesRequireLargeCircle=true;
         doesRequireMediumCircle=true;
         doesRequireSmallCircle=true;
@@ -49,7 +55,7 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
 
         Optional<ItemEntity> possiblyStaff = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-3).relative(Direction.Axis.X,-3).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,3).relative(Direction.Axis.X,3).relative(Direction.Axis.Y,5)))
-                .stream().filter(x->x.getItem().is(ModItems.POISON_STAFF.get())).findAny(); //todo поменять итем
+                .stream().filter(x->x.getItem().is(ModItems.INERT_FIRE_STAFF.get())).findAny(); //todo поменять итем
 
         if (possiblyStaff.isEmpty()) {
             riteCore.stopRitual();

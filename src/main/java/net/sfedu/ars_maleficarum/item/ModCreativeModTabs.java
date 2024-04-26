@@ -162,8 +162,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
 
                         pOutput.accept(ModItems.FIRE_STAFF.get());
-                        pOutput.accept(ModBlocks.CUSTOM_FIRE.get());
-
+                        pOutput.accept(ModItems.INERT_FIRE_STAFF.get());
+                        pOutput.accept(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK.get());
 
 
                     }))

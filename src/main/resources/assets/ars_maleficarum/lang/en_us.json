@@ -15,11 +15,11 @@
   "block.ars_maleficarum.cursed_gold_block": "Block of Cursed Gold",
   "block.ars_maleficarum.silver_block": "Block of Silver",
   "block.ars_maleficarum.cursed_gold_ore_block": "Cursed Gold Ore",
-  "item.ars_maleficarum.fire_staff": "Kramer's Torch",
   "block.ars_maleficarum.silver_ore_block": "Silver Ore",
   "block.ars_maleficarum.silver_deepslate_ore_block": "Silver Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_deepslate_ore_block": "Cursed Gold Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_nether_ore_block": "Cursed Gold Nether Ore",
+  "block.ars_maleficarum.site_of_summoning_core_block": "Summoning Monolith",
   "item.ars_maleficarum.silver_chunk": "Silver Chunk",
   "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
   "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
@@ -167,6 +167,10 @@
   "item.ars_maleficarum.dry_wood": "Dry Wood",
   "item.ars_maleficarum.infused_dry_wood": "Infused Dry Wood",
   "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
+
+  "item.ars_maleficarum.inert_fire_staff": "Inert Kramer's Tree Branch",
+  "item.ars_maleficarum.fire_staff": "Kramer's Torch",
+  "block.ars_maleficarum.custom_fire": "Purifying Flames",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
   "item.ars_maleficarum.green_chalk": "Green Chalk",
