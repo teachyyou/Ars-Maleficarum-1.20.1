@@ -79,6 +79,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff",
             ()->new FireStaff(new Item.Properties().durability(1024)));
+    public static final RegistryObject<Item> INERT_FIRE_STAFF = ITEMS.register("inert_fire_staff",
+            ()->new Item(new Item.Properties().stacksTo(1)));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));

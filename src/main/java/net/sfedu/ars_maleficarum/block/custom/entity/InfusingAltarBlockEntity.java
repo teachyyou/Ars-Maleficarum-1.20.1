@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
@@ -37,6 +39,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.item.custom.BlankMagicalFocus;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import net.sfedu.ars_maleficarum.screen.InfusingAltarMenu;
@@ -44,6 +47,7 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -68,7 +72,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
                 case 2 -> true;
                 case 3 -> true;
                 case 4 -> true;
-                case 5 -> stack.getItem() == ModItems.POPPET.get() || stack.getItem() == ModItems.WOODEN_FIGURE.get();
+                case 5 -> stack.getItem() instanceof BlankMagicalFocus;
                 default ->  super.isItemValid(slot,stack);
             };
         }
@@ -173,7 +177,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
         getRenderStack();
-        if (hasRecipe() && hasCorrectStructureAround(level, pPos)) {
+        if (hasRecipe(level) && hasCorrectStructureAround(level, pPos)) {
 
             increaseCraftingProcess();
             setChanged(level,pPos,pState);
@@ -198,9 +202,20 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
 
     }
 
-    private boolean hasRecipe() {
+    private boolean checkDimension(InfusingAltarRecipe recipe, Level level) {
+        String s = recipe.getDimension(null);
+        ResourceKey<DimensionType> dimType = level.dimensionTypeId();
+        return switch(s) {
+            case "nether" -> dimType.equals(BuiltinDimensionTypes.NETHER);
+            case "overworld" -> dimType.equals(BuiltinDimensionTypes.OVERWORLD);
+            case "end" -> dimType.equals(BuiltinDimensionTypes.END);
+            default -> true;
+        };
+    }
+
+    private boolean hasRecipe(Level level) {
         Optional<InfusingAltarRecipe> recipe = getCurrentRecipe();
-        return (!recipe.isEmpty());
+        return (recipe.isPresent() && checkDimension(recipe.get(),level));
 
     }
 

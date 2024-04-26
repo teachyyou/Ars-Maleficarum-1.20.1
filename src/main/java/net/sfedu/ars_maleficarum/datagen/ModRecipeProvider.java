@@ -599,7 +599,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.DEAD_TREE_BARK.get()), has(ModItems.DEAD_TREE_BARK.get()))
                 .save(pWriter);
 
-
+        new InfusingAltarRecipeBuilder(List.of(ModBlocks.KRAMER_TREE_WOOD.get(), ModBlocks.KRAMER_TREE_WOOD.get(), ModItems.WHIFF_OF_TIME.get(), ModBlocks.KRAMER_TREE_WOOD.get(),ModItems.ABSOLUTE_ORDER.get(),ModItems.DRY_WOOD.get()), ModItems.INERT_FIRE_STAFF.get(), "nether")
+                .unlockedBy("has_something", has(ModBlocks.KRAMER_TREE_LOG.get())).save(pWriter);
 
         //Крафты мела и относящегося
         new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get(),false, true)
