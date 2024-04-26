@@ -19,7 +19,7 @@
   "block.ars_maleficarum.silver_deepslate_ore_block": "Silver Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_deepslate_ore_block": "Cursed Gold Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_nether_ore_block": "Cursed Gold Nether Ore",
-  "block.ars_maleficarum.site_of_summoning_core_block": "Site of Summoning Core Block",
+  "block.ars_maleficarum.site_of_summoning_core_block": "Summoning Monolith",
   "item.ars_maleficarum.silver_chunk": "Silver Chunk",
   "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
   "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
@@ -170,6 +170,7 @@
 
   "item.ars_maleficarum.inert_fire_staff": "Inert Kramer's Tree Branch",
   "item.ars_maleficarum.fire_staff": "Kramer's Torch",
+  "block.ars_maleficarum.custom_fire": "Purifying Flames",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
   "item.ars_maleficarum.green_chalk": "Green Chalk",

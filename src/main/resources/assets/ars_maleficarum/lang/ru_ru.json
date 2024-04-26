@@ -14,7 +14,7 @@
   "block.ars_maleficarum.marigold_crop": "Побеги календулы",
   "block.ars_maleficarum.cursed_gold_block": "Блок проклятого золота",
   "block.ars_maleficarum.silver_block": "Блок серебра",
-  "block.ars_maleficarum.site_of_summoning_core_block": "Блок ядра призыва",
+  "block.ars_maleficarum.site_of_summoning_core_block": "Монолит призыва",
   "block.ars_maleficarum.cursed_gold_ore_block": "Руда проклятого золота",
   "block.ars_maleficarum.silver_ore_block": "Серебряная руда",
   "block.ars_maleficarum.silver_deepslate_ore_block": "Глубинный сланец с серебром",
@@ -168,8 +168,10 @@
   "item.ars_maleficarum.infused_dry_wood": "Зачарованная сухая древесина",
   "item.ars_maleficarum.poison_staff": "Трость Флемет",
 
-  "item.ars_maleficarum.inert_fire_staff": "Инертная ветвь древа Крамера",
+  "item.ars_maleficarum.inert_fire_staff": "Инертная ветвь Древа Крамера",
   "item.ars_maleficarum.fire_staff": "Факел Крамера",
+  "block.ars_maleficarum.custom_fire": "Очищающее пламя",
+
 
 
   "item.ars_maleficarum.white_chalk": "Белый мел",

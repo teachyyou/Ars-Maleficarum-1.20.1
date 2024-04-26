@@ -89,6 +89,8 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     private int progress;
     private int maxProgress = 400;
 
+    private ResourceKey<DimensionType> dimension;
+
 
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
@@ -205,12 +207,12 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     private boolean checkDimension(InfusingAltarRecipe recipe, Level level) {
         String s = recipe.getDimension(null);
         ResourceKey<DimensionType> dimType = level.dimensionTypeId();
-        return switch(s) {
-            case "nether" -> dimType.equals(BuiltinDimensionTypes.NETHER);
-            case "overworld" -> dimType.equals(BuiltinDimensionTypes.OVERWORLD);
-            case "end" -> dimType.equals(BuiltinDimensionTypes.END);
-            default -> true;
+        dimension = switch(s) {
+            case "nether" -> BuiltinDimensionTypes.NETHER;
+            case "end" -> BuiltinDimensionTypes.END;
+            default -> BuiltinDimensionTypes.OVERWORLD;
         };
+        return dimType.equals(dimension);
     }
 
     private boolean hasRecipe(Level level) {
@@ -249,6 +251,8 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private boolean hasCorrectStructureAround(Level level, BlockPos pPos) {
+        if (dimension.equals(BuiltinDimensionTypes.NETHER)) return level.getBlockState(pPos.below()).is(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK.get());
+
         Direction[] dir = {Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST};
         boolean flag = true;
         for (int h = 0; h<2; h++) {
