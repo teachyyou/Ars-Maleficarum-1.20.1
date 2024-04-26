@@ -113,7 +113,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
         simpleItem(ModItems.SWAMP_ROTFIEND_INGREDIENT);
-        simpleItem(ModItems.FIRE_STAFF);
 
         simpleItem(ModItems.CHALK_BRUSH);
         simpleItem(ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT);

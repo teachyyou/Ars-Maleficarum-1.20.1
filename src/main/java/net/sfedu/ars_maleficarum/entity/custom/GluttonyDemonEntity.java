@@ -37,7 +37,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GluttonyDemonEntity extends Monster {
+public class GluttonyDemonEntity extends MortalSinDemonEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 

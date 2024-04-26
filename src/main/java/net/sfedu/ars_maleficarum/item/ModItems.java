@@ -54,6 +54,7 @@ public class ModItems {
     public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
             ()->new Item(new Item.Properties()));
 
+
     //Регистрация слитка проклятого серебра
     public static final RegistryObject<Item> SILVER = ITEMS.register("silver",
             ()->new Item(new Item.Properties()));

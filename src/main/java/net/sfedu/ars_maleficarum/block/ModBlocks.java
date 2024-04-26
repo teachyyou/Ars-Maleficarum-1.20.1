@@ -68,9 +68,13 @@ public class ModBlocks {
     //Регистрация блока руды проклятого золота
     public static final RegistryObject<Block> CURSED_GOLD_ORE_BLOCK = registerBlock("cursed_gold_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_GOLD_BLOCK)));
+    public static final RegistryObject<Block> SITE_OF_SUMMONING_CORE_BLOCK = registerBlock("site_of_summoning_core_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CHISELED_DEEPSLATE).noLootTable().strength(70F)));
 
     public static final RegistryObject<Block> CURSED_GOLD_DEEPSLATE_ORE_BLOCK = registerBlock("cursed_gold_deepslate_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_GOLD_ORE)));
+
+
 
     public static final RegistryObject<Block> CURSED_GOLD_NETHER_ORE_BLOCK = registerBlock("cursed_gold_nether_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_GOLD_ORE)));
