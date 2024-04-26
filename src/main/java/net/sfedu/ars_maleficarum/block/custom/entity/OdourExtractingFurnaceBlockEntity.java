@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -14,7 +15,10 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
@@ -28,6 +32,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.OdourExtractingFurnaceBlock;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.recipe.ModRecipes;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceMenu;
 import org.jetbrains.annotations.NotNull;
@@ -68,6 +73,10 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+    private final RecipeManager.CachedCheck<Container, OdourExtractingRecipe> quickCheck;
+
+
+
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress=160;
@@ -81,6 +90,7 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
 
     public OdourExtractingFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.ODOUR_EXTRACTING_FURNACE_BE.get(), pPos, pBlockState);
+        quickCheck = RecipeManager.createCheck(OdourExtractingRecipe.Type.INSTANCE);
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
@@ -280,7 +290,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         for (int i = 0; i < this.itemHandler.getSlots(); i++) {
             inventory.setItem(i,this.itemHandler.getStackInSlot(i));
         }
-        return this.level.getRecipeManager().getRecipeFor(OdourExtractingRecipe.Type.INSTANCE,inventory,level);
+        return this.quickCheck.getRecipeFor(inventory,level);
+        //return this.level.getRecipeManager().getRecipeFor(OdourExtractingRecipe.Type.INSTANCE,inventory,level);
     }
 
 
