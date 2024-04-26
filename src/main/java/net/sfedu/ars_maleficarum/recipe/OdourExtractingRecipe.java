@@ -8,21 +8,23 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
+public class OdourExtractingRecipe implements Recipe<Container>{
 
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private ItemStack additional = ItemStack.EMPTY;
 
-    private boolean isBottleRequired;
-    private float chance;
+    private final boolean isBottleRequired;
+    private final float chance;
     private final ResourceLocation id;
 
     public OdourExtractingRecipe(ResourceLocation id, ItemStack output, ItemStack additional, boolean isBottleRequired, float chance, NonNullList<Ingredient> inputItems) {
@@ -35,7 +37,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+    public boolean matches(Container pContainer, Level pLevel) {
         if (pLevel.isClientSide) {
             return false;
         }
@@ -44,7 +46,8 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+    @NotNull
+    public ItemStack assemble(Container pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
@@ -54,6 +57,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    @NotNull
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
@@ -67,6 +71,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    @NotNull
     public NonNullList<Ingredient> getIngredients() {
         return this.inputItems;
     }
@@ -89,7 +94,7 @@ public class OdourExtractingRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements  RecipeType<OdourExtractingRecipe> {
+    public static class Type implements RecipeType<OdourExtractingRecipe> {
         private Type() {}
         public static final Type INSTANCE = new Type();
         public static final String ID = "odour_extracting";
