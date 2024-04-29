@@ -8,13 +8,17 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -27,7 +31,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
-import net.sfedu.ars_maleficarum.entity.ai.TraderWitchAttackGoal;
+import net.sfedu.ars_maleficarum.entity.ai.Trader_Witch_AttackGoal;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,6 +42,8 @@ public class TraderWitchEntity extends AbstractVillager {
     private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
         return new Int2ObjectOpenHashMap<>(pMap);
     }
+    private static final EntityDataAccessor<Boolean> ATTACKING =
+            SynchedEntityData.defineId(TraderWitchEntity.class, EntityDataSerializers.BOOLEAN);
     public TraderWitchEntity(EntityType<? extends AbstractVillager> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -46,18 +52,20 @@ public class TraderWitchEntity extends AbstractVillager {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
         this.goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
-        this.goalSelector.addGoal(1, new TraderWitchAttackGoal(this, 0.2D,true));
+        this.goalSelector.addGoal(1, new Trader_Witch_AttackGoal(this, 0.2D,true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.35D));
         this.goalSelector.addGoal(5, new InteractGoal(this, Player.class, 3.0F, 1.0F));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Mob.class, 8.0F));
     }
     public static AttributeSupplier.Builder createAttributes(){
         return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,50D).add(Attributes.MOVEMENT_SPEED,0.7D)
-                .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK,5D);
+                .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK,5D).add(Attributes.ATTACK_DAMAGE, 0.5D);
     }
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand)
     {
-        if(this.isAlive() && !this.isTrading())
+        if(this.isAlive() && !this.isTrading() && !isAttacking())
         {
             if (pHand == InteractionHand.MAIN_HAND) {
                 pPlayer.awardStat(Stats.TALKED_TO_VILLAGER);
@@ -77,7 +85,10 @@ public class TraderWitchEntity extends AbstractVillager {
             return super.mobInteract(pPlayer, pHand);
         }
     }
-
+    protected boolean isAttacking()
+    {
+        return this.entityData.get(ATTACKING);
+    }
     @Override
     protected void rewardTradeXp(MerchantOffer pOffer) {
         if (pOffer.shouldRewardExp()) {
@@ -102,6 +113,7 @@ public class TraderWitchEntity extends AbstractVillager {
             }
         }
     }
+
 
     @Nullable
     @Override
@@ -135,9 +147,12 @@ public class TraderWitchEntity extends AbstractVillager {
             return new MerchantOffer(buy, sell, this.maxUses, this.villagerXp, this.priceMultiplier);
         }
     }
-
+    public void setAttacking(boolean attacking) {
+        this.entityData.set(ATTACKING, attacking);
+    }
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
+        this.entityData.define(ATTACKING, false);
     }
 }

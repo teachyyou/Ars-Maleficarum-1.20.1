@@ -30,7 +30,6 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
             if(isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
-
             if(isTimeToAttack()) {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);

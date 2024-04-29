@@ -20,7 +20,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<TraderWitchEntity>> TRADER_WITCH =
             ENTITY_TYPES.register("trader_witch", () -> EntityType.Builder.of(TraderWitchEntity::new, MobCategory.CREATURE)
-                    .sized(0.5f, 1.5f).build("trader_witch"));
+                    .sized(1.5f, 2f).build("trader_witch"));
 
     public static final RegistryObject<EntityType<PoisonousEssenceEntity>> POISONOUS_ESSENCE =
             ENTITY_TYPES.register("poisonous_essence", () -> EntityType.Builder.<PoisonousEssenceEntity>of(PoisonousEssenceEntity::new, MobCategory.MISC)
