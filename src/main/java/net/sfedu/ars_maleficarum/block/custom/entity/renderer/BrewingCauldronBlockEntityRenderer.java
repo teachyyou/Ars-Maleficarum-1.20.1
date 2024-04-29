@@ -39,34 +39,28 @@ public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<B
         FluidState state = fluidStack.getFluid().defaultFluidState();
 
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(stillTexture);
-        int tintColor;
-        if (pBlockEntity.getColor() == 0)
-            tintColor = fluidTypeExtensions.getTintColor(state, level, pos);
-        else
-        {
-            tintColor = pBlockEntity.getColor();
-        }
 
         VertexConsumer builder = pBuffer.getBuffer(CAULDRON_WATER);
 
         float height = 0.188f+0.125f*pBlockEntity.getBlockState().getValue(BrewingCauldronBlock.WATER);
-        drawQuad(builder, pPoseStack, 0.125f, height, 0.125f, 0.875f, height, 0.875f, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), pPackedLight, tintColor);
+        long time = System.currentTimeMillis() - pBlockEntity.startTime;
+        drawQuad(builder, pPoseStack, 0.125f, height, 0.125f, 0.875f, height, 0.875f, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), pPackedLight, pBlockEntity.getRed(time), pBlockEntity.getBlue(time), pBlockEntity.getGreen(time));
     }
 
-    private static void drawVertex(VertexConsumer builder, PoseStack poseStack, float x, float y, float z, float u, float v, int packedLight, int color)
+    private static void drawVertex(VertexConsumer builder, PoseStack poseStack, float x, float y, float z, float u, float v, int packedLight, int colorR, int colorG, int colorB)
     {
         builder.vertex(poseStack.last().pose(), x, y, z)
-                .color(color)
+                .color(colorR/255F, colorG/255F, colorB/255F, 1)
                 .uv(u, v)
                 .uv2(packedLight)
                 .normal(1,0,0)
                 .endVertex();
     }
-    private static void drawQuad(VertexConsumer builder, PoseStack poseStack, float x0, float y0, float z0, float x1, float y1, float z1, float u0, float v0, float u1, float v1, int packedLight, int color) {
-        drawVertex(builder, poseStack, x0, y0, z0, u0, v0, packedLight, color);
-        drawVertex(builder, poseStack, x0, y1, z1, u0, v1, packedLight, color);
-        drawVertex(builder, poseStack, x1, y1, z1, u1, v1, packedLight, color);
-        drawVertex(builder, poseStack, x1, y0, z0, u1, v0, packedLight, color);
+    private static void drawQuad(VertexConsumer builder, PoseStack poseStack, float x0, float y0, float z0, float x1, float y1, float z1, float u0, float v0, float u1, float v1, int packedLight, int colorR, int colorG, int colorB) {
+        drawVertex(builder, poseStack, x0, y0, z0, u0, v0, packedLight, colorR, colorG, colorB);
+        drawVertex(builder, poseStack, x0, y1, z1, u0, v1, packedLight, colorR, colorG, colorB);
+        drawVertex(builder, poseStack, x1, y1, z1, u1, v1, packedLight, colorR, colorG, colorB);
+        drawVertex(builder, poseStack, x1, y0, z0, u1, v0, packedLight, colorR, colorG, colorB);
     }
 
 

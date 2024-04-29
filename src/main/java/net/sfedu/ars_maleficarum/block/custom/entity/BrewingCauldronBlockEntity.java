@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntitySelector;
@@ -67,9 +68,17 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private int boilTick = 0;
     private int craftingProgress = 0;
 
-    private int color;
+    private int targetRed = 92;
+    private int targetGreen = 245;
+    private int targetBlue = 177;
+    private int startRed = targetRed;
+    private int startGreen = targetGreen;
+    private int startBlue = targetBlue;
+    public long startTime = System.currentTimeMillis();
     public ItemStack crafted;
     public int craftedType = 1;
+
+    private boolean firstTick = true;
 
     private final int maxTemperature = 1500;
     private final int maxFuel = 2000;
@@ -113,6 +122,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         pTag.put("inventory",itemHandler.serializeNBT());
         pTag.putInt("fuelLevel",this.fuelLevel);
         pTag.putInt("temperature",this.temperature);
+        pTag.putInt("colorR",this.targetRed);
+        pTag.putInt("colorG",this.targetGreen);
+        pTag.putInt("colorB",this.targetBlue);
         super.saveAdditional(pTag);
     }
     @Override
@@ -121,10 +133,25 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         this.fuelLevel = pTag.getInt("fuelLevel");
         this.temperature = pTag.getInt("temperature");
+        int tr = pTag.getInt("colorR");
+        int tg = pTag.getInt("colorG");
+        int tb = pTag.getInt("colorB");
+
+        if(tr != targetRed || tg != targetGreen || tb != targetBlue) { // If colour changed
+            updateTargetColour(tr, tg, tb);
+        }
     }
 
-    public int getColor() {
-        return color;
+    public int getRed(long time) {
+        return (int)Math.round(Mth.lerp(Math.min((double)time / 500, 1.0D), startRed, targetRed));
+    }
+
+    public int getGreen(long time) {
+        return (int)Math.round(Mth.lerp(Math.min((double)time / 500, 1.0D), startGreen, targetGreen));
+    }
+
+    public int getBlue(long time) {
+        return (int)Math.round(Mth.lerp(Math.min((double)time / 500, 1.0D), startBlue, targetBlue));
     }
 
     public void drops() {
@@ -151,11 +178,16 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
-        System.out.println(color);
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
-
+        if (firstTick)
+        {
+            firstTick = false;
+            startRed = targetRed;
+            startGreen = targetGreen;
+            startBlue = targetBlue;
+        }
         if (hasRecipe() && pState.getValue(BrewingCauldronBlock.BOILING))
         {
             if (craftingProgress < 100)
@@ -229,8 +261,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                     crafted = null;
                     craftingProgress = 0;
                     Random rand = new Random();
-                    color = rand.nextInt();
-                    System.out.println(color);
+                    targetRed = rand.nextInt(10, 255);
+                    targetGreen = rand.nextInt(10, 255);
+                    targetBlue = rand.nextInt(10, 255);
+
+                    System.out.println(targetRed);
+                    System.out.println(targetGreen);
+                    System.out.println(targetBlue);
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
                 }
@@ -239,6 +276,8 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }
 
     }
+
+
 
     // Отвечает за нагревание и остывание котла
     private void temperatureTick(Level level, BlockPos pPos, BlockState pState)
@@ -255,7 +294,11 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (pState.getValue(BrewingCauldronBlock.WATER)==0)
         {
             temperature = 0;
-            if (!level.isClientSide()) color = 0;
+            if (!level.isClientSide()) {
+                targetRed = 92;
+                targetGreen = 245;
+                targetBlue = 177;
+            }
         }
     }
 
@@ -323,7 +366,17 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }).collect(Collectors.toList());
     }
 
-
+    public void updateTargetColour(int red, int green, int blue) {
+        long time = System.currentTimeMillis();
+        long timeSince = time - startTime;
+        startRed = getRed(timeSince);
+        startGreen = getGreen(timeSince);
+        startBlue = getBlue(timeSince);
+        targetRed = red;
+        targetGreen = green;
+        targetBlue = blue;
+        startTime = time;
+    }
 
     private Optional<BrewingCauldronRecipe> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
