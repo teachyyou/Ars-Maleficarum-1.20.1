@@ -24,14 +24,14 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
     private final ItemStack output;
     private final ResourceLocation id;
     private final boolean inOrder;
-    public final boolean autoCraft;
+    public final int craftType;
 
-    BrewingCauldronRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputItems, boolean inOrder, boolean autoCraft) {
+    BrewingCauldronRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> inputItems, boolean inOrder, int craftType) {
         this.id=id;
         this.inputItems=inputItems;
         this.output=output;
         this.inOrder = inOrder;
-        this.autoCraft = autoCraft;
+        this.craftType = craftType;
     }
 
 
@@ -137,13 +137,13 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json,"ingredients");
             boolean inOrder = GsonHelper.getAsBoolean(GsonHelper.getAsJsonObject(json, "inOrder"), "order");
-            boolean autoCraft = GsonHelper.getAsBoolean(GsonHelper.getAsJsonObject(json, "autoCraft"), "craft");
+            int craftType = GsonHelper.getAsInt(GsonHelper.getAsJsonObject(json, "craftType"), "craft");
             NonNullList<Ingredient> inputs = NonNullList.withSize(10, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i,Ingredient.fromJson(ingredients.get(i)));
             }
-            return new BrewingCauldronRecipe(id,output,inputs, inOrder, autoCraft);
+            return new BrewingCauldronRecipe(id,output,inputs, inOrder, craftType);
         }
 
         @Override
@@ -154,8 +154,8 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
             }
             ItemStack output = buf.readItem();
             boolean inOrder = buf.readBoolean();
-            boolean autoCraft = buf.readBoolean();
-            return new BrewingCauldronRecipe(id,output,inputs, inOrder, autoCraft);
+            int craftType = buf.readInt();
+            return new BrewingCauldronRecipe(id,output,inputs, inOrder, craftType);
         }
 
         @Override
@@ -166,7 +166,7 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
             }
             buf.writeItemStack(recipe.getResultItem(null),false);
             buf.writeBoolean(recipe.inOrder);
-            buf.writeBoolean(recipe.autoCraft);
+            buf.writeInt(recipe.craftType);
         }
     }
 }

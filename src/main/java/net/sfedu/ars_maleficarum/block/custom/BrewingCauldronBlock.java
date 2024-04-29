@@ -175,7 +175,29 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             {
                 if (blockentity != null)
                 {
-                    if (blockentity.crafted != null)
+                    if (blockentity.crafted != null && blockentity.craftedType == 1)
+                    {
+                        if (pState.getValue(WATER) == 1)
+                        {
+                            if ((pLevel.getBlockEntity(pPos)) != null)
+                                ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                        }
+                        pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+                        pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
+                        pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
+                        if (pState.getValue(BOILING))
+                            pPlayer.addItem(blockentity.crafted.copy());
+                        else
+                            pPlayer.addItem(new ItemStack(Items.DIRT));
+                    }
+
+                }
+            }
+            else if (itemstack.getItem() == Items.BOWL)
+            {
+                if (blockentity != null)
+                {
+                    if (blockentity.crafted != null && blockentity.craftedType == 2)
                     {
                         if (pState.getValue(WATER) == 1)
                         {

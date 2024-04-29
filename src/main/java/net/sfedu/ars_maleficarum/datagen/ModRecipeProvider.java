@@ -577,12 +577,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //Генерация крафтов в варочном котле
         //пока что тестовые для отладки котла
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIAMOND, Items.GOLD_INGOT, Items.IRON_INGOT), Items.NETHER_STAR, true, true)
+        new BrewingCauldronRecipeBuilder(List.of(Items.DIAMOND, Items.GOLD_INGOT, Items.IRON_INGOT), Items.NETHER_STAR, true, 0)
                 .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.SAND, Items.COBBLESTONE), Items.WOODEN_AXE, false, true)
+        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.SAND, Items.COBBLESTONE), Items.WOODEN_AXE, false, 2)
                 .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(Items.GLASS, Items.COBBLESTONE), Items.POTION, false, false)
+        new BrewingCauldronRecipeBuilder(List.of(Items.GLASS, Items.COBBLESTONE), Items.POTION, false, 1)
                 .unlockedBy("has_something",has(Items.GLASS)).save(pWriter);
         //Крафт посоха
         new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
@@ -603,15 +602,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something", has(ModBlocks.KRAMER_TREE_LOG.get())).save(pWriter);
 
         //Крафты мела и относящегося
-        new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get(),false, true)
+        new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get(),false, 0)
                 .unlockedBy("has_something",has(ModItems.ASH.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(), ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),ModItems.PETRICHOR.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GREEN_CHALK.get(), true, true)
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(), ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),ModItems.PETRICHOR.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GREEN_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.CURSED_GOLD_CHUNK.get(), Items.GOLD_NUGGET, ModItems.RING_OF_MORNING_DEW.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GOLDEN_CHALK.get(), true, true)
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.CURSED_GOLD_CHUNK.get(), Items.GOLD_NUGGET, ModItems.RING_OF_MORNING_DEW.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GOLDEN_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get(), true, true)
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.DEAD_TREE_BARK.get(), Items.CHARCOAL, Items.BLACK_DYE,Items.BLACKSTONE,ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.BLACK_CHALK.get(), true, true)
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.DEAD_TREE_BARK.get(), Items.CHARCOAL, Items.BLACK_DYE,Items.BLACKSTONE,ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.BLACK_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get(), 1)
@@ -639,7 +638,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
 
-        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, true)
+        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, 0)
                 .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
 
 

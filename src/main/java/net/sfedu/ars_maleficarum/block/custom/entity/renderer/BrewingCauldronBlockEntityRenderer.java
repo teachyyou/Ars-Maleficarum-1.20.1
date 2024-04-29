@@ -18,6 +18,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 
+import java.util.Random;
+
 import static net.sfedu.ars_maleficarum.block.custom.entity.renderer.rendertypes.CustomRenderTypes.CAULDRON_WATER;
 
 public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<BrewingCauldronBlockEntity> {
@@ -37,7 +39,13 @@ public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<B
         FluidState state = fluidStack.getFluid().defaultFluidState();
 
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(stillTexture);
-        int tintColor = fluidTypeExtensions.getTintColor(state, level, pos);
+        int tintColor;
+        if (pBlockEntity.getColor() == 0)
+            tintColor = fluidTypeExtensions.getTintColor(state, level, pos);
+        else
+        {
+            tintColor = pBlockEntity.getColor();
+        }
 
         VertexConsumer builder = pBuffer.getBuffer(CAULDRON_WATER);
 

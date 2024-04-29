@@ -32,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import static net.minecraft.world.level.block.Block.popResource;
@@ -66,7 +67,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private int boilTick = 0;
     private int craftingProgress = 0;
 
+    private int color;
     public ItemStack crafted;
+    public int craftedType = 1;
 
     private final int maxTemperature = 1500;
     private final int maxFuel = 2000;
@@ -120,6 +123,10 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         this.temperature = pTag.getInt("temperature");
     }
 
+    public int getColor() {
+        return color;
+    }
+
     public void drops() {
         // Ничего не выбрасывает
     }
@@ -144,7 +151,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
-
+        System.out.println(color);
         suckItems(level, pPos, pState);
         temperatureTick(level, pPos, pState);
         blockStatesChange(level, pPos, pState);
@@ -167,6 +174,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
             craftingProgress = 0;
             crafted = null;
         }
+
     }
     public void clientTick(Level level, BlockPos pPos, BlockState pState) {
         boilingAnimation(level, pPos, pState);
@@ -218,6 +226,11 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 ItemStack itemStack = itemEntity.getItem();
                 if (addItem(this.itemHandler, itemStack.getItem()))
                 {
+                    crafted = null;
+                    craftingProgress = 0;
+                    Random rand = new Random();
+                    color = rand.nextInt();
+                    System.out.println(color);
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
                 }
@@ -239,7 +252,11 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         {
             temperature--;
         }
-        if (pState.getValue(BrewingCauldronBlock.WATER)==0) temperature = 0;
+        if (pState.getValue(BrewingCauldronBlock.WATER)==0)
+        {
+            temperature = 0;
+            if (!level.isClientSide()) color = 0;
+        }
     }
 
     private void blockStatesChange(Level level, BlockPos pPos, BlockState pState)
@@ -328,7 +345,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (!pState.getValue(BrewingCauldronBlock.BOILING)) return;
         Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
         ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
-        if (recipe.get().autoCraft)
+        if (recipe.get().craftType == 0)
         {
             for (int i = 0; i<10; i++) {
                 this.itemHandler.extractItem(i,1,false);
@@ -339,6 +356,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }
         else if (crafted == null)
         {
+            craftedType = recipe.get().craftType;
             level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
             crafted = resultItem.copy();
         }
