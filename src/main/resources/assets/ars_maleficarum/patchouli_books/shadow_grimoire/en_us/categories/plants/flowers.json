@@ -1,0 +1,7 @@
+{
+  "name": "Цветы",
+  "description": "В этом разделе перечислены особых свойств цветы, что могут использоваться и выращиваться ведьмами в различных целях.",
+  "icon": "ars_maleficarum:sunlight_flower",
+  "parent": "ars_maleficarum:plants",
+  "sortnum": 2
+}

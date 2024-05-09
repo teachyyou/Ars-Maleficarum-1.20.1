@@ -190,7 +190,10 @@
 
   "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",
   "item.ars_maleficarum.dried_enchanted_leather": "Высушенная зачарованная кожа",
-  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа",
+
+  "book.shadow_grimoire.name": "Гримуар теней",
+  "book.shadow_grimoire.landing_text": "$(bold)Введение$()$(br)Witchcraft is the art of using seemingly mundane objects and their magical properties to achieve an intended effect. This book is to help understand the basics of the art."
 
 
 }

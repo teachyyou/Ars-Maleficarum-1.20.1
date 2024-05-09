@@ -1,0 +1,7 @@
+{
+  "name": "Травы",
+  "description": "Здесь более подробно описаны травы различнного происхождения и свойств, что частенько выращиваются и используются ведьмами.",
+  "icon": "ars_maleficarum:sage_leaf",
+  "parent": "ars_maleficarum:plants",
+  "sortnum": 0
+}
