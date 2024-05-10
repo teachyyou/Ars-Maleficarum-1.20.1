@@ -10,6 +10,7 @@ plugins {
 version = mod_version
 group = mod_group_id
 
+
 base {
     archivesName = mod_id
 }
@@ -122,6 +123,7 @@ repositories {
         url = "https://maven.blamejared.com/"
 
     }
+    //geckolib
     maven {
         name = 'GeckoLib'
         url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
@@ -129,6 +131,10 @@ repositories {
             includeGroupByRegex("software\\.bernie.*")
             includeGroup("com.eliotlash.mclib")
         }
+    }
+    //patchouli
+    maven {
+        url 'https://maven.blamejared.com'
     }
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
@@ -152,6 +158,9 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.4')
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
 
 

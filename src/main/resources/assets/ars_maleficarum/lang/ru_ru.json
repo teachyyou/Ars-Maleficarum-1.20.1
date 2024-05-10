@@ -30,6 +30,8 @@
   "sounds.ars_maleficarum.mushroom_cut": "Срезание гриба",
   "sounds.ars_maleficarum.mandrake_scream": "Крик мандрагоры",
 
+  "entity.ars_maleficarum.mandrake": "Корень мандрагоры",
+
   "block.ars_maleficarum.rowan_log": "Рябиновая древесина",
   "block.ars_maleficarum.rowan_planks": "Рябиновые доски",
   "block.ars_maleficarum.rowan_wood": "Рябина",
@@ -190,7 +192,10 @@
 
   "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",
   "item.ars_maleficarum.dried_enchanted_leather": "Высушенная зачарованная кожа",
-  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа"
+  "item.ars_maleficarum.simple_witch_hat": "Простая шляпа",
+
+  "book.shadow_grimoire.name": "Гримуар теней",
+  "book.shadow_grimoire.landing_text": "$(bold)Введение$()$(br)Ведьмовство - одно из самых древних искусств, сочетающее в себе многие разделы, от травоведения до демонологии. Этот гримуар - собрание знаний и источник новых открытий, шаг за шагом приведущий жаждущего знаний к невероятному могуществу."
 
 
 }
