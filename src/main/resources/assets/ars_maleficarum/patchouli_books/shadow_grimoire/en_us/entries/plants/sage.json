@@ -5,11 +5,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Alder trees, of the Alnus genus, are monoecious trees distributed throughout the north temperature zone thought to bleed when cut as the white wood can turn red.$(br2)This tree is thought to be both a bringer of misfortune and a repellent of negativity.$(br2)$(bold)Procurement:$()$(br)Mutated from small plants."
+      "text": "Шалфей, известный своими красивыми фиолетовыми цветочками, славится олицетворением мудрости, чистоты и гармонии. Сила, содержащаяся в его цветах и листьях, упоминается во множестве трактатов, посвящанных алхимии и травничеству. Для ведьм он тоже представляет немалый интерес. $(br2)Семена, которые можно обнаружить, как следует покопавшись в траве, можно выращивать на мокрых вспаханных грядках."
     },
     {
       "type": "patchouli:multiblock",
       "enable_visualize": false,
+      "text": "Полностью созревший шалфей, цветы и листья которого уже можно пожинать.",
       "multiblock": {
         "mapping": {
           "m": "ars_maleficarum:sage_crop[age=3]",
@@ -21,6 +22,18 @@
           [ "0" ]
         ]
       }
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Цветы и листья",
+      "item": "ars_maleficarum:sage_leaf,ars_maleficarum:sage_flower",
+      "text": "У шалфея, в отличие от $(l:plants/marigold)календулы$(/l), полезными свойствами обладают не только цветы, но и листья. Опытный травник может использовать их для создания экстрактов и концентратов, добавляющих в противовес к любой энтропии капельку гармонии и согласия."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Измельчение",
+      "item": "ars_maleficarum:ground_sage_flowers",
+      "text": "Цветки шалфея можно измельчить при помощи ступы. В таком виде они источают ещё более сильный аромат, а извлечь их полезные магические свойства становится ещё легче. $(br2)Например, концентрат гармонии, в основе которого лежит шалфей, гораздо легче получить из измельченных цветков, нежели из необработанных веточек."
     }
   ],
   "read_by_default": true

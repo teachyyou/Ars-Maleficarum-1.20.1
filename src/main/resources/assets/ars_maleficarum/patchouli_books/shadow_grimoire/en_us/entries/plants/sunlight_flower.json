@@ -1,27 +1,19 @@
 {
-  "name": "Солнечный свет",
+  "name": "Солнечный Свет",
   "icon": "ars_maleficarum:textures/block/sunlight_flower_stage_6.png",
   "category": "ars_maleficarum:plants/flowers",
+  "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Alder trees, of the Alnus genus, are monoecious trees distributed throughout the north temperature zone thought to bleed when cut as the white wood can turn red.$(br2)This tree is thought to be both a bringer of misfortune and a repellent of negativity.$(br2)$(bold)Procurement:$()$(br)Mutated from small plants."
+      "text": "Солнечный Свет - по истине удивительное растение, обладающее рядом уникальных свойств. Кроме того, что его цветок излучает свет, его лепестки необходимы в некоторых специфических рецептах. Цветок высокий, растёт под открытым небом и только днем. $(br2)Его редкие семена могут быть обнаружены в $(6)пустынях$(), что некогда были местом произрастания многих тысяч таких цветов."
     },
     {
-      "type": "patchouli:multiblock",
-      "enable_visualize": false,
-      "multiblock": {
-        "mapping": {
-          "t": "ars_maleficarum:sunlight_flower_crop[age=6]",
-          "0": "ars_maleficarum:sunlight_flower_crop[age=3]",
-          "d": "minecraft:grass_block"
-        },
-        "pattern": [
-          [ "t" ],
-          [ "0" ],
-          [ "d" ]
-        ]
-      }
+      "type": "patchouli:image",
+      "text": "Восхитительной красоты Солнечный Свет, питающийся энергией светила.",
+      "border": true,
+      "images": ["ars_maleficarum:textures/books/shadow_grimoire/sunlight_flower.png"]
+
     }
   ],
   "read_by_default": true

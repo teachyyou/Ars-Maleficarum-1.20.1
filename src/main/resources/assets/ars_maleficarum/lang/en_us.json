@@ -30,6 +30,8 @@
   "item.ars_maleficarum.silver_nugget": "Silver Nugget",
   "item.ars_maleficarum.mandrake_spawn_egg": "Mandrake Spawn Egg",
 
+  "entity.ars_maleficarum.mandrake": "Mandrake Root",
+
   "block.ars_maleficarum.rowan_log": "Rowan Log",
   "block.ars_maleficarum.rowan_planks": "Rowan Planks",
   "block.ars_maleficarum.rowan_wood": "Rowan Wood",
@@ -192,6 +194,6 @@
   "item.ars_maleficarum.simple_witch_hat": "Simple Hat",
 
   "book.shadow_grimoire.name": "Shadow Grimoire",
-  "book.shadow_grimoire.landing_text": "$(bold)Introduction$()$(br)Witchcraft is the art of using seemingly mundane objects and their magical properties to achieve an intended effect. This book is to help understand the basics of the art."
+  "book.shadow_grimoire.landing_text": "$(bold)Introduction$()$(br)Witchcraft is one of the most ancient arts, combining various disciplines from herbalism to demonology. This grimoire is a compendium of knowledge and a source of new discoveries, guiding the seeker of wisdom step by step towards incredible power."
 
 }
