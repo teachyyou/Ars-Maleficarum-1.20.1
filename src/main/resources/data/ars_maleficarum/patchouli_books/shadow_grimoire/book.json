@@ -3,6 +3,7 @@
   "landing_text": "book.shadow_grimoire.landing_text",
   "version": 1,
   "author": "ikdr",
+  "model": "ars_maleficarum:shadow_grimoire",
   "creative_tab": "ars_maleficarum:ars_maleficarum_main_tab",
   "show_progress": false,
   "use_resource_pack": true
