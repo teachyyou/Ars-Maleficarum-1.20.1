@@ -1,0 +1,20 @@
+{
+  "name": "Примитивный ножик",
+  "icon": "ars_maleficarum:flint_knife",
+  "category": "ars_maleficarum:tools_and_materials/tools",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Примитивный ножик из кремня - один из первых инструментов, которые предстоит изготовить начинающему волшебнику. Он необходим при работе с деревом - с его помощью можно добыть некоторые важные материалы. $(br2)Примитивный ножик используется главным образом для срезания чего-либо с деревьев (коры или, например, грибов)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ars_maleficarum:flint_knife",
+      "recipe2": "minecraft:rowan_bark",
+      "title": "Создание и применение"
+
+    }
+  ],
+  "read_by_default": true
+}

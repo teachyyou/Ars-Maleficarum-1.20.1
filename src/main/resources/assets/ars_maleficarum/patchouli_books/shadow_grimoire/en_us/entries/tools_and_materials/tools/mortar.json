@@ -1,0 +1,33 @@
+{
+  "name": "Ступа с пестиком",
+  "icon": "ars_maleficarum:stone_mortar_and_pestle",
+  "category": "ars_maleficarum:tools_and_materials/tools",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Травники, как правило, не рекомендуют использовать в рецептах травы в том виде, в каком они были собраны. Чаще всего их нужно сушить или измельчать. Для второго и служит ступка с пестиком - простой, но ключевой инструмент любого травника. С помощью неё можно измельчать травы, благодаря чему те более 'охотно' отдают рецепту свои волшебные свойства."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:wooden_mortar_and_pestle_craft",
+      "title": "Создание",
+      "text": "Деревянная ступа с пестиком - надёжный и необходимый инструмент на рабочем столе любого травника. $(br2)Разумеется, существует более прочная версия из камня. О ней далее."
+
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:stone_mortar_and_pestle_craft",
+      "title": "Создание",
+      "text": "Каменная ступка с каменным пестиком - более прочный аналог деревянных, так что прослужат значительно дольше, а потому настоятельно рекомендуются к использованию."
+
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ars_maleficarum:stone_mortar",
+      "recipe2": "ars_maleficarum:stone_pestle",
+      "title": "Создание"
+    }
+  ],
+  "read_by_default": true
+}

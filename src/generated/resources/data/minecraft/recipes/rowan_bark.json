@@ -3,7 +3,7 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "ars_maleficarum:rowan_log"
+      "tag": "ars_maleficarum:rowan_wood"
     },
     {
       "item": "ars_maleficarum:flint_knife"

@@ -153,16 +153,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
         //Крафт рябиновой коры из рябины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_LOG.get())
+                .requires(ModTags.Items.ROWAN_WOOD)
                 .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModBlocks.ROWAN_LOG.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_oak"));
-        //Крафт рябиновой коры из рябины
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_WOOD.get())
-                .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_WOOD.get()), has(ModBlocks.ROWAN_WOOD.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_wood"));
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModTags.Items.ROWAN_WOOD))
+                .save(pWriter, new ResourceLocation("rowan_bark"));
         //Крафт досок безымянного дерева из древесины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.NAMELESS_TREE_PLANKS.get(), 4)
                 .requires(ModBlocks.NAMELESS_TREE_LOG.get())
