@@ -536,7 +536,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_sugar_cane", has(Blocks.SUGAR_CANE)).save(pWriter, "sweet_dream_from_sugar_cane");
         new OdourExtractorRecipeBuilder(Blocks.AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
                 .unlockedBy("has_azalea", has(Blocks.AZALEA)).save(pWriter, "soaring_lightness_from_azalea");
-        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
+        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.75F, 1)
                 .unlockedBy("has_flowering_azalea", has(Blocks.FLOWERING_AZALEA)).save(pWriter, "soaring_lightness_from_flowering_azalea");
         new OdourExtractorRecipeBuilder(Blocks.BIRCH_SAPLING, ModItems.ASH.get(), ModItems.RING_OF_MORNING_DEW.get(), true, 0.2F, 1)
                 .unlockedBy("has_birch_sapling", has(Blocks.BIRCH_SAPLING)).save(pWriter, "ring_of_morning_dew_birch_sapling");

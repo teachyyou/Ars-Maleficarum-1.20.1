@@ -3,7 +3,7 @@
   "additional": {
     "item": "ars_maleficarum:soaring_lightness"
   },
-  "chance": 0.2,
+  "chance": 0.75,
   "ingredients": [
     {
       "item": "minecraft:flowering_azalea"
