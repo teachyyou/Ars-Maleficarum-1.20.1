@@ -639,6 +639,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), ModItems.SALT.get(), false, 1F, 1)
                 .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
 
+        //TODO УБРАТЬ! ТЕСТОВЫЙ РЕЦЕПТ ДЛЯ ПРОВЕРКИ КНИГИ
+
+        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get(),Items.DIAMOND,Items.STICK,ModItems.FERMENTED_TREE_LARVA.get(),Items.NETHER_STAR), ModItems.CURSED_GOLD_CHUNK.get(), false, 2)
+                .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
                 .pattern(" L ")

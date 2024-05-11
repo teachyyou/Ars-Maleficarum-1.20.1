@@ -1,8 +1,8 @@
 {
   "name": "Соль",
   "icon": "ars_maleficarum:salt",
-  "category": "ars_maleficarum:ores",
-  "sortnum": 2,
+  "category": "ars_maleficarum:components",
+  "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",

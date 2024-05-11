@@ -1,0 +1,141 @@
+{
+  "processor": "net.sfedu.ars_maleficarum.patchouli.processors.BrewingCauldronRecipeProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "centered": true,
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input0",
+      "framed": false,
+      "x": 20,
+      "y": 20
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input1",
+      "framed": false,
+      "x": 35,
+      "y": 22.5
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input2",
+      "framed": false,
+      "x": 50,
+      "y": 25
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input3",
+      "framed": false,
+      "x": 65,
+      "y": 22.5
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input4",
+      "framed": false,
+      "x": 80,
+      "y": 20
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input5",
+      "framed": false,
+      "x": 20,
+      "y": 35
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input6",
+      "framed": false,
+      "x": 35,
+      "y": 37.5
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input7",
+      "framed": false,
+      "x": 50,
+      "y": 40
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input8",
+      "framed": false,
+      "x": 65,
+      "y": 37.5
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input9",
+      "framed": false,
+      "x": 80,
+      "y": 35
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#result",
+      "framed": true,
+      "x": 95,
+      "y": 55
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/cauldron_arrow2.png",
+      "width": 16,
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 82.5,
+      "y": 74
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#collectItem",
+      "guard": "#flagCollectItem",
+      "framed": true,
+      "x": 2.5,
+      "y": 55
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/cauldron_arrow1.png",
+      "width": 16,
+      "guard": "#flagCollectItem",
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 15,
+      "y": 74
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/cauldron.png",
+      "width": 64,
+      "height": 64,
+      "texture_width": 64,
+      "texture_height": 64,
+      "x": 25,
+      "y": 45
+    },
+
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "centered": true,
+      "x": -1,
+      "y": 110
+    }
+  ]
+}

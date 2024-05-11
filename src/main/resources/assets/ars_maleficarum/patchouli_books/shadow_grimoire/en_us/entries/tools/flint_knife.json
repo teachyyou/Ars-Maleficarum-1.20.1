@@ -1,7 +1,7 @@
 {
   "name": "Примитивный ножик",
   "icon": "ars_maleficarum:flint_knife",
-  "category": "ars_maleficarum:tools_and_materials/tools",
+  "category": "ars_maleficarum:tools",
   "sortnum": 0,
   "pages": [
     {

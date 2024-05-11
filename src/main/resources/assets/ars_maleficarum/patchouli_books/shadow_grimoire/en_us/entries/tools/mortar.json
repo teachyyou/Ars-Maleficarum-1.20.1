@@ -1,7 +1,7 @@
 {
   "name": "Ступа с пестиком",
   "icon": "ars_maleficarum:stone_mortar_and_pestle",
-  "category": "ars_maleficarum:tools_and_materials/tools",
+  "category": "ars_maleficarum:tools",
   "sortnum": 1,
   "pages": [
     {

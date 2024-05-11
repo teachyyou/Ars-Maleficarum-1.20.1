@@ -1,7 +1,7 @@
 {
   "name": "Щётка",
   "icon": "ars_maleficarum:chalk_brush",
-  "category": "ars_maleficarum:tools_and_materials/tools",
+  "category": "ars_maleficarum:tools",
   "sortnum": 2,
   "pages": [
     {
