@@ -81,6 +81,8 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
         }
         else if(key.startsWith("collectItem"))
             return IVariable.from(collectItem);
+        else if (key.startsWith("flagCollectItem"))
+            return IVariable.wrap(!collectItem.isEmpty());
         else if(key.startsWith("result"))
             return IVariable.from(resultItem);
         return null;

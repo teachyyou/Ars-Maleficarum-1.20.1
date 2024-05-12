@@ -639,7 +639,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.DRIED_ENCHANTED_LEATHER.get()), has(ModItems.DRIED_ENCHANTED_LEATHER.get()))
                 .save(pWriter);
 
-
     }
 
     protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
