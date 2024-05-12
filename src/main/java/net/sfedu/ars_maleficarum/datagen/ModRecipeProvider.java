@@ -568,15 +568,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(), ModItems.TROPICAL_MONSOON.get(), Items.TROPICAL_FISH, ModItems.ROWAN_BERRIES.get(), Items.GUNPOWDER, ModItems.WOODEN_FIGURE.get()), ModBlocks.WOODEN_CAT_FIGURE.get(), "overworld")
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
-
-        //Генерация крафтов в варочном котле
-        //пока что тестовые для отладки котла
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIAMOND, Items.GOLD_INGOT, Items.IRON_INGOT), Items.NETHER_STAR, true, 0)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.SAND, Items.COBBLESTONE), Items.WOODEN_AXE, false, 2)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(Items.GLASS, Items.COBBLESTONE), Items.POTION, false, 1)
-                .unlockedBy("has_something",has(Items.GLASS)).save(pWriter);
         //Крафт посоха
         new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
                 .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
@@ -635,15 +626,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, 0)
                 .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
 
-
         new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), ModItems.SALT.get(), false, 1F, 1)
                 .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
-
-        //TODO УБРАТЬ! ТЕСТОВЫЙ РЕЦЕПТ ДЛЯ ПРОВЕРКИ КНИГИ
-
-        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get(),Items.DIAMOND,Items.STICK,ModItems.FERMENTED_TREE_LARVA.get(),Items.NETHER_STAR), ModItems.CURSED_GOLD_CHUNK.get(), false, 2)
-                .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
-
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
                 .pattern(" L ")

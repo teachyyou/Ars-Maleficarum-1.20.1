@@ -34,7 +34,7 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
             case 1 -> new int[] {0,0,0,0,0,0,0,1,0,0};
             case 2 -> new int[] {0,0,0,0,0,0,1,0,1,0};
             case 3 -> new int[] {0,0,0,0,0,0,1,1,1,0};
-            case 4 -> new int[] {0,0,0,0,0,1,1,1,1,0};
+            case 4 -> new int[] {0,0,0,0,0,1,1,0,1,1};
             case 5 -> new int[] {0,0,0,0,0,1,1,1,1,1};
             case 6 -> new int[] {0,1,1,1,0,0,1,1,1,0};
             case 7 -> new int[] {0,1,0,1,0,1,1,1,1,1};
