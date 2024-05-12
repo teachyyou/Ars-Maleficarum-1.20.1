@@ -1,7 +1,7 @@
 {
   "name": "Печь выпаривания",
   "icon": "ars_maleficarum:odour_extracting_furnace",
-  "category": "ars_maleficarum:odour_extracting",
+  "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
   "sortnum": 0,
   "pages": [
     {

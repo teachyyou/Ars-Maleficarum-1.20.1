@@ -40,6 +40,7 @@ import net.minecraft.world.phys.shapes.*;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
+import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -171,7 +172,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                     }
                 }
             }
-            else if (itemstack.getItem() == Items.GLASS_BOTTLE)
+            else if (itemstack.getItem() == ModItems.EMPTY_VIAL.get())
             {
                 if (blockentity != null)
                 {

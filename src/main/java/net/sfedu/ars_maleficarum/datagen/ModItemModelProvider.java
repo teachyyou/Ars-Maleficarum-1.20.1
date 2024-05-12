@@ -131,7 +131,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.WET_ENCHANTED_LEATHER);
         simpleItem(ModItems.DRIED_ENCHANTED_LEATHER);
-        simpleItem(ModItems.SIMPLE_WITCH_HAT);
 
     }
 

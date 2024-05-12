@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:brewing_cauldron_0"
+        "recipe": "ars_maleficarum:brewing_cauldron"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:brewing_cauldron_0"
+      "ars_maleficarum:brewing_cauldron"
     ]
   },
   "sends_telemetry_event": false

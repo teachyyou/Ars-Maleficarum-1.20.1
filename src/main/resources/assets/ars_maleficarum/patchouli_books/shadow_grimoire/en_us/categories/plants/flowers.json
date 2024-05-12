@@ -1,7 +1,7 @@
 {
   "name": "Цветы",
   "description": "В этом разделе перечислены особых свойств цветы, что могут использоваться и выращиваться ведьмами в различных целях. $(br2)$(l)Даже среди болот можно найти красоту - любой заслуживает минутку, дабы суметь насладиться сладким созерцанием цветов.$()",
-  "icon": "ars_maleficarum:sunlight_flower",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/flowers.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 2
 }

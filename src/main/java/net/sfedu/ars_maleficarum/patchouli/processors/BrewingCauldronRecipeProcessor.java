@@ -54,7 +54,6 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
 
         RecipeManager recipeManager = level.getRecipeManager();
         recipe = (BrewingCauldronRecipe) recipeManager.byKey(recipeId).orElseThrow(()->new IllegalArgumentException("Could not find recipe for: " + recipeId));
-        //todo check for empty condition (might be buggy)
         input = recipe.getIngredients().stream().filter(x->!x.isEmpty()).map(x-> x.getItems()[0]).toList();
         int count = input.size();
         setupOrderArray(count);
@@ -62,7 +61,7 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
 
         collectItem = switch (recipe.craftType) {
             default -> ItemStack.EMPTY;
-            case 1 -> new ItemStack(Items.GLASS_BOTTLE);
+            case 1 -> new ItemStack(ModItems.EMPTY_VIAL.get());
             case 2 -> new ItemStack(Items.BOWL);
         };
 

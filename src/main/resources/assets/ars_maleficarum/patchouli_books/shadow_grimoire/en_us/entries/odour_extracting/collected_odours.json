@@ -1,7 +1,7 @@
 {
   "name": "Получение испарений",
   "icon": "ars_maleficarum:smell_of_home",
-  "category": "ars_maleficarum:odour_extracting",
+  "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
   "sortnum": 2,
   "pages": [
     {
