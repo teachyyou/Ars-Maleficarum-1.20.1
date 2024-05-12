@@ -85,6 +85,7 @@
     },
     {
       "type": "patchouli:item",
+      "link_recipe": true,
       "item":  "#result",
       "framed": true,
       "x": 95,

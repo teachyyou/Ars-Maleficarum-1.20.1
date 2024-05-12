@@ -108,7 +108,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.CRYSTAL_BALL.get());
 
         simpleItem(ModItems.DRY_WOOD);
-        simpleItem(ModItems.INFUSED_DRY_WOOD);
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);

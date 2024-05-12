@@ -1,7 +1,7 @@
 {
   "type": "ars_maleficarum:odour_extracting",
   "additional": {
-    "item": "ars_maleficarum:salt"
+    "item": "ars_maleficarum:dried_enchanted_leather"
   },
   "chance": 1.0,
   "ingredients": [
@@ -11,6 +11,6 @@
   ],
   "isBottleRequired": false,
   "output": {
-    "item": "ars_maleficarum:dried_enchanted_leather"
+    "item": "ars_maleficarum:salt"
   }
 }

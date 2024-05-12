@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:infused_dry_wood"
+        "recipe": "ars_maleficarum:inert_poison_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:infused_dry_wood"
+      "ars_maleficarum:inert_poison_staff"
     ]
   },
   "sends_telemetry_event": true

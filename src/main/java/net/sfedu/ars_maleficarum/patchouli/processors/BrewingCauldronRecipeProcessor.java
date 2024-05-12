@@ -1,25 +1,17 @@
 package net.sfedu.ars_maleficarum.patchouli.processors;
 
-import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
-import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
     private BrewingCauldronRecipe recipe;
@@ -48,8 +40,6 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
     @Override
     public void setup(Level level, IVariableProvider iVariableProvider) {
 
-
-
         ResourceLocation recipeId = new ResourceLocation(iVariableProvider.get("recipe").asString());
 
         RecipeManager recipeManager = level.getRecipeManager();
@@ -67,8 +57,6 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
 
     }
 
-
-    //todo придумать что-то с симметричным отображением предметов, если их меньше 10.
     @Override
     public IVariable process(Level level, String key) {
         if(key.startsWith("input")) {

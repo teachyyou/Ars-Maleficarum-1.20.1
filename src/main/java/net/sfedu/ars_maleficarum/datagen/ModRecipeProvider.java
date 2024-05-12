@@ -569,7 +569,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
         //Крафт посоха
-        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
+        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INERT_POISON_STAFF.get(), "overworld")
                 .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRY_WOOD.get())
                 .pattern("BWB")
@@ -626,7 +626,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, 0)
                 .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
 
-        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), ModItems.SALT.get(), false, 1F, 1)
+        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(),ModItems.SALT.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), false, 1F, 1)
                 .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
