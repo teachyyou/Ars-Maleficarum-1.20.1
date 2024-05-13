@@ -43,10 +43,14 @@ public class InfusingAltarRecipeProcessor implements IComponentProcessor {
             int index = key.charAt(key.length()-1) - '0';
             return IVariable.from(input.get(index));
         }
-        else if(key.startsWith("dimension"))
-            return IVariable.wrap(Component.translatable("book.shadow_grimoire.dimension."+dimension).toString());
+        else if(key.startsWith("dimension_tooltip"))
+            return IVariable.wrap(Component.translatable("book.shadow_grimoire.dimension."+dimension).getString());
         else if(key.startsWith("result"))
             return IVariable.from(resultItem);
+        else if(key.startsWith("dimension_flag"))
+            return IVariable.wrap(!dimension.equals("any"));
+        else if(key.startsWith("dimension_icon"))
+            return IVariable.wrap("ars_maleficarum:textures/books/shadow_grimoire/util_textures/" + dimension + ".png");
         return null;
     }
 }

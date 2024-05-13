@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.patchouli.processors;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -18,6 +19,8 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
     private List<ItemStack> input;
     private ItemStack resultItem;
     private ItemStack collectItem;
+
+    private boolean isInOrder;
     int[] itemsOrder;
     private int itemIndex = 0;
 
@@ -48,6 +51,7 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
         int count = input.size();
         setupOrderArray(count);
         resultItem = recipe.getResultItem(null);
+        isInOrder = recipe.isInOrder(null);
 
         collectItem = switch (recipe.craftType) {
             default -> ItemStack.EMPTY;
@@ -72,6 +76,10 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
             return IVariable.wrap(!collectItem.isEmpty());
         else if(key.startsWith("result"))
             return IVariable.from(resultItem);
+        else if (key.startsWith("orderTooltip"))
+            return IVariable.wrap(Component.translatable("book.shadow_grimoire.cauldron.order").getString());
+        else if (key.startsWith("inOrder?"))
+            return IVariable.wrap(isInOrder);
         return null;
     }
 }

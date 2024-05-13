@@ -130,7 +130,26 @@
       "x": 25,
       "y": 45
     },
-
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/cauldron_order.png",
+      "width": 16,
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 50,
+      "y": 77,
+      "guard": "#inOrder?"
+    },
+    {
+      "type": "patchouli:tooltip",
+      "width": 16,
+      "height": 16,
+      "x": 50,
+      "y": 77,
+      "guard": "#inOrder?",
+      "tooltip": ["#orderTooltip"]
+    },
     {
       "type": "patchouli:text",
       "text": "#text",

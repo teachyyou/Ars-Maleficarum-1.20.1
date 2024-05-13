@@ -194,6 +194,12 @@
   "item.ars_maleficarum.simple_witch_hat": "Simple Hat",
 
   "book.shadow_grimoire.name": "Shadow Grimoire",
-  "book.shadow_grimoire.landing_text": "$(bold)Introduction$()$(br)Witchcraft is one of the most ancient arts, combining various disciplines from herbalism to demonology. This grimoire is a compendium of knowledge and a source of new discoveries, guiding the seeker of wisdom step by step towards incredible power."
+  "book.shadow_grimoire.landing_text": "$(bold)Introduction$()$(br)Witchcraft is one of the most ancient arts, combining various disciplines from herbalism to demonology. This grimoire is a compendium of knowledge and a source of new discoveries, guiding the seeker of wisdom step by step towards incredible power.",
 
+  "book.shadow_grimoire.dimension.nether": "Must be performed in the Nether",
+  "book.shadow_grimoire.dimension.overworld": "Must be performed in the Overworld",
+  "book.shadow_grimoire.dimension.any": "Must be performed anywhere",
+  "book.shadow_grimoire.dimension.end": "Must be performed in the End",
+
+  "book.shadow_grimoire.cauldron.order": "The Recipe is Ordered"
 }
