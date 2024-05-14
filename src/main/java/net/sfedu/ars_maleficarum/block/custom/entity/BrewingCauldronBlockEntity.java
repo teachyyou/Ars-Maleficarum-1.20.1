@@ -7,6 +7,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -82,6 +83,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private final int maxTemperature = 1500;
     private final int maxFuel = 2000;
+
+    private final Random rand = new Random();
+
 
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
@@ -192,7 +196,8 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         {
             if (craftingProgress < 100)
             {
-                // тут добавлять партиклы крафта
+                if (rand.nextInt(10) <= 3)
+                    ((ServerLevel) level).sendParticles(ParticleTypes.WITCH, pPos.getX()+0.5D, pPos.getY()+0.6D, pPos.getZ()+0.5D, 2, 0.20D,0.20D,0.20D,0.001D);
                 craftingProgress++;
             }
             else
