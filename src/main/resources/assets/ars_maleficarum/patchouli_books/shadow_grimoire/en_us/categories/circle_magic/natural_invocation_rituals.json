@@ -1,0 +1,7 @@
+{
+  "name": "Природа",
+  "description": "Данный подраздел описывает ритуалы, так или иначе изменяющие течение природных процессов - смены дня и ночи, погоды и тому подобных. ",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/natural_invocation.png",
+  "parent": "ars_maleficarum:circle_magic/rituals",
+  "sortnum": 1
+}
