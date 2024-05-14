@@ -1,0 +1,20 @@
+{
+  "name": "Солнечный Свет",
+  "icon": "ars_maleficarum:textures/block/sunlight_flower_stage_6.png",
+  "category": "ars_maleficarum:plants/flowers",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Солнечный Свет - по истине удивительное растение, обладающее рядом уникальных свойств. Кроме того, что его цветок излучает свет, его лепестки необходимы в некоторых специфических рецептах. Цветок высокий, растёт под открытым небом и только днем. $(br2)Его редкие семена могут быть обнаружены в $(6)пустынях$(), что некогда были местом произрастания многих тысяч таких цветов."
+    },
+    {
+      "type": "patchouli:image",
+      "text": "Восхитительной красоты Солнечный Свет, питающийся энергией светила.",
+      "border": true,
+      "images": ["ars_maleficarum:textures/books/shadow_grimoire/sunlight_flower.png"]
+
+    }
+  ],
+  "read_by_default": true
+}
