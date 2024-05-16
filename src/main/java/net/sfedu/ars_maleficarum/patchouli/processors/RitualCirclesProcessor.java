@@ -14,11 +14,11 @@ import java.util.Map;
 
 public class RitualCirclesProcessor implements IComponentProcessor {
     CircleRitual ritual;
-    RitualCoreEntity.CircleType smallType;
-    RitualCoreEntity.CircleType mediumType;
-    RitualCoreEntity.CircleType largeType;
+    RitualCoreEntity.ChalkType smallType;
+    RitualCoreEntity.ChalkType mediumType;
+    RitualCoreEntity.ChalkType largeType;
 
-    RitualCoreEntity.CircleType coreType;
+    RitualCoreEntity.ChalkType coreType;
 
 
 
@@ -33,7 +33,7 @@ public class RitualCirclesProcessor implements IComponentProcessor {
 
     private String getSizePath(RitualCoreEntity.CircleSize size) {
 
-        RitualCoreEntity.CircleType type = switch(size) {
+        RitualCoreEntity.ChalkType type = switch(size) {
             case LARGE -> largeType;
             case MEDIUM -> mediumType;
             case SMALL -> smallType;

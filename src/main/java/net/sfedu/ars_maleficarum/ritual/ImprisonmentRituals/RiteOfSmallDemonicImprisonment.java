@@ -21,10 +21,10 @@ public class RiteOfSmallDemonicImprisonment extends CircleRitual {
 
     public RiteOfSmallDemonicImprisonment() {
         ritualName="Rite of Demonic Imprisonment";
-        smallCircleType= RitualCoreEntity.CircleType.ANY;
-        mediumCircleType= RitualCoreEntity.CircleType.ANY;
-        largeCircleType= RitualCoreEntity.CircleType.ANY;
-        coreType= RitualCoreEntity.CircleType.ANY;
+        smallCircleType= RitualCoreEntity.ChalkType.ANY;
+        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
+        largeCircleType= RitualCoreEntity.ChalkType.ANY;
+        coreType= RitualCoreEntity.ChalkType.ANY;
         components.put(Items.SOUL_SAND, 1);
         components.put(ModItems.SALT.get(), 1);
         components.put(ModItems.SILVER.get(), 1);

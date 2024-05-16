@@ -21,10 +21,10 @@ public class RiteOfGrassBlockCreation extends CircleRitual {
 
     public RiteOfGrassBlockCreation() {
         ritualName="Rite of Nature's Awakening";
-        smallCircleType= RitualCoreEntity.CircleType.NATURAL;
-        mediumCircleType= RitualCoreEntity.CircleType.NATURAL;
-        largeCircleType= RitualCoreEntity.CircleType.NATURAL;
-        coreType= RitualCoreEntity.CircleType.NATURAL;
+        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        mediumCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        coreType= RitualCoreEntity.ChalkType.NATURAL;
         components.put(ModItems.ASH.get(),2);
         components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
         components.put(Items.BONE_MEAL, 1);

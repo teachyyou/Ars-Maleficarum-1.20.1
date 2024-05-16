@@ -17,10 +17,10 @@ public class RiteOfMoonlight extends CircleRitual {
 
     public RiteOfMoonlight() {
         ritualName="Rite of Moonlight Charm";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.WHITE;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(ModItems.SCENT_OF_UNCERTAINTY.get(), 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.SILVER.get(), 1);

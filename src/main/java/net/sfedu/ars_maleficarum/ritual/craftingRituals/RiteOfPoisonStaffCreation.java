@@ -5,13 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -26,10 +24,10 @@ public class RiteOfPoisonStaffCreation extends CircleRitual {
 
     public RiteOfPoisonStaffCreation() {
         ritualName="Rite of Power Awakening";
-        smallCircleType= RitualCoreEntity.CircleType.NATURAL;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.NATURAL;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.SPIDER_EYE,1);
         components.put(Items.GLOWSTONE,1);
         components.put(Items.EMERALD, 1);

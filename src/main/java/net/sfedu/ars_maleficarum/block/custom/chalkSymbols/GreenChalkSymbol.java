@@ -7,7 +7,7 @@ public class GreenChalkSymbol extends ChalkSymbol {
         super(pProperties);
     }
 
-    public static final RitualCoreEntity.CircleType type = RitualCoreEntity.CircleType.NATURAL;
+    public static final RitualCoreEntity.ChalkType type = RitualCoreEntity.ChalkType.NATURAL;
 
 
 }

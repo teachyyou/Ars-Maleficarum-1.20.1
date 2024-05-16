@@ -7,6 +7,6 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 public class NetherCoreDrawingKit extends RitualCircleCoreDrawingKit{
     public NetherCoreDrawingKit(Properties pProperties) {
         super(pProperties);
-        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.CircleColor.CRIMSON);
+        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.NETHER);
     }
 }

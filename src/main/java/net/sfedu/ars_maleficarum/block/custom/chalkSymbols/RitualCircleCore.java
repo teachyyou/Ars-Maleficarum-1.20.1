@@ -1,23 +1,10 @@
 package net.sfedu.ars_maleficarum.block.custom.chalkSymbols;
 
-import ca.weblite.objc.Client;
-import net.minecraft.client.Minecraft;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.util.datafix.fixes.WorldGenSettingsFix;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -29,28 +16,20 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
-import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
-import net.sfedu.ars_maleficarum.ritual.RisingSunRitual;
 import org.jetbrains.annotations.Nullable;
-
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class RitualCircleCore extends BaseEntityBlock {
     public RitualCircleCore(Properties pProperties) {
         super(pProperties.destroyTime(5));
     }
 
-    public static final EnumProperty<RitualCoreEntity.CircleColor> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.CircleColor.class);
+    public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class);
 
     public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
 

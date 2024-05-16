@@ -8,7 +8,7 @@ public class WhiteCoreDrawingKit extends RitualCircleCoreDrawingKit{
 
     public WhiteCoreDrawingKit(Properties pProperties) {
         super(pProperties);
-        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.CircleColor.WHITE);
+        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.WHITE);
     }
 
 

@@ -55,7 +55,7 @@ public class RitualCoreEntity extends BlockEntity {
         }
     };
 
-    public enum CircleType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
+    public enum ChalkType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
         @Override
         public @NotNull String getSerializedName() {
             switch (this) {
@@ -78,45 +78,16 @@ public class RitualCoreEntity extends BlockEntity {
         }
     };
 
-    public enum CircleColor implements StringRepresentable {WHITE,GREEN, CRIMSON, /*PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
-
-        @Override
-        public @NotNull String getSerializedName() {
-            switch (this) {
-                case WHITE -> {
-                    return "white";
-                }
-                case GREEN -> {
-                    return "green";
-                }
-                case CRIMSON -> {
-                    return "crimson";
-                }
-                /* TODO: добавить остальные по мере реализации
-
-                case PURPLE -> {
-                    return "purple";
-                }
-                case BLACK -> {
-                    return "black";
-                }
-                */
-            }
-            return "";
-        }
-
-    };
-
 
     public boolean hasProperSmallCircle;
-    public CircleType smallCircle;
+    public ChalkType smallCircle;
     public boolean hasProperMediumCircle;
-    public CircleType mediumCircle;
+    public ChalkType mediumCircle;
     public boolean hasProperLargeCircle;
-    public CircleType largeCircle;
+    public ChalkType largeCircle;
 
     public boolean hasProperCore;
-    public CircleType core;
+    public ChalkType core;
 
     private CircleRitual ritual;
     private Player player;
@@ -126,10 +97,10 @@ public class RitualCoreEntity extends BlockEntity {
     public boolean hasAllProperJoints;
     public boolean hasAllProperCircles;
 
-    private CircleType currentSmallType = CircleType.WHITE;
-    private CircleType currentMediumType = CircleType.WHITE;
-    private CircleType currentLargeType = CircleType.WHITE;
-    private CircleType currentCoreType = CircleType.WHITE;
+    private ChalkType currentSmallType = ChalkType.WHITE;
+    private ChalkType currentMediumType = ChalkType.WHITE;
+    private ChalkType currentLargeType = ChalkType.WHITE;
+    private ChalkType currentCoreType = ChalkType.WHITE;
 
     private boolean isSmallRequired = false;
     private boolean isMediumRequired = false;
@@ -329,17 +300,17 @@ public class RitualCoreEntity extends BlockEntity {
     }
 
     //todo добавить остальные типы и убрать редстоун
-    private CircleType getTypeFromBlock(Level pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return CircleType.WHITE;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return CircleType.NATURAL;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return CircleType.NETHER;
-        return CircleType.ANY;
+    private ChalkType getTypeFromBlock(Level pLevel, BlockPos pPos) {
+        if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return ChalkType.WHITE;
+        else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return ChalkType.NATURAL;
+        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return ChalkType.NETHER;
+        return ChalkType.ANY;
     }
 
     //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
-    private boolean checkForGlyphType(Level pLevel, BlockPos pPos, CircleType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
+    private boolean checkForGlyphType(Level pLevel, BlockPos pPos, ChalkType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
         Block toCheck = Blocks.AIR;
-        if (type != CircleType.ANY) {
+        if (type != ChalkType.ANY) {
             switch (type) {
                 case NATURAL -> {
                     toCheck = ModBlocks.GREEN_CHALK_SYMBOL.get();
@@ -378,21 +349,21 @@ public class RitualCoreEntity extends BlockEntity {
         return false;
     }
 
-    private void checkForCore(Level pLevel, BlockPos pPos, CircleType type) {
-        CircleColor CoreColor = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
+    private void checkForCore(Level pLevel, BlockPos pPos, ChalkType type) {
+        ChalkType coreType = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
         switch (type) {
             case WHITE -> {
-                hasProperCore = CoreColor==CircleColor.WHITE;
-                if (hasProperCore) core = CircleType.WHITE;
+                hasProperCore = coreType== ChalkType.WHITE;
+                if (hasProperCore) core = ChalkType.WHITE;
             }
             case NATURAL -> {
-                hasProperCore = CoreColor==CircleColor.GREEN;
-                if (hasProperCore) core = CircleType.NATURAL;
+                hasProperCore = coreType== ChalkType.NATURAL;
+                if (hasProperCore) core = ChalkType.NATURAL;
 
             }
             case NETHER -> {
-                hasProperCore = CoreColor==CircleColor.CRIMSON;
-                if (hasProperCore) core = CircleType.NETHER;
+                hasProperCore = coreType== ChalkType.NETHER;
+                if (hasProperCore) core = ChalkType.NETHER;
 
             }
             case ANY -> {
@@ -476,9 +447,9 @@ public class RitualCoreEntity extends BlockEntity {
 
         for (RitualType<?> ritualType : RitualTypes.getEntries()) {
             ritual = ritualType.create();
-            currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : CircleType.ANY;
-            currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : CircleType.ANY;
-            currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : CircleType.ANY;
+            currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : ChalkType.ANY;
+            currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : ChalkType.ANY;
+            currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : ChalkType.ANY;
             currentCoreType = ritual.getCoreType();
 
             isLargeRequired = ritual.doesRequireLargeCircle();
