@@ -9,7 +9,7 @@ import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 public class GluttonyAttackGoal extends MeleeAttackGoal {
     private final GluttonyDemonEntity entity;
     private int attackDelay = 20;
-    private int ticksUntilNextAttack = 20;
+    private int ticksUntilNextAttack = 45;
     private boolean shouldCountTillNextAttack = false;
     public GluttonyAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
@@ -19,7 +19,7 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
     public void start() {
         super.start();
         attackDelay = 20;
-        ticksUntilNextAttack = 20;
+        ticksUntilNextAttack = 45;
     }
 
     @Override
@@ -30,7 +30,6 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
             if(isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
-
             if(isTimeToAttack()) {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);
@@ -44,11 +43,11 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+        return pDistToEnemySqr-10 <= this.getAttackReachSqr(pEnemy);
     }
 
     protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
+        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay);
     }
 
     protected boolean isTimeToAttack() {
@@ -70,11 +69,8 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
         float cur_health = entity.getHealth();
-        float add_health = 10F;
-        if(cur_health+add_health<=entity.getMaxHealth())
-            entity.setHealth(cur_health+add_health);
-        else
-            entity.setHealth(entity.getMaxHealth());
+        float add_health = 3F;
+        entity.setHealth(Math.min(cur_health+add_health, entity.getMaxHealth()));
     }
 
     @Override

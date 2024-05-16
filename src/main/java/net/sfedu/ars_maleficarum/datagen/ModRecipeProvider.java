@@ -2,17 +2,22 @@ package net.sfedu.ars_maleficarum.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.PartialNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.datagen.custom.BrewingCauldronRecipeBuilder;
@@ -148,16 +153,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
         //Крафт рябиновой коры из рябины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_LOG.get())
+                .requires(ModTags.Items.ROWAN_WOOD)
                 .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModBlocks.ROWAN_LOG.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_oak"));
-        //Крафт рябиновой коры из рябины
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_WOOD.get())
-                .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_WOOD.get()), has(ModBlocks.ROWAN_WOOD.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_wood"));
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModTags.Items.ROWAN_WOOD))
+                .save(pWriter, new ResourceLocation("rowan_bark"));
         //Крафт досок безымянного дерева из древесины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.NAMELESS_TREE_PLANKS.get(), 4)
                 .requires(ModBlocks.NAMELESS_TREE_LOG.get())
@@ -537,7 +536,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_sugar_cane", has(Blocks.SUGAR_CANE)).save(pWriter, "sweet_dream_from_sugar_cane");
         new OdourExtractorRecipeBuilder(Blocks.AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
                 .unlockedBy("has_azalea", has(Blocks.AZALEA)).save(pWriter, "soaring_lightness_from_azalea");
-        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
+        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.75F, 1)
                 .unlockedBy("has_flowering_azalea", has(Blocks.FLOWERING_AZALEA)).save(pWriter, "soaring_lightness_from_flowering_azalea");
         new OdourExtractorRecipeBuilder(Blocks.BIRCH_SAPLING, ModItems.ASH.get(), ModItems.RING_OF_MORNING_DEW.get(), true, 0.2F, 1)
                 .unlockedBy("has_birch_sapling", has(Blocks.BIRCH_SAPLING)).save(pWriter, "ring_of_morning_dew_birch_sapling");
@@ -569,9 +568,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(), ModItems.TROPICAL_MONSOON.get(), Items.TROPICAL_FISH, ModItems.ROWAN_BERRIES.get(), Items.GUNPOWDER, ModItems.WOODEN_FIGURE.get()), ModBlocks.WOODEN_CAT_FIGURE.get(), "overworld")
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
-
         //Крафт посоха
-        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
+        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INERT_POISON_STAFF.get(), "overworld")
                 .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRY_WOOD.get())
                 .pattern("BWB")
@@ -585,20 +583,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.DEAD_TREE_BARK.get()), has(ModItems.DEAD_TREE_BARK.get()))
                 .save(pWriter);
 
-
-        //Генерация крафтов в варочном котле
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.STICK, Items.STONE), Items.DIAMOND_BLOCK)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-
+        new InfusingAltarRecipeBuilder(List.of(ModBlocks.KRAMER_TREE_WOOD.get(), ModBlocks.KRAMER_TREE_WOOD.get(), ModItems.WHIFF_OF_TIME.get(), ModBlocks.KRAMER_TREE_WOOD.get(),ModItems.ABSOLUTE_ORDER.get(),ModItems.DRY_WOOD.get()), ModItems.INERT_FIRE_STAFF.get(), "nether")
+                .unlockedBy("has_something", has(ModBlocks.KRAMER_TREE_LOG.get())).save(pWriter);
 
         //Крафты мела и относящегося
-        new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get())
+        new BrewingCauldronRecipeBuilder(List.of(Items.CALCITE, ModItems.ASH.get(), ModItems.SALT.get(),Items.QUARTZ), ModItems.WHITE_CHALK.get(),false, 0)
                 .unlockedBy("has_something",has(ModItems.ASH.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(), ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),ModItems.PETRICHOR.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GREEN_CHALK.get())
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(), ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),ModItems.PETRICHOR.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GREEN_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.CURSED_GOLD_CHUNK.get(), Items.GOLD_NUGGET, ModItems.RING_OF_MORNING_DEW.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GOLDEN_CHALK.get())
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.CURSED_GOLD_CHUNK.get(), Items.GOLD_NUGGET, ModItems.RING_OF_MORNING_DEW.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.GOLDEN_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get())
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.FERMENTED_TREE_LARVA.get(), Items.CRIMSON_FUNGUS, Items.NETHERRACK,ModItems.SUNLIGHT_FLOWER.get(),ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.CRIMSON_CHALK.get(), true, 0)
+                .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.DEAD_TREE_BARK.get(), Items.CHARCOAL, Items.BLACK_DYE,Items.BLACKSTONE,ModItems.MANDRAKE_ROOT.get(),ModItems.WHITE_CHALK.get()), ModItems.BLACK_CHALK.get(), true, 0)
                 .unlockedBy("has_something",has(ModItems.WHITE_CHALK.get())).save(pWriter);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WHITE_CIRCLE_CORE_DRAWING_KIT.get(), 1)
@@ -626,6 +623,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
 
+        new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, 0)
+                .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
+
+        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(),ModItems.SALT.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), false, 1F, 1)
+                .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
+                .pattern(" L ")
+                .pattern("WLW")
+                .pattern("LCL")
+                .define('L', ModItems.DRIED_ENCHANTED_LEATHER.get())
+                .define('C', ModItems.CURSED_GOLD.get())
+                .define('W', ModItems.BAT_WING.get())
+                .unlockedBy(getHasName(ModItems.DRIED_ENCHANTED_LEATHER.get()), has(ModItems.DRIED_ENCHANTED_LEATHER.get()))
+                .save(pWriter);
+
+    }
+
+    protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
+        pPlayer.awardStat(Stats.ITEM_USED.get(bottleItem));
+        return ItemUtils.createFilledResult(pBottleStack, pPlayer, pFilledBottleStack);
     }
 
     //Генерация .json файлов для блоков, которые могут быть переплавлены
@@ -641,6 +659,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void simpleCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
                                         ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
+    }
+
+    protected static void simpleSmoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
+                                        ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smoking");
     }
 
     protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,

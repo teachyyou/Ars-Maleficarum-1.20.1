@@ -14,6 +14,7 @@ public class ModTags {
     //Тэги для блоков
     public static class Blocks {
         public  static final TagKey<Block> CARBON_DETECTOR_VALUABLES = tag("carbon_detector_valuables");
+        public  static final TagKey<Block> CHALK_SYMBOLS = tag("chalk_symbols");
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(ArsMaleficarum.MOD_ID,name));
         }
@@ -23,6 +24,7 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> SKULLS = tag("skulls");
+        public static final TagKey<Item> ROWAN_WOOD = tag("rowan_wood");
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(ArsMaleficarum.MOD_ID,name));
         }

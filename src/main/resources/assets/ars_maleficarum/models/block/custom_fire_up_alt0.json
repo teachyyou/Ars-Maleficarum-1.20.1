@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_fire_up_alt",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "fire": "ars_maleficarum:block/custom_fire"
+  }
+}

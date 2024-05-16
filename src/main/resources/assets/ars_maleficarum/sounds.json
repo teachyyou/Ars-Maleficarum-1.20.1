@@ -81,5 +81,17 @@
       "ars_maleficarum:mandrake_spawn"
 
     ]
+  },
+  "fire_staff_radius_attack": {
+    "subtitle": "sounds.ars_maleficarum.fire_staff_radius_attack",
+    "sounds": [
+      "ars_maleficarum:fire_staff_radius_attack_sound"
+    ]
+  },
+  "gluttony_demon_laugh": {
+    "subtitile": "sounds.ars_maleficarum.gluttony_demon_laugh",
+    "sounds": [
+      "ars_maleficarum:gluttony_demon_laugh"
+    ]
   }
 }

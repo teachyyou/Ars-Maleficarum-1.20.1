@@ -7,6 +7,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -23,57 +24,70 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RitualCoreEntity extends BlockEntity {
 
-    public enum CircleType {WHITE,NETHER,ENDER,NATURAL,ANY};
+    public enum CircleSize implements StringRepresentable {SMALL, MEDIUM, LARGE, CORE;
+        @Override
+        public @NotNull String getSerializedName() {
+            switch (this) {
+                case SMALL -> {
+                    return "small";
+                }
+                case MEDIUM -> {
+                    return "medium";
+                }
+                case LARGE -> {
+                    return "large";
+                }
+                default -> {
+                    return "core";
+                }
+            }
+        }
+    };
 
-    public enum CircleColor implements StringRepresentable {WHITE,GREEN, CRIMSON, /*PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
-
+    public enum ChalkType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
         @Override
         public @NotNull String getSerializedName() {
             switch (this) {
                 case WHITE -> {
                     return "white";
                 }
-                case GREEN -> {
+                case NATURAL -> {
                     return "green";
                 }
-                case CRIMSON -> {
+                case NETHER -> {
                     return "crimson";
                 }
-                /* TODO: добавить остальные по мере реализации
-
-                case PURPLE -> {
-                    return "purple";
+                case ENDER -> {
+                    return "ender";
                 }
-                case BLACK -> {
-                    return "black";
+                default -> {
+                    return "any";
                 }
-                */
             }
-            return "";
         }
-
     };
 
 
     public boolean hasProperSmallCircle;
-    public CircleType smallCircle;
+    public ChalkType smallCircle;
     public boolean hasProperMediumCircle;
-    public CircleType mediumCircle;
+    public ChalkType mediumCircle;
     public boolean hasProperLargeCircle;
-    public CircleType largeCircle;
+    public ChalkType largeCircle;
 
     public boolean hasProperCore;
-    public CircleType core;
+    public ChalkType core;
 
     private CircleRitual ritual;
     private Player player;
@@ -83,10 +97,10 @@ public class RitualCoreEntity extends BlockEntity {
     public boolean hasAllProperJoints;
     public boolean hasAllProperCircles;
 
-    private CircleType currentSmallType = CircleType.WHITE;
-    private CircleType currentMediumType = CircleType.WHITE;
-    private CircleType currentLargeType = CircleType.WHITE;
-    private CircleType currentCoreType = CircleType.WHITE;
+    private ChalkType currentSmallType = ChalkType.WHITE;
+    private ChalkType currentMediumType = ChalkType.WHITE;
+    private ChalkType currentLargeType = ChalkType.WHITE;
+    private ChalkType currentCoreType = ChalkType.WHITE;
 
     private boolean isSmallRequired = false;
     private boolean isMediumRequired = false;
@@ -286,17 +300,17 @@ public class RitualCoreEntity extends BlockEntity {
     }
 
     //todo добавить остальные типы и убрать редстоун
-    private CircleType getTypeFromBlock(Level pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return CircleType.WHITE;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return CircleType.NATURAL;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return CircleType.NETHER;
-        return CircleType.ANY;
+    private ChalkType getTypeFromBlock(Level pLevel, BlockPos pPos) {
+        if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return ChalkType.WHITE;
+        else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return ChalkType.NATURAL;
+        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return ChalkType.NETHER;
+        return ChalkType.ANY;
     }
 
     //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
-    private boolean checkForGlyphType(Level pLevel, BlockPos pPos, CircleType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
+    private boolean checkForGlyphType(Level pLevel, BlockPos pPos, ChalkType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
         Block toCheck = Blocks.AIR;
-        if (type != CircleType.ANY) {
+        if (type != ChalkType.ANY) {
             switch (type) {
                 case NATURAL -> {
                     toCheck = ModBlocks.GREEN_CHALK_SYMBOL.get();
@@ -335,21 +349,21 @@ public class RitualCoreEntity extends BlockEntity {
         return false;
     }
 
-    private void checkForCore(Level pLevel, BlockPos pPos, CircleType type) {
-        CircleColor CoreColor = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
+    private void checkForCore(Level pLevel, BlockPos pPos, ChalkType type) {
+        ChalkType coreType = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
         switch (type) {
             case WHITE -> {
-                hasProperCore = CoreColor==CircleColor.WHITE;
-                if (hasProperCore) core = CircleType.WHITE;
+                hasProperCore = coreType== ChalkType.WHITE;
+                if (hasProperCore) core = ChalkType.WHITE;
             }
             case NATURAL -> {
-                hasProperCore = CoreColor==CircleColor.GREEN;
-                if (hasProperCore) core = CircleType.NATURAL;
+                hasProperCore = coreType== ChalkType.NATURAL;
+                if (hasProperCore) core = ChalkType.NATURAL;
 
             }
             case NETHER -> {
-                hasProperCore = CoreColor==CircleColor.CRIMSON;
-                if (hasProperCore) core = CircleType.NETHER;
+                hasProperCore = coreType== ChalkType.NETHER;
+                if (hasProperCore) core = ChalkType.NETHER;
 
             }
             case ANY -> {
@@ -380,7 +394,7 @@ public class RitualCoreEntity extends BlockEntity {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
                 BlockPos pos = pPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if ((pLevel.getBlockState(pos.below()).is(Blocks.AIR) || !(pLevel.getBlockState(pos).is(Blocks.AIR) || pLevel.getBlockState(pos).is(Blocks.FIRE))) && (pos!=pPos)) {
+                if ((pLevel.getBlockState(pos.below()).is(Blocks.AIR) || !(pLevel.getBlockState(pos).is(Blocks.AIR) || pLevel.getBlockState(pos).is(Blocks.FIRE)  || pLevel.getBlockState(pos).is(BlockTags.CANDLES)) && (pos!=pPos))) {
                     return false;
                 }
             }
@@ -423,7 +437,7 @@ public class RitualCoreEntity extends BlockEntity {
 
 
 
-    public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
 
         List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
         SimpleContainer container = new SimpleContainer(items.size());
@@ -431,12 +445,11 @@ public class RitualCoreEntity extends BlockEntity {
             container.addItem(item.getItem());
         }
 
-        for (Class<? extends CircleRitual> Ritual : CircleRitual.allExistingRituals) {
-            ritual = Ritual.getDeclaredConstructor().newInstance();
-
-            currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : CircleType.ANY;
-            currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : CircleType.ANY;
-            currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : CircleType.ANY;
+        for (RitualType<?> ritualType : RitualTypes.getEntries()) {
+            ritual = ritualType.create();
+            currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : ChalkType.ANY;
+            currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : ChalkType.ANY;
+            currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : ChalkType.ANY;
             currentCoreType = ritual.getCoreType();
 
             isLargeRequired = ritual.doesRequireLargeCircle();
@@ -446,8 +459,8 @@ public class RitualCoreEntity extends BlockEntity {
                 executingRitual = true;
                 player = pPlayer;
                 break;
-            }
 
+            }
         }
 
     }

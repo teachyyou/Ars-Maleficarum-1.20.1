@@ -108,7 +108,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.CRYSTAL_BALL.get());
 
         simpleItem(ModItems.DRY_WOOD);
-        simpleItem(ModItems.INFUSED_DRY_WOOD);
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
@@ -122,10 +121,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CRIMSON_CHALK);
         simpleItem(ModItems.WHITE_CHALK);
         simpleItem(ModItems.GREEN_CHALK);
+        simpleItem(ModItems.BLACK_CHALK);
         withExistingParent(ModItems.MANDRAKE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.TRADE_WITCH_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         withExistingParent(ModItems.GLUTTONY_DEMON_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         complexBlock(ModBlocks.BREWING_CAULDRON.get());
+
+
+        simpleItem(ModItems.WET_ENCHANTED_LEATHER);
+        simpleItem(ModItems.DRIED_ENCHANTED_LEATHER);
 
     }
 

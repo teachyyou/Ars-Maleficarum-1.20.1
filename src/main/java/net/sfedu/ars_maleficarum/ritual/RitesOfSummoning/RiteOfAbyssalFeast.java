@@ -1,41 +1,30 @@
 package net.sfedu.ars_maleficarum.ritual.RitesOfSummoning;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
-import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
-import java.util.Optional;
-
-public class RiteOfAbyssalFeast extends CircleRitual {
+public class    RiteOfAbyssalFeast extends CircleRitual {
 
     public RiteOfAbyssalFeast() {
         ritualName="Rite of Abyssal Feast";
-        smallCircleType= RitualCoreEntity.CircleType.ANY;
-        mediumCircleType= RitualCoreEntity.CircleType.NETHER;
-        largeCircleType= RitualCoreEntity.CircleType.NETHER;
-        coreType= RitualCoreEntity.CircleType.NETHER;
+        smallCircleType= RitualCoreEntity.ChalkType.ANY;
+        mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
+        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
+        coreType= RitualCoreEntity.ChalkType.NETHER;
         components.put(ModItems.ROWAN_BERRIES.get(), 1);
         components.put(Items.GOLDEN_APPLE,1);
         components.put(Items.CAKE,1);

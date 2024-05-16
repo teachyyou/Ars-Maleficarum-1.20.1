@@ -3,12 +3,11 @@ package net.sfedu.ars_maleficarum.item.custom.ritualCircleItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
@@ -22,7 +21,7 @@ public class RitualCircleCoreDrawingKit extends Item {
         super(pProperties);
     }
 
-    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.CircleColor.WHITE);
+    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.WHITE);
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
@@ -30,14 +29,12 @@ public class RitualCircleCoreDrawingKit extends Item {
             System.out.println(canDraw(pContext));
             if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos()) && canDraw(pContext)) {
                 pContext.getLevel().setBlock(pContext.getClickedPos().above(), coreToDraw,3);
-            }
-            else {
-                return InteractionResult.FAIL;
+                pContext.getItemInHand().shrink(1);
+                pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
+                return InteractionResult.SUCCESS;
             }
         }
-        pContext.getItemInHand().shrink(1);
-        pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
-        return InteractionResult.SUCCESS;
+        return InteractionResult.FAIL;
     }
 
 
@@ -46,7 +43,7 @@ public class RitualCircleCoreDrawingKit extends Item {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
                 BlockPos pos = pContext.getClickedPos().relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR) || !pContext.getLevel().getBlockState(pos.above()).is(Blocks.AIR)) {
+                if (pContext.getLevel().getBlockState(pos).is(Blocks.AIR) || !(pContext.getLevel().getBlockState(pos.above()).is(Blocks.AIR) || pContext.getLevel().getBlockState(pos.above()).is(BlockTags.CANDLES))) {
                     return false;
                 }
             }

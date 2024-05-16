@@ -11,10 +11,10 @@ public class GreatRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
 
     public GreatRiteOfEmpowering() {
         ritualName="Rife of Empowering";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.WHITE;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.BLAZE_ROD, 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.FLINT_KNIFE.get(), 1);

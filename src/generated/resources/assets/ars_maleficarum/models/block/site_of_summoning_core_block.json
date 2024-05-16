@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ars_maleficarum:block/site_of_summoning_core_block"
+  }
+}

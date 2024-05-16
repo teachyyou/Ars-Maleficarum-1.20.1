@@ -10,6 +10,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
+import net.sfedu.ars_maleficarum.item.custom.clothes.SimpleWitchHat;
 import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
 
 public class ModItems {
@@ -53,6 +54,7 @@ public class ModItems {
     public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
             ()->new Item(new Item.Properties()));
 
+
     //Регистрация слитка проклятого серебра
     public static final RegistryObject<Item> SILVER = ITEMS.register("silver",
             ()->new Item(new Item.Properties()));
@@ -75,6 +77,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
             ()->new PoisonStaff(new Item.Properties().durability(1024)));
+
+    public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff",
+            ()->new FireStaff(new Item.Properties().durability(1024)));
+    public static final RegistryObject<Item> INERT_FIRE_STAFF = ITEMS.register("inert_fire_staff",
+            ()->new Item(new Item.Properties().stacksTo(1)));
     //Регистрация детектора углеродной руды
     public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
             ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
@@ -105,8 +112,8 @@ public class ModItems {
     public static final RegistryObject<Item> DRY_WOOD = ITEMS.register("dry_wood",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> INFUSED_DRY_WOOD = ITEMS.register("infused_dry_wood",
-            ()->new CommonInfusedItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> INERT_POISON_STAFF = ITEMS.register("inert_poison_staff",
+            ()->new Item(new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
@@ -190,6 +197,9 @@ public class ModItems {
     public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x7e9680,0xc5d1c5,new Item.Properties()));
 
+    public static final RegistryObject<Item> TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH,0x9e7245,0xacd1c9,new Item.Properties()));
+
     public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON,0x2e9980,0xc6d1c5,new Item.Properties()));
 
@@ -205,6 +215,9 @@ public class ModItems {
     public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
             ()->new CrimsonChalk(new Item.Properties().durability(44)));
 
+    public static final RegistryObject<Item> BLACK_CHALK = ITEMS.register("black_chalk",
+            ()->new BlackChalk(new Item.Properties().durability(44)));
+
 
 
     public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
@@ -218,6 +231,17 @@ public class ModItems {
 
     public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
             ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
+
+    public static final RegistryObject<Item> SIMPLE_WITCH_HAT = ITEMS.register("simple_witch_hat",
+            ()->new SimpleWitchHat(ModArmorMaterials.ENCHANTED_LEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> WET_ENCHANTED_LEATHER = ITEMS.register("wet_enchanted_leather",
+            ()->new IngredientItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather",
+            ()->new IngredientItem(new Item.Properties()));
+
+
 
     //Регистрация предметов
     public static void register(IEventBus eventBus) {

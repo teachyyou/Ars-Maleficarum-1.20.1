@@ -1,5 +1,11 @@
 {
   "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 0
+  },
+  "inOrder": {
+    "order": true
+  },
   "ingredients": [
     {
       "item": "ars_maleficarum:cursed_gold_chunk"

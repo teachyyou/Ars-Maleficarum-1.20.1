@@ -10,9 +10,11 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Snowball;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
@@ -20,7 +22,7 @@ import net.sfedu.ars_maleficarum.util.ModTags;
 
 import java.util.function.Predicate;
 
-public class PoisonStaff extends Item {
+public class PoisonStaff extends Item implements Vanishable {
     public PoisonStaff(Properties pProperties) {
         super(pProperties);
     }
@@ -32,6 +34,7 @@ public class PoisonStaff extends Item {
         {
             player.removeEffect(MobEffects.POISON);
             player.removeEffect(MobEffects.WITHER);
+            player.removeEffect(MobEffects.BLINDNESS);
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30));
             player.getCooldowns().addCooldown(this, 200);
             player.playSound(SoundEvents.TOTEM_USE, 1.0F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2F + 1.0F);
@@ -51,5 +54,15 @@ public class PoisonStaff extends Item {
         }
 
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
     }
 }

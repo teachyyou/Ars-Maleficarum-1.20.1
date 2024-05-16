@@ -38,6 +38,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
+import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
@@ -57,7 +58,7 @@ public class PoisonousEssenceEntity extends Projectile {
         double d0 = (double)pPose.getX() + 0.5D;
         double d1 = (double)pPose.getY() + 1.75D;
         double d2 = (double)pPose.getZ() + 0.5D;
-        this.moveTo(d0, d1, d2, this.getYRot(), this.getXRot());
+        this.moveTo(d0, d1, d2, this.getYRot(), this.getXRot()+90.0F);
     }
 
     @Override
@@ -107,27 +108,12 @@ public class PoisonousEssenceEntity extends Projectile {
         }
     }
 
-    private void makeTrail() {
-        for (int i = 0; i < 5; i++) {
-            double dx = this.getX() + 0.5D * (this.random.nextDouble() - this.random.nextDouble());
-            double dy = this.getY() + 0.5D * (this.random.nextDouble() - this.random.nextDouble());
-            double dz = this.getZ() + 0.5D * (this.random.nextDouble() - this.random.nextDouble());
-
-            double s1 = ((this.random.nextFloat() * 0.5F) + 0.5F) * 0.17F;  // color
-            double s2 = ((this.random.nextFloat() * 0.5F) + 0.5F) * 0.80F;  // color
-            double s3 = ((this.random.nextFloat() * 0.5F) + 0.5F) * 0.69F;  // color
-
-            this.level().addParticle(ParticleTypes.ENTITY_EFFECT, dx, dy, dz, s1, s2, s3);
-        }
-    }
-
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
         if(!this.level().isClientSide()){
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.ITEM_SLIME, this.getX(), this.getY(), this.getZ(), 6, 0.2D, 0.2D, 0.2D, 0.2D);
             this.level().broadcastEntityEvent(this,((byte) 3));
-            //this.level().setBlock(blockPosition(), Blocks.GOLD_BLOCK.defaultBlockState(),3);
             this.discard();
         }
     }
@@ -177,7 +163,7 @@ public class PoisonousEssenceEntity extends Projectile {
         Entity entity = pResult.getEntity();
         Entity entity1 = this.getOwner();
         LivingEntity livingentity = entity1 instanceof LivingEntity ? (LivingEntity)entity1 : null;
-        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 1.0F);
+        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 5.0F);
         if (flag) {
             this.doEnchantDamageEffects(livingentity, entity);
             if (entity instanceof LivingEntity) {

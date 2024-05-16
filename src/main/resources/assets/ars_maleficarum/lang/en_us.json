@@ -3,7 +3,8 @@
   "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
   "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
 
-
+  "entity.ars_maleficarum.gluttony_demon": "Gluttony Demon",
+  "item.ars_maleficarum.gluttony_demon_spawn_egg": "Gluttony Demon Spawn Egg",
   "item.ars_maleficarum.sage_flower": "Sage Flower",
   "item.ars_maleficarum.marigold_flower": "Marigold Flower",
   "item.ars_maleficarum.sage_seeds": "Sage Seeds",
@@ -18,6 +19,7 @@
   "block.ars_maleficarum.silver_deepslate_ore_block": "Silver Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_deepslate_ore_block": "Cursed Gold Deepslate Ore",
   "block.ars_maleficarum.cursed_gold_nether_ore_block": "Cursed Gold Nether Ore",
+  "block.ars_maleficarum.site_of_summoning_core_block": "Summoning Monolith",
   "item.ars_maleficarum.silver_chunk": "Silver Chunk",
   "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
   "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
@@ -27,6 +29,8 @@
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
   "item.ars_maleficarum.silver_nugget": "Silver Nugget",
   "item.ars_maleficarum.mandrake_spawn_egg": "Mandrake Spawn Egg",
+
+  "entity.ars_maleficarum.mandrake": "Mandrake Root",
 
   "block.ars_maleficarum.rowan_log": "Rowan Log",
   "block.ars_maleficarum.rowan_planks": "Rowan Planks",
@@ -163,13 +167,18 @@
   "block.ars_maleficarum.ritual_circle_core": "Ritual Circle Core",
 
   "item.ars_maleficarum.dry_wood": "Dry Wood",
-  "item.ars_maleficarum.infused_dry_wood": "Infused Dry Wood",
+  "item.ars_maleficarum.inert_poison_staff": "Inert Branch",
   "item.ars_maleficarum.poison_staff": "Flemeth's Cane",
+
+  "item.ars_maleficarum.inert_fire_staff": "Inert Kramer's Tree Branch",
+  "item.ars_maleficarum.fire_staff": "Kramer's Torch",
+  "block.ars_maleficarum.custom_fire": "Purifying Flames",
 
   "item.ars_maleficarum.white_chalk": "White Chalk",
   "item.ars_maleficarum.green_chalk": "Green Chalk",
   "item.ars_maleficarum.golden_chalk": "Golden Chalk",
   "item.ars_maleficarum.crimson_chalk": "Crimson Chalk",
+  "item.ars_maleficarum.black_chalk": "Black Chalk",
   "item.ars_maleficarum.chalk_brush": "Chalk Brush",
   "item.ars_maleficarum.white_circle_core_drawing_kit": "White Drawing Kit",
   "item.ars_maleficarum.green_circle_core_drawing_kit": "Green Drawing Kit",
@@ -177,6 +186,20 @@
 
   "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
-  "block.ars_maleficarum.brewing_cauldron_0": "Brewing Cauldron"
+  "block.ars_maleficarum.brewing_cauldron": "Brewing Cauldron",
 
+
+  "item.ars_maleficarum.wet_enchanted_leather": "Wet Enchanted Leather",
+  "item.ars_maleficarum.dried_enchanted_leather": "Dried Enchanted Leather",
+  "item.ars_maleficarum.simple_witch_hat": "Simple Hat",
+
+  "book.shadow_grimoire.name": "Shadow Grimoire",
+  "book.shadow_grimoire.landing_text": "$(bold)Introduction$()$(br)Witchcraft is one of the most ancient arts, combining various disciplines from herbalism to demonology. This grimoire is a compendium of knowledge and a source of new discoveries, guiding the seeker of wisdom step by step towards incredible power.",
+
+  "book.shadow_grimoire.dimension.nether": "Must be performed in the Nether",
+  "book.shadow_grimoire.dimension.overworld": "Must be performed in the Overworld",
+  "book.shadow_grimoire.dimension.any": "Must be performed anywhere",
+  "book.shadow_grimoire.dimension.end": "Must be performed in the End",
+
+  "book.shadow_grimoire.cauldron.order": "The Recipe is Ordered"
 }

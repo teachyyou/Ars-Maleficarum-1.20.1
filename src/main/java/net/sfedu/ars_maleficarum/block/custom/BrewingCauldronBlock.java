@@ -40,6 +40,7 @@ import net.minecraft.world.phys.shapes.*;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
+import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -153,6 +154,9 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, 0), 3);
                         pPlayer.setItemInHand(pHand, new ItemStack(Items.WATER_BUCKET));
+
+                        if ((pLevel.getBlockEntity(pPos)) != null)
+                            ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
                     }
                 }
             }
@@ -168,16 +172,48 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                     }
                 }
             }
-            else if (itemstack.getItem() == Items.GLASS_BOTTLE)
+            else if (itemstack.getItem() == ModItems.EMPTY_VIAL.get())
             {
                 if (blockentity != null)
                 {
-                    if (pState.getValue(WATER) > 0)
+                    if (blockentity.crafted != null && blockentity.craftedType == 1)
                     {
+                        if (pState.getValue(WATER) == 1)
+                        {
+                            if ((pLevel.getBlockEntity(pPos)) != null)
+                                ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                        }
                         pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
-                        pPlayer.setItemInHand(pHand, new ItemStack(Items.POTION));
+                        pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
+                        if (pState.getValue(BOILING))
+                            pPlayer.addItem(blockentity.crafted.copy());
+                        else
+                            pPlayer.addItem(new ItemStack(Items.DIRT));
                     }
+
+                }
+            }
+            else if (itemstack.getItem() == Items.BOWL)
+            {
+                if (blockentity != null)
+                {
+                    if (blockentity.crafted != null && blockentity.craftedType == 2)
+                    {
+                        if (pState.getValue(WATER) == 1)
+                        {
+                            if ((pLevel.getBlockEntity(pPos)) != null)
+                                ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                        }
+                        pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+                        pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
+                        pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
+                        if (pState.getValue(BOILING))
+                            pPlayer.addItem(blockentity.crafted.copy());
+                        else
+                            pPlayer.addItem(new ItemStack(Items.DIRT));
+                    }
+
                 }
             }
         }

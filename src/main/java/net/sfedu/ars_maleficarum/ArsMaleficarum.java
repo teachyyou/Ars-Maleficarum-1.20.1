@@ -23,9 +23,7 @@ import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.datagen.ModBlockStateProvider;
 import net.sfedu.ars_maleficarum.datagen.ModItemModelProvider;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
-import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonRender;
-import net.sfedu.ars_maleficarum.entity.client.MandrakeRender;
-import net.sfedu.ars_maleficarum.entity.client.PoisonousEssenceRender;
+import net.sfedu.ars_maleficarum.entity.client.*;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.event.ModEvents;
 import net.sfedu.ars_maleficarum.item.ModCreativeModTabs;
@@ -133,6 +131,8 @@ public class ArsMaleficarum
 
                 EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), GluttonyDemonRender::new);
                 EntityRenderers.register(ModEntities.POISONOUS_ESSENCE.get(), PoisonousEssenceRender::new);
+                EntityRenderers.register(ModEntities.FIRE_ESSENCE.get(), FireEssenceRender::new);
+                EntityRenderers.register(ModEntities.TRADER_WITCH.get(), TraderWitchRender::new);
             });
         }
     }

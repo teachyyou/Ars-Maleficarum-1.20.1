@@ -1,7 +1,9 @@
 package net.sfedu.ars_maleficarum.datagen.custom;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -28,13 +30,17 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
 
     private final Item result;
     private final List<Ingredient> components=new ArrayList<Ingredient>();
+    private final boolean inOrder;
+    private final int craftType;
 
-    public BrewingCauldronRecipeBuilder(List<ItemLike> ingredient, ItemLike result) {
+    public BrewingCauldronRecipeBuilder(List<ItemLike> ingredient, ItemLike result, boolean inOrder, int craftType) {
         for (ItemLike ingr : ingredient) {
             components.add(Ingredient.of(ingr));
         }
         while (components.size() < 10) components.add(Ingredient.EMPTY);
         this.result = result.asItem();
+        this.inOrder = inOrder;
+        this.craftType = craftType;
 
     }
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
@@ -60,7 +66,7 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
                 .rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
 
-        pFinishedRecipeConsumer.accept(new BrewingCauldronRecipeBuilder.Result(pRecipeId, this.result, this.components,
+        pFinishedRecipeConsumer.accept(new BrewingCauldronRecipeBuilder.Result(pRecipeId, this.result, this.components, this.inOrder, this.craftType,
                 this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/"
                 + pRecipeId.getPath())));
 
@@ -70,14 +76,18 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation id;
         private final Item result;
         private final List<Ingredient> components;
+        private final boolean inOrder;
+        private final int craftType;
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, Item pResult, List<Ingredient> components, Advancement.Builder pAdvancement,
+        public Result(ResourceLocation pId, Item pResult, List<Ingredient> components, boolean inOrder, int craftType, Advancement.Builder pAdvancement,
                       ResourceLocation pAdvancementId) {
             this.components=components;
             this.id = pId;
             this.result = pResult;
+            this.inOrder = inOrder;
+            this.craftType = craftType;
             this.advancement = pAdvancement;
             this.advancementId = pAdvancementId;
         }
@@ -95,6 +105,14 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
 
 
             pJson.add("output", jsonobject);
+
+            jsonobject = new JsonObject();
+            jsonobject.addProperty("order", inOrder);
+            pJson.add("inOrder", jsonobject);
+
+            JsonObject jsonobject2 = new JsonObject();
+            jsonobject2.addProperty("craft", craftType);
+            pJson.add("craftType", jsonobject2);
 
         }
 

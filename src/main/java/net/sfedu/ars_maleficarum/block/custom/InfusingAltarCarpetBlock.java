@@ -1,10 +1,14 @@
 package net.sfedu.ars_maleficarum.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -19,9 +23,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -61,19 +68,59 @@ public class InfusingAltarCarpetBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        boolean used = false;
         if (!pLevel.isClientSide()) {
-            if (pPlayer.getItemInHand(pHand).getItem()== Items.BLACK_DYE && (pState.getValue(InfusingAltarCarpetBlock.COLOR)==0 || pState.getValue(InfusingAltarCarpetBlock.COLOR)==8)) {
+            if (pPlayer.getItemInHand(pHand).getItem()== ModItems.BLACK_CHALK.get() && (pState.getValue(InfusingAltarCarpetBlock.COLOR)==0 || pState.getValue(InfusingAltarCarpetBlock.COLOR)==8)) {
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarCarpetBlock.COLOR)), 2);
-                if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                return InteractionResult.sidedSuccess(!pLevel.isClientSide);
+                if (!pPlayer.isCreative()) {
+                    if (pPlayer.getItemInHand(pHand).getCount()>1) {
+                        int dif = pPlayer.getItemInHand(pHand).getCount()-1;
+                        ItemStack remaining = pPlayer.getItemInHand(pHand).copy();
+                        remaining.setCount(dif);
+                        pPlayer.getItemInHand(pHand).setCount(1);
+                        pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,
+                                p->{});
+                        if (!pPlayer.getInventory().add(remaining)) {
+                            Vec3 vec3 = pPlayer.position();
+                            pLevel.addFreshEntity(new ItemEntity(pLevel, vec3.x,vec3.y,vec3.z, remaining));
+                        }
+                    } else {
+                        pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,
+                                p->{});
+                    }
+
+                    used = true;
+                }
+
+
             }
-            else if (pPlayer.getItemInHand(pHand).getItem()== Items.WHITE_DYE && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=0 && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=8) {
+            else if (pPlayer.getItemInHand(pHand).getItem()== ModItems.WHITE_CHALK.get() && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=0 && pState.getValue(InfusingAltarCarpetBlock.COLOR)!=8) {
                 pLevel.setBlock(pPos, ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get().defaultBlockState().setValue(FACING,pState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,pState.getValue(InfusingAltarCarpetBlock.COLOR)), 2);
-                if (!pPlayer.isCreative()) pPlayer.getItemInHand(pHand).shrink(1);
-                return InteractionResult.sidedSuccess(!pLevel.isClientSide);
+                if (!pPlayer.isCreative()) {
+                    if (pPlayer.getItemInHand(pHand).getCount()>1) {
+                        int dif = pPlayer.getItemInHand(pHand).getCount()-1;
+                        ItemStack remaining = pPlayer.getItemInHand(pHand).copy();
+                        remaining.setCount(dif);
+                        pPlayer.getItemInHand(pHand).setCount(1);
+                        pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,
+                                p->{});
+                        if (!pPlayer.getInventory().add(remaining)) {
+                            Vec3 vec3 = pPlayer.position();
+                            pLevel.addFreshEntity(new ItemEntity(pLevel, vec3.x,vec3.y,vec3.z, remaining));
+                        }
+                    } else {
+                        pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,
+                                p->{});
+                    }
+
+                    used = true;
+                }
+
             }
 
         }
-        return InteractionResult.PASS;
+        if (used) pLevel.playSound(null,pPos, ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
+        return InteractionResult.sidedSuccess(!pLevel.isClientSide);
+
     }
 }

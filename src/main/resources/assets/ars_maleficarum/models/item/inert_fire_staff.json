@@ -1,0 +1,137 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "kramer_torch",
+	"ambientocclusion": false,
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "ars_maleficarum:item/fire_staff",
+		"particle": "ars_maleficarum:item/fire_staff"
+	},
+	"elements": [
+		{
+			"from": [7, -9, 7],
+			"to": [9, 12, 9],
+			"faces": {
+				"north": {"uv": [9, 0, 9.5, 5.25], "texture": "#0"},
+				"east": {"uv": [9, 5.25, 9.5, 10.5], "texture": "#0"},
+				"south": {"uv": [9.5, 0, 10, 5.25], "texture": "#0"},
+				"west": {"uv": [9.5, 5.25, 10, 10.5], "texture": "#0"},
+				"up": {"uv": [11.5, 5, 11, 4.5], "texture": "#0"},
+				"down": {"uv": [11.5, 5, 11, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 12, 7],
+			"to": [10, 16, 10],
+			"faces": {
+				"north": {"uv": [1.5, 11, 2.25, 12], "texture": "#0"},
+				"east": {"uv": [11, 2, 11.75, 3], "texture": "#0"},
+				"south": {"uv": [2.25, 11, 3, 12], "texture": "#0"},
+				"west": {"uv": [3, 11, 3.75, 12], "texture": "#0"},
+				"up": {"uv": [11.75, 3.75, 11, 3], "texture": "#0"},
+				"down": {"uv": [4.5, 11, 3.75, 11.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 16, 8],
+			"to": [10, 24, 10],
+			"faces": {
+				"north": {"uv": [9, 10.5, 9.5, 12.5], "texture": "#0"},
+				"east": {"uv": [9.5, 10.5, 10, 12.5], "texture": "#0"},
+				"south": {"uv": [10, 10.5, 10.5, 12.5], "texture": "#0"},
+				"west": {"uv": [10.5, 10.5, 11, 12.5], "texture": "#0"},
+				"up": {"uv": [11.5, 6, 11, 5.5], "texture": "#0"},
+				"down": {"uv": [11.5, 6, 11, 6.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, -12, 9],
+			"to": [13, 32, 9.025],
+			"rotation": {"angle": -45, "axis": "y", "origin": [9, 18, 9.0125]},
+			"faces": {
+				"north": {"uv": [4, 0, 2, 11], "texture": "#0"},
+				"east": {"uv": [8, 0, 8.25, 11], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 11], "texture": "#0"},
+				"west": {"uv": [8.25, 0, 8.5, 11], "texture": "#0"},
+				"up": {"uv": [13, 4, 11, 3.75], "texture": "#0"},
+				"down": {"uv": [13, 4, 11, 4.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, -12, 9],
+			"to": [13, 32, 9.025],
+			"rotation": {"angle": 45, "axis": "y", "origin": [9, 18, 9.0125]},
+			"faces": {
+				"north": {"uv": [4, 0, 6, 11], "texture": "#0"},
+				"east": {"uv": [8.5, 0, 8.75, 11], "texture": "#0"},
+				"south": {"uv": [6, 0, 4, 11], "texture": "#0"},
+				"west": {"uv": [8.75, 0, 9, 11], "texture": "#0"},
+				"up": {"uv": [13, 4.5, 11, 4.25], "texture": "#0"},
+				"down": {"uv": [6.5, 11, 4.5, 11.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.75, 15.75, 7.75],
+			"to": [10.25, 24.25, 10.25],
+			"faces": {
+				"north": {"uv": [0, 11, 0.5, 13], "texture": "#0"},
+				"east": {"uv": [11, 0, 11.5, 2], "texture": "#0"},
+				"south": {"uv": [0.5, 11, 1, 13], "texture": "#0"},
+				"west": {"uv": [1, 11, 1.5, 13], "texture": "#0"},
+				"up": {"uv": [7, 11.5, 6.5, 11], "texture": "#0"},
+				"down": {"uv": [11.5, 6.5, 11, 7], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6.75, -9.25, 6.75],
+			"to": [9.25, 12.25, 9.25],
+			"faces": {
+				"north": {"uv": [10, 0, 10.5, 5.25], "texture": "#0"},
+				"east": {"uv": [10, 5.25, 10.5, 10.5], "texture": "#0"},
+				"south": {"uv": [10.5, 0, 11, 5.25], "texture": "#0"},
+				"west": {"uv": [10.5, 5.25, 11, 10.5], "texture": "#0"},
+				"up": {"uv": [7.5, 11.5, 7, 11], "texture": "#0"},
+				"down": {"uv": [11.5, 7, 11, 7.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [35, 0, 0],
+			"translation": [0, 0.25, 1.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [35, 0, 0],
+			"translation": [0, 0.25, 1.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [10, -35, -2],
+			"translation": [1.25, 1.75, -1.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [10, -35, -2],
+			"translation": [1.25, 1.75, -1.5]
+		},
+		"ground": {
+			"translation": [0, 15, 0]
+		},
+		"gui": {
+			"rotation": [62.3, 44.25, -72.37],
+			"translation": [-0.5, -0.25, 0],
+			"scale": [0.47, 0.47, 0.47]
+		},
+		"fixed": {
+			"rotation": [62.3, 44.25, -72.37],
+			"translation": [-0.5, -0.25, 0],
+			"scale": [0.47, 0.47, 0.47]
+		}
+	},
+	"groups": [
+		{
+			"name": "kramer_torch",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5, 6]
+		}
+	]
+}

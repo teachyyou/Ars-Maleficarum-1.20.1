@@ -1,0 +1,19 @@
+{
+  "name": "Болотный гнилец",
+  "icon": "ars_maleficarum:textures/item/swamp_rotfiend_ingredient.png",
+  "category": "ars_maleficarum:plants/other",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Болотный Гнилец - зловонный, но крайне ценный ингредиент, встречающийся на болотах и растущий только на стволах $(l:plants/dead_tree)мёртвых деревьев$(/l). Невозможно домашнее или тепличное выращивание. $(br2)Для аккуратной жатвы с обеспечением повторного сбора с той же грибницы в будущем настоятельно рекомендуется применять $(l:tools_and_materials/tools/flint_knife)нож$()."
+    },
+    {
+      "type": "patchouli:image",
+      "text": "Два Болотных Гнильца в месте произрастания - на $(l:plants/dead_tree)мёртвом дереве$(/l) среди болот.",
+      "border": true,
+      "images": ["ars_maleficarum:textures/books/shadow_grimoire/swamp_rotfiend.png"]
+
+    }
+  ],
+  "read_by_default": true
+}

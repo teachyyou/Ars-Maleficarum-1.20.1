@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:cauldron"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "ars_maleficarum:silver_nugget"
+    }
+  },
+  "pattern": [
+    "   ",
+    "ICI",
+    "NIN"
+  ],
+  "result": {
+    "item": "ars_maleficarum:brewing_cauldron"
+  },
+  "show_notification": true
+}

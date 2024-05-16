@@ -1,5 +1,11 @@
 {
   "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 0
+  },
+  "inOrder": {
+    "order": false
+  },
   "ingredients": [
     {
       "item": "minecraft:calcite"

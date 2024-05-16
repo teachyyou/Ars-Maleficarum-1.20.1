@@ -7,7 +7,7 @@ public class CrimsonChalkSymbol extends ChalkSymbol {
         super(pProperties);
     }
 
-    public static final RitualCoreEntity.CircleType type = RitualCoreEntity.CircleType.NETHER;
+    public static final RitualCoreEntity.ChalkType type = RitualCoreEntity.ChalkType.NETHER;
 
 
 }

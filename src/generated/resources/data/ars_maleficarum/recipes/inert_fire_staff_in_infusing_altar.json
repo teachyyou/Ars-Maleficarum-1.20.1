@@ -1,0 +1,27 @@
+{
+  "type": "ars_maleficarum:altar_infusing",
+  "dimension": "nether",
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:kramer_tree_wood"
+    },
+    {
+      "item": "ars_maleficarum:kramer_tree_wood"
+    },
+    {
+      "item": "ars_maleficarum:whiff_of_time"
+    },
+    {
+      "item": "ars_maleficarum:kramer_tree_wood"
+    },
+    {
+      "item": "ars_maleficarum:absolute_order"
+    },
+    {
+      "item": "ars_maleficarum:dry_wood"
+    }
+  ],
+  "output": {
+    "item": "ars_maleficarum:inert_fire_staff"
+  }
+}

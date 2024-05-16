@@ -5,13 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -26,10 +24,10 @@ public class RiteOfPoisonStaffCreation extends CircleRitual {
 
     public RiteOfPoisonStaffCreation() {
         ritualName="Rite of Power Awakening";
-        smallCircleType= RitualCoreEntity.CircleType.NATURAL;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.NATURAL;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.SPIDER_EYE,1);
         components.put(Items.GLOWSTONE,1);
         components.put(Items.EMERALD, 1);
@@ -44,7 +42,7 @@ public class RiteOfPoisonStaffCreation extends CircleRitual {
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
 
         Optional<ItemEntity> possiblyStaff = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-3).relative(Direction.Axis.X,-3).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,3).relative(Direction.Axis.X,3).relative(Direction.Axis.Y,5)))
-                .stream().filter(x->x.getItem().is(ModItems.INFUSED_DRY_WOOD.get())).findAny();
+                .stream().filter(x->x.getItem().is(ModItems.INERT_POISON_STAFF.get())).findAny();
 
         if (possiblyStaff.isEmpty() || possiblyStaff.get().getItem().getCount()!=1) {
             riteCore.stopRitual();

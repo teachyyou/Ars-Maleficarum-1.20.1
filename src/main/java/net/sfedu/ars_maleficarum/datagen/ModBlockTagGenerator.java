@@ -3,6 +3,7 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
@@ -83,6 +84,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.ROWAN_STAIRS.get())
                 .add(ModBlocks.NAMELESS_TREE_STAIRS.get());
-
+        this.tag(BlockTags.FIRE).add(ModBlocks.CUSTOM_FIRE.get());
+        //todo не забыть добавить новыые
+        this.tag(ModTags.Blocks.CHALK_SYMBOLS)
+                .add(ModBlocks.WHITE_CHALK_SYMBOL.get())
+                .add(ModBlocks.GREEN_CHALK_SYMBOL.get())
+                .add(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
     }
 }
