@@ -44,14 +44,14 @@ public abstract class CircleRitual {
             RiteOfLargeDemonicImprisonment.class,
             RiteOfMediumDemonicImprisonment.class,
             RiteOfSmallDemonicImprisonment.class,
-            RisingSunRitual.class,
-            RiteOfGrassBlockCreation.class,
-            RiteOfMoonlight.class,
+            RisingSunRitual.class,//
+            RiteOfGrassBlockCreation.class, //
+            RiteOfMoonlight.class, //
             GreatRiteOfEmpowering.class,
             GreatRiteOfSwiftness.class,
             WeakRiteOfEmpowering.class,
             WeakRiteOfSwiftness.class,
-            SettingSunRitual.class,
+            SettingSunRitual.class, //
             RiteOfPoisonStaffRepairWithAliveLarva.class,
             RiteOfPoisonStaffRepair.class,
             RiteOfForgottenNameAwakening.class,
