@@ -197,6 +197,9 @@ public class ModItems {
     public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x7e9680,0xc5d1c5,new Item.Properties()));
 
+    public static final RegistryObject<Item> TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH,0x9e7245,0xacd1c9,new Item.Properties()));
+
     public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON,0x2e9980,0xc6d1c5,new Item.Properties()));
 

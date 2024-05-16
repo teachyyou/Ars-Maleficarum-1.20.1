@@ -30,7 +30,6 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
             if(isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
-
             if(isTimeToAttack()) {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);
@@ -70,11 +69,8 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
         float cur_health = entity.getHealth();
-        float add_health = 10F;
-        if(cur_health+add_health<=entity.getMaxHealth())
-            entity.setHealth(cur_health+add_health);
-        else
-            entity.setHealth(entity.getMaxHealth());
+        float add_health = 3F;
+        entity.setHealth(Math.min(cur_health+add_health, entity.getMaxHealth()));
     }
 
     @Override
