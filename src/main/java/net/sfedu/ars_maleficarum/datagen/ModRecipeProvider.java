@@ -153,16 +153,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
         //Крафт рябиновой коры из рябины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_LOG.get())
+                .requires(ModTags.Items.ROWAN_WOOD)
                 .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModBlocks.ROWAN_LOG.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_oak"));
-        //Крафт рябиновой коры из рябины
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ROWAN_BARK.get(), 2)
-                .requires(ModBlocks.ROWAN_WOOD.get())
-                .requires(ModItems.FLINT_KNIFE.get())
-                .unlockedBy(getHasName(ModBlocks.ROWAN_WOOD.get()), has(ModBlocks.ROWAN_WOOD.get()))
-                .save(pWriter, new ResourceLocation("rowan_bark_from_wood"));
+                .unlockedBy(getHasName(ModBlocks.ROWAN_LOG.get()), has(ModTags.Items.ROWAN_WOOD))
+                .save(pWriter, new ResourceLocation("rowan_bark"));
         //Крафт досок безымянного дерева из древесины
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.NAMELESS_TREE_PLANKS.get(), 4)
                 .requires(ModBlocks.NAMELESS_TREE_LOG.get())
@@ -542,7 +536,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_sugar_cane", has(Blocks.SUGAR_CANE)).save(pWriter, "sweet_dream_from_sugar_cane");
         new OdourExtractorRecipeBuilder(Blocks.AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
                 .unlockedBy("has_azalea", has(Blocks.AZALEA)).save(pWriter, "soaring_lightness_from_azalea");
-        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.2F, 1)
+        new OdourExtractorRecipeBuilder(Blocks.FLOWERING_AZALEA, ModItems.ASH.get(), ModItems.SOARING_LIGHTNESS.get(), true, 0.75F, 1)
                 .unlockedBy("has_flowering_azalea", has(Blocks.FLOWERING_AZALEA)).save(pWriter, "soaring_lightness_from_flowering_azalea");
         new OdourExtractorRecipeBuilder(Blocks.BIRCH_SAPLING, ModItems.ASH.get(), ModItems.RING_OF_MORNING_DEW.get(), true, 0.2F, 1)
                 .unlockedBy("has_birch_sapling", has(Blocks.BIRCH_SAPLING)).save(pWriter, "ring_of_morning_dew_birch_sapling");
@@ -574,17 +568,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new InfusingAltarRecipeBuilder(List.of(ModItems.SMELL_OF_HOME.get(), ModItems.TROPICAL_MONSOON.get(), Items.TROPICAL_FISH, ModItems.ROWAN_BERRIES.get(), Items.GUNPOWDER, ModItems.WOODEN_FIGURE.get()), ModBlocks.WOODEN_CAT_FIGURE.get(), "overworld")
                 .unlockedBy("has_something", has(Items.STICK)).save(pWriter);
 
-
-        //Генерация крафтов в варочном котле
-        //пока что тестовые для отладки котла
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIAMOND, Items.GOLD_INGOT, Items.IRON_INGOT), Items.NETHER_STAR, true, 0)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(Items.DIRT, Items.SAND, Items.COBBLESTONE), Items.WOODEN_AXE, false, 2)
-                .unlockedBy("has_something",has(Items.DIRT)).save(pWriter);
-        new BrewingCauldronRecipeBuilder(List.of(Items.GLASS, Items.COBBLESTONE), Items.POTION, false, 1)
-                .unlockedBy("has_something",has(Items.GLASS)).save(pWriter);
         //Крафт посоха
-        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INFUSED_DRY_WOOD.get(), "overworld")
+        new InfusingAltarRecipeBuilder(List.of(ModItems.CONIFEROUS_OIL.get(), ModItems.FERMENTED_TREE_LARVA.get(), Items.ENDER_PEARL, ModItems.MANDRAKE_ROOT.get(),Items.GLOWSTONE_DUST,ModItems.DRY_WOOD.get()), ModItems.INERT_POISON_STAFF.get(), "overworld")
                 .unlockedBy("has_something", has(ModItems.DRY_WOOD.get())).save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRY_WOOD.get())
                 .pattern("BWB")
@@ -641,10 +626,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new BrewingCauldronRecipeBuilder(List.of(Items.LEATHER, ModItems.SALT.get(), ModItems.SAGE_LEAF.get(),Items.GLOWSTONE_DUST,ModItems.SILVER_NUGGET.get(), ModItems.CONIFEROUS_OIL.get()), ModItems.WET_ENCHANTED_LEATHER.get(), false, 0)
                 .unlockedBy("has_something",has(ModItems.CONIFEROUS_OIL.get())).save(pWriter);
 
-
-        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), ModItems.SALT.get(), false, 1F, 1)
+        new OdourExtractorRecipeBuilder(ModItems.WET_ENCHANTED_LEATHER.get(),ModItems.SALT.get(), ModItems.DRIED_ENCHANTED_LEATHER.get(), false, 1F, 1)
                 .unlockedBy("has_wet_enchanted_leather", has(ModItems.WET_ENCHANTED_LEATHER.get())).save(pWriter, "dried_enchanted_leather_from_wet");
-
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIMPLE_WITCH_HAT.get())
                 .pattern(" L ")
@@ -655,7 +638,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('W', ModItems.BAT_WING.get())
                 .unlockedBy(getHasName(ModItems.DRIED_ENCHANTED_LEATHER.get()), has(ModItems.DRIED_ENCHANTED_LEATHER.get()))
                 .save(pWriter);
-
 
     }
 

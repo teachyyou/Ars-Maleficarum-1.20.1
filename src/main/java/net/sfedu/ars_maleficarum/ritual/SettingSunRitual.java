@@ -2,7 +2,6 @@ package net.sfedu.ars_maleficarum.ritual;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
@@ -21,10 +20,10 @@ public class SettingSunRitual extends CircleRitual {
 
     public SettingSunRitual() {
         ritualName="Rite of Setting Sun";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.ANY;
-        largeCircleType= RitualCoreEntity.CircleType.WHITE;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
+        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.LAPIS_LAZULI, 1);
         components.put(ModItems.MOONLIGHT_FLOWER.get(), 1);
         components.put(ModItems.SWEET_DREAM.get(), 1);

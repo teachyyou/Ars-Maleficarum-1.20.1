@@ -6,7 +6,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -22,10 +21,10 @@ public class RiteOfLargeDemonicImprisonment extends CircleRitual {
 
     public RiteOfLargeDemonicImprisonment() {
         ritualName="Rite of Demonic Imprisonment";
-        smallCircleType= RitualCoreEntity.CircleType.ANY;
-        mediumCircleType= RitualCoreEntity.CircleType.ANY;
-        largeCircleType= RitualCoreEntity.CircleType.ANY;
-        coreType= RitualCoreEntity.CircleType.ANY;
+        smallCircleType= RitualCoreEntity.ChalkType.ANY;
+        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
+        largeCircleType= RitualCoreEntity.ChalkType.ANY;
+        coreType= RitualCoreEntity.ChalkType.ANY;
         components.put(Items.SOUL_SAND, 1);
         components.put(Items.IRON_INGOT, 1);
         components.put(ModItems.SALT.get(), 3);

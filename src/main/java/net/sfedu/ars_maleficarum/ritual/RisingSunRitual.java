@@ -19,10 +19,10 @@ public class RisingSunRitual extends CircleRitual {
 
     public RisingSunRitual() {
         ritualName="Rite of Rising Sun";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.ANY;
-        largeCircleType= RitualCoreEntity.CircleType.WHITE;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
+        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.SUNFLOWER, 1);
         components.put(ModItems.SUNLIGHT_FLOWER.get(), 1);
         components.put(ModItems.RING_OF_MORNING_DEW.get(), 1);

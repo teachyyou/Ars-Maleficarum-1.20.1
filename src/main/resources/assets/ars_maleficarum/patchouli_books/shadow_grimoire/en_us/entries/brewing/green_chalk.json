@@ -1,0 +1,19 @@
+{
+  "name": "Зелёный мел",
+  "icon": "ars_maleficarum:green_chalk",
+  "category": "ars_maleficarum:extracting_and_brewing/brewing",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Белого мела порой может оказаться недостаточно там, где речь заходит о ритуальной магии, нацеленной на взаимодействие с природой. $(br2)Зелёный мел многократно увеличивает недостающую для этого силу начертанных символов, позволяя проводить ритуалы, направленные на обуздание и подчинение ведьмой природных сил."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Создание",
+      "recipe": "ars_maleficarum:green_chalk_in_brewing_cauldron",
+      "text": "В основе создания зеленого мела лежит обыкновенный белый, как это ни странно."
+    }
+  ],
+  "read_by_default": true
+}

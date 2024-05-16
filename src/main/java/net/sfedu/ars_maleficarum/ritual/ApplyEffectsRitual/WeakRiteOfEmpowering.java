@@ -11,10 +11,10 @@ public class WeakRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
 
     public WeakRiteOfEmpowering() {
         ritualName="Rife of Empowering";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.ANY;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.ANY;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.BLAZE_POWDER, 1);
         components.put(ModItems.SAGE_LEAF.get(), 2);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);

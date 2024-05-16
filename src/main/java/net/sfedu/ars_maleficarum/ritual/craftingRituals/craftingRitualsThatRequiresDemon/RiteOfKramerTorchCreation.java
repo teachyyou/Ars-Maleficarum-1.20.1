@@ -8,10 +8,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -19,23 +17,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
-import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class RiteOfKramerTorchCreation extends CircleRitual {
 
     public RiteOfKramerTorchCreation() {
         ritualName="Rite of Forgotten Weapon Awakening"; //TODO придумать нормальное название
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.NETHER;
-        largeCircleType= RitualCoreEntity.CircleType.NETHER;
-        coreType= RitualCoreEntity.CircleType.NETHER;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
+        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
+        coreType= RitualCoreEntity.ChalkType.NETHER;
         components.put(ModItems.CHERRY_ETUDE.get(), 1);
         components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
         components.put(Items.FIRE_CHARGE, 1);

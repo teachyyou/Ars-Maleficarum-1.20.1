@@ -28,10 +28,10 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
 
     public RiteOfForgottenNameAwakening() {
         ritualName="Rite of Forgotten Name Awakening";
-        smallCircleType= RitualCoreEntity.CircleType.NETHER;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.NETHER;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.NETHER;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.DIAMOND,1);
         components.put(Items.BLAZE_ROD,1);
         components.put(Items.NAME_TAG,1);

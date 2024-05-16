@@ -1,0 +1,20 @@
+{
+  "name": "Проклятое Золото",
+  "icon": "ars_maleficarum:cursed_gold_chunk",
+  "category": "ars_maleficarum:ores",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Когда-то давно золотые жилы, покоящиеся в недрах Земли, потрясло мощное проклятие - по легенде, могущественный друид, потерявший сына из-за людской жадности и алчности, решил отомстить и, пожертвовав собой, сотворил гнусное проклятие, которое подвергало бы страшным мучениям тех, кто дотронулся до затронутого чарами золота. $(br)Прошли столетия, проклятие было снято, однако многие залежи металла оказались навечно испорчены."
+    },
+    {
+      "type": "patchouli:image",
+      "text": "Глубинные и адские залежи проклятого золота, которое с легкостью добывается киркой.",
+      "border": true,
+      "images": ["ars_maleficarum:textures/books/shadow_grimoire/cursed_gold.png","ars_maleficarum:textures/books/shadow_grimoire/cursed_gold_nether.png"]
+
+    }
+  ],
+  "read_by_default": true
+}

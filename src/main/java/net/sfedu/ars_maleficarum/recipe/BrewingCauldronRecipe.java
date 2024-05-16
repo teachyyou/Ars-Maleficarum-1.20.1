@@ -95,6 +95,10 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
         return true;
     }
 
+    public boolean isInOrder(RegistryAccess pRegistryAccess) {
+        return inOrder;
+    }
+
     @Override
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();

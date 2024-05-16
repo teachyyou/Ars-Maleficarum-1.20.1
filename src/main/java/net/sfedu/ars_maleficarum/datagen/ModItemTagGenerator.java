@@ -38,5 +38,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.SKULLS)
                 .add(Blocks.SKELETON_SKULL.asItem())
                 .add(Blocks.WITHER_SKELETON_SKULL.asItem());
+        this.tag(ModTags.Items.ROWAN_WOOD)
+                .add(ModBlocks.ROWAN_LOG.get().asItem())
+                .add(ModBlocks.ROWAN_WOOD.get().asItem());
     }
 }

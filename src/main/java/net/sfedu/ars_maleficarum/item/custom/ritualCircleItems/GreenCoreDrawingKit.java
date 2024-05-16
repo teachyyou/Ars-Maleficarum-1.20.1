@@ -7,6 +7,6 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 public class GreenCoreDrawingKit extends RitualCircleCoreDrawingKit{
     public GreenCoreDrawingKit(Properties pProperties) {
         super(pProperties);
-        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.CircleColor.GREEN);
+        coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.NATURAL);
     }
 }

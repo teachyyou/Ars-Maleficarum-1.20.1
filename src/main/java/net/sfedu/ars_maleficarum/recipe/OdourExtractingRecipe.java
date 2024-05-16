@@ -76,6 +76,12 @@ public class OdourExtractingRecipe implements Recipe<Container>{
         return this.inputItems;
     }
 
+    //for patchouli
+    @NotNull
+    public ItemStack getIngredient() {
+        return inputItems.get(0).getItems()[0];
+    }
+
     public ItemStack getAdditionalItem(RegistryAccess pRegistryAccess) {
         return additional.copy();
     }

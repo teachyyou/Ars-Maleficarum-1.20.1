@@ -1,0 +1,74 @@
+{
+  "processor": "net.sfedu.ars_maleficarum.patchouli.processors.OdourExtractingRecipeProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "centered": true,
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input",
+      "framed": true,
+      "x": 26,
+      "y": 22
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#result",
+      "framed": true,
+      "x": 74,
+      "y": 22
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#vial",
+      "framed": true,
+      "x": 26,
+      "y": 50
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#additionalResult",
+      "link_recipe": true,
+      "framed": true,
+      "x": 74,
+      "y": 50
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/arrow_right.png",
+      "width": 22,
+      "height": 16,
+      "texture_width": 32,
+      "texture_height": 32,
+      "x": 47,
+      "y": 36
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/furnace_flame.png",
+      "width": 16,
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 50,
+      "y": 52
+    },
+
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "centered": true,
+      "x": -1,
+      "y": 74
+    }
+  ]
+}

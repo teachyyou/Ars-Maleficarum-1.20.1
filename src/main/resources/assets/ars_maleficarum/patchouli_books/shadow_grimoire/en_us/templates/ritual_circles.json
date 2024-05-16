@@ -1,0 +1,68 @@
+{
+  "processor": "net.sfedu.ars_maleficarum.patchouli.processors.RitualCirclesProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#name",
+      "centered": true,
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:image",
+      "image":  "#core",
+      "framed": false,
+      "x": 26,
+      "y": 20,
+      "texture_width": 64,
+      "texture_height": 64,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "type": "patchouli:image",
+      "image":  "#small",
+      "framed": false,
+      "x": 26,
+      "y": 20,
+      "texture_width": 64,
+      "texture_height": 64,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "type": "patchouli:image",
+      "image":  "#medium",
+      "framed": false,
+      "x": 26,
+      "y": 20,
+      "texture_width": 64,
+      "texture_height": 64,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "type": "patchouli:image",
+      "image":  "#large",
+      "framed": false,
+      "x": 26,
+      "y": 20,
+      "texture_width": 64,
+      "texture_height": 64,
+      "width": 64,
+      "height": 64
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#components",
+      "centered": true,
+      "x": -1,
+      "y": 80
+    }
+  ]
+}

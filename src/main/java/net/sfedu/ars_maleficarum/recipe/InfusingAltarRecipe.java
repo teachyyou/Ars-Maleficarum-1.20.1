@@ -75,7 +75,6 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
     public String getDimension(RegistryAccess pRegistryAccess) {
         return dimension;
     }
-
     @Override
     public RecipeSerializer<?> getSerializer() {
         return Serializer.INSTANCE;

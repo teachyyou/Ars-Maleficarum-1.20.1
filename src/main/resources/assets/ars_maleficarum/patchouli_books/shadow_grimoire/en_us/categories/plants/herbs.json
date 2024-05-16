@@ -1,7 +1,7 @@
 {
   "name": "Травы",
   "description": "Здесь более подробно описаны травы и иные культуры различнного происхождения и свойств, что частенько выращиваются и используются ведьмами и колдунами. $(br2)$(l)Знание толка в травах - один из необходимых ключей к успеху любого уважающего себя практика.$()",
-  "icon": "ars_maleficarum:sage_leaf",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/herbs.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 0
 }

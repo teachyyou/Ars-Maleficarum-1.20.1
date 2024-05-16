@@ -112,8 +112,8 @@ public class ModItems {
     public static final RegistryObject<Item> DRY_WOOD = ITEMS.register("dry_wood",
             ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> INFUSED_DRY_WOOD = ITEMS.register("infused_dry_wood",
-            ()->new CommonInfusedItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> INERT_POISON_STAFF = ITEMS.register("inert_poison_staff",
+            ()->new Item(new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",

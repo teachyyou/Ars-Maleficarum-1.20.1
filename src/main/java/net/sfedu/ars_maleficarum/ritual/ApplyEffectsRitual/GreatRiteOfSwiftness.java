@@ -11,10 +11,10 @@ public class GreatRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
     public GreatRiteOfSwiftness() {
         ritualName="Rite of Swiftness";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.WHITE;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.SUGAR, 2);
         components.put(ModItems.WASTELAND_WIND.get(), 1);
         components.put(ModItems.SOARING_LIGHTNESS.get(), 1);

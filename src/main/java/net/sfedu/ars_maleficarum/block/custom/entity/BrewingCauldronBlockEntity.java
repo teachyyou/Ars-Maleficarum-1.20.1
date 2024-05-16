@@ -254,7 +254,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
             }
         }
 
-        if (pState.getValue(BrewingCauldronBlock.WATER) == 0) return; // Предметы не закидываются, если нет воды.
+        if (pState.getValue(BrewingCauldronBlock.WATER) == 0 || !pState.getValue(BrewingCauldronBlock.BOILING)) return; // Предметы не закидываются, если нет воды или она не кипит
 
         List<ItemEntity> itemEntitiesAbove = getItemsAtAndAbove(level, this);
         if (!itemEntitiesAbove.isEmpty()) {
@@ -270,9 +270,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                     targetGreen = rand.nextInt(10, 255);
                     targetBlue = rand.nextInt(10, 255);
 
-                    System.out.println(targetRed);
-                    System.out.println(targetGreen);
-                    System.out.println(targetBlue);
+                    //System.out.println(targetRed);
+                    //System.out.println(targetGreen);
+                    //System.out.println(targetBlue);
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
                 }

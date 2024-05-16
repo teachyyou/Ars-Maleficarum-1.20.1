@@ -11,10 +11,10 @@ public class WeakRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
     public WeakRiteOfSwiftness() {
         ritualName="Rite of Swiftness";
-        smallCircleType= RitualCoreEntity.CircleType.WHITE;
-        mediumCircleType= RitualCoreEntity.CircleType.WHITE;
-        largeCircleType= RitualCoreEntity.CircleType.ANY;
-        coreType= RitualCoreEntity.CircleType.WHITE;
+        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
+        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
+        largeCircleType= RitualCoreEntity.ChalkType.ANY;
+        coreType= RitualCoreEntity.ChalkType.WHITE;
         components.put(Items.SUGAR, 1);
         components.put(ModItems.WASTELAND_WIND.get(), 1);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);

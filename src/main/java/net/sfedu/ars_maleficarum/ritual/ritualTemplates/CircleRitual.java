@@ -12,7 +12,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -20,53 +19,18 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
-import net.sfedu.ars_maleficarum.ritual.*;
-import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfEmpowering;
-import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.GreatRiteOfSwiftness;
-import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfEmpowering;
-import net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual.WeakRiteOfSwiftness;
-import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfLargeDemonicImprisonment;
-import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfMediumDemonicImprisonment;
-import net.sfedu.ars_maleficarum.ritual.ImprisonmentRituals.RiteOfSmallDemonicImprisonment;
-import net.sfedu.ars_maleficarum.ritual.RitesOfSummoning.RiteOfAbyssalFeast;
-import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfForgottenNameAwakening;
-import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffCreation;
-import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
-import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
-import net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequiresDemon.RiteOfKramerTorchCreation;
 
 import java.util.*;
 
 public abstract class CircleRitual {
 
-
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(
-            RiteOfLargeDemonicImprisonment.class,
-            RiteOfMediumDemonicImprisonment.class,
-            RiteOfSmallDemonicImprisonment.class,
-            RisingSunRitual.class,
-            RiteOfGrassBlockCreation.class,
-            RiteOfMoonlight.class,
-            GreatRiteOfEmpowering.class,
-            GreatRiteOfSwiftness.class,
-            WeakRiteOfEmpowering.class,
-            WeakRiteOfSwiftness.class,
-            SettingSunRitual.class,
-            RiteOfPoisonStaffRepairWithAliveLarva.class,
-            RiteOfPoisonStaffRepair.class,
-            RiteOfForgottenNameAwakening.class,
-            RiteOfPoisonStaffCreation.class,
-            RiteOfAbyssalFeast.class,
-            RiteOfKramerTorchCreation.class
-
-    );
-
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
 
-    protected RitualCoreEntity.CircleType smallCircleType;
-    protected RitualCoreEntity.CircleType mediumCircleType;
-    protected RitualCoreEntity.CircleType largeCircleType;
-    protected RitualCoreEntity.CircleType coreType;
+
+    protected RitualCoreEntity.ChalkType smallCircleType;
+    protected RitualCoreEntity.ChalkType mediumCircleType;
+    protected RitualCoreEntity.ChalkType largeCircleType;
+    protected RitualCoreEntity.ChalkType coreType;
 
     protected boolean doesRequireSmallCircle;
     protected boolean doesRequireMediumCircle;
@@ -83,11 +47,10 @@ public abstract class CircleRitual {
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
 
+
     protected Dimension dimension;
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {
-        //TODO: добавить проверку и на количество
-
         for (Item item : components.keySet()) {
             boolean flag = false;
             foundItem: for (int j = 0; j < container.getContainerSize(); j++) {
@@ -101,6 +64,14 @@ public abstract class CircleRitual {
             }
         }
         return true;
+    }
+
+    public String getName() {
+        return ritualName;
+    }
+
+    public Map<Item, Integer> getComponents() {
+        return components;
     }
 
     public boolean hasNoBlocksAbove3x3(Level pLevel, BlockPos pPos) {
@@ -118,11 +89,7 @@ public abstract class CircleRitual {
     }
 
     public void tryToContinue(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
-        try {
-            riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
-        } catch (Exception e) {
-            System.out.println("something went wrong...");
-        }
+        riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
     }
 
     public void consumeComponents(Level pLevel, BlockPos pPos, RitualCoreEntity riteCore, Player pPlayer) {
@@ -161,16 +128,16 @@ public abstract class CircleRitual {
     }
 
 
-    public RitualCoreEntity.CircleType getSmallCircleType() {
+    public RitualCoreEntity.ChalkType getSmallCircleType() {
         return smallCircleType;
     }
-    public RitualCoreEntity.CircleType getMediumCircleType() {
+    public RitualCoreEntity.ChalkType getMediumCircleType() {
         return mediumCircleType;
     }
-    public RitualCoreEntity.CircleType getLargeCircleType() {
+    public RitualCoreEntity.ChalkType getLargeCircleType() {
         return largeCircleType;
     }
-    public RitualCoreEntity.CircleType getCoreType() {
+    public RitualCoreEntity.ChalkType getCoreType() {
         return coreType;
     }
 

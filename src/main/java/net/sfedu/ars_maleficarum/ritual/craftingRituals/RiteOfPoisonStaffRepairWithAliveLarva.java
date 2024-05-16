@@ -11,7 +11,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
@@ -24,10 +23,10 @@ public class RiteOfPoisonStaffRepairWithAliveLarva extends CircleRitual {
 
     public RiteOfPoisonStaffRepairWithAliveLarva() {
         ritualName="Rite of Power Restoration";
-        smallCircleType= RitualCoreEntity.CircleType.NATURAL;
-        mediumCircleType= RitualCoreEntity.CircleType.ANY;
-        largeCircleType= RitualCoreEntity.CircleType.ANY;
-        coreType= RitualCoreEntity.CircleType.NATURAL;
+        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
+        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
+        largeCircleType= RitualCoreEntity.ChalkType.ANY;
+        coreType= RitualCoreEntity.ChalkType.NATURAL;
         components.put(ModItems.DEAD_TREE_BARK.get(), 3);
         components.put(ModItems.CURSED_GOLD_CHUNK.get(), 1);
         components.put(ModItems.TREE_LARVA.get(), 1);

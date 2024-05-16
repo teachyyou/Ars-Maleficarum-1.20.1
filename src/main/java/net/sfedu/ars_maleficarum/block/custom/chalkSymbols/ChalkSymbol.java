@@ -34,8 +34,6 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
-
 public class ChalkSymbol extends HorizontalDirectionalBlock {
 
     public static final IntegerProperty VARIANT = IntegerProperty.create("variant",0,10);
@@ -48,7 +46,7 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     private static final VoxelShape BARRIER_SHAPE = Shapes.box(0, -4, 0, 1, 16, 1);
 
 
-    public static final RitualCoreEntity.CircleType type = RitualCoreEntity.CircleType.ANY;
+    public static final RitualCoreEntity.ChalkType type = RitualCoreEntity.ChalkType.ANY;
     public ChalkSymbol(Properties pProperties) {
         super(pProperties.destroyTime(5));
     }

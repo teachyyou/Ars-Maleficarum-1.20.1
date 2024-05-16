@@ -108,7 +108,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.CRYSTAL_BALL.get());
 
         simpleItem(ModItems.DRY_WOOD);
-        simpleItem(ModItems.INFUSED_DRY_WOOD);
 
         simpleItem(ModItems.MANDRAKE_ROOT);
         simpleItem(ModItems.MANDRAKE_SEED);
@@ -131,7 +130,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.WET_ENCHANTED_LEATHER);
         simpleItem(ModItems.DRIED_ENCHANTED_LEATHER);
-        simpleItem(ModItems.SIMPLE_WITCH_HAT);
 
     }
 

@@ -1,7 +1,7 @@
 {
   "name": "Деревья",
   "description": "Тут хранятся параграфы, посвященные известным (и не очень) деревьям, чьи магические свойства нашли свое применение в тёмных искусствах ведьм. $(br2)$(l)Древо - лучший друг ведьмы, живущей в лесу. Если только оно не стало её же врагом ранее.$()",
-  "icon": "ars_maleficarum:rowan_sapling",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/trees.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 1
 }

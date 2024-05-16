@@ -1,0 +1,26 @@
+{
+  "name": "Фигурка кошки",
+  "icon": "ars_maleficarum:wooden_cat_figure",
+  "category": "ars_maleficarum:artifacts",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Вероятно, одному египетскому жрецу однажды пришла в голову такая идея. Вырезав из дерева фигурку почитаемой кошки, он наполнил её магией, тем самым создав мощнейший артефакт, спасший пирамиды. $(br)Всем известно, как раздражают криперы. А ещё как сильно они боятся кошек. Деревянная фигурка кошки, получаемая наполнением - мощный идол, способный повергать в бегство орды мерзких криперов."
+    },
+    {
+      "type": "ars_maleficarum:infusing_altar_recipe",
+      "recipe": "ars_maleficarum:wooden_cat_figure_in_infusing_altar",
+      "title": "Наполнение",
+      "text": "Теперь ваш сад будет надёжно защищён от криперов. Ведь котики - круто! $(l)Замечание$(): Поднять фигурку - Shift+ПКМ."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Фигурка кошки",
+      "text": "Многим волшебникам это зрелище доставляет необычайное удовольствие.",
+      "border": true,
+      "images": ["ars_maleficarum:textures/books/shadow_grimoire/wooden_cat_figure.png"]
+    }
+  ],
+  "read_by_default": true
+}
