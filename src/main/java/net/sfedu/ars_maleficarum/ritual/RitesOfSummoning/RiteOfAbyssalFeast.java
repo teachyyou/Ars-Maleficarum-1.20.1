@@ -28,7 +28,7 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 import java.util.Optional;
 
-public class RiteOfAbyssalFeast extends CircleRitual {
+public class    RiteOfAbyssalFeast extends CircleRitual {
 
     public RiteOfAbyssalFeast() {
         ritualName="Rite of Abyssal Feast";

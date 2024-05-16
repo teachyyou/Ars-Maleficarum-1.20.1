@@ -39,29 +39,8 @@ import java.util.*;
 
 public abstract class CircleRitual {
 
-
-    public static final List<Class<? extends CircleRitual>> allExistingRituals = List.of(
-            RiteOfLargeDemonicImprisonment.class,
-            RiteOfMediumDemonicImprisonment.class,
-            RiteOfSmallDemonicImprisonment.class,
-            RisingSunRitual.class,//
-            RiteOfGrassBlockCreation.class, //
-            RiteOfMoonlight.class, //
-            GreatRiteOfEmpowering.class,
-            GreatRiteOfSwiftness.class,
-            WeakRiteOfEmpowering.class,
-            WeakRiteOfSwiftness.class,
-            SettingSunRitual.class, //
-            RiteOfPoisonStaffRepairWithAliveLarva.class,
-            RiteOfPoisonStaffRepair.class,
-            RiteOfForgottenNameAwakening.class,
-            RiteOfPoisonStaffCreation.class,
-            RiteOfAbyssalFeast.class,
-            RiteOfKramerTorchCreation.class
-
-    );
-
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
+
 
     protected RitualCoreEntity.CircleType smallCircleType;
     protected RitualCoreEntity.CircleType mediumCircleType;
@@ -83,11 +62,10 @@ public abstract class CircleRitual {
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
     protected String ritualName;
 
+
     protected Dimension dimension;
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {
-        //TODO: добавить проверку и на количество
-
         for (Item item : components.keySet()) {
             boolean flag = false;
             foundItem: for (int j = 0; j < container.getContainerSize(); j++) {
@@ -101,6 +79,14 @@ public abstract class CircleRitual {
             }
         }
         return true;
+    }
+
+    public String getName() {
+        return ritualName;
+    }
+
+    public Map<Item, Integer> getComponents() {
+        return components;
     }
 
     public boolean hasNoBlocksAbove3x3(Level pLevel, BlockPos pPos) {
@@ -118,11 +104,7 @@ public abstract class CircleRitual {
     }
 
     public void tryToContinue(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
-        try {
-            riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
-        } catch (Exception e) {
-            System.out.println("something went wrong...");
-        }
+        riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
     }
 
     public void consumeComponents(Level pLevel, BlockPos pPos, RitualCoreEntity riteCore, Player pPlayer) {

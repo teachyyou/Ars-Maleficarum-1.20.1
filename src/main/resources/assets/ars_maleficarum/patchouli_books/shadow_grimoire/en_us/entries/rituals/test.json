@@ -1,0 +1,17 @@
+{
+  "name": "тест",
+  "icon": "ars_maleficarum:textures/item/swamp_rotfiend_ingredient.png",
+  "category": "ars_maleficarum:circle_magic/infusing",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "блаблабла"
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:abyssal_feast",
+      "text": "ещё больше тестового текста"
+    }
+  ],
+  "read_by_default": true
+}

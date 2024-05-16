@@ -24,17 +24,59 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RitualCoreEntity extends BlockEntity {
 
-    public enum CircleType {WHITE,NETHER,ENDER,NATURAL,ANY};
+    public enum CircleSize implements StringRepresentable {SMALL, MEDIUM, LARGE, CORE;
+        @Override
+        public @NotNull String getSerializedName() {
+            switch (this) {
+                case SMALL -> {
+                    return "small";
+                }
+                case MEDIUM -> {
+                    return "medium";
+                }
+                case LARGE -> {
+                    return "large";
+                }
+                default -> {
+                    return "core";
+                }
+            }
+        }
+    };
+
+    public enum CircleType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
+        @Override
+        public @NotNull String getSerializedName() {
+            switch (this) {
+                case WHITE -> {
+                    return "white";
+                }
+                case NATURAL -> {
+                    return "green";
+                }
+                case NETHER -> {
+                    return "crimson";
+                }
+                case ENDER -> {
+                    return "ender";
+                }
+                default -> {
+                    return "any";
+                }
+            }
+        }
+    };
 
     public enum CircleColor implements StringRepresentable {WHITE,GREEN, CRIMSON, /*PURPLE, BLACK TODO: добавить остальные по мере реализации*/;
 
@@ -424,7 +466,7 @@ public class RitualCoreEntity extends BlockEntity {
 
 
 
-    public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
 
         List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
         SimpleContainer container = new SimpleContainer(items.size());
@@ -432,9 +474,8 @@ public class RitualCoreEntity extends BlockEntity {
             container.addItem(item.getItem());
         }
 
-        for (Class<? extends CircleRitual> Ritual : CircleRitual.allExistingRituals) {
-            ritual = Ritual.getDeclaredConstructor().newInstance();
-
+        for (RitualType<?> ritualType : RitualTypes.getEntries()) {
+            ritual = ritualType.create();
             currentSmallType = ritual.doesRequireSmallCircle() ?  ritual.getSmallCircleType() : CircleType.ANY;
             currentMediumType = ritual.doesRequireMediumCircle() ?  ritual.getMediumCircleType() : CircleType.ANY;
             currentLargeType = ritual.doesRequireLargeCircle() ?  ritual.getLargeCircleType() : CircleType.ANY;
@@ -447,9 +488,8 @@ public class RitualCoreEntity extends BlockEntity {
                 executingRitual = true;
                 player = pPlayer;
                 break;
-                
-            }
 
+            }
         }
 
     }
