@@ -34,6 +34,7 @@ public class PoisonStaff extends Item implements Vanishable {
         {
             player.removeEffect(MobEffects.POISON);
             player.removeEffect(MobEffects.WITHER);
+            player.removeEffect(MobEffects.BLINDNESS);
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30));
             player.getCooldowns().addCooldown(this, 200);
             player.playSound(SoundEvents.TOTEM_USE, 1.0F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2F + 1.0F);

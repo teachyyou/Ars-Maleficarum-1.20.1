@@ -84,11 +84,11 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
     }
 
     private void resetBlindCooldown() {
-        this.ticksUntilNextAttack = adjustedTickDelay(blindDelay);
+        this.ticksUntilNextBlind = adjustedTickDelay(blindDelay);
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr-10 <= this.getAttackReachSqr(pEnemy);
+        return pDistToEnemySqr/2 <= this.getAttackReachSqr(pEnemy);
     }
 
     protected void resetAttackCooldown() {
