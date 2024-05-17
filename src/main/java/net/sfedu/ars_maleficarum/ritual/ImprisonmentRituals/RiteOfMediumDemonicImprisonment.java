@@ -13,14 +13,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.List;
 
 public class RiteOfMediumDemonicImprisonment extends CircleRitual {
 
-    public RiteOfMediumDemonicImprisonment() {
-        ritualName="Rite of Demonic Imprisonment";
+    public RiteOfMediumDemonicImprisonment(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.ANY;
         mediumCircleType= RitualCoreEntity.ChalkType.ANY;
         largeCircleType= RitualCoreEntity.ChalkType.ANY;
@@ -60,7 +62,7 @@ public class RiteOfMediumDemonicImprisonment extends CircleRitual {
                 ((ServerLevel)pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0,0.1D,0,1D);
             }
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

@@ -18,8 +18,8 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class SettingSunRitual extends CircleRitual {
 
 
-    public SettingSunRitual() {
-        ritualName="Rite of Setting Sun";
+    public SettingSunRitual(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.WHITE;
         mediumCircleType= RitualCoreEntity.ChalkType.ANY;
         largeCircleType= RitualCoreEntity.ChalkType.WHITE;
@@ -49,7 +49,7 @@ public class SettingSunRitual extends CircleRitual {
             pLevel.updateSkyBrightness();
         }
         if (allComponentsConsumed && pLevel.getDayTime()>=13000) {
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

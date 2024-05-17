@@ -15,14 +15,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.Optional;
 
 public class RiteOfPoisonStaffRepairWithAliveLarva extends CircleRitual {
 
-    public RiteOfPoisonStaffRepairWithAliveLarva() {
-        ritualName="Rite of Power Restoration";
+    public RiteOfPoisonStaffRepairWithAliveLarva(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
         mediumCircleType= RitualCoreEntity.ChalkType.ANY;
         largeCircleType= RitualCoreEntity.ChalkType.ANY;
@@ -64,7 +66,7 @@ public class RiteOfPoisonStaffRepairWithAliveLarva extends CircleRitual {
 
 
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

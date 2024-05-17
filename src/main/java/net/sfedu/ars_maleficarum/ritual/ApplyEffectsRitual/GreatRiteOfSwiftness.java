@@ -1,16 +1,19 @@
 package net.sfedu.ars_maleficarum.ritual.ApplyEffectsRitual;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Items;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitual;
 
 public class GreatRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
-    public GreatRiteOfSwiftness() {
-        ritualName="Rite of Swiftness";
+    public GreatRiteOfSwiftness(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.WHITE;
         mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
         largeCircleType= RitualCoreEntity.ChalkType.WHITE;

@@ -17,8 +17,8 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 public class RisingSunRitual extends CircleRitual {
 
-    public RisingSunRitual() {
-        ritualName="Rite of Rising Sun";
+    public RisingSunRitual(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.WHITE;
         mediumCircleType= RitualCoreEntity.ChalkType.ANY;
         largeCircleType= RitualCoreEntity.ChalkType.WHITE;
@@ -45,7 +45,7 @@ public class RisingSunRitual extends CircleRitual {
         }
         if (allComponentsConsumed && ticks/20.0 == 5) {
             pLevel.getServer().getLevel(Level.OVERWORLD).setDayTime(23500);
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

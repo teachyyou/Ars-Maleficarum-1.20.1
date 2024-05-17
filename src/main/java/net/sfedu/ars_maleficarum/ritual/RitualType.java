@@ -17,10 +17,10 @@ public class RitualType<T extends CircleRitual> {
     }
 
     public T create() {
-        return this.factory.create();
+        return this.factory.create(this);
     }
 
     public interface RitualFactory<T extends CircleRitual> {
-        T create();
+        T create(RitualType<T> type);
     }
 }

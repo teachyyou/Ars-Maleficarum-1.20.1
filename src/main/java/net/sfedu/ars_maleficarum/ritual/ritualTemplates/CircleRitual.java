@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 
 import java.util.*;
 
@@ -45,10 +47,16 @@ public abstract class CircleRitual {
     protected int ticks = 0;
     protected Class<? extends Entity> sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
-    protected String ritualName;
 
+    protected Component ritualName;
+    protected RitualType<?> ritualType;
 
     protected Dimension dimension;
+
+    public CircleRitual(RitualType<?> type) {
+        this.ritualType=type;
+        ritualName = Component.translatable("ritual.ars_maleficarum.rite_of").append(Component.translatable("ritual.ars_maleficarum."+ ritualType.getId().getPath()));
+    }
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {
         for (Item item : components.keySet()) {
@@ -67,7 +75,7 @@ public abstract class CircleRitual {
     }
 
     public String getName() {
-        return ritualName;
+        return ritualName.getString();
     }
 
     public Map<Item, Integer> getComponents() {
@@ -124,7 +132,7 @@ public abstract class CircleRitual {
 
     @Override
     public String toString() {
-        return ritualName;
+        return getName();
     }
 
 

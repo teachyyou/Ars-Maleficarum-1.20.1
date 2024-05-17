@@ -66,19 +66,25 @@ public class RitualCirclesProcessor implements IComponentProcessor {
 
     @Override
     public IVariable process(Level level, String key) {
-        if((key.startsWith("small")|| key.startsWith("medium") || key.startsWith("large") || key.startsWith("core")) && checkForRequirement(key)) {
-            return IVariable.wrap(getSizePath(RitualCoreEntity.CircleSize.valueOf(key.toUpperCase())));
+        if((key.startsWith("small")|| key.startsWith("medium") || key.startsWith("large") || key.startsWith("core"))) {
+            return checkForRequirement(key) ? IVariable.wrap(getSizePath(RitualCoreEntity.CircleSize.valueOf(key.toUpperCase()))) : IVariable.empty();
         }
         else if ((key.startsWith("components"))) {
             String s = "";
             for (Map.Entry<Item,Integer> component : ritual.getComponents().entrySet()) {
-                s += "$(li)$(l)" + component.getKey().getDescription().getString();
+                s += "$(li)" + component.getKey().getDescription().getString();
                 if (component.getValue() > 1) s+= " ("+component.getValue() + ")$()";
             }
             return IVariable.wrap(s);
         }
         else if (key.startsWith("name")) {
             return IVariable.wrap(ritual.getName());
+        }
+
+        else if (key.endsWith("header_size")) {
+            if (key.startsWith("1header_size")) return IVariable.wrap(ritual.getName().length()<22);
+            else if (key.startsWith("085header_size")) return IVariable.wrap(ritual.getName().length()>=22 && ritual.getName().length() < 30);
+            else return IVariable.wrap(ritual.getName().length()>=30);
         }
         return null;
     }

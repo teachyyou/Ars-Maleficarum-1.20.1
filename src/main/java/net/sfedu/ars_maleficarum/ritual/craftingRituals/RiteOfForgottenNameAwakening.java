@@ -19,6 +19,8 @@ import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
@@ -26,8 +28,8 @@ import java.util.Optional;
 
 public class RiteOfForgottenNameAwakening extends CircleRitual {
 
-    public RiteOfForgottenNameAwakening() {
-        ritualName="Rite of Forgotten Name Awakening";
+    public RiteOfForgottenNameAwakening(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.NETHER;
         mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
         largeCircleType= RitualCoreEntity.ChalkType.NETHER;
@@ -90,7 +92,7 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
 
 
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

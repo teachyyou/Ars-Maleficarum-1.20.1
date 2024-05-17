@@ -186,6 +186,25 @@
 
   "ritual.rite_interrupt_by_components": "The Ritual was interrupted due to the lack of necessary components!",
 
+  "ritual.ars_maleficarum.rite_of": "Rite of ",
+  "ritual.ars_maleficarum.small_demonic_imprisonment": "Demonic Imprisonment",
+  "ritual.ars_maleficarum.medium_demonic_imprisonment": "Demonic Imprisonment",
+  "ritual.ars_maleficarum.large_demonic_imprisonment": "Demonic Imprisonment",
+  "ritual.ars_maleficarum.rising_sun": "Rising Sun",
+  "ritual.ars_maleficarum.setting_sun": "Setting Sun",
+  "ritual.ars_maleficarum.poison_staff_creation": "Power Awakening",
+  "ritual.ars_maleficarum.poison_staff_repair_larva": "Power Restoration",
+  "ritual.ars_maleficarum.poison_staff_repair": "Power Restoration",
+  "ritual.ars_maleficarum.grass_block_creation": "Natural Awakening",
+  "ritual.ars_maleficarum.rite_of_moonlight": "Moonlight Charm",
+  "ritual.ars_maleficarum.forgotten_name_awakening": "Forgotten Name Awakening",
+  "ritual.ars_maleficarum.abyssal_feast": "Abyssal Feast",
+  "ritual.ars_maleficarum.kramer_torch_creation": "Torch Lightening",
+  "ritual.ars_maleficarum.weak_empowering": "Empowering",
+  "ritual.ars_maleficarum.weak_swiftness": "Swiftness",
+  "ritual.ars_maleficarum.great_empowering": "Empowering",
+  "ritual.ars_maleficarum.great_swiftness": "Swiftness",
+
   "block.ars_maleficarum.brewing_cauldron": "Brewing Cauldron",
 
 

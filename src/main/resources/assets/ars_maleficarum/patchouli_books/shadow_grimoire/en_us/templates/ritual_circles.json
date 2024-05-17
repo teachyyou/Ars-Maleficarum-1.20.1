@@ -4,8 +4,27 @@
     {
       "type": "patchouli:header",
       "text": "#name",
-      "centered": true,
       "x": -1,
+      "centered": true,
+      "guard": "#1header_size",
+      "y": -1
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#name",
+      "x": -1,
+      "centered": true,
+      "scale": 0.85,
+      "guard": "#085header_size",
+      "y": -1
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#name",
+      "x": -1,
+      "centered": true,
+      "scale": 0.7,
+      "guard": "#07header_size",
       "y": -1
     },
     {

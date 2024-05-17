@@ -14,13 +14,15 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class    RiteOfAbyssalFeast extends CircleRitual {
 
-    public RiteOfAbyssalFeast() {
-        ritualName="Rite of Abyssal Feast";
+    public RiteOfAbyssalFeast(RitualType<?> type) {
+        super(type);
         smallCircleType= RitualCoreEntity.ChalkType.ANY;
         mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
         largeCircleType= RitualCoreEntity.ChalkType.NETHER;
@@ -72,7 +74,7 @@ public class    RiteOfAbyssalFeast extends CircleRitual {
                 mandrake.moveTo((double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
                 pLevel.addFreshEntity(mandrake);
 
-                pPlayer.sendSystemMessage(Component.translatable(ritualName));
+                pPlayer.sendSystemMessage(ritualName);
                 ticks=0;
                 riteCore.stopRitual();
                 tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
