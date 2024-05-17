@@ -30,8 +30,6 @@ public class RitualCirclesProcessor implements IComponentProcessor {
         mediumType = ritual.getMediumCircleType();
         largeType = ritual.getLargeCircleType();
         coreType = ritual.getCoreType();
-        System.out.println(ritual.getName() + " WOWOWO REQUIRE SMALL =" + ritual.doesRequireSmallCircle() + ", REQUIRE MEDIUM = " + ritual.doesRequireMediumCircle() + ", REQUIRE LARGE = " + ritual.doesRequireLargeCircle());
-        System.out.println(ritual.getName() + " WOWOWO SMALL =" + smallType + ", MEDIUM = " + mediumType + ", LARGE = " + largeType);
     }
 
     private String getSizePath(RitualCoreEntity.CircleSize size) {

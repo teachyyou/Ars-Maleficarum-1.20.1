@@ -2,7 +2,7 @@
   "name": "Зачарованная кожа",
   "icon": "ars_maleficarum:dried_enchanted_leather",
   "category": "ars_maleficarum:components",
-  "sortnum": 5,
+  "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",

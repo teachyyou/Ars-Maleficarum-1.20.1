@@ -1,7 +1,7 @@
 {
   "name": "Серебро",
   "icon": "ars_maleficarum:silver_chunk",
-  "category": "ars_maleficarum:ores",
+  "category": "ars_maleficarum:components",
   "sortnum": 1,
   "pages": [
     {

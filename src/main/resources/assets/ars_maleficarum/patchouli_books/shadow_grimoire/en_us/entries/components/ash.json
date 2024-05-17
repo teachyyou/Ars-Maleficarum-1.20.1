@@ -2,7 +2,7 @@
   "name": "Пепел",
   "icon": "ars_maleficarum:ash",
   "category": "ars_maleficarum:components",
-  "sortnum": 1,
+  "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
