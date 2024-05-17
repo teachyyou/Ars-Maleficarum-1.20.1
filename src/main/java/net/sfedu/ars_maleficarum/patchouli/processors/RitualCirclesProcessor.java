@@ -25,12 +25,13 @@ public class RitualCirclesProcessor implements IComponentProcessor {
     @Override
     public void setup(Level level, IVariableProvider iVariableProvider) {
         ritual=RitualTypes.getDefaultByName(new ResourceLocation(iVariableProvider.get("ritual").asString()));
+        if (ritual==null) return;
         smallType = ritual.getSmallCircleType();
         mediumType = ritual.getMediumCircleType();
         largeType = ritual.getLargeCircleType();
         coreType = ritual.getCoreType();
+        System.out.println(ritual.getName() + " WOWOWO REQUIRE SMALL =" + ritual.doesRequireSmallCircle() + ", REQUIRE MEDIUM = " + ritual.doesRequireMediumCircle() + ", REQUIRE LARGE = " + ritual.doesRequireLargeCircle());
         System.out.println(ritual.getName() + " WOWOWO SMALL =" + smallType + ", MEDIUM = " + mediumType + ", LARGE = " + largeType);
-        System.out.println(ritual.getName() + " WOWOWO REQUIRE SMALL =" + ritual.doesRequireSmallCircle() + ", REQUIRE MEDIUM = " + ritual.doesRequireMediumCircle() + ", REQUIRE LARGE = " + ritual.doesRequireSmallCircle());
     }
 
     private String getSizePath(RitualCoreEntity.CircleSize size) {
@@ -50,6 +51,7 @@ public class RitualCirclesProcessor implements IComponentProcessor {
     }
 
     private boolean checkForRequirement(String key) {
+        System.out.println("GOGOGO " + key);
         switch (key) {
             case "small" ->  {
                 return ritual.doesRequireSmallCircle();
@@ -61,6 +63,7 @@ public class RitualCirclesProcessor implements IComponentProcessor {
                 return ritual.doesRequireLargeCircle();
             }
             default -> {
+                System.out.println("TRUTRUTRU " + key);
                 return true;
             }
         }

@@ -19,17 +19,10 @@ public class SettingSunRitual extends CircleRitual {
 
 
     public SettingSunRitual(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.WHITE);
         components.put(Items.LAPIS_LAZULI, 1);
         components.put(ModItems.MOONLIGHT_FLOWER.get(), 1);
         components.put(ModItems.SWEET_DREAM.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override

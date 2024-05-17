@@ -24,8 +24,8 @@ public abstract class ApplyEffectOnPlayersRitual extends CircleRitual{
     public int playersAmount;
     public int radius;
 
-    public ApplyEffectOnPlayersRitual(RitualType<?> type) {
-        super(type);
+    public ApplyEffectOnPlayersRitual(RitualType<?> type, RitualCoreEntity.ChalkType coreType, RitualCoreEntity.ChalkType smallType, RitualCoreEntity.ChalkType mediumType, RitualCoreEntity.ChalkType largeType) {
+        super(type, coreType, smallType, mediumType, largeType);
     }
 
 

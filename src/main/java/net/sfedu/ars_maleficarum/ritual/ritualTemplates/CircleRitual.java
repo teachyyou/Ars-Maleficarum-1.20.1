@@ -53,9 +53,17 @@ public abstract class CircleRitual {
 
     protected Dimension dimension;
 
-    public CircleRitual(RitualType<?> type) {
+    public CircleRitual(RitualType<?> type, RitualCoreEntity.ChalkType coreType, RitualCoreEntity.ChalkType smallType, RitualCoreEntity.ChalkType mediumType, RitualCoreEntity.ChalkType largeType) {
+        this.coreType = coreType;
+        this.smallCircleType = smallType;
+        this.mediumCircleType = mediumType;
+        this.largeCircleType = largeType;
+        this.doesRequireSmallCircle = (smallType != RitualCoreEntity.ChalkType.NONE);
+        this.doesRequireMediumCircle = (mediumType != RitualCoreEntity.ChalkType.NONE);
+        this.doesRequireLargeCircle = (largeType != RitualCoreEntity.ChalkType.NONE);
         this.ritualType=type;
         ritualName = Component.translatable("ritual.ars_maleficarum.rite_of").append(Component.translatable("ritual.ars_maleficarum."+ ritualType.getId().getPath()));
+
     }
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {

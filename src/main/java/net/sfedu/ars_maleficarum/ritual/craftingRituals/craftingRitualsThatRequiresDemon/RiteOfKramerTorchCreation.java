@@ -29,11 +29,7 @@ import java.util.Optional;
 public class RiteOfKramerTorchCreation extends CircleRitual {
 
     public RiteOfKramerTorchCreation(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
-        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
-        coreType= RitualCoreEntity.ChalkType.NETHER;
+        super(type, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NETHER,RitualCoreEntity.ChalkType.NETHER);
         components.put(ModItems.CHERRY_ETUDE.get(), 1);
         components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
         components.put(Items.FIRE_CHARGE, 1);
@@ -41,9 +37,6 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
         components.put(Items.DIAMOND, 1);
         components.put(Items.TORCH, 1);
         components.put(ModItems.SIMPLE_WITCH_HAT.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
         sacrificeEntity = GluttonyDemonEntity.class;
         particleType = ParticleTypes.FLAME;
         itemConsumeSound = SoundEvents.BLAZE_SHOOT;

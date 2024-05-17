@@ -55,7 +55,7 @@ public class RitualCoreEntity extends BlockEntity {
         }
     };
 
-    public enum ChalkType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
+    public enum ChalkType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY,NONE;
         @Override
         public @NotNull String getSerializedName() {
             switch (this) {
@@ -70,6 +70,9 @@ public class RitualCoreEntity extends BlockEntity {
                 }
                 case ENDER -> {
                     return "ender";
+                }
+                case NONE -> {
+                    return "none";
                 }
                 default -> {
                     return "any";
