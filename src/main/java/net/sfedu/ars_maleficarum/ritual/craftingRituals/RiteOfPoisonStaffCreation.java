@@ -25,19 +25,12 @@ import java.util.Optional;
 public class RiteOfPoisonStaffCreation extends CircleRitual {
 
     public RiteOfPoisonStaffCreation(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
-        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NATURAL);
         components.put(Items.SPIDER_EYE,1);
         components.put(Items.GLOWSTONE,1);
         components.put(Items.EMERALD, 1);
         components.put(ModItems.STINK_OF_SWAMP.get(), 1);
         components.put(Items.BONE, 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
 
     }
 

@@ -29,11 +29,7 @@ import java.util.Optional;
 public class RiteOfForgottenNameAwakening extends CircleRitual {
 
     public RiteOfForgottenNameAwakening(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.NETHER;
-        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
-        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NETHER);
         components.put(Items.DIAMOND,1);
         components.put(Items.BLAZE_ROD,1);
         components.put(Items.NAME_TAG,1);
@@ -41,9 +37,6 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
         components.put(ModItems.SCENT_OF_UNCERTAINTY.get(), 1);
         components.put(ModItems.GROUND_MARIGOLD_FLOWERS.get(), 1);
         components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
         particleType=ParticleTypes.FLAME;
         itemConsumeSound = SoundEvents.BLAZE_SHOOT;
         itemConsumeParticleSpeed = 0.05f;

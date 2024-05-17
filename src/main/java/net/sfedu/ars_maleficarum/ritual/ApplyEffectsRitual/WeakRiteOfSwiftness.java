@@ -13,19 +13,13 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitu
 public class WeakRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
     public WeakRiteOfSwiftness(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NONE);
         components.put(Items.SUGAR, 1);
         components.put(ModItems.WASTELAND_WIND.get(), 1);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);
         components.put(Items.REDSTONE, 1);
         components.put(ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
+
 
         effects.add(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20*60*15, 1));
         playersAmount = 5;

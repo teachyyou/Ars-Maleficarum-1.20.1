@@ -24,19 +24,12 @@ import java.util.Optional;
 public class RiteOfPoisonStaffRepairWithAliveLarva extends CircleRitual {
 
     public RiteOfPoisonStaffRepairWithAliveLarva(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.NATURAL;
+        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NONE);
         components.put(ModItems.DEAD_TREE_BARK.get(), 3);
         components.put(ModItems.CURSED_GOLD_CHUNK.get(), 1);
         components.put(ModItems.TREE_LARVA.get(), 1);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);
         components.put(Items.FERMENTED_SPIDER_EYE, 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=false;
-        doesRequireSmallCircle=true;
     }
 
     @Override

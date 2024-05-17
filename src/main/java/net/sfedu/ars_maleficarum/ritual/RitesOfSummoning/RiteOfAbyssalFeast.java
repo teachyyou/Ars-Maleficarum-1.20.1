@@ -22,11 +22,7 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 public class    RiteOfAbyssalFeast extends CircleRitual {
 
     public RiteOfAbyssalFeast(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.ANY;
-        mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
-        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
-        coreType= RitualCoreEntity.ChalkType.NETHER;
+        super(type, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NETHER,RitualCoreEntity.ChalkType.NETHER);
         components.put(ModItems.ROWAN_BERRIES.get(), 1);
         components.put(Items.GOLDEN_APPLE,1);
         components.put(Items.CAKE,1);
@@ -34,9 +30,7 @@ public class    RiteOfAbyssalFeast extends CircleRitual {
         components.put(Items.COOKED_BEEF,1);
         components.put(Items.BLAZE_POWDER,1);
         components.put(ModItems.WHIFF_OF_TIME.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=false;
+        
         particleType=ParticleTypes.FLAME;
         itemConsumeSound = SoundEvents.BLAZE_SHOOT;
         itemConsumeParticleSpeed = 0.05f;

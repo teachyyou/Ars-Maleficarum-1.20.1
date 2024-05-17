@@ -20,19 +20,12 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class RiteOfGrassBlockCreation extends CircleRitual {
 
     public RiteOfGrassBlockCreation(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        mediumCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.NATURAL;
+        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NONE);
         components.put(ModItems.ASH.get(),2);
         components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
         components.put(Items.BONE_MEAL, 1);
         components.put(Blocks.GRASS.asItem(), 1);
         components.put(Blocks.DIRT.asItem(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override

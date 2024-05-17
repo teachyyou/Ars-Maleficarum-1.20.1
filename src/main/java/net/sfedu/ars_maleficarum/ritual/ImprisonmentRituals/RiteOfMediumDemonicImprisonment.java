@@ -22,18 +22,11 @@ import java.util.List;
 public class RiteOfMediumDemonicImprisonment extends CircleRitual {
 
     public RiteOfMediumDemonicImprisonment(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.ANY;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.ANY;
+        super(type, RitualCoreEntity.ChalkType.ANY, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.NONE);
         components.put(Items.SOUL_SAND, 1);
         components.put(Items.IRON_INGOT, 1);
         components.put(ModItems.SALT.get(), 2);
         components.put(ModItems.SILVER.get(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=false;
     }
 
 

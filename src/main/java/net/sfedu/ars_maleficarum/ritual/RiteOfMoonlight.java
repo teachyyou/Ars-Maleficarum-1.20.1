@@ -16,18 +16,11 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class RiteOfMoonlight extends CircleRitual {
 
     public RiteOfMoonlight(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
-        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE);
         components.put(ModItems.SCENT_OF_UNCERTAINTY.get(), 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.SILVER.get(), 1);
         components.put(ModItems.SUNLIGHT_FLOWER_SEED.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
 

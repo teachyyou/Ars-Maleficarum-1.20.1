@@ -18,17 +18,10 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class RisingSunRitual extends CircleRitual {
 
     public RisingSunRitual(RitualType<?> type) {
-        super(type);
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.WHITE);
         components.put(Items.SUNFLOWER, 1);
         components.put(ModItems.SUNLIGHT_FLOWER.get(), 1);
         components.put(ModItems.RING_OF_MORNING_DEW.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override
