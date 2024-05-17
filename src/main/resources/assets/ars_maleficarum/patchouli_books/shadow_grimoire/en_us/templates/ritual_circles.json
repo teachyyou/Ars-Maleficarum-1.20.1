@@ -82,6 +82,33 @@
       "centered": true,
       "x": -1,
       "y": 80
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "centered": true,
+      "x": -1,
+      "y": 120
+    },
+    {
+      "type": "patchouli:image",
+      "image": "#annotation_image",
+      "width": 16,
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 5,
+      "y": 45 ,
+      "guard": "#annotation_image->exists"
+    },
+    {
+      "type": "patchouli:tooltip",
+      "width": 16,
+      "height": 16,
+      "x": 5,
+      "y": 45,
+      "guard": "#annotation_image->exists",
+      "tooltip": ["#annotation_line1","#annotation_line2"]
     }
   ]
 }
