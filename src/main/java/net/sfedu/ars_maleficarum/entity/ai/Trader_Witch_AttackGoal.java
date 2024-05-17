@@ -33,7 +33,7 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
 
     @Override
     protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-        if(enemyHasWitcheryHat(pEnemy))
+        if(pEnemy instanceof Player  &&  enemyHasWitcheryHat(pEnemy))
         {
             witch.setHealth(witch.getMaxHealth());
         }
