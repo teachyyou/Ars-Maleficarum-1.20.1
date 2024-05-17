@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.player.Player;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
     TraderWitchEntity witch;
@@ -45,6 +46,7 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);
                 if(isTimeToBlind()){
+                    witch.playSound(ModSounds.TRADER_WITCH_ATTACK.get());
                     performCast(pEnemy);
                     performBlind(pEnemy);
                 }

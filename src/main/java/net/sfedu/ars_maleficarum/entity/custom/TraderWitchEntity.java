@@ -7,6 +7,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
@@ -33,6 +34,7 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.ai.Trader_Witch_AttackGoal;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 public class TraderWitchEntity extends AbstractVillager {
@@ -89,6 +91,29 @@ public class TraderWitchEntity extends AbstractVillager {
     {
         return this.entityData.get(ATTACKING);
     }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.TRADER_WITCH_DEATH.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.TRADER_WITCH_HURT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.TRADER_WITCH_AMOUNT.get();
+    }
+    @Override
+    public int getAmbientSoundInterval() {
+        return 200;
+    }
+
     @Override
     protected void rewardTradeXp(MerchantOffer pOffer) {
         if (pOffer.shouldRewardExp()) {
