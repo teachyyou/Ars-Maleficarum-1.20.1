@@ -55,7 +55,7 @@ public class RitualCoreEntity extends BlockEntity {
         }
     };
 
-    public enum ChalkType implements StringRepresentable {WHITE,NETHER,ENDER,NATURAL,ANY;
+    public enum ChalkType implements StringRepresentable {WHITE,NETHER,NATURAL,ENDER,ANY;
         @Override
         public @NotNull String getSerializedName() {
             switch (this) {
@@ -85,7 +85,6 @@ public class RitualCoreEntity extends BlockEntity {
     public ChalkType mediumCircle;
     public boolean hasProperLargeCircle;
     public ChalkType largeCircle;
-
     public boolean hasProperCore;
     public ChalkType core;
 
