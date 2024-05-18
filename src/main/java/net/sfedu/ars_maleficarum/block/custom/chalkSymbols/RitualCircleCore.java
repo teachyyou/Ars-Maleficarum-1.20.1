@@ -36,9 +36,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class, coreColor);
 
-
     public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
-
 
     @Override
     public float getDestroyProgress(BlockState pState, Player pPlayer, BlockGetter pLevel, BlockPos pPos) {
