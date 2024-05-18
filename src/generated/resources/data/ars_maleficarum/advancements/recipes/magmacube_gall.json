@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_something": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ars_maleficarum:sunlight_flower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ars_maleficarum:magmacube_gall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_something",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ars_maleficarum:magmacube_gall"
+    ]
+  },
+  "sends_telemetry_event": true
+}

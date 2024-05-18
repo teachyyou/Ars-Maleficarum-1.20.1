@@ -241,6 +241,16 @@ public class ModItems {
     public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather",
             ()->new IngredientItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> EXHAUSTED_SWALLOW_POTION = ITEMS.register("exhausted_swallow",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.EXHAUSTED_SWALLOW_POTION_PROPERTIES)));
+
+    public static final RegistryObject<Item> SPURIOUS_THUNDERBOLT_POTION = ITEMS.register("spurious_thunderbolt",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.SPURIOUS_THUNDERBOLT_POTION_PROPERTIES)));
+
+    public static final RegistryObject<Item> MAGMACUBE_GALL_POTION = ITEMS.register("magmacube_gall",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.MAGMACUBE_GALL_POTION_PROPERTIES)));
+
+
 
 
     //Регистрация предметов

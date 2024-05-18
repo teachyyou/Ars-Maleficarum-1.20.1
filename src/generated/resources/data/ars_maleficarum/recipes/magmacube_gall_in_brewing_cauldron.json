@@ -1,0 +1,36 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 1
+  },
+  "inOrder": {
+    "order": true
+  },
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:sunlight_flower"
+    },
+    {
+      "item": "ars_maleficarum:nameless_charcoal"
+    },
+    {
+      "item": "minecraft:magma_cream"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "ars_maleficarum:ash"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:magmacube_gall"
+  }
+}
