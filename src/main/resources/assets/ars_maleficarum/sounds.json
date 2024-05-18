@@ -93,5 +93,29 @@
     "sounds": [
       "ars_maleficarum:gluttony_demon_laugh"
     ]
+  },
+  "trader_witch_attack": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_attack",
+    "sounds": [
+      "ars_maleficarum:trader_witch_attack"
+    ]
+  },
+  "trader_witch_died": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_died",
+    "sounds": [
+      "ars_maleficarum:trader_witch_died"
+    ]
+  },
+  "trader_witch_hurt": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_hurt",
+    "sounds": [
+      "ars_maleficarum:trader_witch_hurt"
+    ]
+  },
+  "trader_witch_amount": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_amount",
+    "sounds": [
+      "ars_maleficarum:trader_witch_amount"
+    ]
   }
 }

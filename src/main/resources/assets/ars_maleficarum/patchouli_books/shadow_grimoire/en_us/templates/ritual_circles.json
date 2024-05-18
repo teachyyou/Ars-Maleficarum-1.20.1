@@ -4,8 +4,27 @@
     {
       "type": "patchouli:header",
       "text": "#name",
-      "centered": true,
       "x": -1,
+      "centered": true,
+      "guard": "#1header_size",
+      "y": -1
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#name",
+      "x": -1,
+      "centered": true,
+      "scale": 0.85,
+      "guard": "#085header_size",
+      "y": -1
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#name",
+      "x": -1,
+      "centered": true,
+      "scale": 0.7,
+      "guard": "#07header_size",
       "y": -1
     },
     {
@@ -27,6 +46,7 @@
     {
       "type": "patchouli:image",
       "image":  "#small",
+      "guard": "#small->exists",
       "framed": false,
       "x": 26,
       "y": 20,
@@ -38,6 +58,7 @@
     {
       "type": "patchouli:image",
       "image":  "#medium",
+      "guard": "#medium->exists",
       "framed": false,
       "x": 26,
       "y": 20,
@@ -49,6 +70,7 @@
     {
       "type": "patchouli:image",
       "image":  "#large",
+      "guard": "#large->exists",
       "framed": false,
       "x": 26,
       "y": 20,
@@ -63,6 +85,33 @@
       "centered": true,
       "x": -1,
       "y": 80
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "centered": true,
+      "x": 1,
+      "y": 120
+    },
+    {
+      "type": "patchouli:image",
+      "image": "#annotation_image",
+      "width": 16,
+      "height": 16,
+      "texture_width": 16,
+      "texture_height": 16,
+      "x": 5,
+      "y": 45 ,
+      "guard": "#annotation_image->exists"
+    },
+    {
+      "type": "patchouli:tooltip",
+      "width": 16,
+      "height": 16,
+      "x": 5,
+      "y": 45,
+      "guard": "#annotation_image->exists",
+      "tooltip": ["#annotation_line1","#annotation_line2"]
     }
   ]
 }

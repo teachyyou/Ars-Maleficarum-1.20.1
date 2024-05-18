@@ -13,25 +13,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.List;
 
 public class RiteOfMediumDemonicImprisonment extends CircleRitual {
 
-    public RiteOfMediumDemonicImprisonment() {
-        ritualName="Rite of Demonic Imprisonment";
-        smallCircleType= RitualCoreEntity.ChalkType.ANY;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.ANY;
+    public RiteOfMediumDemonicImprisonment(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.ANY, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.NONE);
         components.put(Items.SOUL_SAND, 1);
         components.put(Items.IRON_INGOT, 1);
         components.put(ModItems.SALT.get(), 2);
         components.put(ModItems.SILVER.get(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=false;
     }
 
 
@@ -60,7 +55,7 @@ public class RiteOfMediumDemonicImprisonment extends CircleRitual {
                 ((ServerLevel)pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0,0.1D,0,1D);
             }
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

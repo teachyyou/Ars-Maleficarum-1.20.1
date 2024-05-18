@@ -1,6 +1,7 @@
 package net.sfedu.ars_maleficarum.ritual;
 
 import net.minecraft.resources.ResourceLocation;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 public class RitualType<T extends CircleRitual> {
@@ -17,10 +18,10 @@ public class RitualType<T extends CircleRitual> {
     }
 
     public T create() {
-        return this.factory.create();
+        return this.factory.create(this);
     }
 
     public interface RitualFactory<T extends CircleRitual> {
-        T create();
+        T create(RitualType<?> type);
     }
 }

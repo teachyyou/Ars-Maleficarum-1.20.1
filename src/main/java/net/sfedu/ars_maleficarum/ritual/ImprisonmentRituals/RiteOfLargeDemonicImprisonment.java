@@ -13,26 +13,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.List;
 
 public class RiteOfLargeDemonicImprisonment extends CircleRitual {
 
-    public RiteOfLargeDemonicImprisonment() {
-        ritualName="Rite of Demonic Imprisonment";
-        smallCircleType= RitualCoreEntity.ChalkType.ANY;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.ANY;
+    public RiteOfLargeDemonicImprisonment(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.ANY, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.ANY);
         components.put(Items.SOUL_SAND, 1);
         components.put(Items.IRON_INGOT, 1);
         components.put(ModItems.SALT.get(), 3);
         components.put(ModItems.ASH.get(), 2);
         components.put(ModItems.SILVER.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=false;
-        doesRequireSmallCircle=false;
     }
 
 
@@ -63,7 +58,7 @@ public class RiteOfLargeDemonicImprisonment extends CircleRitual {
             }
             pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.PLAYERS,1F,1F);
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

@@ -1,0 +1,20 @@
+{
+  "name": "Наречение имени",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/forgotten_name_awakening.png",
+  "category": "ars_maleficarum:circle_magic/infusing",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Данный ритуал способен пробудить огонь, спящий внутри некогда обезличенного $(l:plants/nameless_tree)Безымянного Древа$(). Сильная магия, испорченная и искаженная кровью и адом, стремится вырваться наружу из небытия истории. Имя $(l:plants/kramer_tree)древа$(), корни которого однажды впитали океан крови невинных, пролитых инквизитором по имени Крамер, может быть вновь восстановлено благодаря обряду наречения."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:forgotten_name_awakening",
+      "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/forgotten_name_awakening.png",
+      "annotation_line1": "Саженец Безымянного древа должен",
+      "annotation_line2": "находиться внутри круга!"
+    }
+  ],
+  "read_by_default": true
+}

@@ -13,24 +13,19 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.List;
 
 public class RiteOfSmallDemonicImprisonment extends CircleRitual {
 
-    public RiteOfSmallDemonicImprisonment() {
-        ritualName="Rite of Demonic Imprisonment";
-        smallCircleType= RitualCoreEntity.ChalkType.ANY;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.ANY;
-        coreType= RitualCoreEntity.ChalkType.ANY;
+    public RiteOfSmallDemonicImprisonment(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.ANY, RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NONE);
         components.put(Items.SOUL_SAND, 1);
         components.put(ModItems.SALT.get(), 1);
         components.put(ModItems.SILVER.get(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=false;
-        doesRequireSmallCircle=true;
     }
 
 
@@ -61,7 +56,7 @@ public class RiteOfSmallDemonicImprisonment extends CircleRitual {
             }
             pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.PLAYERS,1F,1F);
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

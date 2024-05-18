@@ -18,18 +18,11 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class SettingSunRitual extends CircleRitual {
 
 
-    public SettingSunRitual() {
-        ritualName="Rite of Setting Sun";
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.ANY;
-        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+    public SettingSunRitual(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.WHITE);
         components.put(Items.LAPIS_LAZULI, 1);
         components.put(ModItems.MOONLIGHT_FLOWER.get(), 1);
         components.put(ModItems.SWEET_DREAM.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override
@@ -49,7 +42,7 @@ public class SettingSunRitual extends CircleRitual {
             pLevel.updateSkyBrightness();
         }
         if (allComponentsConsumed && pLevel.getDayTime()>=13000) {
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

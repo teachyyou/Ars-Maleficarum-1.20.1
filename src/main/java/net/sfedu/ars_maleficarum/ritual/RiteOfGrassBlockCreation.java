@@ -19,20 +19,13 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 public class RiteOfGrassBlockCreation extends CircleRitual {
 
-    public RiteOfGrassBlockCreation() {
-        ritualName="Rite of Nature's Awakening";
-        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        mediumCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        coreType= RitualCoreEntity.ChalkType.NATURAL;
+    public RiteOfGrassBlockCreation(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NONE);
         components.put(ModItems.ASH.get(),2);
         components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
         components.put(Items.BONE_MEAL, 1);
         components.put(Blocks.GRASS.asItem(), 1);
         components.put(Blocks.DIRT.asItem(), 1);
-        doesRequireLargeCircle=false;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override
@@ -55,7 +48,7 @@ public class RiteOfGrassBlockCreation extends CircleRitual {
             double d2 = pPos.getCenter().z;
             ((ServerLevel)pLevel).sendParticles(particle, d0, d1, d2, 100, 0,0.5D,0,0.1);
             pLevel.addFreshEntity(new ItemEntity(pLevel, d0, d1, d2, new ItemStack(Blocks.GRASS_BLOCK.asItem(),1)));
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

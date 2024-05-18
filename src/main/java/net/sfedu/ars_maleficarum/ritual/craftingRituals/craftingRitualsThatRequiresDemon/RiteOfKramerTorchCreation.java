@@ -19,6 +19,8 @@ import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
@@ -26,12 +28,8 @@ import java.util.Optional;
 
 public class RiteOfKramerTorchCreation extends CircleRitual {
 
-    public RiteOfKramerTorchCreation() {
-        ritualName="Rite of Forgotten Weapon Awakening"; //TODO придумать нормальное название
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.NETHER;
-        largeCircleType= RitualCoreEntity.ChalkType.NETHER;
-        coreType= RitualCoreEntity.ChalkType.NETHER;
+    public RiteOfKramerTorchCreation(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NETHER,RitualCoreEntity.ChalkType.NETHER);
         components.put(ModItems.CHERRY_ETUDE.get(), 1);
         components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
         components.put(Items.FIRE_CHARGE, 1);
@@ -39,9 +37,6 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
         components.put(Items.DIAMOND, 1);
         components.put(Items.TORCH, 1);
         components.put(ModItems.SIMPLE_WITCH_HAT.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
         sacrificeEntity = GluttonyDemonEntity.class;
         particleType = ParticleTypes.FLAME;
         itemConsumeSound = SoundEvents.BLAZE_SHOOT;
@@ -108,7 +103,7 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.FLAME, d0, d1, d2, 100, 0,1D,0,0.2);
             pLevel.playSound(null, pPos, SoundEvents.WITHER_DEATH, SoundSource.PLAYERS,1F,1F);
             staff.setItem(new ItemStack(ModItems.FIRE_STAFF.get()));
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

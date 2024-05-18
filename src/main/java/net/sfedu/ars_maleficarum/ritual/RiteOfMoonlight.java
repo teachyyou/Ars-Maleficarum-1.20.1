@@ -15,19 +15,12 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 public class RiteOfMoonlight extends CircleRitual {
 
-    public RiteOfMoonlight() {
-        ritualName="Rite of Moonlight Charm";
-        smallCircleType= RitualCoreEntity.ChalkType.WHITE;
-        mediumCircleType= RitualCoreEntity.ChalkType.WHITE;
-        largeCircleType= RitualCoreEntity.ChalkType.WHITE;
-        coreType= RitualCoreEntity.ChalkType.WHITE;
+    public RiteOfMoonlight(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE);
         components.put(ModItems.SCENT_OF_UNCERTAINTY.get(), 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.SILVER.get(), 1);
         components.put(ModItems.SUNLIGHT_FLOWER_SEED.get(), 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
 
@@ -54,7 +47,7 @@ public class RiteOfMoonlight extends CircleRitual {
             double d2 = pPos.getCenter().z;
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.WAX_OFF, d0, d1, d2, 50, 0,0.5D,0,0.5);
             pLevel.addFreshEntity(new ItemEntity(pLevel, d0, d1, d2, new ItemStack(ModItems.MOONLIGHT_FLOWER_SEED.get(),1)));
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
