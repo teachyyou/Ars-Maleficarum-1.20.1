@@ -24,12 +24,18 @@ import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Predicate;
+
 public class RitualCircleCore extends BaseEntityBlock {
     public RitualCircleCore(Properties pProperties) {
         super(pProperties.destroyTime(5));
     }
 
-    public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class);
+    //Фильтр того, что тип белый, адский или природный (для blockstate датаген билдера)
+    private static Predicate<RitualCoreEntity.ChalkType> coreColor = (type) ->(type.ordinal() <= 2);
+
+    public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class, coreColor);
+
 
     public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
 

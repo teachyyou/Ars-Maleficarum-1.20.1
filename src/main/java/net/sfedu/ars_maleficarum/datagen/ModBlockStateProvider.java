@@ -133,7 +133,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     public void RitualCircleCore() {
         Function<BlockState, ConfiguredModel[]> function = this::circleCoreTypes;
-        getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get()).forAllStates(function);
+        getVariantBuilder(ModBlocks.RITUAL_CIRCLE_CORE.get()).forAllStatesExcept(function);
     }
 
     private ConfiguredModel[] circleCoreTypes(BlockState state) {
