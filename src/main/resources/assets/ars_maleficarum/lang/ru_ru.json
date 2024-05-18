@@ -222,5 +222,10 @@
   "book.shadow_grimoire.dimension.any": "Требование: Где угодно",
   "book.shadow_grimoire.dimension.end": "Требование: Край",
 
-  "book.shadow_grimoire.cauldron.order": "Данный рецепт упорядочен"
+  "book.shadow_grimoire.cauldron.order": "Данный рецепт упорядочен",
+
+  "item.ars_maleficarum.exhausted_swallow": "Уставшая Ласточка",
+  "item.ars_maleficarum.spurious_thunderbolt": "Палёный Гром",
+  "item.ars_maleficarum.magmacube_gall": "Желчь Магмового Куба"
+
 }

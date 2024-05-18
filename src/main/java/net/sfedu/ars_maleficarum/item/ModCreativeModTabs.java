@@ -166,6 +166,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK.get());
                         pOutput.accept(ModItems.TRADE_WITCH_SPAWN_EGG.get());
 
+                        pOutput.accept(ModItems.TIRED_SWALLOW_POTION.get());
+                        pOutput.accept(ModItems.SCORCHED_THUNDER_POTION.get());
+                        pOutput.accept(ModItems.MAGMA_BILE_POTION.get());
+
                     }))
                     .build());
 
