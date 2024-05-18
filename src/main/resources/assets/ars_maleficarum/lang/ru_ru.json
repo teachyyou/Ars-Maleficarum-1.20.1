@@ -188,6 +188,25 @@
 
   "ritual.rite_interrupt_by_components": "Ритуал был прерван из-за отсутствия необходимых компонентов!",
 
+  "ritual.ars_maleficarum.rite_of": "Ритуал ",
+  "ritual.ars_maleficarum.small_demonic_imprisonment": "Демонического заточения",
+  "ritual.ars_maleficarum.medium_demonic_imprisonment": "Демонического заточения",
+  "ritual.ars_maleficarum.large_demonic_imprisonment": "Демонического заточения",
+  "ritual.ars_maleficarum.rising_sun": "Восходящего Солнца",
+  "ritual.ars_maleficarum.setting_sun": "Заходящего Солнца",
+  "ritual.ars_maleficarum.poison_staff_creation": "Пробуждения силы",
+  "ritual.ars_maleficarum.poison_staff_repair_larva": "Восстановления силы",
+  "ritual.ars_maleficarum.poison_staff_repair": "Восстановления силы",
+  "ritual.ars_maleficarum.grass_block_creation": "Природного пробуждения",
+  "ritual.ars_maleficarum.rite_of_moonlight": "Лунного Света",
+  "ritual.ars_maleficarum.forgotten_name_awakening": "Наречения имени",
+  "ritual.ars_maleficarum.abyssal_feast": "Адского пиршества",
+  "ritual.ars_maleficarum.kramer_torch_creation": "Зажжения факела",
+  "ritual.ars_maleficarum.weak_empowering": "Усиления",
+  "ritual.ars_maleficarum.weak_swiftness": "Ускорения",
+  "ritual.ars_maleficarum.great_empowering": "Усиления",
+  "ritual.ars_maleficarum.great_swiftness": "Ускорения",
+
   "block.ars_maleficarum.brewing_cauldron": "Варочный котёл",
 
   "item.ars_maleficarum.wet_enchanted_leather": "Влажная зачарованная кожа",

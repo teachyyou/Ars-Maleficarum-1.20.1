@@ -15,27 +15,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 import java.util.Optional;
 
 public class RiteOfPoisonStaffRepair extends CircleRitual {
 
-    public RiteOfPoisonStaffRepair() {
-        ritualName="Rite of Power Restoration";
-        smallCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        mediumCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        largeCircleType= RitualCoreEntity.ChalkType.NATURAL;
-        coreType= RitualCoreEntity.ChalkType.NATURAL;
+    public RiteOfPoisonStaffRepair(RitualType<?> type) {
+        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NATURAL);
         components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
         components.put(ModItems.DEAD_TREE_BARK.get(), 3);
         components.put(ModItems.CURSED_GOLD_CHUNK.get(), 1);
         components.put(ModItems.STINK_OF_SWAMP.get(), 1);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);
         components.put(Items.FERMENTED_SPIDER_EYE, 1);
-        doesRequireLargeCircle=true;
-        doesRequireMediumCircle=true;
-        doesRequireSmallCircle=true;
     }
 
     @Override
@@ -65,7 +60,7 @@ public class RiteOfPoisonStaffRepair extends CircleRitual {
 
 
 
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

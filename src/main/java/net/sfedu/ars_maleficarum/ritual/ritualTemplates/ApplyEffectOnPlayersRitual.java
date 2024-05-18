@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,10 @@ public abstract class ApplyEffectOnPlayersRitual extends CircleRitual{
     public int playersAmount;
     public int radius;
 
+    public ApplyEffectOnPlayersRitual(RitualType<?> type, RitualCoreEntity.ChalkType coreType, RitualCoreEntity.ChalkType smallType, RitualCoreEntity.ChalkType mediumType, RitualCoreEntity.ChalkType largeType) {
+        super(type, coreType, smallType, mediumType, largeType);
+    }
+
 
     @Override
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
@@ -30,7 +35,6 @@ public abstract class ApplyEffectOnPlayersRitual extends CircleRitual{
         consumeComponents(pLevel,pPos,riteCore, pPlayer);
         ticks++;
         if (allComponentsConsumed && ticks%20==0) {
-            System.out.println("if entered");
             List<ServerPlayer> list;
             for (MobEffectInstance instance : effects) {
                 list = MobEffectUtil.addEffectToPlayersAround((ServerLevel)pLevel, pPlayer, pPos.getCenter(), radius, instance, instance.getDuration()).stream().limit(playersAmount).toList();
@@ -42,7 +46,7 @@ public abstract class ApplyEffectOnPlayersRitual extends CircleRitual{
                     ((ServerLevel)pLevel).sendParticles(ParticleTypes.WITCH, player.getX(), player.getY(), player.getZ(), 100, 0,1.5D,0,0.1);
                 });
             }
-            pPlayer.sendSystemMessage(Component.translatable(ritualName));
+            pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
             tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);

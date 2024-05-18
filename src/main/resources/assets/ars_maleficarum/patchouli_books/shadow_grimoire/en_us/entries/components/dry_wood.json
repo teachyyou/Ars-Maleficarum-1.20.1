@@ -2,7 +2,7 @@
   "name": "Сухая древесина",
   "icon": "ars_maleficarum:dry_wood",
   "category": "ars_maleficarum:components",
-  "sortnum": 4,
+  "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",

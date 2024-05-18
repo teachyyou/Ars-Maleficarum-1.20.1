@@ -2,7 +2,7 @@
   "name": "Древесная личинка",
   "icon": "ars_maleficarum:fermented_tree_larva",
   "category": "ars_maleficarum:components",
-  "sortnum": 3,
+  "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",

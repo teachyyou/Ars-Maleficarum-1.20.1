@@ -2,7 +2,7 @@
   "name": "Крыло летучей мыши",
   "icon": "ars_maleficarum:bat_wing",
   "category": "ars_maleficarum:components",
-  "sortnum": 2,
+  "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",

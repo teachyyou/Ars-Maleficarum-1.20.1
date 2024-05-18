@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
+import net.sfedu.ars_maleficarum.ritual.RitualType;
+import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 
 import java.util.*;
 
@@ -26,15 +28,11 @@ public abstract class CircleRitual {
 
     protected enum Dimension {NETHER, OVERWORLD, END, ANY};
 
-
     protected RitualCoreEntity.ChalkType smallCircleType;
     protected RitualCoreEntity.ChalkType mediumCircleType;
     protected RitualCoreEntity.ChalkType largeCircleType;
     protected RitualCoreEntity.ChalkType coreType;
 
-    protected boolean doesRequireSmallCircle;
-    protected boolean doesRequireMediumCircle;
-    protected boolean doesRequireLargeCircle;
 
     protected boolean allComponentsConsumed = false;
 
@@ -45,10 +43,21 @@ public abstract class CircleRitual {
     protected int ticks = 0;
     protected Class<? extends Entity> sacrificeEntity;
     protected Map<Item, Integer> components = new HashMap<Item,Integer>();
-    protected String ritualName;
 
+    protected Component ritualName;
+    protected RitualType<?> ritualType;
 
     protected Dimension dimension;
+
+    public CircleRitual(RitualType<?> type, RitualCoreEntity.ChalkType coreType, RitualCoreEntity.ChalkType smallType, RitualCoreEntity.ChalkType mediumType, RitualCoreEntity.ChalkType largeType) {
+        this.coreType = coreType;
+        this.smallCircleType = smallType;
+        this.mediumCircleType = mediumType;
+        this.largeCircleType = largeType;
+        this.ritualType=type;
+        ritualName = Component.translatable("ritual.ars_maleficarum.rite_of").append(Component.translatable("ritual.ars_maleficarum."+ ritualType.getId().getPath()));
+
+    }
     abstract public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore);
     public boolean doesMatch(SimpleContainer container) {
         for (Item item : components.keySet()) {
@@ -67,7 +76,7 @@ public abstract class CircleRitual {
     }
 
     public String getName() {
-        return ritualName;
+        return ritualName.getString();
     }
 
     public Map<Item, Integer> getComponents() {
@@ -124,7 +133,7 @@ public abstract class CircleRitual {
 
     @Override
     public String toString() {
-        return ritualName;
+        return getName();
     }
 
 
@@ -140,15 +149,14 @@ public abstract class CircleRitual {
     public RitualCoreEntity.ChalkType getCoreType() {
         return coreType;
     }
-
     public boolean doesRequireSmallCircle() {
-        return doesRequireSmallCircle;
+        return smallCircleType != RitualCoreEntity.ChalkType.NONE;
     }
     public boolean doesRequireMediumCircle() {
-        return doesRequireMediumCircle;
+        return mediumCircleType != RitualCoreEntity.ChalkType.NONE;
     }
     public boolean doesRequireLargeCircle() {
-        return doesRequireLargeCircle;
+        return largeCircleType != RitualCoreEntity.ChalkType.NONE;
     }
 
 }

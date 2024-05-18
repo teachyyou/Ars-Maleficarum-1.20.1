@@ -1,7 +1,7 @@
 {
   "name": "Проклятое Золото",
   "icon": "ars_maleficarum:cursed_gold_chunk",
-  "category": "ars_maleficarum:ores",
+  "category": "ars_maleficarum:components",
   "sortnum": 0,
   "pages": [
     {
