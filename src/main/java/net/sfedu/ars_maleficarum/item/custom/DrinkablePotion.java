@@ -12,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.sfedu.ars_maleficarum.item.ModItems;
 
 public class DrinkablePotion extends Item {
     private static final int DRINK_DURATION = 40;
@@ -32,10 +33,10 @@ public class DrinkablePotion extends Item {
         }
 
         if (pStack.isEmpty()) {
-            return new ItemStack(Items.GLASS_BOTTLE);
+            return new ItemStack(ModItems.EMPTY_VIAL.get());
         } else {
             if (pEntityLiving instanceof Player && !((Player)pEntityLiving).getAbilities().instabuild) {
-                ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
+                ItemStack itemstack = new ItemStack(ModItems.EMPTY_VIAL.get());
                 Player player = (Player)pEntityLiving;
                 if (!player.getInventory().add(itemstack)) {
                     player.drop(itemstack, false);
@@ -50,7 +51,6 @@ public class DrinkablePotion extends Item {
     public int getUseDuration(ItemStack pStack) {
         return 40;
     }
-
 
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.DRINK;

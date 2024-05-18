@@ -1,0 +1,36 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 1
+  },
+  "inOrder": {
+    "order": true
+  },
+  "ingredients": [
+    {
+      "item": "ars_maleficarum:rowan_berries"
+    },
+    {
+      "item": "minecraft:glistering_melon_slice"
+    },
+    {
+      "item": "ars_maleficarum:marigold_flower"
+    },
+    {
+      "item": "ars_maleficarum:absolute_order"
+    },
+    {
+      "item": "ars_maleficarum:swamp_rotfiend_ingredient_item"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:exhausted_swallow"
+  }
+}

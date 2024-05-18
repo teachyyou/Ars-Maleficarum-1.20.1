@@ -639,6 +639,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.DRIED_ENCHANTED_LEATHER.get()), has(ModItems.DRIED_ENCHANTED_LEATHER.get()))
                 .save(pWriter);
 
+        //крафт зелий в котле
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.ROWAN_BERRIES.get(), Items.GLISTERING_MELON_SLICE, ModItems.MARIGOLD_FLOWER.get(),ModItems.ABSOLUTE_ORDER.get(),ModItems.SWAMP_ROTFIEND_INGREDIENT.get(),Items.GLOWSTONE_DUST), ModItems.EXHAUSTED_SWALLOW_POTION.get(), true, 1)
+                .unlockedBy("has_something",has(ModItems.SWAMP_ROTFIEND_INGREDIENT.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.MANDRAKE_ROOT.get(), ModItems.GROUND_SAGE_FLOWERS.get(), Items.BLAZE_ROD,ModItems.SAGE_LEAF.get(),ModItems.DESERT_SPIRIT.get(),Items.SLIME_BALL), ModItems.SPURIOUS_THUNDERBOLT_POTION.get(), true, 1)
+                .unlockedBy("has_something",has(ModItems.DESERT_SPIRIT.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(ModItems.SUNLIGHT_FLOWER.get(), ModItems.NAMELESS_CHARCOAL.get(), Items.MAGMA_CREAM,Items.FERMENTED_SPIDER_EYE,Items.NETHERRACK, ModItems.ASH.get()), ModItems.MAGMACUBE_GALL_POTION.get(), true, 1)
+                .unlockedBy("has_something",has(ModItems.SUNLIGHT_FLOWER.get())).save(pWriter);
+
     }
 
     protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
