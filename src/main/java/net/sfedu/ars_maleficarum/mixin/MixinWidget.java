@@ -2,7 +2,7 @@ package net.sfedu.ars_maleficarum.mixin;
 
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Creeper;
-import net.sfedu.ars_maleficarum.AI.AvoidBlockGoal;
+import net.sfedu.ars_maleficarum.entity.ai.AvoidBlockGoal;
 import net.sfedu.ars_maleficarum.block.custom.WoodenCatFigure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
