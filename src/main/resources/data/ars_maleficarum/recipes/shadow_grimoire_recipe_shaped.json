@@ -1,0 +1,26 @@
+{
+  "type": "patchouli:shaped_book_recipe",
+  "pattern": [
+    " F ",
+    "DBP",
+    " M "
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "D": {
+      "item": "minecraft:black_dye"
+    },
+    "B": {
+      "item": "minecraft:book"
+    },
+    "P": {
+      "item": "minecraft:purple_dye"
+    },
+    "M": {
+      "item": "minecraft:red_mushroom"
+    }
+  },
+  "book": "ars_maleficarum:shadow_grimoire"
+}

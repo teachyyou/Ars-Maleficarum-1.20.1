@@ -12,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.entity.custom.FireEssenceEntity;
-import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.entity.layers.ModModelLayers;
 
 public class FireEssenceRender extends EntityRenderer<FireEssenceEntity> {

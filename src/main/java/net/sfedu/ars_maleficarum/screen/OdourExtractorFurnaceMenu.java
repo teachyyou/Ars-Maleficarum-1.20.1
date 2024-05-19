@@ -1,7 +1,6 @@
 package net.sfedu.ars_maleficarum.screen;
 
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -12,7 +11,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlockEntity;
-import org.jetbrains.annotations.Nullable;
 
 public class OdourExtractorFurnaceMenu extends AbstractContainerMenu {
 

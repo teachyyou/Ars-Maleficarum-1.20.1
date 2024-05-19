@@ -6,18 +6,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.minecraftforge.registries.DeferredRegister;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
 import net.sfedu.ars_maleficarum.world.decorator.ModTreeDecoratorTypes;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Supplier;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 
 import java.util.List;
 

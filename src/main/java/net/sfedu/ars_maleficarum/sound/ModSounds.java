@@ -1,9 +1,7 @@
 package net.sfedu.ars_maleficarum.sound;
 
-import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,7 +22,9 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> TRADER_WITCH_DEATH = registerSoundEvents("trader_witch_died");
     public static final RegistryObject<SoundEvent> TRADER_WITCH_HURT = registerSoundEvents("trader_witch_hurt");
     public static final RegistryObject<SoundEvent> TRADER_WITCH_ATTACK = registerSoundEvents("trader_witch_attack");
-    public static final RegistryObject<SoundEvent> TRADER_WITCH_AMOUNT = registerSoundEvents("trader_witch_amount");
+    public static final RegistryObject<SoundEvent> TRADER_WITCH_AMBIENT = registerSoundEvents("trader_witch_ambient");
+
+    public static final RegistryObject<SoundEvent> TRADER_WITCH_TRADE = registerSoundEvents("trader_witch_trade");
 
     public static final RegistryObject<SoundEvent> MANDRAKE_DEATH = registerSoundEvents("mandrake_death");
     public static final RegistryObject<SoundEvent> CAULDRON_ADD_LOGS = registerSoundEvents("cauldron_add_logs");

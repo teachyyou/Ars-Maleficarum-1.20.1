@@ -1,6 +1,9 @@
 package net.sfedu.ars_maleficarum.item;
 
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -98,9 +101,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
             ()->new Item(new Item.Properties()));
-    //public static final RegistryObject<Item> SWAMP_ROTFIEND = ITEMS.register("swamp_rotfiend_item",
-            //()->new ItemNameBlockItem(ModBlocks.SWAMP_ROTFIEND.get(), new Item.Properties()));
-
     public static final RegistryObject<Item> SWAMP_ROTFIEND_INGREDIENT = ITEMS.register("swamp_rotfiend_ingredient_item",
             ()->new IngredientItem(new Item.Properties()));
     public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
@@ -241,6 +241,22 @@ public class ModItems {
     public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather",
             ()->new IngredientItem(new Item.Properties()));
 
+    public static final RegistryObject<Item> EXHAUSTED_SWALLOW_POTION = ITEMS.register("exhausted_swallow",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.EXHAUSTED_SWALLOW_POTION_PROPERTIES)));
+
+    public static final RegistryObject<Item> SPURIOUS_THUNDERBOLT_POTION = ITEMS.register("spurious_thunderbolt",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.SPURIOUS_THUNDERBOLT_POTION_PROPERTIES)));
+
+    public static final RegistryObject<Item> MAGMACUBE_GALL_POTION = ITEMS.register("magmacube_gall",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.MAGMACUBE_GALL_POTION_PROPERTIES)));
+
+
+    public static final RegistryObject<Item> GOLDEN_CARROT_SOUP = ITEMS.register("golden_carrot_soup",
+            ()->new Item(new Item.Properties().food(ModFoods.GOLDEN_CARROT_SOUP)));
+    public static final RegistryObject<Item> MANDRAKE_SOUP = ITEMS.register("mandrake_soup",
+            ()->new Item(new Item.Properties().food(ModFoods.MANDRAKE_SOUP)));
+    public static final RegistryObject<Item> ROWAN_COMPOTE = ITEMS.register("rowan_compote",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.ROWAN_COMPOTE)));
 
 
     //Регистрация предметов

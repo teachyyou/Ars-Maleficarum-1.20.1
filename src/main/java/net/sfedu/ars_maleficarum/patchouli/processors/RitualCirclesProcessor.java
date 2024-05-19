@@ -49,7 +49,6 @@ public class RitualCirclesProcessor implements IComponentProcessor {
     }
 
     private boolean checkForRequirement(String key) {
-        System.out.println("GOGOGO " + key);
         switch (key) {
             case "small" ->  {
                 return ritual.doesRequireSmallCircle();
@@ -61,7 +60,6 @@ public class RitualCirclesProcessor implements IComponentProcessor {
                 return ritual.doesRequireLargeCircle();
             }
             default -> {
-                System.out.println("TRUTRUTRU " + key);
                 return true;
             }
         }

@@ -1,0 +1,38 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 2
+  },
+  "inOrder": {
+    "order": true
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:pufferfish"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "ars_maleficarum:mandrake_root"
+    },
+    {
+      "item": "ars_maleficarum:ground_marigold_flowers"
+    },
+    {
+      "item": "ars_maleficarum:salt"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:mandrake_soup"
+  }
+}

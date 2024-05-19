@@ -1,6 +1,6 @@
 package net.sfedu.ars_maleficarum.entity.ai;
 
-import net.minecraft.world.InteractionHand;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,12 +11,14 @@ import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
+import java.util.Random;
+
 public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
     TraderWitchEntity witch;
     private int attackDelay = 30;
-    private int ticksUntilNextAttack = 35;
-    private int blindDelay = 20;
-    private int ticksUntilNextBlind = 30;
+    private int ticksUntilNextAttack = 10;
+    private int blindDelay = 40;
+    private int ticksUntilNextBlind = 10;
     private boolean shouldCountTillNextAttack = false;
     private boolean shouldCountTillNextBlind = false;
     public Trader_Witch_AttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
@@ -46,7 +48,9 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
                 this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
                 performAttack(pEnemy);
                 if(isTimeToBlind()){
-                    witch.playSound(ModSounds.TRADER_WITCH_ATTACK.get());
+                    Random rnd = new Random();
+                    if(rnd.nextFloat()>0.8)
+                        witch.playSound(ModSounds.TRADER_WITCH_ATTACK.get());
                     performCast(pEnemy);
                     performBlind(pEnemy);
                 }
@@ -75,6 +79,7 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
             double d0 = (pEnemy.getRandomX(3) - 0.5D);
             double d2 = (pEnemy.getRandomZ(3) - 0.5D);
             witch.teleportTo(d0,witch.getY(),d2);
+            witch.playSound(SoundEvents.ENDERMAN_TELEPORT);
         }
 
     }
@@ -83,6 +88,7 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
         pEnemy.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,80));
         pEnemy.addEffect(new MobEffectInstance(MobEffects.DARKNESS,80));
         pEnemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80));
+        witch.playSound(SoundEvents.EVOKER_CAST_SPELL);
     }
 
     private void resetBlindCooldown() {
@@ -112,9 +118,14 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
 
     protected void performAttack(LivingEntity pEnemy) {
         this.resetAttackCooldown();
-        if (pEnemy.getHealth()>6)
+        Random rnd = new Random();
+        if (pEnemy.getHealth()>6 && rnd.nextFloat()>0.6)
             pEnemy.addEffect(new MobEffectInstance(MobEffects.HARM,10));
-        pEnemy.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
+        if(rnd.nextFloat()>0.8)
+            pEnemy.addEffect(new MobEffectInstance(MobEffects.WITHER, 80));
+        else {
+            pEnemy.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
+        }
     }
 
     @Override

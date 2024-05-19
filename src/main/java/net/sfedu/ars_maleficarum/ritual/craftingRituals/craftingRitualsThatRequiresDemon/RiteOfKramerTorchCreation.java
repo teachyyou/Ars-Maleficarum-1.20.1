@@ -3,7 +3,6 @@ package net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequ
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -20,7 +19,6 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.RitualType;
-import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
@@ -46,7 +44,7 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
 
         Optional<ItemEntity> possiblyStaff = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-3).relative(Direction.Axis.X,-3).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,3).relative(Direction.Axis.X,3).relative(Direction.Axis.Y,5)))
-                .stream().filter(x->x.getItem().is(ModItems.INERT_FIRE_STAFF.get())).findAny(); //todo поменять итем
+                .stream().filter(x->x.getItem().is(ModItems.INERT_FIRE_STAFF.get())).findAny();
 
         if (possiblyStaff.isEmpty()) {
             riteCore.stopRitual();
@@ -72,7 +70,6 @@ public class RiteOfKramerTorchCreation extends CircleRitual {
                     .stream().findAny();
             if (possiblyDemon.isEmpty()) {
                 EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pLevel,null,pPlayer,pPlayer.blockPosition(), MobSpawnType.TRIGGERED,true,true);
-                //pPlayer.thunderHit((ServerLevel) pLevel,new LightningBolt(EntityType.LIGHTNING_BOLT,pLevel)); //todo проверить работает ли, выглядит как дичь
                 pLevel.playSound(null, pPos, ModSounds.MYSTIC_WHISPERING.get(), SoundSource.HOSTILE,1F,1F);
 
                 pPlayer.kill();

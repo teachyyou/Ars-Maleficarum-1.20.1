@@ -30,6 +30,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.ai.Trader_Witch_AttackGoal;
@@ -39,11 +40,26 @@ import org.jetbrains.annotations.Nullable;
 
 public class TraderWitchEntity extends AbstractVillager {
     public static final Int2ObjectMap<VillagerTrades.ItemListing[]> CUSTOM_WITCH_TRADES = toIntMap(ImmutableMap.of(1, new VillagerTrades.ItemListing[]{
-            new TraderWitchEntity.CustomTrades(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK.get(), 16, ModItems.MANDRAKE_ROOT.get(), 2,5,2,0.05F)
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 14, ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 2,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 24, ModBlocks.NAMELESS_TREE_SAPLING.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 12, ModBlocks.ROWAN_SAPLING.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 25, ModItems.BAT_WING.get(), 2,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.TREE_LARVA.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 18, ModItems.DRY_WOOD.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 6, ModItems.POPPET.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.SOARING_LIGHTNESS.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.STINK_OF_SWAMP.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 8, ModItems.WHITE_CHALK.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 20, ModItems.EXHAUSTED_SWALLOW_POTION.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 16, ModItems.MANDRAKE_SOUP.get(), 1,5,2,0.05F),
     }));
     private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
         return new Int2ObjectOpenHashMap<>(pMap);
     }
+    public final AnimationState idleAnimationState = new AnimationState();
+    public final AnimationState attackAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
+    public int attackAnimationTimeout = 0;
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(TraderWitchEntity.class, EntityDataSerializers.BOOLEAN);
     public TraderWitchEntity(EntityType<? extends AbstractVillager> pEntityType, Level pLevel) {
@@ -92,6 +108,40 @@ public class TraderWitchEntity extends AbstractVillager {
         return this.entityData.get(ATTACKING);
     }
 
+    @Override
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        if(pSource.is(DamageTypeTags.IS_FALL))
+            return false;
+        return super.hurt(pSource, pAmount);
+    }
+    private void setupAnimationStates() {
+        if (this.idleAnimationTimeout <= 0) {
+            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+            this.idleAnimationState.start(this.tickCount);
+        } else {
+            --this.idleAnimationTimeout;
+        }
+
+        if(this.isAttacking() && attackAnimationTimeout <= 0) {
+            attackAnimationTimeout = 40; // Length in ticks of your animation
+            attackAnimationState.start(this.tickCount);
+        } else {
+            --this.attackAnimationTimeout;
+        }
+
+        if(!this.isAttacking()) {
+            attackAnimationState.stop();
+        }
+    }
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (this.level().isClientSide()) {
+            this.setupAnimationStates();
+        }
+    }
+
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
@@ -107,12 +157,22 @@ public class TraderWitchEntity extends AbstractVillager {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.TRADER_WITCH_AMOUNT.get();
+        return ModSounds.TRADER_WITCH_AMBIENT.get();
     }
     @Override
     public int getAmbientSoundInterval() {
         return 200;
     }
+
+    @Override
+    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) { return ModSounds.TRADER_WITCH_TRADE.get(); }
+
+    @Override
+    public SoundEvent getNotifyTradeSound() {
+        return null;
+    }
+
+
 
     @Override
     protected void rewardTradeXp(MerchantOffer pOffer) {
@@ -129,7 +189,7 @@ public class TraderWitchEntity extends AbstractVillager {
         if(trade_list != null)
         {
             MerchantOffers merchantoffers = this.getOffers();
-            this.addOffersFromItemListings(merchantoffers, trade_list, 1);
+            this.addOffersFromItemListings(merchantoffers, trade_list, 9);
             int i = this.random.nextInt(trade_list.length);
             VillagerTrades.ItemListing choose_trade_list = trade_list[i];
             MerchantOffer merchantoffer = choose_trade_list.getOffer(this, this.random);

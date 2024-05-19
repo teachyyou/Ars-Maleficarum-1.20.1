@@ -8,11 +8,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
-import org.jetbrains.annotations.Nullable;
 
 public class InfusingAltarMenu extends AbstractContainerMenu {
 

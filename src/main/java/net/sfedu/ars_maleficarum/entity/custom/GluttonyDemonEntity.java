@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.entity.custom;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -8,9 +7,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -27,15 +24,9 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.sfedu.ars_maleficarum.entity.ai.GluttonyAttackGoal;
-import net.sfedu.ars_maleficarum.entity.ai.RunFromPlayerGoal;
-import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonModel;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class GluttonyDemonEntity extends MortalSinDemonEntity {
     public final AnimationState idleAnimationState = new AnimationState();
@@ -65,6 +56,12 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
                 .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK, 1f)
                 .add(Attributes.ATTACK_DAMAGE, 14f).add(Attributes.ARMOR,50D);
     }
+
+    @Override
+    public int getExperienceReward() {
+        return 50;
+    }
+
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
@@ -84,6 +81,12 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
             attackAnimationState.stop();
         }
     }
+
+    @Override
+    protected void dropExperience() {
+        super.dropExperience();
+    }
+
     protected void updateWalkAnimation(float v) {
         float f;
         if (this.getPose() == Pose.STANDING) {

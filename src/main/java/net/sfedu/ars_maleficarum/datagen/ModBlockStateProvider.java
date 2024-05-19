@@ -32,8 +32,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        makeSageCrop((CropBlock) ModBlocks.SAGE_CROP.get(), "sage_stage", "sage_stage");
-        makeMarigoldCrop((CropBlock) ModBlocks.MARIGOLD_CROP.get(), "marigold_stage", "marigold_stage");
+        makeSageCrop();
+        makeMarigoldCrop();
         makeMandrakeCrop((CropBlock) ModBlocks.MANDRAKE_CROP.get(), "mandrake_stage", "mandrake_stage");
         blockWithItem(ModBlocks.CURSED_GOLD_BLOCK);
         blockWithItem(ModBlocks.SILVER_BLOCK);
@@ -168,9 +168,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         getVariantBuilder(ModBlocks.BREWING_CAULDRON.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                    .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/brewing_cauldron_" + state.getValue(BrewingCauldronBlock.FUEL))))
-                    .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                    .build()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/brewing_cauldron_" + state.getValue(BrewingCauldronBlock.FUEL))))
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build()
                 );
 
     }
@@ -231,25 +231,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     //Регистрация модельной и текстурной даты для шалфея (по стадиям)
-    public void makeSageCrop(CropBlock block, String modelName, String textureName) {
-        Function<BlockState, ConfiguredModel[]> function = state -> sageStates(state, block, modelName, textureName);
-
-        getVariantBuilder(block).forAllStates(function);
-    }
-
-    //Массив всех стадий роста шалфея
-    private ConfiguredModel[] sageStates(BlockState state, CropBlock block, String modelName, String textureName) {
-        ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((SageCropBlock) block).getAgeProperty()),
-                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((SageCropBlock) block).getAgeProperty()))).renderType("cutout"));
-        return models;
+    private void makeSageCrop() {
+        getVariantBuilder(ModBlocks.SAGE_CROP.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/sage_stage" + state.getValue(SageCropBlock.AGE))))
+                        .build()
+                );
     }
 
 
-    public void makeMarigoldCrop(CropBlock block, String modelName, String textureName) {
-        Function<BlockState, ConfiguredModel[]> function = state -> marigoldStates(state, block, modelName, textureName);
-
-        getVariantBuilder(block).forAllStates(function);
+    private void makeMarigoldCrop() {
+        getVariantBuilder(ModBlocks.MARIGOLD_CROP.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/marigold_stage" + state.getValue(MarigoldCropBlock.AGE))))
+                        .build()
+                );
     }
 
     public void makeMandrakeCrop(CropBlock block, String modelName, String textureName) {
@@ -265,13 +261,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models;
     }
 
-    //Массив всех стадий роста календулы
-    private ConfiguredModel[] marigoldStates(BlockState state, CropBlock block, String modelName, String textureName) {
-        ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(((MarigoldCropBlock) block).getAgeProperty()),
-                new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + textureName + state.getValue(((MarigoldCropBlock) block).getAgeProperty()))).renderType("cutout"));
-        return models;
-    }
 
 
     //Быстрая регистрация даты для блока и предмета

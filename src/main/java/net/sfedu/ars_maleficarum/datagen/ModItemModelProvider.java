@@ -131,6 +131,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.WET_ENCHANTED_LEATHER);
         simpleItem(ModItems.DRIED_ENCHANTED_LEATHER);
+        simpleItem(ModItems.EXHAUSTED_SWALLOW_POTION);
+        simpleItem(ModItems.SPURIOUS_THUNDERBOLT_POTION);
+        simpleItem(ModItems.MAGMACUBE_GALL_POTION);
+
+        simpleItem(ModItems.GOLDEN_CARROT_SOUP);
+        simpleItem(ModItems.MANDRAKE_SOUP);
+        simpleItem(ModItems.ROWAN_COMPOTE);
 
     }
 
