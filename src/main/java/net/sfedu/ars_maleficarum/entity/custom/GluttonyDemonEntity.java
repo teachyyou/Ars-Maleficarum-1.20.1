@@ -56,6 +56,12 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
                 .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK, 1f)
                 .add(Attributes.ATTACK_DAMAGE, 14f).add(Attributes.ARMOR,50D);
     }
+
+    @Override
+    public int getExperienceReward() {
+        return 50;
+    }
+
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
@@ -75,6 +81,12 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
             attackAnimationState.stop();
         }
     }
+
+    @Override
+    protected void dropExperience() {
+        super.dropExperience();
+    }
+
     protected void updateWalkAnimation(float v) {
         float f;
         if (this.getPose() == Pose.STANDING) {

@@ -9,6 +9,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -38,7 +39,15 @@ import org.jetbrains.annotations.Nullable;
 
 public class TraderWitchEntity extends AbstractVillager {
     public static final Int2ObjectMap<VillagerTrades.ItemListing[]> CUSTOM_WITCH_TRADES = toIntMap(ImmutableMap.of(1, new VillagerTrades.ItemListing[]{
-            new TraderWitchEntity.CustomTrades(ModBlocks.SITE_OF_SUMMONING_CORE_BLOCK.get(), 16, ModItems.MANDRAKE_ROOT.get(), 2,5,2,0.05F)
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 14, ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 2,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 24, ModBlocks.NAMELESS_TREE_SAPLING.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 12, ModBlocks.ROWAN_SAPLING.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 25, ModItems.BAT_WING.get(), 2,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.DEAD_TREE_LARVA.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 18, ModItems.DRY_WOOD.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.SOARING_LIGHTNESS.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.STINK_OF_SWAMP.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 8, ModItems.WHITE_CHALK.get(), 1,5,2,0.05F),
     }));
     private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
         return new Int2ObjectOpenHashMap<>(pMap);
@@ -91,6 +100,13 @@ public class TraderWitchEntity extends AbstractVillager {
         return this.entityData.get(ATTACKING);
     }
 
+    @Override
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        if(pSource.is(DamageTypeTags.IS_FALL))
+            return false;
+        return super.hurt(pSource, pAmount);
+    }
+
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
@@ -114,6 +130,16 @@ public class TraderWitchEntity extends AbstractVillager {
     }
 
     @Override
+    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) {
+        return null;
+    }
+
+    @Override
+    public SoundEvent getNotifyTradeSound() {
+        return null;
+    }
+
+    @Override
     protected void rewardTradeXp(MerchantOffer pOffer) {
         if (pOffer.shouldRewardExp()) {
             int i = 3 + this.random.nextInt(4);
@@ -128,7 +154,7 @@ public class TraderWitchEntity extends AbstractVillager {
         if(trade_list != null)
         {
             MerchantOffers merchantoffers = this.getOffers();
-            this.addOffersFromItemListings(merchantoffers, trade_list, 1);
+            this.addOffersFromItemListings(merchantoffers, trade_list, 9);
             int i = this.random.nextInt(trade_list.length);
             VillagerTrades.ItemListing choose_trade_list = trade_list[i];
             MerchantOffer merchantoffer = choose_trade_list.getOffer(this, this.random);

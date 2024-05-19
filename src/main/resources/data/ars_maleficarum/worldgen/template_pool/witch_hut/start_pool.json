@@ -1,11 +1,11 @@
 {
-  "name": "ars_maleficarum:witch_hut_1/start_pool",
+  "name": "ars_maleficarum:witch_hut/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "ars_maleficarum:witch_hut_1",
+        "location": "ars_maleficarum:witch_hut",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
