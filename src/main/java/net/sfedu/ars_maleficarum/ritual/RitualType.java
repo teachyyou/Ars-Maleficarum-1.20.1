@@ -1,7 +1,6 @@
 package net.sfedu.ars_maleficarum.ritual;
 
 import net.minecraft.resources.ResourceLocation;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
 public class RitualType<T extends CircleRitual> {
