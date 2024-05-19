@@ -43,11 +43,14 @@ public class TraderWitchEntity extends AbstractVillager {
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 24, ModBlocks.NAMELESS_TREE_SAPLING.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 12, ModBlocks.ROWAN_SAPLING.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 25, ModItems.BAT_WING.get(), 2,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.DEAD_TREE_LARVA.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.TREE_LARVA.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 18, ModItems.DRY_WOOD.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 6, ModItems.POPPET.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.SOARING_LIGHTNESS.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.STINK_OF_SWAMP.get(), 1,5,2,0.05F),
             new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 8, ModItems.WHITE_CHALK.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 20, ModItems.EXHAUSTED_SWALLOW_POTION.get(), 1,5,2,0.05F),
+            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 16, ModItems.MANDRAKE_SOUP.get(), 1,5,2,0.05F),
     }));
     private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
         return new Int2ObjectOpenHashMap<>(pMap);
