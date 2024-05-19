@@ -134,13 +134,11 @@ public class TraderWitchEntity extends AbstractVillager {
     }
 
     @Override
-    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) {
-        return ModSounds.TRADER_WITCH_TRADE.get();
-    }
+    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) { return ModSounds.TRADER_WITCH_TRADE.get(); }
 
     @Override
     public SoundEvent getNotifyTradeSound() {
-        return ModSounds.TRADER_WITCH_TRADE.get();
+        return null;
     }
 
 

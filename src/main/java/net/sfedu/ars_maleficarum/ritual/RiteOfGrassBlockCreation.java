@@ -5,6 +5,8 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +39,6 @@ public class RiteOfGrassBlockCreation extends CircleRitual {
             double d0 = pPos.getCenter().x;
             double d1 = pPos.getCenter().y;
             double d2 = pPos.getCenter().z;
-            //TODO: добавить ещё и звук
             ((ServerLevel)pLevel).sendParticles(particle, d0, d1, d2, 100, 0,0.5D,0,0.1);
         }
         if (allComponentsConsumed && ticks/20.0 == 5 && pPos!=null) {
@@ -47,6 +48,7 @@ public class RiteOfGrassBlockCreation extends CircleRitual {
             double d2 = pPos.getCenter().z;
             ((ServerLevel)pLevel).sendParticles(particle, d0, d1, d2, 100, 0,0.5D,0,0.1);
             pLevel.addFreshEntity(new ItemEntity(pLevel, d0, d1, d2, new ItemStack(Blocks.GRASS_BLOCK.asItem(),1)));
+            pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.PLAYERS,1F,1F);
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
