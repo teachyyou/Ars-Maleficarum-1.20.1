@@ -1,0 +1,19 @@
+{
+  "name": "Суп из золотой моркови",
+  "icon": "ars_maleficarum:golden_carrot_soup",
+  "category": "ars_maleficarum:extracting_and_brewing/brewing",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Обуревают философские мысли? Хочется по-другому взглянуть на вещи? Увидеть их в новом свете? Настало время приготовить суп из золотой морковки! $(br)За исключением пары ингредиентов полностью повторяющее рецепт обычного куриного супа, это блюдо даёт отведавшему его все те преимущества, что отдаёт золотая морковка тем, кто выпил зелье из неё."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Создание",
+      "recipe": "ars_maleficarum:golden_carrot_soup_in_brewing_cauldron",
+      "text": "Поговаривают, что таким супом ужинают лазутчики и ассасины, работающие под покровом ночи. Практичные ребята, вообще-то."
+    }
+  ],
+  "read_by_default": true
+}
