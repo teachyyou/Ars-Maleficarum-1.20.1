@@ -647,6 +647,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new BrewingCauldronRecipeBuilder(List.of(ModItems.SUNLIGHT_FLOWER.get(), ModItems.NAMELESS_CHARCOAL.get(), Items.MAGMA_CREAM,Items.FERMENTED_SPIDER_EYE,Items.NETHERRACK, ModItems.ASH.get()), ModItems.MAGMACUBE_GALL_POTION.get(), true, 1)
                 .unlockedBy("has_something",has(ModItems.SUNLIGHT_FLOWER.get())).save(pWriter);
 
+        //крафт еды в котле
+        new BrewingCauldronRecipeBuilder(List.of(Items.CHICKEN, Items.POTATO, Items.GOLDEN_CARROT, ModItems.TUNE_OF_HARMONY.get(),ModItems.SALT.get()), ModItems.GOLDEN_CARROT_SOUP.get(), true, 2)
+                .unlockedBy("has_something",has(ModItems.SUNLIGHT_FLOWER.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(Items.PUFFERFISH, Items.POTATO,Items.CARROT,ModItems.MANDRAKE_ROOT.get(),ModItems.GROUND_MARIGOLD_FLOWERS.get(),ModItems.SALT.get(),Items.SUGAR), ModItems.MANDRAKE_SOUP.get(), true, 2)
+                .unlockedBy("has_something",has(ModItems.SUNLIGHT_FLOWER.get())).save(pWriter);
+        new BrewingCauldronRecipeBuilder(List.of(Items.SUGAR,ModItems.CHERRY_ETUDE.get(),ModItems.ROWAN_BERRIES.get(),ModItems.SUNLIGHT_FLOWER_SEED.get(),ModItems.GROUND_SAGE_FLOWERS.get(),ModItems.SWEET_DREAM.get()), ModItems.ROWAN_COMPOTE.get(), false, 1)
+                .unlockedBy("has_something",has(ModItems.SUNLIGHT_FLOWER.get())).save(pWriter);
+
     }
 
     protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {

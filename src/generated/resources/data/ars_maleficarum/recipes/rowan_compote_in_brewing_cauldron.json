@@ -1,0 +1,36 @@
+{
+  "type": "ars_maleficarum:cauldron_brewing",
+  "craftType": {
+    "craft": 1
+  },
+  "inOrder": {
+    "order": false
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "ars_maleficarum:cherry_etude"
+    },
+    {
+      "item": "ars_maleficarum:rowan_berries"
+    },
+    {
+      "item": "ars_maleficarum:sunlight_flower_seeds"
+    },
+    {
+      "item": "ars_maleficarum:ground_sage_flowers"
+    },
+    {
+      "item": "ars_maleficarum:sweet_dream"
+    },
+    [],
+    [],
+    [],
+    []
+  ],
+  "output": {
+    "item": "ars_maleficarum:rowan_compote"
+  }
+}
