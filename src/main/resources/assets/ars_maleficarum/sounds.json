@@ -20,7 +20,9 @@
   "gluttony_demon_hurt": {
     "subtitle": "sounds.ars_maleficarum.gluttony_demon_hurt",
     "sounds": [
-      "ars_maleficarum:gluttony_demon_hurt"
+      "ars_maleficarum:gluttony_demon_hurt0",
+      "ars_maleficarum:gluttony_demon_hurt1",
+      "ars_maleficarum:gluttony_demon_hurt2"
     ]
   },
 
@@ -91,7 +93,11 @@
   "gluttony_demon_laugh": {
     "subtitile": "sounds.ars_maleficarum.gluttony_demon_laugh",
     "sounds": [
-      "ars_maleficarum:gluttony_demon_laugh"
+      "ars_maleficarum:gluttony_demon_laugh0",
+      "ars_maleficarum:gluttony_demon_laugh1",
+      "ars_maleficarum:gluttony_demon_laugh2",
+      "ars_maleficarum:gluttony_demon_laugh3",
+      "ars_maleficarum:gluttony_demon_laugh4"
     ]
   },
   "trader_witch_attack": {
@@ -112,10 +118,20 @@
       "ars_maleficarum:trader_witch_hurt"
     ]
   },
-  "trader_witch_amount": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_amount",
+  "trader_witch_ambient": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_ambient",
     "sounds": [
-      "ars_maleficarum:trader_witch_amount"
+      "ars_maleficarum:trader_witch_ambient0",
+      "ars_maleficarum:trader_witch_ambient1",
+      "ars_maleficarum:trader_witch_ambient2"
+    ]
+  },
+  "trader_witch_trade": {
+    "subtitle": "sounds.ars_maleficarum.trader_witch_trade",
+    "sounds": [
+      "ars_maleficarum:trader_witch_trade0",
+      "ars_maleficarum:trader_witch_trade1",
+      "ars_maleficarum:trader_witch_trade2"
     ]
   }
 }

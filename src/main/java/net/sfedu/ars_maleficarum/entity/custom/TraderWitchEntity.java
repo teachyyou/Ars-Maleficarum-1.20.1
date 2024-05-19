@@ -30,6 +30,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.ai.Trader_Witch_AttackGoal;
@@ -125,7 +126,7 @@ public class TraderWitchEntity extends AbstractVillager {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.TRADER_WITCH_AMOUNT.get();
+        return ModSounds.TRADER_WITCH_AMBIENT.get();
     }
     @Override
     public int getAmbientSoundInterval() {
@@ -134,13 +135,15 @@ public class TraderWitchEntity extends AbstractVillager {
 
     @Override
     protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) {
-        return null;
+        return ModSounds.TRADER_WITCH_TRADE.get();
     }
 
     @Override
     public SoundEvent getNotifyTradeSound() {
-        return null;
+        return ModSounds.TRADER_WITCH_TRADE.get();
     }
+
+
 
     @Override
     protected void rewardTradeXp(MerchantOffer pOffer) {

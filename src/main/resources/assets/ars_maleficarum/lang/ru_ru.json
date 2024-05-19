@@ -250,5 +250,6 @@
   "sounds.ars_maleficarum.trader_witch_attack": "Ведьма-отшельница атакует",
   "sounds.ars_maleficarum.trader_witch_died": "Ведьма-отшельница погибает",
   "sounds.ars_maleficarum.trader_witch_hurt": "Ведьма-отшельница ранена",
-  "sounds.ars_maleficarum.trader_witch_amount": "Ведьма-отшельница смеётся"
+  "sounds.ars_maleficarum.trader_witch_ambient": "Ведьма-отшельница смеётся",
+  "sounds.ars_maleficarum.trader_witch_trade": "Ведьма-отшельница торгует"
 }

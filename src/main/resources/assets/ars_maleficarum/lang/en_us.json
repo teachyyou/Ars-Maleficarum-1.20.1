@@ -250,5 +250,6 @@
   "sounds.ars_maleficarum.trader_witch_attack": "Hermit Witch attacks",
   "sounds.ars_maleficarum.trader_witch_died": "Hermit Witch dies",
   "sounds.ars_maleficarum.trader_witch_hurt": "Hermit Witch hurt",
-  "sounds.ars_maleficarum.trader_witch_amount": "Hermit Witch laughs"
+  "sounds.ars_maleficarum.trader_witch_ambient": "Hermit Witch laughs",
+  "sounds.ars_maleficarum.trader_witch_trade": "Hermit Witch trades"
 }
