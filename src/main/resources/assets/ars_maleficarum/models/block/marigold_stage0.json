@@ -1,0 +1,71 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"1": "ars_maleficarum:block/marigold_stage0",
+		"particle": "ars_maleficarum:block/marigold_stage0"
+	},
+	"elements": [
+		{
+			"from": [-1, 0, 8],
+			"to": [17, 12, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 6.5, 8.0125]},
+			"faces": {
+				"north": {"uv": [4, 3, 8.5, 6], "texture": "#1"},
+				"east": {"uv": [0, 0, 0, 3], "texture": "#1"},
+				"south": {"uv": [8.5, 3, 4, 6], "texture": "#1"},
+				"west": {"uv": [0, 0, 0, 3], "texture": "#1"},
+				"up": {"uv": [4.5, 0, 0, 0], "texture": "#1"},
+				"down": {"uv": [4.5, 0, 0, 0], "texture": "#1"}
+			}
+		},
+		{
+			"from": [-1, 0, 8],
+			"to": [17, 12, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 6.5, 8.0125]},
+			"faces": {
+				"north": {"uv": [8.5, 0, 13, 3], "texture": "#1"},
+				"east": {"uv": [0, 0, 0, 3], "texture": "#1"},
+				"south": {"uv": [13, 0, 8.5, 3], "texture": "#1"},
+				"west": {"uv": [0, 0, 0, 3], "texture": "#1"},
+				"up": {"uv": [4.5, 0, 0, 0], "texture": "#1"},
+				"down": {"uv": [4.5, 0, 0, 0], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [16, 2, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#1"},
+				"down": {"uv": [4, 0, 0, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 4, 0],
+			"to": [16, 4, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 2, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 4, 0], "texture": "#1"},
+				"up": {"uv": [4, 8, 0, 4], "texture": "#1"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "calendula_stage1",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

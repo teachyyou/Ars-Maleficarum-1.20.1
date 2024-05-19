@@ -1,0 +1,71 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"1": "ars_maleficarum:block/sage_stage1",
+		"particle": "ars_maleficarum:block/sage_stage1"
+	},
+	"elements": [
+		{
+			"from": [-1, 0, 8],
+			"to": [17, 8, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 1, 8]},
+			"faces": {
+				"north": {"uv": [4.5, 6.75, 0, 8.75], "texture": "#1"},
+				"east": {"uv": [0, 0, 0, 1.75], "texture": "#1"},
+				"south": {"uv": [0, 6.75, 4.5, 8.75], "texture": "#1"},
+				"west": {"uv": [0, 0, 0, 1.75], "texture": "#1"},
+				"up": {"uv": [4.5, 0, 0, 0], "texture": "#1"},
+				"down": {"uv": [4.5, 0, 0, 0], "texture": "#1"}
+			}
+		},
+		{
+			"from": [8, 0, -1],
+			"to": [8, 8, 17],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 1, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 1.75], "texture": "#1"},
+				"east": {"uv": [11.5, 1.5, 7, 3.5], "texture": "#1"},
+				"south": {"uv": [0, 0, 0, 1.75], "texture": "#1"},
+				"west": {"uv": [7, 1.5, 11.5, 3.5], "texture": "#1"},
+				"up": {"uv": [0, 4.5, 0, 0], "texture": "#1"},
+				"down": {"uv": [0, 0, 0, 4.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [1, 2, 1],
+			"to": [15, 2, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 3, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"up": {"uv": [3.5, 3.5, 0, 0], "texture": "#1"},
+				"down": {"uv": [3.5, 0, 0, 3.5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [1, 5, 1],
+			"to": [15, 5, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 6, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 3.5, 0], "texture": "#1"},
+				"up": {"uv": [7, 3.5, 3.5, 0], "texture": "#1"},
+				"down": {"uv": [7, 0, 3.5, 3.5], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "sage_stage2",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}
