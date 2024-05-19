@@ -23,7 +23,9 @@
   "item.ars_maleficarum.silver_chunk": "Silver Chunk",
   "item.ars_maleficarum.cursed_gold_chunk": "Cursed Gold Chunk",
   "sounds.ars_maleficarum.mushroom_cut": "Mushroom Cut",
-  "sounds.ars_maleficarum.mandrake_scream": "Mandrake Scream",
+  "sounds.ars_maleficarum.mandrake_scream": "Mandrake screams",
+  "sounds.ars_maleficarum.mandrake_death": "Mandrake dies",
+  "sounds.ars_maleficarum.mandrake_spawn": "Mandrake awakes",
   "item.ars_maleficarum.cursed_gold": "Cursed Gold Ingot",
   "item.ars_maleficarum.silver": "Silver Ingot",
   "item.ars_maleficarum.cursed_gold_nugget": "Cursed Gold Nugget",
@@ -224,5 +226,31 @@
 
   "item.ars_maleficarum.exhausted_swallow": "Exhausted Swallow",
   "item.ars_maleficarum.spurious_thunderbolt": "Spurious Thunderbolt",
-  "item.ars_maleficarum.magmacube_gall": "Magmaсube Gall"
+  "item.ars_maleficarum.magmacube_gall": "Magmaсube Gall",
+
+  "item.ars_maleficarum.golden_carrot_soup": "Golden Carrot Soup",
+  "item.ars_maleficarum.mandrake_soup": "Mandrake Stew",
+  "item.ars_maleficarum.rowan_compote": "Rowan Compote",
+
+  "entity.ars_maleficarum.trader_witch": "Hermit Witch",
+  "item.ars_maleficarum.trade_witch_spawn_egg": "Hermit Witch Spawn Egg",
+
+  "sounds.ars_maleficarum.gluttony_demon_spawn": "Gluttony Demon summoned",
+  "sounds.ars_maleficarum.gluttony_demon_died": "Gluttony Demon dies",
+  "sounds.ars_maleficarum.gluttony_demon_hurt": "Gluttony Demon hurt",
+  "sounds.ars_maleficarum.gluttony_demon_laugh": "Gluttony Demon laughs",
+
+  "sounds.ars_maleficarum.cauldron_add_logs": "Firewood added to cauldron",
+  "sounds.ars_maleficarum.chalk_use": "Chalk used",
+  "sounds.ars_maleficarum.cauldron_boil": "Cauldron boils",
+  "sounds.ars_maleficarum.mystic_whispering": "Mystic Whispering",
+  "sounds.ars_maleficarum.brush_use": "Brush used",
+
+
+  "sounds.ars_maleficarum.fire_staff_radius_attack": "Fire ring summoned",
+
+  "sounds.ars_maleficarum.trader_witch_attack": "Hermit Witch attacks",
+  "sounds.ars_maleficarum.trader_witch_died": "Hermit Witch dies",
+  "sounds.ars_maleficarum.trader_witch_hurt": "Hermit Witch hurt",
+  "sounds.ars_maleficarum.trader_witch_amount": "Hermit Witch laughs"
 }

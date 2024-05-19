@@ -6,8 +6,6 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.sfedu.ars_maleficarum.entity.animations.ModANimationsGluttonyDemon;
-import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 
 public class TraderWitchModel <T extends TraderWitchEntity> extends HierarchicalModel<T> {

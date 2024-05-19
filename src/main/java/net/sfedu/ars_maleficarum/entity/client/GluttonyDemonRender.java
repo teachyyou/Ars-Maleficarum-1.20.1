@@ -5,9 +5,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
-import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.entity.layers.ModModelLayers;
-import org.lwjgl.opengl.GL;
 
 public class GluttonyDemonRender extends MobRenderer<GluttonyDemonEntity,GluttonyDemonModel<GluttonyDemonEntity>> {
     private static final ResourceLocation GLUTTONY_DEMON_LOCATION = new ResourceLocation(ArsMaleficarum.MOD_ID,"textures/entity/gluttony_demon_texture.png");

@@ -1,6 +1,9 @@
 package net.sfedu.ars_maleficarum.item;
 
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -251,6 +254,12 @@ public class ModItems {
             ()->new DrinkablePotion(new Item.Properties().food(ModFoods.MAGMACUBE_GALL_POTION_PROPERTIES)));
 
 
+    public static final RegistryObject<Item> GOLDEN_CARROT_SOUP = ITEMS.register("golden_carrot_soup",
+            ()->new Item(new Item.Properties().food(ModFoods.GOLDEN_CARROT_SOUP)));
+    public static final RegistryObject<Item> MANDRAKE_SOUP = ITEMS.register("mandrake_soup",
+            ()->new Item(new Item.Properties().food(ModFoods.MANDRAKE_SOUP)));
+    public static final RegistryObject<Item> ROWAN_COMPOTE = ITEMS.register("rowan_compote",
+            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.ROWAN_COMPOTE)));
 
 
     //Регистрация предметов

@@ -1,15 +1,14 @@
 package net.sfedu.ars_maleficarum.event;
 
-import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.client.*;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
-import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 import net.sfedu.ars_maleficarum.entity.layers.ModModelLayers;
 

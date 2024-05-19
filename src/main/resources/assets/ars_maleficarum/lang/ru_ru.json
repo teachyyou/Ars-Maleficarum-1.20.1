@@ -1,7 +1,7 @@
 {
 
   "creativetab.ars_maleficarum_main_tab": "Ars Maleficarum",
-  "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ingredients",
+  "creativetab.ars_maleficarum_ingredients_tab": "Ars Maleficarum - Ингредиенты",
 
   "entity.ars_maleficarum.gluttony_demon": "Демон Чревоугодия",
   "item.ars_maleficarum.gluttony_demon_spawn_egg": "Яйцо призыва Демона Чревоугодия",
@@ -28,7 +28,9 @@
   "item.ars_maleficarum.silver_nugget": "Серебряный самородок",
   "item.ars_maleficarum.mandrake_spawn_egg": "Яйцо призыва мандрагоры",
   "sounds.ars_maleficarum.mushroom_cut": "Срезание гриба",
-  "sounds.ars_maleficarum.mandrake_scream": "Крик мандрагоры",
+  "sounds.ars_maleficarum.mandrake_scream": "Мандрагора кричит",
+  "sounds.ars_maleficarum.mandrake_death": "Мандрагора погибает",
+  "sounds.ars_maleficarum.mandrake_spawn": "Мандрагора проснулась",
 
   "entity.ars_maleficarum.mandrake": "Корень мандрагоры",
 
@@ -226,6 +228,30 @@
 
   "item.ars_maleficarum.exhausted_swallow": "Уставшая Ласточка",
   "item.ars_maleficarum.spurious_thunderbolt": "Палёный Гром",
-  "item.ars_maleficarum.magmacube_gall": "Желчь Магмового Куба"
+  "item.ars_maleficarum.magmacube_gall": "Желчь Магмового Куба",
 
+  "item.ars_maleficarum.golden_carrot_soup": "Суп из золотой морковки",
+  "item.ars_maleficarum.mandrake_soup": "Рагу из мандрагоры",
+  "item.ars_maleficarum.rowan_compote": "Рябиновый компот",
+
+  "entity.ars_maleficarum.trader_witch": "Ведьма-отшельница",
+  "item.ars_maleficarum.trade_witch_spawn_egg": "Яйцо призыва Ведьмы-отшельницы",
+
+  "sounds.ars_maleficarum.gluttony_demon_spawn": "Демон Чревоугодия призван",
+  "sounds.ars_maleficarum.gluttony_demon_died": "Демон Чревоугодия погибает",
+  "sounds.ars_maleficarum.gluttony_demon_hurt": "Демон Чревоугодия ранен",
+  "sounds.ars_maleficarum.gluttony_demon_laugh": "Демон Чревоугодия смеётся",
+
+  "sounds.ars_maleficarum.cauldron_add_logs": "Подброшены дрова под котёл",
+  "sounds.ars_maleficarum.chalk_use": "Использован мел",
+  "sounds.ars_maleficarum.cauldron_boil": "Вода в котле кипит",
+  "sounds.ars_maleficarum.mystic_whispering": "Таинственный шёпот",
+  "sounds.ars_maleficarum.brush_use": "Использована щётка",
+
+  "sounds.ars_maleficarum.fire_staff_radius_attack": "Призвано кольцо огня",
+
+  "sounds.ars_maleficarum.trader_witch_attack": "Ведьма-отшельница атакует",
+  "sounds.ars_maleficarum.trader_witch_died": "Ведьма-отшельница погибает",
+  "sounds.ars_maleficarum.trader_witch_hurt": "Ведьма-отшельница ранена",
+  "sounds.ars_maleficarum.trader_witch_amount": "Ведьма-отшельница смеётся"
 }

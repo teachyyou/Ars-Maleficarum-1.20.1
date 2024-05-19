@@ -3,6 +3,7 @@
 // Paste this class into your mod and generate all required imports
 
 package net.sfedu.ars_maleficarum.entity.client;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;
@@ -10,9 +11,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.sfedu.ars_maleficarum.entity.animations.ModANimationsGluttonyDemon;
-import net.sfedu.ars_maleficarum.entity.animations.ModAnimationDefenitions;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
-import net.sfedu.ars_maleficarum.entity.client.GluttonyDemonRender;
 
 public class GluttonyDemonModel<T extends GluttonyDemonEntity> extends HierarchicalModel<T> {
 

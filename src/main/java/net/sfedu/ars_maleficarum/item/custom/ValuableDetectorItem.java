@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
 
 public class ValuableDetectorItem extends Item {
     public ValuableDetectorItem(Item.Properties pProperties){
