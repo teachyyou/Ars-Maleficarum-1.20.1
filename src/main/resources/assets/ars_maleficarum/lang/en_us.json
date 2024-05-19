@@ -224,5 +224,10 @@
 
   "item.ars_maleficarum.exhausted_swallow": "Exhausted Swallow",
   "item.ars_maleficarum.spurious_thunderbolt": "Spurious Thunderbolt",
-  "item.ars_maleficarum.magmacube_gall": "Magmaсube Gall"
+  "item.ars_maleficarum.magmacube_gall": "Magmaсube Gall",
+
+  "item.ars_maleficarum.golden_carrot_soup": "Golden Carrot Soup",
+  "item.ars_maleficarum.mandrake_soup": "Mandrake Stew",
+  "item.ars_maleficarum.rowan_compote": "Rowan Compote"
+
 }

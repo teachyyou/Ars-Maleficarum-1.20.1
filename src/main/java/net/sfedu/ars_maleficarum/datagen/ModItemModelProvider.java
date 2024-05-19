@@ -135,6 +135,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SPURIOUS_THUNDERBOLT_POTION);
         simpleItem(ModItems.MAGMACUBE_GALL_POTION);
 
+        simpleItem(ModItems.GOLDEN_CARROT_SOUP);
+        simpleItem(ModItems.MANDRAKE_SOUP);
+        simpleItem(ModItems.ROWAN_COMPOTE);
+
     }
 
     //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная

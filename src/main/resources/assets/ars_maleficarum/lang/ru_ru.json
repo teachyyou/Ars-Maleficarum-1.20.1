@@ -226,6 +226,10 @@
 
   "item.ars_maleficarum.exhausted_swallow": "Уставшая Ласточка",
   "item.ars_maleficarum.spurious_thunderbolt": "Палёный Гром",
-  "item.ars_maleficarum.magmacube_gall": "Желчь Магмового Куба"
+  "item.ars_maleficarum.magmacube_gall": "Желчь Магмового Куба",
+
+  "item.ars_maleficarum.golden_carrot_soup": "Суп из золотой морковки",
+  "item.ars_maleficarum.mandrake_soup": "Рагу из мандрагоры",
+  "item.ars_maleficarum.rowan_compote": "Рябиновый компот"
 
 }

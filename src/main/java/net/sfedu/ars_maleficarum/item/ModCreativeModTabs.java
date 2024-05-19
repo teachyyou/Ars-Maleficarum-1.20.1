@@ -170,6 +170,10 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SPURIOUS_THUNDERBOLT_POTION.get());
                         pOutput.accept(ModItems.MAGMACUBE_GALL_POTION.get());
 
+                        pOutput.accept(ModItems.GOLDEN_CARROT_SOUP.get());
+                        pOutput.accept(ModItems.MANDRAKE_SOUP.get());
+                        pOutput.accept(ModItems.ROWAN_COMPOTE.get());
+
                     }))
                     .build());
 
