@@ -1,6 +1,6 @@
 {
   "name": "Болотный гнилец",
-  "icon": "ars_maleficarum:textures/item/swamp_rotfiend_ingredient.png",
+  "icon": "ars_maleficarum:textures/item/swamp_rotfiend_ingredient_item.png",
   "category": "ars_maleficarum:plants/other",
   "pages": [
     {

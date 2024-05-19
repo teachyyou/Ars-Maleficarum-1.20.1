@@ -1,0 +1,19 @@
+{
+  "name": "Палёный гром",
+  "icon": "ars_maleficarum:spurious_thunderbolt",
+  "category": "ars_maleficarum:extracting_and_brewing/potion_making",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Палёный гром - элексир, значительно увеличивающий боевую силу того, кто его выпьет. Это зелье - незаменимый помощник в сложных боях, однако существует маленькое 'но' - рецепт ещё не до конца доработан, а потому существует маленький побочный эффект - практически полная слепота, длящаяся в два раза дольше усиления."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Создание зелья",
+      "recipe": "ars_maleficarum:spurious_thunderbolt_in_brewing_cauldron",
+      "text": "Оригинальный рецепт палёного грома - лучникам и боевым заклинателям противопоказан."
+    }
+  ],
+  "read_by_default": true
+}

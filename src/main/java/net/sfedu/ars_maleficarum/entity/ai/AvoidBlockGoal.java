@@ -1,4 +1,4 @@
-package net.sfedu.ars_maleficarum.AI;
+package net.sfedu.ars_maleficarum.entity.ai;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntitySelector;

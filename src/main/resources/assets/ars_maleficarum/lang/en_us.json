@@ -209,7 +209,6 @@
 
   "block.ars_maleficarum.brewing_cauldron": "Brewing Cauldron",
 
-
   "item.ars_maleficarum.wet_enchanted_leather": "Wet Enchanted Leather",
   "item.ars_maleficarum.dried_enchanted_leather": "Dried Enchanted Leather",
   "item.ars_maleficarum.simple_witch_hat": "Simple Hat",
@@ -245,7 +244,6 @@
   "sounds.ars_maleficarum.cauldron_boil": "Cauldron boils",
   "sounds.ars_maleficarum.mystic_whispering": "Mystic Whispering",
   "sounds.ars_maleficarum.brush_use": "Brush used",
-
 
   "sounds.ars_maleficarum.fire_staff_radius_attack": "Fire ring summoned",
 

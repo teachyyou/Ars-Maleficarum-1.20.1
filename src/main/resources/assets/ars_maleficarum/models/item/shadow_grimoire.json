@@ -2,13 +2,13 @@
   "loader": "forge:separate_transforms",
   "gui_light": "front",
   "base": {
-    "parent": "item/book"
+    "parent": "ars_maleficarum:item/shadow_grimoire_inhand"
   },
   "perspectives": {
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "item/writable_book"
+        "layer0": "ars_maleficarum:item/shadow_grimoire"
       },
       "gui_light": "front"
     }
