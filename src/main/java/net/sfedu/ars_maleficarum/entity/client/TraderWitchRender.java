@@ -4,7 +4,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
-import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 import net.sfedu.ars_maleficarum.entity.layers.ModModelLayers;
 

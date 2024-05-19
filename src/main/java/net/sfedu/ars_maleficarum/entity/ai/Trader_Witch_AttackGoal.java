@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.entity.ai;
 
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;

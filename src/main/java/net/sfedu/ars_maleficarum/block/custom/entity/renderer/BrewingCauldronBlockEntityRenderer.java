@@ -18,8 +18,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 
-import java.util.Random;
-
 import static net.sfedu.ars_maleficarum.block.custom.entity.renderer.rendertypes.CustomRenderTypes.CAULDRON_WATER;
 
 public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<BrewingCauldronBlockEntity> {

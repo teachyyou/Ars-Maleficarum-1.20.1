@@ -1,18 +1,14 @@
 package net.sfedu.ars_maleficarum.item.custom.ritualCircleItems;
 
 import net.minecraft.core.Direction;
-import net.minecraft.server.commands.GiveCommand;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import net.sfedu.ars_maleficarum.util.ModTags;

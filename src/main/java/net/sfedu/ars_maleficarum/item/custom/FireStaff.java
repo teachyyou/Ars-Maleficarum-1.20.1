@@ -6,21 +6,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.CustomFireBlock;
 import net.sfedu.ars_maleficarum.entity.custom.FireEssenceEntity;
-import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class FireStaff extends Item implements Vanishable {

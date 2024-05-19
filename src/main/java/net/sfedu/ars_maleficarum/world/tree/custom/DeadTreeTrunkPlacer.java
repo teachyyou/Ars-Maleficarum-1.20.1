@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.world.tree.custom;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 

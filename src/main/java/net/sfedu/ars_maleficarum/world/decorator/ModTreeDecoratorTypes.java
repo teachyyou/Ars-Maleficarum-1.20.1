@@ -3,12 +3,12 @@ package net.sfedu.ars_maleficarum.world.decorator;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraftforge.registries.*;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.*;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.world.decorator.custom.ModMushroomDecorator;
-import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.function.Supplier;
 
