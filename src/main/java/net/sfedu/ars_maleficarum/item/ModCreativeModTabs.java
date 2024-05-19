@@ -17,7 +17,7 @@ public class ModCreativeModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ArsMaleficarum.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> ARS_MALEFICARUM_INGREDIENTS_TAB = CREATIVE_MODE_TABS.register("ars_maleficarum_ingredients_tab",
-            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.PETRICHOR.get()))
+            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.MARIGOLD_FLOWER.get()))
                     .title(Component.translatable("creativetab.ars_maleficarum_ingredients_tab"))
                     .displayItems(((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.MARIGOLD_FLOWER.get());
@@ -63,7 +63,7 @@ public class ModCreativeModTabs {
 
     //Создание творческой вкладки
     public static final RegistryObject<CreativeModeTab> ARS_MALEFICARUM_MAIN_TAB = CREATIVE_MODE_TABS.register("ars_maleficarum_main_tab",
-            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SAGE_FLOWER.get()))
+            ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SIMPLE_WITCH_HAT.get()))
                     .title(Component.translatable("creativetab.ars_maleficarum_main_tab"))
                     .displayItems(((pParameters, pOutput) -> {
                         pOutput.accept(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get());

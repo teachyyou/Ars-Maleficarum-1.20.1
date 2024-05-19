@@ -1,6 +1,6 @@
 {
   "name": "Календула",
-  "icon": "ars_maleficarum:textures/block/marigold_stage3.png",
+  "icon": "ars_maleficarum:textures/item/marigold_flower.png",
   "category": "ars_maleficarum:plants/herbs",
   "pages": [
     {
@@ -32,7 +32,7 @@
       "type": "patchouli:spotlight",
       "title": "Измельчение",
       "item": "ars_maleficarum:ground_marigold_flowers",
-      "text": "Цветки календулы можно измельчить при помощи $(l:tools_and_materials/tools/mortar)ступы$(), превратив в их приятно пахнущий порошок. $(br2)Он используется травниками и алхимиками для создания целебных снадобий, припарок и иных продуктов, так или иначе связанных с исцелением."
+      "text": "Цветки календулы можно измельчить при помощи $(l:tools/mortar)ступы$(), превратив в их приятно пахнущий порошок. $(br2)Он используется травниками и алхимиками для создания целебных снадобий, припарок и иных продуктов, так или иначе связанных с исцелением."
     }
   ],
   "read_by_default": true
