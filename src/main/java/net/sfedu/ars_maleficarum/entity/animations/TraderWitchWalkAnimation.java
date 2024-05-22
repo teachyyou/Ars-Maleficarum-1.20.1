@@ -5,7 +5,7 @@ import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class TraderWitchAnimations {
+public class TraderWitchWalkAnimation {
 
 
 	public static final AnimationDefinition ANIMATION_WALK = AnimationDefinition.Builder.withLength(2.0F).looping()

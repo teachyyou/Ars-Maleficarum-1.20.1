@@ -5,7 +5,7 @@ import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class TraderWitchAnimations3 {
+public class TraderWitchIdleAnimation {
     public static final AnimationDefinition ANIMATION_IDLE = AnimationDefinition.Builder.withLength(2.0F).looping()
 		.addAnimation("bone66", new AnimationChannel(AnimationChannel.Targets.ROTATION,
 			new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),

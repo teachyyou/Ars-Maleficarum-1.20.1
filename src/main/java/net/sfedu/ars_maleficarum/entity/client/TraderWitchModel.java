@@ -9,10 +9,9 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.sfedu.ars_maleficarum.entity.animations.ModANimationsGluttonyDemon;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAnimations;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAnimations2;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAnimations3;
+import net.sfedu.ars_maleficarum.entity.animations.TraderWitchWalkAnimation;
+import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAttackAnimation;
+import net.sfedu.ars_maleficarum.entity.animations.TraderWitchIdleAnimation;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 
 public class TraderWitchModel<T extends TraderWitchEntity> extends HierarchicalModel<T> {
@@ -409,8 +408,8 @@ public class TraderWitchModel<T extends TraderWitchEntity> extends HierarchicalM
 	@Override
 	public void setupAnim(TraderWitchEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animateWalk(TraderWitchAnimations.ANIMATION_WALK, pLimbSwing, pLimbSwingAmount, 2.0f, 2.5f);
-		this.animate(pEntity.idleAnimationState, TraderWitchAnimations3.ANIMATION_IDLE, pAgeInTicks, 1f);
-		this.animate(pEntity.attackAnimationState, TraderWitchAnimations2.ANIMATION_ATTACK, pAgeInTicks, 1f);
+		this.animateWalk(TraderWitchWalkAnimation.ANIMATION_WALK, pLimbSwing, pLimbSwingAmount, 2.0f, 2.5f);
+		this.animate(pEntity.idleAnimationState, TraderWitchIdleAnimation.ANIMATION_IDLE, pAgeInTicks, 1f);
+		this.animate(pEntity.attackAnimationState, TraderWitchAttackAnimation.ANIMATION_ATTACK, pAgeInTicks, 1f);
 	}
 }

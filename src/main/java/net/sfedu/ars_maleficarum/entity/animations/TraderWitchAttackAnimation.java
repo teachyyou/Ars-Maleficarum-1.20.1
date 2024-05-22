@@ -5,7 +5,7 @@ import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class TraderWitchAnimations2 {
+public class TraderWitchAttackAnimation {
     public static final AnimationDefinition ANIMATION_ATTACK = AnimationDefinition.Builder.withLength(2.0F)
             .addAnimation("bone66", new AnimationChannel(AnimationChannel.Targets.POSITION,
 			new Keyframe(0.0F, KeyframeAnimations.posVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),
