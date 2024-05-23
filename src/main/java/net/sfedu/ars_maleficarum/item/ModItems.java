@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
 import net.sfedu.ars_maleficarum.item.custom.clothes.SimpleWitchHat;
@@ -220,13 +221,13 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
-            ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
+            ()->new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.WHITE));
 
     public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
-            ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
+            ()->new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.NATURAL));
 
     public static final RegistryObject<Item> CRIMSON_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("crimson_circle_core_drawing_kit",
-            ()->new NetherCoreDrawingKit(new Item.Properties().durability(1)));
+            ()->new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.NETHER));
 
     public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
             ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
