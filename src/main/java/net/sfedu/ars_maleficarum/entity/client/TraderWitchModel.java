@@ -9,9 +9,9 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchWalkAnimation;
 import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAttackAnimation;
 import net.sfedu.ars_maleficarum.entity.animations.TraderWitchIdleAnimation;
+import net.sfedu.ars_maleficarum.entity.animations.TraderWitchWalkAnimation;
 import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
 
 public class TraderWitchModel<T extends TraderWitchEntity> extends HierarchicalModel<T> {

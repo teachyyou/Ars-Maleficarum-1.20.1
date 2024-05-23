@@ -3,17 +3,13 @@ package net.sfedu.ars_maleficarum.patchouli.processors;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
-import net.sfedu.ars_maleficarum.item.ModItems;
-import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
 
-import java.awt.*;
 import java.util.List;
 
 public class InfusingAltarRecipeProcessor implements IComponentProcessor {

@@ -15,7 +15,8 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
 import net.sfedu.ars_maleficarum.item.custom.clothes.SimpleWitchHat;
-import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.ChalkItem;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.RitualCircleCoreDrawingKit;
 
 public class ModItems {
 
