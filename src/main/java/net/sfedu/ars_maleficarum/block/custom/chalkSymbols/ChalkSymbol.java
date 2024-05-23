@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -48,9 +49,8 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     private static final VoxelShape BARRIER_SHAPE = Shapes.box(0, -4, 0, 1, 16, 1);
 
 
-    public static final RitualCoreEntity.ChalkType type = RitualCoreEntity.ChalkType.ANY;
-    public ChalkSymbol(Properties pProperties) {
-        super(pProperties.destroyTime(5));
+    public ChalkSymbol() {
+        super(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noCollission().noLootTable().destroyTime(5));
     }
 
     @Override

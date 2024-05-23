@@ -18,10 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.*;
 import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
 import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
 import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
@@ -416,18 +413,17 @@ public class ModBlocks {
                 }
             });
 
-
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
 
     public static final RegistryObject<Block> WHITE_CHALK_SYMBOL = BLOCKS.register("white_chalk_symbol",
-            ()->new WhiteChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noCollission().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> GREEN_CHALK_SYMBOL = BLOCKS.register("green_chalk_symbol",
-            ()->new GreenChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> CRIMSON_CHALK_SYMBOL = BLOCKS.register("crimson_chalk_symbol",
-            ()->new CrimsonChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> BREWING_CAULDRON = registerBlock("brewing_cauldron",
             ()->new BrewingCauldronBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(state -> state.getValue(BrewingCauldronBlock.LIT) ? 8 : 0)));
