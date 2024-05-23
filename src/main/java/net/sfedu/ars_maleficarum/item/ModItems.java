@@ -204,20 +204,19 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON,0xae0f17,0x4b070a,new Item.Properties()));
 
     public static final RegistryObject<Item> WHITE_CHALK = ITEMS.register("white_chalk",
-            ()->new WhiteChalk(new Item.Properties().durability(44)));
+            ()->new ChalkItem(44, ModBlocks.WHITE_CHALK_SYMBOL.get()));
 
     public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
-            ()->new GreenChalk(new Item.Properties().durability(44)));
-
-    public static final RegistryObject<Item> GOLDEN_CHALK = ITEMS.register("golden_chalk",
-            ()->new GoldenChalk(new Item.Properties().durability(1)));
+            ()->new ChalkItem(44, ModBlocks.GREEN_CHALK_SYMBOL.get()));
 
     public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
-            ()->new CrimsonChalk(new Item.Properties().durability(44)));
+            ()->new ChalkItem(44, ModBlocks.CRIMSON_CHALK_SYMBOL.get()));
 
+    //todo пока нельзя рисовать, потом поменять (черный во всяком случае)
+    public static final RegistryObject<Item> GOLDEN_CHALK = ITEMS.register("golden_chalk",
+            ()->new Item(new Item.Properties().durability(1)));
     public static final RegistryObject<Item> BLACK_CHALK = ITEMS.register("black_chalk",
-            ()->new BlackChalk(new Item.Properties().durability(44)));
-
+            ()->new Item(new Item.Properties().durability(44)));
 
 
     public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",

@@ -17,11 +17,14 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class RitualCircleCoreDrawingKit extends Item {
 
+    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.WHITE);
+
+
     public RitualCircleCoreDrawingKit(Properties pProperties) {
+
         super(pProperties);
     }
 
-    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.WHITE);
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {

@@ -17,8 +17,9 @@ import java.util.Random;
 
 public class ChalkItem extends Item {
 
-    public ChalkItem(Properties pProperties) {
-        super(pProperties);
+    public ChalkItem(int durability, Block chalkSymbol) {
+        super(new Item.Properties().stacksTo(8).durability(durability));
+        this.chalkSymbol=chalkSymbol;
     }
 
     protected Block chalkSymbol;
@@ -60,19 +61,4 @@ public class ChalkItem extends Item {
         return InteractionResult.SUCCESS;
     }
 
-
-    @Override
-    public int getMaxDamage(ItemStack stack) {
-        return 44;
-    }
-
-    @Override
-    public int getMaxStackSize(ItemStack stack) {
-        return 8;
-    }
-
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return true;
-    }
 }
