@@ -41,11 +41,11 @@ public class ModBlocks {
 
     //Регистрация посевов шалфея
     public static final RegistryObject<Block> SAGE_CROP = BLOCKS.register("sage_crop",
-            () -> new SageCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+            () -> new HerbCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission(), HerbCropBlock.CropType.SAGE));
 
     //Регистрация посевов календулы
     public static final RegistryObject<Block> MARIGOLD_CROP = BLOCKS.register("marigold_crop",
-            () -> new MarigoldCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
+            () -> new HerbCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission(), HerbCropBlock.CropType.MARIGOLD));
 
     //Регистрация блока проклятого золота
     public static final RegistryObject<Block> CURSED_GOLD_BLOCK = registerBlock("cursed_gold_block",

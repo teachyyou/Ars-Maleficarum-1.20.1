@@ -20,10 +20,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.MarigoldCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.SageCropBlock;
-import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
-import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
+import net.sfedu.ars_maleficarum.block.custom.*;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 import java.util.Set;
@@ -150,7 +147,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Условие - предмет выпадет только тогда, когда культура полностью созрела
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.SAGE_CROP.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SageCropBlock.AGE, 3));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HerbCropBlock.AGE, 3));
 
         //Выпадение предметов при сборе созревшей культуры
         this.add(ModBlocks.SAGE_CROP.get(), createCropDropsWith2Items(ModBlocks.SAGE_CROP.get(), ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(),
@@ -163,7 +160,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры календулы
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.MARIGOLD_CROP.get())
-                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MarigoldCropBlock.AGE, 3)));
+                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(HerbCropBlock.AGE, 3)));
 
         //Выпадение предметов при сборе созревшей культуры
         this.add(ModBlocks.MARIGOLD_CROP.get(), createCropDrops(ModBlocks.MARIGOLD_CROP.get(), ModItems.MARIGOLD_FLOWER.get(),

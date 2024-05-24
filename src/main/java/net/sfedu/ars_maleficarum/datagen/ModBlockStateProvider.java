@@ -232,7 +232,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void makeSageCrop() {
         getVariantBuilder(ModBlocks.SAGE_CROP.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/sage_stage" + state.getValue(SageCropBlock.AGE))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/sage_stage" + state.getValue(HerbCropBlock.AGE))))
                         .build()
                 );
     }
@@ -241,7 +241,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void makeMarigoldCrop() {
         getVariantBuilder(ModBlocks.MARIGOLD_CROP.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/marigold_stage" + state.getValue(MarigoldCropBlock.AGE))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/marigold_stage" + state.getValue(HerbCropBlock.AGE))))
                         .build()
                 );
     }
