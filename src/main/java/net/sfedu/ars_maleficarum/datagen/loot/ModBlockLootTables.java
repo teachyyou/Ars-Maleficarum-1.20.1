@@ -20,7 +20,9 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.*;
+import net.sfedu.ars_maleficarum.block.custom.HerbCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
+import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
 import net.sfedu.ars_maleficarum.item.ModItems;
 
 import java.util.Set;

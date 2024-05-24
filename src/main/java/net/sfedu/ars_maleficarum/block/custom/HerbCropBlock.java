@@ -14,7 +14,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
-import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
