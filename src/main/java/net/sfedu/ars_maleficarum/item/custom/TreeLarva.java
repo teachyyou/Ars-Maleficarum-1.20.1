@@ -18,13 +18,13 @@ public class TreeLarva extends Item {
     }
 
     @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+    public void inventoryTick(ItemStack pStack, Level level, Entity entity, int pSlotId, boolean pIsSelected) {
         var tag = pStack.getOrCreateTag();
         int liveTime = tag.getInt("liveTime");
         tag.putInt("liveTime", liveTime+1);
         if (liveTime >= 12000)
         {
-            ((Player) pEntity).getInventory().setItem(pSlotId, new ItemStack(ModItems.DEAD_TREE_LARVA.get(), pStack.getCount()));
+            ((Player) entity).getInventory().setItem(pSlotId, new ItemStack(ModItems.DEAD_TREE_LARVA.get(), pStack.getCount()));
         }
     }
 
