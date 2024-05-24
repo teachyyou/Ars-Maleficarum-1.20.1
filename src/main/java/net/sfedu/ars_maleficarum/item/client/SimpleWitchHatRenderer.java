@@ -8,7 +8,6 @@ import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public class SimpleWitchHatRenderer extends GeoArmorRenderer<SimpleWitchHat> {
     public SimpleWitchHatRenderer() {
-        //super(new SimpleWitchHatModel());
         super(new DefaultedItemGeoModel<>(new ResourceLocation(ArsMaleficarum.MOD_ID, "clothes/simple_witch_hat")));
     }
 }

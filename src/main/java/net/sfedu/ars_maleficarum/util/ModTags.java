@@ -23,6 +23,7 @@ public class ModTags {
     //Тэги для предметов
     public static class Items {
 
+        public static final TagKey<Item> BLANK_FOCUS = tag("blank_focus");
         public static final TagKey<Item> SKULLS = tag("skulls");
         public static final TagKey<Item> ROWAN_WOOD = tag("rowan_wood");
         private static TagKey<Item> tag(String name) {
