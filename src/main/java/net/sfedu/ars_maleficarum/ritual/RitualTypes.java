@@ -16,7 +16,8 @@ import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequiresDemon.RiteOfKramerTorchCreation;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
-import org.antlr.v4.misc.OrderedHashMap;
+import net.sfedu.ars_maleficarum.util.OrderedHashMap;
+
 
 import java.util.Collection;
 import java.util.Map;
