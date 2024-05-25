@@ -22,13 +22,13 @@ public class HerbCropBlock extends CropBlock {
 
     // Определяем тип урожая, хранящий только формы для каждой стадии роста
     public enum CropType {
-        SAGE("sage",new VoxelShape[]{
+        SAGE(new VoxelShape[]{
                 Block.box(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
                 Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
                 Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
                 Block.box(0.0, 0.0, 0.0, 16.0, 18.0, 16.0)
         }),
-        MARIGOLD("marigold", new VoxelShape[]{
+        MARIGOLD(new VoxelShape[]{
                 Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
                 Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
                 Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
@@ -36,11 +36,9 @@ public class HerbCropBlock extends CropBlock {
         });
 
         private final VoxelShape[] shapes;
-        private final String id;
 
-        CropType(String id, VoxelShape[] shapes) {
+        CropType(VoxelShape[] shapes) {
             this.shapes = shapes;
-            this.id = id;
         }
 
         public VoxelShape[] getShapes() {
