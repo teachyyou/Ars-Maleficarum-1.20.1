@@ -79,16 +79,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
-        this.dropSelf(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
 
         this.dropSelf(ModBlocks.ROWAN_STAIRS.get());
         this.add(ModBlocks.ROWAN_SLAB.get(), block -> createSlabItemTable(ModBlocks.ROWAN_SLAB.get()));
         this.dropSelf(ModBlocks.ROWAN_FENCE.get());
         this.dropSelf(ModBlocks.ROWAN_FENCE_GATE.get());
 
-        this.dropOther(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
-        this.dropOther(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
-        this.dropOther(ModBlocks.INFUSING_ALTAR.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
+        this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
         this.dropOther(ModBlocks.CURSED_GOLD_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
         this.dropOther(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
         this.dropOther(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(), ModItems.CURSED_GOLD_NUGGET.get());

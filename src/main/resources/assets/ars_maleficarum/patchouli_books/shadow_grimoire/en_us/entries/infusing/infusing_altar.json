@@ -10,7 +10,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "ars_maleficarum:infusing_altar_stone_block",
+      "recipe": "ars_maleficarum:infusing_altar",
       "title": "Создание основы",
       "text": "Каменная основа, включающая в себя блок проклятого золота, окруженный кирпичом - то, из чего далее будет конструироваться алтарь наполнения."
     },

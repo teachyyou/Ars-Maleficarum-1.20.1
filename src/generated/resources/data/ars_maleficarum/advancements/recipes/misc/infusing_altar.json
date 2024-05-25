@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ars_maleficarum:infusing_altar_stone_block"
+        "recipe": "ars_maleficarum:infusing_altar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ars_maleficarum:infusing_altar_stone_block"
+      "ars_maleficarum:infusing_altar"
     ]
   },
   "sends_telemetry_event": false

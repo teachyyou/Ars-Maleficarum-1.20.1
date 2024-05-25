@@ -1,243 +1,963 @@
 {
   "variants": {
-    "color=0,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_white",
+    "color=0,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 90
     },
-    "color=0,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_white"
+    "color=0,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_white",
+      "y": 90
     },
-    "color=0,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_white",
+    "color=0,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_white",
+      "y": 90
+    },
+    "color=0,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_white",
+      "y": 90
+    },
+    "color=0,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=0,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_white"
+    },
+    "color=0,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_white"
+    },
+    "color=0,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_white"
+    },
+    "color=0,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 180
     },
-    "color=0,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_white",
+    "color=0,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_white",
+      "y": 180
+    },
+    "color=0,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_white",
+      "y": 180
+    },
+    "color=0,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_white",
+      "y": 180
+    },
+    "color=0,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 270
     },
-    "color=1,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_orange",
-      "y": 90
-    },
-    "color=1,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_orange"
-    },
-    "color=1,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_orange",
-      "y": 180
-    },
-    "color=1,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_orange",
+    "color=0,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_white",
       "y": 270
     },
-    "color=10,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_purple",
-      "y": 90
-    },
-    "color=10,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_purple"
-    },
-    "color=10,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_purple",
-      "y": 180
-    },
-    "color=10,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_purple",
+    "color=0,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_white",
       "y": 270
     },
-    "color=11,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_blue",
-      "y": 90
-    },
-    "color=11,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_blue"
-    },
-    "color=11,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_blue",
-      "y": 180
-    },
-    "color=11,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_blue",
+    "color=0,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_white",
       "y": 270
     },
-    "color=12,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_brown",
+    "color=1,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 90
     },
-    "color=12,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_brown"
+    "color=1,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_orange",
+      "y": 90
     },
-    "color=12,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_brown",
+    "color=1,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_orange",
+      "y": 90
+    },
+    "color=1,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_orange",
+      "y": 90
+    },
+    "color=1,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=1,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_orange"
+    },
+    "color=1,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_orange"
+    },
+    "color=1,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_orange"
+    },
+    "color=1,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 180
     },
-    "color=12,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_brown",
+    "color=1,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_orange",
+      "y": 180
+    },
+    "color=1,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_orange",
+      "y": 180
+    },
+    "color=1,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_orange",
+      "y": 180
+    },
+    "color=1,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 270
     },
-    "color=13,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_green",
-      "y": 90
-    },
-    "color=13,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_green"
-    },
-    "color=13,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_green",
-      "y": 180
-    },
-    "color=13,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_green",
+    "color=1,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_orange",
       "y": 270
     },
-    "color=14,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_red",
-      "y": 90
-    },
-    "color=14,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_red"
-    },
-    "color=14,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_red",
-      "y": 180
-    },
-    "color=14,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_red",
+    "color=1,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_orange",
       "y": 270
     },
-    "color=15,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_black",
-      "y": 90
-    },
-    "color=15,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_black"
-    },
-    "color=15,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_black",
-      "y": 180
-    },
-    "color=15,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_black",
+    "color=1,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_orange",
       "y": 270
     },
-    "color=2,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_magenta",
+    "color=10,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 90
     },
-    "color=2,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_magenta"
+    "color=10,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_purple",
+      "y": 90
     },
-    "color=2,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_magenta",
+    "color=10,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_purple",
+      "y": 90
+    },
+    "color=10,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_purple",
+      "y": 90
+    },
+    "color=10,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=10,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_purple"
+    },
+    "color=10,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_purple"
+    },
+    "color=10,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_purple"
+    },
+    "color=10,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 180
     },
-    "color=2,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_magenta",
+    "color=10,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_purple",
+      "y": 180
+    },
+    "color=10,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_purple",
+      "y": 180
+    },
+    "color=10,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_purple",
+      "y": 180
+    },
+    "color=10,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 270
     },
-    "color=3,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_light_blue",
-      "y": 90
-    },
-    "color=3,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_light_blue"
-    },
-    "color=3,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_light_blue",
-      "y": 180
-    },
-    "color=3,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_light_blue",
+    "color=10,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_purple",
       "y": 270
     },
-    "color=4,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_yellow",
-      "y": 90
-    },
-    "color=4,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_yellow"
-    },
-    "color=4,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_yellow",
-      "y": 180
-    },
-    "color=4,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_yellow",
+    "color=10,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_purple",
       "y": 270
     },
-    "color=5,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_lime",
-      "y": 90
-    },
-    "color=5,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_lime"
-    },
-    "color=5,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_lime",
-      "y": 180
-    },
-    "color=5,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_lime",
+    "color=10,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_purple",
       "y": 270
     },
-    "color=6,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_pink",
+    "color=11,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 90
     },
-    "color=6,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_pink"
+    "color=11,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_blue",
+      "y": 90
     },
-    "color=6,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_pink",
+    "color=11,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_blue",
+      "y": 90
+    },
+    "color=11,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_blue",
+      "y": 90
+    },
+    "color=11,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=11,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_blue"
+    },
+    "color=11,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_blue"
+    },
+    "color=11,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_blue"
+    },
+    "color=11,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 180
     },
-    "color=6,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_pink",
+    "color=11,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_blue",
+      "y": 180
+    },
+    "color=11,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_blue",
+      "y": 180
+    },
+    "color=11,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_blue",
+      "y": 180
+    },
+    "color=11,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 270
     },
-    "color=7,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_gray",
-      "y": 90
-    },
-    "color=7,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_gray"
-    },
-    "color=7,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_gray",
-      "y": 180
-    },
-    "color=7,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_gray",
+    "color=11,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_blue",
       "y": 270
     },
-    "color=8,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_light_gray",
-      "y": 90
-    },
-    "color=8,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_light_gray"
-    },
-    "color=8,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_light_gray",
-      "y": 180
-    },
-    "color=8,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_light_gray",
+    "color=11,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_blue",
       "y": 270
     },
-    "color=9,facing=east": {
-      "model": "ars_maleficarum:block/infusing_altar_cyan",
+    "color=11,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_blue",
+      "y": 270
+    },
+    "color=12,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 90
     },
-    "color=9,facing=north": {
-      "model": "ars_maleficarum:block/infusing_altar_cyan"
+    "color=12,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_brown",
+      "y": 90
     },
-    "color=9,facing=south": {
-      "model": "ars_maleficarum:block/infusing_altar_cyan",
+    "color=12,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_brown",
+      "y": 90
+    },
+    "color=12,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_brown",
+      "y": 90
+    },
+    "color=12,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=12,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_brown"
+    },
+    "color=12,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_brown"
+    },
+    "color=12,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_brown"
+    },
+    "color=12,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
       "y": 180
     },
-    "color=9,facing=west": {
-      "model": "ars_maleficarum:block/infusing_altar_cyan",
+    "color=12,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_brown",
+      "y": 180
+    },
+    "color=12,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_brown",
+      "y": 180
+    },
+    "color=12,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_brown",
+      "y": 180
+    },
+    "color=12,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=12,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_brown",
+      "y": 270
+    },
+    "color=12,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_brown",
+      "y": 270
+    },
+    "color=12,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_brown",
+      "y": 270
+    },
+    "color=13,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=13,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_green",
+      "y": 90
+    },
+    "color=13,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_green",
+      "y": 90
+    },
+    "color=13,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_green",
+      "y": 90
+    },
+    "color=13,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=13,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_green"
+    },
+    "color=13,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_green"
+    },
+    "color=13,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_green"
+    },
+    "color=13,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=13,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_green",
+      "y": 180
+    },
+    "color=13,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_green",
+      "y": 180
+    },
+    "color=13,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_green",
+      "y": 180
+    },
+    "color=13,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=13,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_green",
+      "y": 270
+    },
+    "color=13,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_green",
+      "y": 270
+    },
+    "color=13,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_green",
+      "y": 270
+    },
+    "color=14,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=14,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_red",
+      "y": 90
+    },
+    "color=14,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_red",
+      "y": 90
+    },
+    "color=14,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_red",
+      "y": 90
+    },
+    "color=14,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=14,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_red"
+    },
+    "color=14,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_red"
+    },
+    "color=14,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_red"
+    },
+    "color=14,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=14,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_red",
+      "y": 180
+    },
+    "color=14,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_red",
+      "y": 180
+    },
+    "color=14,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_red",
+      "y": 180
+    },
+    "color=14,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=14,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_red",
+      "y": 270
+    },
+    "color=14,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_red",
+      "y": 270
+    },
+    "color=14,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_red",
+      "y": 270
+    },
+    "color=15,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=15,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_black",
+      "y": 90
+    },
+    "color=15,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_black",
+      "y": 90
+    },
+    "color=15,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_black",
+      "y": 90
+    },
+    "color=15,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=15,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_black"
+    },
+    "color=15,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_black"
+    },
+    "color=15,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_black"
+    },
+    "color=15,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=15,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_black",
+      "y": 180
+    },
+    "color=15,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_black",
+      "y": 180
+    },
+    "color=15,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_black",
+      "y": 180
+    },
+    "color=15,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=15,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_black",
+      "y": 270
+    },
+    "color=15,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_black",
+      "y": 270
+    },
+    "color=15,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_black",
+      "y": 270
+    },
+    "color=2,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=2,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_magenta",
+      "y": 90
+    },
+    "color=2,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_magenta",
+      "y": 90
+    },
+    "color=2,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_magenta",
+      "y": 90
+    },
+    "color=2,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=2,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_magenta"
+    },
+    "color=2,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_magenta"
+    },
+    "color=2,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_magenta"
+    },
+    "color=2,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=2,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_magenta",
+      "y": 180
+    },
+    "color=2,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_magenta",
+      "y": 180
+    },
+    "color=2,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_magenta",
+      "y": 180
+    },
+    "color=2,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=2,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_magenta",
+      "y": 270
+    },
+    "color=2,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_magenta",
+      "y": 270
+    },
+    "color=2,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_magenta",
+      "y": 270
+    },
+    "color=3,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=3,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_blue",
+      "y": 90
+    },
+    "color=3,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_blue",
+      "y": 90
+    },
+    "color=3,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_blue",
+      "y": 90
+    },
+    "color=3,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=3,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_blue"
+    },
+    "color=3,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_blue"
+    },
+    "color=3,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_blue"
+    },
+    "color=3,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=3,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_blue",
+      "y": 180
+    },
+    "color=3,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_blue",
+      "y": 180
+    },
+    "color=3,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_blue",
+      "y": 180
+    },
+    "color=3,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=3,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_blue",
+      "y": 270
+    },
+    "color=3,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_blue",
+      "y": 270
+    },
+    "color=3,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_blue",
+      "y": 270
+    },
+    "color=4,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=4,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_yellow",
+      "y": 90
+    },
+    "color=4,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_yellow",
+      "y": 90
+    },
+    "color=4,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_yellow",
+      "y": 90
+    },
+    "color=4,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=4,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_yellow"
+    },
+    "color=4,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_yellow"
+    },
+    "color=4,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_yellow"
+    },
+    "color=4,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=4,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_yellow",
+      "y": 180
+    },
+    "color=4,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_yellow",
+      "y": 180
+    },
+    "color=4,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_yellow",
+      "y": 180
+    },
+    "color=4,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=4,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_yellow",
+      "y": 270
+    },
+    "color=4,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_yellow",
+      "y": 270
+    },
+    "color=4,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_yellow",
+      "y": 270
+    },
+    "color=5,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=5,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_lime",
+      "y": 90
+    },
+    "color=5,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_lime",
+      "y": 90
+    },
+    "color=5,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_lime",
+      "y": 90
+    },
+    "color=5,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=5,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_lime"
+    },
+    "color=5,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_lime"
+    },
+    "color=5,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_lime"
+    },
+    "color=5,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=5,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_lime",
+      "y": 180
+    },
+    "color=5,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_lime",
+      "y": 180
+    },
+    "color=5,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_lime",
+      "y": 180
+    },
+    "color=5,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=5,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_lime",
+      "y": 270
+    },
+    "color=5,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_lime",
+      "y": 270
+    },
+    "color=5,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_lime",
+      "y": 270
+    },
+    "color=6,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=6,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_pink",
+      "y": 90
+    },
+    "color=6,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_pink",
+      "y": 90
+    },
+    "color=6,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_pink",
+      "y": 90
+    },
+    "color=6,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=6,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_pink"
+    },
+    "color=6,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_pink"
+    },
+    "color=6,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_pink"
+    },
+    "color=6,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=6,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_pink",
+      "y": 180
+    },
+    "color=6,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_pink",
+      "y": 180
+    },
+    "color=6,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_pink",
+      "y": 180
+    },
+    "color=6,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=6,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_pink",
+      "y": 270
+    },
+    "color=6,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_pink",
+      "y": 270
+    },
+    "color=6,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_pink",
+      "y": 270
+    },
+    "color=7,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=7,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_gray",
+      "y": 90
+    },
+    "color=7,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_gray",
+      "y": 90
+    },
+    "color=7,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_gray",
+      "y": 90
+    },
+    "color=7,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=7,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_gray"
+    },
+    "color=7,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_gray"
+    },
+    "color=7,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_gray"
+    },
+    "color=7,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=7,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_gray",
+      "y": 180
+    },
+    "color=7,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_gray",
+      "y": 180
+    },
+    "color=7,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_gray",
+      "y": 180
+    },
+    "color=7,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=7,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_gray",
+      "y": 270
+    },
+    "color=7,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_gray",
+      "y": 270
+    },
+    "color=7,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_gray",
+      "y": 270
+    },
+    "color=8,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=8,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_gray",
+      "y": 90
+    },
+    "color=8,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_gray",
+      "y": 90
+    },
+    "color=8,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_gray",
+      "y": 90
+    },
+    "color=8,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=8,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_gray"
+    },
+    "color=8,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_gray"
+    },
+    "color=8,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_gray"
+    },
+    "color=8,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=8,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_gray",
+      "y": 180
+    },
+    "color=8,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_gray",
+      "y": 180
+    },
+    "color=8,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_gray",
+      "y": 180
+    },
+    "color=8,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=8,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_light_gray",
+      "y": 270
+    },
+    "color=8,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_light_gray",
+      "y": 270
+    },
+    "color=8,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_light_gray",
+      "y": 270
+    },
+    "color=9,facing=east,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 90
+    },
+    "color=9,facing=east,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_cyan",
+      "y": 90
+    },
+    "color=9,facing=east,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_cyan",
+      "y": 90
+    },
+    "color=9,facing=east,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_cyan",
+      "y": 90
+    },
+    "color=9,facing=north,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0"
+    },
+    "color=9,facing=north,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_cyan"
+    },
+    "color=9,facing=north,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_cyan"
+    },
+    "color=9,facing=north,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_cyan"
+    },
+    "color=9,facing=south,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 180
+    },
+    "color=9,facing=south,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_cyan",
+      "y": 180
+    },
+    "color=9,facing=south,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_cyan",
+      "y": 180
+    },
+    "color=9,facing=south,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_cyan",
+      "y": 180
+    },
+    "color=9,facing=west,stage=0": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_0",
+      "y": 270
+    },
+    "color=9,facing=west,stage=1": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_1_cyan",
+      "y": 270
+    },
+    "color=9,facing=west,stage=2": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_2_cyan",
+      "y": 270
+    },
+    "color=9,facing=west,stage=3": {
+      "model": "ars_maleficarum:block/infusing_altar_stage_3_cyan",
       "y": 270
     }
   }

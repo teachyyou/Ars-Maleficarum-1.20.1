@@ -119,7 +119,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.INERT_FIRE_STAFF.get());
                         pOutput.accept(ModItems.FIRE_STAFF.get());
                         pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
-                        pOutput.accept(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+                        pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
                         pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
                         pOutput.accept(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
                         pOutput.accept(ModBlocks.BREWING_CAULDRON.get());

@@ -103,8 +103,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
         RitualCircleCore();
-        horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
         horizontalBlock(ModBlocks.WOODEN_CAT_FIGURE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/wooden_cat_figure")));
 
@@ -117,15 +115,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.CRYSTAL_BALL.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/crystal_ball")));
 
-        coloredInfusingAltar();
-        coloredInfusingAltarCarpetBlock();
-        coloredInfusingAltarPentaBlock();
 
         buildChalkSymbols(ModBlocks.WHITE_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.GREEN_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
 
         cauldronFuelVariants();
+
+        InfusingAltarBlock();
 
     }
 
@@ -173,16 +170,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-    private void coloredInfusingAltar() {
-        List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar" + "_" + colors.get(state.getValue(InfusingAltarBlock.COLOR)))))
-                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                        .build()
-                );
-    }
-
     private void SwampRotfiendMushroom() {
         getVariantBuilder(ModBlocks.SWAMP_ROTFIEND.get())
                 .forAllStates(state -> ConfiguredModel.builder()
@@ -190,27 +177,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         ).rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build());
     }
 
-    private void coloredInfusingAltarCarpetBlock() {
-        List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get())
+    private void InfusingAltarBlock() {
+        getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_carpet_block" + "_" + colors.get(state.getValue(InfusingAltarCarpetBlock.COLOR)))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc(buildModelFile(state))))
                         .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
                         .build()
                 );
-
     }
-
-    private void coloredInfusingAltarPentaBlock() {
+    private String buildModelFile(BlockState blockState) {
         List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_penta_block" + "_" + colors.get(state.getValue(InfusingAltarPentaBlock.COLOR)))))
-                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                        .build()
-                );
-
+        int stage = blockState.getValue(InfusingAltarBlock.STAGE);
+        String path = "block/infusing_altar_stage_";
+        path+=stage;
+        if (stage > 0) path+="_"+colors.get(blockState.getValue(InfusingAltarBlock.COLOR));
+        return path;
     }
+
 
 
 

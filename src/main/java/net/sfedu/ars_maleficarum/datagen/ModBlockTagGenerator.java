@@ -29,9 +29,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
-                ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
-                ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),
-                ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(),
                 ModBlocks.INFUSING_ALTAR.get());
 
         //Категория предметов, для добычи которых нужны как минимум железные инструменты

@@ -176,9 +176,9 @@ public class ModItems {
         MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE, 0x582f13, 0x306d2c, new Item.Properties()));
         TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH, 0x9e7245, 0xacd1c9, new Item.Properties()));
         GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON, 0xae0f17, 0x4b070a, new Item.Properties()));
-        WHITE_CHALK = ITEMS.register("white_chalk", () -> new ChalkItem(44, ModBlocks.WHITE_CHALK_SYMBOL.get()));
-        GREEN_CHALK = ITEMS.register("green_chalk", () -> new ChalkItem(44, ModBlocks.GREEN_CHALK_SYMBOL.get()));
-        CRIMSON_CHALK = ITEMS.register("crimson_chalk", () -> new ChalkItem(44, ModBlocks.CRIMSON_CHALK_SYMBOL.get()));
+        WHITE_CHALK = ITEMS.register("white_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.WHITE_CHALK_SYMBOL.get()));
+        GREEN_CHALK = ITEMS.register("green_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.GREEN_CHALK_SYMBOL.get()));
+        CRIMSON_CHALK = ITEMS.register("crimson_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.CRIMSON_CHALK_SYMBOL.get()));
         GOLDEN_CHALK = ITEMS.register("golden_chalk", () -> new Item(new Item.Properties().durability(1))); //todo тут не забыть поменять мелки
         BLACK_CHALK = ITEMS.register("black_chalk", () -> new Item(new Item.Properties().durability(44)));
         WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit", () -> new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.WHITE));

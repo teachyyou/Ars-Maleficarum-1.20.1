@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -220,15 +221,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
             () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(x -> x.getValue(BlockStateProperties.LIT) ? 14 : 0)));
-    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
-            () -> new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
-    public static final RegistryObject<Block> INFUSING_ALTAR_STONE_BLOCK = registerBlock("infusing_altar_stone_block",
-            () -> new InfusingAltarStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> INFUSING_ALTAR_CARPET_BLOCK = registerBlock("infusing_altar_carpet_block",
-            () -> new InfusingAltarCarpetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> INFUSING_ALTAR_PENTA_BLOCK = registerBlock("infusing_altar_penta_block",
-            () -> new InfusingAltarPentaBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-
     public static final RegistryObject<Block> WOODEN_CAT_FIGURE = registerBlock("wooden_cat_figure",
             () -> new WoodenCatFigure(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()) {
                 @Override
@@ -442,7 +434,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRYSTAL_BALL = registerBlock("crystal_ball",
             ()->new CrystalBall(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel(x->6).noLootTable()));
 
-
+    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
+            () -> new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(x -> x.getValue(InfusingAltarBlock.STAGE) > 2 ? 14 : 0).noOcclusion()));
 
 
     //Регистрация блока и предмета, привязанного к нему

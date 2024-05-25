@@ -356,7 +356,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.GLASS), has(Blocks.GLASS))
                 .save(pWriter);
         //Крафт алтаря наполнения
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.INFUSING_ALTAR.get(), 1)
                 .pattern("SSS")
                 .pattern("SGS")
                 .pattern("BBB")
