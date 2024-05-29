@@ -25,7 +25,6 @@ import java.util.Map;
 public class RitualTypes<T extends CircleRitual>{
 
     private static final Map<ResourceLocation, RitualType<?>> RITUAL_TYPES = new OrderedHashMap<>();
-
     public static final RitualType<RiteOfSmallDemonicImprisonment> SMALL_DEMONIC_IMPRISONMENT = register("small_demonic_imprisonment", RiteOfSmallDemonicImprisonment::new);
     public static final RitualType<RiteOfMediumDemonicImprisonment> MEDIUM_DEMONIC_IMPRISONMENT = register("medium_demonic_imprisonment", RiteOfMediumDemonicImprisonment::new);
     public static final RitualType<RiteOfLargeDemonicImprisonment> LARGE_DEMONIC_IMPRISONMENT = register("large_demonic_imprisonment", RiteOfLargeDemonicImprisonment::new);

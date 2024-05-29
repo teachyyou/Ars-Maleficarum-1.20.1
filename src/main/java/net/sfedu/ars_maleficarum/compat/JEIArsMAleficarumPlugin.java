@@ -46,7 +46,8 @@ public class JEIArsMAleficarumPlugin implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(InfusingAltarScreen.class,60,30,20,30,InfusingAltarRecipeCategory.INFUSING_ALTAR_TYPE);
-        registration.addRecipeClickArea(OdourExtractorFurnaceScreen.class,20,30,20,30,OdourExtractingFurnaceRecipeCategory.ODOUR_EXTRACTING_TYPE);
+        //Either place it correctly or remove completely - looks weird at that point
+        //registration.addRecipeClickArea(InfusingAltarScreen.class,60,30,20,30,InfusingAltarRecipeCategory.INFUSING_ALTAR_TYPE);
+        //registration.addRecipeClickArea(OdourExtractorFurnaceScreen.class,20,30,20,30,OdourExtractingFurnaceRecipeCategory.ODOUR_EXTRACTING_TYPE);
     }
 }
