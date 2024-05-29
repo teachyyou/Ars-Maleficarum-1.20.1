@@ -11,7 +11,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitu
 public class GreatRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
     public GreatRiteOfSwiftness(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE);
+        super(type, WHITE, WHITE, WHITE, WHITE);
         components.put(Items.SUGAR, 2);
         components.put(ModItems.WASTELAND_WIND.get(), 1);
         components.put(ModItems.SOARING_LIGHTNESS.get(), 1);
@@ -22,8 +22,5 @@ public class GreatRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
         effects.add(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20*60*15, 2));
         playersAmount = 3;
         radius = 7;
-
     }
-
-
 }

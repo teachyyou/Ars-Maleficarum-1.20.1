@@ -11,7 +11,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitu
 public class WeakRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
 
     public WeakRiteOfSwiftness(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NONE);
+        super(type, WHITE, WHITE, WHITE, NONE);
         components.put(Items.SUGAR, 1);
         components.put(ModItems.WASTELAND_WIND.get(), 1);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);
@@ -22,8 +22,5 @@ public class WeakRiteOfSwiftness extends ApplyEffectOnPlayersRitual {
         effects.add(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20*60*15, 1));
         playersAmount = 5;
         radius = 7;
-
     }
-
-
 }

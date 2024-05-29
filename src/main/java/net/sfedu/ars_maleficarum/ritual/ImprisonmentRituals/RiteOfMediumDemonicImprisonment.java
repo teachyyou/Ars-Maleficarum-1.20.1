@@ -20,7 +20,7 @@ import java.util.List;
 public class RiteOfMediumDemonicImprisonment extends CircleRitual {
 
     public RiteOfMediumDemonicImprisonment(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.ANY, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.NONE);
+        super(type, ANY, NONE, ANY, NONE);
         components.put(Items.SOUL_SAND, 1);
         components.put(Items.IRON_INGOT, 1);
         components.put(ModItems.SALT.get(), 2);
