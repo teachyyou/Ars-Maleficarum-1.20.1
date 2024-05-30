@@ -8,9 +8,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
@@ -105,8 +103,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/odour_extracting_furnace")));
         RitualCircleCore();
-        horizontalBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_stone_block")));
         horizontalBlock(ModBlocks.WOODEN_CAT_FIGURE.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/wooden_cat_figure")));
 
@@ -119,15 +115,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.CRYSTAL_BALL.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/crystal_ball")));
 
-        coloredInfusingAltar();
-        coloredInfusingAltarCarpetBlock();
-        coloredInfusingAltarPentaBlock();
 
         buildChalkSymbols(ModBlocks.WHITE_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.GREEN_CHALK_SYMBOL.get());
         buildChalkSymbols(ModBlocks.CRIMSON_CHALK_SYMBOL.get());
 
         cauldronFuelVariants();
+
+        InfusingAltarBlock();
 
     }
 
@@ -175,16 +170,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-    private void coloredInfusingAltar() {
-        List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar" + "_" + colors.get(state.getValue(InfusingAltarBlock.COLOR)))))
-                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                        .build()
-                );
-    }
-
     private void SwampRotfiendMushroom() {
         getVariantBuilder(ModBlocks.SWAMP_ROTFIEND.get())
                 .forAllStates(state -> ConfiguredModel.builder()
@@ -192,27 +177,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         ).rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build());
     }
 
-    private void coloredInfusingAltarCarpetBlock() {
-        List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get())
+    private void InfusingAltarBlock() {
+        getVariantBuilder(ModBlocks.INFUSING_ALTAR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_carpet_block" + "_" + colors.get(state.getValue(InfusingAltarCarpetBlock.COLOR)))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc(buildModelFile(state))))
                         .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
                         .build()
                 );
-
     }
-
-    private void coloredInfusingAltarPentaBlock() {
+    private String buildModelFile(BlockState blockState) {
         List<String> colors = List.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black");
-        getVariantBuilder(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/infusing_altar_penta_block" + "_" + colors.get(state.getValue(InfusingAltarPentaBlock.COLOR)))))
-                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
-                        .build()
-                );
-
+        int stage = blockState.getValue(InfusingAltarBlock.STAGE);
+        String path = "block/infusing_altar_stage_";
+        path+=stage;
+        if (stage > 0) path+="_"+colors.get(blockState.getValue(InfusingAltarBlock.COLOR));
+        return path;
     }
+
 
 
 
@@ -234,7 +215,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void makeSageCrop() {
         getVariantBuilder(ModBlocks.SAGE_CROP.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/sage_stage" + state.getValue(SageCropBlock.AGE))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/sage_stage" + state.getValue(HerbCropBlock.AGE))))
                         .build()
                 );
     }
@@ -243,7 +224,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void makeMarigoldCrop() {
         getVariantBuilder(ModBlocks.MARIGOLD_CROP.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/marigold_stage" + state.getValue(MarigoldCropBlock.AGE))))
+                        .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/marigold_stage" + state.getValue(HerbCropBlock.AGE))))
                         .build()
                 );
     }

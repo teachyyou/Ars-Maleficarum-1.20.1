@@ -97,9 +97,6 @@
 
   "Infusing_Altar_DisplayName": "Infusing Altar",
   "block.ars_maleficarum.infusing_altar": "Infusing Altar",
-  "block.ars_maleficarum.infusing_altar_stone_block": "Stone Altar Base",
-  "block.ars_maleficarum.infusing_altar_carpet_block": "Covered Altar Base",
-  "block.ars_maleficarum.infusing_altar_penta_block": "Painted Altar Base",
 
   "item.ars_maleficarum.wooden_figure": "Wooden Figure",
   "item.ars_maleficarum.poppet": "Poppet",

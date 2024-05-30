@@ -1,12 +1,16 @@
 package net.sfedu.ars_maleficarum.item.custom.ritualCircleItems;
 
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
@@ -17,11 +21,17 @@ import java.util.Random;
 
 public class ChalkItem extends Item {
 
-    public ChalkItem(Properties pProperties) {
-        super(pProperties);
+    public ChalkItem(Item.Properties properties, Block chalkSymbol) {
+        super(properties);
+        this.chalkSymbol=chalkSymbol;
     }
 
     protected Block chalkSymbol;
+
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 8;
+    }
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
@@ -41,38 +51,29 @@ public class ChalkItem extends Item {
             }
         }
 
-        if (pContext.getItemInHand().getCount()>1) {
-            int dif = pContext.getItemInHand().getCount()-1;
-            ItemStack remaining = pContext.getItemInHand().copy();
-            remaining.setCount(dif);
-            pContext.getItemInHand().setCount(1);
-            pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                    p->{});
-            if (!pContext.getPlayer().getInventory().add(remaining)) {
-                Vec3 vec3 = pContext.getPlayer().position();
-                pContext.getLevel().addFreshEntity(new ItemEntity(pContext.getLevel(), vec3.x,vec3.y,vec3.z, remaining));
-            }
-        } else {
-            pContext.getItemInHand().hurtAndBreak(1,pContext.getPlayer(),
-                    p->{});
-        }
+        chalkUse(pContext.getPlayer(), pContext.getItemInHand(), pContext.getLevel(), pContext.getClickedPos());
+
         pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
 
-
-    @Override
-    public int getMaxDamage(ItemStack stack) {
-        return 44;
+    //divides chalk stack after using
+    public static void chalkUse(Player player, ItemStack itemStack, Level level, BlockPos blockPos) {
+        if (!player.isCreative()) {
+            if (itemStack.getCount() > 1) {
+                int remainingCount = itemStack.getCount() - 1;
+                ItemStack remainingStack = itemStack.copy();
+                remainingStack.setCount(remainingCount);
+                itemStack.setCount(1);
+                itemStack.hurtAndBreak(1, player, p -> {});
+                if (!player.getInventory().add(remainingStack)) {
+                    Vec3 playerPos = player.position();
+                    level.addFreshEntity(new ItemEntity(level, playerPos.x, playerPos.y, playerPos.z, remainingStack));
+                }
+            } else {
+                itemStack.hurtAndBreak(1, player, p -> {});
+            }
+        }
     }
 
-    @Override
-    public int getMaxStackSize(ItemStack stack) {
-        return 8;
-    }
-
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return true;
-    }
 }

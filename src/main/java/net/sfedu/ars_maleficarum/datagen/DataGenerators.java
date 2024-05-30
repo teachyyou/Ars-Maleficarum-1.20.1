@@ -10,7 +10,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = ArsMaleficarum.MOD_ID,bus=Mod.EventBusSubscriber.Bus.MOD)

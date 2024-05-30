@@ -11,255 +11,193 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.item.custom.*;
 import net.sfedu.ars_maleficarum.item.custom.clothes.SimpleWitchHat;
-import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.*;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.ChalkItem;
+import net.sfedu.ars_maleficarum.item.custom.ritualCircleItems.RitualCircleCoreDrawingKit;
 
 public class ModItems {
 
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ArsMaleficarum.MOD_ID);
 
-    //DefferedRegister для предметов
-    public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, ArsMaleficarum.MOD_ID);
+    public static final RegistryObject<Item> SAGE_FLOWER;
+    public static final RegistryObject<Item> SAGE_LEAF;
+    public static final RegistryObject<Item> SAGE_SEED;
+    public static final RegistryObject<Item> MARIGOLD_FLOWER;
+    public static final RegistryObject<Item> MARIGOLD_SEED;
+    public static final RegistryObject<Item> SUNLIGHT_FLOWER_SEED;
+    public static final RegistryObject<Item> SUNLIGHT_FLOWER;
+    public static final RegistryObject<Item> MOONLIGHT_FLOWER_SEED;
+    public static final RegistryObject<Item> MOONLIGHT_FLOWER;
+    public static final RegistryObject<Item> CURSED_GOLD;
+    public static final RegistryObject<Item> SILVER;
+    public static final RegistryObject<Item> SILVER_NUGGET;
+    public static final RegistryObject<Item> SILVER_CHUNK;
+    public static final RegistryObject<Item> CURSED_GOLD_NUGGET;
+    public static final RegistryObject<Item> CURSED_GOLD_CHUNK;
+    public static final RegistryObject<Item> POISON_STAFF;
+    public static final RegistryObject<Item> FIRE_STAFF;
+    public static final RegistryObject<Item> INERT_FIRE_STAFF;
+    public static final RegistryObject<Item> CARBON_DETECTOR;
+    public static final RegistryObject<Item> METAL_DETECTOR;
+    public static final RegistryObject<Item> VALUABLE_DETECTOR;
+    public static final RegistryObject<Item> STONE_PESTLE;
+    public static final RegistryObject<Item> ROWAN_BERRIES;
+    public static final RegistryObject<Item> ROWAN_BARK;
+    public static final RegistryObject<Item> SWAMP_ROTFIEND_INGREDIENT;
+    public static final RegistryObject<Item> NAMELESS_CHARCOAL;
+    public static final RegistryObject<Item> WOODEN_FIGURE;
+    public static final RegistryObject<Item> DRY_WOOD;
+    public static final RegistryObject<Item> INERT_POISON_STAFF;
+    public static final RegistryObject<Item> POPPET;
+    public static final RegistryObject<Item> FLINT_KNIFE;
+    public static final RegistryObject<Item> SILVER_DAGGER;
+    public static final RegistryObject<Item> EMPTY_SEAL;
+    public static final RegistryObject<Item> PERCEPTION_CORE;
+    public static final RegistryObject<Item> SALT;
+    public static final RegistryObject<Item> STONE_MORTAR;
+    public static final RegistryObject<Item> STONE_MORTAR_AND_PESTLE;
+    public static final RegistryObject<Item> WOODEN_MORTAR_AND_PESTLE;
+    public static final RegistryObject<Item> BAT_WING;
+    public static final RegistryObject<Item> DEAD_TREE_BARK;
+    public static final RegistryObject<Item> DEAD_TREE_LARVA;
+    public static final RegistryObject<Item> FERMENTED_TREE_LARVA;
+    public static final RegistryObject<Item> TREE_LARVA;
+    public static final RegistryObject<Item> EMPTY_VIAL;
+    public static final RegistryObject<Item> SMELL_OF_HOME;
+    public static final RegistryObject<Item> RING_OF_MORNING_DEW;
+    public static final RegistryObject<Item> CONIFEROUS_OIL;
+    public static final RegistryObject<Item> TROPICAL_MONSOON;
+    public static final RegistryObject<Item> PETRICHOR;
+    public static final RegistryObject<Item> WASTELAND_WIND;
+    public static final RegistryObject<Item> ABSOLUTE_ORDER;
+    public static final RegistryObject<Item> SCENT_OF_UNCERTAINTY;
+    public static final RegistryObject<Item> WHIFF_OF_TIME;
+    public static final RegistryObject<Item> CHERRY_ETUDE;
+    public static final RegistryObject<Item> SOARING_LIGHTNESS;
+    public static final RegistryObject<Item> STINK_OF_SWAMP;
+    public static final RegistryObject<Item> DESERT_SPIRIT;
+    public static final RegistryObject<Item> SWEET_DREAM;
+    public static final RegistryObject<Item> TUNE_OF_HARMONY;
+    public static final RegistryObject<Item> MANDRAKE_SEED;
+    public static final RegistryObject<Item> MANDRAKE_ROOT;
+    public static final RegistryObject<Item> GROUND_SAGE_FLOWERS;
+    public static final RegistryObject<Item> GROUND_MARIGOLD_FLOWERS;
+    public static final RegistryObject<Item> ASH;
+    public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG;
+    public static final RegistryObject<Item> TRADE_WITCH_SPAWN_EGG;
+    public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG;
+    public static final RegistryObject<Item> WHITE_CHALK;
+    public static final RegistryObject<Item> GREEN_CHALK;
+    public static final RegistryObject<Item> CRIMSON_CHALK;
+    public static final RegistryObject<Item> GOLDEN_CHALK;
+    public static final RegistryObject<Item> BLACK_CHALK;
+    public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT;
+    public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT;
+    public static final RegistryObject<Item> CRIMSON_CIRCLE_CORE_DRAWING_KIT;
+    public static final RegistryObject<Item> CHALK_BRUSH;
+    public static final RegistryObject<Item> SIMPLE_WITCH_HAT;
+    public static final RegistryObject<Item> WET_ENCHANTED_LEATHER;
+    public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER;
+    public static final RegistryObject<Item> EXHAUSTED_SWALLOW_POTION;
+    public static final RegistryObject<Item> SPURIOUS_THUNDERBOLT_POTION;
+    public static final RegistryObject<Item> MAGMACUBE_GALL_POTION;
+    public static final RegistryObject<Item> GOLDEN_CARROT_SOUP;
+    public static final RegistryObject<Item> MANDRAKE_SOUP;
+    public static final RegistryObject<Item> ROWAN_COMPOTE;
 
-    //Регистрация цветка шалфея
-    public static final RegistryObject<Item> SAGE_FLOWER = ITEMS.register("sage_flower",
-            ()->new Item(new Item.Properties()));
-    //Регистрация листьев шалфея
-    public static final RegistryObject<Item> SAGE_LEAF = ITEMS.register("sage_leaf",
-            ()->new Item(new Item.Properties()));
-
-    //Регистрация семян шалфея
-    public static final RegistryObject<Item> SAGE_SEED = ITEMS.register("sage_seeds",
-            ()->new ItemNameBlockItem(ModBlocks.SAGE_CROP.get(), new Item.Properties()));
-
-    //Регистрация цветка календулы
-    public static final RegistryObject<Item> MARIGOLD_FLOWER = ITEMS.register("marigold_flower",
-            ()->new Item(new Item.Properties()));
-
-    //Регистрация семян календулы
-    public static final RegistryObject<Item> MARIGOLD_SEED = ITEMS.register("marigold_seeds",
-            ()->new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
-    //Регистрация семян цветка солнечного света
-    public static final RegistryObject<Item> SUNLIGHT_FLOWER_SEED = ITEMS.register("sunlight_flower_seeds",
-            ()->new ItemNameBlockItem(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), new Item.Properties()));
-    //Регистрация цветка солнечного света
-    public static final RegistryObject<Item> SUNLIGHT_FLOWER = ITEMS.register("sunlight_flower",
-            ()->new Item(new Item.Properties()));
-    //Регистрация семян цветка лунного света
-    public static final RegistryObject<Item> MOONLIGHT_FLOWER_SEED = ITEMS.register("moonlight_flower_seeds",
-            ()->new ItemNameBlockItem(ModBlocks.MOONLIGHT_FLOWER_CROP.get(), new Item.Properties()));
-    //Регистрация цветка лунного света
-    public static final RegistryObject<Item> MOONLIGHT_FLOWER = ITEMS.register("moonlight_flower",
-            ()->new Item(new Item.Properties()));
-    //Регистрация слитка проклятого золота
-    public static final RegistryObject<Item> CURSED_GOLD = ITEMS.register("cursed_gold",
-            ()->new Item(new Item.Properties()));
-
-
-    //Регистрация слитка проклятого серебра
-    public static final RegistryObject<Item> SILVER = ITEMS.register("silver",
-            ()->new Item(new Item.Properties()));
-
-    //Регистрация  самородка проклятого серебра
-    public static final RegistryObject<Item> SILVER_NUGGET = ITEMS.register("silver_nugget",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SILVER_CHUNK = ITEMS.register("silver_chunk",
-            ()->new Item(new Item.Properties()));
-
-    //Регистрация  самородка проклятого золота
-    public static final RegistryObject<Item> CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk",
-            ()->new Item(new Item.Properties().durability(1024)));
-
-    public static final RegistryObject<Item> INFUSED_WOOD = ITEMS.register("infused_wood",
-            ()->new Item(new Item.Properties()));
-
-
-    public static final RegistryObject<Item> POISON_STAFF = ITEMS.register("poison_staff",
-            ()->new PoisonStaff(new Item.Properties().durability(1024)));
-
-    public static final RegistryObject<Item> FIRE_STAFF = ITEMS.register("fire_staff",
-            ()->new FireStaff(new Item.Properties().durability(1024)));
-    public static final RegistryObject<Item> INERT_FIRE_STAFF = ITEMS.register("inert_fire_staff",
-            ()->new Item(new Item.Properties().stacksTo(1)));
-    //Регистрация детектора углеродной руды
-    public static final RegistryObject<Item> CARBON_DETECTOR = ITEMS.register("carbon_detector",
-            ()->new CarbonDetectorItem(new Item.Properties().durability(100)));
-    public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
-            ()->new MetalDetectorItem(new Item.Properties().durability(80)));
-    public static final RegistryObject<Item> VALUABLE_DETECTOR = ITEMS.register("valuable_detector",
-            ()->new ValuableDetectorItem(new Item.Properties().durability(65)));
-    //Регистрация каменного пестика
-    public static final RegistryObject<Item> STONE_PESTLE = ITEMS.register("stone_pestle",
-            ()->new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> ROWAN_BERRIES = ITEMS.register("rowan_berries",
-            ()->new Item(new Item.Properties().food(ModFoods.ROWAN_BERRIES)));
-
-    public static final RegistryObject<Item> ROWAN_BARK = ITEMS.register("rowan_bark",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SWAMP_ROTFIEND_INGREDIENT = ITEMS.register("swamp_rotfiend_ingredient_item",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal",
-            ()->new FuelItem(new Item.Properties(),400));
-
-    public static final RegistryObject<Item> WOODEN_FIGURE = ITEMS.register("wooden_figure",
-            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
-
-    public static final RegistryObject<Item> DRY_WOOD = ITEMS.register("dry_wood",
-            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
-
-    public static final RegistryObject<Item> INERT_POISON_STAFF = ITEMS.register("inert_poison_staff",
-            ()->new Item(new Item.Properties().stacksTo(1)));
-
-
-    public static final RegistryObject<Item> POPPET = ITEMS.register("poppet",
-            ()->new BlankMagicalFocus(new Item.Properties().stacksTo(1)));
-
-    public static final RegistryObject<Item> FLINT_KNIFE = ITEMS.register("flint_knife",
-            ()->new FlintKnife(new Item.Properties().durability(16)));
-
-    public static final RegistryObject<Item> SILVER_DAGGER = ITEMS.register("silver_dagger",
-            ()->new SilverDagger(Tiers.GOLD,5,-1F,new Item.Properties().durability(96)));
-
-    public static final RegistryObject<Item> EMPTY_SEAL = ITEMS.register("empty_seal",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PERCEPTION_CORE = ITEMS.register("perception_core",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SALT = ITEMS.register("salt",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> STONE_MORTAR = ITEMS.register("stone_mortar",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> STONE_MORTAR_AND_PESTLE = ITEMS.register("stone_mortar_and_pestle",
-            ()->new StoneMortarAndPestle(new Item.Properties().durability(40)));
-    public static final RegistryObject<Item> WOODEN_MORTAR_AND_PESTLE = ITEMS.register("wooden_mortar_and_pestle",
-            ()->new WoodenMortarAndPestle(new Item.Properties().durability(18)));
-    public static final RegistryObject<Item> BAT_WING = ITEMS.register("bat_wing",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DEAD_TREE_BARK = ITEMS.register("dead_tree_bark",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DEAD_TREE_LARVA = ITEMS.register("dead_tree_larva",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> FERMENTED_TREE_LARVA = ITEMS.register("fermented_tree_larva",
-            ()->new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TREE_LARVA = ITEMS.register("tree_larva",
-            ()->new TreeLarva(new Item.Properties()));
-
-    public static final RegistryObject<Item> EMPTY_VIAL = ITEMS.register("empty_vial",
-            ()->new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> SMELL_OF_HOME = ITEMS.register("smell_of_home",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> RING_OF_MORNING_DEW = ITEMS.register("ring_of_morning_dew",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> CONIFEROUS_OIL = ITEMS.register("coniferous_oil",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> TROPICAL_MONSOON = ITEMS.register("tropical_monsoon",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> PETRICHOR = ITEMS.register("petrichor",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> WASTELAND_WIND = ITEMS.register("wasteland_wind",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> ABSOLUTE_ORDER = ITEMS.register("absolute_order",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SCENT_OF_UNCERTAINTY = ITEMS.register("scent_of_uncertainty",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> WHIFF_OF_TIME = ITEMS.register("whiff_of_time",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> CHERRY_ETUDE = ITEMS.register("cherry_etude",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SOARING_LIGHTNESS = ITEMS.register("soaring_lightness",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> STINK_OF_SWAMP = ITEMS.register("stink_of_swamp",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> DESERT_SPIRIT = ITEMS.register("desert_spirit",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> SWEET_DREAM = ITEMS.register("sweet_dream",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> TUNE_OF_HARMONY = ITEMS.register("tune_of_harmony",
-            ()->new IngredientItem(new Item.Properties()));
-
-    public static final RegistryObject<Item> MANDRAKE_SEED = ITEMS.register("mandrake_seed",
-            ()->new ItemNameBlockItem(ModBlocks.MANDRAKE_CROP.get(), new Item.Properties()));
-
-    public static final RegistryObject<Item> MANDRAKE_ROOT = ITEMS.register("mandrake_root",
-            ()->new IngredientItem(new Item.Properties()));
-
-    public static final RegistryObject<Item> GROUND_SAGE_FLOWERS = ITEMS.register("ground_sage_flowers",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> GROUND_MARIGOLD_FLOWERS = ITEMS.register("ground_marigold_flowers",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> ASH = ITEMS.register("ash",
-            ()->new IngredientItem(new Item.Properties()));
-    public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE,0x582f13,0x306d2c,new Item.Properties()));
-
-    public static final RegistryObject<Item> TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH,0x9e7245,0xacd1c9,new Item.Properties()));
-
-    public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON,0xae0f17,0x4b070a,new Item.Properties()));
-
-    public static final RegistryObject<Item> WHITE_CHALK = ITEMS.register("white_chalk",
-            ()->new WhiteChalk(new Item.Properties().durability(44)));
-
-    public static final RegistryObject<Item> GREEN_CHALK = ITEMS.register("green_chalk",
-            ()->new GreenChalk(new Item.Properties().durability(44)));
-
-    public static final RegistryObject<Item> GOLDEN_CHALK = ITEMS.register("golden_chalk",
-            ()->new GoldenChalk(new Item.Properties().durability(1)));
-
-    public static final RegistryObject<Item> CRIMSON_CHALK = ITEMS.register("crimson_chalk",
-            ()->new CrimsonChalk(new Item.Properties().durability(44)));
-
-    public static final RegistryObject<Item> BLACK_CHALK = ITEMS.register("black_chalk",
-            ()->new BlackChalk(new Item.Properties().durability(44)));
+    static {
+        SAGE_FLOWER = ITEMS.register("sage_flower", () -> new Item(new Item.Properties()));
+        SAGE_LEAF = ITEMS.register("sage_leaf", () -> new Item(new Item.Properties()));
+        SAGE_SEED = ITEMS.register("sage_seeds", () -> new ItemNameBlockItem(ModBlocks.SAGE_CROP.get(), new Item.Properties()));
+        MARIGOLD_FLOWER = ITEMS.register("marigold_flower", () -> new Item(new Item.Properties()));
+        MARIGOLD_SEED = ITEMS.register("marigold_seeds", () -> new ItemNameBlockItem(ModBlocks.MARIGOLD_CROP.get(), new Item.Properties()));
+        SUNLIGHT_FLOWER_SEED = ITEMS.register("sunlight_flower_seeds", () -> new ItemNameBlockItem(ModBlocks.SUNLIGHT_FLOWER_CROP.get(), new Item.Properties()));
+        SUNLIGHT_FLOWER = ITEMS.register("sunlight_flower", () -> new Item(new Item.Properties()));
+        MOONLIGHT_FLOWER_SEED = ITEMS.register("moonlight_flower_seeds", () -> new ItemNameBlockItem(ModBlocks.MOONLIGHT_FLOWER_CROP.get(), new Item.Properties()));
+        MOONLIGHT_FLOWER = ITEMS.register("moonlight_flower", () -> new Item(new Item.Properties()));
+        CURSED_GOLD = ITEMS.register("cursed_gold", () -> new Item(new Item.Properties()));
+        SILVER = ITEMS.register("silver", () -> new Item(new Item.Properties()));
+        SILVER_NUGGET = ITEMS.register("silver_nugget", () -> new Item(new Item.Properties()));
+        SILVER_CHUNK = ITEMS.register("silver_chunk", () -> new Item(new Item.Properties()));
+        CURSED_GOLD_NUGGET = ITEMS.register("cursed_gold_nugget", () -> new Item(new Item.Properties()));
+        CURSED_GOLD_CHUNK = ITEMS.register("cursed_gold_chunk", () -> new Item(new Item.Properties().durability(1024)));
+        POISON_STAFF = ITEMS.register("poison_staff", () -> new PoisonStaff(new Item.Properties().durability(1024)));
+        FIRE_STAFF = ITEMS.register("fire_staff", () -> new FireStaff(new Item.Properties().durability(1024)));
+        INERT_FIRE_STAFF = ITEMS.register("inert_fire_staff", () -> new Item(new Item.Properties().stacksTo(1)));
+        CARBON_DETECTOR = ITEMS.register("carbon_detector", () -> new CarbonDetectorItem(new Item.Properties().durability(100)));
+        METAL_DETECTOR = ITEMS.register("metal_detector", () -> new MetalDetectorItem(new Item.Properties().durability(80)));
+        VALUABLE_DETECTOR = ITEMS.register("valuable_detector", () -> new ValuableDetectorItem(new Item.Properties().durability(65)));
+        STONE_PESTLE = ITEMS.register("stone_pestle", () -> new Item(new Item.Properties()));
+        ROWAN_BERRIES = ITEMS.register("rowan_berries", () -> new Item(new Item.Properties().food(ModFoods.ROWAN_BERRIES)));
+        ROWAN_BARK = ITEMS.register("rowan_bark", () -> new Item(new Item.Properties()));
+        SWAMP_ROTFIEND_INGREDIENT = ITEMS.register("swamp_rotfiend_ingredient_item", () -> new Item(new Item.Properties()));
+        NAMELESS_CHARCOAL = ITEMS.register("nameless_charcoal", () -> new FuelItem(new Item.Properties(), 400));
+        WOODEN_FIGURE = ITEMS.register("wooden_figure", () -> new Item(new Item.Properties().stacksTo(1)));
+        DRY_WOOD = ITEMS.register("dry_wood", () -> new Item(new Item.Properties().stacksTo(1)));
+        INERT_POISON_STAFF = ITEMS.register("inert_poison_staff", () -> new Item(new Item.Properties().stacksTo(1)));
+        POPPET = ITEMS.register("poppet", () -> new Item(new Item.Properties().stacksTo(1)));
+        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new FlintKnife(new Item.Properties().stacksTo(1).durability(16)));
+        SILVER_DAGGER = ITEMS.register("silver_dagger", () -> new SilverDagger(Tiers.GOLD, 5, -1F, new Item.Properties().durability(96)));
+        EMPTY_SEAL = ITEMS.register("empty_seal", () -> new Item(new Item.Properties()));
+        PERCEPTION_CORE = ITEMS.register("perception_core", () -> new Item(new Item.Properties()));
+        SALT = ITEMS.register("salt", () -> new Item(new Item.Properties()));
+        STONE_MORTAR = ITEMS.register("stone_mortar", () -> new Item(new Item.Properties()));
+        STONE_MORTAR_AND_PESTLE = ITEMS.register("stone_mortar_and_pestle", () -> new MortarAndPestleItem(new Item.Properties().stacksTo(1).durability(40)));
+        WOODEN_MORTAR_AND_PESTLE = ITEMS.register("wooden_mortar_and_pestle", () -> new MortarAndPestleItem(new Item.Properties().stacksTo(1).durability(18)));
+        BAT_WING = ITEMS.register("bat_wing", () -> new Item(new Item.Properties()));
+        DEAD_TREE_BARK = ITEMS.register("dead_tree_bark", () -> new Item(new Item.Properties()));
+        DEAD_TREE_LARVA = ITEMS.register("dead_tree_larva", () -> new Item(new Item.Properties()));
+        FERMENTED_TREE_LARVA = ITEMS.register("fermented_tree_larva", () -> new Item(new Item.Properties()));
+        TREE_LARVA = ITEMS.register("tree_larva", () -> new TreeLarva(new Item.Properties()));
+        EMPTY_VIAL = ITEMS.register("empty_vial", () -> new Item(new Item.Properties()));
+        SMELL_OF_HOME = ITEMS.register("smell_of_home", () -> new Item(new Item.Properties()));
+        RING_OF_MORNING_DEW = ITEMS.register("ring_of_morning_dew", () -> new Item(new Item.Properties()));
+        CONIFEROUS_OIL = ITEMS.register("coniferous_oil", () -> new Item(new Item.Properties()));
+        TROPICAL_MONSOON = ITEMS.register("tropical_monsoon", () -> new Item(new Item.Properties()));
+        PETRICHOR = ITEMS.register("petrichor", () -> new Item(new Item.Properties()));
+        WASTELAND_WIND = ITEMS.register("wasteland_wind", () -> new Item(new Item.Properties()));
+        ABSOLUTE_ORDER = ITEMS.register("absolute_order", () -> new Item(new Item.Properties()));
+        SCENT_OF_UNCERTAINTY = ITEMS.register("scent_of_uncertainty", () -> new Item(new Item.Properties()));
+        WHIFF_OF_TIME = ITEMS.register("whiff_of_time", () -> new Item(new Item.Properties()));
+        CHERRY_ETUDE = ITEMS.register("cherry_etude", () -> new Item(new Item.Properties()));
+        SOARING_LIGHTNESS = ITEMS.register("soaring_lightness", () -> new Item(new Item.Properties()));
+        STINK_OF_SWAMP = ITEMS.register("stink_of_swamp", () -> new Item(new Item.Properties()));
+        DESERT_SPIRIT = ITEMS.register("desert_spirit", () -> new Item(new Item.Properties()));
+        SWEET_DREAM = ITEMS.register("sweet_dream", () -> new Item(new Item.Properties()));
+        TUNE_OF_HARMONY = ITEMS.register("tune_of_harmony", () -> new Item(new Item.Properties()));
+        MANDRAKE_SEED = ITEMS.register("mandrake_seed", () -> new ItemNameBlockItem(ModBlocks.MANDRAKE_CROP.get(), new Item.Properties()));
+        MANDRAKE_ROOT = ITEMS.register("mandrake_root", () -> new Item(new Item.Properties()));
+        GROUND_SAGE_FLOWERS = ITEMS.register("ground_sage_flowers", () -> new Item(new Item.Properties()));
+        GROUND_MARIGOLD_FLOWERS = ITEMS.register("ground_marigold_flowers", () -> new Item(new Item.Properties()));
+        ASH = ITEMS.register("ash", () -> new Item(new Item.Properties()));
+        MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE, 0x582f13, 0x306d2c, new Item.Properties()));
+        TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH, 0x9e7245, 0xacd1c9, new Item.Properties()));
+        GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON, 0xae0f17, 0x4b070a, new Item.Properties()));
+        WHITE_CHALK = ITEMS.register("white_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.WHITE_CHALK_SYMBOL.get()));
+        GREEN_CHALK = ITEMS.register("green_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.GREEN_CHALK_SYMBOL.get()));
+        CRIMSON_CHALK = ITEMS.register("crimson_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.CRIMSON_CHALK_SYMBOL.get()));
+        GOLDEN_CHALK = ITEMS.register("golden_chalk", () -> new Item(new Item.Properties().durability(1))); //todo тут не забыть поменять мелки
+        BLACK_CHALK = ITEMS.register("black_chalk", () -> new Item(new Item.Properties().durability(44)));
+        WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit", () -> new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.WHITE));
+        GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit", () -> new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.NATURAL));
+        CRIMSON_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("crimson_circle_core_drawing_kit", () -> new RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType.NETHER));
+        CHALK_BRUSH = ITEMS.register("chalk_brush", () -> new Item(new Item.Properties().stacksTo(1).durability(128)));
+        SIMPLE_WITCH_HAT = ITEMS.register("simple_witch_hat", () -> new SimpleWitchHat(ModArmorMaterials.ENCHANTED_LEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
+        WET_ENCHANTED_LEATHER = ITEMS.register("wet_enchanted_leather", () -> new Item(new Item.Properties()));
+        DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather", () -> new Item(new Item.Properties()));
+        EXHAUSTED_SWALLOW_POTION = ITEMS.register("exhausted_swallow", () -> new DrinkablePotion(new Item.Properties().food(ModFoods.EXHAUSTED_SWALLOW_POTION_PROPERTIES)));
+        SPURIOUS_THUNDERBOLT_POTION = ITEMS.register("spurious_thunderbolt", () -> new DrinkablePotion(new Item.Properties().food(ModFoods.SPURIOUS_THUNDERBOLT_POTION_PROPERTIES)));
+        MAGMACUBE_GALL_POTION = ITEMS.register("magmacube_gall", () -> new DrinkablePotion(new Item.Properties().food(ModFoods.MAGMACUBE_GALL_POTION_PROPERTIES)));
+        GOLDEN_CARROT_SOUP = ITEMS.register("golden_carrot_soup", () -> new Item(new Item.Properties().food(ModFoods.GOLDEN_CARROT_SOUP)));
+        MANDRAKE_SOUP = ITEMS.register("mandrake_soup", () -> new Item(new Item.Properties().food(ModFoods.MANDRAKE_SOUP)));
+        ROWAN_COMPOTE = ITEMS.register("rowan_compote", () -> new DrinkablePotion(new Item.Properties().food(ModFoods.ROWAN_COMPOTE)));
+    }
 
 
 
-    public static final RegistryObject<Item> WHITE_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("white_circle_core_drawing_kit",
-            ()->new WhiteCoreDrawingKit(new Item.Properties().durability(1)));
-
-    public static final RegistryObject<Item> GREEN_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("green_circle_core_drawing_kit",
-            ()->new GreenCoreDrawingKit(new Item.Properties().durability(1)));
-
-    public static final RegistryObject<Item> CRIMSON_CIRCLE_CORE_DRAWING_KIT = ITEMS.register("crimson_circle_core_drawing_kit",
-            ()->new NetherCoreDrawingKit(new Item.Properties().durability(1)));
-
-    public static final RegistryObject<Item> CHALK_BRUSH = ITEMS.register("chalk_brush",
-            ()->new Item(new Item.Properties().stacksTo(1).durability(128)));
-
-    public static final RegistryObject<Item> SIMPLE_WITCH_HAT = ITEMS.register("simple_witch_hat",
-            ()->new SimpleWitchHat(ModArmorMaterials.ENCHANTED_LEATHER, ArmorItem.Type.HELMET, new Item.Properties()));
-
-    public static final RegistryObject<Item> WET_ENCHANTED_LEATHER = ITEMS.register("wet_enchanted_leather",
-            ()->new IngredientItem(new Item.Properties()));
-
-    public static final RegistryObject<Item> DRIED_ENCHANTED_LEATHER = ITEMS.register("dried_enchanted_leather",
-            ()->new IngredientItem(new Item.Properties()));
-
-    public static final RegistryObject<Item> EXHAUSTED_SWALLOW_POTION = ITEMS.register("exhausted_swallow",
-            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.EXHAUSTED_SWALLOW_POTION_PROPERTIES)));
-
-    public static final RegistryObject<Item> SPURIOUS_THUNDERBOLT_POTION = ITEMS.register("spurious_thunderbolt",
-            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.SPURIOUS_THUNDERBOLT_POTION_PROPERTIES)));
-
-    public static final RegistryObject<Item> MAGMACUBE_GALL_POTION = ITEMS.register("magmacube_gall",
-            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.MAGMACUBE_GALL_POTION_PROPERTIES)));
-
-
-    public static final RegistryObject<Item> GOLDEN_CARROT_SOUP = ITEMS.register("golden_carrot_soup",
-            ()->new Item(new Item.Properties().food(ModFoods.GOLDEN_CARROT_SOUP)));
-    public static final RegistryObject<Item> MANDRAKE_SOUP = ITEMS.register("mandrake_soup",
-            ()->new Item(new Item.Properties().food(ModFoods.MANDRAKE_SOUP)));
-    public static final RegistryObject<Item> ROWAN_COMPOTE = ITEMS.register("rowan_compote",
-            ()->new DrinkablePotion(new Item.Properties().food(ModFoods.ROWAN_COMPOTE)));
-
-
-    //Регистрация предметов
     public static void register(IEventBus eventBus) {
 
         ITEMS.register(eventBus);

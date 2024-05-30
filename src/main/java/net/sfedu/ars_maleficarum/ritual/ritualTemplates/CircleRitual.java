@@ -50,6 +50,18 @@ public abstract class CircleRitual {
 
     protected Dimension dimension;
 
+    //for better constructors readability
+    protected static final RitualCoreEntity.ChalkType WHITE = RitualCoreEntity.ChalkType.WHITE;
+    protected static final RitualCoreEntity.ChalkType NATURAL = RitualCoreEntity.ChalkType.NATURAL;
+    protected static final RitualCoreEntity.ChalkType NETHER = RitualCoreEntity.ChalkType.NETHER;
+    protected static final RitualCoreEntity.ChalkType ENDER = RitualCoreEntity.ChalkType.ENDER;
+    protected static final RitualCoreEntity.ChalkType ANY = RitualCoreEntity.ChalkType.ANY;
+    protected static final RitualCoreEntity.ChalkType NONE = RitualCoreEntity.ChalkType.NONE;
+
+    /**
+     * Parameters required after the RitualType are types of:
+     * Core, small circle, medium circle, large circle.
+     */
     public CircleRitual(RitualType<?> type, RitualCoreEntity.ChalkType coreType, RitualCoreEntity.ChalkType smallType, RitualCoreEntity.ChalkType mediumType, RitualCoreEntity.ChalkType largeType) {
         this.coreType = coreType;
         this.smallCircleType = smallType;

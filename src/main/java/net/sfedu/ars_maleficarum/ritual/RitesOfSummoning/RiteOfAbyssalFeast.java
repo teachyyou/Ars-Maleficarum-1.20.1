@@ -20,7 +20,7 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 public class    RiteOfAbyssalFeast extends CircleRitual {
 
     public RiteOfAbyssalFeast(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NETHER,RitualCoreEntity.ChalkType.NETHER);
+        super(type, NETHER, NONE, NETHER, NETHER);
         components.put(ModItems.ROWAN_BERRIES.get(), 1);
         components.put(Items.GOLDEN_APPLE,1);
         components.put(Items.CAKE,1);

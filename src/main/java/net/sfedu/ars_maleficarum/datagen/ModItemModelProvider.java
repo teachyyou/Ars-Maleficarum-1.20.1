@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
@@ -101,7 +100,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         complexAltarInfusingBlock();
-        complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+        //complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
         customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
         complexBlock(ModBlocks.CHANDELIER.get());
         complexBlock(ModBlocks.SKULL_ON_STICK.get());
@@ -156,7 +155,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder complexAltarInfusingBlock() {
         return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
-                "block/" + ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath() + "_red"));
+                "block/" + ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath() + "_stage_0"));
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)

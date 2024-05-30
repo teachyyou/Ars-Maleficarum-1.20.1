@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.ritual;
 
+import com.sun.jna.platform.unix.X11;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -18,7 +19,7 @@ public class SettingSunRitual extends CircleRitual {
 
 
     public SettingSunRitual(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.ANY,RitualCoreEntity.ChalkType.WHITE);
+        super(type, WHITE, WHITE, ANY, WHITE);
         components.put(Items.LAPIS_LAZULI, 1);
         components.put(ModItems.MOONLIGHT_FLOWER.get(), 1);
         components.put(ModItems.SWEET_DREAM.get(), 1);

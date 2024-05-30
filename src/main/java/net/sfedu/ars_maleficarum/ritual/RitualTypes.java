@@ -16,7 +16,8 @@ import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepair;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.RiteOfPoisonStaffRepairWithAliveLarva;
 import net.sfedu.ars_maleficarum.ritual.craftingRituals.craftingRitualsThatRequiresDemon.RiteOfKramerTorchCreation;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
-import org.antlr.v4.misc.OrderedHashMap;
+import net.sfedu.ars_maleficarum.util.OrderedHashMap;
+
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import java.util.Map;
 
 public class RitualTypes<T extends CircleRitual>{
 
-    private static final Map<ResourceLocation, RitualType<?>> RITUAL_TYPES = new HashMap<>();
+    private static final Map<ResourceLocation, RitualType<?>> RITUAL_TYPES = new OrderedHashMap<>();
 
     public static final RitualType<RiteOfSmallDemonicImprisonment> SMALL_DEMONIC_IMPRISONMENT = register("small_demonic_imprisonment", RiteOfSmallDemonicImprisonment::new);
     public static final RitualType<RiteOfMediumDemonicImprisonment> MEDIUM_DEMONIC_IMPRISONMENT = register("medium_demonic_imprisonment", RiteOfMediumDemonicImprisonment::new);
