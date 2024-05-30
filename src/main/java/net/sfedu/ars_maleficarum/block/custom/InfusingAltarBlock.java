@@ -188,19 +188,20 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     }
 
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+        if (blockState.getValue(STAGE) < 3) return;
         if (blockState.getValue(HorizontalDirectionalBlock.FACING) == Direction.EAST) {
             double d0 = (double)blockPos.getX() + 0.8D;
             double d1 = (double)blockPos.getY() + 1D;
             double d2 = (double)blockPos.getZ() + 0.85D;
             level.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
-            level.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            level.addParticle(ParticleTypes.SMALL_FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
         }
         else if (blockState.getValue(HorizontalDirectionalBlock.FACING)==Direction.WEST){
             double d0 = (double)blockPos.getX() + 0.2D;
             double d1 = (double)blockPos.getY() + 1D;
             double d2 = (double)blockPos.getZ() + 0.15D;
             level.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
-            level.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            level.addParticle(ParticleTypes.SMALL_FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
 
         }
         else if (blockState.getValue(HorizontalDirectionalBlock.FACING)==Direction.NORTH){
@@ -208,14 +209,14 @@ public class InfusingAltarBlock extends BaseEntityBlock {
             double d1 = (double)blockPos.getY() + 1D;
             double d2 = (double)blockPos.getZ() + 0.15D;
             level.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
-            level.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            level.addParticle(ParticleTypes.SMALL_FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
         }
         else {
             double d0= (double)blockPos.getX() + 0.2D;
             double d1 = (double)blockPos.getY() + 1D;
             double d2 = (double)blockPos.getZ() + 0.85D;
             level.addParticle(ParticleTypes.SMOKE,true, d0, d1, d2, 0.0D, 0.025D, 0.0D);
-            level.addParticle(ParticleTypes.FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
+            level.addParticle(ParticleTypes.SMALL_FLAME, true,d0, d1, d2, 0.0D, 0.025D, 0.0D);
         }
     }
 

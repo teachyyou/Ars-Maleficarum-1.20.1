@@ -27,7 +27,7 @@ import java.util.Optional;
 public class RiteOfKramerTorchCreation extends CircleRitual {
 
     public RiteOfKramerTorchCreation(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NETHER,RitualCoreEntity.ChalkType.NETHER);
+        super(type, NETHER, WHITE, NETHER, NETHER);
         components.put(ModItems.CHERRY_ETUDE.get(), 1);
         components.put(ModItems.NAMELESS_CHARCOAL.get(), 1);
         components.put(Items.FIRE_CHARGE, 1);

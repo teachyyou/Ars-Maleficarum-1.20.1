@@ -27,7 +27,7 @@ import java.util.Optional;
 public class RiteOfForgottenNameAwakening extends CircleRitual {
 
     public RiteOfForgottenNameAwakening(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.NETHER, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NETHER);
+        super(type, WHITE, NETHER, WHITE, NETHER);
         components.put(Items.DIAMOND,1);
         components.put(Items.BLAZE_ROD,1);
         components.put(Items.NAME_TAG,1);
