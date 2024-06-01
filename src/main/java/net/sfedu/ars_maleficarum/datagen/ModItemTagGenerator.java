@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,5 +42,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.ROWAN_WOOD)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
                 .add(ModBlocks.ROWAN_WOOD.get().asItem());
+        this.tag(ModTags.Items.BLANK_FOCUS)
+                .add(ModItems.DRY_WOOD.get().asItem())
+                .add(ModItems.POPPET.get().asItem())
+                .add(ModItems.WOODEN_FIGURE.get().asItem());
     }
 }

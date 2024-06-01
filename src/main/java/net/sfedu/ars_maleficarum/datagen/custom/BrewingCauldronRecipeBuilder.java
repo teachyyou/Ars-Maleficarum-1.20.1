@@ -1,9 +1,7 @@
 package net.sfedu.ars_maleficarum.datagen.custom;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -19,7 +17,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
-import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

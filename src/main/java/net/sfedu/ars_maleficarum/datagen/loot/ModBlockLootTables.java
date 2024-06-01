@@ -1,23 +1,12 @@
 package net.sfedu.ars_maleficarum.datagen.loot;
 
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.BlockPos;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.monster.Silverfish;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -29,14 +18,12 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.block.custom.*;
-import net.sfedu.ars_maleficarum.entity.ModEntities;
-import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
+import net.sfedu.ars_maleficarum.block.custom.HerbCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
+import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
 import net.sfedu.ars_maleficarum.item.ModItems;
-
 
 import java.util.Set;
 
@@ -92,16 +79,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEAD_TREE_SAPLING.get());
 
         this.dropSelf(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
-        this.dropSelf(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
 
         this.dropSelf(ModBlocks.ROWAN_STAIRS.get());
         this.add(ModBlocks.ROWAN_SLAB.get(), block -> createSlabItemTable(ModBlocks.ROWAN_SLAB.get()));
         this.dropSelf(ModBlocks.ROWAN_FENCE.get());
         this.dropSelf(ModBlocks.ROWAN_FENCE_GATE.get());
 
-        this.dropOther(ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
-        this.dropOther(ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
-        this.dropOther(ModBlocks.INFUSING_ALTAR.get(), ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get().asItem());
+        this.dropSelf(ModBlocks.INFUSING_ALTAR.get());
         this.dropOther(ModBlocks.CURSED_GOLD_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
         this.dropOther(ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(), ModItems.CURSED_GOLD_CHUNK.get());
         this.dropOther(ModBlocks.CURSED_GOLD_NETHER_ORE_BLOCK.get(), ModItems.CURSED_GOLD_NUGGET.get());
@@ -162,7 +146,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Условие - предмет выпадет только тогда, когда культура полностью созрела
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.SAGE_CROP.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SageCropBlock.AGE, 3));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HerbCropBlock.AGE, 3));
 
         //Выпадение предметов при сборе созревшей культуры
         this.add(ModBlocks.SAGE_CROP.get(), createCropDropsWith2Items(ModBlocks.SAGE_CROP.get(), ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(),
@@ -175,7 +159,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры календулы
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.MARIGOLD_CROP.get())
-                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MarigoldCropBlock.AGE, 3)));
+                .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(HerbCropBlock.AGE, 3)));
 
         //Выпадение предметов при сборе созревшей культуры
         this.add(ModBlocks.MARIGOLD_CROP.get(), createCropDrops(ModBlocks.MARIGOLD_CROP.get(), ModItems.MARIGOLD_FLOWER.get(),

@@ -12,7 +12,6 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 
 public class ModCreativeModTabs {
 
-    //DefferedRegister для вкладки в творческом режиме
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ArsMaleficarum.MOD_ID);
 
@@ -56,12 +55,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SCENT_OF_UNCERTAINTY.get());
                         pOutput.accept(ModItems.ASH.get());
                         pOutput.accept(ModItems.SALT.get());
-
-
                     }))
                     .build());
 
-    //Создание творческой вкладки
     public static final RegistryObject<CreativeModeTab> ARS_MALEFICARUM_MAIN_TAB = CREATIVE_MODE_TABS.register("ars_maleficarum_main_tab",
             ()->CreativeModeTab.builder().icon(()->new ItemStack(ModItems.SIMPLE_WITCH_HAT.get()))
                     .title(Component.translatable("creativetab.ars_maleficarum_main_tab"))
@@ -123,7 +119,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.INERT_FIRE_STAFF.get());
                         pOutput.accept(ModItems.FIRE_STAFF.get());
                         pOutput.accept(ModItems.SIMPLE_WITCH_HAT.get());
-                        pOutput.accept(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
+                        pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
                         pOutput.accept(ModBlocks.INFUSING_ALTAR.get());
                         pOutput.accept(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
                         pOutput.accept(ModBlocks.BREWING_CAULDRON.get());
@@ -159,13 +155,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
                         pOutput.accept(ModItems.TRADE_WITCH_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
-
-
                     }))
                     .build());
 
-
-    //Регистрация вкладки
     public static void register(IEventBus eventBus) {
        CREATIVE_MODE_TABS.register(eventBus);
     }

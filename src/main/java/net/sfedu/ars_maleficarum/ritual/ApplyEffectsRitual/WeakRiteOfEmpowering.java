@@ -11,7 +11,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitu
 public class WeakRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
 
     public WeakRiteOfEmpowering(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NONE);
+        super(type, WHITE, WHITE, WHITE, NONE);
         components.put(Items.BLAZE_POWDER, 1);
         components.put(ModItems.SAGE_LEAF.get(), 2);
         components.put(ModItems.MANDRAKE_ROOT.get(), 1);
@@ -20,8 +20,5 @@ public class WeakRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
         effects.add(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20*60*15, 1));
         playersAmount = 5;
         radius = 7;
-
     }
-
-
 }

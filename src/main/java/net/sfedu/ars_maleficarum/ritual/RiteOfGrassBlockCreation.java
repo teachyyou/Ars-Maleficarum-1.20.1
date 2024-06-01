@@ -21,7 +21,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class RiteOfGrassBlockCreation extends CircleRitual {
 
     public RiteOfGrassBlockCreation(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NONE);
+        super(type, NATURAL, NATURAL, NATURAL, NONE);
         components.put(ModItems.ASH.get(),2);
         components.put(ModItems.FERMENTED_TREE_LARVA.get(), 1);
         components.put(Items.BONE_MEAL, 1);

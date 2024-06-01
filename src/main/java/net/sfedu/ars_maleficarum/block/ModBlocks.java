@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,10 +19,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.custom.*;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.CrimsonChalkSymbol;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.GreenChalkSymbol;
+import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
-import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.WhiteChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
 import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
 import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
@@ -43,11 +42,11 @@ public class ModBlocks {
 
     //Регистрация посевов шалфея
     public static final RegistryObject<Block> SAGE_CROP = BLOCKS.register("sage_crop",
-            () -> new SageCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+            () -> new HerbCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission(), HerbCropBlock.CropType.SAGE));
 
     //Регистрация посевов календулы
     public static final RegistryObject<Block> MARIGOLD_CROP = BLOCKS.register("marigold_crop",
-            () -> new MarigoldCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
+            () -> new HerbCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission(), HerbCropBlock.CropType.MARIGOLD));
 
     //Регистрация блока проклятого золота
     public static final RegistryObject<Block> CURSED_GOLD_BLOCK = registerBlock("cursed_gold_block",
@@ -222,15 +221,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ODOUR_EXTRACTING_FURNACE = registerBlock("odour_extracting_furnace",
             () -> new OdourExtractingFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(x -> x.getValue(BlockStateProperties.LIT) ? 14 : 0)));
-    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
-            () -> new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel((p_50755_) -> 10).noOcclusion()));
-    public static final RegistryObject<Block> INFUSING_ALTAR_STONE_BLOCK = registerBlock("infusing_altar_stone_block",
-            () -> new InfusingAltarStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> INFUSING_ALTAR_CARPET_BLOCK = registerBlock("infusing_altar_carpet_block",
-            () -> new InfusingAltarCarpetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> INFUSING_ALTAR_PENTA_BLOCK = registerBlock("infusing_altar_penta_block",
-            () -> new InfusingAltarPentaBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-
     public static final RegistryObject<Block> WOODEN_CAT_FIGURE = registerBlock("wooden_cat_figure",
             () -> new WoodenCatFigure(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()) {
                 @Override
@@ -416,18 +406,17 @@ public class ModBlocks {
                 }
             });
 
-
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
             () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
 
     public static final RegistryObject<Block> WHITE_CHALK_SYMBOL = BLOCKS.register("white_chalk_symbol",
-            ()->new WhiteChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noCollission().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> GREEN_CHALK_SYMBOL = BLOCKS.register("green_chalk_symbol",
-            ()->new GreenChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> CRIMSON_CHALK_SYMBOL = BLOCKS.register("crimson_chalk_symbol",
-            ()->new CrimsonChalkSymbol(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noOcclusion().noOcclusion().noLootTable()));
+            ChalkSymbol::new);
 
     public static final RegistryObject<Block> BREWING_CAULDRON = registerBlock("brewing_cauldron",
             ()->new BrewingCauldronBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().lightLevel(state -> state.getValue(BrewingCauldronBlock.LIT) ? 8 : 0)));
@@ -445,7 +434,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRYSTAL_BALL = registerBlock("crystal_ball",
             ()->new CrystalBall(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().lightLevel(x->6).noLootTable()));
 
-
+    public static final RegistryObject<Block> INFUSING_ALTAR = registerBlock("infusing_altar",
+            () -> new InfusingAltarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(x -> x.getValue(InfusingAltarBlock.STAGE) > 2 ? 14 : 0).noOcclusion()));
 
 
     //Регистрация блока и предмета, привязанного к нему

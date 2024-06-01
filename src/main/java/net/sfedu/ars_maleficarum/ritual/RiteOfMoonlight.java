@@ -17,7 +17,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 public class RiteOfMoonlight extends CircleRitual {
 
     public RiteOfMoonlight(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE);
+        super(type, WHITE, WHITE, WHITE, WHITE);
         components.put(ModItems.SCENT_OF_UNCERTAINTY.get(), 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.SILVER.get(), 1);

@@ -18,9 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
@@ -118,12 +115,6 @@ public class RitualCoreEntity extends BlockEntity {
     private final List<BlockPos> largeCirclePositions = new ArrayList<>(36);
 
 
-
-
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
-    //Чуть-чуть костыльно
-    public final ItemStackHandler itemHandler = new ItemStackHandler(6);
 
     public RitualCoreEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.RITUAL_CORE_ENTITY.get(),pPos, pBlockState);
@@ -482,12 +473,6 @@ public class RitualCoreEntity extends BlockEntity {
 
     }
 
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {

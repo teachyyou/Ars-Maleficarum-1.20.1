@@ -11,7 +11,7 @@ import net.sfedu.ars_maleficarum.ritual.ritualTemplates.ApplyEffectOnPlayersRitu
 public class GreatRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
 
     public GreatRiteOfEmpowering(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.WHITE);
+        super(type, WHITE, WHITE, WHITE, WHITE);
         components.put(Items.BLAZE_ROD, 1);
         components.put(ModItems.ABSOLUTE_ORDER.get(), 1);
         components.put(ModItems.FLINT_KNIFE.get(), 1);
@@ -23,8 +23,5 @@ public class GreatRiteOfEmpowering extends ApplyEffectOnPlayersRitual {
         effects.add(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20*60*15, 2));
         playersAmount = 3;
         radius = 7;
-
     }
-
-
 }

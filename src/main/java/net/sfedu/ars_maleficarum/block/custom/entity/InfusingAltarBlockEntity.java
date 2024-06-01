@@ -33,10 +33,10 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
-import net.sfedu.ars_maleficarum.item.custom.BlankMagicalFocus;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import net.sfedu.ars_maleficarum.screen.InfusingAltarMenu;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import net.sfedu.ars_maleficarum.util.ModTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,12 +58,8 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch(slot) {
-                case 0 -> true;
-                case 1 -> true;
-                case 2 -> true;
-                case 3 -> true;
-                case 4 -> true;
-                case 5 -> stack.getItem() instanceof BlankMagicalFocus;
+                case 0,1,2,3,4 -> true;
+                case 5 -> stack.is(ModTags.Items.BLANK_FOCUS);
                 default ->  super.isItemValid(slot,stack);
             };
         }

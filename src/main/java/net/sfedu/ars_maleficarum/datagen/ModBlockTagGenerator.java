@@ -3,10 +3,8 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.common.Mod;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.util.ModTags;
@@ -31,9 +29,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.CURSED_GOLD_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.SILVER_DEEPSLATE_ORE_BLOCK.get(),
                 ModBlocks.ODOUR_EXTRACTING_FURNACE.get(),
-                ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get(),
-                ModBlocks.INFUSING_ALTAR_CARPET_BLOCK.get(),
-                ModBlocks.INFUSING_ALTAR_PENTA_BLOCK.get(),
                 ModBlocks.INFUSING_ALTAR.get());
 
         //Категория предметов, для добычи которых нужны как минимум железные инструменты

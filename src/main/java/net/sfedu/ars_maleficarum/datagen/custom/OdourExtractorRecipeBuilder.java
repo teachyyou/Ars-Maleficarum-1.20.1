@@ -19,7 +19,6 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
 import java.util.function.Consumer;
 
 public class OdourExtractorRecipeBuilder implements RecipeBuilder {

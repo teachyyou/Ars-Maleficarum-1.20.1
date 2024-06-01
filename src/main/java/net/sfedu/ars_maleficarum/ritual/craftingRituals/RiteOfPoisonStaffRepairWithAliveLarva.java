@@ -22,7 +22,7 @@ import java.util.Optional;
 public class RiteOfPoisonStaffRepairWithAliveLarva extends CircleRitual {
 
     public RiteOfPoisonStaffRepairWithAliveLarva(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.NATURAL,RitualCoreEntity.ChalkType.NONE,RitualCoreEntity.ChalkType.NONE);
+        super(type, NATURAL, NATURAL, NONE, NONE);
         components.put(ModItems.DEAD_TREE_BARK.get(), 3);
         components.put(ModItems.CURSED_GOLD_CHUNK.get(), 1);
         components.put(ModItems.TREE_LARVA.get(), 1);

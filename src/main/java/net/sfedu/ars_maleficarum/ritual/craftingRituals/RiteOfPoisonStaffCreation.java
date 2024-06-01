@@ -23,7 +23,7 @@ import java.util.Optional;
 public class RiteOfPoisonStaffCreation extends CircleRitual {
 
     public RiteOfPoisonStaffCreation(RitualType<?> type) {
-        super(type, RitualCoreEntity.ChalkType.WHITE, RitualCoreEntity.ChalkType.NATURAL, RitualCoreEntity.ChalkType.WHITE,RitualCoreEntity.ChalkType.NATURAL);
+        super(type, WHITE, NATURAL, WHITE, NATURAL);
         components.put(Items.SPIDER_EYE,1);
         components.put(Items.GLOWSTONE,1);
         components.put(Items.EMERALD, 1);

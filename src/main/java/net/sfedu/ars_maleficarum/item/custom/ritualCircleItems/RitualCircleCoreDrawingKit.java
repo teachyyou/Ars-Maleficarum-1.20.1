@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,18 +15,18 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
 public class RitualCircleCoreDrawingKit extends Item {
+    protected final RitualCoreEntity.ChalkType coreType;
 
-    public RitualCircleCoreDrawingKit(Properties pProperties) {
-        super(pProperties);
+    public RitualCircleCoreDrawingKit(RitualCoreEntity.ChalkType coreType) {
+        super(new Item.Properties().stacksTo(1).durability(1));
+        this.coreType = coreType;
     }
-
-    protected BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, RitualCoreEntity.ChalkType.WHITE);
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if (!pContext.getLevel().isClientSide()) {
-            System.out.println(canDraw(pContext));
             if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos()) && canDraw(pContext)) {
+                BlockState coreToDraw = ModBlocks.RITUAL_CIRCLE_CORE.get().defaultBlockState().setValue(RitualCircleCore.CIRCLETYPE, coreType);
                 pContext.getLevel().setBlock(pContext.getClickedPos().above(), coreToDraw,3);
                 pContext.getItemInHand().shrink(1);
                 pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
@@ -36,8 +35,6 @@ public class RitualCircleCoreDrawingKit extends Item {
         }
         return InteractionResult.FAIL;
     }
-
-
 
     private boolean canDraw(UseOnContext pContext) {
         for (int i = -1; i <= 1; i++) {
@@ -48,21 +45,6 @@ public class RitualCircleCoreDrawingKit extends Item {
                 }
             }
         }
-        return true;
-    }
-
-    @Override
-    public int getMaxDamage(ItemStack stack) {
-        return 1;
-    }
-
-    @Override
-    public int getMaxStackSize(ItemStack stack) {
-        return 1;
-    }
-
-    @Override
-    public boolean isDamageable(ItemStack stack) {
         return true;
     }
 }
