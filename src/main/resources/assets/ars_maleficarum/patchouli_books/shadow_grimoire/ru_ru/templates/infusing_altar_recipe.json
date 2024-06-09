@@ -1,0 +1,115 @@
+{
+  "processor": "net.sfedu.ars_maleficarum.patchouli.processors.InfusingAltarRecipeProcessor",
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "centered": true,
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/pentagram.png",
+      "width": 76,
+      "height": 76,
+      "texture_width": 76,
+      "texture_height": 76,
+      "x": 20,
+      "y": 20
+    },
+    {
+      "type": "patchouli:image",
+      "image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/arrow_right.png",
+      "width": 32,
+      "height": 32,
+      "texture_width": 32,
+      "texture_height": 32,
+      "x": 70,
+      "y": 90
+    },
+    {
+      "type": "patchouli:image",
+      "image": "#dimension_icon",
+      "guard": "#dimension_flag",
+      "width": 24,
+      "height": 24,
+      "texture_width": 24,
+      "texture_height": 24,
+      "x": 7,
+      "y": 85
+    },
+
+    {
+      "type": "patchouli:tooltip",
+      "tooltip": ["#dimension_tooltip"],
+      "guard": "#dimension_flag",
+      "width": 24,
+      "height": 24,
+      "x": 7,
+      "y": 85
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input0",
+      "framed": true,
+      "x": 25,
+      "y": 18
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input1",
+      "framed": true,
+      "x": 75,
+      "y": 18
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input2",
+      "framed": true,
+      "x": 90,
+      "y": 60
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input3",
+      "framed": true,
+      "x": 50,
+      "y": 90
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input4",
+      "framed": true,
+      "x": 10,
+      "y": 60
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#input5",
+      "framed": true,
+      "x": 50,
+      "y": 50
+    },
+    {
+      "type": "patchouli:item",
+      "item":  "#result",
+      "link_recipe": true,
+      "framed": true,
+      "x": 95,
+      "y": 90
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "centered": true,
+      "x": -1,
+      "y": 110
+    }
+  ]
+}

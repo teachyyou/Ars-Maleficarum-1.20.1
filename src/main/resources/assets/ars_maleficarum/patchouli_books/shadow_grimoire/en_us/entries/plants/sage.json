@@ -1,16 +1,16 @@
 {
-  "name": "Шалфей",
+  "name": "Sage",
   "icon": "ars_maleficarum:textures/item/sage_flower.png",
   "category": "ars_maleficarum:plants/herbs",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Шалфей, известный своими красивыми фиолетовыми цветочками, славится олицетворением мудрости, чистоты и гармонии. Сила, содержащаяся в его цветах и листьях, упоминается во множестве трактатов, посвящанных алхимии и травничеству. Для ведьм он тоже представляет немалый интерес. $(br2)Семена, которые можно обнаружить, как следует покопавшись в траве, можно выращивать на мокрых вспаханных грядках."
+      "text": "Sage, known for its beautiful purple flowers, is renowned for embodying wisdom, purity, and harmony. The power contained in its flowers and leaves is mentioned in many treatises on alchemy and herbalism. It is also of considerable interest to witches. $(br2)Seeds, which can be found by digging through the grass, can be grown on wet tilled dirt."
     },
     {
       "type": "patchouli:multiblock",
       "enable_visualize": false,
-      "text": "Полностью созревший шалфей, цветы и листья которого уже можно пожинать.",
+      "text": "Fully matured sage, whose flowers and leaves are ready for harvesting.",
       "multiblock": {
         "mapping": {
           "m": "ars_maleficarum:sage_crop[age=3]",
@@ -25,15 +25,15 @@
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Цветы и листья",
+      "title": "Flowers and Leaves",
       "item": "ars_maleficarum:sage_leaf,ars_maleficarum:sage_flower",
-      "text": "У шалфея, в отличие от $(l:plants/marigold)календулы$(/l), полезными свойствами обладают не только цветы, но и листья. Опытный травник может использовать их для создания экстрактов и концентратов, добавляющих в противовес к любой энтропии капельку гармонии и согласия."
+      "text": "Unlike $(l:plants/marigold)marigold$(/l), sage's beneficial properties are found not only in its flowers but also in its leaves. An experienced herbalist can use them to create extracts and concentrates, adding a drop of harmony and agreement to counterbalance any entropy."
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Измельчение",
+      "title": "Grinding",
       "item": "ars_maleficarum:ground_sage_flowers",
-      "text": "Цветки шалфея можно измельчить при помощи $(l:tools/mortar)ступы$(). В таком виде они источают ещё более сильный аромат, а извлечь их полезные магические свойства становится ещё легче. $(br2)Например, концентрат гармонии, в основе которого лежит шалфей, гораздо легче получить из измельченных цветков, нежели из необработанных веточек."
+      "text": "Sage flowers can be ground using a $(l:tools/mortar)mortar$(). In this form, they emit an even stronger aroma, and extracting their beneficial magical properties becomes easier. $(br2)For example, a harmony concentrate, based on sage, is much easier to obtain from ground flowers than from unprocessed sprigs."
     }
   ],
   "read_by_default": true

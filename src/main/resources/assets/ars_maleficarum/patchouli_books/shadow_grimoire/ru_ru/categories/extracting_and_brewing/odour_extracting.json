@@ -1,0 +1,7 @@
+{
+  "name": "Выпаривание ароматов",
+  "description": "Эта глава гримуара посвящена выпариванию ароматов - одному из важнейших процессов создания новых компонентов, что обязательно должен освоить любой продвинутый колдун. $(br2)Первое, что необходимо сконструировать начинающему в этом деле - специальную $(l:odour_extracting/odour_extracting_furnace)печь выпаривания ароматов$(). Дальнейшие инструкции описаны в соответствующем параграфе.",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/odour_extracting.png",
+  "parent": "ars_maleficarum:extracting_and_brewing",
+  "sortnum": 0
+}

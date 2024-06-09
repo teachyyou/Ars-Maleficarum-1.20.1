@@ -1,0 +1,19 @@
+{
+  "name": "Уставшая Ласточка",
+  "icon": "ars_maleficarum:exhausted_swallow",
+  "category": "ars_maleficarum:extracting_and_brewing/potion_making",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Уставшая Ласточка - элексир, дарующий принявшему его сильные регенеративные способности, позволяющие быстро залечить любые раны и быстро вернуться в битву. В чём подвох? В цене, которую придётся заплатить - при выпивании зелье сильно обжигает пищевод, в следствие чего можно буквально сойти с ума от боли. $(n)Не рекомендуется принимать во время схватки или при уровне здоровья < 50%$()."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Создание зелья",
+      "recipe": "ars_maleficarum:exhausted_swallow_in_brewing_cauldron",
+      "text": "Одна известная ведь... один известный ведьмак умел варить Ласточку на ходу или медитируя!"
+    }
+  ],
+  "read_by_default": true
+}

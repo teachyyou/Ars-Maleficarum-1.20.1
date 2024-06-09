@@ -1,6 +1,6 @@
 {
-  "name": "Цветы",
-  "description": "В этом разделе перечислены особых свойств цветы, что могут использоваться и выращиваться ведьмами в различных целях. $(br2)$(l)Даже среди болот можно найти красоту - любой заслуживает минутку, дабы суметь насладиться сладким созерцанием цветов.$()",
+  "name": "Flowers",
+  "description": "In this section, you will find a list of flowers with special properties that can be used and cultivated by witches for various purposes. $(br2)$(l)Even among swamps, beauty can be found – everyone deserves a moment to savor the sweet contemplation of flowers.$()",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/flowers.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 2

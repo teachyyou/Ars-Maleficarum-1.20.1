@@ -1,0 +1,32 @@
+{
+  "name": "Восстановление силы",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/poison_staff.png",
+  "category": "ars_maleficarum:circle_magic/infusing",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Трость Флемет - слишком хороший артефакт, чтобы быть готовым с ним расстаться. Существует ритуал в 2-ух вариациях, позволяющий восстановить силы посоха и значительно увеличить срок его службы, не позволяя рассыпаться в прах с последней использованной крупицей силы. Колдун может выбрать подходящую ему вариацию ритуала исходя из его текущих возможностей."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ars_maleficarum:tree_larva,ars_maleficarum:fermented_tree_larva",
+      "text": "Восстановление сил посоха требует участия болотного духа - это можно обеспечить использованием живой древесной личинки, тогда для выполнения ритуала достаточно обойтись лишь малым кругом и тривиальным наобором компонентов. Однако не всегда есть возможность отправиться на болота и провести ритуал. На этот случай существует второй вариант ритуала - более дорогостоящий, однако не требующий отправляться в топи за свежими личинками."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:poison_staff_repair_larva",
+      "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/poison_staff.png",
+      "annotation_line1": "Увядающий посох должен",
+      "annotation_line2": "находиться внутри круга!"
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:poison_staff_repair",
+      "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/poison_staff.png",
+      "annotation_line1": "Увядающий посох должен",
+      "annotation_line2": "находиться внутри круга!"
+    }
+  ],
+  "read_by_default": true
+}
