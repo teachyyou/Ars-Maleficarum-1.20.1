@@ -1,16 +1,16 @@
 {
-  "name": "Мандрагора",
+  "name": "Mandrake",
   "icon": "ars_maleficarum:textures/block/mandrake_stage3.png",
   "category": "ars_maleficarum:plants/other",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Мандрагора - одно из самых необычных растений, что только может повстречаться волшебнику на его пути. Выращиваемая, как и любая другая, эта культура тем не менее является по-настоящему уникальной - магические свойства мандрагоры сделали её корень одним из самых важных ингредиентов в запасах любого практика. $(l)$(br)ВНИМАНИЕ: Собирать исключительно ночью!$()"
+      "text": "The Mandrake is one of the most unusual plants a wizard may encounter on their journey. Though cultivated like any other crop, it is truly unique – the magical properties of the Mandrake have made its root one of the most vital ingredients in any practitioner's stock. $(l)$(br2)WARNING: Harvest only at night!$()"
     },
     {
       "type": "patchouli:multiblock",
       "enable_visualize": false,
-      "text": "Уже полностью созревшая мандрагора, готовая к извлечению корня из-под земли.",
+      "text": "A fully matured Mandrake, ready for the extraction of its root from the ground.",
       "multiblock": {
         "mapping": {
           "m": "ars_maleficarum:mandrake_crop[age=3]",
@@ -26,7 +26,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:mandrake_root",
-      "text": "Корень мандрагоры - один из наиболее встречающихся алхимических ингредиентов, использующихся в процессах самого различного характера, от варки зелий до ритуалов проклятий. Некоторые особо отважные травники умеют даже готовить его к употреблению в пищу, словно картофеля или свеклы. $(l)Корень живой - остерегайтесь пробуждения!$()"
+      "text": "The Mandrake root is one of the most commonly used alchemical ingredients, employed in processes of all kinds, from potion brewing to curse rituals. Some particularly brave herbalists even prepare it for consumption, like potatoes or beets. $(l)The root is alive – beware of its awakening!$()"
     },
     {
       "type": "patchouli:entity",
@@ -34,7 +34,7 @@
       "rotate": true,
       "scale": 1.5,
       "offset": -0.1,
-      "text": "Корень мандрагоры, извлеченный из-под земли и, очевидно, не очень обрадованный этим обстоятельством."
+      "text": "The Mandrake root, extracted from the ground and, evidently, not too pleased with this circumstance."
     }
   ],
   "read_by_default": true

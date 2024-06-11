@@ -1,12 +1,12 @@
 {
-  "name": "Пепел",
+  "name": "Ash",
   "icon": "ars_maleficarum:ash",
   "category": "ars_maleficarum:components",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Древесный прах или пепел - вещество, образующееся при сжигании в печи выпаривания ароматов различных растительных компонентов. Прах имеет несколько применений, он часто используется при проведении ритуалов, а также как важнейший компонент при создании мела, коим круги для тех самых ритуалов и чертятся."
+      "text": "Wood ash, or simply ash, is a substance formed by burning various plant components in an evaporation furnace. Ash has several uses; it is often employed in rituals and is a crucial component in the creation of chalk, used to draw the very circles for those rituals."
     }
   ],
   "read_by_default": true

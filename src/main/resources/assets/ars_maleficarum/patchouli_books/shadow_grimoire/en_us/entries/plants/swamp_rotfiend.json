@@ -1,18 +1,17 @@
 {
-  "name": "Болотный гнилец",
+  "name": "Swamp Rotfiend",
   "icon": "ars_maleficarum:textures/item/swamp_rotfiend_ingredient_item.png",
   "category": "ars_maleficarum:plants/other",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Болотный Гнилец - зловонный, но крайне ценный ингредиент, встречающийся на болотах и растущий только на стволах $(l:plants/dead_tree)мёртвых деревьев$(/l). Невозможно домашнее или тепличное выращивание. $(br2)Для аккуратной жатвы с обеспечением повторного сбора с той же грибницы в будущем настоятельно рекомендуется применять $(l:tools/flint_knife)нож$()."
+      "text": "The Swamp Rotfiend is a foul-smelling yet extremely useful ingredient, found in swamps and growing only on the trunks of $(l:plants/dead_tree)Dead Trees$(/l). It cannot be cultivated at home or in a greenhouse. $(br2)For careful harvesting that ensures future collection from the same fungus, it is highly recommended to use a $(l:tools/flint_knife)knife$()."
     },
     {
       "type": "patchouli:image",
-      "text": "Два Болотных Гнильца в месте произрастания - на $(l:plants/dead_tree)мёртвом дереве$(/l) среди болот.",
+      "text": "Two Swamp Rotfiends in their natural habitat – on a $(l:plants/dead_tree)Dead Tree$(/l) among the swamps.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/swamp_rotfiend.png"]
-
     }
   ],
   "read_by_default": true

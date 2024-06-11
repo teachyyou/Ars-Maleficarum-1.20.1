@@ -1,38 +1,38 @@
 {
-  "name": "Древо Крамера",
+  "name": "Kramer Tree",
   "icon": "ars_maleficarum:textures/block/kramer_sapling.png",
   "category": "ars_maleficarum:plants/trees",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Тайна $(l:plants/nameless_tree)Безымянного древа$(/l) была раскрыта. Древние источники подсказали путь - проведением $(l:rituals/infusing/forgotten_name_awakening)Ритуала Наречения$() забытое столетия назад имя может быть восстановлено. Душа Генриха Крамера, в свое время окропившего землю кровью Знающих, была навеки заточена в стволе дерева-прародителя, вскоре давшего начало целому поколению потомков. Те, вслед за именем инквизитора, вскоре были изгнаны в небытие."
+      "text": "The mystery of the $(l:plants/nameless_tree)Nameless Tree$(/l) has been unveiled. Ancient sources revealed the way – through the $(l:rituals/infusing/forgotten_name_awakening)Ritual of Naming$(), the name forgotten centuries ago can be restored. The soul of Heinrich Kramer, who once spilled the blood of the Knowing upon the earth, was forever sealed within the trunk of the progenitor tree, giving rise to a generation of descendants. They, along with the inquisitor's name, were soon banished into oblivion."
     },
     {
       "type": "patchouli:image",
       "border": true,
-      "text": "Древо Крамера, листья и ствол которого покраснели от пролитой инквизитором крови.",
+      "text": "The Kramer Tree, whose leaves and trunk have turned red from the blood spilled by him.",
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/kramer_tree.png"]
     },
     {
       "type": "patchouli:text",
-      "title": "Свойства древесины",
-      "text": "Пропитанное кровью и духом страданий, древо Крамера служит отличным материалом для некоторых магических изделий, требующих хорошей магической проводимости и резонанса, приправленного инфернальной ноткой и эхом пролитых некогда слёз. Использование его древесины - большой шаг к достижению настоящего могущества на пути любого искушённого в тёмных областях знания."
+      "title": "Properties of the Wood",
+      "text": "Saturated with blood and the spirit of suffering, the Kramer Tree serves as an excellent material for certain magical artifacts that require good magical conductivity and resonance, seasoned with an infernal touch and the echo of tears once shed. $(br2)Utilizing its wood is a significant step towards achieving true power for anyone well-versed in the dark realms of knowledge."
     },
     {
       "type": "patchouli:text",
-      "title": "Факел Крамера",
-      "text": "Эхо кровавого прошлого продолжаёт нашептывать свои секреты, и на этот раз были получены довольно многообещающие результаты. Свойства древесины Крамера могут быть использованы для обретения искушенным некоторой части могущества канувшего в лету инквизитора, посредством которого тот держал в страхе всех современников и следующие поколения волшебников. Главное оружие Крамера - вовсе не молот, а его факел, источник всепоглощающего огня"
+      "title": "Kramer's Torch",
+      "text": "The echo of a bloody past continues to whisper its secrets, and this time the results are quite promising. $(br2)The properties of Kramer's wood can be harnessed to grant the adept a portion of the power the inquisitor once wielded, with which he instilled fear in his contemporaries and subsequent generations of wizards. $(br2)Kramer's main weapon was not a hammer, but his torch, a source of all-consuming fire."
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Факел Крамера",
+      "title": "Kramer's Torch",
       "item": "ars_maleficarum:inert_fire_staff",
-      "text": "Материал, полученный при правильной обработке древесины Крамера, может быть использован для создания основы этого легендарного артефакта. Несомненно, этого будет недостаточно для пробуждения сил, с помощью которых инквизитор обратил в пепел столько колдунов и ведьм. Однако вместе с тем ясно, что дальнейшие"
+      "text": "The material obtained through the proper treatment of Kramer's wood can be used to create the foundation of this legendary artifact. $(br2)Undoubtedly, this alone will not awaken the powers with which the inquisitor turned so many wizards and witches to ashes. $(br2)However, it is clear that further research"
     },
     {
       "type": "patchouli:text",
-      "text": "исследования могут принести желаемый результат. Кажется невероятным, чтобы Крамер, сам столь сильно презирающий волшебников, мог обрести такую силу без использования сильнейшей (и, возможно, запретной) магии. Всепоглощающий огонь, жертвами которого пали многие сотни волшебников, не мог быть сотворён ни одним из традиционных источников силы. По крайней мере, по эту сторону портала."
+      "text": "may yield the desired results. $(br2)It seems incredible that Kramer, who so deeply despised wizards, could have obtained such power without the use of the strongest (and possibly forbidden) magic. $(br2)The all-consuming fire, which claimed the lives of many hundreds of wizards, could not have been created by any traditional source of power. $(br2)At least, not on this side of the portal."
     }
   ],
   "read_by_default": true
