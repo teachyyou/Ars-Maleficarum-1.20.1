@@ -1,42 +1,40 @@
 {
-  "name": "Печь выпаривания",
+  "name": "Odour Extracting Furnace",
   "icon": "ars_maleficarum:odour_extracting_furnace",
   "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "В искусстве ведьмовства особое внимание уделяется силе, сокрытой в ароматах и испарениях. И для того, чтобы суметь эту силу извлечь и использовать, любому практику необходима особая печь. Обладающая нехитрой конструкцией, она сжигает внутри себя растительные компоненты, высвобождая их эссенции. Те, в свою очередь, затем могут быть без труда собраны в специальные сосуды."
+      "text": "In the art of witchcraft, particular attention is given to the power hidden in scents and vapors. To extract and harness this power, any practitioner requires a special furnace. Possessing a simple design, it burns plant components within, releasing their essences. These can then be easily collected in special vessels."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:odour_extracting_furnace",
-      "title": "Конструкция",
-      "text": "После создания печь должна быть установлена в мир, как любой другой блок. Устройство её довольно простое и описано на следующих страницах. Специальный источник огня ей не требуется - печь греется сама."
-
+      "title": "Construction",
+      "text": "Once created, the furnace must be placed in the world like any other block. Its mechanism is quite simple and is described on the following pages. A special fire source is not required – the furnace heats itself."
     },
     {
       "type": "patchouli:image",
-      "title": "Общее устройство",
-      "text": "Внутренее устройство во время работы (рис. 1) и внешний вид печи (рис. 2).",
+      "title": "General Structure",
+      "text": "Internal workings during operation (fig. 1) and the exterior of the furnace (fig. 2).",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/odour_extracting_furnace_gui_ru.png","ars_maleficarum:textures/books/shadow_grimoire/odour_extracting_furnace.png"]
     },
     {
       "type": "patchouli:text",
-      "text": "Предназначение слотов, изображенных на предыдущей странице: $(br2)I. Сжигаемые компоненты. $(br)II. Топливо. $(br)III. Пустые флаконы. $(br)IV. Получаемые эссенции. $(br)V. Продукты работы печи. $(br2)В качестве топлива для работы печь может принимать только древесный уголь. $(l:plants/nameless_tree#charcoal)Уголь из Безымянного древа$() тоже подойдет и, более того, ускорит работу печи в два раза."
+      "text": "Purpose of the slots shown on the previous page: $(br2)I. Components to be burned. $(br)II. Fuel. $(br)III. Empty vials. $(br)IV. Collected essences. $(br)V. Furnace output. $(br2)Only charcoal can be used as fuel for the furnace. $(l:plants/nameless_tree#charcoal)Charcoal from the Nameless Tree$() is also suitable and will, moreover, double the furnace's speed."
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:empty_vial",
-      "title": "Сбор ароматов",
-      "text": "Для начала процесса сжигания наличие пустых стеклянных флаконов необязательно - без них выходной продукт всё равно будет получен, однако сбор потенциально выделяемой сжигаемым компонентом эссенции будет невозможен. Без возможности автоматического сбора во флакон она попросту улетучится."
+      "title": "Collecting Scents",
+      "text": "The presence of empty glass vials is not mandatory to start the burning process – without them, the output product will still be obtained, but the collection of the potentially released essence from the burned component will be impossible. Without the ability to automatically collect it into a vial, the essence will simply evaporate."
     },
     {
       "type": "patchouli:text",
-      "text": "Большинство рецептов в печи выпаривания ароматов позволяют с некоторым (не 100%) шансом получить ту или иную эссенцию, которая будет автоматически помещена во флакон. Некоторые компоненты при нагревании не дают никаких испарений, поэтому для них отсутствие пустых флаконов не сулит никаких потерь. $(br2)Характерный продукт сгорания большинства компонентов - пепел, гарантированно скапливающийся в V слоте."
+      "text": "Most recipes in the odour extracting furnace allow for a certain (not 100%) chance to obtain an essence that will be automatically placed into a vial. Some components do not produce any vapors when heated, so the absence of empty vials does not result in any loss for them. $(br2)The typical byproduct of burning most components is ash, which will reliably accumulate in slot V."
     }
   ],
   "read_by_default": true
 }
-

@@ -1,6 +1,6 @@
 {
-  "name": "Выпаривание и варка",
-  "description": "Этот раздел гримуара посвящен трём основным аспектам, лежащим в основе искусства алхимии - выпариванию ароматов, а также варке компонентов и зелий в магическом котле $(br2)Эти процессы тесно связаны, поэтому любому начинающему практику рекомендуется как можно быстрее освоить каждый из них.$()",
+  "name": "Extracting and Brewing",
+  "description": "This section of the grimoire is dedicated to the three main aspects that form the foundation of the art of alchemy – the extracting of odours, as well as the brewing of components and potions in a magical cauldron. $(br2)These processes are closely intertwined, so it is highly recommended that any novice practitioner quickly masters each of them.$()",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/extracting_and_brewing.png",
   "sortnum": 3
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Варка",
-  "description": "Большинство компонентов, которые вам понадобятся в процессе изысканий, могут быть изготовлены при помощи особого варочного котла. Нет такой ведьмы, в чьей хижине не стоял бы большой бурлящий котёл, и нет такого зелья, какое можно было бы сварить, не обращаясь к нему. Эта глава является наиболее полным руководством по использованию варочного котла, а также приводит некоторые полезные (в том числе и кулинарные!) рецепты.",
+  "name": "Brewing",
+  "description": "Most of the components you will need in your pursuits can be crafted using a special brewing cauldron. There is no witch whose hut lacks a large bubbling cauldron, and no potion can be brewed without turning to it. This chapter serves as the most comprehensive guide to using the brewing cauldron and provides some useful (including culinary!) recipes.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/brewing.png",
   "parent": "ars_maleficarum:extracting_and_brewing",
   "sortnum": 1

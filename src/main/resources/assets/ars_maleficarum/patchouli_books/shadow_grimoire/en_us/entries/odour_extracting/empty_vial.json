@@ -1,20 +1,19 @@
 {
-  "name": "Стеклянные флаконы",
+  "name": "Glass Vials",
   "icon": "ars_maleficarum:empty_vial",
   "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Рано или поздно любой начинающий волшебник столкнется с проблемой отсутствия подходящих сосудов для хранения ингредиентов. Термостойкие стеклянные флаконы - самая универсальная посуда, запасами которой в достаточном объеме должен обладать любой уважающий себя практик. Они пригодны для сбора как жидкостей и порошков, так и летучих эссенций."
+      "text": "Sooner or later, any novice practitioner will face the problem of lacking suitable containers for storing ingredients. Heat-resistant glass vials are the most versatile vessels, a sufficient stock of which every self-respecting practitioner should possess. They are suitable for collecting both liquids and powders, as well as volatile essences."
     },
     {
       "type": "patchouli:crafting",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:empty_vial",
-      "text": "Обыкновенный стеклянный флакон в совокупности с правильно вырезанными рябиновыми пробками способен послужить превосходным хранилищем для множества полезных ингредиентов самого разного сорта."
+      "text": "A simple glass vial combined with properly cut rowan stoppers can serve as excellent storage for a multitude of useful ingredients of various kinds."
     }
   ],
   "read_by_default": true
 }
-
