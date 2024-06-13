@@ -1,18 +1,18 @@
 {
-  "name": "Золотистый мел",
+  "name": "Golden Chalk",
   "icon": "ars_maleficarum:golden_chalk",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Этот мел не предназначен для начертания ритуальных символов или рисования пентаграмм на алтаре. Он служит для формирования сердца ритуального круга - той части, которая и будет лежать в основе проведения любого обряда, направляя потоки магии сквозь глифы остальных цветов. Иначе говоря - редко какой ритуал обойдется без окаймленной золотом сердцевины."
+      "text": "This chalk is not intended for inscribing ritual symbols or drawing pentagrams on the altar. It serves to form the heart of the ritual circle – the core element that underpins any ceremony, channeling the flows of magic through the glyphs of other colors. In other words, few rituals can be performed without a golden-edged centerpiece."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:golden_chalk_in_brewing_cauldron",
-      "text": "Золотистый мел тоже несложным образом создаётся из обыкновенного белого, как и любой другой."
+      "text": "Golden chalk, like any other, is created in a simple manner from ordinary white chalk."
     }
   ],
   "read_by_default": true

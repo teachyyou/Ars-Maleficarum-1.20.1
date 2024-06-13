@@ -1,4 +1,4 @@
-{
+  {
   "name": "Odour Extracting Furnace",
   "icon": "ars_maleficarum:odour_extracting_furnace",
   "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
@@ -28,7 +28,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:empty_vial",
-      "title": "Collecting Scents",
+      "title": "Collecting Odours",
       "text": "The presence of empty glass vials is not mandatory to start the burning process – without them, the output product will still be obtained, but the collection of the potentially released essence from the burned component will be impossible. Without the ability to automatically collect it into a vial, the essence will simply evaporate."
     },
     {

@@ -1,18 +1,18 @@
 {
-  "name": "Зелёный мел",
+  "name": "Green Chalk",
   "icon": "ars_maleficarum:green_chalk",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Белого мела порой может оказаться недостаточно там, где речь заходит о ритуальной магии, нацеленной на взаимодействие с природой. $(br2)Зелёный мел многократно увеличивает недостающую для этого силу начертанных символов, позволяя проводить ритуалы, направленные на обуздание и подчинение ведьмой природных сил."
+      "text": "White chalk may sometimes prove insufficient when it comes to ritual magic aimed at interacting with nature. $(br2)Green chalk significantly enhances the power of inscribed symbols, enabling rituals designed to harness and command natural forces by the witch."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:green_chalk_in_brewing_cauldron",
-      "text": "В основе создания зеленого мела лежит обыкновенный белый, как это ни странно."
+      "text": "As if it were something entirely unexpected, the creation of green chalk is based on ordinary white chalk."
     }
   ],
   "read_by_default": true

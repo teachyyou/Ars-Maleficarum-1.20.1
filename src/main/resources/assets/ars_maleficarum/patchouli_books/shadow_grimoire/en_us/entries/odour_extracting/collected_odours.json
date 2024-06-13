@@ -1,115 +1,115 @@
 {
   "name": "Obtaining Odours",
   "icon": "ars_maleficarum:smell_of_home",
-  "category": "ars_maleficarum:extracting_and_brewing/odour_extracti  ng",
+  "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Sooner or later, any novice practitioner will face the problem of lacking suitable containers for storing ingredients. Heat-resistant glass vials are the most versatile vessels, a sufficient stock of which every self-respecting practitioner should possess. They are suitable for collecting both liquids and powders, as well as volatile essences."
+      "text": "Any novice practitioner will face the need for suitable containers. Heat-resistant glass vials are versatile vessels for storing liquids, powders, and volatile essences."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Petrichor",
       "recipe": "ars_maleficarum:petrichor_from_dark_oak_sapling",
-      "text": "Petrichor, or the scent of dust after rain, is one of the most popular unconventional aromas. Wizards and herbalists are particularly interested in it as an ingredient representing the union of soil and plant, mineral and life, earth and those who walk upon it. Dark oak, adding somber notes of dampness, is an ideal source of this essence."
+      "text": "Petrichor, the scent of dust after rain, is favored by wizards and herbalists. Dark oak adds somber notes of dampness, ideal for this essence."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Smell of Home",
       "recipe": "ars_maleficarum:smell_of_home_from_oak_sapling",
-      "text": "Oak symbolizes home, comfort, and warm memories of days gone by – emotions often needed for replenishing strength. Some call this aroma 'nostalgia,' and such a perspective is also valid."
+      "text": "Oak symbolizes home, comfort, and warm memories. This aroma, often called 'nostalgia,' is used to replenish strength."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Desert Spirit",
       "recipe": "ars_maleficarum:desert_spirit_from_cactus",
-      "text": "Cactus is the best source of the essence of the desert, endless sandy steppes where the Sun mercilessly scorches and the winds sing mournful melodies of hopelessness. The essence extracted from this thorny plant is widely used by herbalists and wizards where notes symbolizing life among the dead sands are needed."
+      "text": "Cactus provides the essence of the desert, representing life among the endless sandy steppes where the Sun mercilessly scorches."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Sweet Dream",
       "recipe": "ars_maleficarum:sweet_dream_from_sugar_cane",
-      "text": "Sugar cane is an excellent source of essence capable of inducing drowsiness and sweet dreams, hence its name. It symbolizes sunset, fatigue, and much-desired relaxation."
+      "text": "Sugar cane induces drowsiness and sweet dreams, symbolizing sunset, fatigue, and relaxation."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Soaring Lightness",
       "recipe": "ars_maleficarum:soaring_lightness_from_azalea",
-      "text": "Azalea, a truly remarkable plant, is a rich source of essence symbolizing upliftment, lightness, and elevation. The sap running through azalea's veins gives this essence unforgettable shades and magical properties loved by potion brewers."
+      "text": "Azalea, a remarkable plant, provides an essence of upliftment, lightness, and elevation, loved by potion brewers."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Soaring Lightness",
       "recipe": "ars_maleficarum:soaring_lightness_from_flowering_azalea",
-      "text": "Flowering azalea contains a higher concentration of the essence of lightness and elevation, often used in potion brewing and other fields related to enhancing and accelerating living organisms."
+      "text": "Flowering azalea contains a higher concentration of lightness essence, used in enhancing and accelerating living organisms."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Ring of Morning Dew",
       "recipe": "ars_maleficarum:ring_of_morning_dew_birch_sapling",
-      "text": "The ring of morning dew, delighting the eye and ear of the observer, is best extracted as an essence from birch. This beautiful, delicate tree contains the spirit of beauty, simplicity, and joyful awakening."
+      "text": "The ring of morning dew, delightful to the eye and ear, is best extracted from birch, symbolizing beauty and joyful awakening."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Wasteland Wind",
       "anchor": "wasteland_wind",
       "recipe": "ars_maleficarum:wasteland_wind_from_acacia_sapling",
-      "text": "The dusty, dry wind that sweeps through the savannas is closely associated with acacias growing there, as it repeatedly lashes their trunks, passing by and returning. By using the furnace, an herbalist can extract the useful essence of the wasteland wind from the saplings of the savannah trees."
+      "text": "The dusty, dry wind of the savannas is tied to acacias. Herbalists extract the essence of wasteland wind from their saplings."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Coniferous Oil",
       "recipe": "ars_maleficarum:coniferous_oil_from_spruce_sapling",
-      "text": "Spruce is an excellent source of magical energy, once bestowing upon the common ancestor of all conifers the ability to remain evergreen. An experienced herbalist can extract coniferous oil from spruce and use its essence in potion brewing and enchantments requiring echoes of longevity."
+      "text": "Spruce is a source of magical energy, allowing experienced herbalists to extract coniferous oil for potions and enchantments."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
-      "title": "Swamp Stench",
+      "title": "Stink of Swamp",
       "recipe": "ars_maleficarum:stink_of_swamp_from_mangrove_propagule",
-      "text": "Swamps and bogs are centers of natural magical energy, which witches living in these dismal and dark places draw upon. It is hard to call it an aroma, rather extremely foul vapors that can be extracted by the skilled through the burning of mangrove shoots, then used where the spirit of the swamp is needed."
+      "text": "Swamps are centers of natural magical energy. The foul vapors from mangrove shoots are used to capture the spirit of the swamp."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Absolute Order",
       "recipe": "ars_maleficarum:absolute_order_from_rowan_sapling",
-      "text": "Rowan is the purest source of primal natural magic, symbolizing order amidst chaos. This energy, contained within the tree's veins, can be extracted using the furnace and then used where the essence of order is needed. Where chaos needs to be dispelled and directed magic must flow unhindered."
+      "text": "Rowan is a pure source of primal natural magic, symbolizing order amidst chaos. Its energy is used to dispel chaos and direct magic."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Tropical Monsoon",
       "recipe": "ars_maleficarum:tropical_monsoon_from_jungle_sapling",
-      "text": "The pristine tropical and equatorial forests, jungles – places rich in accumulated magical energy in vegetation. The sound of raindrops resting on leaves, the breeze passing through the tropics carrying the voice of untamed nature. The aroma extracted from them by herbalists, in honor of this very wind, is named 'Tropical Monsoon.'"
+      "text": "The essence of tropical forests, rich in magical energy, symbolizes the power of rain and untamed nature, valued by herbalists."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Cherry Etude",
       "recipe": "ars_maleficarum:cherry_etude_from_cherry_sapling",
-      "text": "Music is one of the purest and most elevated phenomena ever to arise in history. Cherry, containing essences of harmony and melody, is an excellent source of essence used by Eastern herbalists in potion brewing and creating artifacts requiring high resonance parameters."
+      "text": "Cherry, embodying harmony and melody, is an excellent source of essence used by Eastern herbalists for creating high-resonance artifacts."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Whiff of Time",
       "recipe": "ars_maleficarum:whiff_of_time_from_kramer_tree_sapling",
-      "text": "The Kramer Tree, having absorbed the blood of many generations of fallen herbalists, warlocks, and witches, has become an astounding source of essence characterizing the passage of time – the grinding stones of history that erase myriad pages of bloody events. In contrast to destruction, this aroma reminds of the relentless march of time leading to creation."
+      "text": "The Kramer Tree, soaked with generations' blood, symbolizes the passage of time, reminding of the relentless march leading to creation."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Tune of Harmony",
       "recipe": "ars_maleficarum:tune_of_harmony_from_sage_flower",
-      "text": "Sage is one of the few herbs suitable for extracting a useful essence. Filled with the energy of order and harmony, it is of great interest to herbalists and wizards capable of extracting and bottling its aroma, which sharpens the senses and brings clarity."
+      "text": "Sage, filled with the energy of order and harmony, sharpens senses and brings clarity, cherished by herbalists."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Tune of Harmony",
       "recipe": "ars_maleficarum:tune_of_harmony_from_ground_sage_flowers",
-      "text": "This is a variation of the recipe for obtaining the 'Tune of Harmony' using ground sage. In this form, it is more pliable, significantly increasing the chance of obtaining the desired vial of vapors when burning sage."
+      "text": "Ground sage is more pliable, increasing the chance of obtaining the desired essence when burned."
     },
     {
       "type": "ars_maleficarum:odour_extracting_recipe",
       "title": "Scent of Uncertainty",
       "recipe": "ars_maleficarum:scent_of_uncertainty_from_nameless_tree_sapling",
-      "text": "The most enigmatic tree, exuding uncertainty, ignorance, and questions – the Nameless Tree. Experienced herbalists can extract that unique scent from its saplings by burning them, although it is hard to classify definitively. The vapors of the Nameless Tree are popular among those wizards who dare to gaze into the future and play with fate."
+      "text": "The Nameless Tree exudes uncertainty and questions. Its unique scent is popular among wizards who dare to play with fate."
     }
   ],
   "read_by_default": true
