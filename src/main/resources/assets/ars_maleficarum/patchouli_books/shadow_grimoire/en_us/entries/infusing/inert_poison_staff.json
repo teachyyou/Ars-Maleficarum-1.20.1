@@ -1,19 +1,18 @@
 {
-  "name": "Инертная ветвь",
+  "name": "Inert Branch",
   "icon": "ars_maleficarum:inert_poison_staff",
   "category": "ars_maleficarum:infusing",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Наполнение позволяет создавать довольно мощные магические артефакты, однако в этом случае, как и часто с посохами, одного этого недостаточно. Тем не менее, прежде чем создать по-настоящему могущественный артефакт, такой как волшебный посох, необходимо подготовить для него основу. $(br)С помощью алтаря можно из высушенной древесины создать инертную (пока что) ветвь, которая затем ляжет в основу полноценного посоха."
+      "text": "Infusing allows for the creation of quite powerful magical artifacts, but in this case, as often with staves, that alone is not enough. However, before creating a truly powerful artifact such as a magical staff, it is necessary to prepare a base for it. $(br)Using the altar, one can create an inert (for now) branch from dried wood, which will then form the foundation of a full-fledged staff."
     },
     {
       "type": "ars_maleficarum:infusing_altar_recipe",
       "recipe": "ars_maleficarum:inert_poison_staff_in_infusing_altar",
-      "title": "Наполнение",
-      "text": "В редких случаях, как сейчас, мощности процесса наполнения не хватает для создания полноценного артефакта."
-
+      "title": "Infusion",
+      "text": "In rare cases like this one, the powers of the infusing process are not sufficient to create a complete artifact."
     }
   ],
   "read_by_default": true
