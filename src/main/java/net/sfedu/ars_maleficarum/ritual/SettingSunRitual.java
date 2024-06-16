@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.ritual;
 
-import com.sun.jna.platform.unix.X11;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -45,7 +44,7 @@ public class SettingSunRitual extends CircleRitual {
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
-            tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+            tryToContinue(pLevel,pPos,pPlayer,riteCore);
         }
     }
 

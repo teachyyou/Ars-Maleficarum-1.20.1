@@ -110,8 +110,8 @@ public abstract class CircleRitual {
         return true;
     }
 
-    public void tryToContinue(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
-        riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
+    public void tryToContinue(Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
+        riteCore.tryStartRitual(pLevel,pPos,pPlayer);
     }
 
     public void consumeComponents(Level pLevel, BlockPos pPos, RitualCoreEntity riteCore, Player pPlayer) {

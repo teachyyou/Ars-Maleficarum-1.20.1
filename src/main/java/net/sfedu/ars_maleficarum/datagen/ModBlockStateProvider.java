@@ -133,7 +133,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private ConfiguredModel[] circleCoreTypes(BlockState state) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        String type = state.getValue(RitualCircleCore.CIRCLETYPE).getSerializedName();
+        String type = state.getValue(RitualCircleCore.CIRCLE_TYPE).getSerializedName();
         models[0]=new ConfiguredModel(models().withExistingParent(type+"_ritual_circle_core",ArsMaleficarum.MOD_ID+":block/ritual_circle_core")
                 .texture("1","block/"+type+"_circle_core_texture")
                 .texture("particle","block/"+type+"_circle_core_texture"));

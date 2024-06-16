@@ -37,6 +37,7 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("deprecation")
 public class ChalkSymbol extends HorizontalDirectionalBlock {
 
     public static final IntegerProperty VARIANT = IntegerProperty.create("variant",0,10);
@@ -54,53 +55,55 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockState blockstate = pLevel.getBlockState(pPos.below());
+    public boolean canSurvive(@NotNull BlockState blockState, LevelReader level, BlockPos blockPos) {
+        BlockState blockstate = level.getBlockState(blockPos.below());
         return !blockstate.is(Blocks.AIR);
     }
 
-    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-        return canSurvive(pState,pLevel,pCurrentPos) ? pState : Blocks.AIR.defaultBlockState();
+    @NotNull
+    public BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
+        return canSurvive(blockState,level,currentPos) ? blockState : Blocks.AIR.defaultBlockState();
     }
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING,Direction.getRandom(pContext.getLevel().getRandom())).setValue(IMPRISONMENT,0);
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING,Direction.getRandom(context.getLevel().getRandom())).setValue(IMPRISONMENT,0);
     }
 
     @Override
-    public float getDestroyProgress(BlockState pState, Player pPlayer, BlockGetter pLevel, BlockPos pPos) {
-        return (pPlayer.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(pState, pPlayer, pLevel, pPos);
+    public float getDestroyProgress(BlockState blockState, Player player, BlockGetter level, BlockPos blockPos) {
+        return (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(blockState, player, level, blockPos);
     }
     public static final VoxelShape SHAPE = Block.box(3,0,3,13,1.125,13);
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    @NotNull
+    public VoxelShape getShape(BlockState blockState, BlockGetter level, BlockPos blockPos, CollisionContext context) {
         return SHAPE;
     }
 
     //При разрушении либо создании глифа найти ближайший центр и заставить его отсканировать целостность кругов, чтобы не делать это каждый тик.
-    private void notifyNearestCircleCenter(Level pLevel, BlockPos pPos) {
+    private void notifyNearestCircleCenter(Level level, BlockPos blockPos) {
         for (int i = -6; i<=6; i++) {
             for (int j = -6; j<=6; j++) {
-                BlockPos pos = pPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                BlockEntity blockEntity = pLevel.getBlockEntity(pos);
+                BlockPos pos = blockPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
+                BlockEntity blockEntity = level.getBlockEntity(pos);
                 if (blockEntity instanceof RitualCoreEntity) {
-                    ((RitualCoreEntity) blockEntity).checkForCircles(pLevel, pos);
+                    ((RitualCoreEntity) blockEntity).checkForCircles(level, pos);
                 }
             }
         }
     }
 
     @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        notifyNearestCircleCenter(pLevel,pPos);
+    public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState pOldState, boolean pIsMoving) {
+        notifyNearestCircleCenter(level,blockPos);
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        notifyNearestCircleCenter(pLevel,pPos);
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState pNewState, boolean pIsMoving) {
+        notifyNearestCircleCenter(level,blockPos);
+        super.onRemove(blockState, level, blockPos, pNewState, pIsMoving);
     }
     @Override
     public boolean collisionExtendsVertically(BlockState state, BlockGetter world, BlockPos pos, Entity entity) {
@@ -133,29 +136,28 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide()) {
-            if (pPlayer.getItemInHand(pHand).is(ModItems.CHALK_BRUSH.get())) {
-                pLevel.removeBlock(pPos,false);
-                pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,(p_150686_) -> {
-                    p_150686_.broadcastBreakEvent(pHand);
-                });
+    @NotNull
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand pHand, BlockHitResult pHit) {
+        if (!level.isClientSide()) {
+            if (player.getItemInHand(pHand).is(ModItems.CHALK_BRUSH.get())) {
+                level.removeBlock(blockPos,false);
+                player.getItemInHand(pHand).hurtAndBreak(1,player,(p_150686_) -> p_150686_.broadcastBreakEvent(pHand));
             } else {
                 return InteractionResult.FAIL;
             }
         }
-        pLevel.playSound(null,pPos, ModSounds.BRUSH_USE.get(), SoundSource.PLAYERS);
+        level.playSound(null,blockPos, ModSounds.BRUSH_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
 
     @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        super.animateTick(pState, pLevel, pPos, pRandom);
-        if (pState.getValue(IMPRISONMENT)!=0) {
-            double d0 = pPos.getCenter().x;
-            double d1 = pPos.getCenter().y;
-            double d2 = pPos.getCenter().z;
-            if (pRandom.nextFloat() < 0.2D) pLevel.addParticle(ParticleTypes.ENCHANT,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
+    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource random) {
+        super.animateTick(blockState, level, blockPos, random);
+        if (blockState.getValue(IMPRISONMENT)!=0) {
+            double d0 = blockPos.getCenter().x;
+            double d1 = blockPos.getCenter().y;
+            double d2 = blockPos.getCenter().z;
+            if (random.nextFloat() < 0.2D) level.addParticle(ParticleTypes.ENCHANT,true, d0, d1, d2, 0.0D, 0.1D, 0.0D);
 
         }
 
