@@ -1,27 +1,27 @@
 {
-  "name": "Факел Крамера",
+  "name": "Kramer's Torch",
   "icon": "ars_maleficarum:fire_staff",
   "category": "ars_maleficarum:artifacts",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Тёмные секреты жестокого инквизитора прошлого были разгаданы. Факел Крамера - мощнейшее оружие, способное обратить в пепел всех, кто захочет встать на пути у его владельца. Подпитываясь силами демона, заточённого внутри, этот посох способен творить Всепоглощающее пламя - огонь, что обжигает сильнее, чем лава. Наверное, и Крамеру в свое время было трудно устоять перед такой силой."
+      "text": "The dark secrets of a cruel inquisitor from the past have been unraveled. Kramer's Torch is a mighty weapon capable of turning to ashes anyone who dares stand in its wielder's way. Fueled by the power of a demon trapped within, this staff can conjure Consuming Flames - fire that burns hotter than lava. Surely, even Kramer himself would have found it challenging to resist such power."
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:fire_staff",
-      "text": "Создание Факела требует провести сложный $(l:rituals/infusing/kramer_torch_creation)обряд заточения$(), детально описанный в Книге Ритуалов. Используя гнев заточённого внутри демона, артефакт дарует своему владельцу силу преисподней, способную повергать в ужас даже самых смелых противников."
+      "text": "Crafting Kramer's Torch requires performing a complex $(l:rituals/infusing/kramer_torch_creation)ritual of captivity$(), detailed in the Rituals Book. Harnessing the rage of the imprisoned demon, the artifact bestows upon its owner the strength of the underworld, capable of striking fear into even the boldest adversaries."
     },
     {
       "type": "patchouli:text",
-      "title": "Факел Крамера",
-      "text": "Являясь мощным оружием, посох позволяет своему владельцу нажатием на ПКМ совершать дальнобойные атаки - выпуская наружу гнев пленённого адского отродья, факел преобразует его в огненный снаряд, что устремляется вперёд, пока не встретит цель. Живые существа, попавшиеся ему на пути, получают сильные ожоги и воспламеняются, а на блоках загорается адское Всепоглощающее пламя, более опасное, чем обычный огонь."
+      "title": "Kramer's Torch",
+      "text": "As a potent weapon, the staff allows its wielder to unleash ranged attacks with a right-click, releasing the fury of the imprisoned demon as a fiery projectile that streaks forward until it hits a target. Living creatures caught in its path suffer severe burns and ignite in Consuming Flames, while blocks are engulfed in hellish fire, more dangerous than ordinary flames."
     },
     {
       "type": "patchouli:text",
-      "title": "Факел Крамера",
-      "text": "В случае необходимости владелец посоха может призвать эффектную огненную защиту, активируя скрытую силу Факела при помощи Shift+ПКМ. В этот момент вокруг носителя возникает кольцо из Всепоглощающего пламени, не позволяющее живым существам переступить через него под угрозой обращения в пепел. Сам владелец посоха может беспрепятственно проходить через сотворенный этой (и только этой) способностью огонь, свободно маневрируя на поле битвы. $(n)Помните о перезарядке!$()"
+      "title": "Kramer's Torch",
+      "text": "When needed, the staff's owner can invoke a spectacular fire defense by activating the hidden power of Kramer's Torch with Shift+Right-click. This creates a ring of Consuming Flames around the wielder, preventing living creatures from crossing it under threat of turning to ashes. The wielder themselves can freely move through this fire created by this ability (and only this ability), maneuvering on the battlefield unhindered. $(n)Remember about the recharge time!$()"
     }
   ],
   "read_by_default": true

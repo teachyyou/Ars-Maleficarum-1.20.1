@@ -1,19 +1,18 @@
 {
-  "name": "Серебряный стилет",
+  "name": "Silver Stiletto",
   "icon": "ars_maleficarum:silver_dagger",
   "category": "ars_maleficarum:artifacts",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Первая мысль любого практика, начавшего работать с серебром - 'можно ли изготовить из него более эффективное против нежити оружие?' И ответ - да, разумеется можно. Стилет, украшенный $(l:components/cursed_gold)проклятым золотом$() и обладающий лезвием из $(l:components/silver)чистого серебра$(), наносит повышенный урон нежити, а также ослабляет монстров, снижая скорость передвижения, гарантируя носителю стилета успех в любой схватке."
+      "text": "The first thought of any practitioner who starts working with silver is 'can it be crafted into more effective undead-slaying weaponry?' The answer - yes, undoubtedly. Adorned with $(l:components/cursed_gold)cursed gold$() and featuring a blade of $(l:components/silver)pure silver$(), this weapon inflicts increased damage against undead and weakens monsters by reducing their movement speed, ensuring success in any battle for the stiletto wielder."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:silver_dagger",
-      "title": "Изготовление",
-      "text": "Стилет - один из немногих артефактов, не являющихся магическими. Способ создания крайне прост и будет доступен любому, кто обладает подходящим рабочим местом, небольшим запасом серебра, а также завалявшимся где-нибудь кусочком проклятого золота."
-
+      "title": "Crafting",
+      "text": "The stiletto is one of the few artifacts that is not purely magical. The crafting process is extremely simple and accessible to anyone with a suitable workspace, a small supply of silver, and perhaps some spare cursed gold available."
     }
   ],
   "read_by_default": true

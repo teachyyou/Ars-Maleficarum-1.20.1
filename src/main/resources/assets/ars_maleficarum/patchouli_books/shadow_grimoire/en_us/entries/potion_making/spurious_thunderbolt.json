@@ -1,18 +1,18 @@
 {
-  "name": "Палёный гром",
+  "name": "Spurious Thunderbolt",
   "icon": "ars_maleficarum:spurious_thunderbolt",
   "category": "ars_maleficarum:extracting_and_brewing/potion_making",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Палёный гром - элексир, значительно увеличивающий боевую силу того, кто его выпьет. Это зелье - незаменимый помощник в сложных боях, однако существует маленькое 'но' - рецепт ещё не до конца доработан, а потому существует маленький побочный эффект - практически полная слепота, длящаяся в два раза дольше усиления."
+      "text": "The Spurious Thunderbolt - an elixir that greatly enhances the combat prowess of its imbiber. This potion is an invaluable ally in fierce battles, yet there is a small caveat - the recipe remains incomplete, thus there is a minor side effect: near-total blindness, lasting twice as long as the enhancement."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание зелья",
+      "title": "Potion Crafting",
       "recipe": "ars_maleficarum:spurious_thunderbolt_in_brewing_cauldron",
-      "text": "Оригинальный рецепт палёного грома - лучникам и боевым заклинателям противопоказан."
+      "text": "The original recipe of Spurious Thunderbolt - not recommended for archers and battle mages."
     }
   ],
   "read_by_default": true

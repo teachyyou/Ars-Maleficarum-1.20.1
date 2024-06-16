@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -23,7 +22,7 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
 import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
-import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
+import net.sfedu.ars_maleficarum.block.custom.decorative.Chandelier;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.KramerTreeGrower;
@@ -32,7 +31,7 @@ import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
 
 import java.util.function.Supplier;
 
-import static net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier.LIT;
+import static net.sfedu.ars_maleficarum.block.custom.decorative.Chandelier.LIT;
 
 public class ModBlocks {
 
@@ -426,7 +425,7 @@ public class ModBlocks {
             ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion().noLootTable().explosionResistance(1200.0F)));
 
     public static final RegistryObject<Block> CHANDELIER = registerBlock("chandelier",
-            ()->new Сhandelier(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
+            ()->new Chandelier(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
 
     public static final RegistryObject<Block> SKULL_ON_STICK = registerBlock("skull_on_a_stick",
             ()->new SkullOnAStick(BlockBehaviour.Properties.copy(Blocks.TORCH).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));

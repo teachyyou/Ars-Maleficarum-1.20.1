@@ -1,19 +1,18 @@
 {
-  "name": "Щётка",
+  "name": "Chalk Brush",
   "icon": "ars_maleficarum:chalk_brush",
   "category": "ars_maleficarum:tools",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Рунические символы, нарисованные мелом на какой-либо поверхности, как правило не очень хорошо поддаются разрушению - процесс может быть невероятно долгим и утомительным. Для удаления глифов существует специальный инструмент - щётка, с помощью которой избавиться от ненужного символа возможно за доли секунды."
+      "text": "Runic glyphs drawn with chalk on any surface typically resist destruction - the process can be incredibly lengthy and exhausting. For removing glyphs, there exists a specialized tool - the chalk brush, capable of swiftly erasing unwanted symbols in mere seconds."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:chalk_brush",
-      "title": "Создание",
-      "text": "Эта щётка - необходимый инструмент в арсенале тех сведущих, что приступили к постижению магии ритуальных кругов."
-
+      "title": "Crafting",
+      "text": "This brush is an essential tool in the arsenal of those knowledgeable in the study of ritual magic circles."
     }
   ],
   "read_by_default": true

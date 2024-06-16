@@ -28,11 +28,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
-public class Сhandelier extends HorizontalDirectionalBlock {
+public class Chandelier extends HorizontalDirectionalBlock {
 
     protected static final VoxelShape EAST_WEST = Block.box(3,0,5,13,16,11);
     protected static final VoxelShape NORTH_SOUTH = Block.box(5,0,3,11,16,13);
-    public Сhandelier(Properties pProperties) {
+    public Chandelier(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT,false));
     }

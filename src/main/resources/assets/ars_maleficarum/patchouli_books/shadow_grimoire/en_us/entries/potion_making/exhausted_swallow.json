@@ -1,18 +1,18 @@
 {
-  "name": "Уставшая Ласточка",
+  "name": "Exhausted Swallow",
   "icon": "ars_maleficarum:exhausted_swallow",
   "category": "ars_maleficarum:extracting_and_brewing/potion_making",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Уставшая Ласточка - элексир, дарующий принявшему его сильные регенеративные способности, позволяющие быстро залечить любые раны и быстро вернуться в битву. В чём подвох? В цене, которую придётся заплатить - при выпивании зелье сильно обжигает пищевод, в следствие чего можно буквально сойти с ума от боли. $(n)Не рекомендуется принимать во время схватки или при уровне здоровья < 50%$()."
+      "text": "The Exhausted Swallow - an elixir that bestows upon its drinker potent regenerative abilities, allowing swift healing of any wounds and a quick return to battle. What is the catch? The price that must be paid - upon consumption, the potion severely burns the esophagus, causing excruciating pain that may drive one to madness. $(n)It is not recommended to be taken during combat or if HP is below 50%$()."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание зелья",
+      "title": "Potion Crafting",
       "recipe": "ars_maleficarum:exhausted_swallow_in_brewing_cauldron",
-      "text": "Одна известная ведь... один известный ведьмак умел варить Ласточку на ходу или медитируя!"
+      "text": "One renowned witch...er could brew the Swallow on the go or while meditating!"
     }
   ],
   "read_by_default": true

@@ -1,6 +1,6 @@
 {
-  "name": "Инструменты",
-  "description": "Этот раздел содержит в себе записи о всех инструментах и иных средствах, на регулярной основе используемых волшебниками для создания различных сложных компонентов.",
+  "name": "Tools",
+  "description": "This section contains records of all the tools and other means regularly used by witches and warlocks for the creation of various complex components.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/tools.png",
   "sortnum": 4
 }

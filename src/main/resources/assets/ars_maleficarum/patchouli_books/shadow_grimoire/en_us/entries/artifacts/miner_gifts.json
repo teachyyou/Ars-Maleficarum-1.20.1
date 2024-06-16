@@ -1,41 +1,41 @@
 {
-  "name": "Магия рудокопов",
+  "name": "Miner's gifts",
   "icon": "ars_maleficarum:valuable_detector",
   "category": "ars_maleficarum:artifacts",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "В процессе постижения тайн искусства ведьм по тем или иным причинам приходится частенько спускаться в шахту в поисках необходимых материалов. Используя магию металлов, возможно создать три артефакта, способных настроиться на определенный спектр резонанса, помогая владельцу определять присутствие тех или иных пород. В основе артефактов лежит ядро восприятия."
+      "text": "In the pursuit of arcane arts, witches often find themselves delving into mines for essential materials. Using metal magic, it is possible to create three artifacts attuned to specific resonance spectra, aiding the owner in detecting the presence of various ores. At the core of these artifacts lies the essence of perception."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:empty_seal",
       "recipe2": "ars_maleficarum:perception_core",
-      "title": "Ядро восприятия"
+      "title": "Perception Core"
     },
     {
       "type": "patchouli:text",
-      "title": "Принцип работы",
-      "text": "Эти артефакты, обладающие ограниченным запасом прочности, способны улавливать даже самое отдалённое присутствие связанных материалов под земной твердью. Настроенные на определенный род ископаемых, они сканируют недра в квадратной области 3х3 от места использования и до самого низа пород. В случае, если связь установлена и найдены подходящие соединения, дар вибрирует, оповещая владельца об успехе."
+      "title": "Operational Principle",
+      "text": "These artifacts, with limited durability, can detect even the faintest presence of linked materials beneath the earth's surface. Tuned to specific types of minerals, they scan a 3x3 square area from the point of use down to the deepest rocks. When a connection is established and suitable compounds are found, the artifact vibrates, alerting the owner to success."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:carbon_detector",
-      "title": "Нищий рудокоп",
-      "text": "Дар Нищего Рудокопа, изготавливаемый на основе ядра восприятия и угля, фокусируется исключительно на углеродных соединениях, которыми обычно крайне богаты глубины любых климатических зон. Остаётся хорошим вопросом, кому вдруг понадобится изготавливать такой артефакт ради поиска угля..."
+      "title": "Poor Miner",
+      "text": "Crafted from a perception core and coal, the Impoverished Miner's Gift focuses exclusively on carbon compounds, typically abundant in the depths of any climate zone. It remains a valid question who would need such an artifact solely for coal..."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:metal_detector",
-      "title": "Смуглый металлург",
-      "text": "Дар Смуглого Металлурга, составленный из меди, железа, серебра и золота, настроен исключительно на металлы. Применение данного дара не отличается высокой конкретикой в результате, поскольку группа металлов включает в себя крайне обширное множество руд."
+      "title": "Swarthy Metalurgist",
+      "text": "The Dark Metalurgist's Gift, composed of copper, iron, silver, and gold, is finely tuned to metals. However, due to the broad range of metals included, its application lacks specificity in results."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:valuable_detector",
-      "title": "Краснощёкий мудрец",
-      "text": "Яркий дар Краснощёкого Мудреца характеризуется расположением к соединениям, которые нельзя отнести к перечисленным на предыдущих страницах категориям. Среди прочих таких, например, красная пыль, изумруды и адский кварц."
+      "title": "Red-Cheeked Sage",
+      "text": "The Rosy Sage's vibrant gift is characterized by an affinity for compounds not covered in the categories listed on previous pages. Among others, it includes red dust, emeralds, and infernal quartz."
     }
   ],
   "read_by_default": true

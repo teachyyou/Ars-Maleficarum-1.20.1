@@ -1,18 +1,18 @@
 {
-  "name": "Желчь магмокуба ",
+  "name": "Magmacube Gall",
   "icon": "ars_maleficarum:magmacube_gall",
   "category": "ars_maleficarum:extracting_and_brewing/potion_making",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Желчь магмового куба - состав, позволяющий принявшему его без раздумий бросаться в погоню за адскими тварями через огонь и лавовые озёра. Зелье обладает побочным эффектом - делая вашу плоть невосприимчивой к огню, он её значительно утяжеляет, а потому двигаться с прежней прытью вряд ли получится. Кроме того, после варки в обители будет долго стоять запах горелого."
+      "text": "The Magmacube Gall - a potion allowing the imbiber to unhesitatingly chase hellish fiends through fire and lakes of molten lava. This elixir bears a dire side effect - while rendering your flesh impervious to flame, it greatly burdens your body, making swift movement a near impossibility. Furthermore, the foul stench of burning will linger in your abode long after the brewing is done."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание зелья",
+      "title": "Potion Crafting",
       "recipe": "ars_maleficarum:magmacube_gall_in_brewing_cauldron",
-      "text": "Странный, однако действенный набор ингредиентов, делающих возможным купание в $(m)горяч$() лавовых озерах."
+      "text": "A peculiar yet potent blend of ingredients, allowing one to bathe in $(m)ho$() lava lakes."
     }
   ],
   "read_by_default": true

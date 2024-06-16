@@ -1,32 +1,32 @@
 {
-  "name": "Трость Флемет",
+  "name": "Flemeth's Cane",
   "icon": "ars_maleficarum:poison_staff",
   "category": "ars_maleficarum:artifacts",
   "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Этот посох, созданный из неприглядной сухой (и даже немного подгоревшей) ветви - настоящее произведение искусства. Таким же некогда обладала Флемет - известная ведьма из Диких Земель. Этот могущественный артефакт - первое грозное оружие в руках любого начинающего колдуна. Текущая по волокнам ветви природная магия готова в любой момент по команде владельца вырваться наружу."
+      "text": "Crafted from an unassuming dry (and slightly charred) branch, this staff is a true work of art. Once owned by Flemeth, a renowned witch from the Wilds, this powerful artifact is the first fearsome weapon in the hands of any budding warlock. The natural magic coursing through the fibers of the branch is ready to burst forth at the command of its owner."
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:poison_staff",
-      "text": "Для создания посоха необходимо провести небольшой $(l:rituals/infusing/poison_staff_creation)обряд$(), подробно описанный в Книге Ритуалов. Наполнившись природной силой, ветвь обратится в посох и будет готова до последнего защищать своего владельца. Артефакт обладает двумя требующими перезарядки способностями, что подробно описываются далее."
+      "text": "To craft the staff, a small $(l:rituals/infusing/poison_staff_creation)ritual$() must be performed, detailed in the Rituals Book. Infused with natural power, the branch transforms into a staff, ready to protect its owner to the last. The artifact possesses two rechargeable abilities, as described in detail further."
     },
     {
       "type": "patchouli:text",
-      "title": "Трость Флемет",
-      "text": "Во-первых, этот посох - грозное оружие, способное направить силу природы против врагов своего владельца. Держа его в руках, на ПКМ можно совершить прицельный выстрел сгустком зелёной отравляющей энергии, что устремится вперёд к первой встреченной цели. Попав в живое существо, снаряд моментально поразит его и отравит на несколько секунд. $(n)Нежить и некоторые другие существа невоприимчивы к яду$()."
+      "title": "Flemeth's Cane",
+      "text": "Firstly, this staff is a formidable weapon capable of channeling the power of nature against its owner's enemies. Holding it in hand, a right-click can unleash a precise shot of green toxic energy that will rush forward toward the first encountered target. Upon hitting a living creature, the projectile instantly poisons and weakens it for several seconds. $(n)Undead and some other creatures are immune to poison$()."
     },
     {
       "type": "patchouli:text",
-      "title": "Трость Флемет",
-      "text": "Во-вторых, Трость Флемет способна защищать своего владельца не только силой атаки, но и другой особенностью. При нажатии Shift+ПКМ посох может направить струящуюся внутри него природную магию на носителя, сняв с того все эффекты отравления и иссушения. После этого Трости понадобится время на восстановление, прежде чем её особые способности вновь можно будет использовать."
+      "title": "Flemeth's Cane",
+      "text": "Secondly, Flemeth's Cane can protect its owner not only with the force of attack but also with another special ability. By pressing Shift+Right-click, the staff can redirect the natural magic flowing inside it onto its wielder, removing all poisoning and withering effects. After this, the Cane will need time to recover before its special abilities can be used again."
     },
     {
       "type": "patchouli:text",
-      "title": "Восстановление",
-      "text": "С течением времени посох начнет неизбежно изнашиваться. Это невозможно предотвратить, однако существует способ продлить жизнь Трости. Поведя над ней специальный обряд ($(l:rituals/infusing/poison_staff_repair)в одной из двух вариаций$()), можно восстановить все утраченные посохом силы. За всё нужно платить, однако такой способ лучше, чем создавать новый посох после того, как старый рассыплется, выпустив во врага последнюю каплю силы."
+      "title": "Rejuvenation",
+      "text": "Over time, the staff will inevitably wear out. This cannot be prevented, but there is a way to prolong the Cane's life. By performing a special ritual ($(l:rituals/infusing/poison_staff_repair)in one of its two variations$()), all lost powers of the Cane can be restored. Everything comes at a cost, but this method is better than creating a new staff after the old one crumbles, releasing its last drop of power into the enemy."
     }
   ],
   "read_by_default": true
