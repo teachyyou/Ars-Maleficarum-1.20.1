@@ -12,7 +12,7 @@
       "type": "ars_maleficarum:brewing_cauldron_recipe",
       "title": "Infusion",
       "recipe": "ars_maleficarum:wet_enchanted_leather_in_brewing_cauldron",
-      "text": "With the aid of the cauldron, ordinary leather must be infused with magic in both a literal and figurative sense."
+      "text": "With the aid of the cauldron, ordinary leather must be soaked with magic in both a literal and figurative sense."
     }
   ],
   "read_by_default": true

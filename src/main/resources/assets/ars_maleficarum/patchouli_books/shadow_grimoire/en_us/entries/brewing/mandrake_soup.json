@@ -1,18 +1,18 @@
 {
-  "name": "Рагу из мандрагоры",
+  "name": "Mandrake Stew",
   "icon": "ars_maleficarum:mandrake_soup",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Иногда хочется отведать чего-то безумного, разрывающего и уносящего далеко. Рагу из иглобрюха и мандрагоры - сумасшедшее блюдо, повергающее вкусившего его в настоящий водоворот мыслей и чувств. На несколько минут голова начинает ходить ходуном, однако тело укрепляется, а кровь в жилах разгоняется. Рагу кружит голову и значительно повышает сопротивляемость урону."
+      "text": "Sometimes one craves something mad, something that tears and carries away far beyond. Mandrake and Pufferfish Stew is a wild dish, plunging the consumer into a true whirlpool of thoughts and feelings. For several minutes, the head spins, but the body is fortified, and the blood races through the veins. The stew dizzies the mind and significantly enhances resistance to damage."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:mandrake_soup_in_brewing_cauldron",
-      "text": "Рагу из мандрагоры - главное лакомство воинов, чтящих боевое искусство берсерков, перед предстоящей битвой."
+      "text": "Mandrake Stew is the main delicacy for warriors who honor the berserker's combat art before the upcoming battle."
     }
   ],
   "read_by_default": true
