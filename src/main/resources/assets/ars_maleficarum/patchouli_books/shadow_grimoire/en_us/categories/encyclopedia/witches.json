@@ -1,6 +1,6 @@
 {
-  "name": "Ведьмы",
-  "description": "Ведьмы, искусству которых и посвящен сей гримуар, сами по себе являются удивительным предметом для изучения. Конечно, ничто не заменит общения с ними вживую - каждый практик может научиться у них чему-то новому из первых уст. Здесь собрана вся информация, что может помочь в изысканиях, или краткий путеводитель в высокое общество ведьм и колдунов.",
+  "name": "Witches",
+  "description": "Witches, masters of the arts chronicled in this grimoire, are themselves a fascinating subject of study. Of course, nothing can replace direct interaction with them - every practitioner can learn something new firsthand. This section gathers all the information that can aid in research, serving as a brief guide to the high society of witches and warlocks.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/witches.png",
   "parent": "ars_maleficarum:encyclopedia",
   "sortnum": 0

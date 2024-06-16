@@ -1,19 +1,19 @@
 {
-  "name": "Пробуждение силы",
+  "name": "Power Awakening",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/poison_staff.png",
   "category": "ars_maleficarum:circle_magic/infusing",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Манипуляции с древесиной дали плоды - удалось получить хорошо проводящий и хорошо резонирующий $(l:infusing/inert_poison_staff)материал$(), готовый к тому, чтобы лечь в основу создания магического посоха. Таким некогда обладала Флемет - известная ведьма из Диких Земель, и именно в её гримуаре были найдены подробные записки об этом ритуале, способном превратить сухую мертвую ветвь в $(l:artifacts/flemeth_cane)мощный посох$()."
+      "text": "Manipulations with wood have borne fruit - a well-conducting and resonant $(l:infusing/inert_poison_staff)material$() has been obtained, ready to serve as the basis for creating a magical staff. Such a staff was once possessed by Flemeth, a renowned witch of the Wildlands, and detailed notes about this ritual, capable of transforming a dry dead branch into a $(l:artifacts/flemeth_cane)powerful staff$(), were found in her grimoire."
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:poison_staff_creation",
       "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/poison_staff.png",
-      "annotation_line1": "Пробуждаемая ветвь должна",
-      "annotation_line2": "также находиться внутри круга!"
+      "annotation_line1": "The branch being awakened must",
+      "annotation_line2": "also be inside the circle!"
     }
   ],
   "read_by_default": true

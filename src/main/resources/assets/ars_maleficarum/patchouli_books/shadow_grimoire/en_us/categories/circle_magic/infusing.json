@@ -1,6 +1,6 @@
 {
-  "name": "Наполнение",
-  "description": "Наполнение на алтаре - мощный инструмент, однако возможности его всё же ограничены. Магия кругов может предложить намного больше - этот раздел приводит ритуалы, с помощью которых можно превращать обычные предметы в сильные артефакты, чинить их, наполнять привычные вещи силой и зачаровывать инертные основы.",
+  "name": "Infusing",
+  "description": "Infusing at the altar is a powerful tool, yet its possibilities are still limited. Circle magic offers much more - this section presents rituals that allow the transformation of ordinary items into powerful artifacts, repairing them, infusing familiar objects with power, and enchanting inert materials.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/infusing.png",
   "parent": "ars_maleficarum:circle_magic/rituals",
   "sortnum": 1

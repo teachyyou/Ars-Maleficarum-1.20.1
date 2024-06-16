@@ -1,12 +1,12 @@
 {
-  "name": "Озеленение почвы",
+  "name": "Grass Sprouting",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/grass_block_creation.png",
   "category": "ars_maleficarum:circle_magic/natural_invocation_rituals",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Некоторые места порой находятся вне досягаемости возможностей естественного стремления природы покрыть зеленью все, что только можно. Тогда на помощь может прийти данный ритуал - фокусируя жизненную силу растений на блоке земли, он способен прорастить на том траву, давая возможность озеленить даже самые отдаленные безжизненные участки."
+      "text": "Sometimes, certain places are beyond the reach of nature's natural inclination to cover everything with greenery. That's when this ritual can come to the rescue — by focusing the life force of plants onto a block of earth, it is capable of sprouting grass, allowing even the most remote lifeless areas to be greened."
     },
     {
       "type": "ars_maleficarum:ritual_circles",

@@ -1,6 +1,6 @@
 {
-  "name": "Демонология",
-  "description": "Данный раздел книги посвящен ритуалам призыва, заточения и изгнания - основным средствам взаимодействия Верхнего Мира с Преисподней, к которым прибегают практики. Рано или поздно любой ударится о потолок, выше которого не прыгнуть, не начав углубляться в демонологию - сила, исходящая от демонов, чересчур велика, чтобы упустить возможность ею воспользоваться. Более подробная информация о Преисподней и её обитателях содержится в отдельной главе о демонах.",
+  "name": "Demonology",
+  "description": "This section of the book is dedicated to the rituals of summoning, binding, and banishing - the primary means by which practitioners interact with the Nether. Eventually, everyone hits a ceiling they cannot surpass without delving into demonology - the power emanating from demons is too great to ignore. More detailed information about the Nether and its inhabitants is contained in a separate chapter on demons.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/demonology.png",
   "parent": "ars_maleficarum:circle_magic/rituals",
   "sortnum": 3

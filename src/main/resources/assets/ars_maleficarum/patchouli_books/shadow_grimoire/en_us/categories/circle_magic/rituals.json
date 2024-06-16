@@ -1,6 +1,6 @@
 {
-  "name": "Книга ритуалов",
-  "description": "Данный раздел представляет собой обширнейший перечень всех известных ритуалов, что могут быть проведены при помощи кругов. В каждом параграфе описано предназначение ритуала, а также приведены требования к цвету и размерам кругов, указаны компоненты и иные дополнительные сведения.",
+  "name": "Book of Rituals",
+  "description": "This section comprises an extensive list of all known rituals that can be performed using circles. Each paragraph describes the purpose of the ritual, specifies the requirements for circle colors and sizes, lists components, and provides other additional information.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals.png",
   "parent": "ars_maleficarum:circle_magic",
   "sortnum": 1

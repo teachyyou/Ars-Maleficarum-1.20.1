@@ -1,6 +1,6 @@
 {
-  "name": "Бестиарий",
-  "description": "Мир населяет множество удивительных существ. Многие из них суть есть порождения магии, и о них главным образом и идет речь в данном разделе. Разумеется, полезны часто оказываются и иные, не волшебные создания - знания о них дают неоспоримое преимущество, а потому они тоже будут предусмотрительно включены в бестиарий.",
+  "name": "Bestiary",
+  "description": "The world is inhabited by a multitude of fascinating creatures. Many of them are manifestations of magic, and they are the primary focus of this section. Of course, non-magical creatures are also often useful - knowledge about them provides undeniable advantages, so they too are included in the bestiary.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/bestiary.png",
   "parent": "ars_maleficarum:encyclopedia",
   "sortnum": 2

@@ -1,29 +1,29 @@
 {
-  "name": "Места призыва",
+  "name": "Sites of Summoning",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/site_of_summoning.png",
   "category": "ars_maleficarum:encyclopedia/excerpts",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Давным давно, когда многие волшебные традиции ещё не были забыты, а знание не порицалось и знающих не сжигали на кострах, существовала прочная связь между Верхним и Нижним мирами. Те порталы, что есть сегодня, тогда были уделом лишь самых нищих неумёх. Существовали иные способы сообщения между измерениями, и колдуны по обе стороны так поддерживали контакт."
+      "text": "Long ago, when many magical traditions were not yet forgotten, and knowledge was not condemned and the knowledgeable were not burned at the stake, there existed a strong connection between the Upper and Lower realms. The portals that exist today were then only the domain of the poorest novices. There were other ways of communication between dimensions, and wizards on both sides maintained contact."
     },
     {
       "type": "ars_maleficarum:lore_image_page",
       "border": true,
-      "text": "Место Призыва, бывшее некогда площадкой для открытия врат сообщения между мирами. Маги по обе стороны завесы поддерживали врата открытыми, заключая сделки с обитателями Преисподней.",
+      "text": "The Site of Summoning, once a platform for opening gates of communication between realms. Mages on both sides of the veil kept the gates open, making deals with inhabitants of the Inferno.",
       "image": "ars_maleficarum:textures/books/shadow_grimoire/lore/site_of_summoning_painting.png"
     },
     {
       "type": "patchouli:text",
-      "title": "Места призыва",
-      "text": "С тех пор прошло много времени, и до сих пор то тут, то там путешественники по Нижнему миру находят руины мест, некогда связывающих миры. В этих местах магия Ада особенно сильна, а потому многие чародеи отправляются туда в поисках мощного источника, способного подкрепить их волшебство там, где аура Верхнего мира не справлялась. Для демонологов эти руины также представляют большой интерес."
+      "title": "Sites of Summoning",
+      "text": "Since then, much time has passed, and even now travelers in the Nether stumble upon ruins of places that once connected worlds. In these places, the magic of the Abyss is particularly strong, and many sorcerers journey there in search of a potent source to bolster their magic where the aura of the Overworld falters. These ruins are also of great interest to demonologists."
     },
     {
       "type": "patchouli:image",
-      "title": "Места призыва",
+      "title": "Sites of Summoning",
       "border": true,
-      "text": "Здесь прикоснуться к нитям магии, пронизывающие весь Ад, особенно просто.",
+      "text": "Here, touching the threads of magic that permeate the entire Abyss is especially simple.",
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/site_of_summoning.png"]
     }
   ],

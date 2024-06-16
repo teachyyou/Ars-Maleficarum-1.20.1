@@ -1,33 +1,33 @@
 {
-  "name": "Зажжение Факела",
+  "name": "Torch Lightening",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/kramer_torch.png",
   "category": "ars_maleficarum:circle_magic/infusing",
   "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Данный ритуал можно рассматривать как отражения лицемерия Генриха Крамера, который сам прибег к магии призыва и заточения демонов внутри оружия, дабы обрести силу, позволившую ему сокрушать своих врагов. Призвав одного из высших демонов (может даже демона гордыни, кто знает?), он заточил его внутри посоха, что затем стал $(l:artifacts/kramers_torch)его Факелом$(). Ритуал, описываемый далее, должен быть хорошим приближением того, что сделал в свое время Крамер."
+      "text": "This ritual may be seen as a reflection of Heinrich Kramer's hypocrisy, who himself resorted to the magic of summoning and binding demons within weapons to gain the power to crush his foes. Summoning one of the high demons (perhaps even a demon of pride, who can say?), he imprisoned it within a staff, which later became known as $(l:artifacts/kramers_torch)his Torch$(). The ritual described henceforth should be a close approximation of what Kramer once performed."
     },
     {
       "type": "patchouli:text",
-      "text": "Как уже было сказано, главная особенность этого ритуала - обязательное присутствие внутри круга живого и функционирующего демона, обязательно высшего (например, одного из семейства олицетворяющих Смертные Грехи). Только их силы будет достаточно, чтобы заставить Факел гореть. Терзаемый внутри своей темницы, обращённый против своей воли на долгие годы заточения, демон будет источником гнева, который Крамер (как и многие другие после него) и использовал."
+      "text": "As mentioned before, the key feature of this ritual is the mandatory presence of a living, functioning demon within the circle, preferably a high-ranking one (such as one embodying the Deadly Sins). Only their power will suffice to ignite the Torch. Tormented within its prison, turned against its will for years of confinement, the demon will be a source of rage, which Kramer (and many after him) exploited."
     },
     {
       "type": "patchouli:text",
-      "header": "Проведение ритуала",
-      "text": "Для повышения шансов на успешное проведение обряда зажжения Факела необходимо учесть несколько моментов. Во-первых, призывать какого-либо демона имеет смысл непосредственно перед началом ритуала - так он не успеет натворить много бед, впав в ярость от осознания того, что ему вскоре предстоит. И второй, не менее важный момент - лучше всего заранее подготовить какой-нибудь из $(l:rituals/demonology/demonic_imprisonment)ритуалов демонического заточения$(), чтобы не позволить демону вырваться из круга."
+      "title": "Performing the Ritual",
+      "text": "To increase the chances of successfully performing the Torch Ignition ritual, several points must be considered. Firstly, summoning a demon should ideally occur right before the ritual begins - this way, it will not have time to cause much havoc upon realizing its impending fate. Secondly, it is crucial to prepare one of the $(l:rituals/demonology/demonic_imprisonment)demonic imprisonment rituals$() in advance to prevent the demon from escaping the circle."
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:kramer_torch_creation",
       "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/demonology.png",
-      "annotation_line1": "Внутри круга должны быть инертная",
-      "annotation_line2": "ветвь Крамера и демон любого вида!"
+      "annotation_line1": "Within the circle, place the inert",
+      "annotation_line2": "branch of Kramer and a demon of any kind!"
     },
     {
       "type": "patchouli:text",
-      "title": "Из пыльной записки",
-      "text": "...$(o)он говорил, что нужен демон. Я прошел через весь ад, чтобы достать эту во всех смыслах чёртову ветвь, а теперь они требуют от меня призывать демона? Чепуха, попробую без него - наполнение начнётся в любом случае, думаю сил этих мест хватит, чтобы пробудить Факел. Старик говорил, что Крамер потребует душу в обмен на Факел, и только сила демона его устроит. Звучит, как бред. Думаю, к его приходу я закончу$()..."
+      "title": "From a Dusty Note",
+      "text": "...$(o)he said a demon was needed. I went through hell itself to get this damn branch, and now they expect me to summon a demon? Nonsense, I'll try without it - the infusion should begin regardless, I think the power of this place will suffice to awaken the Torch. The old man said Kramer would demand a soul in exchange for the Torch, and only the power of a demon would satisfy him. Sounds like madness. I think I'll be done by the time he arrives$()..."
     }
   ],
   "read_by_default": true

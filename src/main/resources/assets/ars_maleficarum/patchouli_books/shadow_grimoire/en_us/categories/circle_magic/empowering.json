@@ -1,6 +1,6 @@
 {
-  "name": "Чары усиления",
-  "description": "Ритуальные круги на удивление легко справляются с наложением чар на существ внутри, позволяя проводить обряды массового усиления. Данный раздел подробно описывает ритуалы такого рода - они могут стать значимым подспорьем на пути к могуществу. Нередко у одного и того же ритуала существуют несколько вариаций, отличающихся силой накладываемых чар и количеством целей, которые могут быть затронуты магией",
+  "name": "Empowering Enchantments",
+  "description": "Ritual circles surprisingly excel at enchanting entities within them, allowing for mass empowering rituals. This section provides detailed descriptions of such rituals, which can be a significant aid on the path to power. Often, the same ritual has multiple variations, differing in the strength of the enchantments and the number of targets that can be affected by the magic.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/empowerings.png",
   "parent": "ars_maleficarum:circle_magic/rituals",
   "sortnum": 2

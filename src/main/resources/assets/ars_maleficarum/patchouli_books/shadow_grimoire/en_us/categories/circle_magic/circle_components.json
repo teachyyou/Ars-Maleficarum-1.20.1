@@ -1,6 +1,6 @@
 {
-  "name": "Компоненты кругов",
-  "description": "Эта глава подробно описывает устройство магических кругов, способы их создания и правила обращения. Вся вводная информация, которую необходимо знать перед началом проведения обрядов, также находится здесь. Начать рекомендуется с ознакомления с общими принципами, а также изготовления достаточных запасов мела и наборов для рисования сердцевины кругов.",
+  "name": "Circle Components",
+  "description": "This chapter provides a detailed description of magical circles, methods of their creation, and rules of engagement. All introductory information necessary before conducting rituals is also included here. It is recommended to begin by familiarizing oneself with the general principles and preparing an adequate supply of chalks and sets for drawing circle cores.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/chalks.png",
   "parent": "ars_maleficarum:circle_magic",
   "sortnum": 0
