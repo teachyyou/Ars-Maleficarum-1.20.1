@@ -6,7 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.pathfinder.Path;
@@ -30,31 +30,27 @@ public class AvoidBlockGoal<T extends Block> extends Goal {
     protected final Class<T> avoidClass;
     protected final Predicate<LivingEntity> avoidPredicate;
     protected final Predicate<LivingEntity> predicateOnAvoidEntity;
-    private final TargetingConditions avoidEntityTargeting;
 
     /**
      * Goal that helps mobs avoid mobs of a specific class
      */
-    public AvoidBlockGoal(PathfinderMob pMob, Class<T> pEntityClassToAvoid, float pMaxDistance, double pWalkSpeedModifier, double pSprintSpeedModifier) {
-        this(pMob, pEntityClassToAvoid, (p_25052_) -> {
-            return true;
-        }, pMaxDistance, pWalkSpeedModifier, pSprintSpeedModifier, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test);
+    public AvoidBlockGoal(PathfinderMob mob, Class<T> classToAvoid, float maxDistance, double walkSpeedModifier, double speedSpeedModifier) {
+        this(mob, classToAvoid, (p_25052_) -> true, maxDistance, walkSpeedModifier, speedSpeedModifier, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test);
     }
 
     /**
      * Goal that helps mobs avoid mobs of a specific class
      */
-    public AvoidBlockGoal(PathfinderMob pMob, Class<T> pEntityClassToAvoid, Predicate<LivingEntity> pAvoidPredicate, float pMaxDistance, double pWalkSpeedModifier, double pSprintSpeedModifier, Predicate<LivingEntity> pPredicateOnAvoidEntity) {
-        this.mob = pMob;
-        this.avoidClass = pEntityClassToAvoid;
-        this.avoidPredicate = pAvoidPredicate;
-        this.maxDist = pMaxDistance;
-        this.walkSpeedModifier = pWalkSpeedModifier;
-        this.sprintSpeedModifier = pSprintSpeedModifier;
-        this.predicateOnAvoidEntity = pPredicateOnAvoidEntity;
-        this.pathNav = pMob.getNavigation();
+    public AvoidBlockGoal(PathfinderMob mob, Class<T> entityClassToAvoid, Predicate<LivingEntity> avoidPredicate, float maxDistance, double walkSpeedModifier, double sprintSpeedModifier, Predicate<LivingEntity> predicateOnAvoidEntity) {
+        this.mob = mob;
+        this.avoidClass = entityClassToAvoid;
+        this.avoidPredicate = avoidPredicate;
+        this.maxDist = maxDistance;
+        this.walkSpeedModifier = walkSpeedModifier;
+        this.sprintSpeedModifier = sprintSpeedModifier;
+        this.predicateOnAvoidEntity = predicateOnAvoidEntity;
+        this.pathNav = mob.getNavigation();
         this.setFlags(EnumSet.of(Goal.Flag.MOVE));
-        this.avoidEntityTargeting = TargetingConditions.forCombat().range((double)pMaxDistance).selector(pPredicateOnAvoidEntity.and(pAvoidPredicate));
     }
 
 

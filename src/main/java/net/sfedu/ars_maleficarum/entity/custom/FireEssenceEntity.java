@@ -25,6 +25,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
+import org.jetbrains.annotations.NotNull;
 
 public class FireEssenceEntity extends Projectile {
 
@@ -47,6 +48,7 @@ public class FireEssenceEntity extends Projectile {
     }
 
     @Override
+    @NotNull
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
@@ -135,21 +137,22 @@ public class FireEssenceEntity extends Projectile {
             this.discard();
         }
     }
+
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        Entity entity = pResult.getEntity();
-        Entity entity1 = this.getOwner();
-        LivingEntity livingentity = entity1 instanceof LivingEntity ? (LivingEntity)entity1 : null;
-        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 5.0F);
-        if (flag) {
-            this.doEnchantDamageEffects(livingentity, entity);
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity1 = (LivingEntity)entity;
-                livingentity1.setRemainingFireTicks(200);
+        Entity target = pResult.getEntity();
+        LivingEntity owner = this.getOwner() instanceof LivingEntity ? (LivingEntity)this.getOwner() : null;
+        boolean flag = target.hurt(this.damageSources().mobProjectile(this, owner), 5.0F);
+        if (flag && owner != null) {
+            this.doEnchantDamageEffects(owner, target);
+            if (target instanceof LivingEntity livingTarget) {
+                livingTarget.setRemainingFireTicks(200);
             }
         }
     }
+
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         super.hurt(source, amount);

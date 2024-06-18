@@ -9,16 +9,16 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchAttackAnimation;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchIdleAnimation;
-import net.sfedu.ars_maleficarum.entity.animations.TraderWitchWalkAnimation;
-import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
+import net.sfedu.ars_maleficarum.entity.animations.HermitWitchAttackAnimation;
+import net.sfedu.ars_maleficarum.entity.animations.HermitWitchIdleAnimation;
+import net.sfedu.ars_maleficarum.entity.animations.HermitWitchWalkAnimation;
+import net.sfedu.ars_maleficarum.entity.custom.HermitWitchEntity;
 
-public class TraderWitchModel<T extends TraderWitchEntity> extends HierarchicalModel<T> {
+public class HermitWitchModel<T extends HermitWitchEntity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 
 	private final ModelPart body;
-	public TraderWitchModel(ModelPart root) {
+	public HermitWitchModel(ModelPart root) {
 		this.body = root.getChild("mode");
 
 	}
@@ -406,10 +406,10 @@ public class TraderWitchModel<T extends TraderWitchEntity> extends HierarchicalM
 	}
 
 	@Override
-	public void setupAnim(TraderWitchEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+	public void setupAnim(HermitWitchEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animateWalk(TraderWitchWalkAnimation.ANIMATION_WALK, pLimbSwing, pLimbSwingAmount, 2.0f, 2.5f);
-		this.animate(pEntity.idleAnimationState, TraderWitchIdleAnimation.ANIMATION_IDLE, pAgeInTicks, 1f);
-		this.animate(pEntity.attackAnimationState, TraderWitchAttackAnimation.ANIMATION_ATTACK, pAgeInTicks, 1f);
+		this.animateWalk(HermitWitchWalkAnimation.ANIMATION_WALK, pLimbSwing, pLimbSwingAmount, 2.0f, 2.5f);
+		this.animate(pEntity.idleAnimationState, HermitWitchIdleAnimation.ANIMATION_IDLE, pAgeInTicks, 1f);
+		this.animate(pEntity.attackAnimationState, HermitWitchAttackAnimation.ANIMATION_ATTACK, pAgeInTicks, 1f);
 	}
 }

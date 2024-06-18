@@ -87,7 +87,7 @@ public class ModItems {
     public static final RegistryObject<Item> GROUND_MARIGOLD_FLOWERS;
     public static final RegistryObject<Item> ASH;
     public static final RegistryObject<Item> MANDRAKE_SPAWN_EGG;
-    public static final RegistryObject<Item> TRADE_WITCH_SPAWN_EGG;
+    public static final RegistryObject<Item> HERMIT_WITCH_SPAWN_EGG;
     public static final RegistryObject<Item> GLUTTONY_DEMON_SPAWN_EGG;
     public static final RegistryObject<Item> WHITE_CHALK;
     public static final RegistryObject<Item> GREEN_CHALK;
@@ -174,7 +174,7 @@ public class ModItems {
         GROUND_MARIGOLD_FLOWERS = ITEMS.register("ground_marigold_flowers", () -> new Item(new Item.Properties()));
         ASH = ITEMS.register("ash", () -> new Item(new Item.Properties()));
         MANDRAKE_SPAWN_EGG = ITEMS.register("mandrake_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MANDRAKE, 0x582f13, 0x306d2c, new Item.Properties()));
-        TRADE_WITCH_SPAWN_EGG = ITEMS.register("trade_witch_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.TRADER_WITCH, 0x9e7245, 0xacd1c9, new Item.Properties()));
+        HERMIT_WITCH_SPAWN_EGG = ITEMS.register("hermit_witch_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.HERMIT_WITCH, 0x9e7245, 0xacd1c9, new Item.Properties()));
         GLUTTONY_DEMON_SPAWN_EGG = ITEMS.register("gluttony_demon_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.GLUTTONY_DEMON, 0xae0f17, 0x4b070a, new Item.Properties()));
         WHITE_CHALK = ITEMS.register("white_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.WHITE_CHALK_SYMBOL.get()));
         GREEN_CHALK = ITEMS.register("green_chalk", () -> new ChalkItem(new Item.Properties().durability(44), ModBlocks.GREEN_CHALK_SYMBOL.get()));

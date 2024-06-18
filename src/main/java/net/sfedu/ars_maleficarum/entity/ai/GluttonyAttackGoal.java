@@ -5,16 +5,19 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
+import org.jetbrains.annotations.NotNull;
 
 public class GluttonyAttackGoal extends MeleeAttackGoal {
     private final GluttonyDemonEntity entity;
     private int attackDelay = 20;
     private int ticksUntilNextAttack = 45;
     private boolean shouldCountTillNextAttack = false;
-    public GluttonyAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
-        super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
-        entity = (GluttonyDemonEntity) pMob;
+
+    public GluttonyAttackGoal(PathfinderMob mob, double speedModifier, boolean followTargetEvenIfNotSeen) {
+        super(mob, speedModifier, followTargetEvenIfNotSeen);
+        this.entity = (GluttonyDemonEntity) mob;
     }
+
     @Override
     public void start() {
         super.start();
@@ -23,16 +26,16 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-        if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
+    protected void checkAndPerformAttack(@NotNull LivingEntity enemy, double distToEnemySqr) {
+        if (isEnemyWithinAttackDistance(enemy, distToEnemySqr)) {
             shouldCountTillNextAttack = true;
 
-            if(isTimeToStartAttackAnimation()) {
+            if (isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
             }
-            if(isTimeToAttack()) {
-                this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-                performAttack(pEnemy);
+            if (isTimeToAttack()) {
+                this.mob.getLookControl().setLookAt(enemy.getX(), enemy.getEyeY(), enemy.getZ());
+                performAttack(enemy);
             }
         } else {
             resetAttackCooldown();
@@ -42,8 +45,8 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
         }
     }
 
-    private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr-10 <= this.getAttackReachSqr(pEnemy);
+    private boolean isEnemyWithinAttackDistance(LivingEntity enemy, double distToEnemySqr) {
+        return distToEnemySqr - 10 <= this.getAttackReachSqr(enemy);
     }
 
     protected void resetAttackCooldown() {
@@ -62,25 +65,23 @@ public class GluttonyAttackGoal extends MeleeAttackGoal {
         return this.ticksUntilNextAttack;
     }
 
-
-    protected void performAttack(LivingEntity pEnemy) {
+    protected void performAttack(LivingEntity enemy) {
         this.resetAttackCooldown();
-        pEnemy.knockback(10D,5D,5D);
+        enemy.knockback(10D, 5D, 5D);
         this.mob.swing(InteractionHand.MAIN_HAND);
-        this.mob.doHurtTarget(pEnemy);
-        float cur_health = entity.getHealth();
-        float add_health = 3F;
-        entity.setHealth(Math.min(cur_health+add_health, entity.getMaxHealth()));
+        this.mob.doHurtTarget(enemy);
+        float currentHealth = entity.getHealth();
+        float healthToAdd = 3F;
+        entity.setHealth(Math.min(currentHealth + healthToAdd, entity.getMaxHealth()));
     }
 
     @Override
     public void tick() {
         super.tick();
-        if(shouldCountTillNextAttack) {
+        if (shouldCountTillNextAttack) {
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
         }
     }
-
 
     @Override
     public void stop() {

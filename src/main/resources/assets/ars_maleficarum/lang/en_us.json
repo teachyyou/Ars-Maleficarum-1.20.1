@@ -228,8 +228,8 @@
   "item.ars_maleficarum.mandrake_soup": "Mandrake Stew",
   "item.ars_maleficarum.rowan_compote": "Rowan Compote",
 
-  "entity.ars_maleficarum.trader_witch": "Hermit Witch",
-  "item.ars_maleficarum.trade_witch_spawn_egg": "Hermit Witch Spawn Egg",
+  "entity.ars_maleficarum.hermit_witch": "Hermit Witch",
+  "item.ars_maleficarum.hermit_witch_spawn_egg": "Hermit Witch Spawn Egg",
 
   "sounds.ars_maleficarum.gluttony_demon_spawn": "Gluttony Demon summoned",
   "sounds.ars_maleficarum.gluttony_demon_died": "Gluttony Demon dies",
@@ -244,9 +244,9 @@
 
   "sounds.ars_maleficarum.fire_staff_radius_attack": "Fire ring summoned",
 
-  "sounds.ars_maleficarum.trader_witch_attack": "Hermit Witch attacks",
-  "sounds.ars_maleficarum.trader_witch_died": "Hermit Witch dies",
-  "sounds.ars_maleficarum.trader_witch_hurt": "Hermit Witch hurt",
-  "sounds.ars_maleficarum.trader_witch_ambient": "Hermit Witch laughs",
-  "sounds.ars_maleficarum.trader_witch_trade": "Hermit Witch trades"
+  "sounds.ars_maleficarum.hermit_witch_attack": "Hermit Witch attacks",
+  "sounds.ars_maleficarum.hermit_witch_died": "Hermit Witch dies",
+  "sounds.ars_maleficarum.hermit_witch_hurt": "Hermit Witch hurt",
+  "sounds.ars_maleficarum.hermit_witch_ambient": "Hermit Witch laughs",
+  "sounds.ars_maleficarum.hermit_witch_trade": "Hermit Witch trades"
 }

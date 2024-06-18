@@ -32,25 +32,26 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
-import net.sfedu.ars_maleficarum.entity.ai.Trader_Witch_AttackGoal;
+import net.sfedu.ars_maleficarum.entity.ai.HermitWitchAttackGoal;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class TraderWitchEntity extends AbstractVillager {
+public class HermitWitchEntity extends AbstractVillager {
     public static final Int2ObjectMap<VillagerTrades.ItemListing[]> CUSTOM_WITCH_TRADES = toIntMap(ImmutableMap.of(1, new VillagerTrades.ItemListing[]{
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 14, ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 2,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 24, ModBlocks.NAMELESS_TREE_SAPLING.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 12, ModBlocks.ROWAN_SAPLING.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 25, ModItems.BAT_WING.get(), 2,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.TREE_LARVA.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 18, ModItems.DRY_WOOD.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 6, ModItems.POPPET.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.SOARING_LIGHTNESS.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.STINK_OF_SWAMP.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 8, ModItems.WHITE_CHALK.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 20, ModItems.EXHAUSTED_SWALLOW_POTION.get(), 1,5,2,0.05F),
-            new TraderWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 16, ModItems.MANDRAKE_SOUP.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 14, ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 2,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 24, ModBlocks.NAMELESS_TREE_SAPLING.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 12, ModBlocks.ROWAN_SAPLING.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 25, ModItems.BAT_WING.get(), 2,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 15, ModItems.TREE_LARVA.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 18, ModItems.DRY_WOOD.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 6, ModItems.POPPET.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.SOARING_LIGHTNESS.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 32, ModItems.STINK_OF_SWAMP.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 8, ModItems.WHITE_CHALK.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 20, ModItems.EXHAUSTED_SWALLOW_POTION.get(), 1,5,2,0.05F),
+            new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 16, ModItems.MANDRAKE_SOUP.get(), 1,5,2,0.05F),
     }));
     private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
         return new Int2ObjectOpenHashMap<>(pMap);
@@ -60,8 +61,8 @@ public class TraderWitchEntity extends AbstractVillager {
     private int idleAnimationTimeout = 0;
     public int attackAnimationTimeout = 0;
     private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(TraderWitchEntity.class, EntityDataSerializers.BOOLEAN);
-    public TraderWitchEntity(EntityType<? extends AbstractVillager> pEntityType, Level pLevel) {
+            SynchedEntityData.defineId(HermitWitchEntity.class, EntityDataSerializers.BOOLEAN);
+    public HermitWitchEntity(EntityType<? extends AbstractVillager> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     protected void registerGoals()
@@ -69,7 +70,7 @@ public class TraderWitchEntity extends AbstractVillager {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
         this.goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
-        this.goalSelector.addGoal(1, new Trader_Witch_AttackGoal(this, 0.2D,true));
+        this.goalSelector.addGoal(1, new HermitWitchAttackGoal(this, 0.2D,true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.35D));
         this.goalSelector.addGoal(5, new InteractGoal(this, Player.class, 3.0F, 1.0F));
@@ -80,6 +81,9 @@ public class TraderWitchEntity extends AbstractVillager {
         return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH,50D).add(Attributes.MOVEMENT_SPEED,0.7D)
                 .add(Attributes.FOLLOW_RANGE, 40D).add(Attributes.ATTACK_KNOCKBACK,5D).add(Attributes.ATTACK_DAMAGE, 0.5D);
     }
+
+    @Override
+    @NotNull
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand)
     {
         if(this.isAlive() && !this.isTrading() && !isAttacking())
@@ -87,16 +91,13 @@ public class TraderWitchEntity extends AbstractVillager {
             if (pHand == InteractionHand.MAIN_HAND) {
                 pPlayer.awardStat(Stats.TALKED_TO_VILLAGER);
             }
-            if (this.getOffers().isEmpty()) {
-                return InteractionResult.sidedSuccess(this.level().isClientSide);
-            }
-            else {
+            if (!this.getOffers().isEmpty()) {
                 if (!this.level().isClientSide) {
                     this.setTradingPlayer(pPlayer);
                     this.openTradingScreen(pPlayer, this.getDisplayName(), 1);
                 }
-                return InteractionResult.sidedSuccess(this.level().isClientSide);
             }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
         else {
             return super.mobInteract(pPlayer, pHand);
@@ -144,19 +145,19 @@ public class TraderWitchEntity extends AbstractVillager {
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSounds.TRADER_WITCH_DEATH.get();
+        return ModSounds.HERMIT_WITCH_DEATH.get();
     }
 
     @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return ModSounds.TRADER_WITCH_HURT.get();
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
+        return ModSounds.HERMIT_WITCH_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSounds.TRADER_WITCH_AMBIENT.get();
+        return ModSounds.HERMIT_WITCH_AMBIENT.get();
     }
     @Override
     public int getAmbientSoundInterval() {
@@ -164,11 +165,9 @@ public class TraderWitchEntity extends AbstractVillager {
     }
 
     @Override
-    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) { return ModSounds.TRADER_WITCH_TRADE.get(); }
-
-    @Override
-    public SoundEvent getNotifyTradeSound() {
-        return null;
+    @NotNull
+    protected SoundEvent getTradeUpdatedSound(boolean pIsYesSound) {
+        return ModSounds.HERMIT_WITCH_TRADE.get();
     }
 
 
@@ -202,7 +201,7 @@ public class TraderWitchEntity extends AbstractVillager {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntities.TRADER_WITCH.get().create(pLevel);
+        return ModEntities.HERMIT_WITCH.get().create(pLevel);
     }
     static class CustomTrades implements VillagerTrades.ItemListing
     {

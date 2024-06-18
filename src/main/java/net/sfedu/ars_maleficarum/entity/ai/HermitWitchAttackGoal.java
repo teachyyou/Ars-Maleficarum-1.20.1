@@ -7,24 +7,27 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.player.Player;
-import net.sfedu.ars_maleficarum.entity.custom.TraderWitchEntity;
+import net.sfedu.ars_maleficarum.entity.custom.HermitWitchEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
-    TraderWitchEntity witch;
+public class HermitWitchAttackGoal extends MeleeAttackGoal {
+    HermitWitchEntity witch;
     private int attackDelay = 30;
     private int ticksUntilNextAttack = 10;
     private int blindDelay = 40;
     private int ticksUntilNextBlind = 10;
     private boolean shouldCountTillNextAttack = false;
     private boolean shouldCountTillNextBlind = false;
-    public Trader_Witch_AttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
-        super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
-        witch = (TraderWitchEntity) pMob;
+
+    public HermitWitchAttackGoal(PathfinderMob mob, double speedModifier, boolean followingTargetEvenIfNotSeen) {
+        super(mob, speedModifier, followingTargetEvenIfNotSeen);
+        witch = (HermitWitchEntity) mob;
     }
+
     @Override
     public void start() {
         super.start();
@@ -35,26 +38,23 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
     }
 
     @Override
-    protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-        if(pEnemy instanceof Player  &&  enemyHasWitcheryHat(pEnemy))
-        {
+    protected void checkAndPerformAttack(@NotNull LivingEntity enemy, double distToEnemySqr) {
+        if (enemy instanceof Player && enemyHasWitcheryHat(enemy)) {
             witch.setHealth(witch.getMaxHealth());
-        }
-        else if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
+        } else if (isEnemyWithinAttackDistance(enemy, distToEnemySqr)) {
             shouldCountTillNextAttack = true;
             shouldCountTillNextBlind = true;
             witch.setAttacking(true);
-            if(isTimeToAttack()) {
-                this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-                performAttack(pEnemy);
-                if(isTimeToBlind()){
+            if (isTimeToAttack()) {
+                this.mob.getLookControl().setLookAt(enemy.getX(), enemy.getEyeY(), enemy.getZ());
+                performAttack(enemy);
+                if (isTimeToBlind()) {
                     Random rnd = new Random();
-                    if(rnd.nextFloat()>0.8)
-                        witch.playSound(ModSounds.TRADER_WITCH_ATTACK.get());
-                    performCast(pEnemy);
-                    performBlind(pEnemy);
-                }
-                else {
+                    if (rnd.nextFloat() > 0.8)
+                        witch.playSound(ModSounds.HERMIT_WITCH_ATTACK.get());
+                    performCast(enemy);
+                    performBlind(enemy);
+                } else {
                     resetBlindCooldown();
                     shouldCountTillNextBlind = false;
                 }
@@ -65,29 +65,29 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
             witch.setAttacking(false);
         }
     }
-    private boolean enemyHasWitcheryHat(LivingEntity pEnemy)
-    {
-        Player player = (Player) pEnemy;
+
+    private boolean enemyHasWitcheryHat(LivingEntity enemy) {
+        Player player = (Player) enemy;
         return player.getInventory().getArmor(3).is(ModItems.SIMPLE_WITCH_HAT.get());
     }
-    private void performCast(LivingEntity pEnemy) {
-        if(witch.getHealth()<40D)
-        {
-            witch.addEffect(new MobEffectInstance(MobEffects.REGENERATION,200));
-            witch.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY,25));
-            witch.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,25));
-            double d0 = (pEnemy.getRandomX(3) - 0.5D);
-            double d2 = (pEnemy.getRandomZ(3) - 0.5D);
-            witch.teleportTo(d0,witch.getY(),d2);
+
+    private void performCast(LivingEntity enemy) {
+        if (witch.getHealth() < 40D) {
+            witch.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200));
+            witch.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 25));
+            witch.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 25));
+            double d0 = (enemy.getRandomX(3) - 0.5D);
+            double d2 = (enemy.getRandomZ(3) - 0.5D);
+            witch.teleportTo(d0, witch.getY(), d2);
             witch.playSound(SoundEvents.ENDERMAN_TELEPORT);
         }
-
     }
-    protected void performBlind(LivingEntity pEnemy) {
+
+    protected void performBlind(LivingEntity enemy) {
         resetBlindCooldown();
-        pEnemy.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,80));
-        pEnemy.addEffect(new MobEffectInstance(MobEffects.DARKNESS,80));
-        pEnemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80));
+        enemy.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 80));
+        enemy.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 80));
+        enemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80));
         witch.playSound(SoundEvents.EVOKER_CAST_SPELL);
     }
 
@@ -95,8 +95,8 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
         this.ticksUntilNextBlind = adjustedTickDelay(blindDelay);
     }
 
-    private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr/2 <= this.getAttackReachSqr(pEnemy);
+    private boolean isEnemyWithinAttackDistance(LivingEntity enemy, double distToEnemySqr) {
+        return distToEnemySqr / 2 <= this.getAttackReachSqr(enemy);
     }
 
     protected void resetAttackCooldown() {
@@ -106,8 +106,8 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
     protected boolean isTimeToAttack() {
         return this.ticksUntilNextAttack <= 0;
     }
-    protected boolean isTimeToBlind()
-    {
+
+    protected boolean isTimeToBlind() {
         return this.ticksUntilNextBlind <= 0;
     }
 
@@ -115,30 +115,28 @@ public class Trader_Witch_AttackGoal extends MeleeAttackGoal {
         return this.ticksUntilNextAttack;
     }
 
-
-    protected void performAttack(LivingEntity pEnemy) {
+    protected void performAttack(LivingEntity enemy) {
         this.resetAttackCooldown();
         Random rnd = new Random();
-        if (pEnemy.getHealth()>6 && rnd.nextFloat()>0.6)
-            pEnemy.addEffect(new MobEffectInstance(MobEffects.HARM,10));
-        if(rnd.nextFloat()>0.8)
-            pEnemy.addEffect(new MobEffectInstance(MobEffects.WITHER, 80));
+        if (enemy.getHealth() > 6 && rnd.nextFloat() > 0.6)
+            enemy.addEffect(new MobEffectInstance(MobEffects.HARM, 10));
+        if (rnd.nextFloat() > 0.8)
+            enemy.addEffect(new MobEffectInstance(MobEffects.WITHER, 80));
         else {
-            pEnemy.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
+            enemy.addEffect(new MobEffectInstance(MobEffects.POISON, 80));
         }
     }
 
     @Override
     public void tick() {
         super.tick();
-        if(shouldCountTillNextAttack) {
+        if (shouldCountTillNextAttack) {
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
         }
-        if(shouldCountTillNextBlind) {
+        if (shouldCountTillNextBlind) {
             this.ticksUntilNextBlind = Math.max(this.ticksUntilNextBlind - 1, 0);
         }
     }
-
 
     @Override
     public void stop() {

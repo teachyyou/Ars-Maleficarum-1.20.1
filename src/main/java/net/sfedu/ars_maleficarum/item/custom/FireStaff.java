@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.entity.custom.FireEssenceEntity;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 
 public class FireStaff extends Item implements Vanishable {
 
@@ -22,6 +23,7 @@ public class FireStaff extends Item implements Vanishable {
         super(pProperties);
     }
     @Override
+    @NotNull
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(player.isCrouching())

@@ -146,12 +146,12 @@ public class InfusingAltarBlock extends BaseEntityBlock {
 
         if (item == ModItems.BLACK_CHALK.get() && (color == 0 || color == 8)) {
             level.setBlock(blockPos, blockState.setValue(FACING, facing).setValue(COLOR, color).setValue(STAGE,2), 2);
-            ChalkItem.chalkUse(player, itemStack, level, blockPos);
+            ChalkItem.chalkUse(player, itemStack, level);
             used = true;
         }
         else if (item == ModItems.WHITE_CHALK.get() && color != 0 && color != 8) {
             level.setBlock(blockPos, blockState.setValue(FACING, facing).setValue(COLOR, color).setValue(STAGE,2), 2);
-            ChalkItem.chalkUse(player, itemStack, level, blockPos);
+            ChalkItem.chalkUse(player, itemStack, level);
             used = true;
         }
 

@@ -8,12 +8,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class    CarbonDetectorItem extends Item {
     public CarbonDetectorItem(Properties pProperties){
         super(pProperties);
     }
     @Override
+    @NotNull
     public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()){
             BlockPos positionClicked = pContext.getClickedPos();

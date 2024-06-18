@@ -153,7 +153,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
-                        pOutput.accept(ModItems.TRADE_WITCH_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.HERMIT_WITCH_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
                     }))
                     .build());

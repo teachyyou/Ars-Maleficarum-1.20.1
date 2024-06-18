@@ -11,14 +11,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.ai.RunFromPlayerGoal;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Predicate;
 
 import static net.sfedu.ars_maleficarum.sound.ModSounds.MANDRAKE_SCREAM;
 
@@ -26,13 +23,9 @@ public class MandrakeEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     public boolean is_spawned = false;
     private int getAnimationTimeOut = 0;
-    public static final Predicate<Entity> CAN_AI_TARGET = (entity) ->
-    {
-        return !(entity instanceof Player) || !entity.isSpectator() && !((Player)entity).isCreative();
-    };
+
     public MandrakeEntity(EntityType<? extends  Animal> pEntityType, Level pLevel){
         super(pEntityType,pLevel);
-
     }
 
 
@@ -114,7 +107,4 @@ public class MandrakeEntity extends Animal {
         return ModEntities.MANDRAKE.get().create(pLevel);
     }
 
-    public void setAttacking(boolean b) {
-
-    }
 }

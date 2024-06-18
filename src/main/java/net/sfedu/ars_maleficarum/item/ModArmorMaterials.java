@@ -3,7 +3,6 @@ package net.sfedu.ars_maleficarum.item;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -16,14 +15,12 @@ import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ENCHANTED_LEATHER("enchanted_leather", 5, Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266652_) -> {
+    ENCHANTED_LEATHER("enchanted_leather", 5, Util.make(new EnumMap<>(ArmorItem.Type.class), (EnumMap<ArmorItem.Type, Integer> p_266652_) -> {
         p_266652_.put(ArmorItem.Type.BOOTS, 1);
         p_266652_.put(ArmorItem.Type.LEGGINGS, 2);
         p_266652_.put(ArmorItem.Type.CHESTPLATE, 3);
         p_266652_.put(ArmorItem.Type.HELMET, 1);
-    }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.LEATHER);
-    });
+    }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.of(ModItems.DRIED_ENCHANTED_LEATHER.get()));
 
     private final String name;
     private final int durabilityMultiplier;
@@ -32,7 +29,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final SoundEvent sound;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairIngredient;
+    private final Supplier<Ingredient> repairIngredient;
 
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
@@ -51,15 +48,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
         this.sound = pSound;
         this.toughness = pToughness;
         this.knockbackResistance = pKnockbackResistance;
-        this.repairIngredient = new LazyLoadedValue<>(pRepairIngredient);
+        this.repairIngredient = pRepairIngredient;
     }
 
     public int getDurabilityForType(ArmorItem.@NotNull Type pType) {
-        return (Integer)HEALTH_FUNCTION_FOR_TYPE.get(pType) * this.durabilityMultiplier;
+        return HEALTH_FUNCTION_FOR_TYPE.get(pType) * this.durabilityMultiplier;
     }
 
     public int getDefenseForType(ArmorItem.@NotNull Type pType) {
-        return (Integer)this.protectionFunctionForType.get(pType);
+        return this.protectionFunctionForType.get(pType);
     }
 
     public int getEnchantmentValue() {
@@ -71,7 +68,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     public @NotNull Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredient.get();
+        return this.repairIngredient.get();
     }
 
     public @NotNull String getName() {
@@ -86,7 +83,4 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return this.knockbackResistance;
     }
 
-    public String getSerializedName() {
-        return this.name;
-    }
 }

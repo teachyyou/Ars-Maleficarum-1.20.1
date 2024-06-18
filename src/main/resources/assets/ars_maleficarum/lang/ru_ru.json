@@ -228,8 +228,8 @@
   "item.ars_maleficarum.mandrake_soup": "Рагу из мандрагоры",
   "item.ars_maleficarum.rowan_compote": "Рябиновый компот",
 
-  "entity.ars_maleficarum.trader_witch": "Ведьма-отшельница",
-  "item.ars_maleficarum.trade_witch_spawn_egg": "Яйцо призыва Ведьмы-отшельницы",
+  "entity.ars_maleficarum.hermit_witch": "Ведьма-отшельница",
+  "item.ars_maleficarum.hermit_witch_spawn_egg": "Яйцо призыва Ведьмы-отшельницы",
 
   "sounds.ars_maleficarum.gluttony_demon_spawn": "Демон Чревоугодия призван",
   "sounds.ars_maleficarum.gluttony_demon_died": "Демон Чревоугодия погибает",
@@ -244,9 +244,9 @@
 
   "sounds.ars_maleficarum.fire_staff_radius_attack": "Призвано кольцо огня",
 
-  "sounds.ars_maleficarum.trader_witch_attack": "Ведьма-отшельница атакует",
-  "sounds.ars_maleficarum.trader_witch_died": "Ведьма-отшельница погибает",
-  "sounds.ars_maleficarum.trader_witch_hurt": "Ведьма-отшельница ранена",
-  "sounds.ars_maleficarum.trader_witch_ambient": "Ведьма-отшельница смеётся",
-  "sounds.ars_maleficarum.trader_witch_trade": "Ведьма-отшельница торгует"
+  "sounds.ars_maleficarum.hermit_witch_attack": "Ведьма-отшельница атакует",
+  "sounds.ars_maleficarum.hermit_witch_died": "Ведьма-отшельница погибает",
+  "sounds.ars_maleficarum.hermit_witch_hurt": "Ведьма-отшельница ранена",
+  "sounds.ars_maleficarum.hermit_witch_laugh": "Ведьма-отшельница смеётся",
+  "sounds.ars_maleficarum.hermit_witch_trade": "Ведьма-отшельница торгует"
 }

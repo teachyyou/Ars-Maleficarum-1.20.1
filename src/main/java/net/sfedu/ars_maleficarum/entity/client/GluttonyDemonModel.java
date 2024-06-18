@@ -10,7 +10,7 @@ import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.sfedu.ars_maleficarum.entity.animations.ModANimationsGluttonyDemon;
+import net.sfedu.ars_maleficarum.entity.animations.GluttonyDemonAnimations;
 import net.sfedu.ars_maleficarum.entity.custom.GluttonyDemonEntity;
 
 public class GluttonyDemonModel<T extends GluttonyDemonEntity> extends HierarchicalModel<T> {
@@ -233,10 +233,10 @@ public class GluttonyDemonModel<T extends GluttonyDemonEntity> extends Hierarchi
 	@Override
 	public void setupAnim(GluttonyDemonEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animateWalk(ModANimationsGluttonyDemon.GLUTTONY_DEMON_WALK, limbSwing, limbSwingAmount, 2.0f, 2.5f);
-		this.animate(entity.idleAnimationState, ModANimationsGluttonyDemon.GLUTTONY_DEMON_IDLE, ageInTicks, 1f);
-		this.animate(entity.attackAnimationState, ModANimationsGluttonyDemon.GLUTTONY_DEMON_ATTACK1, ageInTicks, 1f);
-		this.animate(entity.attackAnimationState, ModANimationsGluttonyDemon.GLUTTONY_DEMON_ATTACK2, ageInTicks, 1f);
+		this.animateWalk(GluttonyDemonAnimations.GLUTTONY_DEMON_WALK, limbSwing, limbSwingAmount, 2.0f, 2.5f);
+		this.animate(entity.idleAnimationState, GluttonyDemonAnimations.GLUTTONY_DEMON_IDLE, ageInTicks, 1f);
+		this.animate(entity.attackAnimationState, GluttonyDemonAnimations.GLUTTONY_DEMON_ATTACK1, ageInTicks, 1f);
+		this.animate(entity.attackAnimationState, GluttonyDemonAnimations.GLUTTONY_DEMON_ATTACK2, ageInTicks, 1f);
 	}
 
 	@Override

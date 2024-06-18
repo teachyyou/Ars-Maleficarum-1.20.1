@@ -13,6 +13,7 @@ import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 
 public class RitualCircleCoreDrawingKit extends Item {
     protected final RitualCoreEntity.ChalkType coreType;
@@ -23,6 +24,7 @@ public class RitualCircleCoreDrawingKit extends Item {
     }
 
     @Override
+    @NotNull
     public InteractionResult useOn(UseOnContext pContext) {
         if (!pContext.getLevel().isClientSide()) {
             if (pContext.getLevel().getBlockState(pContext.getClickedPos()).isCollisionShapeFullBlock(pContext.getLevel(),pContext.getClickedPos()) && canDraw(pContext)) {
