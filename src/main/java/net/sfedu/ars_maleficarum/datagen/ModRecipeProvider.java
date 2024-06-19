@@ -3,12 +3,7 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BottleItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -23,7 +18,9 @@ import net.sfedu.ars_maleficarum.datagen.custom.InfusingAltarRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.util.ModTags;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -40,7 +37,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     //Генерация .json файлов крафтов (создания) предметов
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
         //Переплавка руд
         oreBlasting(pWriter, CURSED_GOLD_ORE, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 100, "cursed_gold");
         oreBlasting(pWriter, SILVER_ORE, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 100, "silver");
@@ -654,31 +651,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     }
 
-    protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
-        pPlayer.awardStat(Stats.ITEM_USED.get(bottleItem));
-        return ItemUtils.createFilledResult(pBottleStack, pPlayer, pFilledBottleStack);
-    }
-
     //Генерация .json файлов для блоков, которые могут быть переплавлены
+    @ParametersAreNonnullByDefault
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
+    @ParametersAreNonnullByDefault
     protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
 
     }
 
+    @ParametersAreNonnullByDefault
     protected static void simpleCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
                                         ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
     }
 
-    protected static void simpleSmoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
-                                        ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
-        simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smoking");
-    }
 
+    @ParametersAreNonnullByDefault
     protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,
                                      RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
         for (ItemLike itemlike : pIngredients) {

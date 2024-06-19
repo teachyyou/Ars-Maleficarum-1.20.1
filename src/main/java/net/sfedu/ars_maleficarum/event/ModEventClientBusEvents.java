@@ -12,13 +12,12 @@ import net.sfedu.ars_maleficarum.block.custom.entity.renderer.InfusingAltarBlock
 @Mod.EventBusSubscriber(modid = ArsMaleficarum.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD,value= Dist.CLIENT)
 public class ModEventClientBusEvents {
 
-
     @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.INFUSING_ALTAR_BE.get(),
-                InfusingAltarBlockEntityRenderer::new);
+                empty -> new InfusingAltarBlockEntityRenderer());
 
         event.registerBlockEntityRenderer(ModBlockEntities.BREWING_CAULDRON_BE.get(),
-                BrewingCauldronBlockEntityRenderer::new);
+                empty -> new BrewingCauldronBlockEntityRenderer());
     }
 }

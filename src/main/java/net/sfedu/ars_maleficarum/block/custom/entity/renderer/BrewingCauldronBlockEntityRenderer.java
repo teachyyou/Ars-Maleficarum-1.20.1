@@ -5,36 +5,33 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
-import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import static net.sfedu.ars_maleficarum.block.custom.entity.renderer.rendertypes.CustomRenderTypes.CAULDRON_WATER;
 
 public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<BrewingCauldronBlockEntity> {
 
-    public BrewingCauldronBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public BrewingCauldronBlockEntityRenderer() {
     }
     @Override
+    @ParametersAreNonnullByDefault
     public void render(BrewingCauldronBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
         Level level = pBlockEntity.getLevel();
         if (level == null) return;
         if (pBlockEntity.getBlockState().getValue(BrewingCauldronBlock.WATER) == 0) return;
         FluidStack fluidStack = new FluidStack(Fluids.WATER, 1);
-        BlockPos pos = pBlockEntity.getBlockPos();
         IClientFluidTypeExtensions fluidTypeExtensions = IClientFluidTypeExtensions.of(fluidStack.getFluid());
         ResourceLocation stillTexture = fluidTypeExtensions.getStillTexture(fluidStack);
-
-        FluidState state = fluidStack.getFluid().defaultFluidState();
 
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(stillTexture);
 

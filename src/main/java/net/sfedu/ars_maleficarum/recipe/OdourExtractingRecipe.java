@@ -15,6 +15,8 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class OdourExtractingRecipe implements Recipe<Container>{
 
     private final NonNullList<Ingredient> inputItems;
@@ -56,15 +58,16 @@ public class OdourExtractingRecipe implements Recipe<Container>{
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
-    public boolean getIsBottleRequired(RegistryAccess pRegistryAccess) {
+    public boolean getIsBottleRequired() {
         return isBottleRequired;
     }
 
-    public float getChance(RegistryAccess pRegistryAccess) {
+    public float getChance() {
         return chance;
     }
 
@@ -80,7 +83,7 @@ public class OdourExtractingRecipe implements Recipe<Container>{
         return inputItems.get(0).getItems()[0];
     }
 
-    public ItemStack getAdditionalItem(RegistryAccess pRegistryAccess) {
+    public ItemStack getAdditionalItem() {
         return additional.copy();
     }
     @Override
@@ -148,9 +151,9 @@ public class OdourExtractingRecipe implements Recipe<Container>{
                 ing.toNetwork(buf);
             }
             buf.writeItemStack(recipe.getResultItem(null),false);
-            buf.writeItemStack(recipe.getAdditionalItem(null),false);
-            buf.writeBoolean(recipe.getIsBottleRequired(null));
-            buf.writeFloat(recipe.getChance(null));
+            buf.writeItemStack(recipe.getAdditionalItem(),false);
+            buf.writeBoolean(recipe.getIsBottleRequired());
+            buf.writeFloat(recipe.getChance());
         }
     }
 }

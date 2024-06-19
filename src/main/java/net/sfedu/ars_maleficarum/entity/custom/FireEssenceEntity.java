@@ -30,6 +30,8 @@ import net.sfedu.ars_maleficarum.block.custom.ConsumingFlameBlock;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class FireEssenceEntity extends Projectile {
 
     private static final EntityDataAccessor<Boolean> HIT =
@@ -105,6 +107,7 @@ public class FireEssenceEntity extends Projectile {
         }
     }
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
         for(int x = 0; x < 25; ++x) {
@@ -131,6 +134,7 @@ public class FireEssenceEntity extends Projectile {
         }
     }
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
 
@@ -155,6 +159,7 @@ public class FireEssenceEntity extends Projectile {
 
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity target = pResult.getEntity();
@@ -170,6 +175,7 @@ public class FireEssenceEntity extends Projectile {
 
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean hurt(DamageSource source, float amount) {
         super.hurt(source, amount);
         if (!this.level().isClientSide() && source.getEntity() != null) {

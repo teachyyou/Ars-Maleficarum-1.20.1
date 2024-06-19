@@ -11,6 +11,7 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.util.ModTags;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -20,7 +21,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         super(p_275343_, p_275729_, p_275322_, ArsMaleficarum.MOD_ID, existingFileHelper);
     }
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(@NotNull HolderLookup.Provider pProvider) {
         this.tag(ItemTags.LOGS)
                 .add(ModBlocks.NAMELESS_TREE_LOG.get().asItem())
                 .add(ModBlocks.NAMELESS_TREE_WOOD.get().asItem())

@@ -16,6 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
 public class HerbCropBlock extends CropBlock {
@@ -63,7 +64,9 @@ public class HerbCropBlock extends CropBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return cropType.getShapes()[this.getAge(state)];
     }
 

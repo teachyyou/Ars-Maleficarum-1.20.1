@@ -38,6 +38,8 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class HermitWitchEntity extends AbstractVillager {
     public static final Int2ObjectMap<VillagerTrades.ItemListing[]> CUSTOM_WITCH_TRADES = toIntMap(ImmutableMap.of(1, new VillagerTrades.ItemListing[]{
             new HermitWitchEntity.CustomTrades(ModItems.CURSED_GOLD.get(), 14, ModItems.SWAMP_ROTFIEND_INGREDIENT.get(), 2,5,2,0.05F),
@@ -84,6 +86,7 @@ public class HermitWitchEntity extends AbstractVillager {
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand)
     {
         if(this.isAlive() && !this.isTrading() && !isAttacking())
@@ -150,6 +153,7 @@ public class HermitWitchEntity extends AbstractVillager {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         return ModSounds.HERMIT_WITCH_HURT.get();
     }
@@ -200,6 +204,7 @@ public class HermitWitchEntity extends AbstractVillager {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return ModEntities.HERMIT_WITCH.get().create(pLevel);
     }
@@ -224,6 +229,7 @@ public class HermitWitchEntity extends AbstractVillager {
         }
         @Nullable
         @Override
+        @ParametersAreNonnullByDefault
         public MerchantOffer getOffer(Entity pTrader, RandomSource pRandom) {
             ItemStack buy = new ItemStack(this.buying_item, this.cost);
             ItemStack sell = new ItemStack(this.sell_for_item, this.count_product);

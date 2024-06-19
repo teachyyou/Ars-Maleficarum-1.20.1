@@ -12,7 +12,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -37,8 +36,10 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class InfusingAltarBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -66,15 +67,19 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     }
 
     @NotNull
+    @Override
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
     @NotNull
+    @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
@@ -85,11 +90,15 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     }
 
 
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.MODEL;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newBlockState, boolean isMoving) {
         if (blockState.getValue(STAGE)<3) {
             BlockEntity blockEntity= level.getBlockEntity(blockPos);
@@ -101,17 +110,19 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         if (!level.isClientSide()) {
             switch (blockState.getValue(STAGE)) {
                 case 0 -> {
-                    return putCarpetOn(blockState,level,blockPos,player,interactionHand,blockHitResult);
+                    return putCarpetOn(blockState,level,blockPos,player,interactionHand);
                 }
                 case 1 -> {
-                    return drawPentagram(blockState,level,blockPos,player,interactionHand,blockHitResult);
+                    return drawPentagram(blockState,level,blockPos,player,interactionHand);
                 }
                 case 2 -> {
-                    return putCandles(blockState,level,blockPos,player,interactionHand,blockHitResult);
+                    return putCandles(blockState,level,blockPos,player,interactionHand);
                 }
                 case 3-> {
                     BlockEntity entity = level.getBlockEntity(blockPos);
@@ -126,7 +137,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(level.isClientSide());
     }
 
-    private InteractionResult putCarpetOn(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    private InteractionResult putCarpetOn(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand) {
         for (int i = 0; i < 16; i++) {
             if (player.getItemInHand(interactionHand).getItem()==colorCarpets.get(i)) {
                 level.setBlock(blockPos, blockState.setValue(FACING,blockState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,i).setValue(STAGE,1), 2);
@@ -137,7 +148,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         return InteractionResult.FAIL;
     }
 
-    private InteractionResult drawPentagram(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    private InteractionResult drawPentagram(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand) {
         boolean used = false;
         ItemStack itemStack = player.getItemInHand(interactionHand);
         Item item = itemStack.getItem();
@@ -162,7 +173,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
         return InteractionResult.FAIL   ;
     }
 
-    private InteractionResult putCandles(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    private InteractionResult putCandles(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand) {
         if (player.getItemInHand(interactionHand).is(ItemTags.CANDLES)) {
             level.setBlock(blockPos, blockState.setValue(FACING,blockState.getValue(FACING)).setValue(InfusingAltarBlock.COLOR,blockState.getValue(InfusingAltarBlock.COLOR)).setValue(STAGE,3), 2);
             if (!player.isCreative()) player.getItemInHand(interactionHand).shrink(1);
@@ -172,6 +183,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
     }
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         if (blockState.getValue(STAGE) < 3) return null;
         return new InfusingAltarBlockEntity(blockPos,blockState);
@@ -179,6 +191,7 @@ public class InfusingAltarBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
         if (blockState.getValue(STAGE) < 3 || level.isClientSide()) {
             return null;
@@ -187,6 +200,8 @@ public class InfusingAltarBlock extends BaseEntityBlock {
                 (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1,pPos,pState1));
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
         if (blockState.getValue(STAGE) < 3) return;
         if (blockState.getValue(HorizontalDirectionalBlock.FACING) == Direction.EAST) {

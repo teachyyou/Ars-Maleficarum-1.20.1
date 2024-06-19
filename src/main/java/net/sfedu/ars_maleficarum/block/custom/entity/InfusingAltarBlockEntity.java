@@ -40,7 +40,9 @@ import net.sfedu.ars_maleficarum.util.ModTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvider {
@@ -49,7 +51,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (!level.isClientSide()) {
+            if (!Objects.requireNonNull(level).isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
 
             }
@@ -65,11 +67,6 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         }
     };
 
-    private static final int INPUT_SLOT1 = 0;
-    private static final int INPUT_SLOT2 = 1;
-    private static final int INPUT_SLOT3 = 2;
-    private static final int INPUT_SLOT4 = 3;
-    private static final int INPUT_SLOT5 = 4;
     private static final int OUTPUT_SLOT = 5;
 
     protected final ContainerData data;
@@ -112,12 +109,14 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     @Override
+    @NotNull
     public Component getDisplayName() {
         return Component.translatable("Infusing_Altar_DisplayName");
     }
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
         return new InfusingAltarMenu(pContainerId,pPlayerInventory,this,this.data);
     }
@@ -127,7 +126,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         for (int i = 0; i < itemHandler.getSlots();i++) {
             inventory.setItem(i,itemHandler.getStackInSlot(i));
         }
-        Containers.dropContents(this.level,this.worldPosition,inventory);
+        Containers.dropContents(Objects.requireNonNull(this.level),this.worldPosition,inventory);
     }
 
     @Override
@@ -157,6 +156,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         super.saveAdditional(pTag);
     }
     @Override
+    @ParametersAreNonnullByDefault
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
@@ -187,7 +187,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         for (int i = 0; i < this.itemHandler.getSlots(); i++) {
             inventory.setItem(i,this.itemHandler.getStackInSlot(i));
         }
-        return this.level.getRecipeManager().getRecipeFor(InfusingAltarRecipe.Type.INSTANCE,inventory,level);
+        return Objects.requireNonNull(this.level).getRecipeManager().getRecipeFor(InfusingAltarRecipe.Type.INSTANCE,inventory,level);
 
     }
 
@@ -218,8 +218,9 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private void craftItem(Level pLevel, BlockPos pPos) {
-        Optional<InfusingAltarRecipe> recipe = getCurrentRecipe();
-        ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
+        if (getCurrentRecipe().isEmpty()) return;
+        InfusingAltarRecipe recipe = getCurrentRecipe().get();
+        ItemStack resultItem = recipe.getResultItem(Objects.requireNonNull(getLevel()).registryAccess());
 
         for (int i = 0; i<5; i++) {
             this.itemHandler.extractItem(i,1,false);
@@ -227,7 +228,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
         this.itemHandler.extractItem(OUTPUT_SLOT,1,false);
         this.itemHandler.setStackInSlot(OUTPUT_SLOT,new ItemStack(resultItem.getItem(),1));
 
-        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
+        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) Objects.requireNonNull(level), (ItemStack) null,null,pPos, MobSpawnType.TRIGGERED,true,true);
         pLevel.playSound(null,pPos, ModSounds.MYSTIC_WHISPERING.get(), SoundSource.VOICE);
 
 
@@ -273,6 +274,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     @Override
+    @NotNull
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
     }

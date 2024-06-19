@@ -11,14 +11,16 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
-import net.sfedu.ars_maleficarum.screen.InfusingAltarScreen;
-import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceScreen;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 
 @JeiPlugin
-public class JEIArsMAleficarumPlugin implements IModPlugin {
+public class JEIArsMaleficarumPlugin implements IModPlugin {
     @Override
+    @NotNull
     public ResourceLocation getPluginUid() {
         return new ResourceLocation(ArsMaleficarum.MOD_ID,"jei_plugin");
     }
@@ -34,7 +36,7 @@ public class JEIArsMAleficarumPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
+        RecipeManager recipeManager = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
 
         List<InfusingAltarRecipe> infusing_altar_recipes = recipeManager.getAllRecipesFor(InfusingAltarRecipe.Type.INSTANCE);
         registration.addRecipes(InfusingAltarRecipeCategory.INFUSING_ALTAR_TYPE, infusing_altar_recipes);
@@ -45,9 +47,9 @@ public class JEIArsMAleficarumPlugin implements IModPlugin {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        //Either place it correctly or remove completely - looks weird at that point
-        //registration.addRecipeClickArea(InfusingAltarScreen.class,60,30,20,30,InfusingAltarRecipeCategory.INFUSING_ALTAR_TYPE);
+        //todo Either place it correctly or remove completely - looks weird at that point
         //registration.addRecipeClickArea(OdourExtractorFurnaceScreen.class,20,30,20,30,OdourExtractingFurnaceRecipeCategory.ODOUR_EXTRACTING_TYPE);
     }
 }

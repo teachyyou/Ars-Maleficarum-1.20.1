@@ -25,9 +25,9 @@ public class OdourExtractingRecipeProcessor implements IComponentProcessor {
         RecipeManager recipeManager = level.getRecipeManager();
         recipe = (OdourExtractingRecipe) recipeManager.byKey(recipeId).orElseThrow(()->new IllegalArgumentException("Could not find recipe for: " + recipeId));
         inputItem = recipe.getIngredient();
-        resultItem = recipe.getResultItem(null);
-        additionalResult = recipe.getAdditionalItem(null);
-        isBottleRequired = recipe.getIsBottleRequired(null);
+        resultItem = recipe.getResultItem(level.registryAccess());
+        additionalResult = recipe.getAdditionalItem();
+        isBottleRequired = recipe.getIsBottleRequired();
 
     }
 

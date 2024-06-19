@@ -14,6 +14,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +23,10 @@ import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 public class OdourExtractingFurnaceRecipeCategory implements IRecipeCategory<OdourExtractingRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(ArsMaleficarum.MOD_ID,"odour_extracting");
@@ -41,6 +45,8 @@ public class OdourExtractingFurnaceRecipeCategory implements IRecipeCategory<Odo
                 .maximumSize(27)
                 .build(new CacheLoader<>() {
                     @Override
+                    @NotNull
+                    @ParametersAreNonnullByDefault
                     public IDrawableAnimated load(Integer burnTime) {
                         return helper.drawableBuilder(TEXTURES, 176, 0, 14, 12)
                                 .buildAnimated(burnTime, IDrawableAnimated.StartDirection.TOP, true);
@@ -50,6 +56,8 @@ public class OdourExtractingFurnaceRecipeCategory implements IRecipeCategory<Odo
                 .maximumSize(30)
                 .build(new CacheLoader<>() {
                     @Override
+                    @NotNull
+                    @ParametersAreNonnullByDefault
                     public IDrawableAnimated load(Integer burnTime) {
                         return helper.drawableBuilder(TEXTURES, 176, 14, 26, 16)
                                 .buildAnimated(burnTime, IDrawableAnimated.StartDirection.LEFT, false);
@@ -58,37 +66,43 @@ public class OdourExtractingFurnaceRecipeCategory implements IRecipeCategory<Odo
     }
 
     @Override
+    @NotNull
     public RecipeType<OdourExtractingRecipe> getRecipeType() {
         return ODOUR_EXTRACTING_TYPE;
     }
 
     @Override
+    @NotNull
     public Component getTitle() {
         return Component.translatable("odour_extracting_furnace_crafts");
     }
 
     @Override
+    @NotNull
     public IDrawable getBackground() {
         return this.background;
     }
 
     @Override
+    @NonNull
     public IDrawable getIcon() {
         return this.icon;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void setRecipe(IRecipeLayoutBuilder builder, OdourExtractingRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT,56,17).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT,56,53).addItemStacks(list);
-        builder.addSlot(RecipeIngredientRole.CATALYST,83,53).addItemStack(recipe.getIsBottleRequired(null) ?
+        builder.addSlot(RecipeIngredientRole.CATALYST,83,53).addItemStack(recipe.getIsBottleRequired() ?
                 ModItems.EMPTY_VIAL.get().getDefaultInstance() : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT,118,53).addItemStack(recipe.getAdditionalItem(null));
-        builder.addSlot(RecipeIngredientRole.OUTPUT,118,21).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT,118,53).addItemStack(recipe.getAdditionalItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT,118,21).addItemStack(recipe.getResultItem(RegistryAccess.EMPTY));
 
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void draw(OdourExtractingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
         int burnTime = 200;

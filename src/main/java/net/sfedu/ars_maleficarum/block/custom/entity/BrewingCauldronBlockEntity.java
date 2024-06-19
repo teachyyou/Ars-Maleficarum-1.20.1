@@ -32,7 +32,9 @@ import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -78,11 +80,10 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     public long startTime = System.currentTimeMillis();
     public ItemStack crafted;
     public int craftedType = 1;
-
     private boolean firstTick = true;
 
-    private final int maxTemperature = 1500;
-    private final int maxFuel = 2000;
+    private static final int MAX_TEMP = 1500;
+    private static final int MAX_FUEL = 2000;
 
     private final Random rand = new Random();
 
@@ -92,7 +93,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (!level.isClientSide()) {
+            if (!Objects.requireNonNull(level).isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(),getBlockState(),getBlockState(),3);
             }
         }
@@ -132,6 +133,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         super.saveAdditional(pTag);
     }
     @Override
+    @ParametersAreNonnullByDefault
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
@@ -169,13 +171,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }
     }
 
-    public boolean addFuel(BlockState pState, Level pLevel, BlockPos pPos)
+    public boolean addFuel(Level pLevel, BlockPos pPos)
     {
-        if (fuelLevel < maxFuel-300)
+        if (fuelLevel < MAX_FUEL -300)
         {
             fuelLevel += 300;
             pLevel.playSound(null, pPos, SoundType.SCAFFOLDING.getPlaceSound(), SoundSource.BLOCKS);
-            if (fuelLevel > maxFuel) fuelLevel = maxFuel;
+            if (fuelLevel > MAX_FUEL) fuelLevel = MAX_FUEL;
             return true;
         }
         return false;
@@ -183,7 +185,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
         suckItems(level, pPos, pState);
-        temperatureTick(level, pPos, pState);
+        temperatureTick(level, pState);
         blockStatesChange(level, pPos, pState);
         if (firstTick)
         {
@@ -270,9 +272,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                     targetGreen = rand.nextInt(10, 255);
                     targetBlue = rand.nextInt(10, 255);
 
-                    //System.out.println(targetRed);
-                    //System.out.println(targetGreen);
-                    //System.out.println(targetBlue);
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
                 }
@@ -285,9 +284,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
 
     // Отвечает за нагревание и остывание котла
-    private void temperatureTick(Level level, BlockPos pPos, BlockState pState)
+    private void temperatureTick(Level level, BlockState pState)
     {
-        if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < maxTemperature)
+        if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < MAX_TEMP)
         {
             temperature+=2;
             fuelLevel--;
@@ -359,16 +358,14 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     // Возвращает все ItemEntity внутри определенной зоны
     public static List<ItemEntity> getItemsAtAndAbove(Level pLevel, BrewingCauldronBlockEntity BCEntity) {
-        return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) -> {
-            return pLevel.getEntitiesOfClass(ItemEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream();
-        }).collect(Collectors.toList());
+        return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) ->
+                pLevel.getEntitiesOfClass(ItemEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream()).collect(Collectors.toList());
     }
 
     // Возвращает все LivingEntity внутри определенной зоны
     public static List<LivingEntity> getLivingEntitiesAbove(Level pLevel, BrewingCauldronBlockEntity BCEntity) {
-        return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) -> {
-            return pLevel.getEntitiesOfClass(LivingEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream();
-        }).collect(Collectors.toList());
+        return BCEntity.getSuckShape().toAabbs().stream().flatMap((p_155558_) ->
+                pLevel.getEntitiesOfClass(LivingEntity.class, p_155558_.move(BCEntity.getLevelX() - 0.5D, BCEntity.getLevelY() - 0.5D, BCEntity.getLevelZ() - 0.5D), EntitySelector.ENTITY_STILL_ALIVE).stream()).collect(Collectors.toList());
     }
 
     public void updateTargetColour(int red, int green, int blue) {
@@ -383,27 +380,27 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         startTime = time;
     }
 
+
     private Optional<BrewingCauldronRecipe> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for (int i = 0; i < this.itemHandler.getSlots(); i++) {
             inventory.setItem(i,this.itemHandler.getStackInSlot(i));
         }
-        return this.level.getRecipeManager().getRecipeFor(BrewingCauldronRecipe.Type.INSTANCE,inventory,level);
+        return level==null ? Optional.empty() : this.level.getRecipeManager().getRecipeFor(BrewingCauldronRecipe.Type.INSTANCE,inventory,level);
 
     }
 
     private boolean hasRecipe() {
         Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
-        return (!recipe.isEmpty());
+        return (recipe.isPresent());
 
     }
 
     private void craftItem(Level level, BlockPos pPos, BlockState pState) {
-        if (level.isClientSide) return;
-        if (!pState.getValue(BrewingCauldronBlock.BOILING)) return;
-        Optional<BrewingCauldronRecipe> recipe = getCurrentRecipe();
-        ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
-        if (recipe.get().craftType == 0)
+        if (level.isClientSide || (!pState.getValue(BrewingCauldronBlock.BOILING)) || getCurrentRecipe().isEmpty()) return;
+        BrewingCauldronRecipe recipe = getCurrentRecipe().get();
+        ItemStack resultItem = recipe.getResultItem(Objects.requireNonNull(getLevel()).registryAccess());
+        if (recipe.craftType == 0)
         {
             for (int i = 0; i<10; i++) {
                 this.itemHandler.extractItem(i,1,false);
@@ -414,7 +411,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         }
         else if (crafted == null)
         {
-            craftedType = recipe.get().craftType;
+            craftedType = recipe.craftType;
             level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_EXIT, SoundSource.BLOCKS);
             crafted = resultItem.copy();
         }
@@ -427,6 +424,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     @Override
+    @NotNull
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
     }

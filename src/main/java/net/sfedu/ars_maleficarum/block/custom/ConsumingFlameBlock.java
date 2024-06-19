@@ -130,16 +130,16 @@ public class ConsumingFlameBlock extends BaseFireBlock implements EntityBlock{
         BlockPos blockpos = pPos.below();
         BlockState blockstate = pLevel.getBlockState(blockpos);
         if (!this.canCatchFire(pLevel, pPos, Direction.UP) && !blockstate.isFaceSturdy(pLevel, blockpos, Direction.UP)) {
-            BlockState blockstate1 = this.defaultBlockState();
+            BlockState blockState1 = this.defaultBlockState();
 
             for(Direction direction : Direction.values()) {
                 BooleanProperty booleanproperty = PROPERTY_BY_DIRECTION.get(direction);
                 if (booleanproperty != null) {
-                    blockstate1 = blockstate1.setValue(booleanproperty, this.canCatchFire(pLevel, pPos.relative(direction), direction.getOpposite()));
+                    blockState1 = blockState1.setValue(booleanproperty, this.canCatchFire(pLevel, pPos.relative(direction), direction.getOpposite()));
                 }
             }
 
-            return blockstate1;
+            return blockState1;
         } else {
             return this.defaultBlockState();
         }

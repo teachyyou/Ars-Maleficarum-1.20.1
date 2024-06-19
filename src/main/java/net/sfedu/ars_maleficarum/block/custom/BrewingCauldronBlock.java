@@ -145,7 +145,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             {
                 if (blockentity != null)
                 {
-                    if (blockentity.addFuel(pState, pLevel, pPos)) itemstack.setCount(itemstack.getCount()-1);
+                    if (blockentity.addFuel(pLevel, pPos)) itemstack.setCount(itemstack.getCount()-1);
                 }
             }
             else if (itemstack.getItem() == Items.BUCKET)

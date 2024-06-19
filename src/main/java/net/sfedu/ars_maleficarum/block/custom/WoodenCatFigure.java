@@ -19,23 +19,34 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
 public class WoodenCatFigure extends Block {
     public WoodenCatFigure(Properties pProperties) {
         super(pProperties);
     }
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
+    @Override
+    @NotNull
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
+
+    @Override
+    @NotNull
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
     public static final VoxelShape SHAPE = Block.box(2,0,2,14,14,14);
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
@@ -53,11 +64,15 @@ public class WoodenCatFigure extends Block {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide() && !pPlayer.isCreative() && pPlayer.isShiftKeyDown() && pHand==InteractionHand.MAIN_HAND && pPlayer.getItemInHand(pHand).getCount()==0) {
             pLevel.removeBlock(pPos, false);

@@ -17,6 +17,8 @@ import net.sfedu.ars_maleficarum.entity.ai.RunFromPlayerGoal;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import static net.sfedu.ars_maleficarum.sound.ModSounds.MANDRAKE_SCREAM;
 
 public class MandrakeEntity extends Animal {
@@ -103,6 +105,7 @@ public class MandrakeEntity extends Animal {
     }
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return ModEntities.MANDRAKE.get().create(pLevel);
     }

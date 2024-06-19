@@ -33,6 +33,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PoisonousEssenceEntity extends Projectile {
     private static final EntityDataAccessor<Boolean> HIT =
@@ -54,6 +57,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @NotNull
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
@@ -101,6 +105,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
         if(!this.level().isClientSide()){
@@ -123,6 +128,7 @@ public class PoisonousEssenceEntity extends Projectile {
         }
     }
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
         for(int x = 0; x < 18; ++x) {
@@ -150,6 +156,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity target = pResult.getEntity();
@@ -168,6 +175,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean hurt(DamageSource source, float amount) {
         super.hurt(source, amount);
 

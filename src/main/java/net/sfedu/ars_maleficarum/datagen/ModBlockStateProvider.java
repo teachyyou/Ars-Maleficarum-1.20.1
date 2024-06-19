@@ -18,6 +18,7 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -150,8 +151,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private ConfiguredModel[] chalkSymbols(BlockState state) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         int variant = state.getValue(ChalkSymbol.VARIANT);
-        models[0]=new ConfiguredModel(models().withExistingParent(ForgeRegistries.BLOCKS.getKey(state.getBlock()).getPath()+variant,ArsMaleficarum.MOD_ID+":block/chalk_symbol")
-                .texture("particle","block/"+ForgeRegistries.BLOCKS.getKey(state.getBlock()).getPath()+"_"+variant),0,
+        models[0]=new ConfiguredModel(models().withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(state.getBlock())).getPath()+variant,ArsMaleficarum.MOD_ID+":block/chalk_symbol")
+                .texture("particle","block/"+ Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(state.getBlock())).getPath()+"_"+variant),0,
                 ((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360,false);
 
         return models;
@@ -200,14 +201,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
     //Регистрация листвы
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(),
-                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
+                models().singleTexture(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get())).getPath(), new ResourceLocation("minecraft:block/leaves"),
                         "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     //Регистрация модели и текстуры для предмета привязанного к блоку
     private void blockItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile(ArsMaleficarum.MOD_ID +
-                ":block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+                ":block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get())).getPath()));
     }
 
 
@@ -252,7 +253,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     //Регистрация саженца
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
-                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+                models().cross(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get())).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     public void makeSunlight_Flower_Crop(CropBlock block, String modelName, String textureName) {

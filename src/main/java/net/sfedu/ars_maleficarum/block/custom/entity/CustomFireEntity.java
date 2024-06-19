@@ -9,8 +9,10 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 
 public class CustomFireEntity extends BlockEntity {
@@ -21,11 +23,6 @@ public class CustomFireEntity extends BlockEntity {
         super(ModBlockEntities.CUSTOM_FIRE.get(), pPos, pBlockState);
         ownerUUID = null;
     }
-    public CustomFireEntity(BlockPos pPos, BlockState pBlockState, Entity pPlayer) {
-        super(ModBlockEntities.CUSTOM_FIRE.get(), pPos, pBlockState);
-        setOwner(pPlayer);
-    }
-
     public void setOwner(@Nullable Entity pPlayer)
     {
         if (pPlayer != null) {
@@ -39,6 +36,7 @@ public class CustomFireEntity extends BlockEntity {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void saveAdditional(CompoundTag pTag) {
         if (this.ownerUUID!=null) pTag.putUUID("owner",this.ownerUUID);
         pTag.putBoolean("hasOwner",hasOwner);
@@ -46,6 +44,7 @@ public class CustomFireEntity extends BlockEntity {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void load(CompoundTag pTag) {
         super.load(pTag);
         this.hasOwner = pTag.getBoolean("hasOwner");
@@ -59,6 +58,7 @@ public class CustomFireEntity extends BlockEntity {
     }
 
     @Override
+    @NotNull
     public CompoundTag getUpdateTag() {
         return saveWithFullMetadata();
     }

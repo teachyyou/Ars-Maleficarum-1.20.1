@@ -18,7 +18,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.HerbCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
@@ -136,10 +135,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .add(LootItem.lootTableItem(ModItems.SWAMP_ROTFIEND_INGREDIENT.get())))));
     }
 
-    //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
-    protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
 
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры шалфея
     protected void generateSageCropDrop() {
@@ -178,7 +173,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedsItem).when(pDropGrownCropCondition))));
     }
 
-    protected LootTable.Builder createSimpleDrop(Block pCropBlock, Item pGrownCropItem1, LootItemCondition.Builder pDropGrownCropCondition) {
+    protected LootTable.Builder createSimpleDrop(Block pCropBlock, Item pGrownCropItem1) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1))));
     }
 

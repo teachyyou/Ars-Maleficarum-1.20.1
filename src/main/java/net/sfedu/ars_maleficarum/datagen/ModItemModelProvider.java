@@ -4,7 +4,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,6 +11,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
+
+import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -100,7 +101,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         complexBlock(ModBlocks.ODOUR_EXTRACTING_FURNACE.get());
         complexAltarInfusingBlock();
-        //complexBlock(ModBlocks.INFUSING_ALTAR_STONE_BLOCK.get());
         customComplexBlock(ModBlocks.WOODEN_CAT_FIGURE);
         complexBlock(ModBlocks.CHANDELIER.get());
         complexBlock(ModBlocks.SKULL_ON_STICK.get());
@@ -141,46 +141,46 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     //Когда у блока должна быть иконка, не отрисованная по самому блоку, а кастомная
-    private ItemModelBuilder customComplexBlock(RegistryObject<Block> block) {
-        return withExistingParent(block.getId().getPath(),
+    private void customComplexBlock(RegistryObject<Block> block) {
+        withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + block.getId().getPath()));
     }
 
 
-    private ItemModelBuilder complexBlock(Block block) {
-        return withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
-                "block/" + ForgeRegistries.BLOCKS.getKey(block).getPath()));
+    private void complexBlock(Block block) {
+        withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath()));
     }
 
-    private ItemModelBuilder complexAltarInfusingBlock() {
-        return withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
-                "block/" + ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get()).getPath() + "_stage_0"));
+    private void complexAltarInfusingBlock() {
+        withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get())).getPath(), new ResourceLocation(ArsMaleficarum.MOD_ID,
+                "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(ModBlocks.INFUSING_ALTAR.get())).getPath() + "_stage_0"));
     }
 
     //Генерация .json для простого предмета (как, например, цветок шалфея)
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void simpleItem(RegistryObject<Item> item) {
+        withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder saplingItem(RegistryObject<Block> block) {
-        return withExistingParent(block.getId().getPath(),
+    private void saplingItem(RegistryObject<Block> block) {
+        withExistingParent(block.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + block.getId().getPath()));
     }
 
     //Чтобы предмет в руке отображался как 3д
-    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void handheldItem(RegistryObject<Item> item) {
+        withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(ArsMaleficarum.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture", new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+        this.withExistingParent(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", new ResourceLocation(ArsMaleficarum.MOD_ID, "block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(baseBlock.get())).getPath()));
     }
 }

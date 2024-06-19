@@ -28,8 +28,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.block.custom.entity.OdourExtractingFurnaceBlockEntity;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
 public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
 
     public OdourExtractingFurnaceBlock(Properties pProperties) {
@@ -40,15 +44,22 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
 
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
+    @Override
+    @NotNull
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
+
+    @Override
+    @NotNull
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
     public static final VoxelShape SHAPE = Block.box(0,0,0,16,12,16);
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
@@ -68,11 +79,14 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
     /*Ниже все что относится к Entity*/
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
@@ -84,6 +98,8 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
@@ -98,6 +114,7 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         if (pLevel.isClientSide()) {
             return null;
@@ -107,11 +124,13 @@ public class OdourExtractingFurnaceBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new OdourExtractingFurnaceBlockEntity(pPos,pState);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(LIT)) {
 
