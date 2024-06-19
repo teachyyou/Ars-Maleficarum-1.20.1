@@ -37,6 +37,8 @@ import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @SuppressWarnings("deprecation")
 public class ChalkSymbol extends HorizontalDirectionalBlock {
 
@@ -60,7 +62,9 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
         return !blockstate.is(Blocks.AIR);
     }
 
+    @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public BlockState updateShape(BlockState blockState, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
         return canSurvive(blockState,level,currentPos) ? blockState : Blocks.AIR.defaultBlockState();
     }
@@ -72,12 +76,14 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public float getDestroyProgress(BlockState blockState, Player player, BlockGetter level, BlockPos blockPos) {
         return (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(blockState, player, level, blockPos);
     }
     public static final VoxelShape SHAPE = Block.box(3,0,3,13,1.125,13);
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState blockState, BlockGetter level, BlockPos blockPos, CollisionContext context) {
         return SHAPE;
     }
@@ -96,11 +102,13 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState pOldState, boolean pIsMoving) {
         notifyNearestCircleCenter(level,blockPos);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState pNewState, boolean pIsMoving) {
         notifyNearestCircleCenter(level,blockPos);
         super.onRemove(blockState, level, blockPos, pNewState, pIsMoving);
@@ -137,6 +145,7 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand pHand, BlockHitResult pHit) {
         if (!level.isClientSide()) {
             if (player.getItemInHand(pHand).is(ModItems.CHALK_BRUSH.get())) {
@@ -151,6 +160,7 @@ public class ChalkSymbol extends HorizontalDirectionalBlock {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource random) {
         super.animateTick(blockState, level, blockPos, random);
         if (blockState.getValue(IMPRISONMENT)!=0) {

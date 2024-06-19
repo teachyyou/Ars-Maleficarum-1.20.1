@@ -79,7 +79,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.ROWAN_STAIRS.get())
                 .add(ModBlocks.NAMELESS_TREE_STAIRS.get());
-        this.tag(BlockTags.FIRE).add(ModBlocks.CUSTOM_FIRE.get());
+        this.tag(BlockTags.FIRE).add(ModBlocks.CONSIMING_FLAME.get());
         //todo не забыть добавить новыые
         this.tag(ModTags.Blocks.CHALK_SYMBOLS)
                 .add(ModBlocks.WHITE_CHALK_SYMBOL.get())

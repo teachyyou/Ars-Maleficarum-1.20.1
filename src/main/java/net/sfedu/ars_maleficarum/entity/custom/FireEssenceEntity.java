@@ -1,6 +1,7 @@
 package net.sfedu.ars_maleficarum.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -17,13 +18,15 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
-import net.sfedu.ars_maleficarum.block.ModBlocks;
+import net.sfedu.ars_maleficarum.block.custom.ConsumingFlameBlock;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import org.jetbrains.annotations.NotNull;
 
@@ -130,13 +133,26 @@ public class FireEssenceEntity extends Projectile {
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
-        if(!this.level().isClientSide()){
-            ((ServerLevel)this.level()).sendParticles(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 15, 0.2D, 0.2D, 0.2D, 0.2D);
-            this.level().broadcastEntityEvent(this,((byte) 3));
-            this.level().setBlock(blockPosition(), ModBlocks.CUSTOM_FIRE.get().defaultBlockState(),3);
+
+        if (!this.level().isClientSide()) {
+            BlockPos hitPos = pResult.getBlockPos();
+            Direction hitFace = pResult.getDirection();
+            BlockPos posToIgnite = hitPos.relative(hitFace);
+            if (this.level().isEmptyBlock(posToIgnite)) {
+                // Play particle effects
+                ((ServerLevel)this.level()).sendParticles(ParticleTypes.FLAME, posToIgnite.getX() + 0.5, posToIgnite.getY() + 0.5, posToIgnite.getZ() + 0.5, 15, 0.2D, 0.2D, 0.2D, 0.2D);
+
+                // Set the block on fire
+                BlockState flameState = ConsumingFlameBlock.getState(level(), posToIgnite);
+                level().setBlock(posToIgnite, flameState, 11);
+                this.level().gameEvent(getOwner(),GameEvent.BLOCK_CHANGE, posToIgnite);
+            }
+
+            // Destroy the projectile
             this.discard();
         }
     }
+
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {

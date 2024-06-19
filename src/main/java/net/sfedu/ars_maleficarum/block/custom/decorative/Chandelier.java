@@ -26,8 +26,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
 public class Chandelier extends HorizontalDirectionalBlock {
 
     protected static final VoxelShape EAST_WEST = Block.box(3,0,5,13,16,11);
@@ -40,27 +44,36 @@ public class Chandelier extends HorizontalDirectionalBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
+    @Override
+    @NotNull
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
+    @Override
+    @NotNull
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return switch (pState.getValue(FACING)) {
             case NORTH, SOUTH -> NORTH_SOUTH;
-            case EAST, WEST -> EAST_WEST;
-            default -> null;
+            default -> EAST_WEST;
         };
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockState blockstate = pLevel.getBlockState(pPos.below());
         return !blockstate.is(Blocks.AIR);
     }
 
+    @NotNull
+    @ParametersAreNonnullByDefault
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
         return canSurvive(pState,pLevel,pCurrentPos) ? pState : Blocks.AIR.defaultBlockState();
     }
@@ -79,6 +92,8 @@ public class Chandelier extends HorizontalDirectionalBlock {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide() && !pPlayer.isCreative() && pPlayer.isShiftKeyDown() && pHand==InteractionHand.MAIN_HAND && pPlayer.getItemInHand(pHand).getCount()==0 && !pState.getValue(LIT)) {
             pLevel.playSound(null,pPos, SoundEvents.LANTERN_PLACE, SoundSource.PLAYERS);
@@ -112,11 +127,14 @@ public class Chandelier extends HorizontalDirectionalBlock {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pState.getValue(LIT)) return;
         if (pState.getValue(FACING) == Direction.WEST || pState.getValue(FACING) == Direction.EAST) {

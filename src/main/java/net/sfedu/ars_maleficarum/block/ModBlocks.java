@@ -57,8 +57,8 @@ public class ModBlocks {
     //Регистрация блока руды серебра
     public static final RegistryObject<Block> SILVER_ORE_BLOCK = registerBlock("silver_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
-    public static final RegistryObject<Block> CUSTOM_FIRE = registerBlock("custom_fire",
-            () -> new CustomFireBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> CONSIMING_FLAME = registerBlock("custom_fire",
+            () -> new ConsumingFlameBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noLootTable().noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> SILVER_DEEPSLATE_ORE_BLOCK = registerBlock("silver_deepslate_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));

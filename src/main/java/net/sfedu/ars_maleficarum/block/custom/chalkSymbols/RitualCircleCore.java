@@ -28,6 +28,7 @@ import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Predicate;
 
 @SuppressWarnings("deprecation")
@@ -44,11 +45,13 @@ public class RitualCircleCore extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
 
     @Override
+    @ParametersAreNonnullByDefault
     public float getDestroyProgress(BlockState blockState, Player player, BlockGetter level, BlockPos blockPos) {
         return (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(blockState, player, level, blockPos);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState oldState, boolean pIsMoving) {
         RitualCoreEntity riteCore = (RitualCoreEntity) level.getBlockEntity(blockPos);
         if (riteCore == null) return;
@@ -63,18 +66,22 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState blockState, BlockGetter level, BlockPos blockPos, CollisionContext context) {
         return SHAPE;
     }
 
 
 
+    @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public BlockState updateShape(BlockState blockState, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         return !this.canSurvive(blockState, level, currentPos) ? Blocks.AIR.defaultBlockState() : blockState;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean canSurvive(BlockState blockState, LevelReader level, BlockPos blockPos) {
         if (!level.isClientSide()) {
             return !level.getBlockState(blockPos.below()).is(Blocks.AIR);
@@ -84,6 +91,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult hitResult) {
         if (!level.isClientSide()) {
             if (player.getItemInHand(interactionHand).is(ModItems.CHALK_BRUSH.get())) {
@@ -105,6 +113,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new RitualCoreEntity(blockPos,blockState);
     }
@@ -112,6 +121,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
         if (level.isClientSide()) {
             return null;
@@ -122,6 +132,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Override
     @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.MODEL;
     }

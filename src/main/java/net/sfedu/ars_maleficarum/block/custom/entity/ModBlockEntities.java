@@ -25,7 +25,7 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<CustomFireEntity>> CUSTOM_FIRE =
             BLOCK_ENTITIES.register("custom_fire_block_entity", () ->
                     BlockEntityType.Builder.of(CustomFireEntity::new,
-                            ModBlocks.CUSTOM_FIRE.get()).build(null));
+                            ModBlocks.CONSIMING_FLAME.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<RitualCoreEntity>> RITUAL_CORE_ENTITY =
             BLOCK_ENTITIES.register("ritual_core_entity", () ->

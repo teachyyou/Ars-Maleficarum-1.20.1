@@ -32,17 +32,25 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.custom.entity.BrewingCauldronBlockEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Objects;
 import java.util.stream.Stream;
 
+@SuppressWarnings("deprecation")
 public class BrewingCauldronBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
+    @Override
+    @NotNull
     public BlockState rotate(BlockState pState, Rotation pRot) {
         return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
 
+    @Override
+    @NotNull
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
@@ -69,6 +77,8 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     public static VoxelShape SHAPE = null;
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         if (SHAPE == null) {
             SHAPE = Stream.of(
@@ -95,12 +105,15 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     //region BlockEntity
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
 
     // Временно дропает содержимое - в финальной версии не будет.
     @Override
+    @ParametersAreNonnullByDefault
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity= pLevel.getBlockEntity(pPos);
@@ -113,6 +126,8 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
         super.onRemove(pState,pLevel,pPos,pNewState,pIsMoving);
     }
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         BrewingCauldronBlockEntity blockentity = (BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos);
         if (!pLevel.isClientSide) {
@@ -144,7 +159,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         pPlayer.setItemInHand(pHand, new ItemStack(Items.WATER_BUCKET));
 
                         if ((pLevel.getBlockEntity(pPos)) != null)
-                            ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                            ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
                     }
                 }
             }
@@ -169,7 +184,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         if (pState.getValue(WATER) == 1)
                         {
                             if ((pLevel.getBlockEntity(pPos)) != null)
-                                ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                                ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
                         }
                         pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
@@ -191,7 +206,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         if (pState.getValue(WATER) == 1)
                         {
                             if ((pLevel.getBlockEntity(pPos)) != null)
-                                ((BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos)).clearInventory();
+                                ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
                         }
                         pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
@@ -211,6 +226,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         if (pLevel.isClientSide())
         {
@@ -223,11 +239,13 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new BrewingCauldronBlockEntity(pPos, pState);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         double dx = pPos.getX();
         double dy = pPos.getY();
@@ -243,5 +261,4 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
 
     }
 
-    //endregion BlockEntity
 }
