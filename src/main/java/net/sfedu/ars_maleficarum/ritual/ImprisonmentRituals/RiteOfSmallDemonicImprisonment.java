@@ -42,15 +42,14 @@ public class RiteOfSmallDemonicImprisonment extends CircleRitual {
         if (allComponentsConsumed && ticks/20.0 == 3) {
 
             List<BlockPos> SmallCircle = riteCore.smallCircle();
-            for (int i = 0; i < SmallCircle.size(); i++) {
-                BlockPos pos = SmallCircle.get(i);
+            for (BlockPos pos : SmallCircle) {
                 BlockState currentSymbol = pLevel.getBlockState(pos);
-                currentSymbol = currentSymbol.setValue(ChalkSymbol.IMPRISONMENT,2);
-                pLevel.setBlock(pos,currentSymbol,3);
+                currentSymbol = currentSymbol.setValue(ChalkSymbol.IMPRISONMENT, 2);
+                pLevel.setBlock(pos, currentSymbol, 3);
                 double d0 = pos.getCenter().x;
                 double d1 = pos.getCenter().y;
                 double d2 = pos.getCenter().z;
-                ((ServerLevel)pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0,0.1D,0,-0.5D);
+                ((ServerLevel) pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0, 0.1D, 0, -0.5D);
             }
             pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.PLAYERS,1F,1F);
 

@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "kramer_torch",
 	"ambientocclusion": false,
 	"texture_size": [64, 64],
 	"textures": {

@@ -24,8 +24,6 @@ public class ModTrunkPlacerTypes {
     public static final RegistryObject<TrunkPlacerType<KramerTrunkPlacer>> KRAMER_TRUNK_PLACER =
             TRUNK_PLACERS.register("kramer_trunk_placer",()->new TrunkPlacerType<>(KramerTrunkPlacer.CODEC));
 
-    public static final RegistryObject<TrunkPlacerType<RowanTrunkPlacer>> DEAD_TREE_TRUNK_PLACER =
-            TRUNK_PLACERS.register("dead_tree_trunk_placer",()->new TrunkPlacerType<>(RowanTrunkPlacer.CODEC));
 
     public static void register(IEventBus eventBus) {
         TRUNK_PLACERS.register(eventBus);

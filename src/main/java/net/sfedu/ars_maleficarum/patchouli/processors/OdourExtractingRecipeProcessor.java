@@ -7,12 +7,12 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.OdourExtractingRecipe;
+import org.jetbrains.annotations.NotNull;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
 
 public class OdourExtractingRecipeProcessor implements IComponentProcessor {
-    private OdourExtractingRecipe recipe;
     private ItemStack inputItem;
     private ItemStack resultItem;
     private ItemStack additionalResult;
@@ -23,7 +23,7 @@ public class OdourExtractingRecipeProcessor implements IComponentProcessor {
         ResourceLocation recipeId = new ResourceLocation(iVariableProvider.get("recipe").asString());
 
         RecipeManager recipeManager = level.getRecipeManager();
-        recipe = (OdourExtractingRecipe) recipeManager.byKey(recipeId).orElseThrow(()->new IllegalArgumentException("Could not find recipe for: " + recipeId));
+        OdourExtractingRecipe recipe = (OdourExtractingRecipe) recipeManager.byKey(recipeId).orElseThrow(() -> new IllegalArgumentException("Could not find recipe for: " + recipeId));
         inputItem = recipe.getIngredient();
         resultItem = recipe.getResultItem(level.registryAccess());
         additionalResult = recipe.getAdditionalItem();
@@ -32,6 +32,7 @@ public class OdourExtractingRecipeProcessor implements IComponentProcessor {
     }
 
     @Override
+    @NotNull
     public IVariable process(Level level, String key) {
         if(key.startsWith("input"))
             return IVariable.from(inputItem);
@@ -42,6 +43,6 @@ public class OdourExtractingRecipeProcessor implements IComponentProcessor {
         else if(key.startsWith("additionalResult"))
             return IVariable.from(additionalResult);
 
-        return null;
+        return IVariable.empty();
     }
 }

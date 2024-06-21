@@ -20,7 +20,6 @@ import net.sfedu.ars_maleficarum.util.OrderedHashMap;
 
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 public class RitualTypes<T extends CircleRitual>{

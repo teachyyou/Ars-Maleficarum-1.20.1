@@ -12,7 +12,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -26,11 +28,14 @@ public class RowanTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
+    @NonNull
     protected TrunkPlacerType<?> type() {
         return ModTrunkPlacerTypes.ROWAN_TRUNK_PLACER.get();
     }
 
     @Override
+    @NonNull
+    @ParametersAreNonnullByDefault
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom,
                                                             int height, BlockPos pPos, TreeConfiguration pConfig) {
 

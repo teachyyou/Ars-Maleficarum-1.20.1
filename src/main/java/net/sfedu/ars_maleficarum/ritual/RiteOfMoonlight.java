@@ -28,15 +28,15 @@ public class RiteOfMoonlight extends CircleRitual {
     @Override
     public void executeRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, RitualCoreEntity riteCore) {
 
-        if (pLevel.getDayTime()<16000 || pLevel.getDayTime() > 20000 || pLevel.isRaining() || (!hasNoBlocksAbove3x3(pLevel,pPos))) {
+        if (pPos == null || pLevel.getDayTime()<16000 || pLevel.getDayTime() > 20000 || pLevel.isRaining() || (!hasNoBlocksAbove3x3(pLevel,pPos))) {
             riteCore.stopRitual();
             return;
         }
         consumeComponents(pLevel,pPos,riteCore, pPlayer);
         ticks++;
-        if (allComponentsConsumed && pPos!=null) {
+        if (allComponentsConsumed) {
             double d0 = pPos.getCenter().x;
-            double d1 = pPos.getCenter().y+20-(ticks/5);
+            double d1 = pPos.getCenter().y+20-((double) ticks /5);
             double d2 = pPos.getCenter().z;
             ((ServerLevel)pLevel).sendParticles(ParticleTypes.WAX_OFF, d0, d1, d2, 50, 0,0.5D,0,0.5);
 

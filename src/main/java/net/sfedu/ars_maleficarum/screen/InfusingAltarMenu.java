@@ -11,6 +11,9 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.entity.InfusingAltarBlockEntity;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class InfusingAltarMenu extends AbstractContainerMenu {
 
@@ -72,9 +75,11 @@ public class InfusingAltarMenu extends AbstractContainerMenu {
     // THIS YOU HAVE TO DEFINE!
     private static final int TE_INVENTORY_SLOT_COUNT = 6;  // must be the number of slots you have!
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (!sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
@@ -105,6 +110,7 @@ public class InfusingAltarMenu extends AbstractContainerMenu {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level,blockEntity.getBlockPos()),
                 pPlayer, ModBlocks.INFUSING_ALTAR.get());

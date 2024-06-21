@@ -23,11 +23,11 @@ import net.sfedu.ars_maleficarum.ritual.RitualType;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public abstract class CircleRitual {
 
-    protected enum Dimension {NETHER, OVERWORLD, END, ANY};
+    protected enum Dimension {NETHER, OVERWORLD, END, ANY}
 
     protected RitualCoreEntity.ChalkType smallCircleType;
     protected RitualCoreEntity.ChalkType mediumCircleType;
@@ -43,7 +43,7 @@ public abstract class CircleRitual {
 
     protected int ticks = 0;
     protected Class<? extends Entity> sacrificeEntity;
-    protected Map<Item, Integer> components = new HashMap<Item,Integer>();
+    protected Map<Item, Integer> components = new HashMap<>();
 
     protected Component ritualName;
     protected RitualType<?> ritualType;
@@ -75,10 +75,10 @@ public abstract class CircleRitual {
     public boolean doesMatch(SimpleContainer container) {
         for (Item item : components.keySet()) {
             boolean flag = false;
-            foundItem: for (int j = 0; j < container.getContainerSize(); j++) {
+            for (int j = 0; j < container.getContainerSize(); j++) {
                 if (container.getItem(j).is(item) && container.getItem(j).getCount()>=(components.get(item))) {
                     flag = true;
-                    break foundItem;
+                    break;
                 }
             }
             if (!flag) {
@@ -117,27 +117,26 @@ public abstract class CircleRitual {
     public void consumeComponents(Level pLevel, BlockPos pPos, RitualCoreEntity riteCore, Player pPlayer) {
         if (ticks%20==0 && !allComponentsConsumed) {
             for (Map.Entry<Item, Integer> requiredItem : components.entrySet()) {
-
                 int amount = requiredItem.getValue();
                 if (amount>=1) {
-                    try {
-                        ticks=0;
-                        ItemEntity item = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)))
-                                .stream().filter(x->x.getItem().is(requiredItem.getKey())).findAny().get();
-                        
-                        double d0 = item.position().x;
-                        double d1 = item.position().y;
-                        double d2 = item.position().z;
-                        ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,itemConsumeParticleSpeed);
-                        int toTake = Math.min(amount,item.getItem().getCount());
-                        components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
-                        item.getItem().shrink(toTake);
-                        pLevel.playSound(null, pPos, itemConsumeSound, SoundSource.PLAYERS,1F,1F);
-                        break;
-                    } catch (NoSuchElementException e) {
+                    ticks=0;
+                    Optional<ItemEntity> possiblyItem = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)))
+                            .stream().filter(x->x.getItem().is(requiredItem.getKey())).findAny();
+                    if (possiblyItem.isEmpty()) {
                         pPlayer.sendSystemMessage(Component.translatable("ritual.rite_interrupt_by_components"));
                         riteCore.stopRitual();
+                        return;
                     }
+                    ItemEntity item = possiblyItem.get();
+                    double d0 = item.position().x;
+                    double d1 = item.position().y;
+                    double d2 = item.position().z;
+                    ((ServerLevel)pLevel).sendParticles(particleType, d0, d1, d2, 20, 0,0.5D,0,itemConsumeParticleSpeed);
+                    int toTake = Math.min(amount,item.getItem().getCount());
+                    components.computeIfPresent(item.getItem().getItem(),(k,v)->v-toTake);
+                    item.getItem().shrink(toTake);
+                    pLevel.playSound(null, pPos, itemConsumeSound, SoundSource.PLAYERS,1F,1F);
+                    break;
                 }
             }
             allComponentsConsumed=components.values().stream().allMatch(x->x==0);

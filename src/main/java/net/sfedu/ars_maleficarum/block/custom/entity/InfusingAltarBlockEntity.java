@@ -192,7 +192,7 @@ public class InfusingAltarBlockEntity extends BlockEntity implements MenuProvide
     }
 
     private boolean checkDimension(InfusingAltarRecipe recipe, Level level) {
-        String s = recipe.getDimension(null);
+        String s = recipe.getDimension();
         if (s.equals("any")) return true;
         ResourceKey<DimensionType> dimType = level.dimensionTypeId();
         dimension = switch(s) {

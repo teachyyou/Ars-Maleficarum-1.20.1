@@ -14,6 +14,8 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.Ritu
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 
+import java.util.Objects;
+
 public class SettingSunRitual extends CircleRitual {
 
 
@@ -37,7 +39,7 @@ public class SettingSunRitual extends CircleRitual {
 
         if (allComponentsConsumed && ticks%20.0==0) {
             if (ticks%40.0==0 && pPos!=null) EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pLevel, (ItemStack) null,null, pPos.relative(Direction.Axis.Z, 5-pLevel.random.nextInt(10)).relative(Direction.Axis.X, 5-pLevel.random.nextInt(10)), MobSpawnType.TRIGGERED,true,true);
-            pLevel.getServer().getLevel(Level.OVERWORLD).setDayTime(pLevel.getDayTime()+2000);
+            Objects.requireNonNull(Objects.requireNonNull(pLevel.getServer()).getLevel(Level.OVERWORLD)).setDayTime(pLevel.getDayTime()+2000);
             pLevel.updateSkyBrightness();
         }
         if (allComponentsConsumed && pLevel.getDayTime()>=13000) {

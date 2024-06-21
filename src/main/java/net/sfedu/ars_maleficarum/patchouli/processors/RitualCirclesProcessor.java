@@ -6,6 +6,7 @@ import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.ritual.RitualTypes;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
+import org.jetbrains.annotations.NotNull;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
@@ -66,17 +67,18 @@ public class RitualCirclesProcessor implements IComponentProcessor {
     }
 
     @Override
+    @NotNull
     public IVariable process(Level level, String key) {
         if((key.startsWith("small")|| key.startsWith("medium") || key.startsWith("large") || key.startsWith("core"))) {
             return checkForRequirement(key) ? IVariable.wrap(getSizePath(RitualCoreEntity.CircleSize.valueOf(key.toUpperCase()))) : IVariable.empty();
         }
         else if ((key.startsWith("components"))) {
-            String s = "";
+            StringBuilder s = new StringBuilder();
             for (Map.Entry<Item,Integer> component : ritual.getComponents().entrySet()) {
-                s += "$(li)" + component.getKey().getDescription().getString();
-                if (component.getValue() > 1) s+= " ("+component.getValue() + ")$()";
+                s.append("$(li)").append(component.getKey().getDescription().getString());
+                if (component.getValue() > 1) s.append(" (").append(component.getValue()).append(")$()");
             }
-            return IVariable.wrap(s);
+            return IVariable.wrap(s.toString());
         }
         else if (key.startsWith("name")) {
             return IVariable.wrap(ritual.getName());
@@ -87,6 +89,6 @@ public class RitualCirclesProcessor implements IComponentProcessor {
             else if (key.startsWith("085header_size")) return IVariable.wrap(ritual.getName().length()>=22 && ritual.getName().length() < 26);
             else return IVariable.wrap(ritual.getName().length()>=26);
         }
-        return null;
+        return IVariable.empty();
     }
 }

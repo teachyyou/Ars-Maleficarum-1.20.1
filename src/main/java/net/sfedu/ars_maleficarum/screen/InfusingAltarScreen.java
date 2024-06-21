@@ -9,6 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class InfusingAltarScreen extends AbstractContainerScreen<InfusingAltarMenu> {
 
     private static final ResourceLocation TEXTURE =
@@ -42,14 +44,12 @@ public class InfusingAltarScreen extends AbstractContainerScreen<InfusingAltarMe
     }
 
     private void RenderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
-        if (menu.isCrafting()) {
-            //guiGraphics.blit(TEXTURE,x+86,y+31,176,0,8,menu.getScaledProgress());
-        }
         int k = menu.getScaledProgress();
         guiGraphics.blit(TEXTURE,x+45,y+21,0,183,100,k);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void render(GuiGraphics GuiGraphics, int MouseX, int MouseY, float delta) {
         renderBackground(GuiGraphics);
         super.render(GuiGraphics,MouseX,MouseY, delta);

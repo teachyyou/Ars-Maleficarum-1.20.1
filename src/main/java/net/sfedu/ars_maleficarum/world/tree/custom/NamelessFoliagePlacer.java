@@ -11,6 +11,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class NamelessFoliagePlacer extends FoliagePlacer {
 
@@ -23,11 +26,13 @@ public class NamelessFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
+    @NonNull
     protected FoliagePlacerType<?> type() {
         return ModFoliagePlacerTypes.NAMELESS_FOLIAGE_PLACER.get();
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void createFoliage(LevelSimulatedReader pLevel, FoliageSetter foliageSetter, RandomSource pRandom, TreeConfiguration pConfig, int pMaxFreeTreeHeight, FoliageAttachment attachment, int pFoliageHeight, int pFoliageRadius, int pOffset) {
         Direction[] dir = {Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST};
         tryPlaceLeaf(pLevel,foliageSetter,pRandom,pConfig,attachment.pos());
@@ -55,11 +60,13 @@ public class NamelessFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public int foliageHeight(RandomSource pRandom, int pHeight, TreeConfiguration pConfig) {
         return this.height;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected boolean shouldSkipLocation(RandomSource pRandom, int pLocalX, int pLocalY, int pLocalZ, int pRange, boolean pLarge) {
         return false;
     }

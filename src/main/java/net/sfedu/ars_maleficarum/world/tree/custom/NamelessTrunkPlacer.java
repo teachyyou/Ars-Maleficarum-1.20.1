@@ -12,7 +12,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -26,11 +28,14 @@ public class NamelessTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
+    @NonNull
     protected TrunkPlacerType<?> type() {
         return ModTrunkPlacerTypes.NAMELESS_TRUNK_PLACER.get();
     }
 
     @Override
+    @ParametersAreNonnullByDefault
+    @NonNull
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos, TreeConfiguration pConfig) {
         setDirtAt(pLevel,pBlockSetter,pRandom,pPos.below(),pConfig);
 
@@ -40,7 +45,6 @@ public class NamelessTrunkPlacer extends TrunkPlacer {
 
 
         Direction[] dir = {Direction.NORTH,Direction.WEST,Direction.SOUTH,Direction.EAST};
-        boolean[] branches = {true,true,true,true};
 
         for (int i = 0; i < height; i++) {
             placeLog(pLevel,pBlockSetter,pRandom,pPos.above(i),pConfig);

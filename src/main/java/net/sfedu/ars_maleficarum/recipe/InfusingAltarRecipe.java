@@ -12,7 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
 
@@ -32,6 +35,7 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
 
     //Очень костыльно(
     @Override
+    @ParametersAreNonnullByDefault
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
 
         if (pLevel.isClientSide()) {
@@ -45,6 +49,8 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
 
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
     }
@@ -55,28 +61,36 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
     @Override
+    @NotNull
     public NonNullList<Ingredient> getIngredients() {
         return this.inputItems;
     }
 
     @Override
+    @NotNull
     public ResourceLocation getId() {
         return id;
     }
-    public String getDimension(RegistryAccess pRegistryAccess) {
+
+    @NotNull
+    public String getDimension() {
         return dimension;
     }
     @Override
+    @NotNull
     public RecipeSerializer<?> getSerializer() {
         return Serializer.INSTANCE;
     }
 
     @Override
+    @NotNull
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
@@ -93,6 +107,8 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"altar_infusing");
 
         @Override
+        @NotNull
+        @ParametersAreNonnullByDefault
         public InfusingAltarRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json,"output"));
 
@@ -108,11 +124,10 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
+        @ParametersAreNonnullByDefault
         public @Nullable InfusingAltarRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(),Ingredient.EMPTY);
-            for (int i = 0; i < inputs.size();i++) {
-                inputs.set(i,Ingredient.fromNetwork(buf));
-            }
+            inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
             ItemStack output = buf.readItem();
             String dimension = buf.readUtf();
             return new InfusingAltarRecipe(id,output,inputs,dimension);
@@ -124,8 +139,8 @@ public class InfusingAltarRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing: recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(null),false);
-            buf.writeUtf(recipe.getDimension(null));
+            buf.writeItemStack(recipe.getResultItem(RegistryAccess.EMPTY),false);
+            buf.writeUtf(recipe.getDimension());
         }
     }
 }
