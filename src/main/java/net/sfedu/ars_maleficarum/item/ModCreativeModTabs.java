@@ -155,6 +155,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
                         pOutput.accept(ModItems.HERMIT_WITCH_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.SWAMP_DROWNED_SPAWN_EGG.get());
                     }))
                     .build());
 

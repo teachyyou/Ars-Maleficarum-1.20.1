@@ -11,6 +11,8 @@ public class ModModelLayers {
             new ResourceLocation(ArsMaleficarum.MOD_ID, "gluttony_demon_layer"), "gluttony_demon_layer");
     public static final ModelLayerLocation HERMIT_WITCH_LAYER = new ModelLayerLocation(
             new ResourceLocation(ArsMaleficarum.MOD_ID, "hermit_witch_layer"), "hermit_witch_layer");
+    public static final ModelLayerLocation SWAMP_DROWNED_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ArsMaleficarum.MOD_ID, "swamp_drowned_layer"), "swamp_drowned_layer");
     public static final ModelLayerLocation POISONOUS_ESSENCE_LAYER = new ModelLayerLocation(
             new ResourceLocation(ArsMaleficarum.MOD_ID, "poisonous_essence_layer"), "poisonous_essence_layer");
     public static final ModelLayerLocation FIRE_ESSENCE_LAYER = new ModelLayerLocation(

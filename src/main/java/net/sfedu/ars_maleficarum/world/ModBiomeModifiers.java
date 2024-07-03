@@ -7,11 +7,16 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import net.sfedu.ars_maleficarum.entity.ModEntities;
+
+import java.util.List;
 
 public class ModBiomeModifiers {
 
@@ -25,6 +30,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_ORES = registerKey("add_cursed_gold_ores");
     public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_DEEPSLATE_ORES = registerKey("add_cursed_gold_deepslate_ores");
     public static final ResourceKey<BiomeModifier> ADD_CURSED_GOLD_NETHER_ORES = registerKey("add_cursed_gold_nether_ores");
+    public static final ResourceKey<BiomeModifier> SPAWN_SWAMP_DROWNED = registerKey("spawn_swamp_drowned");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -73,7 +79,10 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.OVERWORLD_SILVER_DEEPSLATE_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-
+        context.register(SPAWN_SWAMP_DROWNED, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SWAMP_DROWNED.get(),90,1,4))
+        ));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

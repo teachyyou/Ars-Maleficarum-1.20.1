@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_swamp",
+  "spawners": {
+    "type": "ars_maleficarum:swamp_drowned",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 90
+  }
+}

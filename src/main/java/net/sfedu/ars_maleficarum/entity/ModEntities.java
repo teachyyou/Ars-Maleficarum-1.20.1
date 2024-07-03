@@ -31,6 +31,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<GluttonyDemonEntity>> GLUTTONY_DEMON =
             ENTITY_TYPES.register("gluttony_demon", () -> EntityType.Builder.of(GluttonyDemonEntity::new, MobCategory.CREATURE)
                     .sized(1.5f, 2f).build("gluttony_demon"));
+    public static final RegistryObject<EntityType<SwampDrownedEntity>> SWAMP_DROWNED =
+            ENTITY_TYPES.register("swamp_drowned", () -> EntityType.Builder.of(SwampDrownedEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("swamp_drowned"));
 
 
     public static void register(IEventBus eventBus) {
