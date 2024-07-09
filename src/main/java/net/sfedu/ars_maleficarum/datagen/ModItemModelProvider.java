@@ -36,9 +36,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CURSED_GOLD_NUGGET);
         simpleItem(ModItems.SILVER_CHUNK);
         simpleItem(ModItems.CURSED_GOLD_CHUNK);
-        simpleItem(ModItems.CARBON_DETECTOR);
-        simpleItem(ModItems.METAL_DETECTOR);
-        simpleItem(ModItems.VALUABLE_DETECTOR);
 
         simpleItem(ModItems.FLINT_KNIFE);
 
@@ -49,8 +46,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ROWAN_BERRIES);
         simpleItem(ModItems.ROWAN_BARK);
         simpleItem(ModItems.STONE_PESTLE);
-        simpleItem(ModItems.EMPTY_SEAL);
-        simpleItem(ModItems.PERCEPTION_CORE);
         simpleItem(ModItems.SALT);
         simpleItem(ModItems.STONE_MORTAR);
         simpleItem(ModItems.STONE_MORTAR_AND_PESTLE);
