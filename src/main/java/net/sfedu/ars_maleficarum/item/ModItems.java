@@ -40,9 +40,6 @@ public class ModItems {
     public static final RegistryObject<Item> POISON_STAFF;
     public static final RegistryObject<Item> FIRE_STAFF;
     public static final RegistryObject<Item> INERT_FIRE_STAFF;
-    public static final RegistryObject<Item> CARBON_DETECTOR;
-    public static final RegistryObject<Item> METAL_DETECTOR;
-    public static final RegistryObject<Item> VALUABLE_DETECTOR;
     public static final RegistryObject<Item> STONE_PESTLE;
     public static final RegistryObject<Item> ROWAN_BERRIES;
     public static final RegistryObject<Item> ROWAN_BARK;
@@ -54,8 +51,6 @@ public class ModItems {
     public static final RegistryObject<Item> POPPET;
     public static final RegistryObject<Item> FLINT_KNIFE;
     public static final RegistryObject<Item> SILVER_DAGGER;
-    public static final RegistryObject<Item> EMPTY_SEAL;
-    public static final RegistryObject<Item> PERCEPTION_CORE;
     public static final RegistryObject<Item> SALT;
     public static final RegistryObject<Item> STONE_MORTAR;
     public static final RegistryObject<Item> STONE_MORTAR_AND_PESTLE;
@@ -127,9 +122,6 @@ public class ModItems {
         POISON_STAFF = ITEMS.register("poison_staff", () -> new PoisonStaff(new Item.Properties().durability(1024)));
         FIRE_STAFF = ITEMS.register("fire_staff", () -> new FireStaff(new Item.Properties().durability(1024)));
         INERT_FIRE_STAFF = ITEMS.register("inert_fire_staff", () -> new Item(new Item.Properties().stacksTo(1)));
-        CARBON_DETECTOR = ITEMS.register("carbon_detector", () -> new CarbonDetectorItem(new Item.Properties().durability(100)));
-        METAL_DETECTOR = ITEMS.register("metal_detector", () -> new MetalDetectorItem(new Item.Properties().durability(80)));
-        VALUABLE_DETECTOR = ITEMS.register("valuable_detector", () -> new ValuableDetectorItem(new Item.Properties().durability(65)));
         STONE_PESTLE = ITEMS.register("stone_pestle", () -> new Item(new Item.Properties()));
         ROWAN_BERRIES = ITEMS.register("rowan_berries", () -> new Item(new Item.Properties().food(ModFoods.ROWAN_BERRIES)));
         ROWAN_BARK = ITEMS.register("rowan_bark", () -> new Item(new Item.Properties()));
@@ -141,8 +133,6 @@ public class ModItems {
         POPPET = ITEMS.register("poppet", () -> new Item(new Item.Properties().stacksTo(1)));
         FLINT_KNIFE = ITEMS.register("flint_knife", () -> new FlintKnife(new Item.Properties().stacksTo(1).durability(16)));
         SILVER_DAGGER = ITEMS.register("silver_dagger", () -> new SilverDagger(Tiers.GOLD, 5, -1F, new Item.Properties().durability(96)));
-        EMPTY_SEAL = ITEMS.register("empty_seal", () -> new Item(new Item.Properties()));
-        PERCEPTION_CORE = ITEMS.register("perception_core", () -> new Item(new Item.Properties()));
         SALT = ITEMS.register("salt", () -> new Item(new Item.Properties()));
         STONE_MORTAR = ITEMS.register("stone_mortar", () -> new Item(new Item.Properties()));
         STONE_MORTAR_AND_PESTLE = ITEMS.register("stone_mortar_and_pestle", () -> new MortarAndPestleItem(new Item.Properties().stacksTo(1).durability(40)));

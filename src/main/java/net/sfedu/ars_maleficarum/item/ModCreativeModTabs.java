@@ -108,11 +108,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.FLINT_KNIFE.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
                         pOutput.accept(ModItems.SILVER_DAGGER.get().getDefaultInstance());
-                        pOutput.accept(ModItems.EMPTY_SEAL.get());
-                        pOutput.accept(ModItems.PERCEPTION_CORE.get());
-                        pOutput.accept(ModItems.CARBON_DETECTOR.get());
-                        pOutput.accept(ModItems.METAL_DETECTOR.get());
-                        pOutput.accept(ModItems.VALUABLE_DETECTOR.get());
                         pOutput.accept(ModItems.DRY_WOOD.get());
                         pOutput.accept(ModItems.INERT_POISON_STAFF.get());
                         pOutput.accept(ModItems.POISON_STAFF.get());
