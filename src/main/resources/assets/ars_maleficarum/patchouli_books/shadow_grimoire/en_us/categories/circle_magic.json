@@ -1,6 +1,6 @@
 {
-  "name": "Магия кругов",
-  "description": "Этот раздел гримуара описывает мощнейшее средство в арсенале любого продвинутого практика - магию ритуальных кругов. Комбинируя их, можно проводить обряды самой разной сложности и силы, начиная выращиванием зелени на кучке земли и заканчивая, как повествуют легенды об архимагах прошлого, призывом метеоритных дождей и вызовом землетрясений. Кроме того, ритуальная магия позволяет создавать более мощные артефакты, нежели наполнение и другие ранее известные способы.",
+  "name": "Circle Magic",
+  "description": "This section of the grimoire unveils the most potent tool in the arsenal of any advanced practitioner - the sorcery of ritual circles. By combining them, one can perform rites of varying complexity and power, from cultivating greenery on a mound of earth to, as legends tell of ancient archmages, summoning meteoric rains and invoking earthquakes. Furthermore, ritual sorcery enables the creation of more potent artifacts than infusion and other previously known methods.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/circle_magic.png",
   "sortnum": 7
 }

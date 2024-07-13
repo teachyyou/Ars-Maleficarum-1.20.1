@@ -1,26 +1,26 @@
 {
-  "name": "Ускорение",
+  "name": "Swiftness",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/swiftness.png",
   "category": "ars_maleficarum:circle_magic/empowering",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Скорость важна всегда - чем быстрее волшебник доберется до нужного места, тем быстрее сможет вернуться домой и наконец заняться своими делами или отдохнуть. Когда нужно быстро преодолеть расстояние в тысячи блоков, без промедления добраться до торговца или до рассвета оказаться на болотах - ритуал ускорения приходит на выручку. Он, как и ритуал усиления, существует в двух вариациях, отличающихся мощностью эффекта и количеством игроков, которых коснется его магия."
+      "text": "Speed is always of the essence - the quicker a witch reaches her destination, the sooner she can return home to attend to her matters or find some respite. Whether it be traversing vast distances, hurrying to a merchant, or reaching the swamps before dawn, the Swiftness ritual is invaluable. As with the Empowering ritual, there are two variations of this rite, differing in the potency of the effect and the number of players it can enchant."
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:weak_swiftness",
       "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/five_people.png",
-      "annotation_line1": "Чары накладываются не более,",
-      "annotation_line2": "чем на пятерых игроков!"
+      "annotation_line1": "The enchantment affects no more",
+      "annotation_line2": "than five players!"
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:great_swiftness",
       "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/three_people.png",
-      "annotation_line1": "Чары накладываются не более,",
-      "annotation_line2": "чем на трёх игроков!"
+      "annotation_line1": "The enchantment affects no more",
+      "annotation_line2": "than three players!"
     }
   ],
   "read_by_default": true

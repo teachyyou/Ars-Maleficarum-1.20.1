@@ -1,19 +1,19 @@
 {
-  "name": "Наречение имени",
+  "name": "Naming Ritual",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/forgotten_name_awakening.png",
   "category": "ars_maleficarum:circle_magic/infusing",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Данный ритуал способен пробудить огонь, спящий внутри некогда обезличенного $(l:plants/nameless_tree)Безымянного Древа$(). Сильная магия, испорченная и искаженная кровью и адом, стремится вырваться наружу из небытия истории. Имя $(l:plants/kramer_tree)древа$(), корни которого однажды впитали океан крови невинных, пролитых инквизитором по имени Крамер, может быть вновь восстановлено благодаря обряду наречения."
+      "text": "This ritual can awaken the fire that sleeps within the once depersonalized $(l:plants/nameless_tree)Nameless Tree$(). Strong magic, tainted and twisted by blood and hell, strives to break free from the oblivion of history. The name of the $(l:plants/kramer_tree)tree$(), whose roots once absorbed an ocean of innocent blood spilled by an inquisitor named Kramer, can be restored through the ritual of naming."
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:forgotten_name_awakening",
       "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/forgotten_name_awakening.png",
-      "annotation_line1": "Саженец Безымянного древа должен",
-      "annotation_line2": "находиться внутри круга!"
+      "annotation_line1": "The sapling of the Nameless Tree",
+      "annotation_line2": "must be inside the circle!"
     }
   ],
   "read_by_default": true

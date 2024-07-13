@@ -1,0 +1,19 @@
+{
+  "name": "Красный мел",
+  "icon": "ars_maleficarum:crimson_chalk",
+  "category": "ars_maleficarum:extracting_and_brewing/brewing",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Как и в случае с природными силами, белого мела может оказаться недостаточно там, где требуется вмешательство инфернального начала. $(br2)Созданный при помощи добытых в Нижнем мире компонентов, этот мел служит необходимым условием для проведения ритуалов, взаимодействующих с Адом или его обитателями."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Создание",
+      "recipe": "ars_maleficarum:crimson_chalk_in_brewing_cauldron",
+      "text": "Красный мел, как и любой другой цветной, создаётся на основе обыкновенного белого."
+    }
+  ],
+  "read_by_default": true
+}

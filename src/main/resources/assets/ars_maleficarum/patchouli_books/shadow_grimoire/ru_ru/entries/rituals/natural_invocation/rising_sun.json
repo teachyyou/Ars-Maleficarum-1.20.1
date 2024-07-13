@@ -1,0 +1,21 @@
+{
+  "name": "Восходящее Солнце",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/rising_sun.png",
+  "category": "ars_maleficarum:circle_magic/natural_invocation_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Один из самых фундаментальных природных процессов - цикл смены дня и ночи. Используя магию кругов, его удалось подчинить - данный ритуал заставляет Солнце взойти, прогоняя ночь прочь. $(br2)Ритуал полезен в тех ситуациях, когда поспать с целью пропустить ночь по той или иной причине не представляется возможным."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:rising_sun",
+      "text": "$(l)Примечание:$() Проведение возможно только ночью. Остерегайтесь ударов молнии!",
+      "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/moon.png",
+      "annotation_line1": "Проведение ритуала",
+      "annotation_line2": "возможно только ночью!"
+    }
+  ],
+  "read_by_default": true
+}

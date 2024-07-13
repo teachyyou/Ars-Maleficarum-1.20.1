@@ -33,6 +33,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PoisonousEssenceEntity extends Projectile {
     private static final EntityDataAccessor<Boolean> HIT =
@@ -54,6 +57,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @NotNull
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
@@ -101,6 +105,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
         if(!this.level().isClientSide()){
@@ -123,6 +128,7 @@ public class PoisonousEssenceEntity extends Projectile {
         }
     }
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHit(HitResult hitResult) {
         super.onHit(hitResult);
         for(int x = 0; x < 18; ++x) {
@@ -150,17 +156,16 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        Entity entity = pResult.getEntity();
-        Entity entity1 = this.getOwner();
-        LivingEntity livingentity = entity1 instanceof LivingEntity ? (LivingEntity)entity1 : null;
-        boolean flag = entity.hurt(this.damageSources().mobProjectile(this, livingentity), 5.0F);
-        if (flag) {
-            this.doEnchantDamageEffects(livingentity, entity);
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity1 = (LivingEntity)entity;
-                livingentity1.addEffect(new MobEffectInstance(MobEffects.POISON, 200), MoreObjects.firstNonNull(entity1, this));
+        Entity target = pResult.getEntity();
+        LivingEntity owner = this.getOwner() instanceof LivingEntity ? (LivingEntity)this.getOwner() : null;
+        boolean flag = target.hurt(this.damageSources().mobProjectile(this, owner), 5.0F);
+        if (flag && owner != null) {
+            this.doEnchantDamageEffects(owner, target);
+            if (target instanceof LivingEntity livingTarget) {
+                livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 200), MoreObjects.firstNonNull(owner, this));
             }
         }
     }
@@ -170,6 +175,7 @@ public class PoisonousEssenceEntity extends Projectile {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean hurt(DamageSource source, float amount) {
         super.hurt(source, amount);
 

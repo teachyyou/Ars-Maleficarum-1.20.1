@@ -1,29 +1,29 @@
 {
-  "name": "Наборы для рисования",
+  "name": "Drawing Kits",
   "icon": "ars_maleficarum:white_circle_core_drawing_kit",
   "category": "ars_maleficarum:circle_magic/circle_components",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Как известно, в основе всех ритуальных кругов, рисуемых традиционными способами, лежит сердцевина - особый малый круг двух цветов, один из которых характеризует направляющую силу кругов в соответствии с особенностями ритуала, а другой - неизменно золотой, окаймляющий любой другой цвет. Для рисования сердцевины кругов существуют специальные наборы, описанные далее."
+      "text": "As is known, at the heart of all ritual circles drawn by traditional methods lies the core - a special small circle of two colors, one of which characterizes the guiding force of the circles according to the peculiarities of the ritual, and the other is invariably golden, surrounding any other color. Special kits are used for drawing the core of circles, described below."
     },
     {
       "type": "patchouli:crafting",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:white_circle_core_drawing_kit",
-      "text": "Любой набор для рисования сердцевины ритуального круга представляет собой обыкновенную смесь мела (двух цветов, один всегда золотистый) и пары свеч любого цвета. На следующей страницы представлены остальные наборы."
+      "text": "Any drawing kit for the core of a ritual circle consists of a simple mixture of chalk (two colors, one always golden) and a pair of candles of any color. The other kits are presented on the following pages."
     },
     {
       "type": "patchouli:crafting",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:green_circle_core_drawing_kit",
       "recipe2": "ars_maleficarum:crimson_circle_core_drawing_kit"
     },
     {
       "type": "patchouli:image",
-      "title": "Сердцевины кругов",
-      "text": "На рисунках представлен внешний вид сердцевин ритуальных кругов - белого, зелёного и красного цветов соответственно.",
+      "title": "Circle Cores",
+      "text": "The images depict the appearance of the cores of different colours.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/white_circle_core.png","ars_maleficarum:textures/books/shadow_grimoire/green_circle_core.png","ars_maleficarum:textures/books/shadow_grimoire/crimson_circle_core.png"]
     }

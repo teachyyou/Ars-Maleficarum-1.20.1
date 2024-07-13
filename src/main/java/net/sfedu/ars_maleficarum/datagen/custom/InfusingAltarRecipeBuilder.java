@@ -17,17 +17,20 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 
 public class InfusingAltarRecipeBuilder implements RecipeBuilder {
 
     private final Item result;
-    private final List<Ingredient> components=new ArrayList<Ingredient>();
+    private final List<Ingredient> components=new ArrayList<>();
     private final String dimension;
 
     public InfusingAltarRecipeBuilder(List<ItemLike> ingredient, ItemLike result, String dimension) {
@@ -40,35 +43,39 @@ public class InfusingAltarRecipeBuilder implements RecipeBuilder {
     }
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
 
     @Override
+    @NotNull
     public RecipeBuilder group(@Nullable String pGroupName) {
         return this;
     }
 
     @Override
+    @NotNull
     public Item getResult() {
         return result;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         this.advancement.parent(new ResourceLocation("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
                 .rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
 
-        pFinishedRecipeConsumer.accept(new InfusingAltarRecipeBuilder.Result(pRecipeId, this.result, this.components, this.dimension,
+        pFinishedRecipeConsumer.accept(new InfusingAltarRecipeBuilder.Result(this.result, this.components, this.dimension,
                 this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/"
                 + pRecipeId.getPath())));
 
     }
 
     public static class Result implements FinishedRecipe {
-        private final ResourceLocation id;
         private final Item result;
         private final List<Ingredient> components;
         private final String dimension;
@@ -76,10 +83,9 @@ public class InfusingAltarRecipeBuilder implements RecipeBuilder {
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, Item pResult, List<Ingredient> components, String dimension, Advancement.Builder pAdvancement,
+        public Result(Item pResult, List<Ingredient> components, String dimension, Advancement.Builder pAdvancement,
                       ResourceLocation pAdvancementId) {
             this.components=components;
-            this.id = pId;
             this.result = pResult;
             this.dimension=dimension;
             this.advancement = pAdvancement;
@@ -87,7 +93,7 @@ public class InfusingAltarRecipeBuilder implements RecipeBuilder {
         }
 
         @Override
-        public void serializeRecipeData(JsonObject pJson) {
+        public void serializeRecipeData(@NotNull JsonObject pJson) {
             JsonArray jsonarray = new JsonArray();
             for (Ingredient ingr : components) {
                 jsonarray.add(ingr.toJson());
@@ -95,7 +101,7 @@ public class InfusingAltarRecipeBuilder implements RecipeBuilder {
             pJson.add("ingredients", jsonarray);
 
             JsonObject jsonobject = new JsonObject();
-            jsonobject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
+            jsonobject.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).toString());
 
 
             pJson.add("output", jsonobject);
@@ -104,22 +110,21 @@ public class InfusingAltarRecipeBuilder implements RecipeBuilder {
         }
 
         @Override
+        @NotNull
         public ResourceLocation getId() {
             return new ResourceLocation(ArsMaleficarum.MOD_ID,
-                    ForgeRegistries.ITEMS.getKey(this.result).getPath() + "_in_infusing_altar");
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).getPath() + "_in_infusing_altar");
         }
 
         @Override
-        public RecipeSerializer<?> getType() {
+        public @NotNull RecipeSerializer<?> getType() {
             return InfusingAltarRecipe.Serializer.INSTANCE;
         }
 
-        @javax.annotation.Nullable
         public JsonObject serializeAdvancement() {
             return this.advancement.serializeToJson();
         }
 
-        @javax.annotation.Nullable
         public ResourceLocation getAdvancementId() {
             return this.advancementId;
         }

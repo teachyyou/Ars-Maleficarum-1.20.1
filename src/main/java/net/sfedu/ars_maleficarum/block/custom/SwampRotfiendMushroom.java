@@ -31,7 +31,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@SuppressWarnings("deprecation")
 public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     protected static final VoxelShape[] EAST_AABB = new VoxelShape[]{Block.box(13.0D, 0.0D, 8.0D, 16.0D, 5.0D, 9.0D), Block.box(11.0D, 0.0D, 6.0D, 16.0D, 8.0D, 11.0D), Block.box(11.0D, 0.0D, 6.0D, 16.0D, 8.0D, 11.0D),Block.box(9.0D, 0.0D, 5.0D, 16.0D, 12.0D, 12.0D)};
@@ -42,29 +46,35 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
     public SwampRotfiendMushroom(BlockBehaviour.Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(AGE, 0));
     }
+    @Override
     public boolean isRandomlyTicking(BlockState pState) {
         return pState.getValue(AGE) < 3;
     }
+    @Override
+    @ParametersAreNonnullByDefault
     public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
         return pState.getValue(AGE) < 3;
     }
+    @Override
+    @ParametersAreNonnullByDefault
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (true) {
-            int i = pState.getValue(AGE);
-            if (i < 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pLevel.random.nextInt(5) == 0)) {
-                pLevel.setBlock(pPos, pState.setValue(AGE, i + 1), 2);
-                net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
-            }
+        int i = pState.getValue(AGE);
+        if (i < 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pLevel.random.nextInt(5) == 0)) {
+            pLevel.setBlock(pPos, pState.setValue(AGE, i + 1), 2);
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
         }
     }
+    @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockState blockstate = pLevel.getBlockState(pPos.relative(pState.getValue(FACING)));
         return blockstate.is(ModBlocks.DEAD_TREE_LOG.get());
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         System.out.println(pLevel.isClientSide());
         if(!pLevel.isClientSide()  && pHand == InteractionHand.MAIN_HAND && pState.getValue(AGE) == 3 && pPlayer.getItemInHand(pHand).is(ModItems.FLINT_KNIFE.get()))
@@ -74,30 +84,24 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
             pLevel.setBlock(pPos,pState.setValue(AGE,0),2);
             pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                     ModItems.SWAMP_ROTFIEND_INGREDIENT.get())));
-            pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,(p_150686_) -> {
-                p_150686_.broadcastBreakEvent(pHand);
-            });
+            pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,(p_150686_) ->
+                    p_150686_.broadcastBreakEvent(pHand));
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         int i = pState.getValue(AGE);
-        switch ((Direction)pState.getValue(FACING)) {
-            case SOUTH:
-                return SOUTH_AABB[i];
-            case NORTH:
-            default:
-                return NORTH_AABB[i];
-            case WEST:
-                return WEST_AABB[i];
-            case EAST:
-                return EAST_AABB[i];
-        }
-    }
-    public IntegerProperty getAgeProperty()
-    {
-        return AGE;
+        return switch (pState.getValue(FACING)) {
+            case WEST -> WEST_AABB[i];
+            case EAST -> EAST_AABB[i];
+            case SOUTH -> SOUTH_AABB[i];
+            default -> NORTH_AABB[i];
+
+        };
     }
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState blockstate = this.defaultBlockState();
@@ -115,21 +119,31 @@ public class SwampRotfiendMushroom extends HorizontalDirectionalBlock implements
 
         return null;
     }
+
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         return pFacing == pState.getValue(FACING) && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
+    @Override
+    @ParametersAreNonnullByDefault
     public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
         return true;
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        return;
+
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, AGE);
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
     }

@@ -1,32 +1,32 @@
 {
-  "name": "Проведение ритуала",
+  "name": "Performing the Ritual",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/circle_magic.png",
   "category": "ars_maleficarum:circle_magic/circle_components",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Этот параграф подробно описывает процесс проведения любого ритуала. Конечно, не всегда этот процесс одинаков, но существует несколько неизменных принципов и правил, лежащих в основе ритуальной магии. Данный параграф предполагает, что необходимая $(l:circle_components/drawing)конфигурация кругов$(), указанная на посвящённых ритуалу страницах, уже создана."
+      "text": "This paragraph provides detailed descriptions of the process of performing any ritual. Of course, this process is not always the same, but there are several immutable principles and rules underlying ritual magic. This paragraph assumes that the required $(l:circle_components/drawing)circle configuration$(), specified on the dedicated ritual pages, has already been created."
     },
     {
       "type": "patchouli:text",
-      "title": "Другие требования",
-      "text": "Проведение практически всех ритуалов требует поглощения силы из чётко определённого набора предметов, называемых компонентами - в книге они указываются прямо под схемами требуемых конфигураций кругов. В начале все компоненты нужно бросить внутрь круга ближе к сердцевине - только в этом случае обряд может начаться. Процесс проведения может быть активирован нажатием ПКМ по сердцевине."
+      "title": "Other Requirements",
+      "text": "Performing almost all rituals requires the absorption of power from a clearly defined set of items called components - they are listed directly beneath the diagrams of the required circle configurations in the book. Initially, all components must be thrown inside the circle closer to the core - only then can the ritual begin. The process can be activated by right-clicking on the core."
     },
     {
       "type": "patchouli:text",
-      "title": "Возможные ошибки",
-      "text": "Отсутствие какой-либо реакции сердцевины после предполагаемой активации говорит об одной из трёх возможных ошибок: $(br2)1) Неверная конфигурация кругов$(br2)2) Неверный набор компонентов $(br2)3) Невыполнение особых условий, указанных на странице, посвящённой ритуалу. $(br2)Если всё сделано верно, то круги начнут поглощение компонентов."
+      "title": "Possible Errors",
+      "text": "The absence of any reaction from the core after the presumed activation indicates one of three possible errors: $(br2)1) Incorrect circle configuration$(br2)2) Incorrect set of components$(br2)3) Failure to meet the special conditions specified on the ritual page. $(br2)If everything is done correctly, the circles will begin to absorb the components."
     },
     {
       "type": "patchouli:text",
-      "title": "О компонентах",
-      "text": "Расщепление компонентов происхоит постепенно, один за другим - во время этого важно проявить осторожность и не забирать предметы, лежащие на земле. Если в какой-то момент очередной требуемый компонент не будет обнаружен, то ритуал будет прерван, уже поглощённые компоненты потеряны, а незадачливый колдун и вовсе может пострадать от побочных эффектов, спровоцированных допущением ошибки."
+      "title": "About the Components",
+      "text": "The splitting of components occurs gradually, one by one - during this process, it is important to exercise caution and not retrieve items lying on the ground. If at any point the next required component is not found, the ritual will be interrupted, already absorbed components will be lost, and the unfortunate sorcerer may suffer from side effects caused by the interruption."
     },
     {
       "type": "patchouli:text",
-      "title": "Начало ритуала",
-      "text": "Как только последний компонент из списка будет расщёплен, начнется следующая стадия. Магия, протекающая сквозь глифы, будет фокусироваться, изменяться, изгибаться и закручиваться, подчиняя материю вокруг, пока не будет достигнут результат или ритуал не будет прерван (например, описанной ранее ошибкой или разрывом кругов). В процессе проведения пространство вокруг сердцевины дестабилизируется, могут возникать самого разного рода (в т.ч. и опасные) события."
+      "title": "Initiating the Ritual",
+      "text": "Once the last component from the list is split, the next stage will begin. Magic flowing through the glyphs will focus, transform, bend, and twist, bending matter around until the desired result is achieved or the ritual is interrupted (for example, by the aforementioned error or a breach in the circles). During the ritual, the space around the core destabilizes, and various (including dangerous) events may occur."
     }
   ],
   "read_by_default": true

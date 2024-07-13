@@ -67,7 +67,7 @@ public class ArsMaleficarum
                 EntityRenderers.register(ModEntities.GLUTTONY_DEMON.get(), GluttonyDemonRender::new);
                 EntityRenderers.register(ModEntities.POISONOUS_ESSENCE.get(), PoisonousEssenceRender::new);
                 EntityRenderers.register(ModEntities.FIRE_ESSENCE.get(), FireEssenceRender::new);
-                EntityRenderers.register(ModEntities.TRADER_WITCH.get(), TraderWitchRender::new);
+                EntityRenderers.register(ModEntities.HERMIT_WITCH.get(), HermitWitchRender::new);
             });
         }
     }

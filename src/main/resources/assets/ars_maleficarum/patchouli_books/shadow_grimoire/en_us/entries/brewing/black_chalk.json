@@ -1,18 +1,18 @@
 {
-  "name": "Чёрный мел",
+  "name": "Black Chalk",
   "icon": "ars_maleficarum:black_chalk",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Как и золотистый, мел чёрного цвета, символизирующий хаос в материи и порядок в пустоте, не используется (пока что) для формирования ритуальных кругов. $(br2)В данный момент единственное его предназначение - рисование красивой чёрной пентаграммы на покрытиях светлого цвета для алтаря наполнения."
+      "text": "Like the golden one, black chalk, symbolizing chaos in matter and order in void, is not yet used for forming ritual circles. $(br2)Currently, its sole purpose is to draw beautiful black pentagrams on light-colored surfaces for the altar of infusions."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:black_chalk_in_brewing_cauldron",
-      "text": "Чёрный мел, хоть и является полной противоположностью белого, всё равно создается на его основе."
+      "text": "Black chalk, although being the complete opposite of white, is still created based on it."
     }
   ],
   "read_by_default": true

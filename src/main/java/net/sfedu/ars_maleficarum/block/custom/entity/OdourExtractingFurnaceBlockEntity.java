@@ -31,6 +31,8 @@ import net.sfedu.ars_maleficarum.screen.OdourExtractorFurnaceMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
@@ -119,16 +121,18 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
             inventory.setItem(i,itemHandler.getStackInSlot(i));
         }
 
-        Containers.dropContents(this.level,this.worldPosition,inventory);
+        Containers.dropContents(Objects.requireNonNull(this.level),this.worldPosition,inventory);
     }
 
     @Override
+    @NotNull
     public Component getDisplayName() {
         return Component.translatable("Odour_Extracting_Furnace_DisplayName");
     }
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
         return new OdourExtractorFurnaceMenu(pContainerId, pPlayerInventory, this, this.data);
     }
@@ -163,6 +167,7 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
@@ -204,26 +209,26 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
 
     private void craftItem() {
         Random random = new Random();
-
-        Optional<OdourExtractingRecipe> recipe = getCurrentRecipe();
-        ItemStack resultItem = recipe.get().getResultItem(null);
-        float chance = recipe.get().getChance(null);
+        if (getCurrentRecipe().isEmpty()) return;
+        OdourExtractingRecipe recipe = getCurrentRecipe().get();
+        ItemStack resultItem = recipe.getResultItem(Objects.requireNonNull(level).registryAccess());
+        float chance = recipe.getChance();
 
         this.itemHandler.setStackInSlot(OUTPUT,new ItemStack(resultItem.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT).getCount()+1));
 
-        if (!recipe.get().getIsBottleRequired(null)
+        if (!recipe.getIsBottleRequired()
                 && random.nextFloat()>(1-chance)) {
-           this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),
+           this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.getAdditionalItem().getItem(),
                    this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
 
         }
 
         else if (this.itemHandler.getStackInSlot(JARS).getItem() == BOTTLE
-                && recipe.get().getIsBottleRequired(null)
+                && recipe.getIsBottleRequired()
                 && random.nextFloat()>(1-chance)) {
                     this.itemHandler.extractItem(JARS,1,false);
-                    this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.get().getAdditionalItem(null).getItem(),
+                    this.itemHandler.setStackInSlot(ADDITIONAL,new ItemStack(recipe.getAdditionalItem().getItem(),
                             this.itemHandler.getStackInSlot(ADDITIONAL).getCount()+1));
 
         }
@@ -269,8 +274,8 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         if (recipe.isEmpty()) {
             return false;
         }
-        ItemStack resultItem = recipe.get().getResultItem(null);
-        ItemStack additionalItem = recipe.get().getAdditionalItem(null);
+        ItemStack resultItem = recipe.get().getResultItem(Objects.requireNonNull(level).registryAccess());
+        ItemStack additionalItem = recipe.get().getAdditionalItem();
 
         return canInsertAmountIntoOutputSlot(resultItem.getCount())
                 && canInsertItemIntoOutputSlot(resultItem.getItem())
@@ -283,7 +288,7 @@ public class OdourExtractingFurnaceBlockEntity extends BlockEntity implements Me
         for (int i = 0; i < this.itemHandler.getSlots(); i++) {
             inventory.setItem(i,this.itemHandler.getStackInSlot(i));
         }
-        return this.quickCheck.getRecipeFor(inventory,level);
+        return this.quickCheck.getRecipeFor(inventory,Objects.requireNonNull(level));
         //return this.level.getRecipeManager().getRecipeFor(OdourExtractingRecipe.Type.INSTANCE,inventory,level);
     }
 

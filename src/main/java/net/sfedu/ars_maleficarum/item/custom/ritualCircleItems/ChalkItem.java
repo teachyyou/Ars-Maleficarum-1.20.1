@@ -1,7 +1,5 @@
 package net.sfedu.ars_maleficarum.item.custom.ritualCircleItems;
 
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -16,7 +14,9 @@ import net.minecraft.world.phys.Vec3;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import net.sfedu.ars_maleficarum.util.ModTags;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class ChalkItem extends Item {
@@ -34,6 +34,7 @@ public class ChalkItem extends Item {
     }
 
     @Override
+    @NotNull
     public InteractionResult useOn(UseOnContext pContext) {
         if (!pContext.getLevel().isClientSide()) {
             Direction[] dirs = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
@@ -51,14 +52,14 @@ public class ChalkItem extends Item {
             }
         }
 
-        chalkUse(pContext.getPlayer(), pContext.getItemInHand(), pContext.getLevel(), pContext.getClickedPos());
+        chalkUse(Objects.requireNonNull(pContext.getPlayer()), pContext.getItemInHand(), pContext.getLevel());
 
         pContext.getLevel().playSound(null,pContext.getClickedPos(), ModSounds.CHALK_USE.get(), SoundSource.PLAYERS);
         return InteractionResult.SUCCESS;
     }
 
     //divides chalk stack after using
-    public static void chalkUse(Player player, ItemStack itemStack, Level level, BlockPos blockPos) {
+    public static void chalkUse(Player player, ItemStack itemStack, Level level) {
         if (!player.isCreative()) {
             if (itemStack.getCount() > 1) {
                 int remainingCount = itemStack.getCount() - 1;

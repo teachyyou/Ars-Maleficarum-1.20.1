@@ -1,0 +1,19 @@
+{
+  "name": "Зачарованная кожа",
+  "icon": "ars_maleficarum:dried_enchanted_leather",
+  "category": "ars_maleficarum:components",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Продвинутые ведьмы подходят к вопросу выбора одеяния крайне щепетильно. Здесь важно всё - от состава кожи и до угла остроты шляпы. Кожа, а вообще говоря зачарованная кожа - один из наиболее часто встречающихся материалов для изготовления одежд, которые привыкли носить волшебники. $(br)Процесс создания зачарованной кожи не очень быстр, однако оно того всецело стоит. Начать следует с $(l:brewing/wet_enchanted_leather)зачарования$()."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Высушивание",
+      "recipe": "ars_maleficarum:dried_enchanted_leather_from_wet",
+      "text": "Далее коже необходима сушка с выпариванием $(l:components/salt)соли$(), что была использована ранее. Превосходно подойдет для этих целей $(l:odour_extracting/odour_extracting_furnace)печь выпаривания ароматов$(). Опасаться нечего - кожа не будет сожжена, лишь высушена."
+    }
+  ],
+  "read_by_default": true
+}

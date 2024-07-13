@@ -1,18 +1,18 @@
 {
-  "name": "Красный мел",
+  "name": "Crimson Chalk",
   "icon": "ars_maleficarum:crimson_chalk",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Как и в случае с природными силами, белого мела может оказаться недостаточно там, где требуется вмешательство инфернального начала. $(br2)Созданный при помощи добытых в Нижнем мире компонентов, этот мел служит необходимым условием для проведения ритуалов, взаимодействующих с Адом или его обитателями."
+      "text": "Just as natural forces may sometimes prove insufficient, white chalk may fall short where the intervention of infernal powers is required. $(br2)Crafted using components harvested from the Nether, this chalk is an essential requisite for performing rituals that engage with the Hellish realms or their denizens."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:crimson_chalk_in_brewing_cauldron",
-      "text": "Красный мел, как и любой другой цветной, создаётся на основе обыкновенного белого."
+      "text": "Crimson chalk, like any other colored chalk, is created based on ordinary white chalk."
     }
   ],
   "read_by_default": true

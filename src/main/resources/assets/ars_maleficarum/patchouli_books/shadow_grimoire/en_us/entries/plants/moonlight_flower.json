@@ -1,24 +1,23 @@
 {
-  "name": "Лунный Свет",
+  "name": "Moonlight Flower",
   "icon": "ars_maleficarum:textures/block/moonlight_flower_stage_6.png",
   "category": "ars_maleficarum:plants/flowers",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Данный цветок, редкий и трудный в выращивании, является накопителем и проводником энергии Луны и настоящим ночным хранителем любого сада. Вымерший в дикой природе, он тем не менее может быть получен достаточно опытным волшебником с помощью проведения $(l:rituals/natural_invocation/moonlight_flower_creation)особого ритуала$(). В его основе будет лежать более распространённый вид - $(l:plants/sunlight_flower)Солнечный Свет$(/l)."
+      "text": "This rare and difficult-to-cultivate flower is a harbinger and conduit of lunar energy, truly a nocturnal guardian of any garden. $(br2)Extinct in the wild, it can nonetheless be obtained by a sufficiently skilled wizard through the performance of a $(l:rituals/natural_invocation/moonlight_flower_creation)special ritual$(). At its core, a more common species – the $(l:plants/sunlight_flower)Sunlight Flower$(/l) – will be transformed."
     },
     {
       "type": "patchouli:image",
-      "text": "Ритуальные круги помогут обратить магию цветка, отвер- нув его от Солнца к Луне.",
+      "text": "Ritual circles will help convert the flower's magic, turning it away from the Sun and towards the Moon.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/moonlight_flower.png"]
-
     },
     {
       "type": "patchouli:text",
-      "title": "О выращивании",
-      "text": "Как уже было упомянуто, данный цветок не отличается простотой в условиях содержания. Прежде всего, его рост происходит только ночью, и только под открытым небом. Если лишить растения доступа к небу (пусть и днем), то оно мгновенно погибнет. Кроме того, его рост нельзя ускорить костной мукой, а своим чередом он происходит довольно медленно. Наберитесь терпения - оно будет вознаграждено!"
+      "title": "On Cultivation",
+      "text": "As previously mentioned, this flower is not easy to care for. First and foremost, it grows only at night and only under the open sky. If the plant is deprived of access to the sky (even during the day), it will instantly perish. Moreover, its growth cannot be accelerated with bone meal, and it proceeds rather slowly at its own pace. Patience will be rewarded!"
     }
   ],
   "read_by_default": true

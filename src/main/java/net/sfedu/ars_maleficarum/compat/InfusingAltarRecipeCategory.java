@@ -13,12 +13,16 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 
 public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAltarRecipe> {
@@ -36,6 +40,8 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
                 .maximumSize(300)
                 .build(new CacheLoader<>() {
                     @Override
+                    @NotNull
+                    @ParametersAreNonnullByDefault
                     public IDrawableAnimated load(Integer burnTime) { //тут менял на -20 пробовал
                         return helper.drawableBuilder(TEXTURE, 183, 182, 210, 70)
                                 .buildAnimated(burnTime, IDrawableAnimated.StartDirection.TOP, false);
@@ -44,26 +50,31 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
     }
 
     @Override
+    @NotNull
     public RecipeType<InfusingAltarRecipe> getRecipeType() {
         return INFUSING_ALTAR_TYPE;
     }
 
     @Override
+    @NotNull
     public Component getTitle() {
         return Component.translatable("infusing_altar_crafts");
     }
 
     @Override
+    @NotNull
     public IDrawable getBackground() {
         return this.background;
     }
 
     @Override
+    @NotNull
     public IDrawable getIcon() {
         return this.icon;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void setRecipe(IRecipeLayoutBuilder builder, InfusingAltarRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT,24,8).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT,96,8).addIngredients(recipe.getIngredients().get(1));
@@ -71,10 +82,11 @@ public class InfusingAltarRecipeCategory implements IRecipeCategory<InfusingAlta
         builder.addSlot(RecipeIngredientRole.INPUT,60,77).addIngredients(recipe.getIngredients().get(3));
         builder.addSlot(RecipeIngredientRole.INPUT,19,53).addIngredients(recipe.getIngredients().get(4));
         builder.addSlot(RecipeIngredientRole.INPUT,60,40).addIngredients(recipe.getIngredients().get(5));
-        builder.addSlot(RecipeIngredientRole.OUTPUT,140,40).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT,140,40).addItemStack(recipe.getResultItem(RegistryAccess.EMPTY));
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void draw(InfusingAltarRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
         int AltarProgressTime = 160;

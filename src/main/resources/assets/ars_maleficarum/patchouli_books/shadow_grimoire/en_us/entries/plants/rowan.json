@@ -1,28 +1,28 @@
 {
-  "name": "Рябина",
+  "name": "Rowan",
   "icon": "ars_maleficarum:textures/block/rowan_sapling.png",
   "category": "ars_maleficarum:plants/trees",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "С давних времен рябина была известна волшебникам, ведьмам, алхимикам и другим посвященным в искусство как дерево, внутри которого проносится циклическим потоком первозданная природная магия. $(br)Произрастающее в лесах, это дерево может быть без труда добыто и использовано, ибо древесина его - превосходный проводник для энергии. А потому у рябины часто нет равных при выборе основы для деревянного (наиболее резонирующего) посоха."
+      "text": "Since ancient times, rowan has been revered by wizards, witches, alchemists, and other adepts of the arcane arts as a tree through which primal natural magic flows in a cyclic current. $(br)Growing in forests, this tree can be effortlessly harvested and utilized, as its wood serves as a superb conduit for energy. Thus, rowan wood is often unmatched when selecting the base for a wooden (and most resonant) staff."
     },
     {
       "type": "patchouli:image",
       "border": true,
-      "text": "Взрослое рябиновое дерево среди леса - это его обычная среда произрастания.",
+      "text": "A mature rowan tree amidst the forest – this is its natural realm.",
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/rowan.png"]
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:rowan_bark",
-      "text": "Используя примитивный нож, с бревен рябины можно срезать кору - в ней содержится часть магических свойств, благодаря которым это дерево и интересует посвященных в искусство. $(br)Эта кора может использоваться при изготовлении различных деревянных предметов (в особенности посохов), требующих хорошей проводимости магической энергии, которой славится рябиновая древесина."
+      "text": "Using a simple knife, one can strip the bark from rowan logs, revealing the magical properties that make this tree so intriguing to practitioners of the arcane. $(br)This bark can be employed in the crafting of various wooden items (especially staffs), which demand excellent conductivity of magical energy, a trait for which rowan wood is renowned."
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:rowan_berries",
-      "text": "На достаточно выросших рябиновых деревьях, особенно в теплое время года, можно обнаружить веточки, усыпанные гроздьями красных ягод. Эти плоды не только очень приятны на вкус и аромат, но и обладают рядом интересных свойств, которым сможет найти применение любой опытный травник."
+      "text": "On well-grown rowan trees, especially during the warm seasons, branches can be found adorned with clusters of red berries. These fruits are not only delightful in taste and aroma but also possess a myriad of fascinating properties, ready to be harnessed by any skilled herbalist."
     }
   ],
   "read_by_default": true

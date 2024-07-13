@@ -25,74 +25,85 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.block.custom.entity.ModBlockEntities;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Predicate;
 
+@SuppressWarnings("deprecation")
 public class RitualCircleCore extends BaseEntityBlock {
     public RitualCircleCore(Properties pProperties) {
         super(pProperties.destroyTime(5));
     }
 
     //Фильтр того, что тип белый, адский или природный (для blockstate датаген билдера)
-    private static Predicate<RitualCoreEntity.ChalkType> coreColor = (type) ->(type.ordinal() <= 2);
+    private static final Predicate<RitualCoreEntity.ChalkType> coreColor = (type) ->(type.ordinal() <= 2);
 
-    public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLETYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class, coreColor);
+    public static final EnumProperty<RitualCoreEntity.ChalkType> CIRCLE_TYPE = EnumProperty.create("circletype", RitualCoreEntity.ChalkType.class, coreColor);
 
     public static final VoxelShape SHAPE = Block.box(-8,0,-8,24,1,24);
 
     @Override
-    public float getDestroyProgress(BlockState pState, Player pPlayer, BlockGetter pLevel, BlockPos pPos) {
-        return (pPlayer.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(pState, pPlayer, pLevel, pPos);
+    @ParametersAreNonnullByDefault
+    public float getDestroyProgress(BlockState blockState, Player player, BlockGetter level, BlockPos blockPos) {
+        return (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.CHALK_BRUSH.get()) ? 5 : 1)*super.getDestroyProgress(blockState, player, level, blockPos);
     }
 
     @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        RitualCoreEntity riteCore = (RitualCoreEntity) pLevel.getBlockEntity(pPos);
-        riteCore.checkForCircles(pLevel,pPos);
-        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+    @ParametersAreNonnullByDefault
+    public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState oldState, boolean pIsMoving) {
+        RitualCoreEntity riteCore = (RitualCoreEntity) level.getBlockEntity(blockPos);
+        if (riteCore == null) return;
+        riteCore.checkForCircles(level,blockPos);
+        super.onPlace(blockState, level, blockPos, oldState, pIsMoving);
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(CIRCLETYPE);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(CIRCLE_TYPE);
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public VoxelShape getShape(BlockState blockState, BlockGetter level, BlockPos blockPos, CollisionContext context) {
         return SHAPE;
     }
 
 
 
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        return !this.canSurvive(pState, pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : pState;
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public BlockState updateShape(BlockState blockState, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        return !this.canSurvive(blockState, level, currentPos) ? Blocks.AIR.defaultBlockState() : blockState;
     }
 
     @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        if (!pLevel.isClientSide()) {
-            return !pLevel.getBlockState(pPos.below()).is(Blocks.AIR);
+    @ParametersAreNonnullByDefault
+    public boolean canSurvive(BlockState blockState, LevelReader level, BlockPos blockPos) {
+        if (!level.isClientSide()) {
+            return !level.getBlockState(blockPos.below()).is(Blocks.AIR);
         }
         return false;
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide()) {
-            if (pPlayer.getItemInHand(pHand).is(ModItems.CHALK_BRUSH.get())) {
-                pLevel.removeBlock(pPos,false);
-                pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer,(p_150686_) -> {
-                    p_150686_.broadcastBreakEvent(pHand);
-                });
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult hitResult) {
+        if (!level.isClientSide()) {
+            if (player.getItemInHand(interactionHand).is(ModItems.CHALK_BRUSH.get())) {
+                level.removeBlock(blockPos,false);
+                player.getItemInHand(interactionHand).hurtAndBreak(1,player,(p_150686_) -> p_150686_.broadcastBreakEvent(interactionHand));
             } else {
-                RitualCoreEntity riteCore = (RitualCoreEntity) pLevel.getBlockEntity(pPos);
-                if (riteCore.isExecutingRitual()) {
+                RitualCoreEntity riteCore = (RitualCoreEntity) level.getBlockEntity(blockPos);
+                if (riteCore == null) return InteractionResult.FAIL;
+                else if (riteCore.isExecutingRitual()) {
                     riteCore.stopRitual();
-                } else try {
-                    riteCore.tryStartRitual(pState,pLevel,pPos,pPlayer);
-                } catch (Exception e) {
-                    System.out.println("something went wrong...");
+                } else {
+                    riteCore.tryStartRitual(level,blockPos,player);
                 }
 
             }
@@ -102,6 +113,7 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Nullable
     @Override
+    @ParametersAreNonnullByDefault
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new RitualCoreEntity(blockPos,blockState);
     }
@@ -109,16 +121,19 @@ public class RitualCircleCore extends BaseEntityBlock {
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        if (pLevel.isClientSide()) {
+    @ParametersAreNonnullByDefault
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
+        if (level.isClientSide()) {
             return null;
         }
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.RITUAL_CORE_ENTITY.get(),
-                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1,pPos,pState1));
+        return createTickerHelper(blockEntityType, ModBlockEntities.RITUAL_CORE_ENTITY.get(),
+                (level1, blockPos, blockState1, pBlockEntity) -> pBlockEntity.tick(level1,blockPos,blockState1));
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.MODEL;
     }
 }

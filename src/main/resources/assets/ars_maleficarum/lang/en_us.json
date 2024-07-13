@@ -67,8 +67,6 @@
 
   "item.ars_maleficarum.flint_knife": "Simple Knife",
 
-  "item.ars_maleficarum.empty_seal": "Empty Seal",
-  "item.ars_maleficarum.perception_core": "Perception Core",
   "item.ars_maleficarum.salt": "Salt",
   "item.ars_maleficarum.stone_mortar": "Stone Mortar",
   "item.ars_maleficarum.stone_mortar_and_pestle": "Stone Mortar and Pestle",
@@ -76,18 +74,6 @@
   "item.ars_maleficarum.wooden_mortar_and_pestle": "Wooden Mortar and Pestle",
   "item.ars_maleficarum.swamp_rotfiend_ingredient_item": "Swamp Rotfiend",
 
-  "item.ars_maleficarum.carbon_detector": "A Poor Miner's Gift",
-  "item.ars_maleficarum.metal_detector": "A Swarthy Metallurgist's Gift",
-  "item.ars_maleficarum.valuable_detector": "A Red-Cheeked Sage's Gift",
-
-  "Valuable_not_found_message": "The artifact remains calm. Seems like nothing worthy is found underneath.",
-  "Valuable_found_message": "The artifact vibrates! Something interesting was spotted down below!",
-
-  "Metal_not_found_message": "The artifact is quiet. No signs of metal presence anywhere down below.",
-  "Metal_found_message": "The artifact shines and buzzes! Something metal lies underneath!",
-
-  "Carbon_not_found_message": "The artifact shows no interest. It is bored as nothing carbon containing was sensed.",
-  "Carbon_found_message": "The artifact pulses and squeaks! It is worth to search for something carbon containing underneath!",
   "Gluttony_Demon_Bar": "Gluttony Demon",
   "odour_extracting_furnace_crafts": "Odour Extracting Furnace",
   "infusing_altar_crafts": "Infusing Altar",
@@ -113,7 +99,7 @@
   "item.ars_maleficarum.tree_larva": "Tree Larva",
   "block.ars_maleficarum.dead_tree_log": "Dead Tree Log",
 
-  "item.ars_maleficarum.silver_dagger": "Silver Dagger",
+  "item.ars_maleficarum.silver_dagger": "Silver Stiletto",
 
   "block.ars_maleficarum.dead_tree_sapling": "Dead Tree Sapling",
 
@@ -228,8 +214,8 @@
   "item.ars_maleficarum.mandrake_soup": "Mandrake Stew",
   "item.ars_maleficarum.rowan_compote": "Rowan Compote",
 
-  "entity.ars_maleficarum.trader_witch": "Hermit Witch",
-  "item.ars_maleficarum.trade_witch_spawn_egg": "Hermit Witch Spawn Egg",
+  "entity.ars_maleficarum.hermit_witch": "Hermit Witch",
+  "item.ars_maleficarum.hermit_witch_spawn_egg": "Hermit Witch Spawn Egg",
 
   "sounds.ars_maleficarum.gluttony_demon_spawn": "Gluttony Demon summoned",
   "sounds.ars_maleficarum.gluttony_demon_died": "Gluttony Demon dies",
@@ -244,9 +230,9 @@
 
   "sounds.ars_maleficarum.fire_staff_radius_attack": "Fire ring summoned",
 
-  "sounds.ars_maleficarum.trader_witch_attack": "Hermit Witch attacks",
-  "sounds.ars_maleficarum.trader_witch_died": "Hermit Witch dies",
-  "sounds.ars_maleficarum.trader_witch_hurt": "Hermit Witch hurt",
-  "sounds.ars_maleficarum.trader_witch_ambient": "Hermit Witch laughs",
-  "sounds.ars_maleficarum.trader_witch_trade": "Hermit Witch trades"
+  "sounds.ars_maleficarum.hermit_witch_attack": "Hermit Witch attacks",
+  "sounds.ars_maleficarum.hermit_witch_died": "Hermit Witch dies",
+  "sounds.ars_maleficarum.hermit_witch_hurt": "Hermit Witch hurt",
+  "sounds.ars_maleficarum.hermit_witch_ambient": "Hermit Witch laughs",
+  "sounds.ars_maleficarum.hermit_witch_trade": "Hermit Witch trades"
 }

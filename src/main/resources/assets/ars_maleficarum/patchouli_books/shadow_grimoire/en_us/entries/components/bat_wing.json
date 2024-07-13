@@ -1,12 +1,12 @@
 {
-  "name": "Крыло летучей мыши",
+  "name": "Bat Wing",
   "icon": "ars_maleficarum:bat_wing",
   "category": "ars_maleficarum:components",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Крыло летучей мыши - полезный компонент, часто использующийся при изготовлении одеяний с повышенной восприимчивостью к чарам, а также изредка в зельеварении. Единственный способ добычи - убийство непосредственного хозяина крыла. $(br)$(l)В процессе поимки летучих мышей рекомендуется всеми силами избегать укуса.$()"
+      "text": "The bat wing is a useful component often used in the crafting of garments with enhanced susceptibility to enchantments, and occasionally in potion brewing. The only way to obtain it is by slaying the wing's original owner. $(br)$(l)During the capture of bats, it is highly recommended to avoid being bitten at all costs.$()"
     }
   ],
   "read_by_default": true

@@ -1,0 +1,17 @@
+{
+  "name": "Адское пиршество",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/abyssal_feast.png",
+  "category": "ars_maleficarum:circle_magic/demonology",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Настало время опробовать нечто новое. Данный ритуал позволяет установить связь с Преисподней и призвать в Верхний Мир демона Чревоугодия - первого серьёзного (и вечно голодного) противника, который в случае победы над вами не только разорвет ваше тело, но и с радостью полакомится душой. Подробности об этом инфернальном существе приведены в $(l:demonology/gluttony_demon)бестиарии$()."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:abyssal_feast"
+    }
+  ],
+  "read_by_default": true
+}

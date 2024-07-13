@@ -28,6 +28,8 @@ import net.sfedu.ars_maleficarum.entity.ai.GluttonyAttackGoal;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class GluttonyDemonEntity extends MortalSinDemonEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
@@ -128,6 +130,7 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean doHurtTarget(Entity pEntity) {
         if(!super.doHurtTarget(pEntity))
             return false;
@@ -145,6 +148,7 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return ModSounds.GLUTTONY_DEMON_HURT.get();
     }
@@ -168,12 +172,14 @@ public class GluttonyDemonEntity extends MortalSinDemonEntity {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void startSeenByPlayer(ServerPlayer pServerPlayer) {
         super.startSeenByPlayer(pServerPlayer);
         this.bossEvent.addPlayer(pServerPlayer);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void stopSeenByPlayer(ServerPlayer pServerPlayer) {
         super.stopSeenByPlayer(pServerPlayer);
         this.bossEvent.removePlayer(pServerPlayer);

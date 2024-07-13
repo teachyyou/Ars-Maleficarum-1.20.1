@@ -13,7 +13,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.sfedu.ars_maleficarum.world.tree.ModTrunkPlacerTypes;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -28,11 +30,14 @@ public class KramerTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
+    @NonNull
     protected TrunkPlacerType<?> type() {
         return ModTrunkPlacerTypes.KRAMER_TRUNK_PLACER.get();
     }
 
     @Override
+    @ParametersAreNonnullByDefault
+    @NonNull
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos, TreeConfiguration pConfig) {
         setDirtAt(pLevel,pBlockSetter,pRandom,pPos.below(),pConfig);
 
@@ -53,7 +58,7 @@ public class KramerTrunkPlacer extends TrunkPlacer {
                 }
             }
         }
-        for (int i = 0; i < height; i++) {;
+        for (int i = 0; i < height; i++) {
             if (i==possibleCurveLevel && pRandom.nextFloat() >= 0.25) pPos=pPos.relative(dir[pRandom.nextInt(4)]);
             placeLog(pLevel,pBlockSetter,pRandom,pPos.above(i),pConfig);
         }

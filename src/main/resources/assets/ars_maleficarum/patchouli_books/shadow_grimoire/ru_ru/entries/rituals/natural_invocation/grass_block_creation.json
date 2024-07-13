@@ -1,0 +1,17 @@
+{
+  "name": "Озеленение почвы",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/grass_block_creation.png",
+  "category": "ars_maleficarum:circle_magic/natural_invocation_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Некоторые места порой находятся вне досягаемости возможностей естественного стремления природы покрыть зеленью все, что только можно. Тогда на помощь может прийти данный ритуал - фокусируя жизненную силу растений на блоке земли, он способен прорастить на том траву, давая возможность озеленить даже самые отдаленные безжизненные участки."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:grass_block_creation"
+    }
+  ],
+  "read_by_default": true
+}

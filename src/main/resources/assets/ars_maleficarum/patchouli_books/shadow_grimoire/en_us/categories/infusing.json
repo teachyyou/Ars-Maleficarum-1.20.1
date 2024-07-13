@@ -1,6 +1,6 @@
 {
-  "name": "Наполнение",
-  "description": "Данный раздел гримуара посвящен более продвинутой концепции - процессу наполнения предметов силой, черпаемой из природы вокруг. Наполнение позволяет создавать более высокоуровневые компоненты и более сильные артефакты, чем все известные ранее традиционные способы. $(br)Конструкция, лежащая в основе процесса наполнения - алтарь с пятиконечной звездой, создание которого описано в первой главе.",
+  "name": "Infusing",
+  "description": "This section of the grimoire is dedicated to a more advanced concept - the process of infusing items with power drawn from the surrounding nature. Infusing allows for the creation of higher-level components and stronger artifacts than all previously known traditional methods. $(br)At the core of the infusing process lies an altar with a five-pointed star, the creation of which is described in the first chapter.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/infusing.png",
   "sortnum": 6
 }

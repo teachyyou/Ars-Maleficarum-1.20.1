@@ -63,13 +63,13 @@ public class    RiteOfAbyssalFeast extends CircleRitual {
             if (mandrake != null) {
                 pLevel.playSound(null,pPos,SoundEvents.BLAZE_DEATH,SoundSource.BLOCKS, 1f, 1f);
                 pLevel.playSound(null,pPos,ModSounds.GLUTTONY_DEMON_SPAWN.get(), SoundSource.BLOCKS, 1f, 1f);
-                mandrake.moveTo((double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
+                mandrake.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
                 pLevel.addFreshEntity(mandrake);
 
                 pPlayer.sendSystemMessage(ritualName);
                 ticks=0;
                 riteCore.stopRitual();
-                tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+                tryToContinue(pLevel,pPos,pPlayer,riteCore);
             }
         }
 

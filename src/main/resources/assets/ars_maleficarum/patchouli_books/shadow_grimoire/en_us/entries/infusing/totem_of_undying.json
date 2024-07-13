@@ -1,19 +1,18 @@
 {
-  "name": "Тотем бессмертия",
+  "name": "Totem of Undying",
   "icon": "minecraft:totem_of_undying",
   "category": "ars_maleficarum:infusing",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Один из вариантов использования процесса наполнения - создание тотема бессмертия, что дарует носителю шанс на вторую жизнь, укрепляя его, когда тот оказывается на волоске от смерти. $(br2)Возможность создать такой артефакт многие относят к ещё одному доказательству могущества магии кукол, сравнивая это с Вуду."
+      "text": "One application of the infusion process is the creation of the Totem of Undying, which grants its bearer a chance at a second life, fortifying them when they are on the brink of death. $(br2)Many consider the ability to create such an artifact as further proof of the power of doll magic, likening it to Voodoo."
     },
     {
       "type": "ars_maleficarum:infusing_altar_recipe",
       "recipe": "ars_maleficarum:totem_of_undying_in_infusing_altar",
-      "title": "Наполнение",
-      "text": "Такова цена за шанс на вторую жизнь. Некоторые практики считают её слишком высокой, однако... как есть."
-
+      "title": "Infusion",
+      "text": "Such is the price for a second chance at life. Some practitioners deem it too steep, however... so it goes."
     }
   ],
   "read_by_default": true

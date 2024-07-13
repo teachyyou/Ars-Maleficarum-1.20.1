@@ -1,30 +1,30 @@
 {
-  "name": "Пустые фокусы",
+  "name": "Empty Foci",
   "icon": "ars_maleficarum:poppet",
   "category": "ars_maleficarum:infusing",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Существует несколько предметов, которые способны впитать в себя большое количество магической энергии, а потому могут быть использованы в качестве основы для наполнения при помощи алтаря. Они зовутся фокусами, и эта категория включает в себя, помимо прочего, куклу из ткани, вырезанную деревянную фигурку и $(l:components/dry_wood)высушенную ветвь дерева$(). "
+      "text": "There exist several objects capable of absorbing vast amounts of magical energy, hence suitable as bases for infusion using the altar. They are called foci, and this category includes, among other items, a cloth poppet, a carved wooden figure, and a $(l:components/dry_wood)dried branch of a tree$(). "
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:poppet",
-      "title": "Простая кукла",
-      "text": "Тряпичная кукла - очень распространённый среди чародеев и ведьм фокус. Магия кукол - отдельная ветвь в искусстве ведьмовства, но это далеко не всё. С помощью этого фокуса наполнением можно даровать себе шанс на вторую жизнь."
+      "title": "Poppet",
+      "text": "The rag poppet is a prevalent focus among sorcerers and witches. The magic of poppets is a separate branch in the art of witchcraft, yet this is far from all. With this focus, infusion can grant one a chance at a second life."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:wooden_figure",
-      "title": "Деревянная фигурка",
-      "text": "Вырезанная из дерева фигурка благодаря восприимчивости растительных материалов к магии и повышенному резонансу является отличным фокусом. С помощью таких фигурок часто изготавливаются различные идолы и статуэтки, направляющие магическую энергию во благо домов, где их ставят."
+      "title": "Wooden Figurine",
+      "text": "Carved from wood, the figurine, owing to the susceptibility of plant materials to magic and heightened resonance, serves as an excellent focus. Such figurines are often used to create various idols and statuettes, channeling magical energy for the benefit of the homes where they are placed."
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Фокусы",
+      "title": "Foci",
       "item": "ars_maleficarum:poppet,ars_maleficarum:wooden_figure,ars_maleficarum:dry_wood",
-      "text": "Эти фокусы и есть то, что наполняется магией окружающего пространства на алтаре. Хоть они в чём-то и похожи, но назначения артефактов, которые получаются из них наполнением, могут быть совершенно различными. В этом разделе, а также в разделе об артефактах, описаны некоторые такие магические предметы."
+      "text": "These foci are what absorb the magic of the surrounding space on the altar. Though they bear some similarities, the artifacts resulting from their infusion can have entirely different purposes. This section, along with the artifacts section, describes some of these magical items."
     }
   ],
   "read_by_default": true

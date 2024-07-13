@@ -12,7 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
 
@@ -32,6 +35,7 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
 
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
 
         if (pLevel.isClientSide()) {
@@ -82,6 +86,8 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
         return false;
     }
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
     }
@@ -91,31 +97,37 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
         return true;
     }
 
-    public boolean isInOrder(RegistryAccess pRegistryAccess) {
+    public boolean isInOrder() {
         return inOrder;
     }
 
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
     @Override
+    @NotNull
     public NonNullList<Ingredient> getIngredients() {
         return this.inputItems;
     }
 
     @Override
+    @NotNull
     public ResourceLocation getId() {
         return id;
     }
 
     @Override
+    @NotNull
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return Serializer.INSTANCE;
     }
 
     @Override
+    @NotNull
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
@@ -132,6 +144,8 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
                 new ResourceLocation(ArsMaleficarum.MOD_ID,"cauldron_brewing");
 
         @Override
+        @NotNull
+        @ParametersAreNonnullByDefault
         public BrewingCauldronRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json,"output"));
 
@@ -147,11 +161,10 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
+        @ParametersAreNonnullByDefault
         public @Nullable BrewingCauldronRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(),Ingredient.EMPTY);
-            for (int i = 0; i < inputs.size();i++) {
-                inputs.set(i,Ingredient.fromNetwork(buf));
-            }
+            inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
             ItemStack output = buf.readItem();
             boolean inOrder = buf.readBoolean();
             int craftType = buf.readInt();
@@ -164,7 +177,7 @@ public class BrewingCauldronRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing: recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(null),false);
+            buf.writeItemStack(recipe.getResultItem(RegistryAccess.EMPTY),false);
             buf.writeBoolean(recipe.inOrder);
             buf.writeInt(recipe.craftType);
         }

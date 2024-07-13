@@ -1,6 +1,6 @@
 {
-  "name": "Травы",
-  "description": "Здесь более подробно описаны травы и иные культуры различнного происхождения и свойств, что частенько выращиваются и используются ведьмами и колдунами. $(br2)$(l)Знание толка в травах - один из необходимых ключей к успеху любого уважающего себя практика.$()",
+  "name": "Herbs",
+  "description": "Here, you will find detailed descriptions of herbs and other crops of various origins and properties, often grown and used by witches and warlocks. $(br2)$(l)Knowing your herbs is one of the essential keys to the success of any self-respecting practitioner.$()",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/herbs.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 0

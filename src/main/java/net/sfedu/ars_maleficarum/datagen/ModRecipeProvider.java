@@ -3,12 +3,7 @@ package net.sfedu.ars_maleficarum.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BottleItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -23,7 +18,9 @@ import net.sfedu.ars_maleficarum.datagen.custom.InfusingAltarRecipeBuilder;
 import net.sfedu.ars_maleficarum.datagen.custom.OdourExtractorRecipeBuilder;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.util.ModTags;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -40,7 +37,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     //Генерация .json файлов крафтов (создания) предметов
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
         //Переплавка руд
         oreBlasting(pWriter, CURSED_GOLD_ORE, RecipeCategory.MISC, ModItems.CURSED_GOLD.get(), 0.25f, 100, "cursed_gold");
         oreBlasting(pWriter, SILVER_ORE, RecipeCategory.MISC, ModItems.SILVER.get(), 0.25f, 100, "silver");
@@ -180,64 +177,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', Items.STRING)
                 .define('C', Items.FLINT)
                 .unlockedBy(getHasName(Items.FLINT), has(Items.FLINT))
-                .save(pWriter);
-        //Крафт пустой печати
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EMPTY_SEAL.get(), 1)
-                .pattern("@#@")
-                .pattern("###")
-                .pattern("@#@")
-                .define('#', Items.IRON_INGOT)
-                .define('@', ModItems.SILVER_NUGGET.get())
-                .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
-                .save(pWriter);
-        //Крафт ядра восприятия
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PERCEPTION_CORE.get(), 1)
-                .pattern("@!@")
-                .pattern("#$%")
-                .pattern("@^@")
-                .define('@', Items.QUARTZ)
-                .define('!', Items.GOLD_INGOT)
-                .define('#', Items.DIAMOND)
-                .define('$', ModItems.EMPTY_SEAL.get())
-                .define('%', Items.COAL)
-                .define('^', Items.LAPIS_LAZULI)
-                .unlockedBy(getHasName(ModItems.EMPTY_SEAL.get()), has(ModItems.EMPTY_SEAL.get()))
-                .save(pWriter);
-        //Крафт дара нищего рудокопа
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CARBON_DETECTOR.get(), 1)
-                .pattern("GCG")
-                .pattern("CRC")
-                .pattern("GCG")
-                .define('G', Blocks.GLASS)
-                .define('C', Items.COAL)
-                .define('R', ModItems.PERCEPTION_CORE.get())
-                .unlockedBy(getHasName(ModItems.PERCEPTION_CORE.get()), has(ModItems.PERCEPTION_CORE.get()))
-                .save(pWriter);
-        //Крафт дара смуглого металлурга
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METAL_DETECTOR.get(), 1)
-                .pattern("ABA")
-                .pattern("CDE")
-                .pattern("AFA")
-                .define('A', Items.COPPER_INGOT)
-                .define('B', ModItems.CURSED_GOLD.get())
-                .define('C', Items.GOLD_INGOT)
-                .define('E', Items.IRON_INGOT)
-                .define('F', ModItems.SILVER.get())
-                .define('D', ModItems.PERCEPTION_CORE.get())
-                .unlockedBy(getHasName(ModItems.PERCEPTION_CORE.get()), has(ModItems.PERCEPTION_CORE.get()))
-                .save(pWriter);
-        //Крафт дара краснощёкого мудреца
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VALUABLE_DETECTOR.get(), 1)
-                .pattern("ABA")
-                .pattern("CDE")
-                .pattern("AFA")
-                .define('A', Items.QUARTZ)
-                .define('B', Items.AMETHYST_SHARD)
-                .define('C', Items.EMERALD)
-                .define('E', Items.LAPIS_LAZULI)
-                .define('F', Items.REDSTONE)
-                .define('D', ModItems.PERCEPTION_CORE.get())
-                .unlockedBy(getHasName(ModItems.PERCEPTION_CORE.get()), has(ModItems.PERCEPTION_CORE.get()))
                 .save(pWriter);
         //Крафт деревянной ступки и пестика
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.WOODEN_MORTAR_AND_PESTLE.get(), 1)
@@ -654,31 +593,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     }
 
-    protected ItemStack turnBottleIntoItem(BottleItem bottleItem, ItemStack pBottleStack, Player pPlayer, ItemStack pFilledBottleStack) {
-        pPlayer.awardStat(Stats.ITEM_USED.get(bottleItem));
-        return ItemUtils.createFilledResult(pBottleStack, pPlayer, pFilledBottleStack);
-    }
-
     //Генерация .json файлов для блоков, которые могут быть переплавлены
+    @ParametersAreNonnullByDefault
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
+    @ParametersAreNonnullByDefault
     protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
 
     }
 
+    @ParametersAreNonnullByDefault
     protected static void simpleCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
                                         ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
         simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
     }
 
-    protected static void simpleSmoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory,
-                                        ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
-        simpleCookingRecipeBuilder(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_smoking");
-    }
 
+    @ParametersAreNonnullByDefault
     protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients,
                                      RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
         for (ItemLike itemlike : pIngredients) {

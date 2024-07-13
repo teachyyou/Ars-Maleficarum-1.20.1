@@ -50,7 +50,7 @@ public class RitualCoreEntity extends BlockEntity {
                 }
             }
         }
-    };
+    }
 
     public enum ChalkType implements StringRepresentable {WHITE,NETHER,NATURAL,ENDER,ANY,NONE;
 
@@ -77,7 +77,7 @@ public class RitualCoreEntity extends BlockEntity {
                 }
             }
         }
-    };
+    }
 
 
     public boolean hasProperSmallCircle;
@@ -116,29 +116,29 @@ public class RitualCoreEntity extends BlockEntity {
 
 
 
-    public RitualCoreEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.RITUAL_CORE_ENTITY.get(),pPos, pBlockState);
+    public RitualCoreEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntities.RITUAL_CORE_ENTITY.get(), blockPos, blockState);
     }
 
-    private void checkForJoints(Level pLevel, BlockPos pPos) {
+    private void checkForJoints(Level level, BlockPos blockPos) {
         smallCircleJointsPositions.clear();
         mediumCircleJointsPositions.clear();
         Direction[] dirs = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
         if (hasProperSmallCircle && hasProperMediumCircle && isSmallRequired && isMediumRequired) {
             for (int i = -2; i <=2; i+=4) {
                 for (int j = -2; j<=2; j+=4) {
-                    BlockPos toCheck = pPos.relative(Direction.Axis.Z, i).relative(Direction.Axis.X, j);
+                    BlockPos toCheck = blockPos.relative(Direction.Axis.Z, i).relative(Direction.Axis.X, j);
                     smallCircleJointsPositions.add(toCheck);
-                    if (!checkForGlyphType(pLevel, toCheck,smallCircle, -1)) {
+                    if (checkForWrongGlyphType(level, toCheck, smallCircle, -1)) {
                         hasAllProperJoints=false;
                         return;
                     }
                 }
             }
             for (Direction dir: dirs) {
-                BlockPos toCheck = pPos.relative(dir, 3);
+                BlockPos toCheck = blockPos.relative(dir, 3);
                 smallCircleJointsPositions.add(toCheck);
-                if (!checkForGlyphType(pLevel, toCheck,smallCircle, -1)) {
+                if (checkForWrongGlyphType(level, toCheck, smallCircle, -1)) {
                     hasAllProperJoints=false;
                     return;
                 }
@@ -147,18 +147,18 @@ public class RitualCoreEntity extends BlockEntity {
         if (hasProperMediumCircle && hasProperLargeCircle && isMediumRequired && isLargeRequired) {
             for (int i = -4; i <=4; i+=8) {
                 for (int j = -4; j<=4; j+=8) {
-                    BlockPos toCheck = pPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
+                    BlockPos toCheck = blockPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
                     mediumCircleJointsPositions.add(toCheck);
-                    if (!checkForGlyphType(pLevel,toCheck,mediumCircle, -1)) {
+                    if (checkForWrongGlyphType(level, toCheck, mediumCircle, -1)) {
                         hasAllProperJoints=false;
                         return;
                     }
                 }
             }
             for (Direction dir: dirs) {
-                BlockPos toCheck = pPos.relative(dir,5);
+                BlockPos toCheck = blockPos.relative(dir,5);
                 mediumCircleJointsPositions.add(toCheck);
-                if (!checkForGlyphType(pLevel,toCheck,mediumCircle, -1)) {
+                if (checkForWrongGlyphType(level, toCheck, mediumCircle, -1)) {
                     hasAllProperJoints=false;
                     return;
                 }
@@ -167,39 +167,39 @@ public class RitualCoreEntity extends BlockEntity {
         hasAllProperJoints = true;
     }
 
-    private void checkForLargeCircle(Level pLevel, BlockPos pPos) {
+    private void checkForLargeCircle(Level level, BlockPos blockPos) {
         largeCirclePositions.clear();
         for (int i = -3; i <= 3; i++) {
-            BlockPos pos1 = pPos.relative(Direction.Axis.Z,6).relative(Direction.Axis.X, i);
-            BlockPos pos2 = pPos.relative(Direction.Axis.Z,-6).relative(Direction.Axis.X, i);
-            BlockPos pos3 = pPos.relative(Direction.Axis.X,6).relative(Direction.Axis.Z, i);
-            BlockPos pos4 = pPos.relative(Direction.Axis.X,-6).relative(Direction.Axis.Z, i);
+            BlockPos pos1 = blockPos.relative(Direction.Axis.Z,6).relative(Direction.Axis.X, i);
+            BlockPos pos2 = blockPos.relative(Direction.Axis.Z,-6).relative(Direction.Axis.X, i);
+            BlockPos pos3 = blockPos.relative(Direction.Axis.X,6).relative(Direction.Axis.Z, i);
+            BlockPos pos4 = blockPos.relative(Direction.Axis.X,-6).relative(Direction.Axis.Z, i);
             largeCirclePositions.add(pos1);
             largeCirclePositions.add(pos2);
             largeCirclePositions.add(pos3);
             largeCirclePositions.add(pos4);
-            if (!checkForGlyphType(pLevel, pos1, currentLargeType, 2)) {
+            if (checkForWrongGlyphType(level, pos1, currentLargeType, 2)) {
                 hasProperLargeCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos2, currentLargeType, 2)) {
+            else if (checkForWrongGlyphType(level, pos2, currentLargeType, 2)) {
                 hasProperLargeCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos3, currentLargeType, 2)) {
+            else if (checkForWrongGlyphType(level, pos3, currentLargeType, 2)) {
                 hasProperLargeCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos4, currentLargeType, 2)) {
+            else if (checkForWrongGlyphType(level, pos4, currentLargeType, 2)) {
                 hasProperLargeCircle=false;
                 return;
             }
         }
         for (int i = -5; i <=5; i+=10) {
             for (int j = -4; j<=4; j+=8) {
-                BlockPos pos5 = pPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
+                BlockPos pos5 = blockPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
                 largeCirclePositions.add(pos5);
-                if (!checkForGlyphType(pLevel, pos5, currentLargeType, 2)) {
+                if (checkForWrongGlyphType(level, pos5, currentLargeType, 2)) {
                     hasProperLargeCircle=false;
                     return;
                 }
@@ -207,9 +207,9 @@ public class RitualCoreEntity extends BlockEntity {
         }
         for (int i = -5; i <=5; i+=10) {
             for (int j = -4; j<=4; j+=8) {
-                BlockPos pos6 = pPos.relative(Direction.Axis.Z,j).relative(Direction.Axis.X, i);
+                BlockPos pos6 = blockPos.relative(Direction.Axis.Z,j).relative(Direction.Axis.X, i);
                 largeCirclePositions.add(pos6);
-                if (!checkForGlyphType(pLevel, pos6, currentLargeType,2)) {
+                if (checkForWrongGlyphType(level, pos6, currentLargeType, 2)) {
                     hasProperLargeCircle=false;
                     return;
                 }
@@ -219,39 +219,39 @@ public class RitualCoreEntity extends BlockEntity {
         largeCircle=currentLargeType;
     }
 
-    private void checkForMediumCircle(Level pLevel, BlockPos pPos) {
+    private void checkForMediumCircle(Level level, BlockPos blockPos) {
         mediumCirclePositions.clear();
         for (int i = -2; i <= 2; i++) {
-            BlockPos pos1 = pPos.relative(Direction.Axis.Z,4).relative(Direction.Axis.X, i);
-            BlockPos pos2 = pPos.relative(Direction.Axis.Z,-4).relative(Direction.Axis.X, i);
-            BlockPos pos3 = pPos.relative(Direction.Axis.X,4).relative(Direction.Axis.Z, i);
-            BlockPos pos4 = pPos.relative(Direction.Axis.X,-4).relative(Direction.Axis.Z, i);
+            BlockPos pos1 = blockPos.relative(Direction.Axis.Z,4).relative(Direction.Axis.X, i);
+            BlockPos pos2 = blockPos.relative(Direction.Axis.Z,-4).relative(Direction.Axis.X, i);
+            BlockPos pos3 = blockPos.relative(Direction.Axis.X,4).relative(Direction.Axis.Z, i);
+            BlockPos pos4 = blockPos.relative(Direction.Axis.X,-4).relative(Direction.Axis.Z, i);
             mediumCirclePositions.add(pos1);
             mediumCirclePositions.add(pos2);
             mediumCirclePositions.add(pos3);
             mediumCirclePositions.add(pos4);
-            if (!checkForGlyphType(pLevel, pos1, currentMediumType, 1)) {
+            if (checkForWrongGlyphType(level, pos1, currentMediumType, 1)) {
                 hasProperMediumCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos2, currentMediumType, 1)) {
+            else if (checkForWrongGlyphType(level, pos2, currentMediumType, 1)) {
                 hasProperMediumCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos3, currentMediumType, 1)) {
+            else if (checkForWrongGlyphType(level, pos3, currentMediumType, 1)) {
                 hasProperMediumCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos4, currentMediumType, 1)) {
+            else if (checkForWrongGlyphType(level, pos4, currentMediumType, 1)) {
                 hasProperMediumCircle=false;
                 return;
             }
         }
         for (int i = -3; i <=3; i+=6) {
             for (int j = -3; j<=3; j+=6) {
-                BlockPos pos5 = pPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
+                BlockPos pos5 = blockPos.relative(Direction.Axis.Z,i).relative(Direction.Axis.X, j);
                 mediumCirclePositions.add(pos5);
-                if (!checkForGlyphType(pLevel, pos5, currentMediumType, 1)) {
+                if (checkForWrongGlyphType(level, pos5, currentMediumType, 1)) {
                     hasProperMediumCircle=false;
                     return;
                 }
@@ -260,30 +260,30 @@ public class RitualCoreEntity extends BlockEntity {
         hasProperMediumCircle=true;
         mediumCircle=currentMediumType;
     }
-    private void checkForSmallCircle(Level pLevel, BlockPos pPos) {
+    private void checkForSmallCircle(Level level, BlockPos blockPos) {
         smallCirclePositions.clear();
         for (int i = -1; i <= 1; i++) {
-            BlockPos pos1 = pPos.relative(Direction.Axis.Z,2).relative(Direction.Axis.X, i);
-            BlockPos pos2 = pPos.relative(Direction.Axis.Z,-2).relative(Direction.Axis.X, i);
-            BlockPos pos3 = pPos.relative(Direction.Axis.X,2).relative(Direction.Axis.Z, i);
-            BlockPos pos4 = pPos.relative(Direction.Axis.X,-2).relative(Direction.Axis.Z, i);
+            BlockPos pos1 = blockPos.relative(Direction.Axis.Z,2).relative(Direction.Axis.X, i);
+            BlockPos pos2 = blockPos.relative(Direction.Axis.Z,-2).relative(Direction.Axis.X, i);
+            BlockPos pos3 = blockPos.relative(Direction.Axis.X,2).relative(Direction.Axis.Z, i);
+            BlockPos pos4 = blockPos.relative(Direction.Axis.X,-2).relative(Direction.Axis.Z, i);
             smallCirclePositions.add(pos1);
             smallCirclePositions.add(pos2);
             smallCirclePositions.add(pos3);
             smallCirclePositions.add(pos4);
-            if (!checkForGlyphType(pLevel, pos1, currentSmallType, 0)) {
+            if (checkForWrongGlyphType(level, pos1, currentSmallType, 0)) {
                 hasProperSmallCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos2, currentSmallType, 0)) {
+            else if (checkForWrongGlyphType(level, pos2, currentSmallType, 0)) {
                 hasProperSmallCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos3, currentSmallType, 0)) {
+            else if (checkForWrongGlyphType(level, pos3, currentSmallType, 0)) {
                 hasProperSmallCircle=false;
                 return;
             }
-            else if (!checkForGlyphType(pLevel, pos4, currentSmallType, 0)) {
+            else if (checkForWrongGlyphType(level, pos4, currentSmallType, 0)) {
                 hasProperSmallCircle=false;
                 return;
             }
@@ -294,57 +294,42 @@ public class RitualCoreEntity extends BlockEntity {
     }
 
     //todo добавить остальные типы и убрать редстоун
-    private ChalkType getTypeFromBlock(Level pLevel, BlockPos pPos) {
-        if (pLevel.getBlockState(pPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return ChalkType.WHITE;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return ChalkType.NATURAL;
-        else if (pLevel.getBlockState(pPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return ChalkType.NETHER;
+    private ChalkType getTypeFromBlock(Level level, BlockPos blockPos) {
+        if (level.getBlockState(blockPos).is(ModBlocks.WHITE_CHALK_SYMBOL.get())) return ChalkType.WHITE;
+        else if (level.getBlockState(blockPos).is(ModBlocks.GREEN_CHALK_SYMBOL.get())) return ChalkType.NATURAL;
+        else if (level.getBlockState(blockPos).is(ModBlocks.CRIMSON_CHALK_SYMBOL.get())) return ChalkType.NETHER;
         return ChalkType.ANY;
     }
 
-    //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
-    private boolean checkForGlyphType(Level pLevel, BlockPos pPos, ChalkType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
+    //TODO: добавить все остальные типы по мере добавления
+    private boolean checkForWrongGlyphType(Level level, BlockPos blockPos, ChalkType type, int id /*-1 = joints, 0 = small, 1 = medium, 2 = large*/) {
         Block toCheck = Blocks.AIR;
         if (type != ChalkType.ANY) {
             switch (type) {
-                case NATURAL -> {
-                    toCheck = ModBlocks.GREEN_CHALK_SYMBOL.get();
-                }
-                case NETHER ->  {
-                    toCheck = ModBlocks.CRIMSON_CHALK_SYMBOL.get();
-                }
-                case WHITE -> {
-                    toCheck = ModBlocks.WHITE_CHALK_SYMBOL.get();
-                }
-                case ENDER ->  {
-                    toCheck = ModBlocks.WHITE_CHALK_SYMBOL.get();
-                }
+                case NATURAL -> toCheck = ModBlocks.GREEN_CHALK_SYMBOL.get();
+                case NETHER -> toCheck = ModBlocks.CRIMSON_CHALK_SYMBOL.get();
+                case WHITE -> toCheck = ModBlocks.WHITE_CHALK_SYMBOL.get();
             }
-            return pLevel.getBlockState(pPos).is(toCheck);
+            return !level.getBlockState(blockPos).is(toCheck);
         } else {
             //TODO: добавить все остальные по мере добавления (и убрать редстоун как бы)
             Block[] allSymbols = {ModBlocks.GREEN_CHALK_SYMBOL.get(), ModBlocks.WHITE_CHALK_SYMBOL.get(), ModBlocks.CRIMSON_CHALK_SYMBOL.get()};
             for (Block symbol : allSymbols) {
-                if (pLevel.getBlockState(pPos).is(symbol)) {
+                if (level.getBlockState(blockPos).is(symbol)) {
                     switch (id) {
-                        case 0 ->{
-                            currentSmallType=getTypeFromBlock(pLevel,pPos);
-                        }
-                        case 1 ->{
-                            currentMediumType=getTypeFromBlock(pLevel,pPos);
-                        }
-                        case 2 ->{
-                            currentLargeType=getTypeFromBlock(pLevel,pPos);
-                        }
+                        case 0 -> currentSmallType=getTypeFromBlock(level,blockPos);
+                        case 1 -> currentMediumType=getTypeFromBlock(level,blockPos);
+                        case 2 -> currentLargeType=getTypeFromBlock(level,blockPos);
                     }
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
-    private void checkForCore(Level pLevel, BlockPos pPos, ChalkType type) {
-        ChalkType coreType = pLevel.getBlockState(pPos).getValue(RitualCircleCore.CIRCLETYPE);
+    private void checkForCore(Level level, BlockPos blockPos, ChalkType type) {
+        ChalkType coreType = level.getBlockState(blockPos).getValue(RitualCircleCore.CIRCLE_TYPE);
         switch (type) {
             case WHITE -> {
                 hasProperCore = coreType== ChalkType.WHITE;
@@ -360,21 +345,17 @@ public class RitualCoreEntity extends BlockEntity {
                 if (hasProperCore) core = ChalkType.NETHER;
 
             }
-            case ANY -> {
-                hasProperCore = true;
-            }
-            default ->  {
-                hasProperCore = false;
-            }
+            case ANY -> hasProperCore = true;
+            default -> hasProperCore = false;
         }
 
     }
-    public boolean checkForCircles(Level pLevel, BlockPos pPos) {
-        checkForSmallCircle(pLevel, pPos);
-        checkForMediumCircle(pLevel, pPos);
-        checkForLargeCircle(pLevel, pPos);
-        checkForJoints(pLevel, pPos);
-        checkForCore(pLevel, pPos, currentCoreType);
+    public boolean checkForCircles(Level level, BlockPos blockPos) {
+        checkForSmallCircle(level, blockPos);
+        checkForMediumCircle(level, blockPos);
+        checkForLargeCircle(level, blockPos);
+        checkForJoints(level, blockPos);
+        checkForCore(level, blockPos, currentCoreType);
 
         hasAllProperCircles = hasProperCore;
         if (isSmallRequired) hasAllProperCircles &= hasProperSmallCircle;
@@ -384,11 +365,11 @@ public class RitualCoreEntity extends BlockEntity {
         if (!hasAllProperCircles && executingRitual) executingRitual = false;
         return hasAllProperCircles;
     }
-    private boolean canSurvive(Level pLevel, BlockPos pPos) {
+    private boolean canSurvive(Level level, BlockPos blockPos) {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j<=1; j++) {
-                BlockPos pos = pPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
-                if ((pLevel.getBlockState(pos.below()).is(Blocks.AIR) || !(pLevel.getBlockState(pos).is(Blocks.AIR) || pLevel.getBlockState(pos).is(Blocks.FIRE)  || pLevel.getBlockState(pos).is(BlockTags.CANDLES)) && (pos!=pPos))) {
+                BlockPos pos = blockPos.relative(Direction.Axis.X, i).relative(Direction.Axis.Z,j);
+                if ((level.getBlockState(pos.below()).is(Blocks.AIR) || !(level.getBlockState(pos).is(Blocks.AIR) || level.getBlockState(pos).is(Blocks.FIRE)  || level.getBlockState(pos).is(BlockTags.CANDLES)) && (pos!=blockPos))) {
                     return false;
                 }
             }
@@ -431,9 +412,9 @@ public class RitualCoreEntity extends BlockEntity {
 
 
 
-    public void tryStartRitual(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+    public void tryStartRitual(Level level, BlockPos blockPos, Player player) {
 
-        List<ItemEntity> items = pLevel.getEntitiesOfClass(ItemEntity.class, new AABB(pPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),pPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, new AABB(blockPos.relative(Direction.Axis.Z,-5).relative(Direction.Axis.X,-5).relative(Direction.Axis.Y,-5),blockPos.relative(Direction.Axis.Z,5).relative(Direction.Axis.X,5).relative(Direction.Axis.Y,5)));
         SimpleContainer container = new SimpleContainer(items.size());
         for (ItemEntity item : items) {
             container.addItem(item.getItem());
@@ -449,9 +430,9 @@ public class RitualCoreEntity extends BlockEntity {
             isLargeRequired = ritual.doesRequireLargeCircle();
             isMediumRequired = ritual.doesRequireMediumCircle();
             isSmallRequired = ritual.doesRequireSmallCircle();
-            if (checkForCircles(pLevel, pPos) && ritual.doesMatch(container)) {
+            if (checkForCircles(level, blockPos) && ritual.doesMatch(container)) {
                 executingRitual = true;
-                player = pPlayer;
+                this.player = player;
                 break;
 
             }
@@ -463,34 +444,34 @@ public class RitualCoreEntity extends BlockEntity {
         ritual = null;
         player = null;
     }
-    public void tick(Level level, BlockPos pPos, BlockState pState) {
-        if (!canSurvive(level, pPos)) {
-            level.removeBlock(pPos,false);
+    public void tick(Level level, BlockPos blockPos, BlockState blockState) {
+        if (!canSurvive(level, blockPos)) {
+            level.removeBlock(blockPos,false);
         }
         if (hasAllProperCircles && executingRitual && ritual!=null) {
-            ritual.executeRitual(pState, level, pPos, player, this);
+            ritual.executeRitual(blockState, level, blockPos, player, this);
         }
 
     }
 
 
     @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        pTag.putBoolean("hasAllProperCircles",this.hasAllProperCircles);
-        pTag.putBoolean("hasAllProperJoints",this.hasAllProperCircles);
-        pTag.putBoolean("hasProperSmall",this.hasProperSmallCircle);
-        pTag.putBoolean("hasProperMedium",this.hasProperMediumCircle);
-        pTag.putBoolean("hasProperLarge",this.hasProperLargeCircle);
-        super.saveAdditional(pTag);
+    protected void saveAdditional(CompoundTag tag) {
+        tag.putBoolean("hasAllProperCircles",this.hasAllProperCircles);
+        tag.putBoolean("hasAllProperJoints",this.hasAllProperCircles);
+        tag.putBoolean("hasProperSmall",this.hasProperSmallCircle);
+        tag.putBoolean("hasProperMedium",this.hasProperMediumCircle);
+        tag.putBoolean("hasProperLarge",this.hasProperLargeCircle);
+        super.saveAdditional(tag);
     }
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        this.hasAllProperCircles = pTag.getBoolean("hasAllProperCircles");
-        this.hasProperSmallCircle = pTag.getBoolean("hasProperSmall");
-        this.hasProperMediumCircle = pTag.getBoolean("hasProperMedium");
-        this.hasProperLargeCircle = pTag.getBoolean("hasProperLarge");
-        this.hasAllProperJoints = pTag.getBoolean("hasAllProperJoints");
+    public void load(@NotNull CompoundTag tag) {
+        super.load(tag);
+        this.hasAllProperCircles = tag.getBoolean("hasAllProperCircles");
+        this.hasProperSmallCircle = tag.getBoolean("hasProperSmall");
+        this.hasProperMediumCircle = tag.getBoolean("hasProperMedium");
+        this.hasProperLargeCircle = tag.getBoolean("hasProperLarge");
+        this.hasAllProperJoints = tag.getBoolean("hasAllProperJoints");
     }
 
     @Nullable

@@ -136,10 +136,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .add(LootItem.lootTableItem(ModItems.SWAMP_ROTFIEND_INGREDIENT.get())))));
     }
 
-    //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
-    protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
 
     //Вынесенная отдельно процедура регистрации выпадения предметов при сборе культуры шалфея
     protected void generateSageCropDrop() {
@@ -152,6 +148,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SAGE_CROP.get(), createCropDropsWith2Items(ModBlocks.SAGE_CROP.get(), ModItems.SAGE_FLOWER.get(), ModItems.SAGE_LEAF.get(),
                 ModItems.SAGE_SEED.get(), lootitemcondition$builder, 0.53247F, 3));
 
+    }
+
+    //Реализация возможности пройтись циклом по всем блокам (вроде бы??)
+    protected Iterable<Block> getKnownBlocks() {
+        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 
 
@@ -178,7 +179,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedsItem).when(pDropGrownCropCondition))));
     }
 
-    protected LootTable.Builder createSimpleDrop(Block pCropBlock, Item pGrownCropItem1, LootItemCondition.Builder pDropGrownCropCondition) {
+    protected LootTable.Builder createSimpleDrop(Block pCropBlock, Item pGrownCropItem1) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1))));
     }
 

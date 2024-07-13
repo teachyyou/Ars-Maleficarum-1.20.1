@@ -1,18 +1,18 @@
 {
-  "name": "Суп из золотой моркови",
+  "name": "Golden Carrot Soup",
   "icon": "ars_maleficarum:golden_carrot_soup",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Обуревают философские мысли? Хочется по-другому взглянуть на вещи? Увидеть их в новом свете? Настало время приготовить суп из золотой морковки! $(br)За исключением пары ингредиентов полностью повторяющее рецепт обычного куриного супа, это блюдо даёт отведавшему его все те преимущества, что отдаёт золотая морковка тем, кто выпил зелье из неё."
+      "text": "Philosophical thoughts swirling around? Want to see things from a different perspective? To view them in a new light? It's time to prepare Golden Carrot Soup! $(br)Except for a few ingredients, it closely mirrors the recipe for regular chicken soup. This dish grants all the benefits of the golden carrot to those who consume it, much like the potion brewed from it."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:golden_carrot_soup_in_brewing_cauldron",
-      "text": "Поговаривают, что таким супом ужинают лазутчики и ассасины, работающие под покровом ночи. Практичные ребята, вообще-то."
+      "text": "Rumor has it that this soup is the supper of spies and assassins who operate under the cover of night. Practical folks, indeed."
     }
   ],
   "read_by_default": true

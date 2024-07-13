@@ -1,11 +1,11 @@
 {
-  "name": "Мандрагора",
+  "name": "Mandrake",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/mandrake.png",
   "category": "ars_maleficarum:encyclopedia/bestiary",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Мандрагора - уникальное творение, которое можно считать растением лишь наполовину. Пока мандрагора созревает, её корень все больше и больше становится похож на маленького человечка - вероятно, так магия, однажды поселившаяся в этом растении, так изменила его облик. При попытке извлечь корень из-под земли, если действовать недостаточно осторожно, тот проснётся, вырвется и начнёт удирать. Поимка этого беглеца - задача не из лёгких, учитывая пронзительный крик, который издаёт корень, в панике пытаясь скрыться от надоедливого травника."
+      "text": "The Mandrake is a unique creation that can be considered half-plant and half-humanoid. As the mandrake matures, its root increasingly resembles a small human figure - perhaps this is how magic, once embedded in this plant, has altered its form. When attempting to extract the root from the ground, if not handled carefully enough, it will awaken, uproot itself, and attempt to flee. Capturing this escapee is no easy task, considering the piercing scream emitted by the root as it panics, trying to evade the persistent herbalist."
     },
     {
       "type": "patchouli:entity",
@@ -13,7 +13,7 @@
       "rotate": true,
       "scale": 1.5,
       "offset": -0.1,
-      "text": "Корень мандрагоры, извлеченный из-под земли и, очевидно, не очень обрадованный этим обстоятельством."
+      "text": "The Mandrake root, extracted from the ground and, evidently, not too pleased with this circumstance."
     }
   ],
   "read_by_default": true

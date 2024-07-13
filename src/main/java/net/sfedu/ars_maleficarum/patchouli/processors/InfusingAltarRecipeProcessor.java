@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.recipe.InfusingAltarRecipe;
+import org.jetbrains.annotations.NotNull;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
@@ -13,11 +14,9 @@ import vazkii.patchouli.api.IVariableProvider;
 import java.util.List;
 
 public class InfusingAltarRecipeProcessor implements IComponentProcessor {
-    private InfusingAltarRecipe recipe;
     private List<ItemStack> input;
     private ItemStack resultItem;
     private String dimension;
-
 
     @Override
     public void setup(Level level, IVariableProvider iVariableProvider) {
@@ -25,15 +24,16 @@ public class InfusingAltarRecipeProcessor implements IComponentProcessor {
         ResourceLocation recipeId = new ResourceLocation(iVariableProvider.get("recipe").asString());
 
         RecipeManager recipeManager = level.getRecipeManager();
-        recipe = (InfusingAltarRecipe) recipeManager.byKey(recipeId).orElseThrow(()->new IllegalArgumentException("Could not find recipe for: " + recipeId));
+        InfusingAltarRecipe recipe = (InfusingAltarRecipe) recipeManager.byKey(recipeId).orElseThrow(() -> new IllegalArgumentException("Could not find recipe for: " + recipeId));
         input = recipe.getIngredients().stream().filter(x->!x.isEmpty()).map(x-> x.getItems()[0]).toList();
-        resultItem = recipe.getResultItem(null);
-        dimension = recipe.getDimension(null);
+        resultItem = recipe.getResultItem(level.registryAccess());
+        dimension = recipe.getDimension();
 
     }
 
 
     @Override
+    @NotNull
     public IVariable process(Level level, String key) {
         if(key.startsWith("input")) {
             int index = key.charAt(key.length()-1) - '0';
@@ -47,6 +47,6 @@ public class InfusingAltarRecipeProcessor implements IComponentProcessor {
             return IVariable.wrap(!dimension.equals("any"));
         else if(key.startsWith("dimension_icon"))
             return IVariable.wrap("ars_maleficarum:textures/books/shadow_grimoire/util_textures/" + dimension + ".png");
-        return null;
+        return IVariable.empty();
     }
 }

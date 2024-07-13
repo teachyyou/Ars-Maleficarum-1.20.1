@@ -48,7 +48,7 @@ public abstract class ApplyEffectOnPlayersRitual extends CircleRitual{
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
-            tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+            tryToContinue(pLevel,pPos,pPlayer,riteCore);
         }
 
 

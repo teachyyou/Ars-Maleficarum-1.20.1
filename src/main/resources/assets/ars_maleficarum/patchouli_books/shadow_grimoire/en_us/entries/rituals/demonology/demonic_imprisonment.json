@@ -1,17 +1,17 @@
 {
-  "name": "Заточение демона",
+  "name": "Demon Imprisonment",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/imprisonment.png",
   "category": "ars_maleficarum:circle_magic/demonology",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Во время призыва демона один из ключевых моментов - успеть заточить его до того, как он выберется и начнет сеять хаос. Импровизированные конструкции из блоков хорошо справляются, но громоздки и, вообще говоря, совершенно не практичны. Данный параграф описывает три вариации ритуала заточения - укрепляя символы, из которых состоит круг, они не позволяют демонам проходить сквозь них, создавая своего рода барьер. Ритуалы заточения или удержания - первейшее средство безопасности любого практикующего призывы, компоненты рекомендуется знать наизусть и всегда носить с собой мелок-другой."
+      "text": "During the demon summoning, one of the crucial moments is to imprison it before it breaks free and starts spreading chaos. Improvised constructions of blocks may suffice, but they are cumbersome and impractical. This paragraph describes three variations of the imprisonment ritual - reinforcing symbols that form the circle to prevent demons from passing through, creating a kind of barrier. Imprisonment or containment rituals are the foremost means of security for any practitioner of summoning. It is recommended to know the components by heart and always carry some chalk or two."
     },
     {
       "type": "ars_maleficarum:ritual_circles",
       "ritual": "ars_maleficarum:small_demonic_imprisonment",
-      "text": "После проведения каждый круг будет оставаться барьером, покуда не будет разорван."
+      "text": "After each ritual, the circle remains a barrier until breached."
     },
     {
       "type": "ars_maleficarum:ritual_circles",

@@ -1,0 +1,19 @@
+{
+  "name": "Зачарованная кожа",
+  "icon": "ars_maleficarum:wet_enchanted_leather",
+  "category": "ars_maleficarum:extracting_and_brewing/brewing",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "В данном параграфе описывается процесс зачарования кожи с помощью варочного котла. После $(l:components/enchanted_leather)сушки$() ей найдется множество применений, ведь колдунам тоже нужны надёжные кожаные сапоги, а ведьмам - модные остроконечные шляпы."
+    },
+    {
+      "type": "ars_maleficarum:brewing_cauldron_recipe",
+      "title": "Пропитывание",
+      "recipe": "ars_maleficarum:wet_enchanted_leather_in_brewing_cauldron",
+      "text": "При помощи котла необходимо в прямом и переносном смыслах пропитать волшебством обычную кожу."
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,12 +1,12 @@
 {
-  "name": "Адское пиршество",
+  "name": "Abyssal Feast",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/abyssal_feast.png",
   "category": "ars_maleficarum:circle_magic/demonology",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Настало время опробовать нечто новое. Данный ритуал позволяет установить связь с Преисподней и призвать в Верхний Мир демона Чревоугодия - первого серьёзного (и вечно голодного) противника, который в случае победы над вами не только разорвет ваше тело, но и с радостью полакомится душой. Подробности об этом инфернальном существе приведены в $(l:demonology/gluttony_demon)бестиарии$()."
+      "text": "The time has come to try something new. This ritual allows you to establish a connection with the Nether and summon a Demon of Gluttony to the Overworld - a formidable and eternally hungry foe who, should it defeat you, will not only rend your body but feast upon your very soul. Details about this infernal creature are provided in the $(l:demonology/gluttony_demon)bestiary$()."
     },
     {
       "type": "ars_maleficarum:ritual_circles",

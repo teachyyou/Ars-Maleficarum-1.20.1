@@ -18,6 +18,8 @@ import net.minecraftforge.common.IPlantable;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 
 public class SunlightFlower extends CropBlock {
     public  static final  int FIRST_STAGE_MAX_AGE = 3;
@@ -33,11 +35,13 @@ public class SunlightFlower extends CropBlock {
         pBuilder.add(AGE);
     }
     @Override
+    @ParametersAreNonnullByDefault
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return pState.is(Blocks.GRASS_BLOCK) || pState.is(Blocks.DIRT);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void growCrops(Level pLevel, BlockPos pPos, BlockState pState) {
         int nextAge = this.getAge(pState) + 1;
         int maxAge=this.getMaxAge();
@@ -58,7 +62,6 @@ public class SunlightFlower extends CropBlock {
         }
         else if ((nextAge>FIRST_STAGE_MAX_AGE) && (this.getAge(pLevel.getBlockState(pPos.above(1)))>=5)&& pLevel.isDay()) {
             pLevel.setBlock(pPos.above(1),this.getStateForAge(nextAge+2),2);
-                    //System.out.println(this.getAge(pLevel.getBlockState(pPos.above(1))));
         }
         else {
             if(pLevel.isDay() && pLevel.getBlockState(pPos.above(1)).is(Blocks.AIR))
@@ -66,6 +69,7 @@ public class SunlightFlower extends CropBlock {
         }
     }
     @Override
+    @ParametersAreNonnullByDefault
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         if(!Is_Blocks_Above(pLevel,pPos,pState))
         {
@@ -83,6 +87,7 @@ public class SunlightFlower extends CropBlock {
         return true;
     }
     @Override
+    @ParametersAreNonnullByDefault
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         return this.mayPlaceOn(state,world,pos);
     }
@@ -93,14 +98,19 @@ public class SunlightFlower extends CropBlock {
     }
 
     @Override
+    @NotNull
     protected ItemLike getBaseSeedId() {
         return ModItems.SUNLIGHT_FLOWER_SEED.get();
     }
 
     @Override
+    @NotNull
     public IntegerProperty getAgeProperty() {
         return AGE;
     }
+    @Override
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
     public void randomTick(BlockState pState, @NotNull ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (!pLevel.isAreaLoaded(pPos, 1)) return;
         canSurvive(pState,pLevel,pPos);
@@ -108,16 +118,11 @@ public class SunlightFlower extends CropBlock {
             return;
         if (pLevel.getRawBrightness(pPos, 0) >= 9) {
             int currentAge = this.getAge(pState);
-            int nextAge = currentAge + 1;
-            int maxAge=this.getMaxAge();
-            if(nextAge>maxAge) {
-                nextAge = maxAge;
+            if (!canSurvive(pState,pLevel,pPos))
+            {
+                pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
+                return;
             }
-                if(!canSurvive(pState,pLevel,pPos))
-                {
-                    pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
-                    return;
-                }
             if (currentAge < this.getMaxAge()) {
                 float growthSpeed = getGrowthSpeed(this, pLevel, pPos);
 
@@ -133,9 +138,6 @@ public class SunlightFlower extends CropBlock {
                     }
                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
                 }
-            }
-            else {
-                boolean flag=this.canSurvive(pState,pLevel,pPos);
             }
         }
     }

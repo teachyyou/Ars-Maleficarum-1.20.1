@@ -1,19 +1,18 @@
 {
-  "name": "Примитивный ножик",
+  "name": "Primitive Flint Knife",
   "icon": "ars_maleficarum:flint_knife",
   "category": "ars_maleficarum:tools",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Примитивный ножик из кремня - один из первых инструментов, которые предстоит изготовить начинающему волшебнику. Он необходим при работе с деревом - с его помощью можно добыть некоторые важные материалы. $(br2)Примитивный ножик используется главным образом для срезания чего-либо с деревьев (коры или, например, грибов)."
+      "text": "A simple flint knife - one of the first tools that aspiring witch or warlock must craft. It is essential for working with wood - allowing the gathering of important materials. $(br2)Primarily used for cutting things from trees (such as bark or mushrooms)."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:flint_knife",
       "recipe2": "minecraft:rowan_bark",
-      "title": "Создание и применение"
-
+      "title": "Crafting and Application"
     }
   ],
   "read_by_default": true

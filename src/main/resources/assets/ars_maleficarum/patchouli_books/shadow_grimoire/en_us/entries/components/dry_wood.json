@@ -1,19 +1,18 @@
 {
-  "name": "Сухая древесина",
+  "name": "Dry Wood",
   "icon": "ars_maleficarum:dry_wood",
   "category": "ars_maleficarum:components",
   "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Дерево - превосходный природный проводник энергии, а вместе с тем и самый доступный материал для изготовления жезлов, посохов и других артефактов. $(br2)Это делает любую древесину отличным выбором для практиков, желающих освоить изготовление магических предметов, фокусирующих магический поток."
+      "text": "Wood is an excellent natural conductor of energy and the most accessible material for crafting wands, staffs, and other artifacts. $(br2)This makes any wood an ideal choice for practitioners wishing to master the creation of magical items that focus the flow of magic."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:dry_wood",
-      "title": "Изготовление",
-      "text": "Основа любого посоха - ядро из $(l)высушенной как следует$() древесины. $(br)$(l:components/salt)Соль$() в совокупности с $(l:odour_extracting/collected_odours#wasteland_wind)Ветром Пустоши$() великолепно справляется с обработкой ветвей, убирая последние следы влаги."
-
+      "title": "Crafting",
+      "text": "The core of any staff is a properly dried wood core. $(br)$(l:components/salt)Salt$() combined with the $(l:odour_extracting/collected_odours#wasteland_wind)Wasteland Wind$() excels at processing branches, removing the last traces of moisture."
     }
   ],
   "read_by_default": true

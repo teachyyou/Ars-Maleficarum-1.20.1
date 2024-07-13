@@ -17,16 +17,19 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sfedu.ars_maleficarum.ArsMaleficarum;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
 
     private final Item result;
-    private final List<Ingredient> components=new ArrayList<Ingredient>();
+    private final List<Ingredient> components=new ArrayList<>();
     private final boolean inOrder;
     private final int craftType;
 
@@ -42,35 +45,39 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
     }
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
     @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
 
     @Override
+    @NotNull
     public RecipeBuilder group(@Nullable String pGroupName) {
         return this;
     }
 
     @Override
+    @NotNull
     public Item getResult() {
         return result;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         this.advancement.parent(new ResourceLocation("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
                 .rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
 
-        pFinishedRecipeConsumer.accept(new BrewingCauldronRecipeBuilder.Result(pRecipeId, this.result, this.components, this.inOrder, this.craftType,
+        pFinishedRecipeConsumer.accept(new BrewingCauldronRecipeBuilder.Result(this.result, this.components, this.inOrder, this.craftType,
                 this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/"
                 + pRecipeId.getPath())));
 
     }
 
     public static class Result implements FinishedRecipe {
-        private final ResourceLocation id;
         private final Item result;
         private final List<Ingredient> components;
         private final boolean inOrder;
@@ -78,10 +85,9 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, Item pResult, List<Ingredient> components, boolean inOrder, int craftType, Advancement.Builder pAdvancement,
+        public Result(Item pResult, List<Ingredient> components, boolean inOrder, int craftType, Advancement.Builder pAdvancement,
                       ResourceLocation pAdvancementId) {
             this.components=components;
-            this.id = pId;
             this.result = pResult;
             this.inOrder = inOrder;
             this.craftType = craftType;
@@ -90,7 +96,7 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
         }
 
         @Override
-        public void serializeRecipeData(JsonObject pJson) {
+        public void serializeRecipeData(@NotNull JsonObject pJson) {
             JsonArray jsonarray = new JsonArray();
             for (Ingredient ingr : components) {
                 jsonarray.add(ingr.toJson());
@@ -98,7 +104,7 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
             pJson.add("ingredients", jsonarray);
 
             JsonObject jsonobject = new JsonObject();
-            jsonobject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
+            jsonobject.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).toString());
 
 
             pJson.add("output", jsonobject);
@@ -114,22 +120,22 @@ public class BrewingCauldronRecipeBuilder implements RecipeBuilder {
         }
 
         @Override
+        @NotNull
         public ResourceLocation getId() {
             return new ResourceLocation(ArsMaleficarum.MOD_ID,
-                    ForgeRegistries.ITEMS.getKey(this.result).getPath() + "_in_brewing_cauldron");
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).getPath() + "_in_brewing_cauldron");
         }
 
         @Override
+        @NotNull
         public RecipeSerializer<?> getType() {
             return BrewingCauldronRecipe.Serializer.INSTANCE;
         }
 
-        @javax.annotation.Nullable
         public JsonObject serializeAdvancement() {
             return this.advancement.serializeToJson();
         }
 
-        @javax.annotation.Nullable
         public ResourceLocation getAdvancementId() {
             return this.advancementId;
         }

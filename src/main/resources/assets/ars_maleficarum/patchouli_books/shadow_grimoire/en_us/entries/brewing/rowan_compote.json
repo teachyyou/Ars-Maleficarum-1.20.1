@@ -1,18 +1,18 @@
 {
-  "name": "Рябиновый компот",
+  "name": "Rowan Compote",
   "icon": "ars_maleficarum:rowan_compote",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "В жару нет ничего лучше, нежели прохладный фруктовый компот. Свареннный из ягод рябины с добавлением экстракта вишни, этот напиток обладает приятным освежающим вкусом, а дополнение в виде остальных ингредиентов придаёт ему особых свойств. $(o)Коли напитка сего испить изволишь - сердце твое чаще забьется, и конечности быстрее шевелиться начнут, только успевай перебирать$()."
+      "text": "In the heat, there is nothing better than a cool fruit compote. Brewed from rowan berries with the addition of cherry extract, this drink has a pleasant refreshing taste, and the addition of other ingredients grants it special properties. $(o)If you deign to drink this beverage – your heart will beat faster, and your limbs will move more swiftly, just keep up$()."
     },
     {
       "type": "ars_maleficarum:brewing_cauldron_recipe",
-      "title": "Создание",
+      "title": "Creation",
       "recipe": "ars_maleficarum:rowan_compote_in_brewing_cauldron",
-      "text": "Шалфей, рябина, вишня и сахар - рецепт, $(o)стремительно$() набравший популярность во время первых Олимпийских игр."
+      "text": "Sage, rowan, cherry, and sugar – a recipe that $(o)swiftly$() gained popularity during the first Olympic Games."
     }
   ],
   "read_by_default": true

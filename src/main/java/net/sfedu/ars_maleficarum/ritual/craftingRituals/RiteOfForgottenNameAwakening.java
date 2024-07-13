@@ -22,6 +22,7 @@ import net.sfedu.ars_maleficarum.ritual.RitualType;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class RiteOfForgottenNameAwakening extends CircleRitual {
@@ -58,7 +59,7 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
         ticks++;
 
         if (allComponentsConsumed && ticks/20.0 == 1) {
-            pLevel.getServer().getLevel(Level.OVERWORLD).setWeatherParameters(0, 20*60, true, true);
+            Objects.requireNonNull(Objects.requireNonNull(pLevel.getServer()).getLevel(Level.OVERWORLD)).setWeatherParameters(0, 20*60, true, true);
         }
         if (allComponentsConsumed && ticks%20.0 == 0) {
             EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pLevel, (ItemStack) null,null, pPos.relative(Direction.Axis.Z, 5-pLevel.random.nextInt(10)).relative(Direction.Axis.X, 5-pLevel.random.nextInt(10)), MobSpawnType.TRIGGERED,true,true);
@@ -86,7 +87,7 @@ public class RiteOfForgottenNameAwakening extends CircleRitual {
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
-            tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+            tryToContinue(pLevel,pPos,pPlayer,riteCore);
         }
     }
 

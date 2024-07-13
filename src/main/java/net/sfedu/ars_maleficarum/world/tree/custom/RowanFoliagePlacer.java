@@ -12,6 +12,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.world.tree.ModFoliagePlacerTypes;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class RowanFoliagePlacer extends FoliagePlacer {
 
@@ -25,12 +28,13 @@ public class RowanFoliagePlacer extends FoliagePlacer {
 
 
     @Override
+    @NonNull
     protected FoliagePlacerType<?> type() {
-
         return ModFoliagePlacerTypes.ROWAN_FOLIAGE_PLACER.get();
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void createFoliage(LevelSimulatedReader pLevel, FoliageSetter foliageSetter, RandomSource pRandom, TreeConfiguration pConfig, int pMaxFreeTreeHeight,
                                  FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         Direction[] dir = {Direction.NORTH,Direction.EAST,Direction.WEST,Direction.SOUTH};
@@ -55,20 +59,20 @@ public class RowanFoliagePlacer extends FoliagePlacer {
     }
 
     //Вспомогательная (немного костыльная) функция генерации листвы из 2 различных блоков (обычная и с ягодками для рябины)
-    public static boolean tryPlaceRowanLeaf(LevelSimulatedReader pLevel, FoliagePlacer.FoliageSetter pFoliageSetter, RandomSource pRandom, TreeConfiguration pTreeConfiguration, BlockPos pPos) {
+    public static void tryPlaceRowanLeaf(LevelSimulatedReader pLevel, FoliageSetter pFoliageSetter, RandomSource pRandom, TreeConfiguration pTreeConfiguration, BlockPos pPos) {
         if (tryPlaceLeaf(pLevel,pFoliageSetter,pRandom,pTreeConfiguration,pPos) && pRandom.nextFloat()>0.8F) {
             pFoliageSetter.set(pPos, ModBlocks.ROWAN_BERRIES_LEAVES.get().defaultBlockState());
-            return true;
         }
-        return false;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public int foliageHeight(RandomSource pRandom, int pHeight, TreeConfiguration pConfig) {
         return this.height;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected boolean shouldSkipLocation(RandomSource pRandom, int pLocalX, int pLocalY, int pLocalZ, int pRange, boolean pLarge) {
         return false;
     }

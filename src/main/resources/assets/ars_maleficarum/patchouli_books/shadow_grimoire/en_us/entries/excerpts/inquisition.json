@@ -1,28 +1,28 @@
 {
-  "name": "Охота на ведьм",
+  "name": "Witch Hunts",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/witch_hunt.png",
   "category": "ars_maleficarum:encyclopedia/excerpts",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Существовало время, когда ведьмы и колдуны не могли так свободно заниматься своими делами, сидя в своих башнях или хижинах посереди леса или болот. Инквизиция пролила много крови, устраивая регулярные охоты на всех знающих - от архичародеев до травников, излечивающих болезни скота."
+      "text": "There was a time when witches and warlocks could not freely practice their craft from their towers or huts in the middle of forests or swamps. The Inquisition spilled much blood, organizing regular hunts for all who were knowledgeable - from village healers to herbalists curing livestock diseases."
     },
     {
       "type": "ars_maleficarum:lore_image_page",
       "border": true,
-      "text": "Карикатура, показывающая отношение общества того времени к волшебникам - маленьким полуросликам в смешных шляпах.",
+      "text": "A caricature illustrating society's attitude towards sorcerers during those times - diminutive figures in comical hats.",
       "image": "ars_maleficarum:textures/books/shadow_grimoire/lore/inquisitor.png"
     },
     {
       "type": "patchouli:text",
-      "title": "Охота на ведьм",
-      "text": "Многие историки говорят, что причиной того, что чародейки стали часто покидать города и деревни, устраивая себе жилище в тёмных лесах и непроходимых болотах - страх перед костром. Их магия адаптировалась, они открывали новые источники силы, и так родилось новое искусство ведьм - в той форме, в какой мы его знаем сегодня. Остаётся лишь размышлять, чего больше - потерянных в огне инквизиции знаний или открытых бежавшими на болота колдуньями секретов."
+      "title": "Witch Hunts",
+      "text": "Many historians argue that the reason enchantresses often left towns and villages, seeking refuge in dark forests and impenetrable swamps, was the fear of the pyre. Their magic adapted, they discovered new sources of power, thus giving birth to the modern art of witchcraft as we know it today. One can only ponder what is more - knowledge lost in the fire of the Inquisition or secrets discovered by mages who fled to the swamps."
     },
     {
       "type": "ars_maleficarum:lore_image_page",
       "border": true,
-      "text": "Прочесывающие леса отряды солдат и инквизиторов, вооружённые факелами, в борьбе с колдовством предавали огню даже столетия назад заброшенные и наполовину утонувшие хижины.",
+      "text": "Troops of soldiers and inquisitors combing the forests, armed with torches, in the fight against witchcraft, set fire to even centuries ago abandoned and half-drowned huts.",
       "image": "ars_maleficarum:textures/books/shadow_grimoire/lore/witch_hut_burn.png"
     }
   ],

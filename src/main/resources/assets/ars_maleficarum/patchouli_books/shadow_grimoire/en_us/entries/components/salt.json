@@ -1,19 +1,18 @@
 {
-  "name": "Соль",
+  "name": "Salt",
   "icon": "ars_maleficarum:salt",
   "category": "ars_maleficarum:components",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Соль - крайне распространённый и очень полезный компонент, который находит себе массу применений в искусстве ведьмовства. Соль полезна как для улучшения вкуса блюд и сушки компонентов, так и для сдерживания относящихся к нечисти существ - в составе с $(l:components/silver)серебром$() она может стать серьёзной помехой для различных гнусных созданий, пытающихся вам навредить."
+      "text": "Salt is an extremely common and very useful component, finding numerous applications in the art of witchcraft. It is useful for enhancing the flavor of dishes and drying components, as well as for restraining creatures of an unclean nature – when combined with $(l:components/silver)silver$(), it can become a significant deterrent to various vile entities attempting to harm you."
     },
     {
       "type": "patchouli:smelting",
       "recipe": "ars_maleficarum:salt_from_smelting_potion",
-      "title": "Получение соли",
-      "text": "Соль может быть получена выпариванием из воды с помощью обыкновенной печи. $(br2)4 горсти соли можно (как и светопыль) объединить в блок."
-
+      "title": "Obtaining Salt",
+      "text": "Salt can be obtained by evaporating water using a regular furnace. $(br2)Four handfuls of salt can be combined into a block, much like glowstone dust."
     }
   ],
   "read_by_default": true

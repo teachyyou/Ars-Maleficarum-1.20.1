@@ -19,10 +19,13 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class MandrakeCropBlock extends CropBlock {
 
-    public boolean is_entity_spwned = false;
+    public boolean is_entity_spawned = false;
     //Максимальная стадия роста (от 0)
     public static final int MAX_AGE = 3;
 
@@ -39,12 +42,14 @@ public class MandrakeCropBlock extends CropBlock {
 
     //Семена, необходимые для выращивания
     @Override
+    @NotNull
     protected ItemLike getBaseSeedId() {
         return ModItems.MANDRAKE_SEED.get();
     }
 
     //Текущая стадия роста
     @Override
+    @NotNull
     public IntegerProperty getAgeProperty() {
         return AGE;
     }
@@ -62,21 +67,22 @@ public class MandrakeCropBlock extends CropBlock {
     }
     private void spawnMandrake(ServerLevel pLevel, BlockPos pPos) {
         MandrakeEntity mandrake = ModEntities.MANDRAKE.get().create(pLevel);
-        is_entity_spwned = true;
+        is_entity_spawned = true;
         if (mandrake != null) {
             pLevel.setBlock(pPos,Blocks.AIR.defaultBlockState(),2);
-            mandrake.moveTo((double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
+            mandrake.moveTo((double)pPos.getX() + 0.5D, pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
             pLevel.addFreshEntity(mandrake);
         }
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
     public void spawnAfterBreak(BlockState pState, ServerLevel pLevel, BlockPos pPos, ItemStack pStack, boolean pDropExperience) {
         if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) == 0) {
             int chance_of_spawn = (int)(Math.random()*10);
             if(pLevel.isDay()){
                 if(chance_of_spawn!=9 && chance_of_spawn!=10){
-                    pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
-
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
@@ -85,13 +91,10 @@ public class MandrakeCropBlock extends CropBlock {
                     pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_ROOT.get())));
 
-                    return;
                 }
             }
             else{
                 if(chance_of_spawn==1 || chance_of_spawn == 2) {
-                    pState = pState.setValue(MandrakeCropBlock.IS_SPAWNED, true);
-
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
@@ -99,7 +102,6 @@ public class MandrakeCropBlock extends CropBlock {
                             ModItems.MANDRAKE_SEED.get())));
                     pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_ROOT.get())));
-                    return;
                 }
             }
         }

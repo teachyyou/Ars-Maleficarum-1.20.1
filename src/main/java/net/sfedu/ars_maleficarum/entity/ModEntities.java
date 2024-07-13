@@ -18,9 +18,9 @@ public class ModEntities {
             ENTITY_TYPES.register("mandrake", () -> EntityType.Builder.of(MandrakeEntity::new, MobCategory.CREATURE)
                     .sized(0.3f, 0.7f).build("mandrake"));
 
-    public static final RegistryObject<EntityType<TraderWitchEntity>> TRADER_WITCH =
-            ENTITY_TYPES.register("trader_witch", () -> EntityType.Builder.of(TraderWitchEntity::new, MobCategory.CREATURE)
-                    .sized(1.5f, 2f).build("trader_witch"));
+    public static final RegistryObject<EntityType<HermitWitchEntity>> HERMIT_WITCH =
+            ENTITY_TYPES.register("hermit_witch", () -> EntityType.Builder.of(HermitWitchEntity::new, MobCategory.CREATURE)
+                    .sized(1.5f, 2f).build("hermit_witch"));
 
     public static final RegistryObject<EntityType<PoisonousEssenceEntity>> POISONOUS_ESSENCE =
             ENTITY_TYPES.register("poisonous_essence", () -> EntityType.Builder.<PoisonousEssenceEntity>of(PoisonousEssenceEntity::new, MobCategory.MISC)

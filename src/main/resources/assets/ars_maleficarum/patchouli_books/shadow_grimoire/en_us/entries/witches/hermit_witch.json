@@ -1,34 +1,34 @@
 {
-  "name": "Ведьмы-отшельницы",
+  "name": "Hermit Witches",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/hermit_witch.png",
   "category": "ars_maleficarum:encyclopedia/witches",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Умный путешественник, наткнувшийся на своём пути на хижину ведьмы, не станет стучаться и проситься на ночлег - ведьмы, одиноко живущие в лесах и на болотах, не отличаются любовью к гостям. Заклинания и ритуалы, что они творят под покровом ночи, часто требуют крови, а потому они не станут упускать возможность пополнить свои запасы, а некроманты и вовсе - заполучить лишние рабочие руки."
+      "text": "A wise traveler who comes across a witch's hut in the woods or swamps will not knock and ask for shelter. Solitary witches living alone in such places do not have a fondness for guests. The spells and rituals they perform under the cover of night often require blood, so they won't miss an opportunity to replenish their supplies. Necromancers, in particular, seek to gain extra hands."
     },
     {
       "type": "ars_maleficarum:lore_image_page",
       "border": true,
-      "text": "Редкие лесные колдуньи, однако, будут рады гостям. Им тоже нужно общение - черепа на палках не сильно разговорчивы.",
+      "text": "However, rare forest witches may welcome guests too. They also crave companionship, though skull-topped sticks aren't very conversational.",
       "image": "ars_maleficarum:textures/books/shadow_grimoire/lore/hermit_witch.png"
     },
     {
       "type": "patchouli:text",
-      "title": "Ведьмы-отшельницы",
-      "text": "На болотах, $(l:witches/witch_huts)в одиноко стоящих избушках$(), расположившихся на длинной вытянутой ноге, часто можно встретить ведьм-отшельниц. Они обычно не очень рады гостям, потому им на глаза лучше не попадаться - увидев, что заурядный путник желает потревожить их уединение, они тут же постараются с ним расправиться. Не следует недооценивать их силы - источников, описывающих встречи с ведьмами, крайне мало именно потому, что мало кому удавалось их пережить."
+      "title": "Hermit Witches",
+      "text": "In the swamps, $(l:witches/witch_huts)lonely huts$(), often perched on elongated legs, are frequently inhabited by hermit witches. They are generally unwelcoming to guests, so it's best not to catch their eye. If an ordinary traveler disturbs their solitude, they will swiftly attempt to dispose of them. Their strength should not be underestimated, as encounters with witches are rare due to few surviving to tell the tale."
     },
     {
       "type": "patchouli:text",
-      "title": "Ведьмы-отшельницы",
-      "text": "Если же вы решите рискнуть и $(n)(прим. для жюри: перед встречей с ведьмой необходимо надеть остроконечную шляпу)$() ведьма-отшельница признает в вас достойного собеседника, на которого не жалко потратить время, то можете радоваться. Она наверняка не упустит возможности предложить вам некоторые полезные товары в обмен на проклятое золото, которое лесные колдуньи часто используют для опытов по созданию философского камня."
+      "title": "Hermit Witches",
+      "text": "However, if you decide to risk it and the hermit witch deems you a worthy conversationalist, you can count yourself fortunate. She will likely offer you useful items in exchange for cursed gold, which forest witches often use for experiments in creating the Philosopher's Stone."
     },
     {
       "type": "patchouli:image",
-      "title": "Хижина ведьмы",
+      "title": "Witch's Hut",
       "border": true,
-      "text": "Одна из хижин, в каких обычно одиноко живут лесные ведьмы-отшельницы.",
+      "text": "One of the huts where forest hermit witches usually live alone.",
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/witch_hut.png"]
     }
   ],

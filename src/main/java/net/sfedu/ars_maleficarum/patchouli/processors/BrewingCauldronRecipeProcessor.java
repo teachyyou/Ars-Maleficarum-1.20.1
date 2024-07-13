@@ -8,14 +8,15 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
+import org.jetbrains.annotations.NotNull;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.api.IVariableProvider;
 
 import java.util.List;
 
+
 public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
-    private BrewingCauldronRecipe recipe;
     private List<ItemStack> input;
     private ItemStack resultItem;
     private ItemStack collectItem;
@@ -46,12 +47,12 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
         ResourceLocation recipeId = new ResourceLocation(iVariableProvider.get("recipe").asString());
 
         RecipeManager recipeManager = level.getRecipeManager();
-        recipe = (BrewingCauldronRecipe) recipeManager.byKey(recipeId).orElseThrow(()->new IllegalArgumentException("Could not find recipe for: " + recipeId));
+        BrewingCauldronRecipe recipe = (BrewingCauldronRecipe) recipeManager.byKey(recipeId).orElseThrow(() -> new IllegalArgumentException("Could not find recipe for: " + recipeId));
         input = recipe.getIngredients().stream().filter(x->!x.isEmpty()).map(x-> x.getItems()[0]).toList();
         int count = input.size();
         setupOrderArray(count);
-        resultItem = recipe.getResultItem(null);
-        isInOrder = recipe.isInOrder(null);
+        resultItem = recipe.getResultItem(level.registryAccess());
+        isInOrder = recipe.isInOrder();
 
         collectItem = switch (recipe.craftType) {
             default -> ItemStack.EMPTY;
@@ -62,13 +63,13 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
     }
 
     @Override
+    @NotNull
     public IVariable process(Level level, String key) {
         if(key.startsWith("input")) {
             int index = key.charAt(key.length()-1) - '0';
             if (itemsOrder[index]==1) {
                 return IVariable.from(input.get(itemIndex++));
             }
-            return IVariable.empty();
         }
         else if(key.startsWith("collectItem"))
             return IVariable.from(collectItem);
@@ -80,6 +81,6 @@ public class BrewingCauldronRecipeProcessor implements IComponentProcessor {
             return IVariable.wrap(Component.translatable("book.shadow_grimoire.cauldron.order").getString());
         else if (key.startsWith("inOrder?"))
             return IVariable.wrap(isInOrder);
-        return null;
+        return IVariable.empty();
     }
 }

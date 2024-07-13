@@ -1,6 +1,6 @@
 {
-  "name": "Природа",
-  "description": "Данный подраздел описывает ритуалы, так или иначе изменяющие течение природных процессов - смены дня и ночи, погоды и тому подобных. Овладеть навыками их ускорения, обращения и подчинения обязаны каждая ведьма и колдун.",
+  "name": "Nature",
+  "description": "This subsection describes rituals that in one way or another alter the course of natural processes — such as day and night cycles, weather patterns, and the like. Mastering the skills of accelerating, reversing, and controlling these processes is essential for every witch and warlock.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/natural_invocation.png",
   "parent": "ars_maleficarum:circle_magic/rituals",
   "sortnum": 0

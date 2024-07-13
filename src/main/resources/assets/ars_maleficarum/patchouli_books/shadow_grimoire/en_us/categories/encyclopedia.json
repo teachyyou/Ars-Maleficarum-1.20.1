@@ -1,6 +1,6 @@
 {
-  "name": "Энциклопедия",
-  "description": "Энциклопедия - раздел гримуара, собирающий в себе все остальные знания о мире и магии, которые не были отнесены к предыдущим разделам, однако всё равно являются необходимыми для постижения. Здесь, например, находится традиционный и инфернальный бестиарии, записки о магических традициях ведьм, выдержки из теоретических томов и другие полезные и интересные вещи.",
+  "name": "Encyclopedia",
+  "description": "The Encyclopedia is a section of the grimoire that gathers all other knowledge about the world and magic, which do not belong to the previous sections but are still essential for understanding. Here you will find traditional and infernal bestiaries, notes on magical traditions of witches, excerpts from theoretical volumes, and other useful and interesting materials.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/encyclopedia.png",
   "sortnum": 8
 }

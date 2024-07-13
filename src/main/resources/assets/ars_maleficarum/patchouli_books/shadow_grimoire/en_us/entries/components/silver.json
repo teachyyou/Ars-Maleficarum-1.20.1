@@ -1,19 +1,18 @@
 {
-  "name": "Серебро",
+  "name": "Silver",
   "icon": "ars_maleficarum:silver_chunk",
   "category": "ars_maleficarum:components",
   "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Серебро - благородный металл, издавна известный своей необычайной способностью вредить нежити, вампирам, оборотням и прочей нечисти. Помимо неплохого материала для украшений, оно представляет собой отличный выбор основы для создания многих артефактов и иных приспособлений, которые искушённые могут использовать на пути к истинному могуществу."
+      "text": "Silver is a noble metal, long known for its remarkable ability to harm the undead, vampires, werewolves, and other foul creatures. Besides being a fine material for jewelry, it serves as an excellent foundation for the creation of many artifacts and other implements, which the skilled can use on their path to true power."
     },
     {
       "type": "patchouli:image",
-      "text": "Глубинные залежи серебра, что может быть добыто обычной киркой и переплавлено.",
+      "text": "Deep deposits of silver, which can be mined with a regular pickaxe and smelted.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/silver.png"]
-
     }
   ],
   "read_by_default": true

@@ -1,6 +1,6 @@
 {
-  "name": "Выдержки о разном",
-  "description": "Текущий раздел является собранием множества разрозненных записок на совершенно разные темы - от старых легенд, проливающих свет на те или иные явления, с которыми приходится сталкиваться практикам, до выдержек из учебных томов на совершенно разные темы. Настоятельно рекомендуется к прочтению для формирования полноценного представления о мире, природе магии и т.п.",
+  "name": "Various Excerpts",
+  "description": "This section compiles a multitude of scattered notes on entirely different topics - from ancient legends shedding light on various phenomena encountered by practitioners, to excerpts from educational volumes on completely diverse subjects. Strongly recommended for reading to form a comprehensive understanding of the world, nature of magic, and more.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/excerpts.png",
   "parent": "ars_maleficarum:encyclopedia",
   "sortnum": 3

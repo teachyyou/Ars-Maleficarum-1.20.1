@@ -1,6 +1,6 @@
 {
-  "name": "Демонология",
-  "description": "Появление в гримуаре записок, посвященных демонологии, свидетельствует об обретении его владельцем значительного запаса знаний, достаточных для постижения этой обширной и столь же опасной области. Здесь собрана информация о типичных обитателях преисподней, их классификации, природе и способах безопасного (не всегда) взаимодействия с ними. ",
+  "name": "Demonology",
+  "description": "The appearance of notes in the grimoire dedicated to demonology signifies the acquisition of significant knowledge by its owner, sufficient to delve into this extensive and equally dangerous realm. Here is gathered information about typical denizens of the abyss, their classification, nature, and ways of (not always) safe interaction with them.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/demonology.png",
   "parent": "ars_maleficarum:encyclopedia",
   "sortnum": 1

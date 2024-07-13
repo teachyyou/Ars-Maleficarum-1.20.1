@@ -1,6 +1,6 @@
 {
-  "name": "Деревья",
-  "description": "Тут хранятся параграфы, посвященные известным (и не очень) деревьям, чьи магические свойства нашли свое применение в тёмных искусствах ведьм. $(br2)$(l)Древо - лучший друг ведьмы, живущей в лесу. Если только оно не стало её же врагом ранее.$()",
+  "name": "Trees",
+  "description": "Here are paragraphs dedicated to well-known (and lesser-known) trees, whose magical properties have found their place in the dark arts of witches. $(br2)$(l)A tree is a witch’s best friend when living in the forest. Unless it has already become her enemy.$()",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/trees.png",
   "parent": "ars_maleficarum:plants",
   "sortnum": 1

@@ -1,6 +1,6 @@
 {
-  "name": "Зельеварение",
-  "description": "Важнейшим качеством, которым отличается любая уважаемая ведьма, является хороший навык зельеварения. Зелья, создаваемые при помощи различных способов (в основном посредством варочного котла) - очень сильная возможность усилить себя. Нельзя закупорить ритуал ускорения и взять с собой в сумке, чего не скажешь о старой доброй склянке с булькающим в ней зельем.",
+  "name": "Potion Making",
+  "description": "One of the most essential skills that distinguishes any respectable witch is a good knack for potion making. Potions, created through various methods (mainly using the brewing cauldron), offer a powerful means of enhancing oneself. You cannot bottle a speed ritual and carry it in your bag, but you can certainly do so with a trusty vial of bubbling potion.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/potion_making.png",
   "parent": "ars_maleficarum:extracting_and_brewing",
   "sortnum": 2

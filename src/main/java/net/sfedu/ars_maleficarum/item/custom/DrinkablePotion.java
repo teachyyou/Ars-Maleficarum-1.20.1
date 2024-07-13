@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 
 public class DrinkablePotion extends Item {
     private static final int DRINK_DURATION = 40;
@@ -24,51 +25,61 @@ public class DrinkablePotion extends Item {
         super(pProperties);
     }
 
-    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-        super.finishUsingItem(pStack, pLevel, pEntityLiving);
-        if (pEntityLiving instanceof ServerPlayer serverplayer) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
+    @NotNull
+    @Override
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+        super.finishUsingItem(stack, level, livingEntity);
+        if (livingEntity instanceof ServerPlayer serverplayer) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
         }
 
-        if (!pLevel.isClientSide) {
-            pEntityLiving.removeEffect(MobEffects.POISON);
+        if (!level.isClientSide) {
+            livingEntity.removeEffect(MobEffects.POISON);
         }
 
-        if (pStack.isEmpty()) {
+        if (stack.isEmpty()) {
             return new ItemStack(ModItems.EMPTY_VIAL.get());
         } else {
-            if (pEntityLiving instanceof Player && !((Player)pEntityLiving).getAbilities().instabuild) {
+            if (livingEntity instanceof Player player && !((Player)livingEntity).getAbilities().instabuild) {
                 ItemStack itemstack = new ItemStack(ModItems.EMPTY_VIAL.get());
-                Player player = (Player)pEntityLiving;
                 if (!player.getInventory().add(itemstack)) {
                     player.drop(itemstack, false);
                 }
             }
 
-            return pStack;
+            return stack;
         }
     }
 
 
-    public int getUseDuration(ItemStack pStack) {
-        return 40;
+    @Override
+    public int getUseDuration(ItemStack stack) {
+        return DRINK_DURATION;
     }
 
-    public UseAnim getUseAnimation(ItemStack pStack) {
+    @Override
+    @NotNull
+    public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;
     }
 
+    @Override
+    @NotNull
     public SoundEvent getDrinkingSound() {
         return SoundEvents.GENERIC_DRINK;
     }
 
+    @Override
+    @NotNull
     public SoundEvent getEatingSound() {
         return SoundEvents.GENERIC_DRINK;
     }
 
 
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        return ItemUtils.startUsingInstantly(pLevel, pPlayer, pHand);
+    @Override
+    @NotNull
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        return ItemUtils.startUsingInstantly(level, player, hand);
     }
 }

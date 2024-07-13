@@ -1,67 +1,68 @@
 {
-  "name": "Варочный котёл",
+  "name": "Brewing Cauldron",
   "icon": "ars_maleficarum:brewing_cauldron",
   "category": "ars_maleficarum:extracting_and_brewing/brewing",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Котёл - один из основных инструментов в арсенале любого практика, от новичков до самых могущественных архимагов. Именно в нём варится львиная доля тех компонентов, что требуются затем при создании различных артефактов, проведении ритуалов, наложении чар и сотворении заклинаний. Зельеварение - целый мир, отдельное искусство, граничащее с наукой."
+      "text": "The Cauldron is a cornerstone within the arsenal of any practitioner, from fledgling novices to the most formidable Archmages. It is within this vessel that the lion's share of components is brewed, destined to be employed in the crafting of various artifacts, the conduction of rituals, the imposition of enchantments, and the conjuring of spells. Potion brewing is a world unto itself, an art form that borders upon the realm of science."
     },
     {
       "type": "patchouli:crafting",
       "recipe": "ars_maleficarum:brewing_cauldron",
-      "title": "Создание",
-      "text": "Рецепт создания удивительно прост - укрепив обычный тигель дополнительным количеством железа и серебра, можно улучшить его до особого варочного котла, который будет верно сопровождать любого алхимика в его пути к могуществу."
-
+      "title": "Creation",
+      "text": "The recipe for its creation is surprisingly simple – by fortifying an ordinary crucible with additional iron and silver, one can elevate it to a special brewing cauldron, which will faithfully accompany any alchemist on their path to power."
     },
     {
       "type": "patchouli:image",
-      "title": "Внешний вид",
-      "text": "Пустой варочный котёл, совершенно безопасно стоящий внутри деревянной хижины.",
+      "title": "Appearance",
+      "text": "An empty brewing cauldron, safely standing within a wooden hut.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/cauldron_idle.png"]
     },
     {
       "type": "patchouli:text",
-      "text": "К вопросу о безопасности и важном плюсе такой конструкции - не требуется ломать блоки и размещать под ним источник огня. Все, что требуется для нагрева - закинуть (на ПКМ) достаточное количество дров (максимум 6) под котёл. $(br)Стоит отметить, что из вышеописанного плюса вытекает и очевидный минус - в связи с отсутствием возможности подогрева от адского камня котлу требуется постоянное поддержание уровня топлива. $(l)Осторожно: можно обжечься!$()"
+      "text": "Regarding safety and a notable advantage of this design – there is no need to break blocks and place a fire source beneath it. All that is required for heating is to throw (right-click) a sufficient amount of wood (up to 6) under the cauldron. $(br)It is worth noting that the aforementioned advantage also leads to an obvious drawback – due to the lack of heating from Nether stone, the cauldron requires constant maintenance of the fuel level. $(l)Caution: one can get burned!$()"
     },
     {
       "type": "patchouli:image",
-      "title": "О топливе",
-      "text": "Зажечь огонь можно ПКМ с огнивом в руке, потушить - пустой рукой, удерживая Shift.",
+      "title": "About Fuel",
+      "text": "Light the fire by right-clicking with a flint and steel in hand, extinguish it with an empty hand while holding Shift.",
       "border": true,
-      "images": ["ars_maleficarum:textures/books/shadow_grimoire/cauldron_fuel.png","ars_maleficarum:textures/books/shadow_grimoire/cauldron_fuel_lit.png"]
+      "images": [
+        "ars_maleficarum:textures/books/shadow_grimoire/cauldron_fuel.png",
+        "ars_maleficarum:textures/books/shadow_grimoire/cauldron_fuel_lit.png"
+      ]
     },
     {
       "type": "patchouli:text",
-      "title": "Наполнение водой",
-      "text": "Варочный котёл может вмещать не более одного ведра воды. Заполнить котёл водой (или опустошить) можно на ПКМ, держа в руках ведро с водой (или пустое). $(br2)Если под наполненным котлом находится горящее топливо, то вода постепенно начнет нагреваться, пока не закипит, о чем можно будет судить по появлению пузырей и характерному звуку."
+      "title": "Filling with Water",
+      "text": "The brewing cauldron can hold no more than one bucket of water. Fill the cauldron with water (or empty it) by right-clicking while holding a bucket of water (or an empty bucket). $(br2)If burning fuel is present under the filled cauldron, the water will gradually heat until it boils, which can be discerned by the appearance of bubbles and a characteristic sound."
     },
     {
       "type": "patchouli:image",
-      "title": "Кипящая вода",
-      "text": "Любую варку рекомендуется начинать только после того, как вода в котле закипит.",
+      "title": "Boiling Water",
+      "text": "Any brewing should commence only after the water in the cauldron has reached a boil.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/cauldron_boil.png"]
     },
     {
       "type": "patchouli:text",
-      "title": "Варочный процесс",
-      "text": "Как только вода закипит, можно начинать добавлять требуемые ингредиенты. Раньше делать этого не имеет смысла - в недостаточно горячей воде они просто не будут растворяться.$(br)Об успешном добавлении ингредиента можно судить по изменению цвета содержимого котла. Кроме того, существует ограничение - в воде нельзя растворить более десяти предметов. $(br)$(l)Замечание:$() некоторые рецепты требуют строго следовать порядку ингредиентов."
+      "title": "Brewing Process",
+      "text": "Once the water has boiled, the required ingredients can be added. Adding them beforehand is futile – they simply will not dissolve in insufficiently hot water. $(br)Successful addition of an ingredient can be judged by the change in the color of the cauldron's contents. Moreover, there is a limitation – no more than ten items can be dissolved in the water. $(br)$(l)Note:$() some recipes require strict adherence to the order of ingredients."
     },
     {
       "type": "patchouli:text",
-      "title": "Варочный процесс",
-      "text": "После растворения всех нужных ингредиентов следует дождаться завершения процесса варки. О нём можно будет узнать по характерному звуку и исчезновению волшебных частиц. Некоторе рецепты заставят котёл самостоятельно завершить создание и 'выплюнуть' получившийся предмет. Во всех остальных случаях необходимо завершить процесс самому, на ПКМ собрав получившееся содержимое при помощи особой ёмкости (например, стеклянного пузырька, флакона или миски)."
+      "title": "Brewing Process",
+      "text": "After dissolving all necessary ingredients, one must wait for the brewing process to complete. This can be recognized by a characteristic sound and the disappearance of magical particles. Some recipes will cause the cauldron to autonomously complete the creation and 'spit out' the resulting item. In all other cases, the process must be concluded manually, by right-clicking to collect the resulting contents with a special container (such as a glass vial, flask, or bowl)."
     },
     {
       "type": "patchouli:spotlight",
       "item": "minecraft:bowl,ars_maleficarum:empty_vial",
-      "title": "Варочный процесс",
-      "text": "Вся информация о рецепте указывается на соответствующих страницах гримуара: результат, требуемые компоненты, важен ли строгий порядок, а также тип ёмкости (приведены выше), в которую следует сливать содержимое после завершения процесса варки, если таковое требуется. $(br)$(l)Замечание:$() Одна ёмкость может вместить лишь треть объёма содержимого котла."
+      "title": "Brewing Process",
+      "text": "All information about the recipe is indicated on the corresponding pages of the grimoire: the result, the required components, whether strict order is important, and the type of container (mentioned above) into which the contents should be poured after the brewing process is complete, if necessary. $(br)$(l)Note:$() One container can hold only a third of the cauldron's contents."
     }
   ],
   "read_by_default": true
 }
-

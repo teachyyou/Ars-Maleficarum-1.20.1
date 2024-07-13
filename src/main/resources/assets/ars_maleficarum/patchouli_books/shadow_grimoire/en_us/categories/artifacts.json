@@ -1,6 +1,6 @@
 {
-  "name": "Артефакты",
-  "description": "Никакое истинное могущество не может быть достигнуто без использования артефактов - так или иначе наполненных магией предметов, дарующих своему обладателю особые способности. Каждый артефакт уникален и имеет свой собственный способ изготовления. Чем больше его сила, тем могущественней должен быть волшебник, желающий его создать. Некоторые артефакты настолько сильны, что создать их удалось лишь однажды - желающему обрести такой предмет останется лишь отыскать его, руководствуясь легендами и историями.",
+  "name": "Artifacts",
+  "description": "No true power can be attained without the use of artifacts - objects imbued with magic, granting their wielder special abilities. Each artifact is unique and has its own method of creation. The greater its power, the more formidable the wizard must be to create it. Some artifacts are so potent that they have only been created once - those seeking such items must seek them out guided by legends and histories.",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/artifacts.png",
   "sortnum": 5
 }

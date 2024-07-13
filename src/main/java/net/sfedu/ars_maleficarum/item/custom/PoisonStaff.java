@@ -13,6 +13,7 @@ import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.sfedu.ars_maleficarum.entity.custom.PoisonousEssenceEntity;
+import org.jetbrains.annotations.NotNull;
 
 public class PoisonStaff extends Item implements Vanishable {
     public PoisonStaff(Properties pProperties) {
@@ -20,6 +21,7 @@ public class PoisonStaff extends Item implements Vanishable {
     }
 
     @Override
+    @NotNull
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(player.isCrouching())

@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -23,7 +22,7 @@ import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ChalkSymbol;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.RitualCircleCore;
 import net.sfedu.ars_maleficarum.block.custom.decorative.CrystalBall;
 import net.sfedu.ars_maleficarum.block.custom.decorative.SkullOnAStick;
-import net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier;
+import net.sfedu.ars_maleficarum.block.custom.decorative.Chandelier;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.world.tree.DeadTreeGrower;
 import net.sfedu.ars_maleficarum.world.tree.KramerTreeGrower;
@@ -32,7 +31,7 @@ import net.sfedu.ars_maleficarum.world.tree.RowanTreeGrower;
 
 import java.util.function.Supplier;
 
-import static net.sfedu.ars_maleficarum.block.custom.decorative.Сhandelier.LIT;
+import static net.sfedu.ars_maleficarum.block.custom.decorative.Chandelier.LIT;
 
 public class ModBlocks {
 
@@ -58,8 +57,8 @@ public class ModBlocks {
     //Регистрация блока руды серебра
     public static final RegistryObject<Block> SILVER_ORE_BLOCK = registerBlock("silver_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
-    public static final RegistryObject<Block> CUSTOM_FIRE = registerBlock("custom_fire",
-            () -> new CustomFireBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noLootTable().noOcclusion().noCollission()));
+    public static final RegistryObject<Block> CONSIMING_FLAME = registerBlock("custom_fire",
+            () -> new ConsumingFlameBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noLootTable().noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> SILVER_DEEPSLATE_ORE_BLOCK = registerBlock("silver_deepslate_ore_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
@@ -426,7 +425,7 @@ public class ModBlocks {
             ()->new RitualCircleCore(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion().noLootTable().explosionResistance(1200.0F)));
 
     public static final RegistryObject<Block> CHANDELIER = registerBlock("chandelier",
-            ()->new Сhandelier(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
+            ()->new Chandelier(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));
 
     public static final RegistryObject<Block> SKULL_ON_STICK = registerBlock("skull_on_a_stick",
             ()->new SkullOnAStick(BlockBehaviour.Properties.copy(Blocks.TORCH).noOcclusion().lightLevel(x->x.getValue(LIT) ? 14 : 0)));

@@ -1,19 +1,18 @@
 {
-  "name": "Солнечный Свет",
+  "name": "Sunlight Flower",
   "icon": "ars_maleficarum:textures/block/sunlight_flower_stage_6.png",
   "category": "ars_maleficarum:plants/flowers",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Солнечный Свет - по истине удивительное растение, обладающее рядом уникальных свойств. Кроме того, что его цветок излучает свет, его лепестки необходимы в некоторых специфических рецептах. Цветок высокий, растёт под открытым небом и только днем. $(br2)Его редкие семена могут быть обнаружены в $(6)пустынях$(), что некогда были местом произрастания многих тысяч таких цветов."
+      "text": "The Sunlight Flower is a truly remarkable plant, endowed with a range of unique properties. Not only does its blossom emit light, but its petals are also essential in certain specific recipes. This tall flower grows under the open sky and only during the day. $(br2)Its rare seeds can be found in $(6)deserts$(), which were once home to thousands of these flowers."
     },
     {
       "type": "patchouli:image",
-      "text": "Восхитительной красоты Солнечный Свет, питающийся энергией светила.",
+      "text": "The magnificent beauty of the Sunlight Flower, nourished by the energy of the sun.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/sunlight_flower.png"]
-
     }
   ],
   "read_by_default": true

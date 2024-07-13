@@ -1,0 +1,20 @@
+{
+  "name": "Ритуал Лунного Света",
+  "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/rituals/moonlight_flower_creation.png",
+  "category": "ars_maleficarum:circle_magic/natural_invocation_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Цветок, известный под названием $(l:plants/sunlight_flower)Солнечный Свет$(), оказался крайне любопытным растением. Оказалось, что при помощи магии кругов возможно обратить его суть, отвернув от Солнца к Луне. Можно сказать, что так получается новый, чисто магического происхождения вид - $(l:plants/moonlight_flower)Лунный Свет$(). $(br2)$(l)Примечание:$() Ритуал обязательно проводить под открытым небом с Луной в зените."
+    },
+    {
+      "type": "ars_maleficarum:ritual_circles",
+      "ritual": "ars_maleficarum:rite_of_moonlight",
+      "annotation_image": "ars_maleficarum:textures/books/shadow_grimoire/util_textures/moon.png",
+      "annotation_line1": "Проведение ритуала",
+      "annotation_line2": "возможно только ночью!"
+    }
+  ],
+  "read_by_default": true
+}

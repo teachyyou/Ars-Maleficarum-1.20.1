@@ -100,38 +100,38 @@
       "ars_maleficarum:gluttony_demon_laugh4"
     ]
   },
-  "trader_witch_attack": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_attack",
+  "hermit_witch_attack": {
+    "subtitle": "sounds.ars_maleficarum.hermit_witch_attack",
     "sounds": [
-      "ars_maleficarum:trader_witch_attack"
+      "ars_maleficarum:hermit_witch_attack"
     ]
   },
-  "trader_witch_died": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_died",
+  "hermit_witch_died": {
+    "subtitle": "sounds.ars_maleficarum.hermit_witch_died",
     "sounds": [
-      "ars_maleficarum:trader_witch_died"
+      "ars_maleficarum:hermit_witch_died"
     ]
   },
-  "trader_witch_hurt": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_hurt",
+  "hermit_witch_hurt": {
+    "subtitle": "sounds.ars_maleficarum.hermit_witch_hurt",
     "sounds": [
-      "ars_maleficarum:trader_witch_hurt"
+      "ars_maleficarum:hermit_witch_hurt"
     ]
   },
-  "trader_witch_ambient": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_ambient",
+  "hermit_witch_ambient": {
+    "subtitle": "sounds.ars_maleficarum.hermit_witch_ambient",
     "sounds": [
-      "ars_maleficarum:trader_witch_ambient0",
-      "ars_maleficarum:trader_witch_ambient1",
-      "ars_maleficarum:trader_witch_ambient2"
+      "ars_maleficarum:hermit_witch_ambient0",
+      "ars_maleficarum:hermit_witch_ambient1",
+      "ars_maleficarum:hermit_witch_ambient2"
     ]
   },
-  "trader_witch_trade": {
-    "subtitle": "sounds.ars_maleficarum.trader_witch_trade",
+  "hermit_witch_trade": {
+    "subtitle": "sounds.ars_maleficarum.hermit_witch_trade",
     "sounds": [
-      "ars_maleficarum:trader_witch_trade0",
-      "ars_maleficarum:trader_witch_trade1",
-      "ars_maleficarum:trader_witch_trade2"
+      "ars_maleficarum:hermit_witch_trade0",
+      "ars_maleficarum:hermit_witch_trade1",
+      "ars_maleficarum:hermit_witch_trade2"
     ]
   }
 }

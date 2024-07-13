@@ -14,8 +14,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class FlintKnife extends Item {
@@ -31,7 +31,6 @@ public class FlintKnife extends Item {
 
 
     @Override
-    @Nullable
     public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
         if (copy.hurt(1, RandomSource.create(), null)) {
@@ -40,7 +39,8 @@ public class FlintKnife extends Item {
         return copy;
     }
 
-
+    @Override
+    @NotNull
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos blockPos = context.getClickedPos();

@@ -42,21 +42,20 @@ public class RiteOfMediumDemonicImprisonment extends CircleRitual {
         }
         if (allComponentsConsumed && ticks/20.0 == 3) {
             List<BlockPos> MediumCircle = riteCore.mediumCircle();
-            for (int i = 0; i < MediumCircle.size(); i++) {
-                BlockPos pos = MediumCircle.get(i);
+            for (BlockPos pos : MediumCircle) {
                 BlockState currentSymbol = pLevel.getBlockState(pos);
-                currentSymbol = currentSymbol.setValue(ChalkSymbol.IMPRISONMENT,2);
-                pLevel.setBlock(pos,currentSymbol,3);
+                currentSymbol = currentSymbol.setValue(ChalkSymbol.IMPRISONMENT, 2);
+                pLevel.setBlock(pos, currentSymbol, 3);
                 double d0 = pos.getCenter().x;
                 double d1 = pos.getCenter().y;
                 double d2 = pos.getCenter().z;
-                ((ServerLevel)pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0,0.1D,0,1D);
+                ((ServerLevel) pLevel).sendParticles(ParticleTypes.ENCHANT, d0, d1, d2, 50, 0, 0.1D, 0, 1D);
             }
 
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
-            tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+            tryToContinue(pLevel,pPos,pPlayer,riteCore);
 
 
         }

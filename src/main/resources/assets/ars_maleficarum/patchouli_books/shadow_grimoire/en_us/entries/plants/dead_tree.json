@@ -1,29 +1,29 @@
 {
-  "name": "Мертвое дерево",
+  "name": "Dead Tree",
   "icon": "ars_maleficarum:textures/item/dead_tree_bark.png",
   "category": "ars_maleficarum:plants/trees",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Среди болот, полных жизни, нередко можно встретить смерть. К таким её олицетворениям и относится Мертвое Дерево - часто торчащий среди топей остов, некогда, судя по всему, составлявший ствол какого-то высокого и сильного дерева. Многие знатоки отмечают, что форма и характер волокон говорят о том, что эти трупы получаются в результате гибели $(l:plants/nameless_tree)Безымянных деревьев$(/l)."
+      "text": "Amidst the life-filled swamps, one often encounters death. Such is the embodiment found in the Dead Tree – frequently standing as a skeletal remnant in the bogs, once presumably the trunk of a tall and mighty tree. Many experts note that the form and nature of the fibers suggest these corpses result from the demise of $(l:plants/nameless_tree)Nameless Trees$(/l)."
     },
     {
       "type": "patchouli:image",
       "border": true,
-      "text": "Мертвое дерево в типичном 'союзе' с $(l:plants/swamp_rotfiend)Болотным Гнильцом$(/l) - типичным его симбионтом.",
+      "text": "A Dead Tree in typical 'union' with the $(l:plants/swamp_rotfiend)Swamp Rotfiend$(/l) – its common symbiont.",
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/dead_tree.png"]
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:dead_tree_bark",
-      "text": "Прогнившая древесина этого дерева недостаточно прочна, чтобы быть добытой, и вместо этого рассыпается в процессе. $(br)То немногое, что удается собрать - огрубевшая кора, которая, хоть и кажется бесполезной на первый взгляд, находит в нашем искусстве себе несколько применений. Комбинируемая с другими компонентами, она ложится в основу создания многих полезных предметов."
+      "text": "The rotted wood of this tree is not strong enough to be harvested and instead crumbles in the process. $(br)The little that can be collected – the roughened bark – though seemingly useless at first glance, finds several applications in our art. Combined with other components, it forms the basis for creating many useful items."
     },
     {
       "type": "patchouli:spotlight",
       "item": "ars_maleficarum:tree_larva,ars_maleficarum:dead_tree_larva",
       "anchor": "tree_larva",
-      "text": "Прогнившая древесина может стать привлекательным жильем для некоторых насекомых. Так, особый вид древесных личинок часто может быть обнаружен при срубке мертвых деревьев. Их маленькие омерзительные тельца хранят в себе особую магию, которую опытный волшебник может извлечь и применить себе на пользу. Извлеченная личинка спустя время погибает и теряет силы, и консервация - лучший способ этого избежать."
+      "text": "The rotted wood can become an inviting home for certain insects. Thus, a special kind of tree larva is often found when felling dead trees. Their small, repugnant bodies harbor unique magic, which an experienced wizard can extract and use to their advantage. Extracted larvae die and lose their power over time, conservation is the best way to prevent this."
     }
   ],
   "read_by_default": true

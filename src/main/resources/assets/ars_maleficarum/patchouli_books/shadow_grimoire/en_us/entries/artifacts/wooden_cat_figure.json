@@ -1,23 +1,23 @@
 {
-  "name": "Фигурка кошки",
+  "name": "Wooden Cat Figure",
   "icon": "ars_maleficarum:wooden_cat_figure",
   "category": "ars_maleficarum:artifacts",
   "sortnum": 4,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Вероятно, одному египетскому жрецу однажды пришла в голову такая идея. Вырезав из дерева фигурку почитаемой кошки, он наполнил её магией, тем самым создав мощнейший артефакт, спасший пирамиды. $(br)Всем известно, как раздражают криперы. А ещё как сильно они боятся кошек. Деревянная фигурка кошки, получаемая наполнением - мощный идол, способный повергать в бегство орды мерзких криперов."
+      "text": "Perhaps an ancient Egyptian priest once had this idea. Carving a wooden figure of the revered cat and imbuing it with magic, he created a powerful artifact that saved pyramids. $(br)Everyone knows how annoying creepers can be. And they are also terrified of cats. A wooden cat figure, infused with magic, is a potent idol capable of sending hordes of vile creepers fleeing in terror."
     },
     {
       "type": "ars_maleficarum:infusing_altar_recipe",
       "recipe": "ars_maleficarum:wooden_cat_figure_in_infusing_altar",
-      "title": "Наполнение",
-      "text": "Теперь ваш сад будет надёжно защищён от криперов. Ведь котики - круто! $(l)Замечание$(): Поднять фигурку - Shift+ПКМ."
+      "title": "Infusion",
+      "text": "Now your garden will be securely protected from creepers. Sponsored by a true cat-lover! $(l)Note$(): Pick up the figure by Shift+Right-clicking."
     },
     {
       "type": "patchouli:image",
-      "title": "Фигурка кошки",
-      "text": "Многим волшебникам это зрелище доставляет необычайное удовольствие.",
+      "title": "Wooden Cat Figure",
+      "text": "Many wizards find this sight remarkably delightful.",
       "border": true,
       "images": ["ars_maleficarum:textures/books/shadow_grimoire/wooden_cat_figure.png"]
     }

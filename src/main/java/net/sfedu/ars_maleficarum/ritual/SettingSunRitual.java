@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.ritual;
 
-import com.sun.jna.platform.unix.X11;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +13,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.sfedu.ars_maleficarum.block.custom.chalkSymbols.ritualCoreEntity.RitualCoreEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.ritual.ritualTemplates.CircleRitual;
+
+import java.util.Objects;
 
 public class SettingSunRitual extends CircleRitual {
 
@@ -38,14 +39,14 @@ public class SettingSunRitual extends CircleRitual {
 
         if (allComponentsConsumed && ticks%20.0==0) {
             if (ticks%40.0==0 && pPos!=null) EntityType.LIGHTNING_BOLT.spawn((ServerLevel) pLevel, (ItemStack) null,null, pPos.relative(Direction.Axis.Z, 5-pLevel.random.nextInt(10)).relative(Direction.Axis.X, 5-pLevel.random.nextInt(10)), MobSpawnType.TRIGGERED,true,true);
-            pLevel.getServer().getLevel(Level.OVERWORLD).setDayTime(pLevel.getDayTime()+2000);
+            Objects.requireNonNull(Objects.requireNonNull(pLevel.getServer()).getLevel(Level.OVERWORLD)).setDayTime(pLevel.getDayTime()+2000);
             pLevel.updateSkyBrightness();
         }
         if (allComponentsConsumed && pLevel.getDayTime()>=13000) {
             pPlayer.sendSystemMessage(ritualName);
             ticks=0;
             riteCore.stopRitual();
-            tryToContinue(pState,pLevel,pPos,pPlayer,riteCore);
+            tryToContinue(pLevel,pPos,pPlayer,riteCore);
         }
     }
 

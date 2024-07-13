@@ -1,17 +1,17 @@
 {
-  "name": "Чревоугодие",
+  "name": "Gluttony",
   "icon": "ars_maleficarum:textures/books/shadow_grimoire/icon/gluttony.png",
   "category": "ars_maleficarum:encyclopedia/demonology",
   "sortnum": 0,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Данный параграф посвящен демону чревоугодия - одному из тех, что символизируют Смертные Грехи и управляют человеческим пороком, сидя во своих инфернальных владениях и наслаждаясь подпиткой, даруемой им всеми нами. Демоны, относящиеся к каждому из грехов, обладают разным могуществом и 'степенью влияния' в своих широких 9-ти кругах. Чревоугодие несколько выделяется на их фоне."
+      "text": "This paragraph is dedicated to the demon of gluttony - one among those who embody Deadly Sins and govern human vice, residing in their infernal domains and luxuriating in sustenance granted by us all. Demons associated with each sin wield varying degrees of power and 'influence' within their expansive nine circles. Gluttony somewhat stands out among them."
     },
     {
       "type": "patchouli:text",
-      "title": "Чревоугодие",
-      "text": "На самом деле, многие адепты демонологии сходятся в одном мнении: Демон Чревоугодия - самый слабый из демонов, олицетворяющих Смертные Грехи. Иные поговаривают, что над ними за спиной насмехаются даже их собственные соседи по аду. Таким образом, практику в призывах и общении с демонами лучше начать именно с таких. Не нужно, однако, их недооценивать. Как дальше будет показано, эти демоны достаточно сильны и представляют определенную угрозу для новичков. "
+      "title": "Gluttony",
+      "text": "Indeed, many adepts of demonology concur on one point: the Gluttony demon ranks as the weakest among demons embodying Deadly Sins. Some whisper that even their own infernal neighbors mock them behind their backs. Therefore, it is advisable for practitioners to commence their summoning and dealings with demons of this sort. However, one must not underestimate them. As further elucidated, these demons are quite formidable and pose a specific threat to novices."
     },
     {
       "type": "patchouli:entity",
@@ -19,12 +19,12 @@
       "rotate": true,
       "scale": 0.5,
       "offset": 1,
-      "text": "Демон Чревоугодия - большой и сильный, но крайне неповоротливый и не очень сообразительный. Руководствуется, главным образом, желанием посильнее набить живот. "
+      "text": "The Gluttony demon is large and potent, yet exceedingly clumsy and not overly astute. It is primarily driven by the desire to sate its voracious appetite."
     },
     {
       "type": "patchouli:text",
-      "title": "Чревоугодие",
-      "text": "Будучи призванным при помощи традиционного, буквально канонического $(l:rituals/demonology/abyssal_feast)ритуала призыва$(), демон сразу попытается атаковать. От него легко убежать - он довольно медлителен, поэтому спастись можно всегда. Удары его кулаков по истине разрушительны - не стоит позволять ему атаковать, хилая ведьма или колдун могут сложиться пополам в два счёта. Убить его не очень легко - атакуя, демон исцеляется, пассивно поедая частички вашей души с каждым ударом."
+      "title": "Gluttony",
+      "text": "Summoned through a traditional, almost canonical $(l:rituals/demonology/abyssal_feast)summoning ritual$(), the demon immediately seeks to attack. It is easy to evade, as it moves quite ponderously. Nevertheless, one must avoid its devastating blows; allowing it to strike can be perilous, as frail witches or warlocks may find themselves rent asunder in an instant. Killing it proves challenging; its attacks passively consume shards of your soul with each strike, healing the demon."
     }
   ],
   "read_by_default": true

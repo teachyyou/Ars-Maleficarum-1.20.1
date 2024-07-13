@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "glass_ball",
 	"ambientocclusion": false,
 	"render_type": "minecraft:translucent",
 	"texture_size": [64, 64],

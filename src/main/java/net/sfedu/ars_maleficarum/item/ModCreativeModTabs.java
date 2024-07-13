@@ -108,11 +108,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.FLINT_KNIFE.get());
                         pOutput.accept(ModItems.CHALK_BRUSH.get());
                         pOutput.accept(ModItems.SILVER_DAGGER.get().getDefaultInstance());
-                        pOutput.accept(ModItems.EMPTY_SEAL.get());
-                        pOutput.accept(ModItems.PERCEPTION_CORE.get());
-                        pOutput.accept(ModItems.CARBON_DETECTOR.get());
-                        pOutput.accept(ModItems.METAL_DETECTOR.get());
-                        pOutput.accept(ModItems.VALUABLE_DETECTOR.get());
                         pOutput.accept(ModItems.DRY_WOOD.get());
                         pOutput.accept(ModItems.INERT_POISON_STAFF.get());
                         pOutput.accept(ModItems.POISON_STAFF.get());
@@ -153,7 +148,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.GREEN_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.CRIMSON_CIRCLE_CORE_DRAWING_KIT.get());
                         pOutput.accept(ModItems.MANDRAKE_SPAWN_EGG.get());
-                        pOutput.accept(ModItems.TRADE_WITCH_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.HERMIT_WITCH_SPAWN_EGG.get());
                         pOutput.accept(ModItems.GLUTTONY_DEMON_SPAWN_EGG.get());
                     }))
                     .build());

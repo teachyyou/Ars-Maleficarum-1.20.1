@@ -1,0 +1,116 @@
+{
+  "name": "Получение испарений",
+  "icon": "ars_maleficarum:smell_of_home",
+  "category": "ars_maleficarum:extracting_and_brewing/odour_extracting",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "В данном разделе приведены описания основных ароматов, которые могут быть получены выпариванием их различных растительных компонентов. Обладающие разными свойствами и символизирующие разные сущности, они находят себе применения в различных областях искусства - от приготовления других компонентов и зельеварения до призывов инфернальных существ. К каждому рецепту приводится краткое пояснение о том, какие оттенки имеет та или иная эссенция."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Петрикор",
+      "recipe": "ars_maleficarum:petrichor_from_dark_oak_sapling",
+      "text": "Петрикор, запах пыли после дождя, популярен среди волшебников и травников. Тёмный дуб, добавляющий мрачные нотки сырости, идеально подходит для этой эссенции."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Запах дома",
+      "recipe": "ars_maleficarum:smell_of_home_from_oak_sapling",
+      "text": "Дуб символизирует дом, уют и тёплые воспоминания. Иные называют этот аромат 'ностальгией'."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Пустынный дух",
+      "recipe": "ars_maleficarum:desert_spirit_from_cactus",
+      "text": "Кактус - лучший источник эссенции пустыни, бескрайних песчаных степей, где Солнце жжет, а ветры поют мелодии безнадёжности."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Сладостный сон",
+      "recipe": "ars_maleficarum:sweet_dream_from_sugar_cane",
+      "text": "Сахарный тростник - источник эссенции, пробуждающей дремоту и сладостный сон. Он символизирует закат, усталость и расслабление."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Парящая лёгкость",
+      "recipe": "ars_maleficarum:soaring_lightness_from_azalea",
+      "text": "Азалия, удивительное растение, является источником эссенции лёгкости и возвышенности. Её сок придает эссенции незабываемые оттенки и магические свойства."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Парящая лёгкость",
+      "recipe": "ars_maleficarum:soaring_lightness_from_flowering_azalea",
+      "text": "Цветущая азалия содержит более концентрированную эссенцию лёгкости, часто используемую в зельеварении."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Звон утренней росы",
+      "recipe": "ars_maleficarum:ring_of_morning_dew_birch_sapling",
+      "text": "Эссенцию утренней росы лучше всего извлекать из березы, символа красоты и радостного пробуждения."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Ветер пустоши",
+      "anchor": "wasteland_wind",
+      "recipe": "ars_maleficarum:wasteland_wind_from_acacia_sapling",
+      "text": "Пыльный ветер саванн связан с акациями. Из их ростков можно извлечь эссенцию ветра пустоши."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Хвойное масло",
+      "recipe": "ars_maleficarum:coniferous_oil_from_spruce_sapling",
+      "text": "Ель - источник магической энергии. Опытный травник может извлечь хвойное масло для зелий и заклинаний."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Болотный смрад",
+      "recipe": "ars_maleficarum:stink_of_swamp_from_mangrove_propagule",
+      "text": "Болота - средоточие природной магии. Зловонные испарения мангров используются для создания эссенций болот."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Абсолютный порядок",
+      "recipe": "ars_maleficarum:absolute_order_from_rowan_sapling",
+      "text": "Рябина - чистейший источник природной магии порядка, используемой для устранения хаоса."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Тропический муссон",
+      "recipe": "ars_maleficarum:tropical_monsoon_from_jungle_sapling",
+      "text": "Эссенция тропических лесов символизирует силу дождя и нетронутую природу. Зельевары высоко ценят её."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Вишнёвый этюд",
+      "recipe": "ars_maleficarum:cherry_etude_from_cherry_sapling",
+      "text": "Вишня, воплощение гармонии и мелодии, является источником эссенции для создания артефактов Востока."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Дуновение времени",
+      "recipe": "ars_maleficarum:whiff_of_time_from_kramer_tree_sapling",
+      "text": "Древо Крамера, впитавшее кровь поколений, символизирует течение времени, напоминая о марше истории к созиданию."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Мелодия согласия",
+      "recipe": "ars_maleficarum:tune_of_harmony_from_sage_flower",
+      "text": "Шалфей, наполненный энергией порядка и гармонии, обостряет чувства и приносит ясность."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Мелодия согласия",
+      "recipe": "ars_maleficarum:tune_of_harmony_from_ground_sage_flowers",
+      "text": "Измельчённый шалфей увеличивает шанс извлечения эссенции 'мелодии согласия'."
+    },
+    {
+      "type": "ars_maleficarum:odour_extracting_recipe",
+      "title": "Аромат неоднозначности",
+      "recipe": "ars_maleficarum:scent_of_uncertainty_from_nameless_tree_sapling",
+      "text": "Безымянное древо источает неуверенность и загадки. Его аромат популярен у тех, кто осмеливается заигрывать с судьбой."
+    }
+  ],
+  "read_by_default": true
+}
