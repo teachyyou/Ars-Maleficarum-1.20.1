@@ -1,5 +1,6 @@
 package net.sfedu.ars_maleficarum.item.custom;
 
+import com.ibm.icu.impl.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -17,10 +18,28 @@ import net.sfedu.ars_maleficarum.entity.custom.FireEssenceEntity;
 import net.sfedu.ars_maleficarum.sound.ModSounds;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 public class FireStaff extends Item implements Vanishable {
 
+    private final List<Pair<Integer,Integer>> coordinate_list = new ArrayList<>(Arrays.asList(Pair.of(0,-4),Pair.of(-1,-4),Pair.of(-2,-3),Pair.of(-3,-2),Pair.of(-4,-1),Pair.of(-4,0), Pair.of(-4,1),
+            Pair.of(-3,2),Pair.of(-2,3),Pair.of(-1,4),Pair.of(0,4),Pair.of(1,4),Pair.of(2,3),Pair.of(3,2),Pair.of(4,1),Pair.of(4,0),Pair.of(4,-1),Pair.of(3,-2),Pair.of(2,-3),Pair.of(1,-4)));
     public FireStaff(Properties pProperties) {
         super(pProperties);
+    }
+
+    private void spawnConsimingFlame(int X, int Z, Level pLevel, BlockPos pPose)
+    {
+        if(pLevel.isEmptyBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z)) && !pLevel.isEmptyBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z).relative(Direction.Axis.Y,-1)))
+            pLevel.setBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(), 3);
+        else if(pLevel.isEmptyBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z).relative(Direction.Axis.Y,-1)))
+            pLevel.setBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z).relative(Direction.Axis.Y,-1), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(), 3);
+        else if(pLevel.isEmptyBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z).relative(Direction.Axis.Y,1)))
+            pLevel.setBlock(pPose.relative(Direction.Axis.X,X).relative(Direction.Axis.Z,Z).relative(Direction.Axis.Y,1), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(), 3);
+
     }
     @Override
     @NotNull
@@ -29,42 +48,7 @@ public class FireStaff extends Item implements Vanishable {
         if(player.isCrouching())
         {
             BlockPos pPose = player.getOnPos().above(1);
-            for(int i=0;i<2;++i)
-            {
-                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,-4), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,-4),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,-3), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,-3),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,-2), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,-2),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,-1), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,-1),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,0), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,0),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,1), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-4+4*2*i).relative(Direction.Axis.Z,1),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,2), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-3+3*2*i).relative(Direction.Axis.Z,2),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,3), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-2+2*2*i).relative(Direction.Axis.Z,3),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-                level.setBlock(pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,4), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-                ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,-1+2*i).relative(Direction.Axis.Z,4),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-            }
-            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,4), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-            ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,4),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
-            level.setBlock(pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,-4), ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),3);
-            ModBlocks.CONSIMING_FLAME.get().setPlacedBy(level,pPose.relative(Direction.Axis.X,0).relative(Direction.Axis.Z,-4),ModBlocks.CONSIMING_FLAME.get().defaultBlockState(),player,stack);
-
+            coordinate_list.forEach(x-> spawnConsimingFlame(x.first, x.second, level, pPose));
             player.getCooldowns().addCooldown(this, 200);
             player.playSound(ModSounds.FIRE_STAFF_RADIUS_ATTACK.get(), 1.0F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2F + 1.0F);
         }
