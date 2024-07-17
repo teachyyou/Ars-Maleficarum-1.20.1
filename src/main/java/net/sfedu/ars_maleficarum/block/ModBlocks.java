@@ -406,7 +406,7 @@ public class ModBlocks {
             });
 
     public static final RegistryObject<Block> MANDRAKE_CROP = BLOCKS.register("mandrake_crop",
-            () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get()).noLootTable()));
+            () -> new MandrakeCropBlock(BlockBehaviour.Properties.copy(ModBlocks.SAGE_CROP.get())));
 
     public static final RegistryObject<Block> WHITE_CHALK_SYMBOL = BLOCKS.register("white_chalk_symbol",
             ChalkSymbol::new);

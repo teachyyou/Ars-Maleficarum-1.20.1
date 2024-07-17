@@ -21,6 +21,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import net.sfedu.ars_maleficarum.block.ModBlocks;
 import net.sfedu.ars_maleficarum.block.custom.HerbCropBlock;
+import net.sfedu.ars_maleficarum.block.custom.MandrakeCropBlock;
 import net.sfedu.ars_maleficarum.block.custom.SunlightFlower;
 import net.sfedu.ars_maleficarum.block.custom.SwampRotfiendMushroom;
 import net.sfedu.ars_maleficarum.item.ModItems;
@@ -44,7 +45,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         generatedSwampRotfiend_Drop();
         generateSageCropDrop();
         generateMarigoldCropDrop();
-        //generateMandrakeCropDrop();
+        generateMandrakeCropDrop();
         //Блоки, которые при ломании дропают сами себя
         this.dropSelf(ModBlocks.CURSED_GOLD_BLOCK.get());
         this.dropSelf(ModBlocks.SILVER_BLOCK.get());
@@ -167,14 +168,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ModItems.MARIGOLD_SEED.get(), lootitemcondition$builder));
     }
 
-    //protected void generateMandrakeCropDrop() {
-    //LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
-    //.hasBlockStateProperties(ModBlocks.MANDRAKE_CROP.get())
-    //.setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MandrakeCropBlock.AGE,3).hasProperty(MandrakeCropBlock.IS_SPAWNED,true)));
+    protected void generateMandrakeCropDrop() {
+        LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
+            .hasBlockStateProperties(ModBlocks.MANDRAKE_CROP.get())
+            .setProperties((StatePropertiesPredicate.Builder.properties().hasProperty(MandrakeCropBlock.AGE,3)));
 
-    //this.add(ModBlocks.MANDRAKE_CROP.get(), createSimpleCropDrop(ModBlocks.MANDRAKE_CROP.get(),ModItems.MANDRAKE_ROOT.get(),
-    //ModItems.MANDRAKE_SEED.get(), lootitemcondition$builder));
-    // }
+        this.add(ModBlocks.MANDRAKE_CROP.get(), createCropDrops(ModBlocks.MANDRAKE_CROP.get(),ModItems.MANDRAKE_ROOT.get(),
+                ModItems.MANDRAKE_SEED.get(), lootitemcondition$builder));
+     }
     protected LootTable.Builder createSimpleCropDrop(Block pCropBlock, Item pGrownCropItem1, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem1).when(pDropGrownCropCondition))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pSeedsItem).when(pDropGrownCropCondition))));
     }

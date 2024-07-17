@@ -1,27 +1,15 @@
 {
   "variants": {
-    "age=0,is_spawned=false": {
+    "age=0": {
       "model": "ars_maleficarum:block/mandrake_stage0"
     },
-    "age=0,is_spawned=true": {
-      "model": "ars_maleficarum:block/mandrake_stage0"
-    },
-    "age=1,is_spawned=false": {
+    "age=1": {
       "model": "ars_maleficarum:block/mandrake_stage1"
     },
-    "age=1,is_spawned=true": {
-      "model": "ars_maleficarum:block/mandrake_stage1"
-    },
-    "age=2,is_spawned=false": {
+    "age=2": {
       "model": "ars_maleficarum:block/mandrake_stage2"
     },
-    "age=2,is_spawned=true": {
-      "model": "ars_maleficarum:block/mandrake_stage2"
-    },
-    "age=3,is_spawned=false": {
-      "model": "ars_maleficarum:block/mandrake_stage3"
-    },
-    "age=3,is_spawned=true": {
+    "age=3": {
       "model": "ars_maleficarum:block/mandrake_stage3"
     }
   }
