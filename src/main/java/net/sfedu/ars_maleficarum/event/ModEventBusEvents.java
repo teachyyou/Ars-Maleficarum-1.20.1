@@ -38,7 +38,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerSpawnPlacement(SpawnPlacementRegisterEvent event)
     {
-        event.register(ModEntities.SWAMP_DROWNED.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR_WG,
-                WaterAnimal::checkSurfaceWaterAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ModEntities.SWAMP_DROWNED.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SwampDrownedEntity::checkSwampDrownedSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }

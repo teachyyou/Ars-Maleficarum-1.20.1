@@ -4,7 +4,7 @@
   "spawners": {
     "type": "ars_maleficarum:swamp_drowned",
     "maxCount": 4,
-    "minCount": 1,
-    "weight": 90
+    "minCount": 2,
+    "weight": 200
   }
 }

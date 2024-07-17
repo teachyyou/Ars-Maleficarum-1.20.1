@@ -81,7 +81,7 @@ public class ModBiomeModifiers {
 
         context.register(SPAWN_SWAMP_DROWNED, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SWAMP_DROWNED.get(),90,1,4))
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SWAMP_DROWNED.get(),200,2,4))
         ));
     }
 

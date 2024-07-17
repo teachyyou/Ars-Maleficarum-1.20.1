@@ -3,14 +3,17 @@ package net.sfedu.ars_maleficarum.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,6 +23,7 @@ import net.sfedu.ars_maleficarum.entity.ModEntities;
 import net.sfedu.ars_maleficarum.entity.custom.MandrakeEntity;
 import net.sfedu.ars_maleficarum.item.ModItems;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -65,7 +69,7 @@ public class MandrakeCropBlock extends CropBlock {
         pBuilder.add(AGE);
         pBuilder.add(IS_SPAWNED);
     }
-    private void spawnMandrake(ServerLevel pLevel, BlockPos pPos) {
+    private void spawnMandrake(Level pLevel, BlockPos pPos) {
         MandrakeEntity mandrake = ModEntities.MANDRAKE.get().create(pLevel);
         is_entity_spawned = true;
         if (mandrake != null) {
@@ -76,21 +80,18 @@ public class MandrakeCropBlock extends CropBlock {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
-    @SuppressWarnings("deprecation")
-    public void spawnAfterBreak(BlockState pState, ServerLevel pLevel, BlockPos pPos, ItemStack pStack, boolean pDropExperience) {
-        if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) == 0) {
+    public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
+        if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pTool) == 0) {
             int chance_of_spawn = (int)(Math.random()*10);
             if(pLevel.isDay()){
                 if(chance_of_spawn!=9 && chance_of_spawn!=10){
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
-                    pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
+                    pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_SEED.get())));
-                    pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
+                    pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_ROOT.get())));
-
                 }
             }
             else{
@@ -98,9 +99,9 @@ public class MandrakeCropBlock extends CropBlock {
                     this.spawnMandrake(pLevel, pPos);
                 }
                 else{
-                    pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
+                    pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_SEED.get())));
-                    pLevel.getLevel().addFreshEntity(new ItemEntity(pLevel.getLevel(),pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
+                    pLevel.addFreshEntity(new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(), new ItemStack(
                             ModItems.MANDRAKE_ROOT.get())));
                 }
             }
