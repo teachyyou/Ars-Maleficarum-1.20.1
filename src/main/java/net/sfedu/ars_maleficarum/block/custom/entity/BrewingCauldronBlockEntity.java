@@ -283,8 +283,8 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         targetBlue = clampColor(targetBlue + blue);
     }
 
-    public void resetWaterColor() {
-        int biomeCoefficient = BiomeColors.getAverageWaterColor(Objects.requireNonNull(this.level), worldPosition);
+    public void resetWaterColor(Level level) {
+        int biomeCoefficient = BiomeColors.getAverageWaterColor(Objects.requireNonNull(level), worldPosition);
         startRed = targetRed = biomeCoefficient >> 16 & 255;
         startGreen = targetGreen = biomeCoefficient >> 8 & 255;
         startBlue = targetBlue = biomeCoefficient & 255;
