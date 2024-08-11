@@ -1,5 +1,7 @@
 package net.sfedu.ars_maleficarum.block.custom.entity;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -18,8 +20,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -30,13 +30,16 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
-import net.sfedu.ars_maleficarum.item.ModItems;
+import net.sfedu.ars_maleficarum.item.client.CauldronColorsMap;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import static net.minecraft.world.level.block.Block.popResource;
@@ -70,24 +73,19 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private int temperature = 0;
     private int boilTick = 0;
     private int craftingProgress = 0;
-
-    private int targetRed = 92;
-    private int targetGreen = 245;
-    private int targetBlue = 177;
-    private int startRed = targetRed;
-    private int startGreen = targetGreen;
-    private int startBlue = targetBlue;
+    private int targetRed, targetGreen, targetBlue;
+    private int startRed, startGreen, startBlue;
     public long startTime = System.currentTimeMillis();
     public ItemStack crafted;
     public int craftedType = 1;
-    private boolean firstTick = true;
 
     private static final int MAX_TEMP = 1500;
     private static final int MAX_FUEL = 2000;
 
+    private static final int COLOR_RANDOM_BOUND = 60;
+
     private final Random rand = new Random();
 
-    private Map<Item, int[]> colorMap = new HashMap<>();
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
         @Override
@@ -108,13 +106,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     public BrewingCauldronBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.BREWING_CAULDRON_BE.get(), pPos, pBlockState);
+        setLevel(Objects.requireNonNull(Minecraft.getInstance().level));
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
-        colorMap.put(Items.DIRT, new int[] {20, -40, 30});
     }
 
     @Override
@@ -137,16 +135,16 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     @ParametersAreNonnullByDefault
     public void load(CompoundTag pTag) {
         super.load(pTag);
+
+        int red = pTag.getInt("colorR");
+        int green = pTag.getInt("colorG");
+        int blue = pTag.getInt("colorB");
+        setWaterColor(red, green, blue);
+
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         this.fuelLevel = pTag.getInt("fuelLevel");
         this.temperature = pTag.getInt("temperature");
-        int tr = pTag.getInt("colorR");
-        int tg = pTag.getInt("colorG");
-        int tb = pTag.getInt("colorB");
 
-        if(tr != targetRed || tg != targetGreen || tb != targetBlue) { // If colour changed
-            updateTargetColour(tr, tg, tb);
-        }
     }
 
     public int getRed(long time) {
@@ -188,13 +186,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         suckItems(level, pPos, pState);
         temperatureTick(level, pState);
         blockStatesChange(level, pPos, pState);
-        if (firstTick)
-        {
-            firstTick = false;
-            startRed = targetRed;
-            startGreen = targetGreen;
-            startBlue = targetBlue;
-        }
         if (hasRecipe() && pState.getValue(BrewingCauldronBlock.BOILING))
         {
             if (craftingProgress < 100)
@@ -269,13 +260,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                     crafted = null;
                     craftingProgress = 0;
 
-                    if (colorMap.containsKey(itemStack.getItem()))
+                    if (CauldronColorsMap.hasColorFor(itemStack.getItem()))
                     {
-                        int[] rgb = colorMap.get(itemStack.getItem());
+                        int[] rgb = CauldronColorsMap.get(itemStack.getItem());
                         changeWaterColor(rgb[0], rgb[1], rgb[2]);
                     }
                     else
-                        changeWaterColorByRandomValue(60);
+                        changeWaterColorByRandomValue();
 
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
@@ -286,31 +277,39 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     }
 
-    private void changeWaterColor(int red, int green, int blue)
-    {
-        targetRed = targetRed + red;
-        if (targetRed < 0) targetRed = 0;
-        if (targetRed > 255) targetRed = 255;
-        targetGreen = targetGreen + green;
-        if (targetGreen < 0) targetGreen = 0;
-        if (targetGreen > 255) targetGreen = 255;
-        targetBlue = targetBlue + blue;
-        if (targetBlue < 0) targetBlue = 0;
-        if (targetBlue > 255) targetBlue = 255;
+    private void changeWaterColor(int red, int green, int blue) {
+        targetRed = clampColor(targetRed + red);
+        targetGreen = clampColor(targetGreen + green);
+        targetBlue = clampColor(targetBlue + blue);
     }
 
-    private void changeWaterColorByRandomValue(int bound)
-    {
+    public void resetWaterColor() {
+        int biomeCoefficient = BiomeColors.getAverageWaterColor(Objects.requireNonNull(this.level), worldPosition);
+        startRed = targetRed = biomeCoefficient >> 16 & 255;
+        startGreen = targetGreen = biomeCoefficient >> 8 & 255;
+        startBlue = targetBlue = biomeCoefficient & 255;
+    }
+
+    public void setWaterColor(int red, int green, int blue) {
+        startRed = targetRed = red;
+        startGreen = targetGreen = green;
+        startBlue = targetBlue = blue;
+    }
+
+    private int clampColor(int value) {
+        return Math.max(0, Math.min(255, value));
+    }
+
+
+    private void changeWaterColorByRandomValue() {
         Random rand = new Random();
-        targetRed = targetRed + rand.nextInt(-bound, bound);
-        if (targetRed < 0) targetRed = 0;
-        if (targetRed > 255) targetRed = 255;
-        targetGreen = targetGreen + rand.nextInt(-bound, bound);
-        if (targetGreen < 0) targetGreen = 0;
-        if (targetGreen > 255) targetGreen = 255;
-        targetBlue = targetBlue + rand.nextInt(-bound, bound);
-        if (targetBlue < 0) targetBlue = 0;
-        if (targetBlue > 255) targetBlue = 255;
+        targetRed = clampColor(targetRed + getRandomColorValue(rand));
+        targetGreen = clampColor(targetGreen + getRandomColorValue(rand));
+        targetBlue = clampColor(targetBlue + getRandomColorValue(rand));
+    }
+
+    private int getRandomColorValue(Random rand) {
+        return rand.nextInt(COLOR_RANDOM_BOUND * 2) - COLOR_RANDOM_BOUND;
     }
 
     // Отвечает за нагревание и остывание котла
@@ -328,11 +327,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (pState.getValue(BrewingCauldronBlock.WATER)==0)
         {
             temperature = 0;
-            if (!level.isClientSide()) {
-                targetRed = 92;
-                targetGreen = 245;
-                targetBlue = 177;
-            }
+            //if (!level.isClientSide()) resetWaterColor();
         }
     }
 

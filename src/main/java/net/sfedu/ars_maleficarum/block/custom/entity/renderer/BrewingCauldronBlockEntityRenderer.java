@@ -39,7 +39,7 @@ public class BrewingCauldronBlockEntityRenderer implements BlockEntityRenderer<B
 
         float height = 0.188f+0.125f*pBlockEntity.getBlockState().getValue(BrewingCauldronBlock.WATER);
         long time = System.currentTimeMillis() - pBlockEntity.startTime;
-        drawQuad(builder, pPoseStack, 0.125f, height, 0.125f, 0.875f, height, 0.875f, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), pPackedLight, pBlockEntity.getRed(time), pBlockEntity.getBlue(time), pBlockEntity.getGreen(time));
+        drawQuad(builder, pPoseStack, 0.125f, height, 0.125f, 0.875f, height, 0.875f, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), pPackedLight, pBlockEntity.getRed(time), pBlockEntity.getGreen(time), pBlockEntity.getBlue(time));
     }
 
     private static void drawVertex(VertexConsumer builder, PoseStack poseStack, float x, float y, float z, float u, float v, int packedLight, int colorR, int colorG, int colorB)

@@ -125,11 +125,13 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
 
         super.onRemove(pState,pLevel,pPos,pNewState,pIsMoving);
     }
+
+
     @Override
     @NotNull
     @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        BrewingCauldronBlockEntity blockentity = (BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos);
+        BrewingCauldronBlockEntity blockEntity = (BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos);
         if (!pLevel.isClientSide) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
@@ -143,14 +145,14 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             }
             else if (itemstack.is(ItemTags.LOGS_THAT_BURN))
             {
-                if (blockentity != null)
+                if (blockEntity != null)
                 {
-                    if (blockentity.addFuel(pLevel, pPos) && !pPlayer.isCreative()) itemstack.setCount(itemstack.getCount()-1);
+                    if (blockEntity.addFuel(pLevel, pPos) && !pPlayer.isCreative()) itemstack.setCount(itemstack.getCount()-1);
                 }
             }
             else if (itemstack.getItem() == Items.BUCKET)
             {
-                if (blockentity != null)
+                if (blockEntity != null)
                 {
                     if (pState.getValue(WATER) == 3)
                     {
@@ -165,21 +167,22 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             }
             else if (itemstack.getItem() == Items.WATER_BUCKET)
             {
-                if (blockentity != null)
+                if (blockEntity != null)
                 {
                     if (pState.getValue(WATER) == 0)
                     {
                         pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
                         if (!pPlayer.isCreative()) pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
+                        ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).resetWaterColor();
                     }
                 }
             }
             else if (itemstack.getItem() == ModItems.EMPTY_VIAL.get())
             {
-                if (blockentity != null)
+                if (blockEntity != null)
                 {
-                    if (blockentity.crafted != null && blockentity.craftedType == 1)
+                    if (blockEntity.crafted != null && blockEntity.craftedType == 1)
                     {
                         if (pState.getValue(WATER) == 1)
                         {
@@ -190,7 +193,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
                         pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
                         if (pState.getValue(BOILING))
-                            pPlayer.addItem(blockentity.crafted.copy());
+                            pPlayer.addItem(blockEntity.crafted.copy());
                         else
                             pPlayer.addItem(new ItemStack(Items.DIRT));
                     }
@@ -199,9 +202,9 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             }
             else if (itemstack.getItem() == Items.BOWL)
             {
-                if (blockentity != null)
+                if (blockEntity != null)
                 {
-                    if (blockentity.crafted != null && blockentity.craftedType == 2)
+                    if (blockEntity.crafted != null && blockEntity.craftedType == 2)
                     {
                         if (pState.getValue(WATER) == 1)
                         {
@@ -212,7 +215,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                         pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
                         pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
                         if (pState.getValue(BOILING))
-                            pPlayer.addItem(blockentity.crafted.copy());
+                            pPlayer.addItem(blockEntity.crafted.copy());
                         else
                             pPlayer.addItem(new ItemStack(Items.DIRT));
                     }
