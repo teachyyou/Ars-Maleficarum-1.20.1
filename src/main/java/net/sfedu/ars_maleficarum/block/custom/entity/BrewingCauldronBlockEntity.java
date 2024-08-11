@@ -184,7 +184,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
         suckItems(level, pPos, pState);
-        temperatureTick(level, pState);
+        temperatureTick(pState);
         blockStatesChange(level, pPos, pState);
         if (hasRecipe() && pState.getValue(BrewingCauldronBlock.BOILING))
         {
@@ -284,7 +284,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void resetWaterColor(Level level) {
-        int biomeCoefficient = BiomeColors.getAverageWaterColor(Objects.requireNonNull(level), worldPosition);
+        int biomeCoefficient = BiomeColors.getAverageWaterColor(level, worldPosition);
         startRed = targetRed = biomeCoefficient >> 16 & 255;
         startGreen = targetGreen = biomeCoefficient >> 8 & 255;
         startBlue = targetBlue = biomeCoefficient & 255;
@@ -313,7 +313,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     // Отвечает за нагревание и остывание котла
-    private void temperatureTick(Level level, BlockState pState)
+    private void temperatureTick(BlockState pState)
     {
         if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < MAX_TEMP)
         {
@@ -327,7 +327,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (pState.getValue(BrewingCauldronBlock.WATER)==0)
         {
             temperature = 0;
-            //if (!level.isClientSide()) resetWaterColor();
         }
     }
 
@@ -396,13 +395,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     public void updateTargetColour(int red, int green, int blue) {
         long time = System.currentTimeMillis();
         long timeSince = time - startTime;
-        startRed = getRed(timeSince);
-        startGreen = getGreen(timeSince);
-        startBlue = getBlue(timeSince);
-        targetRed = red;
-        targetGreen = green;
-        targetBlue = blue;
-        startTime = time;
+//        startRed = getRed(timeSince);
+//        startGreen = getGreen(timeSince);
+//        startBlue = getBlue(timeSince);
+//        targetRed = red;
+//        targetGreen = green;
+//        targetBlue = blue;
+//        startTime = time;
     }
 
 
