@@ -18,6 +18,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -28,15 +30,13 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.sfedu.ars_maleficarum.block.custom.BrewingCauldronBlock;
+import net.sfedu.ars_maleficarum.item.ModItems;
 import net.sfedu.ars_maleficarum.recipe.BrewingCauldronRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static net.minecraft.world.level.block.Block.popResource;
@@ -87,7 +87,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     private final Random rand = new Random();
 
-
+    private Map<Item, int[]> colorMap = new HashMap<>();
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(slotsCount) {
         @Override
@@ -114,6 +114,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        colorMap.put(Items.DIRT, new int[] {20, -40, 30});
     }
 
     @Override
@@ -267,10 +268,14 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
                 {
                     crafted = null;
                     craftingProgress = 0;
-                    Random rand = new Random();
-                    targetRed = rand.nextInt(10, 255);
-                    targetGreen = rand.nextInt(10, 255);
-                    targetBlue = rand.nextInt(10, 255);
+
+                    if (colorMap.containsKey(itemStack.getItem()))
+                    {
+                        int[] rgb = colorMap.get(itemStack.getItem());
+                        changeWaterColor(rgb[0], rgb[1], rgb[2]);
+                    }
+                    else
+                        changeWaterColorByRandomValue(60);
 
                     itemEntity.setItem(new ItemStack(itemStack.getItem(), itemStack.getCount()-1));
                     level.playSound(null, pPos, SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS);
@@ -281,7 +286,32 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     }
 
+    private void changeWaterColor(int red, int green, int blue)
+    {
+        targetRed = targetRed + red;
+        if (targetRed < 0) targetRed = 0;
+        if (targetRed > 255) targetRed = 255;
+        targetGreen = targetGreen + green;
+        if (targetGreen < 0) targetGreen = 0;
+        if (targetGreen > 255) targetGreen = 255;
+        targetBlue = targetBlue + blue;
+        if (targetBlue < 0) targetBlue = 0;
+        if (targetBlue > 255) targetBlue = 255;
+    }
 
+    private void changeWaterColorByRandomValue(int bound)
+    {
+        Random rand = new Random();
+        targetRed = targetRed + rand.nextInt(-bound, bound);
+        if (targetRed < 0) targetRed = 0;
+        if (targetRed > 255) targetRed = 255;
+        targetGreen = targetGreen + rand.nextInt(-bound, bound);
+        if (targetGreen < 0) targetGreen = 0;
+        if (targetGreen > 255) targetGreen = 255;
+        targetBlue = targetBlue + rand.nextInt(-bound, bound);
+        if (targetBlue < 0) targetBlue = 0;
+        if (targetBlue > 255) targetBlue = 255;
+    }
 
     // Отвечает за нагревание и остывание котла
     private void temperatureTick(Level level, BlockState pState)

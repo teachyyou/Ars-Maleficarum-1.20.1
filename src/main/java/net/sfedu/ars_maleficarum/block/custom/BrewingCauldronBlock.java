@@ -145,7 +145,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             {
                 if (blockentity != null)
                 {
-                    if (blockentity.addFuel(pLevel, pPos)) itemstack.setCount(itemstack.getCount()-1);
+                    if (blockentity.addFuel(pLevel, pPos) && !pPlayer.isCreative()) itemstack.setCount(itemstack.getCount()-1);
                 }
             }
             else if (itemstack.getItem() == Items.BUCKET)
@@ -171,7 +171,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
                     {
                         pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                         pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
-                        pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
+                        if (!pPlayer.isCreative()) pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
                     }
                 }
             }
