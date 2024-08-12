@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.block.custom.entity;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -109,7 +108,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     public BrewingCauldronBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.BREWING_CAULDRON_BE.get(), pPos, pBlockState);
-        setLevel(Objects.requireNonNull(Minecraft.getInstance().level));
+        //setLevel(Objects.requireNonNull(Minecraft.getInstance().level));
     }
 
     @Override
