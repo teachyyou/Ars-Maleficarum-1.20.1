@@ -36,7 +36,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 @SuppressWarnings("deprecation")
@@ -132,7 +131,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
     @ParametersAreNonnullByDefault
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         BrewingCauldronBlockEntity blockEntity = (BrewingCauldronBlockEntity) pLevel.getBlockEntity(pPos);
-        if (!pLevel.isClientSide) {
+        if (!pLevel.isClientSide && blockEntity != null) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
                 pLevel.playSound(null, pPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS);
@@ -145,82 +144,60 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             }
             else if (itemstack.is(ItemTags.LOGS_THAT_BURN))
             {
-                if (blockEntity != null)
-                {
-                    if (blockEntity.addFuel(pLevel, pPos) && !pPlayer.isCreative()) itemstack.setCount(itemstack.getCount()-1);
-                }
+                if (blockEntity.addFuel(pLevel, pPos) && !pPlayer.isCreative())
+                    itemstack.setCount(itemstack.getCount() - 1);
             }
             else if (itemstack.getItem() == Items.BUCKET)
             {
-                if (blockEntity != null)
-                {
-                    if (pState.getValue(WATER) == 3)
-                    {
-                        pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
-                        pLevel.setBlock(pPos, pState.setValue(WATER, 0), 3);
-                        pPlayer.setItemInHand(pHand, new ItemStack(Items.WATER_BUCKET));
+                if (pState.getValue(WATER) == 3) {
+                    pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
+                    pLevel.setBlock(pPos, pState.setValue(WATER, 0), 3);
+                    pPlayer.setItemInHand(pHand, new ItemStack(Items.WATER_BUCKET));
 
-                        if ((pLevel.getBlockEntity(pPos)) != null)
-                            ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
-                    }
+                    blockEntity.clearInventory();
                 }
             }
             else if (itemstack.getItem() == Items.WATER_BUCKET)
             {
-                if (blockEntity != null)
-                {
-                    if (pState.getValue(WATER) == 0)
-                    {
-                        pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
-                        pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
-                        if (!pPlayer.isCreative()) pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
-                        ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).resetWaterColor();
-                    }
+                if (pState.getValue(WATER) == 0) {
+                    //blockEntity.setFirstLoad();
+                    blockEntity.resetWaterColor(pLevel);
+                    pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
+                    pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
+                    if (!pPlayer.isCreative()) pPlayer.setItemInHand(pHand, new ItemStack(Items.BUCKET));
                 }
             }
             else if (itemstack.getItem() == ModItems.EMPTY_VIAL.get())
             {
-                if (blockEntity != null)
-                {
-                    if (blockEntity.crafted != null && blockEntity.craftedType == 1)
-                    {
-                        if (pState.getValue(WATER) == 1)
-                        {
-                            if ((pLevel.getBlockEntity(pPos)) != null)
-                                ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
-                        }
-                        pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
-                        pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
-                        pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
-                        if (pState.getValue(BOILING))
-                            pPlayer.addItem(blockEntity.crafted.copy());
-                        else
-                            pPlayer.addItem(new ItemStack(Items.DIRT));
+                if (blockEntity.crafted != null && blockEntity.craftedType == 1) {
+                    if (pState.getValue(WATER) == 1) {
+                        blockEntity.clearInventory();
                     }
-
+                    pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+                    pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER) - 1), 3);
+                    pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount() - 1);
+                    if (pState.getValue(BOILING))
+                        pPlayer.addItem(blockEntity.crafted.copy());
+                    else
+                        pPlayer.addItem(new ItemStack(Items.DIRT));
                 }
+
             }
             else if (itemstack.getItem() == Items.BOWL)
             {
-                if (blockEntity != null)
-                {
-                    if (blockEntity.crafted != null && blockEntity.craftedType == 2)
-                    {
-                        if (pState.getValue(WATER) == 1)
-                        {
-                            if ((pLevel.getBlockEntity(pPos)) != null)
-                                ((BrewingCauldronBlockEntity) Objects.requireNonNull(pLevel.getBlockEntity(pPos))).clearInventory();
-                        }
-                        pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
-                        pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER)-1), 3);
-                        pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount()-1);
-                        if (pState.getValue(BOILING))
-                            pPlayer.addItem(blockEntity.crafted.copy());
-                        else
-                            pPlayer.addItem(new ItemStack(Items.DIRT));
+                if (blockEntity.crafted != null && blockEntity.craftedType == 2) {
+                    if (pState.getValue(WATER) == 1) {
+                        blockEntity.clearInventory();
                     }
-
+                    pLevel.playSound(null, pPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+                    pLevel.setBlock(pPos, pState.setValue(WATER, pState.getValue(WATER) - 1), 3);
+                    pPlayer.getItemInHand(pHand).setCount(pPlayer.getItemInHand(pHand).getCount() - 1);
+                    if (pState.getValue(BOILING))
+                        pPlayer.addItem(blockEntity.crafted.copy());
+                    else
+                        pPlayer.addItem(new ItemStack(Items.DIRT));
                 }
+
             }
         }
 

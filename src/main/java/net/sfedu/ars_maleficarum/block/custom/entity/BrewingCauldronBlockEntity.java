@@ -1,6 +1,5 @@
 package net.sfedu.ars_maleficarum.block.custom.entity;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -79,6 +78,9 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     public ItemStack crafted;
     public int craftedType = 1;
 
+    //This is used to make sure that first water rendering will happen instantly (after using water bucket or after reloading the world)
+    private boolean firstLoad = true;
+
     private static final int MAX_TEMP = 1500;
     private static final int MAX_FUEL = 2000;
 
@@ -106,7 +108,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     public BrewingCauldronBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.BREWING_CAULDRON_BE.get(), pPos, pBlockState);
-        setLevel(Objects.requireNonNull(Minecraft.getInstance().level));
+        //setLevel(Objects.requireNonNull(Minecraft.getInstance().level));
     }
 
     @Override
@@ -129,6 +131,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         pTag.putInt("colorR",this.targetRed);
         pTag.putInt("colorG",this.targetGreen);
         pTag.putInt("colorB",this.targetBlue);
+        pTag.putBoolean("firstLoad",this.firstLoad);
         super.saveAdditional(pTag);
     }
     @Override
@@ -136,14 +139,27 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     public void load(CompoundTag pTag) {
         super.load(pTag);
 
+        this.fuelLevel = pTag.getInt("fuelLevel");
+        this.temperature = pTag.getInt("temperature");
+        if (!this.firstLoad) {
+            this.firstLoad = pTag.getBoolean("firstLoad");
+        }
+        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
+
         int red = pTag.getInt("colorR");
         int green = pTag.getInt("colorG");
         int blue = pTag.getInt("colorB");
-        setWaterColor(red, green, blue);
 
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        this.fuelLevel = pTag.getInt("fuelLevel");
-        this.temperature = pTag.getInt("temperature");
+        //after color reset we must render the color instantly
+        if (this.firstLoad) {
+            setWaterColor(red, green, blue);
+            this.firstLoad = false;
+        }
+        //if not - use smooth color changing
+        else if (red != targetRed || green != targetGreen || blue != targetBlue) {
+            updateTargetColour(red, green, blue);
+        }
+
 
     }
 
@@ -184,7 +200,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
         suckItems(level, pPos, pState);
-        temperatureTick(level, pState);
+        temperatureTick(pState);
         blockStatesChange(level, pPos, pState);
         if (hasRecipe() && pState.getValue(BrewingCauldronBlock.BOILING))
         {
@@ -283,11 +299,12 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         targetBlue = clampColor(targetBlue + blue);
     }
 
-    public void resetWaterColor() {
-        int biomeCoefficient = BiomeColors.getAverageWaterColor(Objects.requireNonNull(this.level), worldPosition);
-        startRed = targetRed = biomeCoefficient >> 16 & 255;
-        startGreen = targetGreen = biomeCoefficient >> 8 & 255;
-        startBlue = targetBlue = biomeCoefficient & 255;
+    public void resetWaterColor(Level level) {
+        this.firstLoad = true;
+        int tintCoefficient = BiomeColors.getAverageWaterColor(level, worldPosition);
+        startRed = targetRed = tintCoefficient >> 16 & 255;
+        startGreen = targetGreen = tintCoefficient >> 8 & 255;
+        startBlue = targetBlue = tintCoefficient & 255;
     }
 
     public void setWaterColor(int red, int green, int blue) {
@@ -313,7 +330,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     // Отвечает за нагревание и остывание котла
-    private void temperatureTick(Level level, BlockState pState)
+    private void temperatureTick(BlockState pState)
     {
         if (pState.getValue(BrewingCauldronBlock.LIT) && fuelLevel > 0 && temperature < MAX_TEMP)
         {
@@ -327,7 +344,6 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (pState.getValue(BrewingCauldronBlock.WATER)==0)
         {
             temperature = 0;
-            //if (!level.isClientSide()) resetWaterColor();
         }
     }
 
