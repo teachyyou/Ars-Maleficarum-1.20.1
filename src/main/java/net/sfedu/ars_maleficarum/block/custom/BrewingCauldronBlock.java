@@ -160,6 +160,7 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
             else if (itemstack.getItem() == Items.WATER_BUCKET)
             {
                 if (pState.getValue(WATER) == 0) {
+                    //blockEntity.setFirstLoad();
                     blockEntity.resetWaterColor(pLevel);
                     pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
                     pLevel.setBlock(pPos, pState.setValue(WATER, 3), 3);
