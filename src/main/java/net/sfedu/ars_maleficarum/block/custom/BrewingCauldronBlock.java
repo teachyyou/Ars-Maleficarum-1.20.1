@@ -3,10 +3,8 @@ package net.sfedu.ars_maleficarum.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -17,6 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -129,8 +128,17 @@ public class BrewingCauldronBlock extends BaseEntityBlock {
         super.onRemove(pState,pLevel,pPos,pNewState,pIsMoving);
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return pLevel.getBlockState(pPos.below()).isSolidRender(pLevel, pPos.below());
+    }
+
+    @Override
+    @NotNull
+    @ParametersAreNonnullByDefault
+    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+        return !this.canSurvive(pState, pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
 
     @Override
