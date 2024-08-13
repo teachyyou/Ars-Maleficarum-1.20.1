@@ -11,6 +11,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.SimpleContainer;
@@ -199,6 +200,7 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
+        belowCheck(level, pPos, pState);
         suckItems(level, pPos, pState);
         temperatureTick(pState);
         blockStatesChange(level, pPos, pState);
@@ -344,6 +346,13 @@ public class BrewingCauldronBlockEntity extends BlockEntity {
         if (pState.getValue(BrewingCauldronBlock.WATER)==0)
         {
             temperature = 0;
+        }
+    }
+
+    private void belowCheck(Level level, BlockPos pPos, BlockState pState)
+    {
+        if (!pState.canSurvive(level, pPos)) {
+            level.destroyBlock(pPos, true);
         }
     }
 
